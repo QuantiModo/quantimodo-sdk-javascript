@@ -3,6 +3,7 @@
   "homepage": "https://github.com/QuantiModo/QuantiModo-SDK-JavaScript",
   "description": "Quantimodo API Javascript SDK.",
   "license": "MIT",
+  "type": "js-library",
   "keywords": [
     "api",
     "sdk",
