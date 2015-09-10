@@ -1,4 +1,5 @@
-// Quantimodo.com API. Requires JQuery.
+// Quantimodo.com JavaScript API v1.1.3. 
+// Requires JQuery.
 Quantimodo = function () {
 
     var hostUrl = api_host + '/api/';
