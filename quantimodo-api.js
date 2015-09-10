@@ -2,7 +2,7 @@
 // Requires JQuery.
 Quantimodo = function () {
 
-    var hostUrl = api_host + '/api/';
+    var hostUrl = apiHost + '/api/';
 
     var GET = function (baseURL, allowedParams, params, successHandler) {
         if (accessToken) {
