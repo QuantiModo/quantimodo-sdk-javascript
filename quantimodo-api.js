@@ -38,6 +38,9 @@ Quantimodo = function () {
 				contentType: 'application/json',
 				beforeSend: function (xhr) {
 					xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+					if (typeof mashape_key !== 'undefined' && mashape_key) {
+						xhr.setRequestHeader('X-Mashape-Key', mashape_key);
+					}
 				},
 				success: function (data, status, xhr) {
 
@@ -74,6 +77,9 @@ Quantimodo = function () {
 				contentType: 'application/json',
 				beforeSend: function (xhr) {
 					xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+					if (typeof mashape_key !== 'undefined' && mashape_key) {
+						xhr.setRequestHeader('X-Mashape-Key', mashape_key);
+					}
 				},
 				data: JSON.stringify(items),
 				dataType: 'json',
@@ -306,6 +312,9 @@ Quantimodo = function () {
 					jQuery.ajax(this.params.baseURL + url, {
 						beforeSend: function (xhr) {
 							xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+							if (typeof mashape_key !== 'undefined' && mashape_key) {
+								xhr.setRequestHeader('X-Mashape-Key', mashape_key);
+							}
 						},
 						data: params,
 						dataType: 'json'
