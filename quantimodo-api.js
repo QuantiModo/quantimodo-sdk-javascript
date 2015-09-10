@@ -1,10 +1,11 @@
-// Quantimodo.com API. Requires JQuery.
+// Quantimodo.com JavaScript API v1.1.3. 
+// Requires JQuery.
 Quantimodo = function () {
 
     var hostUrl = api_host + '/api/';
 
     var GET = function (baseURL, allowedParams, params, successHandler) {
-        if (access_token) {
+        if (accessToken) {
             var urlParams = [];
             for (var key in params) {
                 if (jQuery.inArray(key, allowedParams) == -1) {
@@ -37,9 +38,9 @@ Quantimodo = function () {
                 dataType: 'json',
                 contentType: 'application/json',
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
-                    if (typeof mashape_key !== 'undefined' && mashape_key) {
-                        xhr.setRequestHeader('X-Mashape-Key', mashape_key);
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    if (typeof mashapeKey !== 'undefined' && mashapeKey) {
+                        xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
                     }
                 },
                 success: function (data, status, xhr) {
@@ -62,7 +63,7 @@ Quantimodo = function () {
 
     var POST = function (baseURL, requiredFields, items, successHandler) {
         console.debug('POST API Call');
-        if (access_token) {
+        if (accessToken) {
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
                 for (var j = 0; j < requiredFields.length; j++) {
@@ -76,9 +77,9 @@ Quantimodo = function () {
                 url: hostUrl + baseURL,
                 contentType: 'application/json',
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
-                    if (typeof mashape_key !== 'undefined' && mashape_key) {
-                        xhr.setRequestHeader('X-Mashape-Key', mashape_key);
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    if (typeof mashapeKey !== 'undefined' && mashapeKey) {
+                        xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
                     }
                 },
                 data: JSON.stringify(items),
@@ -307,13 +308,13 @@ Quantimodo = function () {
             };
             this.sendRequest = function (url, params, f) {
                 console.debug('API Call via QM JS SDK ');
-                if (access_token) {
+                if (accessToken) {
                     var that = this;
                     jQuery.ajax(this.params.baseURL + url, {
                         beforeSend: function (xhr) {
-                            xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
-                            if (typeof mashape_key !== 'undefined' && mashape_key) {
-                                xhr.setRequestHeader('X-Mashape-Key', mashape_key);
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                            if (typeof mashapeKey !== 'undefined' && mashapeKey) {
+                                xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
                             }
                         },
                         data: params,
