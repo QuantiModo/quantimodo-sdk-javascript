@@ -1,10 +1,10 @@
-// Quantimodo.com JavaScript API v1.1.5. 
+// Quantimodo.com JavaScript API v1.1.6.
 // Requires JQuery.
 Quantimodo = function () {
 
     var hostUrl = apiHost + '/api/';
 
-    var GET = function (baseURL, allowedParams, params, successHandler) {
+    var GET = function (baseURL, allowedParams, params, successHandler, disableLooping) {
         if (accessToken) {
             var urlParams = [];
             for (var key in params) {
@@ -45,7 +45,7 @@ Quantimodo = function () {
                 },
                 success: function (data, status, xhr) {
 
-                    if (data.constructor === Array) {
+                    if (data.constructor === Array && !disableLooping) {
                         console.debug('Fetched: ' + data.length + ' items');
                         if (data.length > 0) {
                             results = results.concat(data);
@@ -230,7 +230,7 @@ Quantimodo = function () {
         },
 
         getVariableCategories: function (params, f) {
-            GET('variableCategories', [], params, f);
+            GET('variableCategories', [], params, f, true);
         },
         postVariableCategories: function (measurements, f) {
             POST('variableCategories', ['name'], measurements, f);
