@@ -233,11 +233,11 @@ Quantimodo = function () {
 
         getVariables: function (params, f) {
 
-            if (localCache.exist('qmVariables')) {
-                f(localCache.get('qmVariables'));
+            if (localCache.exist('variables')) {
+                f(localCache.get('variables'));
             } else {
                 GET('variables', ['categoryName'], params, function (variables) {
-                    localCache.set('qmVariables', variables);
+                    localCache.set('variables', variables);
                     f(variables);
                 });
             }
@@ -248,11 +248,11 @@ Quantimodo = function () {
         },
 
         searchVariables: function (query, f) {
-            if (localCache.exist('qmwpSearchVariables_' + query)) {
-                f(localCache.get('qmwpSearchVariables_' + query));
+            if (localCache.exist('searchVariables_' + query)) {
+                f(localCache.get('searchVariables_' + query));
             } else {
                 GET('variables/search/' + query, ['categoryName'], null, function (variables) {
-                    localCache.set('qmwpSearchVariables_' + query, variables);
+                    localCache.set('searchVariables_' + query, variables);
                     f(variables);
                 });
 
