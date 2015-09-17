@@ -226,7 +226,15 @@ Quantimodo = function () {
         },
 
         searchVariables: function (query, f) {
-            GET('variables/search/' + query, ['categoryName'], null, f);
+            if (localCache.exist('qmwpSearchVariables_' + query)) {
+                f(localCache.get('qmwpSearchVariables_' + query));
+            } else {
+                GET('variables/search/' + query, ['categoryName'], null, function (variables) {
+                    localCache.set('qmwpSearchVariables_' + query, variables);
+                    f(variables);
+                });
+
+            }
         },
 
         getVariableCategories: function (params, f) {
