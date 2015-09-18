@@ -94,11 +94,12 @@ Quantimodo = function () {
     var localCache = {
 
         timeOut: 1000 * 420,    //cache valid for 7 minutes
+        cacheKeysPrefix: 'qmwp_cache_',
 
         exist: function (key) {
-            if (localStorage.getItem(key)) {
+            if (localStorage.getItem(localCache.cacheKeysPrefix + key)) {
 
-                var cachedData = JSON.parse(localStorage.getItem(key));
+                var cachedData = JSON.parse(localStorage.getItem(localCache.cacheKeysPrefix + key));
 
                 return new Date().getTime() - cachedData.cachedAt < localCache.timeOut;
 
@@ -107,7 +108,7 @@ Quantimodo = function () {
 
         get: function (key) {
 
-            var cachedData = JSON.parse(localStorage.getItem(key));
+            var cachedData = JSON.parse(localStorage.getItem(localCache.cacheKeysPrefix + key));
 
             return cachedData.payload;
 
@@ -115,14 +116,35 @@ Quantimodo = function () {
 
         set: function (key, data) {
 
-            localStorage.removeItem(key);
+            localCache.clearOldData();
+
+            localStorage.removeItem(localCache.cacheKeysPrefix + key);
 
             var dataToCache = JSON.stringify({
                 cachedAt: new Date().getTime(),
                 payload: data
             });
 
-            localStorage.setItem(key, dataToCache)
+            localStorage.setItem(localCache.cacheKeysPrefix + key, dataToCache)
+
+        },
+
+        clearOldData: function () {
+            //get all storage entries of current page local storage
+            var storageEntries = Object.keys(localStorage);
+            //go with each 
+            for (var i = 0; i < storageEntries.length; i++) {
+                //and check if its a cache object
+                if (storageEntries[i].substr(0, 11) == localCache.cacheKeysPrefix) {
+                    //parse it if it's  a cahce object
+                    var cachedData = JSON.parse(localStorage[storageEntries[i]]);
+                    //check if it is still valid
+                    if (new Date().getTime() - cachedData.cachedAt > localCache.timeOut) {
+                        //if it's outdated - remove
+                        localStorage.removeItem(storageEntries[i]);
+                    }
+                }
+            }
 
         }
 
@@ -211,11 +233,11 @@ Quantimodo = function () {
 
         getVariables: function (params, f) {
 
-            if (localCache.exist('qmVariables')) {
-                f(localCache.get('qmVariables'));
+            if (localCache.exist('variables')) {
+                f(localCache.get('variables'));
             } else {
                 GET('variables', ['categoryName'], params, function (variables) {
-                    localCache.set('qmVariables', variables);
+                    localCache.set('variables', variables);
                     f(variables);
                 });
             }
@@ -226,7 +248,15 @@ Quantimodo = function () {
         },
 
         searchVariables: function (query, f) {
-            GET('variables/search/' + query, ['categoryName'], null, f);
+            if (localCache.exist('searchVariables_' + query)) {
+                f(localCache.get('searchVariables_' + query));
+            } else {
+                GET('variables/search/' + query, ['categoryName'], null, function (variables) {
+                    localCache.set('searchVariables_' + query, variables);
+                    f(variables);
+                });
+
+            }
         },
 
         getVariableCategories: function (params, f) {
