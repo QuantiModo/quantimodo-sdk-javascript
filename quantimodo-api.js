@@ -202,7 +202,6 @@ Quantimodo = function () {
         postMeasurementSources: function (measurements, f) {
             POST('measurementSources', ['name'], measurements, f);
         },
-
         getUnits: function (params, f) {
             GET('units', [
                 'unitName',
@@ -243,6 +242,11 @@ Quantimodo = function () {
             }
 
         },
+
+        getVariableByName: function (name, f) {
+            GET('variables/' + encodeURIComponent(name),['categoryName'], null, f, true);
+        },
+
         postVariables: function (measurements, f) {
             POST('variables', ['name', 'category', 'unit', 'combinationOperation'], measurements, f);
         },
@@ -260,7 +264,16 @@ Quantimodo = function () {
         },
 
         getVariableCategories: function (params, f) {
-            GET('variableCategories', [], params, f, true);
+
+            if (localCache.exist('variableCategories')) {
+                f(localCache.get('variableCategories'));
+            } else {
+                GET('variableCategories', [], params, function (variableCategories) {
+                    localCache.set('variableCategories', variableCategories);
+                    f(variableCategories);
+                }, true);
+            }
+
         },
         postVariableCategories: function (measurements, f) {
             POST('variableCategories', ['name'], measurements, f);
