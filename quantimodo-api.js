@@ -19,6 +19,7 @@ Quantimodo = function () {
             fetchAPI(0);
 
         } else {
+            console.warn('No access token. Now will try to authenticate and to get it');
             window.location.href = '?connect=quantimodo';
         }
 
@@ -87,6 +88,7 @@ Quantimodo = function () {
                 success: successHandler
             });
         } else {
+            console.warn('No access token. Now will try to authenticate and to get it');
             window.location.href = '?connect=quantimodo';
         }
     };
@@ -368,6 +370,7 @@ Quantimodo = function () {
                         }
                     });
                 } else {
+                    console.warn('No access token. Now will try to authenticate and to get it');
                     window.location.href = '?connect=quantimodo';
                 }
 
