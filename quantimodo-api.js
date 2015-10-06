@@ -377,6 +377,11 @@ Quantimodo = function () {
             };
         },
 
+        getCurrentUser: function (f) {
+            GET('user/me', ['id', 'wpId', 'displayName', 'loginName', 'email', 'token', 'clientId', 'userRegistered'],
+                null, f, true);
+        },
+
         url: hostUrl
     };
 }();
