@@ -1,4 +1,4 @@
-// Quantimodo.com JavaScript API v1.1.8.
+// Quantimodo.com JavaScript API v1.1.9
 // Requires JQuery.
 Quantimodo = function () {
 
@@ -246,7 +246,7 @@ Quantimodo = function () {
         },
 
         getVariableByName: function (name, f) {
-            GET('variables/' + encodeURIComponent(name),['categoryName'], null, f, true);
+            GET('variables/' + encodeURIComponent(name), ['categoryName'], null, f, true);
         },
 
         postVariables: function (measurements, f) {
@@ -260,7 +260,7 @@ Quantimodo = function () {
                 GET('variables/search/' + query, ['categoryName'], null, function (variables) {
                     localCache.set('searchVariables_' + query, variables);
                     f(variables);
-                });
+                }, true);
 
             }
         },
@@ -375,6 +375,11 @@ Quantimodo = function () {
                 }
 
             };
+        },
+
+        getCurrentUser: function (f) {
+            GET('user/me', ['id', 'wpId', 'displayName', 'loginName', 'email', 'token', 'clientId', 'userRegistered'],
+                null, f, true);
         },
 
         url: hostUrl
