@@ -50,7 +50,7 @@ Quantimodo = function () {
                         console.debug('Fetched: ' + data.length + ' items');
                         if (data.length > 0) {
                             results = results.concat(data);
-                            fetchAPI(results.length);
+                            fetchAPI(offset + 200);
                         } else {
                             successHandler(results);
                         }
