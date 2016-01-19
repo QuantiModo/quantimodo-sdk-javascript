@@ -5,23 +5,17 @@ Quantimodo = function () {
     var hostUrl = apiHost + '/api/';
 
     var GET = function (baseURL, allowedParams, params, successHandler, disableLooping) {
-        if (accessToken) {
-            var urlParams = [];
-            for (var key in params) {
-                if (jQuery.inArray(key, allowedParams) == -1) {
-                    throw 'invalid parameter; allowed parameters: ' + allowedParams.toString();
-                }
-                urlParams.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
+        var urlParams = [];
+        for (var key in params) {
+            if (jQuery.inArray(key, allowedParams) == -1) {
+                throw 'invalid parameter; allowed parameters: ' + allowedParams.toString();
             }
-
-            var results = [];
-
-            fetchAPI(0);
-
-        } else {
-            console.warn('No access token. Now will try to authenticate and to get it');
-            window.location.href = '?connect=quantimodo';
+            urlParams.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
         }
+
+        var results = [];
+
+        fetchAPI(0);
 
         function fetchAPI(offset) {
 
@@ -39,7 +33,9 @@ Quantimodo = function () {
                 dataType: 'json',
                 contentType: 'application/json',
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    if (typeof accessToken !== 'undefined' && accessToken) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    }
                     if (typeof mashapeKey !== 'undefined' && mashapeKey) {
                         xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
                     }
@@ -50,7 +46,7 @@ Quantimodo = function () {
                         console.debug('Fetched: ' + data.length + ' items');
                         if (data.length > 0) {
                             results = results.concat(data);
-                            fetchAPI(offset + 200);
+                            fetchAPI(offset);
                         } else {
                             successHandler(results);
                         }
