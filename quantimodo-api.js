@@ -60,33 +60,29 @@ Quantimodo = function () {
 
     var POST = function (baseURL, requiredFields, items, successHandler) {
         console.debug('POST API Call');
-        if (accessToken) {
-            for (var i = 0; i < items.length; i++) {
-                var item = items[i];
-                for (var j = 0; j < requiredFields.length; j++) {
-                    if (!(requiredFields[j] in item)) {
-                        throw 'missing required field in POST data; required fields: ' + requiredFields.toString();
-                    }
+
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            for (var j = 0; j < requiredFields.length; j++) {
+                if (!(requiredFields[j] in item)) {
+                    throw 'missing required field in POST data; required fields: ' + requiredFields.toString();
                 }
             }
-            jQuery.ajax({
-                type: 'POST',
-                url: hostUrl + baseURL,
-                contentType: 'application/json',
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
-                    if (typeof mashapeKey !== 'undefined' && mashapeKey) {
-                        xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
-                    }
-                },
-                data: JSON.stringify(items),
-                dataType: 'json',
-                success: successHandler
-            });
-        } else {
-            console.warn('No access token. Now will try to authenticate and to get it');
-            window.location.href = '?connect=quantimodo';
         }
+        jQuery.ajax({
+            type: 'POST',
+            url: hostUrl + baseURL,
+            contentType: 'application/json',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                if (typeof mashapeKey !== 'undefined' && mashapeKey) {
+                    xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
+                }
+            },
+            data: JSON.stringify(items),
+            dataType: 'json',
+            success: successHandler
+        });
     };
 
     var localCache = {
@@ -130,7 +126,7 @@ Quantimodo = function () {
         clearOldData: function () {
             //get all storage entries of current page local storage
             var storageEntries = Object.keys(localStorage);
-            //go with each 
+            //go with each
             for (var i = 0; i < storageEntries.length; i++) {
                 //and check if its a cache object
                 if (storageEntries[i].substr(0, 11) == localCache.cacheKeysPrefix) {
@@ -349,26 +345,22 @@ Quantimodo = function () {
             };
             this.sendRequest = function (url, params, f) {
                 console.debug('API Call via QM JS SDK ');
-                if (accessToken) {
-                    var that = this;
-                    jQuery.ajax(this.params.baseURL + url, {
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
-                            if (typeof mashapeKey !== 'undefined' && mashapeKey) {
-                                xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
-                            }
-                        },
-                        data: params,
-                        dataType: 'json'
-                    }).done(function (data) {
-                        if (typeof f != 'undefined') {
-                            f(data, that.params.connector);
+
+                var that = this;
+                jQuery.ajax(this.params.baseURL + url, {
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                        if (typeof mashapeKey !== 'undefined' && mashapeKey) {
+                            xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
                         }
-                    });
-                } else {
-                    console.warn('No access token. Now will try to authenticate and to get it');
-                    window.location.href = '?connect=quantimodo';
-                }
+                    },
+                    data: params,
+                    dataType: 'json'
+                }).done(function (data) {
+                    if (typeof f != 'undefined') {
+                        f(data, that.params.connector);
+                    }
+                });
 
             };
         },
