@@ -1,4 +1,4 @@
-// Quantimodo.com JavaScript API v1.1.9
+// Quantimodo.com JavaScript API v1.2.2
 // Requires JQuery.
 Quantimodo = function () {
 
