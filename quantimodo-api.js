@@ -1,50 +1,21 @@
-// Quantimodo.com JavaScript API v1.2.2
+// Quantimodo.com JavaScript API v1.2.3
 // Requires JQuery.
 Quantimodo = function () {
 
     var hostUrl = apiHost + '/api/';
-    var cookieAccess;
 
     var GET = function (baseURL, allowedParams, params, successHandler, disableLooping) {
-
-        if (accessToken || cookieAccess) {
-
-            var urlParams = [];
-            for (var key in params) {
-                if (jQuery.inArray(key, allowedParams) == -1) {
-                    throw 'invalid parameter; allowed parameters: ' + allowedParams.toString();
-                }
-                urlParams.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
+        var urlParams = [];
+        for (var key in params) {
+            if (jQuery.inArray(key, allowedParams) == -1) {
+                throw 'invalid parameter; allowed parameters: ' + allowedParams.toString();
             }
-
-            var results = [];
-
-            fetchAPI(0);
-
-        } else {
-            jQuery.ajax({
-                url: hostUrl + 'user/me',
-                success: function (userCredentials) {
-                    cookieAccess = true;
-
-                    var urlParams = [];
-                    for (var key in params) {
-                        if (jQuery.inArray(key, allowedParams) == -1) {
-                            throw 'invalid parameter; allowed parameters: ' + allowedParams.toString();
-                        }
-                        urlParams.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
-                    }
-
-                    var results = [];
-
-                    fetchAPI(0);
-
-                },
-                error: function (errorResp) {
-                    window.location.href = '?connect=quantimodo';
-                }
-            })
+            urlParams.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
         }
+
+        var results = [];
+
+        fetchAPI(0);
 
         function fetchAPI(offset) {
 
@@ -110,11 +81,7 @@ Quantimodo = function () {
             },
             data: JSON.stringify(items),
             dataType: 'json',
-            success: successHandler,
-            error: function (error) {
-                console.warn('Error:', error);
-                window.location.href = '?connect=quantimodo';
-            }
+            success: successHandler
         });
     };
 
