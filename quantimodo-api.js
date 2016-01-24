@@ -59,7 +59,7 @@ Quantimodo = function () {
                     if(errorThrown == "Unauthorized") {
                         handleUnauthorizedRequest(apiHost);
                     } else {
-                        alert('Request failed. ' + textStatus + ': ' + errorThrown + ': ' + xhr.responseText);
+                        console.log('Request failed. ' + textStatus + ': ' + errorThrown + ': ' + xhr.responseText);
                     }
                 }
             });
@@ -95,7 +95,7 @@ Quantimodo = function () {
                 if(errorThrown == "Unauthorized") {
                     handleUnauthorizedRequest(apiHost);
                 } else {
-                    alert('Request failed. ' + textStatus + ': ' + errorThrown + ': ' +  xhr.responseText);
+                    console.log('Request failed. ' + textStatus + ': ' + errorThrown + ': ' +  xhr.responseText);
                 }
             }
         });
