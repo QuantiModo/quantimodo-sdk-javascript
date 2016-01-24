@@ -1,4 +1,4 @@
-// Quantimodo.com JavaScript API v1.2.3
+// Quantimodo.com JavaScript API v1.1.9
 // Requires JQuery.
 Quantimodo = function () {
 
@@ -53,6 +53,14 @@ Quantimodo = function () {
                     } else {
                         successHandler(data)
                     }
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    console.log('Request failed. ' + textStatus + ': ' + errorThrown);
+                    if(errorThrown == "Unauthorized") {
+                        handleUnauthorizedRequest(apiHost);
+                    } else {
+                        alert('Request failed. ' + textStatus + ': ' + errorThrown + ': ' + xhr.responseText);
+                    }
                 }
             });
         }
@@ -81,7 +89,15 @@ Quantimodo = function () {
             },
             data: JSON.stringify(items),
             dataType: 'json',
-            success: successHandler
+            success: successHandler,
+            error: function(xhr, textStatus, errorThrown){
+                console.log('Request failed. ' + textStatus + ': ' + errorThrown);
+                if(errorThrown == "Unauthorized") {
+                    handleUnauthorizedRequest(apiHost);
+                } else {
+                    alert('Request failed. ' + textStatus + ': ' + errorThrown + ': ' +  xhr.responseText);
+                }
+            }
         });
     };
 
@@ -373,3 +389,27 @@ Quantimodo = function () {
         url: hostUrl
     };
 }();
+
+function extractDomain(url) {
+    var domain;
+    //find & remove protocol (http, ftp, etc.) and get domain
+    if (url.indexOf("://") > -1) {
+        domain = url.split('/')[2];
+    }
+    else {
+        domain = url.split('/')[0];
+    }
+    //find & remove port number
+    domain = domain.split(':')[0];
+    return domain;
+}
+
+function handleUnauthorizedRequest(apiHostUrl) {
+    var currentDomain = extractDomain(window.location.href);
+    var apiHostDomain = extractDomain(apiHostUrl);
+    if (currentDomain == apiHostDomain) {
+        window.location.href = apiHostUrl + '/api/v2/auth/login?redirect_uri=' + window.location.href;
+    } else {
+        window.location.href = '?connect=quantimodo';
+    }
+}
