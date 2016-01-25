@@ -411,11 +411,11 @@ function stripPort(extractedDomain){
 
 function handleUnauthorizedRequest(apiHostUrl) {
     var currentDomainWithPort = extractDomain(window.location.href);
-    var apiHostDomainWithPort = extractDomain(hostUrl);
+    var apiHostDomainWithPort = extractDomain(apiHostUrl);
     var currentDomainWithoutPort = stripPort(currentDomainWithPort);
     var apiHostDomainWithoutPort = stripPort(apiHostDomainWithPort);
     if (currentDomainWithoutPort == apiHostDomainWithoutPort) {
-        window.location.href = hostUrl + '/api/v2/auth/login?redirect_uri=' + window.location.href;
+        window.location.href = 'https://' + currentDomainWithPort + '/api/v2/auth/login?redirect_uri=' + window.location.href;
         return false;
     } else {
         window.location.replace('https://' + currentDomainWithPort + '?connect=quantimodo');
