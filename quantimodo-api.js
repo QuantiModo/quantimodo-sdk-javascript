@@ -1,4 +1,4 @@
-// Quantimodo.com JavaScript API v1.2.3
+// Quantimodo.com JavaScript API v1.2.4
 // Requires JQuery.
 Quantimodo = function () {
 
@@ -53,6 +53,15 @@ Quantimodo = function () {
                     } else {
                         successHandler(data)
                     }
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    console.log('Request failed. ' + textStatus + ': ' + errorThrown);
+                    if(errorThrown == "Unauthorized") {
+                        handleUnauthorizedRequest(apiHost);
+                        return false;
+                    } else {
+                        console.log('Request failed. ' + textStatus + ': ' + errorThrown + ': ' + xhr.responseText);
+                    }
                 }
             });
         }
@@ -81,7 +90,16 @@ Quantimodo = function () {
             },
             data: JSON.stringify(items),
             dataType: 'json',
-            success: successHandler
+            success: successHandler,
+            error: function(xhr, textStatus, errorThrown){
+                console.log('Request failed. ' + textStatus + ': ' + errorThrown);
+                if(errorThrown == "Unauthorized") {
+                    handleUnauthorizedRequest(apiHost);
+                    return false;
+                } else {
+                    console.log('Request failed. ' + textStatus + ': ' + errorThrown + ': ' +  xhr.responseText);
+                }
+            }
         });
     };
 
@@ -373,3 +391,34 @@ Quantimodo = function () {
         url: hostUrl
     };
 }();
+
+function extractDomain(url) {
+    var domain;
+    //find & remove protocol (http, ftp, etc.) and get domain
+    if (url.indexOf("://") > -1) {
+        var domainWithPort = url.split('/')[2];
+    }
+    else {
+        domainWithPort = url.split('/')[0];
+    }
+    return domainWithPort;
+}
+
+function stripPort(extractedDomain){
+    //find & remove port number
+    return extractedDomain.split(':')[0];
+}
+
+function handleUnauthorizedRequest(apiHostUrl) {
+    var currentDomainWithPort = extractDomain(window.location.href);
+    var apiHostDomainWithPort = extractDomain(apiHostUrl);
+    var currentDomainWithoutPort = stripPort(currentDomainWithPort);
+    var apiHostDomainWithoutPort = stripPort(apiHostDomainWithPort);
+    if (currentDomainWithoutPort == apiHostDomainWithoutPort) {
+        window.location.href = 'https://' + currentDomainWithPort + '/api/v2/auth/login?redirect_uri=' + window.location.href;
+        return false;
+    } else {
+        window.location.replace('https://' + currentDomainWithPort + '?connect=quantimodo');
+        return false;
+    }
+}
