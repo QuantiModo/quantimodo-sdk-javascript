@@ -58,6 +58,7 @@ Quantimodo = function () {
                     console.log('Request failed. ' + textStatus + ': ' + errorThrown);
                     if(errorThrown == "Unauthorized") {
                         handleUnauthorizedRequest(apiHost);
+                        return false;
                     } else {
                         console.log('Request failed. ' + textStatus + ': ' + errorThrown + ': ' + xhr.responseText);
                     }
@@ -94,6 +95,7 @@ Quantimodo = function () {
                 console.log('Request failed. ' + textStatus + ': ' + errorThrown);
                 if(errorThrown == "Unauthorized") {
                     handleUnauthorizedRequest(apiHost);
+                    return false;
                 } else {
                     console.log('Request failed. ' + textStatus + ': ' + errorThrown + ': ' +  xhr.responseText);
                 }
@@ -394,22 +396,29 @@ function extractDomain(url) {
     var domain;
     //find & remove protocol (http, ftp, etc.) and get domain
     if (url.indexOf("://") > -1) {
-        domain = url.split('/')[2];
+        var domainWithPort = url.split('/')[2];
     }
     else {
-        domain = url.split('/')[0];
+        domainWithPort = url.split('/')[0];
     }
+    return domainWithPort;
+}
+
+function stripPort(extractedDomain){
     //find & remove port number
-    domain = domain.split(':')[0];
-    return domain;
+    return extractedDomain.split(':')[0];
 }
 
 function handleUnauthorizedRequest(apiHostUrl) {
-    var currentDomain = extractDomain(window.location.href);
-    var apiHostDomain = extractDomain(apiHostUrl);
-    if (currentDomain == apiHostDomain) {
-        window.location.href = apiHostUrl + '/api/v2/auth/login?redirect_uri=' + window.location.href;
+    var currentDomainWithPort = extractDomain(window.location.href);
+    var apiHostDomainWithPort = extractDomain(hostUrl);
+    var currentDomainWithoutPort = stripPort(currentDomainWithPort);
+    var apiHostDomainWithoutPort = stripPort(apiHostDomainWithPort);
+    if (currentDomainWithoutPort == apiHostDomainWithoutPort) {
+        window.location.href = hostUrl + '/api/v2/auth/login?redirect_uri=' + window.location.href;
+        return false;
     } else {
-        window.location.href = '?connect=quantimodo';
+        window.location.replace('https://' + currentDomainWithPort + '?connect=quantimodo');
+        return false;
     }
 }
