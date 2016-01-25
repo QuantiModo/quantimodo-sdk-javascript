@@ -392,26 +392,24 @@ Quantimodo = function () {
     };
 }();
 
-function extractDomain(url) {
-    var domain;
+function extractDomainWithPort(url) {
     //find & remove protocol (http, ftp, etc.) and get domain
     if (url.indexOf("://") > -1) {
-        var domainWithPort = url.split('/')[2];
+        return url.split('/')[2];
     }
     else {
-        domainWithPort = url.split('/')[0];
+        return url.split('/')[0];
     }
-    return domainWithPort;
 }
 
-function stripPort(extractedDomain){
+function stripPort(extractedDomainWithPort){
     //find & remove port number
-    return extractedDomain.split(':')[0];
+    return extractedDomainWithPort.split(':')[0];
 }
 
 function handleUnauthorizedRequest(apiHostUrl) {
-    var currentDomainWithPort = extractDomain(window.location.href);
-    var apiHostDomainWithPort = extractDomain(apiHostUrl);
+    var currentDomainWithPort = extractDomainWithPort(window.location.href);
+    var apiHostDomainWithPort = extractDomainWithPort(apiHostUrl);
     var currentDomainWithoutPort = stripPort(currentDomainWithPort);
     var apiHostDomainWithoutPort = stripPort(apiHostDomainWithPort);
     if (currentDomainWithoutPort == apiHostDomainWithoutPort) {
