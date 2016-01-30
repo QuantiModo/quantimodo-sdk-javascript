@@ -263,11 +263,11 @@ Quantimodo = function () {
             POST('variables', ['name', 'category', 'unit', 'combinationOperation'], measurements, f);
         },
 
-        searchVariables: function (query, f) {
+        searchVariables: function (query, f, params) {
             if (localCache.exist('searchVariables_' + query)) {
                 f(localCache.get('searchVariables_' + query));
             } else {
-                GET('variables/search/' + query, ['categoryName'], null, function (variables) {
+                GET('variables/search/' + query, ['categoryName', 'includePublic'], params, function (variables) {
                     localCache.set('searchVariables_' + query, variables);
                     f(variables);
                 }, true);
