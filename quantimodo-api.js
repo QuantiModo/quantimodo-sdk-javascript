@@ -162,6 +162,8 @@ Quantimodo = function () {
 
     };
 
+    var disableLooping = true;
+
     return {
         getMeasurements: function (params, f) {
             GET('measurements', [
@@ -205,11 +207,11 @@ Quantimodo = function () {
         },
 
         getMeasurementsRange: function (params, f) {
-            GET('measurementsRange', [], params, f);
+            GET('measurementsRange', [], params, f, disableLooping);
         },
 
         getMeasurementSources: function (params, f) {
-            GET('measurementSources', [], params, f);
+            GET('measurementSources', [], params, f, disableLooping);
         },
         postMeasurementSources: function (measurements, f) {
             POST('measurementSources', ['name'], measurements, f);
@@ -218,14 +220,14 @@ Quantimodo = function () {
             GET('units', [
                 'unitName',
                 'abbreviatedUnitName',
-                'categoryName'], params, f);
+                'categoryName'], params, f, disableLooping);
         },
         getUnitsForVariable: function (params, f) {
             GET('unitsVariable', [
                 'variable',
                 'unitName',
                 'abbreviatedUnitName',
-                'categoryName'], params, f);
+                'categoryName'], params, f, disableLooping);
         },
         postUnits: function (measurements, f) {
             POST('units', [
@@ -236,7 +238,7 @@ Quantimodo = function () {
         },
 
         getUnitCategories: function (params, f) {
-            GET('unitCategories', [], params, f);
+            GET('unitCategories', [], params, f, disableLooping);
         },
         postUnitCategories: function (measurements, f) {
             POST('unitCategories', ['name'], measurements, f);
@@ -250,13 +252,13 @@ Quantimodo = function () {
                 GET('variables', ['categoryName'], params, function (variables) {
                     localCache.set('variables', variables);
                     f(variables);
-                });
+                }, disableLooping);
             }
 
         },
 
         getVariableByName: function (name, f) {
-            GET('variables/' + encodeURIComponent(name), ['categoryName'], null, f, true);
+            GET('variables/' + encodeURIComponent(name), ['categoryName'], null, f, disableLooping);
         },
 
         postVariables: function (measurements, f) {
@@ -270,7 +272,7 @@ Quantimodo = function () {
                 GET('variables/search/' + query, ['categoryName', 'includePublic'], params, function (variables) {
                     localCache.set('searchVariables_' + query, variables);
                     f(variables);
-                }, true);
+                }, disableLooping);
 
             }
         },
@@ -283,7 +285,7 @@ Quantimodo = function () {
                 GET('variableCategories', [], params, function (variableCategories) {
                     localCache.set('variableCategories', variableCategories);
                     f(variableCategories);
-                }, true);
+                }, disableLooping);
             }
 
         },
@@ -306,18 +308,18 @@ Quantimodo = function () {
         },
 
         getUserVariables: function (params, f) {
-            GET('userVariables', ['variableName'], params, f);
+            GET('userVariables', ['variableName'], params, f, disableLooping);
         },
         postUserVariables: function (measurements, f) {
             POST('userVariables', ['variable'], measurements, f);
         },
 
         getCorrelations: function (params, f) {
-            GET('correlations', ['effect'], params, f);
+            GET('correlations', ['effect'], params, f, disableLooping);
         },
 
         getCorrelateShare: function (params, f) {
-            GET('share', ['id'], params, f);
+            GET('share', ['id'], params, f, disableLooping);
         },
         postCorrelateShare: function (measurements, f) {
             POST('share', ['type', 'inputVariable', 'outputVariable'], measurements, f);
@@ -385,7 +387,7 @@ Quantimodo = function () {
 
         getCurrentUser: function (f) {
             GET('user/me', ['id', 'wpId', 'displayName', 'loginName', 'email', 'token', 'clientId', 'userRegistered'],
-                null, f, true);
+                null, f, disableLooping);
         },
 
         url: hostUrl
