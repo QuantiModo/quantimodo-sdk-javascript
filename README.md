@@ -1,4 +1,4 @@
-# QuantiModo-SDK-JavaScript
+# quantimodo-sdk-javascript
 Library to make it easier for JavaScript apps to store and retrieve data using the QuantiModo API.
 
 # Try it Out
