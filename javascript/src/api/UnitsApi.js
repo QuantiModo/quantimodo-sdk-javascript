@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Unit'), require('../model/UnitCategory'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo-api) {
-      root.quantimodo-api = {};
+    if (!root.QuantimodoApi) {
+      root.QuantimodoApi = {};
     }
-    root.quantimodo-api.UnitsApi = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.Unit, root.quantimodo-api.UnitCategory);
+    root.QuantimodoApi.UnitsApi = factory(root.QuantimodoApi.ApiClient, root.QuantimodoApi.Unit, root.QuantimodoApi.UnitCategory);
   }
 }(this, function(ApiClient, Unit, UnitCategory) {
   'use strict';

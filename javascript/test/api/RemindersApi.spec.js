@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.RemindersApi();
+    instance = new QuantimodoApi.RemindersApi();
   });
 
   var getProperty = function(object, getter, property) {

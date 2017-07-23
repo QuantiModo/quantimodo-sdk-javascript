@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.UserVariableDelete();
+    instance = new QuantimodoApi.UserVariableDelete();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,13 +61,13 @@
   describe('UserVariableDelete', function() {
     it('should create an instance of UserVariableDelete', function() {
       // uncomment below and update the code to test UserVariableDelete
-      //var instane = new quantimodo-api.UserVariableDelete();
-      //expect(instance).to.be.a(quantimodo-api.UserVariableDelete);
+      //var instane = new QuantimodoApi.UserVariableDelete();
+      //expect(instance).to.be.a(QuantimodoApi.UserVariableDelete);
     });
 
     it('should have the property variableId (base name: "variableId")', function() {
       // uncomment below and update the code to test the property variableId
-      //var instane = new quantimodo-api.UserVariableDelete();
+      //var instane = new QuantimodoApi.UserVariableDelete();
       //expect(instance).to.be();
     });
 

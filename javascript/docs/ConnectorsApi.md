@@ -1,4 +1,4 @@
-# quantimodo-api.ConnectorsApi
+# QuantimodoApi.ConnectorsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -25,9 +25,9 @@ This page is designed to be opened in a webview.  Instead of using popup authent
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
+var QuantimodoApi = require('quantimodo-api');
 
-var apiInstance = new quantimodo-api.ConnectorsApi();
+var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var accessToken = "accessToken_example"; // String | User OAuth access token
 
@@ -75,8 +75,8 @@ Attempt to obtain a token from the data provider, store it in the database. With
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -88,7 +88,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.ConnectorsApi();
+var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
@@ -138,8 +138,8 @@ Returns instructions that describe what parameters and endpoint to use to connec
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -151,7 +151,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.ConnectorsApi();
+var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
@@ -210,8 +210,8 @@ Returns instructions that describe what parameters and endpoint to use to connec
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -223,7 +223,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.ConnectorsApi();
+var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
@@ -290,8 +290,8 @@ The disconnect method deletes any stored tokens or connection information from t
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -303,7 +303,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.ConnectorsApi();
+var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
@@ -347,8 +347,8 @@ Returns information about the connector such as the connector id, whether or not
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -360,7 +360,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.ConnectorsApi();
+var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
@@ -410,8 +410,8 @@ The update method tells the QM Connector Framework to check with the data provid
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -423,7 +423,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.ConnectorsApi();
+var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device
 
@@ -473,8 +473,8 @@ A connector pulls data from other data providers using their API or a screenscra
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -486,7 +486,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.ConnectorsApi();
+var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -524,9 +524,9 @@ Get embeddable connect javascript. Usage:   - Embedding in applications with pop
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
+var QuantimodoApi = require('quantimodo-api');
 
-var apiInstance = new quantimodo-api.ConnectorsApi();
+var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var opts = { 
   'accessToken': "accessToken_example" // String | User's OAuth2 access token

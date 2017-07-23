@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('./VariableNew'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo-api) {
-      root.quantimodo-api = {};
+    if (!root.QuantimodoApi) {
+      root.QuantimodoApi = {};
     }
-    root.quantimodo-api.VariablesNew = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.VariableNew);
+    root.QuantimodoApi.VariablesNew = factory(root.QuantimodoApi.ApiClient, root.QuantimodoApi.VariableNew);
   }
 }(this, function(ApiClient, VariableNew) {
   'use strict';

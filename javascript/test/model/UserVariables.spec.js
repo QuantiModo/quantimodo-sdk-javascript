@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.UserVariables();
+    instance = new QuantimodoApi.UserVariables();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,73 +61,73 @@
   describe('UserVariables', function() {
     it('should create an instance of UserVariables', function() {
       // uncomment below and update the code to test UserVariables
-      //var instane = new quantimodo-api.UserVariables();
-      //expect(instance).to.be.a(quantimodo-api.UserVariables);
+      //var instane = new QuantimodoApi.UserVariables();
+      //expect(instance).to.be.a(QuantimodoApi.UserVariables);
     });
 
     it('should have the property user (base name: "user")', function() {
       // uncomment below and update the code to test the property user
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property variableId (base name: "variableId")', function() {
       // uncomment below and update the code to test the property variableId
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property durationOfAction (base name: "durationOfAction")', function() {
       // uncomment below and update the code to test the property durationOfAction
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property fillingValue (base name: "fillingValue")', function() {
       // uncomment below and update the code to test the property fillingValue
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property joinWith (base name: "joinWith")', function() {
       // uncomment below and update the code to test the property joinWith
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property maximumAllowedValue (base name: "maximumAllowedValue")', function() {
       // uncomment below and update the code to test the property maximumAllowedValue
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property minimumAllowedValue (base name: "minimumAllowedValue")', function() {
       // uncomment below and update the code to test the property minimumAllowedValue
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property onsetDelay (base name: "onsetDelay")', function() {
       // uncomment below and update the code to test the property onsetDelay
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property experimentStartTime (base name: "experimentStartTime")', function() {
       // uncomment below and update the code to test the property experimentStartTime
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property experimentEndTime (base name: "experimentEndTime")', function() {
       // uncomment below and update the code to test the property experimentEndTime
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 
     it('should have the property alias (base name: "alias")', function() {
       // uncomment below and update the code to test the property alias
-      //var instane = new quantimodo-api.UserVariables();
+      //var instane = new QuantimodoApi.UserVariables();
       //expect(instance).to.be();
     });
 

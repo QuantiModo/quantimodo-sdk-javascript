@@ -1,4 +1,4 @@
-# quantimodo-api.JsonErrorResponse
+# QuantimodoApi.JsonErrorResponse
 
 ## Properties
 Name | Type | Description | Notes

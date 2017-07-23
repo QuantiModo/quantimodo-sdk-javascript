@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.HumanTime();
+    instance = new QuantimodoApi.HumanTime();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,25 +61,25 @@
   describe('HumanTime', function() {
     it('should create an instance of HumanTime', function() {
       // uncomment below and update the code to test HumanTime
-      //var instane = new quantimodo-api.HumanTime();
-      //expect(instance).to.be.a(quantimodo-api.HumanTime);
+      //var instane = new QuantimodoApi.HumanTime();
+      //expect(instance).to.be.a(QuantimodoApi.HumanTime);
     });
 
     it('should have the property _date (base name: "date")', function() {
       // uncomment below and update the code to test the property _date
-      //var instane = new quantimodo-api.HumanTime();
+      //var instane = new QuantimodoApi.HumanTime();
       //expect(instance).to.be();
     });
 
     it('should have the property timezoneType (base name: "timezone_type")', function() {
       // uncomment below and update the code to test the property timezoneType
-      //var instane = new quantimodo-api.HumanTime();
+      //var instane = new QuantimodoApi.HumanTime();
       //expect(instance).to.be();
     });
 
     it('should have the property timezone (base name: "timezone")', function() {
       // uncomment below and update the code to test the property timezone
-      //var instane = new quantimodo-api.HumanTime();
+      //var instane = new QuantimodoApi.HumanTime();
       //expect(instance).to.be();
     });
 

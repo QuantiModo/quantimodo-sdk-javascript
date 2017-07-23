@@ -1,4 +1,4 @@
-# quantimodo-api.MeasurementSet
+# QuantimodoApi.MeasurementSet
 
 ## Properties
 Name | Type | Description | Notes

@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.TrackingReminderNotificationSnooze();
+    instance = new QuantimodoApi.TrackingReminderNotificationSnooze();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,13 +61,13 @@
   describe('TrackingReminderNotificationSnooze', function() {
     it('should create an instance of TrackingReminderNotificationSnooze', function() {
       // uncomment below and update the code to test TrackingReminderNotificationSnooze
-      //var instane = new quantimodo-api.TrackingReminderNotificationSnooze();
-      //expect(instance).to.be.a(quantimodo-api.TrackingReminderNotificationSnooze);
+      //var instane = new QuantimodoApi.TrackingReminderNotificationSnooze();
+      //expect(instance).to.be.a(QuantimodoApi.TrackingReminderNotificationSnooze);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new quantimodo-api.TrackingReminderNotificationSnooze();
+      //var instane = new QuantimodoApi.TrackingReminderNotificationSnooze();
       //expect(instance).to.be();
     });
 

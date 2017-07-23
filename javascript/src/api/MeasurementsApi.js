@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Measurement'), require('../model/MeasurementDelete'), require('../model/MeasurementRange'), require('../model/MeasurementSet'), require('../model/MeasurementSource'), require('../model/MeasurementUpdate'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo-api) {
-      root.quantimodo-api = {};
+    if (!root.QuantimodoApi) {
+      root.QuantimodoApi = {};
     }
-    root.quantimodo-api.MeasurementsApi = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.CommonResponse, root.quantimodo-api.Measurement, root.quantimodo-api.MeasurementDelete, root.quantimodo-api.MeasurementRange, root.quantimodo-api.MeasurementSet, root.quantimodo-api.MeasurementSource, root.quantimodo-api.MeasurementUpdate);
+    root.QuantimodoApi.MeasurementsApi = factory(root.QuantimodoApi.ApiClient, root.QuantimodoApi.CommonResponse, root.QuantimodoApi.Measurement, root.QuantimodoApi.MeasurementDelete, root.QuantimodoApi.MeasurementRange, root.QuantimodoApi.MeasurementSet, root.QuantimodoApi.MeasurementSource, root.QuantimodoApi.MeasurementUpdate);
   }
 }(this, function(ApiClient, CommonResponse, Measurement, MeasurementDelete, MeasurementRange, MeasurementSet, MeasurementSource, MeasurementUpdate) {
   'use strict';

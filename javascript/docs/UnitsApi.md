@@ -1,4 +1,4 @@
-# quantimodo-api.UnitsApi
+# QuantimodoApi.UnitsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -19,8 +19,8 @@ Get a list of the categories of measurement units such as &#39;Distance&#39;, &#
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -32,7 +32,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.UnitsApi();
+var apiInstance = new QuantimodoApi.UnitsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -70,8 +70,8 @@ Get all available units
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -83,7 +83,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.UnitsApi();
+var apiInstance = new QuantimodoApi.UnitsApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -138,8 +138,8 @@ Get a list of all possible units to use for a given variable
 
 ### Example
 ```javascript
-var quantimodo-api = require('quanti_modo');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -151,7 +151,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.UnitsApi();
+var apiInstance = new QuantimodoApi.UnitsApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token

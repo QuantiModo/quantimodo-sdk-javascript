@@ -1,4 +1,4 @@
-# quantimodo-api.UserTokenSuccessfulResponseInnerUserField
+# QuantimodoApi.UserTokenSuccessfulResponseInnerUserField
 
 ## Properties
 Name | Type | Description | Notes

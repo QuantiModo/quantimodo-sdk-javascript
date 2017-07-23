@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.Connector();
+    instance = new QuantimodoApi.Connector();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,61 +61,61 @@
   describe('Connector', function() {
     it('should create an instance of Connector', function() {
       // uncomment below and update the code to test Connector
-      //var instane = new quantimodo-api.Connector();
-      //expect(instance).to.be.a(quantimodo-api.Connector);
+      //var instane = new QuantimodoApi.Connector();
+      //expect(instance).to.be.a(QuantimodoApi.Connector);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new quantimodo-api.Connector();
+      //var instane = new QuantimodoApi.Connector();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new quantimodo-api.Connector();
+      //var instane = new QuantimodoApi.Connector();
       //expect(instance).to.be();
     });
 
     it('should have the property displayName (base name: "displayName")', function() {
       // uncomment below and update the code to test the property displayName
-      //var instane = new quantimodo-api.Connector();
+      //var instane = new QuantimodoApi.Connector();
       //expect(instance).to.be();
     });
 
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
-      //var instane = new quantimodo-api.Connector();
+      //var instane = new QuantimodoApi.Connector();
       //expect(instance).to.be();
     });
 
     it('should have the property getItUrl (base name: "getItUrl")', function() {
       // uncomment below and update the code to test the property getItUrl
-      //var instane = new quantimodo-api.Connector();
+      //var instane = new QuantimodoApi.Connector();
       //expect(instance).to.be();
     });
 
     it('should have the property connected (base name: "connected")', function() {
       // uncomment below and update the code to test the property connected
-      //var instane = new quantimodo-api.Connector();
+      //var instane = new QuantimodoApi.Connector();
       //expect(instance).to.be();
     });
 
     it('should have the property connectInstructions (base name: "connectInstructions")', function() {
       // uncomment below and update the code to test the property connectInstructions
-      //var instane = new quantimodo-api.Connector();
+      //var instane = new QuantimodoApi.Connector();
       //expect(instance).to.be();
     });
 
     it('should have the property lastUpdate (base name: "lastUpdate")', function() {
       // uncomment below and update the code to test the property lastUpdate
-      //var instane = new quantimodo-api.Connector();
+      //var instane = new QuantimodoApi.Connector();
       //expect(instance).to.be();
     });
 
     it('should have the property totalMeasurementsInLastUpdate (base name: "totalMeasurementsInLastUpdate")', function() {
       // uncomment below and update the code to test the property totalMeasurementsInLastUpdate
-      //var instane = new quantimodo-api.Connector();
+      //var instane = new QuantimodoApi.Connector();
       //expect(instance).to.be();
     });
 

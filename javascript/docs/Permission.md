@@ -1,4 +1,4 @@
-# quantimodo-api.Permission
+# QuantimodoApi.Permission
 
 ## Properties
 Name | Type | Description | Notes

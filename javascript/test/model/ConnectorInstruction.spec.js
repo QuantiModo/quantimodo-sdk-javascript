@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.ConnectorInstruction();
+    instance = new QuantimodoApi.ConnectorInstruction();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,25 +61,25 @@
   describe('ConnectorInstruction', function() {
     it('should create an instance of ConnectorInstruction', function() {
       // uncomment below and update the code to test ConnectorInstruction
-      //var instane = new quantimodo-api.ConnectorInstruction();
-      //expect(instance).to.be.a(quantimodo-api.ConnectorInstruction);
+      //var instane = new QuantimodoApi.ConnectorInstruction();
+      //expect(instance).to.be.a(QuantimodoApi.ConnectorInstruction);
     });
 
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
-      //var instane = new quantimodo-api.ConnectorInstruction();
+      //var instane = new QuantimodoApi.ConnectorInstruction();
       //expect(instance).to.be();
     });
 
     it('should have the property parameters (base name: "parameters")', function() {
       // uncomment below and update the code to test the property parameters
-      //var instane = new quantimodo-api.ConnectorInstruction();
+      //var instane = new QuantimodoApi.ConnectorInstruction();
       //expect(instance).to.be();
     });
 
     it('should have the property usePopup (base name: "usePopup")', function() {
       // uncomment below and update the code to test the property usePopup
-      //var instane = new quantimodo-api.ConnectorInstruction();
+      //var instane = new QuantimodoApi.ConnectorInstruction();
       //expect(instance).to.be();
     });
 

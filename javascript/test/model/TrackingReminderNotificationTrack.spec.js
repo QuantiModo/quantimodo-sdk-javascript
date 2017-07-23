@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.TrackingReminderNotificationTrack();
+    instance = new QuantimodoApi.TrackingReminderNotificationTrack();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,19 +61,19 @@
   describe('TrackingReminderNotificationTrack', function() {
     it('should create an instance of TrackingReminderNotificationTrack', function() {
       // uncomment below and update the code to test TrackingReminderNotificationTrack
-      //var instane = new quantimodo-api.TrackingReminderNotificationTrack();
-      //expect(instance).to.be.a(quantimodo-api.TrackingReminderNotificationTrack);
+      //var instane = new QuantimodoApi.TrackingReminderNotificationTrack();
+      //expect(instance).to.be.a(QuantimodoApi.TrackingReminderNotificationTrack);
     });
 
     it('should have the property trackingReminderNotification (base name: "trackingReminderNotification")', function() {
       // uncomment below and update the code to test the property trackingReminderNotification
-      //var instane = new quantimodo-api.TrackingReminderNotificationTrack();
+      //var instane = new QuantimodoApi.TrackingReminderNotificationTrack();
       //expect(instance).to.be();
     });
 
     it('should have the property modifiedValue (base name: "modifiedValue")', function() {
       // uncomment below and update the code to test the property modifiedValue
-      //var instane = new quantimodo-api.TrackingReminderNotificationTrack();
+      //var instane = new QuantimodoApi.TrackingReminderNotificationTrack();
       //expect(instance).to.be();
     });
 

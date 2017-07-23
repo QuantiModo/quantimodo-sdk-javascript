@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.ConnectorInfo();
+    instance = new QuantimodoApi.ConnectorInfo();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,31 +61,31 @@
   describe('ConnectorInfo', function() {
     it('should create an instance of ConnectorInfo', function() {
       // uncomment below and update the code to test ConnectorInfo
-      //var instane = new quantimodo-api.ConnectorInfo();
-      //expect(instance).to.be.a(quantimodo-api.ConnectorInfo);
+      //var instane = new QuantimodoApi.ConnectorInfo();
+      //expect(instance).to.be.a(QuantimodoApi.ConnectorInfo);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new quantimodo-api.ConnectorInfo();
+      //var instane = new QuantimodoApi.ConnectorInfo();
       //expect(instance).to.be();
     });
 
     it('should have the property connected (base name: "connected")', function() {
       // uncomment below and update the code to test the property connected
-      //var instane = new quantimodo-api.ConnectorInfo();
+      //var instane = new QuantimodoApi.ConnectorInfo();
       //expect(instance).to.be();
     });
 
     it('should have the property error (base name: "error")', function() {
       // uncomment below and update the code to test the property error
-      //var instane = new quantimodo-api.ConnectorInfo();
+      //var instane = new QuantimodoApi.ConnectorInfo();
       //expect(instance).to.be();
     });
 
     it('should have the property history (base name: "history")', function() {
       // uncomment below and update the code to test the property history
-      //var instane = new quantimodo-api.ConnectorInfo();
+      //var instane = new QuantimodoApi.ConnectorInfo();
       //expect(instance).to.be();
     });
 

@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/PostVote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo-api) {
-      root.quantimodo-api = {};
+    if (!root.QuantimodoApi) {
+      root.QuantimodoApi = {};
     }
-    root.quantimodo-api.VotesApi = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.CommonResponse, root.quantimodo-api.PostVote, root.quantimodo-api.VoteDelete);
+    root.QuantimodoApi.VotesApi = factory(root.QuantimodoApi.ApiClient, root.QuantimodoApi.CommonResponse, root.QuantimodoApi.PostVote, root.QuantimodoApi.VoteDelete);
   }
 }(this, function(ApiClient, CommonResponse, PostVote, VoteDelete) {
   'use strict';

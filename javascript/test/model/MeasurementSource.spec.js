@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.MeasurementSource();
+    instance = new QuantimodoApi.MeasurementSource();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,13 +61,13 @@
   describe('MeasurementSource', function() {
     it('should create an instance of MeasurementSource', function() {
       // uncomment below and update the code to test MeasurementSource
-      //var instane = new quantimodo-api.MeasurementSource();
-      //expect(instance).to.be.a(quantimodo-api.MeasurementSource);
+      //var instane = new QuantimodoApi.MeasurementSource();
+      //expect(instance).to.be.a(QuantimodoApi.MeasurementSource);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new quantimodo-api.MeasurementSource();
+      //var instane = new QuantimodoApi.MeasurementSource();
       //expect(instance).to.be();
     });
 

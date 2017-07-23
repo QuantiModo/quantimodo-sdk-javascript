@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/InlineResponse200'), require('../model/InlineResponse2001'), require('../model/InlineResponse2002'), require('../model/TrackingReminder'), require('../model/TrackingReminderDelete'), require('../model/TrackingReminderNotificationSkip'), require('../model/TrackingReminderNotificationSnooze'), require('../model/TrackingReminderNotificationTrack'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo-api) {
-      root.quantimodo-api = {};
+    if (!root.QuantimodoApi) {
+      root.QuantimodoApi = {};
     }
-    root.quantimodo-api.RemindersApi = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.CommonResponse, root.quantimodo-api.InlineResponse200, root.quantimodo-api.InlineResponse2001, root.quantimodo-api.InlineResponse2002, root.quantimodo-api.TrackingReminder, root.quantimodo-api.TrackingReminderDelete, root.quantimodo-api.TrackingReminderNotificationSkip, root.quantimodo-api.TrackingReminderNotificationSnooze, root.quantimodo-api.TrackingReminderNotificationTrack);
+    root.QuantimodoApi.RemindersApi = factory(root.QuantimodoApi.ApiClient, root.QuantimodoApi.CommonResponse, root.QuantimodoApi.InlineResponse200, root.QuantimodoApi.InlineResponse2001, root.QuantimodoApi.InlineResponse2002, root.QuantimodoApi.TrackingReminder, root.QuantimodoApi.TrackingReminderDelete, root.QuantimodoApi.TrackingReminderNotificationSkip, root.QuantimodoApi.TrackingReminderNotificationSnooze, root.QuantimodoApi.TrackingReminderNotificationTrack);
   }
 }(this, function(ApiClient, CommonResponse, InlineResponse200, InlineResponse2001, InlineResponse2002, TrackingReminder, TrackingReminderDelete, TrackingReminderNotificationSkip, TrackingReminderNotificationSnooze, TrackingReminderNotificationTrack) {
   'use strict';

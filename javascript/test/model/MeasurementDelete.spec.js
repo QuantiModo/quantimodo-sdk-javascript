@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo-api);
+    factory(root.expect, root.QuantimodoApi);
   }
-}(this, function(expect, quantimodo-api) {
+}(this, function(expect, QuantimodoApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo-api.MeasurementDelete();
+    instance = new QuantimodoApi.MeasurementDelete();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,19 +61,19 @@
   describe('MeasurementDelete', function() {
     it('should create an instance of MeasurementDelete', function() {
       // uncomment below and update the code to test MeasurementDelete
-      //var instane = new quantimodo-api.MeasurementDelete();
-      //expect(instance).to.be.a(quantimodo-api.MeasurementDelete);
+      //var instane = new QuantimodoApi.MeasurementDelete();
+      //expect(instance).to.be.a(QuantimodoApi.MeasurementDelete);
     });
 
     it('should have the property variableId (base name: "variableId")', function() {
       // uncomment below and update the code to test the property variableId
-      //var instane = new quantimodo-api.MeasurementDelete();
+      //var instane = new QuantimodoApi.MeasurementDelete();
       //expect(instance).to.be();
     });
 
     it('should have the property startTime (base name: "startTime")', function() {
       // uncomment below and update the code to test the property startTime
-      //var instane = new quantimodo-api.MeasurementDelete();
+      //var instane = new QuantimodoApi.MeasurementDelete();
       //expect(instance).to.be();
     });
 

@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('./HumanTime'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo-api) {
-      root.quantimodo-api = {};
+    if (!root.QuantimodoApi) {
+      root.QuantimodoApi = {};
     }
-    root.quantimodo-api.Measurement = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.HumanTime);
+    root.QuantimodoApi.Measurement = factory(root.QuantimodoApi.ApiClient, root.QuantimodoApi.HumanTime);
   }
 }(this, function(ApiClient, HumanTime) {
   'use strict';
