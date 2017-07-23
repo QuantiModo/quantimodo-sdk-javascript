@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/JsonErrorResponse'), require('../model/PostCorrelation'), require('../model/PostVote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.CorrelationsApi = factory(root.QuantiModo.ApiClient, root.QuantiModo.CommonResponse, root.QuantiModo.Correlation, root.QuantiModo.JsonErrorResponse, root.QuantiModo.PostCorrelation, root.QuantiModo.PostVote, root.QuantiModo.VoteDelete);
+    root.quantimodo-api.CorrelationsApi = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.CommonResponse, root.quantimodo-api.Correlation, root.quantimodo-api.JsonErrorResponse, root.quantimodo-api.PostCorrelation, root.quantimodo-api.PostVote, root.quantimodo-api.VoteDelete);
   }
 }(this, function(ApiClient, CommonResponse, Correlation, JsonErrorResponse, PostCorrelation, PostVote, VoteDelete) {
   'use strict';

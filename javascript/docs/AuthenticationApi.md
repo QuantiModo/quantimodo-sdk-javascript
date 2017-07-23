@@ -1,4 +1,4 @@
-# QuantiModo.AuthenticationApi
+# quantimodo-api.AuthenticationApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -21,8 +21,8 @@ Second Step in Social Authentication flow with JWT Token
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -34,7 +34,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.AuthenticationApi();
+var apiInstance = new quantimodo-api.AuthenticationApi();
 
 var code = "code_example"; // String | Authorization code obtained from the provider.
 
@@ -81,8 +81,8 @@ If you are using native authentication via Facebook or Google SDKs then you shou
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -94,7 +94,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.AuthenticationApi();
+var apiInstance = new quantimodo-api.AuthenticationApi();
 
 var accessToken = "accessToken_example"; // String | User's OAuth2 access token obtained from Google or FB native SDK
 
@@ -145,8 +145,8 @@ First Setp in Social Authentication flow with JWT Token
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -158,7 +158,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.AuthenticationApi();
+var apiInstance = new quantimodo-api.AuthenticationApi();
 
 var redirectUrl = "redirectUrl_example"; // String | The redirect URI is the URL within your client application that will receive the OAuth2 credentials. Url should be registered with our social apps. Facebook and Twitter are fine with any redirect url with the same domain base url but Google needs exact redirect url.
 
@@ -205,8 +205,8 @@ Client provides authorization token obtained from /api/v1/oauth2/authorize to th
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -218,7 +218,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.AuthenticationApi();
+var apiInstance = new quantimodo-api.AuthenticationApi();
 
 var clientId = "clientId_example"; // String | This is the unique ID that QuantiModo uses to identify your application. Obtain a client id by emailing info@quantimo.do.
 
@@ -281,8 +281,8 @@ You can implement OAuth2 authentication to your application using our **OAuth2**
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -294,7 +294,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.AuthenticationApi();
+var apiInstance = new quantimodo-api.AuthenticationApi();
 
 var clientId = "clientId_example"; // String | This is the unique ID that QuantiModo uses to identify your application. Obtain a client id by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
 

@@ -31,10 +31,10 @@
     module.exports = factory(require('superagent'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.ApiClient = factory(root.superagent);
+    root.quantimodo-api.ApiClient = factory(root.superagent);
   }
 }(this, function(superagent) {
   'use strict';

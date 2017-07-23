@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.Permission();
+    instance = new quantimodo-api.Permission();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,49 +61,49 @@
   describe('Permission', function() {
     it('should create an instance of Permission', function() {
       // uncomment below and update the code to test Permission
-      //var instane = new QuantiModo.Permission();
-      //expect(instance).to.be.a(QuantiModo.Permission);
+      //var instane = new quantimodo-api.Permission();
+      //expect(instance).to.be.a(quantimodo-api.Permission);
     });
 
     it('should have the property target (base name: "target")', function() {
       // uncomment below and update the code to test the property target
-      //var instane = new QuantiModo.Permission();
+      //var instane = new quantimodo-api.Permission();
       //expect(instance).to.be();
     });
 
     it('should have the property variableName (base name: "variableName")', function() {
       // uncomment below and update the code to test the property variableName
-      //var instane = new QuantiModo.Permission();
+      //var instane = new quantimodo-api.Permission();
       //expect(instance).to.be();
     });
 
     it('should have the property minTimestamp (base name: "minTimestamp")', function() {
       // uncomment below and update the code to test the property minTimestamp
-      //var instane = new QuantiModo.Permission();
+      //var instane = new quantimodo-api.Permission();
       //expect(instance).to.be();
     });
 
     it('should have the property maxTimestamp (base name: "maxTimestamp")', function() {
       // uncomment below and update the code to test the property maxTimestamp
-      //var instane = new QuantiModo.Permission();
+      //var instane = new quantimodo-api.Permission();
       //expect(instance).to.be();
     });
 
     it('should have the property minTimeOfDay (base name: "minTimeOfDay")', function() {
       // uncomment below and update the code to test the property minTimeOfDay
-      //var instane = new QuantiModo.Permission();
+      //var instane = new quantimodo-api.Permission();
       //expect(instance).to.be();
     });
 
     it('should have the property maxTimeOfDay (base name: "maxTimeOfDay")', function() {
       // uncomment below and update the code to test the property maxTimeOfDay
-      //var instane = new QuantiModo.Permission();
+      //var instane = new quantimodo-api.Permission();
       //expect(instance).to.be();
     });
 
     it('should have the property week (base name: "week")', function() {
       // uncomment below and update the code to test the property week
-      //var instane = new QuantiModo.Permission();
+      //var instane = new quantimodo-api.Permission();
       //expect(instance).to.be();
     });
 

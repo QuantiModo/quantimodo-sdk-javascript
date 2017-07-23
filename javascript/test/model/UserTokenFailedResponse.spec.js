@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.UserTokenFailedResponse();
+    instance = new quantimodo-api.UserTokenFailedResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,25 +61,25 @@
   describe('UserTokenFailedResponse', function() {
     it('should create an instance of UserTokenFailedResponse', function() {
       // uncomment below and update the code to test UserTokenFailedResponse
-      //var instane = new QuantiModo.UserTokenFailedResponse();
-      //expect(instance).to.be.a(QuantiModo.UserTokenFailedResponse);
+      //var instane = new quantimodo-api.UserTokenFailedResponse();
+      //expect(instance).to.be.a(quantimodo-api.UserTokenFailedResponse);
     });
 
     it('should have the property code (base name: "code")', function() {
       // uncomment below and update the code to test the property code
-      //var instane = new QuantiModo.UserTokenFailedResponse();
+      //var instane = new quantimodo-api.UserTokenFailedResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new QuantiModo.UserTokenFailedResponse();
+      //var instane = new quantimodo-api.UserTokenFailedResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property success (base name: "success")', function() {
       // uncomment below and update the code to test the property success
-      //var instane = new QuantiModo.UserTokenFailedResponse();
+      //var instane = new quantimodo-api.UserTokenFailedResponse();
       //expect(instance).to.be();
     });
 

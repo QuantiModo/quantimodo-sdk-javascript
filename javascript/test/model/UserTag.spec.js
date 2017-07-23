@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.UserTag();
+    instance = new quantimodo-api.UserTag();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,25 +61,25 @@
   describe('UserTag', function() {
     it('should create an instance of UserTag', function() {
       // uncomment below and update the code to test UserTag
-      //var instane = new QuantiModo.UserTag();
-      //expect(instance).to.be.a(QuantiModo.UserTag);
+      //var instane = new quantimodo-api.UserTag();
+      //expect(instance).to.be.a(quantimodo-api.UserTag);
     });
 
     it('should have the property taggedVariableId (base name: "taggedVariableId")', function() {
       // uncomment below and update the code to test the property taggedVariableId
-      //var instane = new QuantiModo.UserTag();
+      //var instane = new quantimodo-api.UserTag();
       //expect(instance).to.be();
     });
 
     it('should have the property tagVariableId (base name: "tagVariableId")', function() {
       // uncomment below and update the code to test the property tagVariableId
-      //var instane = new QuantiModo.UserTag();
+      //var instane = new quantimodo-api.UserTag();
       //expect(instance).to.be();
     });
 
     it('should have the property conversionFactor (base name: "conversionFactor")', function() {
       // uncomment below and update the code to test the property conversionFactor
-      //var instane = new QuantiModo.UserTag();
+      //var instane = new quantimodo-api.UserTag();
       //expect(instance).to.be();
     });
 

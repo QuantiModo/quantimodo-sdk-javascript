@@ -1,4 +1,4 @@
-# QuantiModo.InlineResponse2002
+# quantimodo-api.InlineResponse2002
 
 ## Properties
 Name | Type | Description | Notes

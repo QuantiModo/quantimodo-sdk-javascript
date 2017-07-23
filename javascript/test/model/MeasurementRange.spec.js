@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.MeasurementRange();
+    instance = new quantimodo-api.MeasurementRange();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,19 +61,19 @@
   describe('MeasurementRange', function() {
     it('should create an instance of MeasurementRange', function() {
       // uncomment below and update the code to test MeasurementRange
-      //var instane = new QuantiModo.MeasurementRange();
-      //expect(instance).to.be.a(QuantiModo.MeasurementRange);
+      //var instane = new quantimodo-api.MeasurementRange();
+      //expect(instance).to.be.a(quantimodo-api.MeasurementRange);
     });
 
     it('should have the property lowerLimit (base name: "lowerLimit")', function() {
       // uncomment below and update the code to test the property lowerLimit
-      //var instane = new QuantiModo.MeasurementRange();
+      //var instane = new quantimodo-api.MeasurementRange();
       //expect(instance).to.be();
     });
 
     it('should have the property upperLimit (base name: "upperLimit")', function() {
       // uncomment below and update the code to test the property upperLimit
-      //var instane = new QuantiModo.MeasurementRange();
+      //var instane = new quantimodo-api.MeasurementRange();
       //expect(instance).to.be();
     });
 

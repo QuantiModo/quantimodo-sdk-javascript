@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/UserTag'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.TagsApi = factory(root.QuantiModo.ApiClient, root.QuantiModo.CommonResponse, root.QuantiModo.UserTag);
+    root.quantimodo-api.TagsApi = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.CommonResponse, root.quantimodo-api.UserTag);
   }
 }(this, function(ApiClient, CommonResponse, UserTag) {
   'use strict';

@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.ConnectorInfoHistoryItem();
+    instance = new quantimodo-api.ConnectorInfoHistoryItem();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,31 +61,31 @@
   describe('ConnectorInfoHistoryItem', function() {
     it('should create an instance of ConnectorInfoHistoryItem', function() {
       // uncomment below and update the code to test ConnectorInfoHistoryItem
-      //var instane = new QuantiModo.ConnectorInfoHistoryItem();
-      //expect(instance).to.be.a(QuantiModo.ConnectorInfoHistoryItem);
+      //var instane = new quantimodo-api.ConnectorInfoHistoryItem();
+      //expect(instance).to.be.a(quantimodo-api.ConnectorInfoHistoryItem);
     });
 
     it('should have the property numberOfMeasurements (base name: "numberOfMeasurements")', function() {
       // uncomment below and update the code to test the property numberOfMeasurements
-      //var instane = new QuantiModo.ConnectorInfoHistoryItem();
+      //var instane = new quantimodo-api.ConnectorInfoHistoryItem();
       //expect(instance).to.be();
     });
 
     it('should have the property success (base name: "success")', function() {
       // uncomment below and update the code to test the property success
-      //var instane = new QuantiModo.ConnectorInfoHistoryItem();
+      //var instane = new quantimodo-api.ConnectorInfoHistoryItem();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new QuantiModo.ConnectorInfoHistoryItem();
+      //var instane = new quantimodo-api.ConnectorInfoHistoryItem();
       //expect(instance).to.be();
     });
 
     it('should have the property createdAt (base name: "createdAt")', function() {
       // uncomment below and update the code to test the property createdAt
-      //var instane = new QuantiModo.ConnectorInfoHistoryItem();
+      //var instane = new quantimodo-api.ConnectorInfoHistoryItem();
       //expect(instance).to.be();
     });
 

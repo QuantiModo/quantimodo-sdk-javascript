@@ -1,4 +1,4 @@
-# QuantiModo.CorrelationsApi
+# quantimodo-api.CorrelationsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -28,8 +28,8 @@ Get correlations based on the anonymized aggregate data from all QuantiModo user
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -41,7 +41,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -108,8 +108,8 @@ Add correlation
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -121,9 +121,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
-var body = new QuantiModo.PostCorrelation(); // PostCorrelation | Provides correlation data
+var body = new quantimodo-api.PostCorrelation(); // PostCorrelation | Provides correlation data
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -171,8 +171,8 @@ Get correlations based on data from a single user.
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -184,7 +184,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -251,8 +251,8 @@ Returns average of all correlations and votes for all user cause variables for a
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -264,7 +264,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
 var organizationId = 56; // Number | Organization ID
 
@@ -325,8 +325,8 @@ Returns average of all correlations and votes for all user cause variables for a
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -338,7 +338,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
 var organizationId = 56; // Number | Organization ID
 
@@ -399,8 +399,8 @@ Returns the average correlations from all users for all public variables that co
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -412,7 +412,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
 var search = "search_example"; // String | Name of the variable that you want to know the causes or effects of.
 
@@ -467,8 +467,8 @@ Returns average of all correlations and votes for all user cause variables for a
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -480,7 +480,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
 var variableName = "variableName_example"; // String | Effect variable name
 
@@ -524,8 +524,8 @@ Returns average of all correlations and votes for all user effect variables for 
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -537,7 +537,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
 var variableName = "variableName_example"; // String | Cause variable name
 
@@ -589,8 +589,8 @@ Returns average of all correlations and votes for all public cause variables for
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -602,7 +602,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
 var variableName = "variableName_example"; // String | Effect variable name
 
@@ -654,8 +654,8 @@ Returns average of all correlations and votes for all public cause variables for
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -667,7 +667,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
 var variableName = "variableName_example"; // String | Cause variable name
 
@@ -717,8 +717,8 @@ Delete previously posted vote
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -730,9 +730,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
-var body = new QuantiModo.VoteDelete(); // VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
+var body = new quantimodo-api.VoteDelete(); // VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -780,8 +780,8 @@ This is to enable users to indicate their opinion on the plausibility of a causa
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -793,9 +793,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.CorrelationsApi();
+var apiInstance = new quantimodo-api.CorrelationsApi();
 
-var body = new QuantiModo.PostVote(); // PostVote | Contains the cause variable, effect variable, and vote value.
+var body = new quantimodo-api.PostVote(); // PostVote | Contains the cause variable, effect variable, and vote value.
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token

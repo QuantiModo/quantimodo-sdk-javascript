@@ -1,4 +1,4 @@
-# QuantiModo.CommonResponse
+# quantimodo-api.CommonResponse
 
 ## Properties
 Name | Type | Description | Notes

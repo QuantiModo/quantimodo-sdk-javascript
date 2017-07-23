@@ -1,4 +1,4 @@
-# QuantiModo.PairsApi
+# quantimodo-api.PairsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -18,8 +18,8 @@ Pairs cause measurements with effect measurements grouped over the duration of a
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -31,7 +31,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.PairsApi();
+var apiInstance = new quantimodo-api.PairsApi();
 
 var cause = "cause_example"; // String | Original variable name for the explanatory or independent variable
 
@@ -106,8 +106,8 @@ Pairs cause measurements with effect measurements grouped over the duration of a
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -119,7 +119,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.PairsApi();
+var apiInstance = new quantimodo-api.PairsApi();
 
 var cause = "cause_example"; // String | Original variable name for the explanatory or independent variable
 

@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.UnitCategory();
+    instance = new quantimodo-api.UnitCategory();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,13 +61,13 @@
   describe('UnitCategory', function() {
     it('should create an instance of UnitCategory', function() {
       // uncomment below and update the code to test UnitCategory
-      //var instane = new QuantiModo.UnitCategory();
-      //expect(instance).to.be.a(QuantiModo.UnitCategory);
+      //var instane = new quantimodo-api.UnitCategory();
+      //expect(instance).to.be.a(quantimodo-api.UnitCategory);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new QuantiModo.UnitCategory();
+      //var instane = new quantimodo-api.UnitCategory();
       //expect(instance).to.be();
     });
 

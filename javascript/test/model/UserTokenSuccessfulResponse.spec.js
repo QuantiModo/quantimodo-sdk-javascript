@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.UserTokenSuccessfulResponse();
+    instance = new quantimodo-api.UserTokenSuccessfulResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,25 +61,25 @@
   describe('UserTokenSuccessfulResponse', function() {
     it('should create an instance of UserTokenSuccessfulResponse', function() {
       // uncomment below and update the code to test UserTokenSuccessfulResponse
-      //var instane = new QuantiModo.UserTokenSuccessfulResponse();
-      //expect(instance).to.be.a(QuantiModo.UserTokenSuccessfulResponse);
+      //var instane = new quantimodo-api.UserTokenSuccessfulResponse();
+      //expect(instance).to.be.a(quantimodo-api.UserTokenSuccessfulResponse);
     });
 
     it('should have the property code (base name: "code")', function() {
       // uncomment below and update the code to test the property code
-      //var instane = new QuantiModo.UserTokenSuccessfulResponse();
+      //var instane = new quantimodo-api.UserTokenSuccessfulResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new QuantiModo.UserTokenSuccessfulResponse();
+      //var instane = new quantimodo-api.UserTokenSuccessfulResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property user (base name: "user")', function() {
       // uncomment below and update the code to test the property user
-      //var instane = new QuantiModo.UserTokenSuccessfulResponse();
+      //var instane = new quantimodo-api.UserTokenSuccessfulResponse();
       //expect(instance).to.be();
     });
 

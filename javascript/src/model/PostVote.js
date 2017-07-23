@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.PostVote = factory(root.QuantiModo.ApiClient);
+    root.quantimodo-api.PostVote = factory(root.quantimodo-api.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';

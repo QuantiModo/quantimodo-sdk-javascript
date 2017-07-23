@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.VariableNew();
+    instance = new quantimodo-api.VariableNew();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,37 +61,37 @@
   describe('VariableNew', function() {
     it('should create an instance of VariableNew', function() {
       // uncomment below and update the code to test VariableNew
-      //var instane = new QuantiModo.VariableNew();
-      //expect(instance).to.be.a(QuantiModo.VariableNew);
+      //var instane = new quantimodo-api.VariableNew();
+      //expect(instance).to.be.a(quantimodo-api.VariableNew);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new QuantiModo.VariableNew();
+      //var instane = new quantimodo-api.VariableNew();
       //expect(instance).to.be();
     });
 
     it('should have the property category (base name: "category")', function() {
       // uncomment below and update the code to test the property category
-      //var instane = new QuantiModo.VariableNew();
+      //var instane = new quantimodo-api.VariableNew();
       //expect(instance).to.be();
     });
 
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
-      //var instane = new QuantiModo.VariableNew();
+      //var instane = new quantimodo-api.VariableNew();
       //expect(instance).to.be();
     });
 
     it('should have the property combinationOperation (base name: "combinationOperation")', function() {
       // uncomment below and update the code to test the property combinationOperation
-      //var instane = new QuantiModo.VariableNew();
+      //var instane = new quantimodo-api.VariableNew();
       //expect(instance).to.be();
     });
 
     it('should have the property parent (base name: "parent")', function() {
       // uncomment below and update the code to test the property parent
-      //var instane = new QuantiModo.VariableNew();
+      //var instane = new quantimodo-api.VariableNew();
       //expect(instance).to.be();
     });
 

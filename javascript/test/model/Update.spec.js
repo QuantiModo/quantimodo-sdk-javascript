@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.Update();
+    instance = new quantimodo-api.Update();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,55 +61,55 @@
   describe('Update', function() {
     it('should create an instance of Update', function() {
       // uncomment below and update the code to test Update
-      //var instane = new QuantiModo.Update();
-      //expect(instance).to.be.a(QuantiModo.Update);
+      //var instane = new quantimodo-api.Update();
+      //expect(instance).to.be.a(quantimodo-api.Update);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new QuantiModo.Update();
+      //var instane = new quantimodo-api.Update();
       //expect(instance).to.be();
     });
 
     it('should have the property userId (base name: "userId")', function() {
       // uncomment below and update the code to test the property userId
-      //var instane = new QuantiModo.Update();
+      //var instane = new quantimodo-api.Update();
       //expect(instance).to.be();
     });
 
     it('should have the property connectorId (base name: "connectorId")', function() {
       // uncomment below and update the code to test the property connectorId
-      //var instane = new QuantiModo.Update();
+      //var instane = new quantimodo-api.Update();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfMeasurements (base name: "numberOfMeasurements")', function() {
       // uncomment below and update the code to test the property numberOfMeasurements
-      //var instane = new QuantiModo.Update();
+      //var instane = new quantimodo-api.Update();
       //expect(instance).to.be();
     });
 
     it('should have the property success (base name: "success")', function() {
       // uncomment below and update the code to test the property success
-      //var instane = new QuantiModo.Update();
+      //var instane = new quantimodo-api.Update();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new QuantiModo.Update();
+      //var instane = new quantimodo-api.Update();
       //expect(instance).to.be();
     });
 
     it('should have the property createdAt (base name: "createdAt")', function() {
       // uncomment below and update the code to test the property createdAt
-      //var instane = new QuantiModo.Update();
+      //var instane = new quantimodo-api.Update();
       //expect(instance).to.be();
     });
 
     it('should have the property updatedAt (base name: "updatedAt")', function() {
       // uncomment below and update the code to test the property updatedAt
-      //var instane = new QuantiModo.Update();
+      //var instane = new quantimodo-api.Update();
       //expect(instance).to.be();
     });
 

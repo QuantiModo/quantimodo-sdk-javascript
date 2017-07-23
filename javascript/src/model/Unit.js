@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('./ConversionStep'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.Unit = factory(root.QuantiModo.ApiClient, root.QuantiModo.ConversionStep);
+    root.quantimodo-api.Unit = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.ConversionStep);
   }
 }(this, function(ApiClient, ConversionStep) {
   'use strict';

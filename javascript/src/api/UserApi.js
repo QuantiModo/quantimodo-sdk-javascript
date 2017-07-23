@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/User'), require('../model/UserTokenFailedResponse'), require('../model/UserTokenRequest'), require('../model/UserTokenSuccessfulResponse'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.UserApi = factory(root.QuantiModo.ApiClient, root.QuantiModo.User, root.QuantiModo.UserTokenFailedResponse, root.QuantiModo.UserTokenRequest, root.QuantiModo.UserTokenSuccessfulResponse);
+    root.quantimodo-api.UserApi = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.User, root.quantimodo-api.UserTokenFailedResponse, root.quantimodo-api.UserTokenRequest, root.quantimodo-api.UserTokenSuccessfulResponse);
   }
 }(this, function(ApiClient, User, UserTokenFailedResponse, UserTokenRequest, UserTokenSuccessfulResponse) {
   'use strict';

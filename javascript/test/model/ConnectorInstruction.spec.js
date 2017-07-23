@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.ConnectorInstruction();
+    instance = new quantimodo-api.ConnectorInstruction();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,25 +61,25 @@
   describe('ConnectorInstruction', function() {
     it('should create an instance of ConnectorInstruction', function() {
       // uncomment below and update the code to test ConnectorInstruction
-      //var instane = new QuantiModo.ConnectorInstruction();
-      //expect(instance).to.be.a(QuantiModo.ConnectorInstruction);
+      //var instane = new quantimodo-api.ConnectorInstruction();
+      //expect(instance).to.be.a(quantimodo-api.ConnectorInstruction);
     });
 
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
-      //var instane = new QuantiModo.ConnectorInstruction();
+      //var instane = new quantimodo-api.ConnectorInstruction();
       //expect(instance).to.be();
     });
 
     it('should have the property parameters (base name: "parameters")', function() {
       // uncomment below and update the code to test the property parameters
-      //var instane = new QuantiModo.ConnectorInstruction();
+      //var instane = new quantimodo-api.ConnectorInstruction();
       //expect(instance).to.be();
     });
 
     it('should have the property usePopup (base name: "usePopup")', function() {
       // uncomment below and update the code to test the property usePopup
-      //var instane = new QuantiModo.ConnectorInstruction();
+      //var instane = new quantimodo-api.ConnectorInstruction();
       //expect(instance).to.be();
     });
 

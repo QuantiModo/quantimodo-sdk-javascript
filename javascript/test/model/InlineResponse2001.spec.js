@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.InlineResponse2001();
+    instance = new quantimodo-api.InlineResponse2001();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,19 +61,19 @@
   describe('InlineResponse2001', function() {
     it('should create an instance of InlineResponse2001', function() {
       // uncomment below and update the code to test InlineResponse2001
-      //var instane = new QuantiModo.InlineResponse2001();
-      //expect(instance).to.be.a(QuantiModo.InlineResponse2001);
+      //var instane = new quantimodo-api.InlineResponse2001();
+      //expect(instance).to.be.a(quantimodo-api.InlineResponse2001);
     });
 
     it('should have the property success (base name: "success")', function() {
       // uncomment below and update the code to test the property success
-      //var instane = new QuantiModo.InlineResponse2001();
+      //var instane = new quantimodo-api.InlineResponse2001();
       //expect(instance).to.be();
     });
 
     it('should have the property data (base name: "data")', function() {
       // uncomment below and update the code to test the property data
-      //var instane = new QuantiModo.InlineResponse2001();
+      //var instane = new quantimodo-api.InlineResponse2001();
       //expect(instance).to.be();
     });
 

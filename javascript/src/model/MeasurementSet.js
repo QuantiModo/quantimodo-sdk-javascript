@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('./ValueObject'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.MeasurementSet = factory(root.QuantiModo.ApiClient, root.QuantiModo.ValueObject);
+    root.quantimodo-api.MeasurementSet = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.ValueObject);
   }
 }(this, function(ApiClient, ValueObject) {
   'use strict';

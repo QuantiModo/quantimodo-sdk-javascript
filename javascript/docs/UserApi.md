@@ -1,4 +1,4 @@
-# QuantiModo.UserApi
+# quantimodo-api.UserApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -18,13 +18,13 @@ Get user tokens for existing users, create new users
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
+var quantimodo-api = require('quanti_modo');
 
-var apiInstance = new QuantiModo.UserApi();
+var apiInstance = new quantimodo-api.UserApi();
 
 var organizationId = 56; // Number | Organization ID
 
-var body = new QuantiModo.UserTokenRequest(); // UserTokenRequest | Provides organization token and user ID
+var body = new quantimodo-api.UserTokenRequest(); // UserTokenRequest | Provides organization token and user ID
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -73,8 +73,8 @@ Returns user info for the currently authenticated user.
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quanti_modo');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -86,7 +86,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.UserApi();
+var apiInstance = new quantimodo-api.UserApi();
 
 var callback = function(error, data, response) {
   if (error) {

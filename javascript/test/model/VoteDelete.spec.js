@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.VoteDelete();
+    instance = new quantimodo-api.VoteDelete();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,19 +61,19 @@
   describe('VoteDelete', function() {
     it('should create an instance of VoteDelete', function() {
       // uncomment below and update the code to test VoteDelete
-      //var instane = new QuantiModo.VoteDelete();
-      //expect(instance).to.be.a(QuantiModo.VoteDelete);
+      //var instane = new quantimodo-api.VoteDelete();
+      //expect(instance).to.be.a(quantimodo-api.VoteDelete);
     });
 
     it('should have the property cause (base name: "cause")', function() {
       // uncomment below and update the code to test the property cause
-      //var instane = new QuantiModo.VoteDelete();
+      //var instane = new quantimodo-api.VoteDelete();
       //expect(instance).to.be();
     });
 
     it('should have the property effect (base name: "effect")', function() {
       // uncomment below and update the code to test the property effect
-      //var instane = new QuantiModo.VoteDelete();
+      //var instane = new quantimodo-api.VoteDelete();
       //expect(instance).to.be();
     });
 

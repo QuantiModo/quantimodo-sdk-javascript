@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/UserVariableDelete'), require('../model/UserVariables'), require('../model/Variable'), require('../model/VariableCategory'), require('../model/VariablesNew'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.VariablesApi = factory(root.QuantiModo.ApiClient, root.QuantiModo.UserVariableDelete, root.QuantiModo.UserVariables, root.QuantiModo.Variable, root.QuantiModo.VariableCategory, root.QuantiModo.VariablesNew);
+    root.quantimodo-api.VariablesApi = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.UserVariableDelete, root.quantimodo-api.UserVariables, root.quantimodo-api.Variable, root.quantimodo-api.VariableCategory, root.quantimodo-api.VariablesNew);
   }
 }(this, function(ApiClient, UserVariableDelete, UserVariables, Variable, VariableCategory, VariablesNew) {
   'use strict';

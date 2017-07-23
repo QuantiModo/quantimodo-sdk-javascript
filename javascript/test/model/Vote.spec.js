@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.Vote();
+    instance = new quantimodo-api.Vote();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,55 +61,55 @@
   describe('Vote', function() {
     it('should create an instance of Vote', function() {
       // uncomment below and update the code to test Vote
-      //var instane = new QuantiModo.Vote();
-      //expect(instance).to.be.a(QuantiModo.Vote);
+      //var instane = new quantimodo-api.Vote();
+      //expect(instance).to.be.a(quantimodo-api.Vote);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new QuantiModo.Vote();
+      //var instane = new quantimodo-api.Vote();
       //expect(instance).to.be();
     });
 
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new QuantiModo.Vote();
+      //var instane = new quantimodo-api.Vote();
       //expect(instance).to.be();
     });
 
     it('should have the property userId (base name: "userId")', function() {
       // uncomment below and update the code to test the property userId
-      //var instane = new QuantiModo.Vote();
+      //var instane = new quantimodo-api.Vote();
       //expect(instance).to.be();
     });
 
     it('should have the property causeId (base name: "causeId")', function() {
       // uncomment below and update the code to test the property causeId
-      //var instane = new QuantiModo.Vote();
+      //var instane = new quantimodo-api.Vote();
       //expect(instance).to.be();
     });
 
     it('should have the property effectId (base name: "effectId")', function() {
       // uncomment below and update the code to test the property effectId
-      //var instane = new QuantiModo.Vote();
+      //var instane = new quantimodo-api.Vote();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new QuantiModo.Vote();
+      //var instane = new quantimodo-api.Vote();
       //expect(instance).to.be();
     });
 
     it('should have the property createdAt (base name: "createdAt")', function() {
       // uncomment below and update the code to test the property createdAt
-      //var instane = new QuantiModo.Vote();
+      //var instane = new quantimodo-api.Vote();
       //expect(instance).to.be();
     });
 
     it('should have the property updatedAt (base name: "updatedAt")', function() {
       // uncomment below and update the code to test the property updatedAt
-      //var instane = new QuantiModo.Vote();
+      //var instane = new quantimodo-api.Vote();
       //expect(instance).to.be();
     });
 
