@@ -1,4 +1,4 @@
-# quantimodo-api.ConnectorInstruction
+# QuantiModo.ConnectorInstruction
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# quantimodo-api.UserTokenSuccessfulResponse
+# QuantiModo.UserTokenSuccessfulResponse
 
 ## Properties
 Name | Type | Description | Notes

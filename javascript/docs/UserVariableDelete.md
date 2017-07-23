@@ -1,4 +1,4 @@
-# quantimodo-api.UserVariableDelete
+# QuantiModo.UserVariableDelete
 
 ## Properties
 Name | Type | Description | Notes

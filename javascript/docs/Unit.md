@@ -1,4 +1,4 @@
-# quantimodo-api.Unit
+# QuantiModo.Unit
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# quantimodo-api.UnitCategory
+# QuantiModo.UnitCategory
 
 ## Properties
 Name | Type | Description | Notes

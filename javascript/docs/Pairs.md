@@ -1,4 +1,4 @@
-# quantimodo-api.Pairs
+# QuantiModo.Pairs
 
 ## Properties
 Name | Type | Description | Notes

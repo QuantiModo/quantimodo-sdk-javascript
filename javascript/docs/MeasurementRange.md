@@ -1,4 +1,4 @@
-# quantimodo-api.MeasurementRange
+# QuantiModo.MeasurementRange
 
 ## Properties
 Name | Type | Description | Notes

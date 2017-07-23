@@ -1,4 +1,4 @@
-# quantimodo-api.UserTokenRequest
+# QuantiModo.UserTokenRequest
 
 ## Properties
 Name | Type | Description | Notes

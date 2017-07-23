@@ -1,4 +1,4 @@
-# quantimodo-api.VariableNew
+# QuantiModo.VariableNew
 
 ## Properties
 Name | Type | Description | Notes

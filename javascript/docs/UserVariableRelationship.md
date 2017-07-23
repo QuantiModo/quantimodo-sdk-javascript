@@ -1,4 +1,4 @@
-# quantimodo-api.UserVariableRelationship
+# QuantiModo.UserVariableRelationship
 
 ## Properties
 Name | Type | Description | Notes
