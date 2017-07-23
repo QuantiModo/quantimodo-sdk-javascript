@@ -1,4 +1,4 @@
-# QuantiModo.PostVote
+# quantimodo-api.PostVote
 
 ## Properties
 Name | Type | Description | Notes

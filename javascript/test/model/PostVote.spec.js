@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.PostVote();
+    instance = new quantimodo-api.PostVote();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,25 +61,25 @@
   describe('PostVote', function() {
     it('should create an instance of PostVote', function() {
       // uncomment below and update the code to test PostVote
-      //var instane = new QuantiModo.PostVote();
-      //expect(instance).to.be.a(QuantiModo.PostVote);
+      //var instane = new quantimodo-api.PostVote();
+      //expect(instance).to.be.a(quantimodo-api.PostVote);
     });
 
     it('should have the property causeVariableId (base name: "causeVariableId")', function() {
       // uncomment below and update the code to test the property causeVariableId
-      //var instane = new QuantiModo.PostVote();
+      //var instane = new quantimodo-api.PostVote();
       //expect(instance).to.be();
     });
 
     it('should have the property effectVariableId (base name: "effectVariableId")', function() {
       // uncomment below and update the code to test the property effectVariableId
-      //var instane = new QuantiModo.PostVote();
+      //var instane = new quantimodo-api.PostVote();
       //expect(instance).to.be();
     });
 
     it('should have the property vote (base name: "vote")', function() {
       // uncomment below and update the code to test the property vote
-      //var instane = new QuantiModo.PostVote();
+      //var instane = new quantimodo-api.PostVote();
       //expect(instance).to.be();
     });
 

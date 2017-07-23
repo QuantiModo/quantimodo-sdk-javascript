@@ -1,4 +1,4 @@
-# QuantiModo.VotesApi
+# quantimodo-api.VotesApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -18,8 +18,8 @@ Delete previously posted vote
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -31,9 +31,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VotesApi();
+var apiInstance = new quantimodo-api.VotesApi();
 
-var body = new QuantiModo.VoteDelete(); // VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
+var body = new quantimodo-api.VoteDelete(); // VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -81,8 +81,8 @@ This is to enable users to indicate their opinion on the plausibility of a causa
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -94,9 +94,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VotesApi();
+var apiInstance = new quantimodo-api.VotesApi();
 
-var body = new QuantiModo.PostVote(); // PostVote | Contains the cause variable, effect variable, and vote value.
+var body = new quantimodo-api.PostVote(); // PostVote | Contains the cause variable, effect variable, and vote value.
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token

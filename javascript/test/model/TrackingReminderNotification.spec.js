@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.TrackingReminderNotification();
+    instance = new quantimodo-api.TrackingReminderNotification();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,109 +61,109 @@
   describe('TrackingReminderNotification', function() {
     it('should create an instance of TrackingReminderNotification', function() {
       // uncomment below and update the code to test TrackingReminderNotification
-      //var instane = new QuantiModo.TrackingReminderNotification();
-      //expect(instance).to.be.a(QuantiModo.TrackingReminderNotification);
+      //var instane = new quantimodo-api.TrackingReminderNotification();
+      //expect(instance).to.be.a(quantimodo-api.TrackingReminderNotification);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property trackingReminderId (base name: "trackingReminderId")', function() {
       // uncomment below and update the code to test the property trackingReminderId
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property userId (base name: "userId")', function() {
       // uncomment below and update the code to test the property userId
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property variableId (base name: "variableId")', function() {
       // uncomment below and update the code to test the property variableId
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property pendingReminderTime (base name: "pendingReminderTime")', function() {
       // uncomment below and update the code to test the property pendingReminderTime
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property defaultValue (base name: "defaultValue")', function() {
       // uncomment below and update the code to test the property defaultValue
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property reminderSound (base name: "reminderSound")', function() {
       // uncomment below and update the code to test the property reminderSound
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property popUp (base name: "popUp")', function() {
       // uncomment below and update the code to test the property popUp
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property sms (base name: "sms")', function() {
       // uncomment below and update the code to test the property sms
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property notificationBar (base name: "notificationBar")', function() {
       // uncomment below and update the code to test the property notificationBar
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property updatedAt (base name: "updatedAt")', function() {
       // uncomment below and update the code to test the property updatedAt
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property variableName (base name: "variableName")', function() {
       // uncomment below and update the code to test the property variableName
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property variableCategoryName (base name: "variableCategoryName")', function() {
       // uncomment below and update the code to test the property variableCategoryName
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property unitAbbreviatedName (base name: "unitAbbreviatedName")', function() {
       // uncomment below and update the code to test the property unitAbbreviatedName
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 
     it('should have the property combinationOperation (base name: "combinationOperation")', function() {
       // uncomment below and update the code to test the property combinationOperation
-      //var instane = new QuantiModo.TrackingReminderNotification();
+      //var instane = new quantimodo-api.TrackingReminderNotification();
       //expect(instance).to.be();
     });
 

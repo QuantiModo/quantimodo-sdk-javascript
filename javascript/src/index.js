@@ -34,14 +34,14 @@
   'use strict';
 
   /**
-   * QuantiModo_makes_it_easy_to_retrieve_normalized_user_data_from_a_wide_array_of_devices_and_applications___Learn_about_QuantiModo_httpsquantimo_do_check_out_our__docs_httpsgithub_comQuantiMododocs_or_contact_us_at__help_quantimo_do_httpshelp_quantimo_do_.<br>
+   * .<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
    * <pre>
-   * var QuantiModo = require('index'); // See note below*.
-   * var xxxSvc = new QuantiModo.XxxApi(); // Allocate the API class we're going to use.
-   * var yyyModel = new QuantiModo.Yyy(); // Construct a model instance.
+   * var quantimodo-api = require('index'); // See note below*.
+   * var xxxSvc = new quantimodo-api.XxxApi(); // Allocate the API class we're going to use.
+   * var yyyModel = new quantimodo-api.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -53,8 +53,8 @@
    * <p>
    * A non-AMD browser application (discouraged) might do something like this:
    * <pre>
-   * var xxxSvc = new QuantiModo.XxxApi(); // Allocate the API class we're going to use.
-   * var yyy = new QuantiModo.Yyy(); // Construct a model instance.
+   * var xxxSvc = new quantimodo-api.XxxApi(); // Allocate the API class we're going to use.
+   * var yyy = new quantimodo-api.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.

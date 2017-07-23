@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('./TrackingReminder'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.InlineResponse200 = factory(root.QuantiModo.ApiClient, root.QuantiModo.TrackingReminder);
+    root.quantimodo-api.InlineResponse200 = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.TrackingReminder);
   }
 }(this, function(ApiClient, TrackingReminder) {
   'use strict';

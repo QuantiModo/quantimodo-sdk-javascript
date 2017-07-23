@@ -1,4 +1,4 @@
-# QuantiModo.ConnectorInfoHistoryItem
+# quantimodo-api.ConnectorInfoHistoryItem
 
 ## Properties
 Name | Type | Description | Notes

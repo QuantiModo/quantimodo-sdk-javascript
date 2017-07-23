@@ -1,4 +1,4 @@
-# QuantiModo.MeasurementDelete
+# quantimodo-api.MeasurementDelete
 
 ## Properties
 Name | Type | Description | Notes

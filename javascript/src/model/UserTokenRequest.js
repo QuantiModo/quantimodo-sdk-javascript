@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('./UserTokenRequestInnerUserField'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.UserTokenRequest = factory(root.QuantiModo.ApiClient, root.QuantiModo.UserTokenRequestInnerUserField);
+    root.quantimodo-api.UserTokenRequest = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.UserTokenRequestInnerUserField);
   }
 }(this, function(ApiClient, UserTokenRequestInnerUserField) {
   'use strict';

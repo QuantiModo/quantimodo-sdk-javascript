@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.ValueObject();
+    instance = new quantimodo-api.ValueObject();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,25 +61,25 @@
   describe('ValueObject', function() {
     it('should create an instance of ValueObject', function() {
       // uncomment below and update the code to test ValueObject
-      //var instane = new QuantiModo.ValueObject();
-      //expect(instance).to.be.a(QuantiModo.ValueObject);
+      //var instane = new quantimodo-api.ValueObject();
+      //expect(instance).to.be.a(quantimodo-api.ValueObject);
     });
 
     it('should have the property timestamp (base name: "timestamp")', function() {
       // uncomment below and update the code to test the property timestamp
-      //var instane = new QuantiModo.ValueObject();
+      //var instane = new quantimodo-api.ValueObject();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new QuantiModo.ValueObject();
+      //var instane = new quantimodo-api.ValueObject();
       //expect(instance).to.be();
     });
 
     it('should have the property note (base name: "note")', function() {
       // uncomment below and update the code to test the property note
-      //var instane = new QuantiModo.ValueObject();
+      //var instane = new quantimodo-api.ValueObject();
       //expect(instance).to.be();
     });
 

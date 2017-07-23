@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.Unit();
+    instance = new quantimodo-api.Unit();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,43 +61,43 @@
   describe('Unit', function() {
     it('should create an instance of Unit', function() {
       // uncomment below and update the code to test Unit
-      //var instane = new QuantiModo.Unit();
-      //expect(instance).to.be.a(QuantiModo.Unit);
+      //var instane = new quantimodo-api.Unit();
+      //expect(instance).to.be.a(quantimodo-api.Unit);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new QuantiModo.Unit();
+      //var instane = new quantimodo-api.Unit();
       //expect(instance).to.be();
     });
 
     it('should have the property abbreviatedName (base name: "abbreviatedName")', function() {
       // uncomment below and update the code to test the property abbreviatedName
-      //var instane = new QuantiModo.Unit();
+      //var instane = new quantimodo-api.Unit();
       //expect(instance).to.be();
     });
 
     it('should have the property category (base name: "category")', function() {
       // uncomment below and update the code to test the property category
-      //var instane = new QuantiModo.Unit();
+      //var instane = new quantimodo-api.Unit();
       //expect(instance).to.be();
     });
 
     it('should have the property minimumAllowedValue (base name: "minimumAllowedValue")', function() {
       // uncomment below and update the code to test the property minimumAllowedValue
-      //var instane = new QuantiModo.Unit();
+      //var instane = new quantimodo-api.Unit();
       //expect(instance).to.be();
     });
 
     it('should have the property maximumAllowedValue (base name: "maximumAllowedValue")', function() {
       // uncomment below and update the code to test the property maximumAllowedValue
-      //var instane = new QuantiModo.Unit();
+      //var instane = new quantimodo-api.Unit();
       //expect(instance).to.be();
     });
 
     it('should have the property conversionSteps (base name: "conversionSteps")', function() {
       // uncomment below and update the code to test the property conversionSteps
-      //var instane = new QuantiModo.Unit();
+      //var instane = new quantimodo-api.Unit();
       //expect(instance).to.be();
     });
 

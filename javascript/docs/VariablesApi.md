@@ -1,4 +1,4 @@
-# QuantiModo.VariablesApi
+# quantimodo-api.VariablesApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -26,8 +26,8 @@ This endpoint retrieves an array of all public variables. Public variables are t
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -39,7 +39,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -108,8 +108,8 @@ Get top 5 PUBLIC variables with the most correlations containing the entered sea
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -121,7 +121,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
 var search = "search_example"; // String | Search query can be some fraction of a variable name.
 
@@ -185,8 +185,8 @@ Users can delete all of their measurements for a variable
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -198,9 +198,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
-var variableId = new QuantiModo.UserVariableDelete(); // UserVariableDelete | Id of the variable whose measurements should be deleted
+var variableId = new quantimodo-api.UserVariableDelete(); // UserVariableDelete | Id of the variable whose measurements should be deleted
 
 
 var callback = function(error, data, response) {
@@ -242,8 +242,8 @@ Users can change the parameters used in analysis of that variable such as the ex
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -255,9 +255,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
-var userVariables = new QuantiModo.UserVariables(); // UserVariables | Variable user settings data
+var userVariables = new quantimodo-api.UserVariables(); // UserVariables | Variable user settings data
 
 
 var callback = function(error, data, response) {
@@ -299,8 +299,8 @@ Reset user settings for a variable to defaults
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -312,9 +312,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
-var variableId = new QuantiModo.UserVariableDelete(); // UserVariableDelete | Id of the variable that should be reset
+var variableId = new quantimodo-api.UserVariableDelete(); // UserVariableDelete | Id of the variable that should be reset
 
 
 var callback = function(error, data, response) {
@@ -356,8 +356,8 @@ The variable categories include Activity, Causes of Illness, Cognitive Performan
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -369,7 +369,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -407,8 +407,8 @@ Get variables for which the user has measurements. If the user has specified var
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -420,7 +420,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -489,8 +489,8 @@ Allows the client to create a new variable in the &#x60;variables&#x60; table.
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -502,9 +502,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
-var body = new QuantiModo.VariablesNew(); // VariablesNew | Original name for the variable.
+var body = new quantimodo-api.VariablesNew(); // VariablesNew | Original name for the variable.
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -552,8 +552,8 @@ Get variables containing the search characters for which the currently logged in
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -565,7 +565,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
 var search = "search_example"; // String | Search query which may be an entire variable name or a fragment of one.
 
@@ -631,8 +631,8 @@ Get all of the settings and information about a variable by its name. If the log
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -644,7 +644,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.VariablesApi();
+var apiInstance = new quantimodo-api.VariablesApi();
 
 var variableName = "variableName_example"; // String | Variable name
 

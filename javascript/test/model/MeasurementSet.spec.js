@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.MeasurementSet();
+    instance = new quantimodo-api.MeasurementSet();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,43 +61,43 @@
   describe('MeasurementSet', function() {
     it('should create an instance of MeasurementSet', function() {
       // uncomment below and update the code to test MeasurementSet
-      //var instane = new QuantiModo.MeasurementSet();
-      //expect(instance).to.be.a(QuantiModo.MeasurementSet);
+      //var instane = new quantimodo-api.MeasurementSet();
+      //expect(instance).to.be.a(quantimodo-api.MeasurementSet);
     });
 
     it('should have the property measurements (base name: "measurements")', function() {
       // uncomment below and update the code to test the property measurements
-      //var instane = new QuantiModo.MeasurementSet();
+      //var instane = new quantimodo-api.MeasurementSet();
       //expect(instance).to.be();
     });
 
     it('should have the property variableName (base name: "variableName")', function() {
       // uncomment below and update the code to test the property variableName
-      //var instane = new QuantiModo.MeasurementSet();
+      //var instane = new quantimodo-api.MeasurementSet();
       //expect(instance).to.be();
     });
 
     it('should have the property sourceName (base name: "sourceName")', function() {
       // uncomment below and update the code to test the property sourceName
-      //var instane = new QuantiModo.MeasurementSet();
+      //var instane = new quantimodo-api.MeasurementSet();
       //expect(instance).to.be();
     });
 
     it('should have the property variableCategoryName (base name: "variableCategoryName")', function() {
       // uncomment below and update the code to test the property variableCategoryName
-      //var instane = new QuantiModo.MeasurementSet();
+      //var instane = new quantimodo-api.MeasurementSet();
       //expect(instance).to.be();
     });
 
     it('should have the property combinationOperation (base name: "combinationOperation")', function() {
       // uncomment below and update the code to test the property combinationOperation
-      //var instane = new QuantiModo.MeasurementSet();
+      //var instane = new quantimodo-api.MeasurementSet();
       //expect(instance).to.be();
     });
 
     it('should have the property unitAbbreviatedName (base name: "unitAbbreviatedName")', function() {
       // uncomment below and update the code to test the property unitAbbreviatedName
-      //var instane = new QuantiModo.MeasurementSet();
+      //var instane = new quantimodo-api.MeasurementSet();
       //expect(instance).to.be();
     });
 

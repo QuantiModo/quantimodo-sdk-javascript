@@ -1,4 +1,4 @@
-# QuantiModo.MeasurementsApi
+# quantimodo-api.MeasurementsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -28,8 +28,8 @@ Returns a list of all the apps from which measurement data is obtained.
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -41,7 +41,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -79,8 +79,8 @@ Add a life-tracking app or device to the QuantiModo list of data sources.
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -92,9 +92,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
-var body = new QuantiModo.MeasurementSource(); // MeasurementSource | An array of names of data sources you want to add.
+var body = new quantimodo-api.MeasurementSource(); // MeasurementSource | An array of names of data sources you want to add.
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -142,8 +142,8 @@ Measurements are any value that can be recorded like daily steps, a mood rating,
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -155,7 +155,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
 var variableName = "variableName_example"; // String | Name of the variable you want measurements for
 
@@ -221,8 +221,8 @@ Delete a previously submitted measurement
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -234,9 +234,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
-var body = new QuantiModo.MeasurementDelete(); // MeasurementDelete | The startTime and variableId of the measurement to be deleted.
+var body = new quantimodo-api.MeasurementDelete(); // MeasurementDelete | The startTime and variableId of the measurement to be deleted.
 
 
 var callback = function(error, data, response) {
@@ -278,8 +278,8 @@ Measurements are any value that can be recorded like daily steps, a mood rating,
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -291,7 +291,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -368,8 +368,8 @@ You can submit or update multiple measurements in a \&quot;measurements\&quot; s
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -381,9 +381,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
-var body = new QuantiModo.MeasurementSet(); // MeasurementSet | An array of measurements you want to insert.
+var body = new quantimodo-api.MeasurementSet(); // MeasurementSet | An array of measurements you want to insert.
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -431,8 +431,8 @@ Get Unix time-stamp (epoch time) of the user&#39;s first and last measurements t
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -444,7 +444,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
 var opts = { 
   'sources': "sources_example", // String | Enter source name to limit to specific source (varchar)
@@ -491,8 +491,8 @@ Delete a previously submitted measurement
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -504,9 +504,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
-var body = new QuantiModo.MeasurementUpdate(); // MeasurementUpdate | The id as well as the new startTime, note, and/or value of the measurement to be updated
+var body = new quantimodo-api.MeasurementUpdate(); // MeasurementUpdate | The id as well as the new startTime, note, and/or value of the measurement to be updated
 
 
 var callback = function(error, data, response) {
@@ -548,8 +548,8 @@ Download a CSV containing all user measurements
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -561,7 +561,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -608,8 +608,8 @@ Use this endpoint to schedule a CSV export containing all user measurements to b
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -621,7 +621,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -668,8 +668,8 @@ Use this endpoint to schedule a PDF export containing all user measurements to b
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -681,7 +681,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token
@@ -728,8 +728,8 @@ Use this endpoint to schedule a XLS export containing all user measurements to b
 
 ### Example
 ```javascript
-var QuantiModo = require('quanti_modo');
-var defaultClient = QuantiModo.ApiClient.default;
+var quantimodo-api = require('quantimodo-api');
+var defaultClient = quantimodo-api.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -741,7 +741,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QuantiModo.MeasurementsApi();
+var apiInstance = new quantimodo-api.MeasurementsApi();
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token

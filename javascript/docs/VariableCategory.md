@@ -1,4 +1,4 @@
-# QuantiModo.VariableCategory
+# quantimodo-api.VariableCategory
 
 ## Properties
 Name | Type | Description | Notes

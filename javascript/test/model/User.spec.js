@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.User();
+    instance = new quantimodo-api.User();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,49 +61,49 @@
   describe('User', function() {
     it('should create an instance of User', function() {
       // uncomment below and update the code to test User
-      //var instane = new QuantiModo.User();
-      //expect(instance).to.be.a(QuantiModo.User);
+      //var instane = new quantimodo-api.User();
+      //expect(instance).to.be.a(quantimodo-api.User);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new QuantiModo.User();
+      //var instane = new quantimodo-api.User();
       //expect(instance).to.be();
     });
 
     it('should have the property wpId (base name: "wpId")', function() {
       // uncomment below and update the code to test the property wpId
-      //var instane = new QuantiModo.User();
+      //var instane = new quantimodo-api.User();
       //expect(instance).to.be();
     });
 
     it('should have the property displayName (base name: "displayName")', function() {
       // uncomment below and update the code to test the property displayName
-      //var instane = new QuantiModo.User();
+      //var instane = new quantimodo-api.User();
       //expect(instance).to.be();
     });
 
     it('should have the property loginName (base name: "loginName")', function() {
       // uncomment below and update the code to test the property loginName
-      //var instane = new QuantiModo.User();
+      //var instane = new quantimodo-api.User();
       //expect(instance).to.be();
     });
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
-      //var instane = new QuantiModo.User();
+      //var instane = new quantimodo-api.User();
       //expect(instance).to.be();
     });
 
     it('should have the property token (base name: "token")', function() {
       // uncomment below and update the code to test the property token
-      //var instane = new QuantiModo.User();
+      //var instane = new quantimodo-api.User();
       //expect(instance).to.be();
     });
 
     it('should have the property administrator (base name: "administrator")', function() {
       // uncomment below and update the code to test the property administrator
-      //var instane = new QuantiModo.User();
+      //var instane = new quantimodo-api.User();
       //expect(instance).to.be();
     });
 

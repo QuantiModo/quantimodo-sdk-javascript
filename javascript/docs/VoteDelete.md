@@ -1,4 +1,4 @@
-# QuantiModo.VoteDelete
+# quantimodo-api.VoteDelete
 
 ## Properties
 Name | Type | Description | Notes

@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Connector'), require('../model/ConnectorInfo'), require('../model/ConnectorInstruction'));
   } else {
     // Browser globals (root is window)
-    if (!root.QuantiModo) {
-      root.QuantiModo = {};
+    if (!root.quantimodo-api) {
+      root.quantimodo-api = {};
     }
-    root.QuantiModo.ConnectorsApi = factory(root.QuantiModo.ApiClient, root.QuantiModo.Connector, root.QuantiModo.ConnectorInfo, root.QuantiModo.ConnectorInstruction);
+    root.quantimodo-api.ConnectorsApi = factory(root.quantimodo-api.ApiClient, root.quantimodo-api.Connector, root.quantimodo-api.ConnectorInfo, root.quantimodo-api.ConnectorInstruction);
   }
 }(this, function(ApiClient, Connector, ConnectorInfo, ConnectorInstruction) {
   'use strict';

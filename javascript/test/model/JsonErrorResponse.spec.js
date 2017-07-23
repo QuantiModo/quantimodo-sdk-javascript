@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.JsonErrorResponse();
+    instance = new quantimodo-api.JsonErrorResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,19 +61,19 @@
   describe('JsonErrorResponse', function() {
     it('should create an instance of JsonErrorResponse', function() {
       // uncomment below and update the code to test JsonErrorResponse
-      //var instane = new QuantiModo.JsonErrorResponse();
-      //expect(instance).to.be.a(QuantiModo.JsonErrorResponse);
+      //var instane = new quantimodo-api.JsonErrorResponse();
+      //expect(instance).to.be.a(quantimodo-api.JsonErrorResponse);
     });
 
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
-      //var instane = new QuantiModo.JsonErrorResponse();
+      //var instane = new quantimodo-api.JsonErrorResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new QuantiModo.JsonErrorResponse();
+      //var instane = new quantimodo-api.JsonErrorResponse();
       //expect(instance).to.be();
     });
 

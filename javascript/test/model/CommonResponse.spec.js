@@ -31,15 +31,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QuantiModo);
+    factory(root.expect, root.quantimodo-api);
   }
-}(this, function(expect, QuantiModo) {
+}(this, function(expect, quantimodo-api) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QuantiModo.CommonResponse();
+    instance = new quantimodo-api.CommonResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,25 +61,25 @@
   describe('CommonResponse', function() {
     it('should create an instance of CommonResponse', function() {
       // uncomment below and update the code to test CommonResponse
-      //var instane = new QuantiModo.CommonResponse();
-      //expect(instance).to.be.a(QuantiModo.CommonResponse);
+      //var instane = new quantimodo-api.CommonResponse();
+      //expect(instance).to.be.a(quantimodo-api.CommonResponse);
     });
 
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
-      //var instane = new QuantiModo.CommonResponse();
+      //var instane = new quantimodo-api.CommonResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new QuantiModo.CommonResponse();
+      //var instane = new quantimodo-api.CommonResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property success (base name: "success")', function() {
       // uncomment below and update the code to test the property success
-      //var instane = new QuantiModo.CommonResponse();
+      //var instane = new quantimodo-api.CommonResponse();
       //expect(instance).to.be();
     });
 
