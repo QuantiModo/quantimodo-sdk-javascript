@@ -506,7 +506,7 @@ This endpoint does not need any parameter.
 
 <a name="v1IntegrationJsGet"></a>
 # **v1IntegrationJsGet**
-> v1IntegrationJsGet()
+> v1IntegrationJsGet(opts)
 
 Get embeddable connect javascript
 
@@ -518,6 +518,10 @@ var QuantimodoApi = require('quantimodo-api');
 
 var apiInstance = new QuantimodoApi.ConnectorsApi();
 
+var opts = { 
+  'clientId': "clientId_example" // String | Your app's client id
+};
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -525,11 +529,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.v1IntegrationJsGet(callback);
+apiInstance.v1IntegrationJsGet(opts, callback);
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientId** | **String**| Your app&#39;s client id | [optional] 
 
 ### Return type
 
