@@ -93,7 +93,6 @@ var apiInstance = new QuantimodoApi.ConnectorsApi();
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -112,7 +111,6 @@ apiInstance.v1ConnectorsConnectorNameConnectGet(connectorName, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -162,7 +160,6 @@ var url = "url_example"; // String | URL which should be used to enable the conn
 var usePopup = true; // Boolean | Should use popup when enabling connector
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -184,7 +181,6 @@ Name | Type | Description  | Notes
  **parameters** | **String**| JSON Array of Parameters for the request to enable connector. | 
  **url** | **String**| URL which should be used to enable the connector. | 
  **usePopup** | **Boolean**| Should use popup when enabling connector | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -238,7 +234,6 @@ var type = "type_example"; // String | Type of input field such as those found h
 var usePopup = true; // Boolean | Should use popup when enabling connector
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'defaultValue': "defaultValue_example" // String | Default parameter value
 };
@@ -263,7 +258,6 @@ Name | Type | Description  | Notes
  **placeholder** | **String**| Placeholder hint value for the parameter input tag. | 
  **type** | **String**| Type of input field such as those found here http://www.w3schools.com/tags/tag_input.asp | 
  **usePopup** | **Boolean**| Should use popup when enabling connector | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **defaultValue** | **String**| Default parameter value | [optional] 
 
@@ -365,7 +359,6 @@ var apiInstance = new QuantimodoApi.ConnectorsApi();
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -384,7 +377,6 @@ apiInstance.v1ConnectorsConnectorNameInfoGet(connectorName, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -428,7 +420,6 @@ var apiInstance = new QuantimodoApi.ConnectorsApi();
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -447,7 +438,6 @@ apiInstance.v1ConnectorsConnectorNameUpdateGet(connectorName, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **connectorName** | **String**| Lowercase system name of the source application or device | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -529,7 +519,7 @@ var QuantimodoApi = require('quantimodo-api');
 var apiInstance = new QuantimodoApi.ConnectorsApi();
 
 var opts = { 
-  'accessToken': "accessToken_example" // String | User's OAuth2 access token
+  'clientId': "clientId_example" // String | Your app's client id
 };
 
 var callback = function(error, data, response) {
@@ -546,7 +536,7 @@ apiInstance.v1IntegrationJsGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
+ **clientId** | **String**| Your app&#39;s client id | [optional] 
 
 ### Return type
 

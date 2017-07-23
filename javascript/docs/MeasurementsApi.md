@@ -97,7 +97,6 @@ var apiInstance = new QuantimodoApi.MeasurementsApi();
 var body = new QuantimodoApi.MeasurementSource(); // MeasurementSource | An array of names of data sources you want to add.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -116,7 +115,6 @@ apiInstance.v1MeasurementSourcesPost(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**MeasurementSource**](MeasurementSource.md)| An array of names of data sources you want to add. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -160,7 +158,6 @@ var apiInstance = new QuantimodoApi.MeasurementsApi();
 var variableName = "variableName_example"; // String | Name of the variable you want measurements for
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'unitAbbreviatedName': "unitAbbreviatedName_example", // String | The unit your want the measurements in
   'startTime': "startTime_example", // String | The lower limit of measurements returned (UTC Iso8601 \"YYYY-MM-DDThh:mm:ss\" format)
@@ -187,7 +184,6 @@ apiInstance.v1MeasurementsDailyGet(variableName, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variableName** | **String**| Name of the variable you want measurements for | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **unitAbbreviatedName** | **String**| The unit your want the measurements in | [optional] 
  **startTime** | **String**| The lower limit of measurements returned (UTC Iso8601 \&quot;YYYY-MM-DDThh:mm:ss\&quot; format) | [optional] 
@@ -294,7 +290,6 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new QuantimodoApi.MeasurementsApi();
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'id': 56, // Number | Measurement id
   'variableName': "variableName_example", // String | Name of the variable you want measurements for
@@ -327,7 +322,6 @@ apiInstance.v1MeasurementsGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **id** | **Number**| Measurement id | [optional] 
  **variableName** | **String**| Name of the variable you want measurements for | [optional] 
@@ -386,7 +380,6 @@ var apiInstance = new QuantimodoApi.MeasurementsApi();
 var body = new QuantimodoApi.MeasurementSet(); // MeasurementSet | An array of measurements you want to insert.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -405,7 +398,6 @@ apiInstance.v1MeasurementsPost(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**MeasurementSet**](MeasurementSet.md)| An array of measurements you want to insert. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type

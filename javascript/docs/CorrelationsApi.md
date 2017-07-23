@@ -44,7 +44,6 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new QuantimodoApi.CorrelationsApi();
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'effect': "effect_example", // String | Variable name of the effect variable for which the user desires correlations
   'cause': "cause_example", // String | Variable name of the cause variable for which the user desires correlations
@@ -72,7 +71,6 @@ apiInstance.v1AggregatedCorrelationsGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **effect** | **String**| Variable name of the effect variable for which the user desires correlations | [optional] 
  **cause** | **String**| Variable name of the cause variable for which the user desires correlations | [optional] 
@@ -126,7 +124,6 @@ var apiInstance = new QuantimodoApi.CorrelationsApi();
 var body = new QuantimodoApi.PostCorrelation(); // PostCorrelation | Provides correlation data
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -145,7 +142,6 @@ apiInstance.v1AggregatedCorrelationsPost(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PostCorrelation**](PostCorrelation.md)| Provides correlation data | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -187,7 +183,6 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new QuantimodoApi.CorrelationsApi();
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'effect': "effect_example", // String | Variable name of the effect variable for which the user desires correlations
   'cause': "cause_example", // String | Variable name of the cause variable for which the user desires correlations
@@ -215,7 +210,6 @@ apiInstance.v1CorrelationsGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **effect** | **String**| Variable name of the effect variable for which the user desires correlations | [optional] 
  **cause** | **String**| Variable name of the cause variable for which the user desires correlations | [optional] 
@@ -275,7 +269,6 @@ var variableName = "variableName_example"; // String | Effect variable name
 var organizationToken = "organizationToken_example"; // String | Organization access token
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'includePublic': "includePublic_example" // String | Include public correlations, Can be \"1\" or empty.
 };
@@ -298,7 +291,6 @@ Name | Type | Description  | Notes
  **userId2** | **Number**| User id | 
  **variableName** | **String**| Effect variable name | 
  **organizationToken** | **String**| Organization access token | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **includePublic** | **String**| Include public correlations, Can be \&quot;1\&quot; or empty. | [optional] 
 
@@ -349,7 +341,6 @@ var variableName = "variableName_example"; // String | Cause variable name
 var organizationToken = "organizationToken_example"; // String | Organization access token
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'includePublic': "includePublic_example" // String | Include public correlations, Can be \"1\" or empty.
 };
@@ -372,7 +363,6 @@ Name | Type | Description  | Notes
  **userId2** | **Number**| User id | 
  **variableName** | **String**| Cause variable name | 
  **organizationToken** | **String**| Organization access token | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **includePublic** | **String**| Include public correlations, Can be \&quot;1\&quot; or empty. | [optional] 
 
@@ -419,7 +409,6 @@ var search = "search_example"; // String | Name of the variable that you want to
 var effectOrCause = "effectOrCause_example"; // String | Setting this to effect indicates that the searched variable is the effect and that the causes of this variable should be returned. cause indicates that the searched variable is the cause and the effects should be returned.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'outcomesOfInterest': true // Boolean | Only include correlations for which the effect is an outcome of interest for the user
 };
@@ -440,7 +429,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **search** | **String**| Name of the variable that you want to know the causes or effects of. | 
  **effectOrCause** | **String**| Setting this to effect indicates that the searched variable is the effect and that the causes of this variable should be returned. cause indicates that the searched variable is the cause and the effects should be returned. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **outcomesOfInterest** | **Boolean**| Only include correlations for which the effect is an outcome of interest for the user | [optional] 
 
@@ -542,7 +530,6 @@ var apiInstance = new QuantimodoApi.CorrelationsApi();
 var variableName = "variableName_example"; // String | Cause variable name
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'correlationCoefficient': "correlationCoefficient_example" // String | You can use this to get effects with correlations greater than or less than 0
 };
@@ -562,7 +549,6 @@ apiInstance.v1VariablesVariableNameEffectsGet(variableName, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variableName** | **String**| Cause variable name | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **correlationCoefficient** | **String**| You can use this to get effects with correlations greater than or less than 0 | [optional] 
 
@@ -607,7 +593,6 @@ var apiInstance = new QuantimodoApi.CorrelationsApi();
 var variableName = "variableName_example"; // String | Effect variable name
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'correlationCoefficient': "correlationCoefficient_example" // String | You can use this to get causes with correlations greater than or less than 0
 };
@@ -627,7 +612,6 @@ apiInstance.v1VariablesVariableNamePublicCausesGet(variableName, opts, callback)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variableName** | **String**| Effect variable name | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **correlationCoefficient** | **String**| You can use this to get causes with correlations greater than or less than 0 | [optional] 
 
@@ -672,7 +656,6 @@ var apiInstance = new QuantimodoApi.CorrelationsApi();
 var variableName = "variableName_example"; // String | Cause variable name
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -691,7 +674,6 @@ apiInstance.v1VariablesVariableNamePublicEffectsGet(variableName, opts, callback
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variableName** | **String**| Cause variable name | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -735,7 +717,6 @@ var apiInstance = new QuantimodoApi.CorrelationsApi();
 var body = new QuantimodoApi.VoteDelete(); // VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -754,7 +735,6 @@ apiInstance.v1VotesDeletePost(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**VoteDelete**](VoteDelete.md)| The cause and effect variable names for the predictor vote to be deleted. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -798,7 +778,6 @@ var apiInstance = new QuantimodoApi.CorrelationsApi();
 var body = new QuantimodoApi.PostVote(); // PostVote | Contains the cause variable, effect variable, and vote value.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -817,7 +796,6 @@ apiInstance.v1VotesPost(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PostVote**](PostVote.md)| Contains the cause variable, effect variable, and vote value. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type

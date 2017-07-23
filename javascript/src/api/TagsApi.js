@@ -122,7 +122,6 @@
      * This endpoint allows users to tag foods with their ingredients.  This information will then be used to infer the user intake of the different ingredients by just entering the foods. The inferred intake levels will then be used to determine the effects of different nutrients on the user during analysis.
      * @param {module:model/UserTag} body Contains the new user tag data
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/TagsApi~v1UserTagsPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
@@ -140,7 +139,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {

@@ -69,7 +69,6 @@
      * Delete previously posted vote
      * @param {module:model/VoteDelete} body The cause and effect variable names for the predictor vote to be deleted.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/VotesApi~v1VotesDeletePostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
@@ -87,7 +86,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {
@@ -120,7 +118,6 @@
      * This is to enable users to indicate their opinion on the plausibility of a causal relationship between a treatment and outcome. QuantiModo incorporates crowd-sourced plausibility estimations into their algorithm. This is done allowing user to indicate their view of the plausibility of each relationship with thumbs up/down buttons placed next to each prediction.
      * @param {module:model/PostVote} body Contains the cause variable, effect variable, and vote value.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/VotesApi~v1VotesPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
@@ -138,7 +135,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {

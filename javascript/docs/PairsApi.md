@@ -38,7 +38,6 @@ var cause = "cause_example"; // String | Original variable name for the explanat
 var effect = "effect_example"; // String | Original variable name for the outcome or dependent variable
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'causeSource': "causeSource_example", // String | Name of data source that the cause measurements should come from
   'causeUnit': "causeUnit_example", // String | Abbreviated name for the unit cause measurements to be returned in
@@ -69,7 +68,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cause** | **String**| Original variable name for the explanatory or independent variable | 
  **effect** | **String**| Original variable name for the outcome or dependent variable | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **causeSource** | **String**| Name of data source that the cause measurements should come from | [optional] 
  **causeUnit** | **String**| Abbreviated name for the unit cause measurements to be returned in | [optional] 
@@ -126,7 +124,6 @@ var cause = "cause_example"; // String | Original variable name for the explanat
 var effect = "effect_example"; // String | Original variable name for the outcome or dependent variable
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'causeSource': "causeSource_example", // String | Name of data source that the cause measurements should come from
   'causeUnit': "causeUnit_example", // String | Abbreviated name for the unit cause measurements to be returned in
@@ -157,7 +154,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cause** | **String**| Original variable name for the explanatory or independent variable | 
  **effect** | **String**| Original variable name for the outcome or dependent variable | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **causeSource** | **String**| Name of data source that the cause measurements should come from | [optional] 
  **causeUnit** | **String**| Abbreviated name for the unit cause measurements to be returned in | [optional] 

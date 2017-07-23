@@ -96,7 +96,6 @@ var apiInstance = new QuantimodoApi.TagsApi();
 var body = new QuantimodoApi.UserTag(); // UserTag | Contains the new user tag data
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -115,7 +114,6 @@ apiInstance.v1UserTagsPost(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**UserTag**](UserTag.md)| Contains the new user tag data | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
