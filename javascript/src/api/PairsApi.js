@@ -70,7 +70,6 @@
      * @param {String} cause Original variable name for the explanatory or independent variable
      * @param {String} effect Original variable name for the outcome or dependent variable
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.causeSource Name of data source that the cause measurements should come from
      * @param {String} opts.causeUnit Abbreviated name for the unit cause measurements to be returned in
@@ -104,7 +103,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'cause': cause,
         'causeSource': opts['causeSource'],
@@ -151,7 +149,6 @@
      * @param {String} cause Original variable name for the explanatory or independent variable
      * @param {String} effect Original variable name for the outcome or dependent variable
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.causeSource Name of data source that the cause measurements should come from
      * @param {String} opts.causeUnit Abbreviated name for the unit cause measurements to be returned in
@@ -185,7 +182,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'cause': cause,
         'causeSource': opts['causeSource'],

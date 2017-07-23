@@ -108,7 +108,6 @@
      * Add a life-tracking app or device to the QuantiModo list of data sources.
      * @param {module:model/MeasurementSource} body An array of names of data sources you want to add.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/MeasurementsApi~v1MeasurementSourcesPostCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -125,7 +124,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {
@@ -158,7 +156,6 @@
      * Measurements are any value that can be recorded like daily steps, a mood rating, or apples eaten. Supported filter parameters:&lt;ul&gt;&lt;li&gt;&lt;b&gt;value&lt;/b&gt; - Value of measurement&lt;/li&gt;&lt;li&gt;&lt;b&gt;updatedAt&lt;/b&gt; - The time that this measurement was created or last updated in the UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot;&lt;/li&gt;&lt;/ul&gt;
      * @param {String} variableName Name of the variable you want measurements for
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.unitAbbreviatedName The unit your want the measurements in
      * @param {String} opts.startTime The lower limit of measurements returned (UTC Iso8601 \&quot;YYYY-MM-DDThh:mm:ss\&quot; format)
@@ -184,7 +181,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'variableName': variableName,
         'unitAbbreviatedName': opts['unitAbbreviatedName'],
@@ -270,7 +266,6 @@
      * Get measurements for this user
      * Measurements are any value that can be recorded like daily steps, a mood rating, or apples eaten. Supported filter parameters:&lt;ul&gt;&lt;li&gt;&lt;b&gt;value&lt;/b&gt; - Value of measurement&lt;/li&gt;&lt;li&gt;&lt;b&gt;updatedAt&lt;/b&gt; - The time that this measurement was created or last updated in the UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot;&lt;/li&gt;&lt;/ul&gt;
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {Number} opts.id Measurement id
      * @param {String} opts.variableName Name of the variable you want measurements for
@@ -298,7 +293,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'id': opts['id'],
         'variableName': opts['variableName'],
@@ -346,7 +340,6 @@
      * You can submit or update multiple measurements in a \&quot;measurements\&quot; sub-array.  If the variable these measurements correspond to does not already exist in the database, it will be automatically added.  The request body should look something like [{\&quot;measurements\&quot;:[{\&quot;startTime\&quot;:1439389320,\&quot;value\&quot;:\&quot;3\&quot;}, {\&quot;startTime\&quot;:1439389319,\&quot;value\&quot;:\&quot;2\&quot;}],\&quot;name\&quot;:\&quot;Acne (out of 5)\&quot;,\&quot;source\&quot;:\&quot;QuantiModo\&quot;,\&quot;category\&quot;:\&quot;Symptoms\&quot;,\&quot;combinationOperation\&quot;:\&quot;MEAN\&quot;,\&quot;unit\&quot;:\&quot;/5\&quot;}]
      * @param {module:model/MeasurementSet} body An array of measurements you want to insert.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/MeasurementsApi~v1MeasurementsPostCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -363,7 +356,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {

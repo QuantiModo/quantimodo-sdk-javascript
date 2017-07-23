@@ -68,7 +68,6 @@
      * Get aggregated correlations
      * Get correlations based on the anonymized aggregate data from all QuantiModo users.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.effect Variable name of the effect variable for which the user desires correlations
      * @param {String} opts.cause Variable name of the cause variable for which the user desires correlations
@@ -91,7 +90,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'effect': opts['effect'],
         'cause': opts['cause'],
@@ -134,7 +132,6 @@
      * Add correlation
      * @param {module:model/PostCorrelation} body Provides correlation data
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/CorrelationsApi~v1AggregatedCorrelationsPostCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -151,7 +148,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {
@@ -183,7 +179,6 @@
      * Get correlations
      * Get correlations based on data from a single user.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.effect Variable name of the effect variable for which the user desires correlations
      * @param {String} opts.cause Variable name of the cause variable for which the user desires correlations
@@ -206,7 +201,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'effect': opts['effect'],
         'cause': opts['cause'],
@@ -252,7 +246,6 @@
      * @param {String} variableName Effect variable name
      * @param {String} organizationToken Organization access token
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.includePublic Include public correlations, Can be \&quot;1\&quot; or empty.
      * @param {module:api/CorrelationsApi~v1OrganizationsOrganizationIdUsersUserIdVariablesVariableNameCausesGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -289,7 +282,6 @@
         'variableName': variableName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'organization_token': organizationToken,
         'includePublic': opts['includePublic']
@@ -327,7 +319,6 @@
      * @param {String} variableName Cause variable name
      * @param {String} organizationToken Organization access token
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.includePublic Include public correlations, Can be \&quot;1\&quot; or empty.
      * @param {module:api/CorrelationsApi~v1OrganizationsOrganizationIdUsersUserIdVariablesVariableNameEffectsGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -364,7 +355,6 @@
         'variableName': variableName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'organization_token': organizationToken,
         'include_public': opts['includePublic']
@@ -400,7 +390,6 @@
      * @param {String} search Name of the variable that you want to know the causes or effects of.
      * @param {String} effectOrCause Setting this to effect indicates that the searched variable is the effect and that the causes of this variable should be returned. cause indicates that the searched variable is the cause and the effects should be returned.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param {module:api/CorrelationsApi~v1PublicCorrelationsSearchSearchGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -425,7 +414,6 @@
         'search': search
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'effectOrCause': effectOrCause,
         'outcomesOfInterest': opts['outcomesOfInterest']
@@ -506,7 +494,6 @@
      * Returns average of all correlations and votes for all user effect variables for a given cause
      * @param {String} variableName Cause variable name
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.correlationCoefficient You can use this to get effects with correlations greater than or less than 0
      * @param {module:api/CorrelationsApi~v1VariablesVariableNameEffectsGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -526,7 +513,6 @@
         'variableName': variableName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'correlationCoefficient': opts['correlationCoefficient']
       };
@@ -560,7 +546,6 @@
      * Returns average of all correlations and votes for all public cause variables for a given effect
      * @param {String} variableName Effect variable name
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.correlationCoefficient You can use this to get causes with correlations greater than or less than 0
      * @param {module:api/CorrelationsApi~v1VariablesVariableNamePublicCausesGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -580,7 +565,6 @@
         'variableName': variableName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'correlationCoefficient': opts['correlationCoefficient']
       };
@@ -614,7 +598,6 @@
      * Returns average of all correlations and votes for all public cause variables for a given cause
      * @param {String} variableName Cause variable name
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/CorrelationsApi~v1VariablesVariableNamePublicEffectsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Correlation>}
@@ -633,7 +616,6 @@
         'variableName': variableName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {
@@ -666,7 +648,6 @@
      * Delete previously posted vote
      * @param {module:model/VoteDelete} body The cause and effect variable names for the predictor vote to be deleted.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/CorrelationsApi~v1VotesDeletePostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
@@ -684,7 +665,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {
@@ -717,7 +697,6 @@
      * This is to enable users to indicate their opinion on the plausibility of a causal relationship between a treatment and outcome. QuantiModo incorporates crowd-sourced plausibility estimations into their algorithm. This is done allowing user to indicate their view of the plausibility of each relationship with thumbs up/down buttons placed next to each prediction.
      * @param {module:model/PostVote} body Contains the cause variable, effect variable, and vote value.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/CorrelationsApi~v1VotesPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
@@ -735,7 +714,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {

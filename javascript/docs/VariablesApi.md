@@ -42,7 +42,6 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new QuantimodoApi.VariablesApi();
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'id': 56, // Number | Common variable id
   'category': "category_example", // String | Filter data by category
@@ -71,7 +70,6 @@ apiInstance.v1PublicVariablesGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **id** | **Number**| Common variable id | [optional] 
  **category** | **String**| Filter data by category | [optional] 
@@ -126,7 +124,6 @@ var apiInstance = new QuantimodoApi.VariablesApi();
 var search = "search_example"; // String | Search query can be some fraction of a variable name.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Filter variables by category name. The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Work.
   'source': "source_example", // String | Specify a data source name to only return variables from a specific data source.
@@ -152,7 +149,6 @@ apiInstance.v1PublicVariablesSearchSearchGet(search, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **search** | **String**| Search query can be some fraction of a variable name. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **variableCategoryName** | **String**| Filter variables by category name. The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Work. | [optional] 
  **source** | **String**| Specify a data source name to only return variables from a specific data source. | [optional] 
@@ -423,7 +419,6 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new QuantimodoApi.VariablesApi();
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'id': 56, // Number | Common variable id
   'category': "category_example", // String | Filter data by category
@@ -452,7 +447,6 @@ apiInstance.v1VariablesGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **id** | **Number**| Common variable id | [optional] 
  **category** | **String**| Filter data by category | [optional] 
@@ -507,7 +501,6 @@ var apiInstance = new QuantimodoApi.VariablesApi();
 var body = new QuantimodoApi.VariablesNew(); // VariablesNew | Original name for the variable.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -526,7 +519,6 @@ apiInstance.v1VariablesPost(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**VariablesNew**](VariablesNew.md)| Original name for the variable. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -570,7 +562,6 @@ var apiInstance = new QuantimodoApi.VariablesApi();
 var search = "search_example"; // String | Search query which may be an entire variable name or a fragment of one.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Filter variables by category name. The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Work.
   'includePublic': true, // Boolean | Set to true if you would like to include public variables when no user variables are found.
@@ -597,7 +588,6 @@ apiInstance.v1VariablesSearchSearchGet(search, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **search** | **String**| Search query which may be an entire variable name or a fragment of one. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **variableCategoryName** | **String**| Filter variables by category name. The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Work. | [optional] 
  **includePublic** | **Boolean**| Set to true if you would like to include public variables when no user variables are found. | [optional] 
@@ -649,7 +639,6 @@ var apiInstance = new QuantimodoApi.VariablesApi();
 var variableName = "variableName_example"; // String | Variable name
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -668,7 +657,6 @@ apiInstance.v1VariablesVariableNameGet(variableName, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variableName** | **String**| Variable name | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type

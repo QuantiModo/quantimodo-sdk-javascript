@@ -86,7 +86,6 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new QuantimodoApi.UnitsApi();
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'id': 56, // Number | Unit id
   'unitName': "unitName_example", // String | Unit name
@@ -108,7 +107,6 @@ apiInstance.v1UnitsGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **id** | **Number**| Unit id | [optional] 
  **unitName** | **String**| Unit name | [optional] 
@@ -154,7 +152,6 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new QuantimodoApi.UnitsApi();
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56, // Number | User's id
   'unitName': "unitName_example", // String | Name of Unit you want to retrieve
   'unitAbbreviatedName': "unitAbbreviatedName_example", // String | Abbreviated Unit Name of the unit you want
@@ -176,7 +173,6 @@ apiInstance.v1UnitsVariableGet(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **unitName** | **String**| Name of Unit you want to retrieve | [optional] 
  **unitAbbreviatedName** | **String**| Abbreviated Unit Name of the unit you want | [optional] 

@@ -68,7 +68,6 @@
      * Get public variables
      * This endpoint retrieves an array of all public variables. Public variables are things like foods, medications, symptoms, conditions, and anything not unique to a particular user. For instance, a telephone number or name would not be a public variable.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {Number} opts.id Common variable id
      * @param {String} opts.category Filter data by category
@@ -92,7 +91,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'id': opts['id'],
         'category': opts['category'],
@@ -136,7 +134,6 @@
      * Get top 5 PUBLIC variables with the most correlations containing the entered search characters. For example, search for &#39;mood&#39; as an effect. Since &#39;Overall Mood&#39; has a lot of correlations with other variables, it should be in the autocomplete list.Supported filter parameters:&lt;ul&gt;&lt;li&gt;&lt;b&gt;category&lt;/b&gt; - Category of Variable&lt;/li&gt;&lt;/ul&gt;
      * @param {String} search Search query can be some fraction of a variable name.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.variableCategoryName Filter variables by category name. The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Work.
      * @param {String} opts.source Specify a data source name to only return variables from a specific data source.
@@ -162,7 +159,6 @@
         'search': search
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'variableCategoryName': opts['variableCategoryName'],
         'source': opts['source'],
@@ -372,7 +368,6 @@
      * Get variables with user&#39;s settings
      * Get variables for which the user has measurements. If the user has specified variable settings, these are provided instead of the common variable defaults.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {Number} opts.id Common variable id
      * @param {String} opts.category Filter data by category
@@ -396,7 +391,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'id': opts['id'],
         'category': opts['category'],
@@ -440,7 +434,6 @@
      * Allows the client to create a new variable in the &#x60;variables&#x60; table.
      * @param {module:model/VariablesNew} body Original name for the variable.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/VariablesApi~v1VariablesPostCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -457,7 +450,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {
@@ -490,7 +482,6 @@
      * Get variables containing the search characters for which the currently logged in user has measurements. Used to provide auto-complete function in variable search boxes.
      * @param {String} search Search query which may be an entire variable name or a fragment of one.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.variableCategoryName Filter variables by category name. The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Work.
      * @param {Boolean} opts.includePublic Set to true if you would like to include public variables when no user variables are found.
@@ -517,7 +508,6 @@
         'search': search
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'variableCategoryName': opts['variableCategoryName'],
         'includePublic': opts['includePublic'],
@@ -558,7 +548,6 @@
      * Get all of the settings and information about a variable by its name. If the logged in user has modified the settings for the variable, these will be provided instead of the default settings for that variable.
      * @param {String} variableName Variable name
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/VariablesApi~v1VariablesVariableNameGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Variable}
@@ -577,7 +566,6 @@
         'variableName': variableName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {

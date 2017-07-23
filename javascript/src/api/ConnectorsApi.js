@@ -118,7 +118,6 @@
      * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
      * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~v1ConnectorsConnectorNameConnectGetCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -136,7 +135,6 @@
         'connectorName': connectorName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {
@@ -172,7 +170,6 @@
      * @param {String} url URL which should be used to enable the connector.
      * @param {Boolean} usePopup Should use popup when enabling connector
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~v1ConnectorsConnectorNameConnectInstructionsGetCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -205,7 +202,6 @@
         'connectorName': connectorName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'parameters': parameters,
         'url': url,
@@ -246,7 +242,6 @@
      * @param {String} type Type of input field such as those found here http://www.w3schools.com/tags/tag_input.asp
      * @param {Boolean} usePopup Should use popup when enabling connector
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.defaultValue Default parameter value
      * @param {module:api/ConnectorsApi~v1ConnectorsConnectorNameConnectParameterGetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -291,7 +286,6 @@
         'connectorName': connectorName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'defaultValue': opts['defaultValue'],
         'displayName': displayName,
@@ -375,7 +369,6 @@
      * Returns information about the connector such as the connector id, whether or not is connected for this user (i.e. we have a token or credentials), and its update history for the user.
      * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~v1ConnectorsConnectorNameInfoGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ConnectorInfo}
@@ -394,7 +387,6 @@
         'connectorName': connectorName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {
@@ -427,7 +419,6 @@
      * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
      * @param {String} connectorName Lowercase system name of the source application or device
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~v1ConnectorsConnectorNameUpdateGetCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -445,7 +436,6 @@
         'connectorName': connectorName
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {
@@ -515,19 +505,15 @@
     /**
      * Get embeddable connect javascript
      * Get embeddable connect javascript. Usage:   - Embedding in applications with popups for 3rd-party authentication windows.     Use &#x60;qmSetupInPopup&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in applications with popups for 3rd-party authentication windows.     Requires a selector to block. It will be embedded in this block.     Use &#x60;qmSetupOnPage&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in mobile applications without popups for 3rd-party authentication.     Use &#x60;qmSetupOnMobile&#x60; function after connecting &#x60;connect.js&#x60;.     If using in a Cordova application call  &#x60;qmSetupOnIonic&#x60; function after connecting &#x60;connect.js&#x60;.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {module:api/ConnectorsApi~v1IntegrationJsGetCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.v1IntegrationJsGet = function(opts, callback) {
-      opts = opts || {};
+    this.v1IntegrationJsGet = function(callback) {
       var postBody = null;
 
 
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken']
       };
       var headerParams = {
       };

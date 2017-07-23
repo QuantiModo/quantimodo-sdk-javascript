@@ -26,7 +26,6 @@ var organizationId = 56; // Number | Organization ID
 var body = new QuantimodoApi.UserTokenRequest(); // UserTokenRequest | Provides organization token and user ID
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -46,7 +45,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **Number**| Organization ID | 
  **body** | [**UserTokenRequest**](UserTokenRequest.md)| Provides organization token and user ID | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type

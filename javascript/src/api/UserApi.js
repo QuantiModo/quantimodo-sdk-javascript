@@ -70,7 +70,6 @@
      * @param {Number} organizationId Organization ID
      * @param {module:model/UserTokenRequest} body Provides organization token and user ID
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/UserApi~v1OrganizationsOrganizationIdUsersPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserTokenSuccessfulResponse}
@@ -94,7 +93,6 @@
         'organizationId': organizationId
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId']
       };
       var headerParams = {

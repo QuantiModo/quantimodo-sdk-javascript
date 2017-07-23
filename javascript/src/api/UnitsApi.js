@@ -107,7 +107,6 @@
      * Get all available units
      * Get all available units
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {Number} opts.id Unit id
      * @param {String} opts.unitName Unit name
@@ -124,7 +123,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'id': opts['id'],
         'unitName': opts['unitName'],
@@ -160,7 +158,6 @@
      * Units for Variable
      * Get a list of all possible units to use for a given variable
      * @param {Object} opts Optional parameters
-     * @param {String} opts.accessToken User&#39;s OAuth2 access token
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.unitName Name of Unit you want to retrieve
      * @param {String} opts.unitAbbreviatedName Abbreviated Unit Name of the unit you want
@@ -177,7 +174,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'access_token': opts['accessToken'],
         'userId': opts['userId'],
         'unitName': opts['unitName'],
         'unitAbbreviatedName': opts['unitAbbreviatedName'],

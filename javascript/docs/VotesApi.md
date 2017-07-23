@@ -36,7 +36,6 @@ var apiInstance = new QuantimodoApi.VotesApi();
 var body = new QuantimodoApi.VoteDelete(); // VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -55,7 +54,6 @@ apiInstance.v1VotesDeletePost(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**VoteDelete**](VoteDelete.md)| The cause and effect variable names for the predictor vote to be deleted. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -99,7 +97,6 @@ var apiInstance = new QuantimodoApi.VotesApi();
 var body = new QuantimodoApi.PostVote(); // PostVote | Contains the cause variable, effect variable, and vote value.
 
 var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
   'userId': 56 // Number | User's id
 };
 
@@ -118,7 +115,6 @@ apiInstance.v1VotesPost(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PostVote**](PostVote.md)| Contains the cause variable, effect variable, and vote value. | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
