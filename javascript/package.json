@@ -1,7 +1,7 @@
 {
   "name": "quantimodo-api",
-  "version": "2.0",
-  "description": "",
+  "version": "5.8.5",
+  "description": "QuantiModo_makes_it_easy_to_retrieve_normalized_user_data_from_a_wide_array_of_devices_and_applications___Learn_about_QuantiModo_httpsquantimo_do_check_out_our__docs_httpsgithub_comQuantiMododocs_or_contact_us_at__help_quantimo_do_httpshelp_quantimo_do_",
   "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {

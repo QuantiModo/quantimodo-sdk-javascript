@@ -1,4 +1,4 @@
-# quantimodo-api.Connection
+# QuantimodoApi.Connection
 
 ## Properties
 Name | Type | Description | Notes

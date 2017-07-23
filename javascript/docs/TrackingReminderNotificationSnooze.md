@@ -1,4 +1,4 @@
-# quantimodo-api.TrackingReminderNotificationSnooze
+# QuantimodoApi.TrackingReminderNotificationSnooze
 
 ## Properties
 Name | Type | Description | Notes

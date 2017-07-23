@@ -1,4 +1,4 @@
-# quantimodo-api.ConversionStep
+# QuantimodoApi.ConversionStep
 
 ## Properties
 Name | Type | Description | Notes

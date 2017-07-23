@@ -1,4 +1,4 @@
-# quantimodo-api.Update
+# QuantimodoApi.Update
 
 ## Properties
 Name | Type | Description | Notes

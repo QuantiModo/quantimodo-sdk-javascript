@@ -1,4 +1,4 @@
-# quantimodo-api.ValueObject
+# QuantimodoApi.ValueObject
 
 ## Properties
 Name | Type | Description | Notes

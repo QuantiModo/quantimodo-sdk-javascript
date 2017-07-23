@@ -1,4 +1,4 @@
-# quantimodo-api.TagsApi
+# QuantimodoApi.TagsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -18,8 +18,8 @@ Delete previously created user tags or ingredients.
 
 ### Example
 ```javascript
-var quantimodo-api = require('quantimodo-api');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -31,7 +31,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.TagsApi();
+var apiInstance = new QuantimodoApi.TagsApi();
 
 var taggedVariableId = 56; // Number | This is the id of the variable being tagged with an ingredient or something.
 
@@ -78,8 +78,8 @@ This endpoint allows users to tag foods with their ingredients.  This informatio
 
 ### Example
 ```javascript
-var quantimodo-api = require('quantimodo-api');
-var defaultClient = quantimodo-api.ApiClient.default;
+var QuantimodoApi = require('quantimodo-api');
+var defaultClient = QuantimodoApi.ApiClient.default;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -91,9 +91,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo-api.TagsApi();
+var apiInstance = new QuantimodoApi.TagsApi();
 
-var body = new quantimodo-api.UserTag(); // UserTag | Contains the new user tag data
+var body = new QuantimodoApi.UserTag(); // UserTag | Contains the new user tag data
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token

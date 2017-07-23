@@ -1,4 +1,4 @@
-# quantimodo-api.OrganizationsApi
+# QuantimodoApi.OrganizationsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -17,13 +17,13 @@ Get user tokens for existing users, create new users
 
 ### Example
 ```javascript
-var quantimodo-api = require('quantimodo-api');
+var QuantimodoApi = require('quantimodo-api');
 
-var apiInstance = new quantimodo-api.OrganizationsApi();
+var apiInstance = new QuantimodoApi.OrganizationsApi();
 
 var organizationId = 56; // Number | Organization ID
 
-var body = new quantimodo-api.UserTokenRequest(); // UserTokenRequest | Provides organization token and user ID
+var body = new QuantimodoApi.UserTokenRequest(); // UserTokenRequest | Provides organization token and user ID
 
 var opts = { 
   'accessToken': "accessToken_example", // String | User's OAuth2 access token

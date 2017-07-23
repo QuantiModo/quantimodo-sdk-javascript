@@ -1,4 +1,4 @@
-# quantimodo-api.UserVariable
+# QuantimodoApi.UserVariable
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# quantimodo-api.HumanTime
+# QuantimodoApi.HumanTime
 
 ## Properties
 Name | Type | Description | Notes

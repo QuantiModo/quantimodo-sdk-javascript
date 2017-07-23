@@ -1,4 +1,4 @@
-# quantimodo-api.UserTokenFailedResponse
+# QuantimodoApi.UserTokenFailedResponse
 
 ## Properties
 Name | Type | Description | Notes

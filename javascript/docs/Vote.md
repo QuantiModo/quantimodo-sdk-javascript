@@ -1,4 +1,4 @@
-# quantimodo-api.Vote
+# QuantimodoApi.Vote
 
 ## Properties
 Name | Type | Description | Notes
