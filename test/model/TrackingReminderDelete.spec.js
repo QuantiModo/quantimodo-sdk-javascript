@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo);
+    factory(root.expect, root.QMApi);
   }
-}(this, function(expect, quantimodo) {
+}(this, function(expect, QMApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo.TrackingReminderDelete();
+    instance = new QMApi.TrackingReminderDelete();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('TrackingReminderDelete', function() {
     it('should create an instance of TrackingReminderDelete', function() {
       // uncomment below and update the code to test TrackingReminderDelete
-      //var instane = new quantimodo.TrackingReminderDelete();
-      //expect(instance).to.be.a(quantimodo.TrackingReminderDelete);
+      //var instane = new QMApi.TrackingReminderDelete();
+      //expect(instance).to.be.a(QMApi.TrackingReminderDelete);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new quantimodo.TrackingReminderDelete();
+      //var instane = new QMApi.TrackingReminderDelete();
       //expect(instance).to.be();
     });
 

@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo);
+    factory(root.expect, root.QMApi);
   }
-}(this, function(expect, quantimodo) {
+}(this, function(expect, QMApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo.UserTokenRequestInnerUserField();
+    instance = new QMApi.UserTokenRequestInnerUserField();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('UserTokenRequestInnerUserField', function() {
     it('should create an instance of UserTokenRequestInnerUserField', function() {
       // uncomment below and update the code to test UserTokenRequestInnerUserField
-      //var instane = new quantimodo.UserTokenRequestInnerUserField();
-      //expect(instance).to.be.a(quantimodo.UserTokenRequestInnerUserField);
+      //var instane = new QMApi.UserTokenRequestInnerUserField();
+      //expect(instance).to.be.a(QMApi.UserTokenRequestInnerUserField);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new quantimodo.UserTokenRequestInnerUserField();
+      //var instane = new QMApi.UserTokenRequestInnerUserField();
       //expect(instance).to.be();
     });
 

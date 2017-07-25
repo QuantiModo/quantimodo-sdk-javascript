@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./ConversionStep'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.Unit = factory(root.quantimodo.ApiClient, root.quantimodo.ConversionStep);
+    root.QMApi.Unit = factory(root.QMApi.ApiClient, root.QMApi.ConversionStep);
   }
 }(this, function(ApiClient, ConversionStep) {
   'use strict';

@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo);
+    factory(root.expect, root.QMApi);
   }
-}(this, function(expect, quantimodo) {
+}(this, function(expect, QMApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo.UserTokenSuccessfulResponse();
+    instance = new QMApi.UserTokenSuccessfulResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,25 +52,25 @@
   describe('UserTokenSuccessfulResponse', function() {
     it('should create an instance of UserTokenSuccessfulResponse', function() {
       // uncomment below and update the code to test UserTokenSuccessfulResponse
-      //var instane = new quantimodo.UserTokenSuccessfulResponse();
-      //expect(instance).to.be.a(quantimodo.UserTokenSuccessfulResponse);
+      //var instane = new QMApi.UserTokenSuccessfulResponse();
+      //expect(instance).to.be.a(QMApi.UserTokenSuccessfulResponse);
     });
 
     it('should have the property code (base name: "code")', function() {
       // uncomment below and update the code to test the property code
-      //var instane = new quantimodo.UserTokenSuccessfulResponse();
+      //var instane = new QMApi.UserTokenSuccessfulResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new quantimodo.UserTokenSuccessfulResponse();
+      //var instane = new QMApi.UserTokenSuccessfulResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property user (base name: "user")', function() {
       // uncomment below and update the code to test the property user
-      //var instane = new quantimodo.UserTokenSuccessfulResponse();
+      //var instane = new QMApi.UserTokenSuccessfulResponse();
       //expect(instance).to.be();
     });
 

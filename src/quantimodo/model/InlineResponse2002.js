@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotification'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.InlineResponse2002 = factory(root.quantimodo.ApiClient, root.quantimodo.TrackingReminderNotification);
+    root.QMApi.InlineResponse2002 = factory(root.QMApi.ApiClient, root.QMApi.TrackingReminderNotification);
   }
 }(this, function(ApiClient, TrackingReminderNotification) {
   'use strict';

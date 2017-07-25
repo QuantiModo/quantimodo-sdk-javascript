@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/User'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.UserApi = factory(root.quantimodo.ApiClient, root.quantimodo.User);
+    root.QMApi.UserApi = factory(root.QMApi.ApiClient, root.QMApi.User);
   }
 }(this, function(ApiClient, User) {
   'use strict';

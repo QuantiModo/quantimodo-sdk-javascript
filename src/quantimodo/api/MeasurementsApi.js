@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Measurement'), require('../model/MeasurementDelete'), require('../model/MeasurementSet'), require('../model/MeasurementUpdate'), require('../model/Pairs'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.MeasurementsApi = factory(root.quantimodo.ApiClient, root.quantimodo.CommonResponse, root.quantimodo.Measurement, root.quantimodo.MeasurementDelete, root.quantimodo.MeasurementSet, root.quantimodo.MeasurementUpdate, root.quantimodo.Pairs);
+    root.QMApi.MeasurementsApi = factory(root.QMApi.ApiClient, root.QMApi.CommonResponse, root.QMApi.Measurement, root.QMApi.MeasurementDelete, root.QMApi.MeasurementSet, root.QMApi.MeasurementUpdate, root.QMApi.Pairs);
   }
 }(this, function(ApiClient, CommonResponse, Measurement, MeasurementDelete, MeasurementSet, MeasurementUpdate, Pairs) {
   'use strict';

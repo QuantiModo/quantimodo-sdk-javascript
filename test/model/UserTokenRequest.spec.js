@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo);
+    factory(root.expect, root.QMApi);
   }
-}(this, function(expect, quantimodo) {
+}(this, function(expect, QMApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo.UserTokenRequest();
+    instance = new QMApi.UserTokenRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('UserTokenRequest', function() {
     it('should create an instance of UserTokenRequest', function() {
       // uncomment below and update the code to test UserTokenRequest
-      //var instane = new quantimodo.UserTokenRequest();
-      //expect(instance).to.be.a(quantimodo.UserTokenRequest);
+      //var instane = new QMApi.UserTokenRequest();
+      //expect(instance).to.be.a(QMApi.UserTokenRequest);
     });
 
     it('should have the property user (base name: "user")', function() {
       // uncomment below and update the code to test the property user
-      //var instane = new quantimodo.UserTokenRequest();
+      //var instane = new QMApi.UserTokenRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property organizationAccessToken (base name: "organizationAccessToken")', function() {
       // uncomment below and update the code to test the property organizationAccessToken
-      //var instane = new quantimodo.UserTokenRequest();
+      //var instane = new QMApi.UserTokenRequest();
       //expect(instance).to.be();
     });
 

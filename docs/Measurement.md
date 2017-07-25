@@ -1,4 +1,4 @@
-# quantimodo.Measurement
+# QMApi.Measurement
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# quantimodo.UserApi
+# QMApi.UserApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -17,8 +17,8 @@ Returns user info.  If no userId is specified, returns info for currently authen
 
 ### Example
 ```javascript
-var quantimodo = require('quantimodo');
-var defaultClient = quantimodo.ApiClient.instance;
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -30,7 +30,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo.UserApi();
+var apiInstance = new QMApi.UserApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id

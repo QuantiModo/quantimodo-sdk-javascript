@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/InlineResponse200'), require('../model/InlineResponse2001'), require('../model/InlineResponse2002'), require('../model/TrackingReminder'), require('../model/TrackingReminderDelete'), require('../model/TrackingReminderNotificationPost'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.RemindersApi = factory(root.quantimodo.ApiClient, root.quantimodo.CommonResponse, root.quantimodo.InlineResponse200, root.quantimodo.InlineResponse2001, root.quantimodo.InlineResponse2002, root.quantimodo.TrackingReminder, root.quantimodo.TrackingReminderDelete, root.quantimodo.TrackingReminderNotificationPost);
+    root.QMApi.RemindersApi = factory(root.QMApi.ApiClient, root.QMApi.CommonResponse, root.QMApi.InlineResponse200, root.QMApi.InlineResponse2001, root.QMApi.InlineResponse2002, root.QMApi.TrackingReminder, root.QMApi.TrackingReminderDelete, root.QMApi.TrackingReminderNotificationPost);
   }
 }(this, function(ApiClient, CommonResponse, InlineResponse200, InlineResponse2001, InlineResponse2002, TrackingReminder, TrackingReminderDelete, TrackingReminderNotificationPost) {
   'use strict';

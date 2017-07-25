@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./MeasurementItem'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.MeasurementSet = factory(root.quantimodo.ApiClient, root.quantimodo.MeasurementItem);
+    root.QMApi.MeasurementSet = factory(root.QMApi.ApiClient, root.QMApi.MeasurementItem);
   }
 }(this, function(ApiClient, MeasurementItem) {
   'use strict';

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/UserTag'), require('../model/UserVariableDelete'), require('../model/UserVariables'), require('../model/Variable'), require('../model/VariableCategory'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.VariablesApi = factory(root.quantimodo.ApiClient, root.quantimodo.CommonResponse, root.quantimodo.UserTag, root.quantimodo.UserVariableDelete, root.quantimodo.UserVariables, root.quantimodo.Variable, root.quantimodo.VariableCategory);
+    root.QMApi.VariablesApi = factory(root.QMApi.ApiClient, root.QMApi.CommonResponse, root.QMApi.UserTag, root.QMApi.UserVariableDelete, root.QMApi.UserVariables, root.QMApi.Variable, root.QMApi.VariableCategory);
   }
 }(this, function(ApiClient, CommonResponse, UserTag, UserVariableDelete, UserVariables, Variable, VariableCategory) {
   'use strict';

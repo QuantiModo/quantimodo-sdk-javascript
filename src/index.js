@@ -30,9 +30,9 @@
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
    * <pre>
-   * var quantimodo = require('quantimodo/index'); // See note below*.
-   * var xxxSvc = new quantimodo.XxxApi(); // Allocate the API class we're going to use.
-   * var yyyModel = new quantimodo.Yyy(); // Construct a model instance.
+   * var QMApi = require('quantimodo/index'); // See note below*.
+   * var xxxSvc = new QMApi.XxxApi(); // Allocate the API class we're going to use.
+   * var yyyModel = new QMApi.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -44,8 +44,8 @@
    * <p>
    * A non-AMD browser application (discouraged) might do something like this:
    * <pre>
-   * var xxxSvc = new quantimodo.XxxApi(); // Allocate the API class we're going to use.
-   * var yyy = new quantimodo.Yyy(); // Construct a model instance.
+   * var xxxSvc = new QMApi.XxxApi(); // Allocate the API class we're going to use.
+   * var yyy = new QMApi.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.

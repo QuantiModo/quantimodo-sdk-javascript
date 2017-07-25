@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Connector'), require('../model/ConnectorInstruction'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.ConnectorsApi = factory(root.quantimodo.ApiClient, root.quantimodo.Connector, root.quantimodo.ConnectorInstruction);
+    root.QMApi.ConnectorsApi = factory(root.QMApi.ApiClient, root.QMApi.Connector, root.QMApi.ConnectorInstruction);
   }
 }(this, function(ApiClient, Connector, ConnectorInstruction) {
   'use strict';

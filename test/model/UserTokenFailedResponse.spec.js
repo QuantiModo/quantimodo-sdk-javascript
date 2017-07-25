@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodo);
+    factory(root.expect, root.QMApi);
   }
-}(this, function(expect, quantimodo) {
+}(this, function(expect, QMApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodo.UserTokenFailedResponse();
+    instance = new QMApi.UserTokenFailedResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,25 +52,25 @@
   describe('UserTokenFailedResponse', function() {
     it('should create an instance of UserTokenFailedResponse', function() {
       // uncomment below and update the code to test UserTokenFailedResponse
-      //var instane = new quantimodo.UserTokenFailedResponse();
-      //expect(instance).to.be.a(quantimodo.UserTokenFailedResponse);
+      //var instane = new QMApi.UserTokenFailedResponse();
+      //expect(instance).to.be.a(QMApi.UserTokenFailedResponse);
     });
 
     it('should have the property code (base name: "code")', function() {
       // uncomment below and update the code to test the property code
-      //var instane = new quantimodo.UserTokenFailedResponse();
+      //var instane = new QMApi.UserTokenFailedResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new quantimodo.UserTokenFailedResponse();
+      //var instane = new QMApi.UserTokenFailedResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property success (base name: "success")', function() {
       // uncomment below and update the code to test the property success
-      //var instane = new quantimodo.UserTokenFailedResponse();
+      //var instane = new QMApi.UserTokenFailedResponse();
       //expect(instance).to.be();
     });
 

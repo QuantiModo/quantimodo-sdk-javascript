@@ -1,4 +1,4 @@
-# quantimodo.Vote
+# QMApi.Vote
 
 ## Properties
 Name | Type | Description | Notes

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./UserTokenRequestInnerUserField'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.UserTokenRequest = factory(root.quantimodo.ApiClient, root.quantimodo.UserTokenRequestInnerUserField);
+    root.QMApi.UserTokenRequest = factory(root.QMApi.ApiClient, root.QMApi.UserTokenRequestInnerUserField);
   }
 }(this, function(ApiClient, UserTokenRequestInnerUserField) {
   'use strict';

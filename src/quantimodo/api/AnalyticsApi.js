@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/JsonErrorResponse'), require('../model/PostCorrelation'), require('../model/Vote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.AnalyticsApi = factory(root.quantimodo.ApiClient, root.quantimodo.CommonResponse, root.quantimodo.Correlation, root.quantimodo.JsonErrorResponse, root.quantimodo.PostCorrelation, root.quantimodo.Vote, root.quantimodo.VoteDelete);
+    root.QMApi.AnalyticsApi = factory(root.QMApi.ApiClient, root.QMApi.CommonResponse, root.QMApi.Correlation, root.QMApi.JsonErrorResponse, root.QMApi.PostCorrelation, root.QMApi.Vote, root.QMApi.VoteDelete);
   }
 }(this, function(ApiClient, CommonResponse, Correlation, JsonErrorResponse, PostCorrelation, Vote, VoteDelete) {
   'use strict';

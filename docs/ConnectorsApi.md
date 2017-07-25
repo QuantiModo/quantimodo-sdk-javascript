@@ -1,4 +1,4 @@
-# quantimodo.ConnectorsApi
+# QMApi.ConnectorsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -23,8 +23,8 @@ Attempt to obtain a token from the data provider, store it in the database. With
 
 ### Example
 ```javascript
-var quantimodo = require('quantimodo');
-var defaultClient = quantimodo.ApiClient.instance;
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -36,7 +36,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo.ConnectorsApi();
+var apiInstance = new QMApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
@@ -84,8 +84,8 @@ Returns instructions that describe what parameters and endpoint to use to connec
 
 ### Example
 ```javascript
-var quantimodo = require('quantimodo');
-var defaultClient = quantimodo.ApiClient.instance;
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -97,7 +97,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo.ConnectorsApi();
+var apiInstance = new QMApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
@@ -162,8 +162,8 @@ The disconnect method deletes any stored tokens or connection information from t
 
 ### Example
 ```javascript
-var quantimodo = require('quantimodo');
-var defaultClient = quantimodo.ApiClient.instance;
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -175,7 +175,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo.ConnectorsApi();
+var apiInstance = new QMApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 
@@ -219,8 +219,8 @@ A connector pulls data from other data providers using their API or a screenscra
 
 ### Example
 ```javascript
-var quantimodo = require('quantimodo');
-var defaultClient = quantimodo.ApiClient.instance;
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -232,7 +232,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo.ConnectorsApi();
+var apiInstance = new QMApi.ConnectorsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -270,9 +270,9 @@ Get embeddable connect javascript. Usage:   - Embedding in applications with pop
 
 ### Example
 ```javascript
-var quantimodo = require('quantimodo');
+var QMApi = require('quantimodo-sdk-javascript');
 
-var apiInstance = new quantimodo.ConnectorsApi();
+var apiInstance = new QMApi.ConnectorsApi();
 
 var opts = { 
   'clientId': "clientId_example" // String | Your app's client id
@@ -317,9 +317,9 @@ This page is designed to be opened in a webview.  Instead of using popup authent
 
 ### Example
 ```javascript
-var quantimodo = require('quantimodo');
+var QMApi = require('quantimodo-sdk-javascript');
 
-var apiInstance = new quantimodo.ConnectorsApi();
+var apiInstance = new QMApi.ConnectorsApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -364,8 +364,8 @@ The update method tells the QM Connector Framework to check with the data provid
 
 ### Example
 ```javascript
-var quantimodo = require('quantimodo');
-var defaultClient = quantimodo.ApiClient.instance;
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -377,7 +377,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodo.ConnectorsApi();
+var apiInstance = new QMApi.ConnectorsApi();
 
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
 

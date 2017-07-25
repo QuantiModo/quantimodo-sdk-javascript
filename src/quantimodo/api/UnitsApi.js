@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Unit'), require('../model/UnitCategory'));
   } else {
     // Browser globals (root is window)
-    if (!root.quantimodo) {
-      root.quantimodo = {};
+    if (!root.QMApi) {
+      root.QMApi = {};
     }
-    root.quantimodo.UnitsApi = factory(root.quantimodo.ApiClient, root.quantimodo.Unit, root.quantimodo.UnitCategory);
+    root.QMApi.UnitsApi = factory(root.QMApi.ApiClient, root.QMApi.Unit, root.QMApi.UnitCategory);
   }
 }(this, function(ApiClient, Unit, UnitCategory) {
   'use strict';
