@@ -1,14 +1,14 @@
 {
   "name": "quantimodo-sdk-javascript",
   "description": "Better living through data",
-  "main": "src/quantimodoApi/index.js",
+  "main": "quantimodo-web.js",
   "authors": [
-    "Mike P. Sinn <m@quantimodo.com>"
+    "Mike P. Sinn <mike@quantimo.do"
   ],
   "license": "Unlicense",
   "keywords": [
-    "digital",
-    "health"
+    "digital health",
+    "quantified self"
   ],
   "homepage": "https://quantimo.do",
   "ignore": [
