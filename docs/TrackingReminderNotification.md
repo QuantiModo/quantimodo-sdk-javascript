@@ -1,10 +1,10 @@
-# quantimodoApi.TrackingReminderNotification
+# QMApi.TrackingReminderNotification
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** | id for the specific PENDING tracking remidner | 
-**trackingReminderId** | **Number** | id for the repeating tracking remidner | 
+**trackingReminderId** | **Number** | id for the repeating tracking remidner | [optional] 
 **clientId** | **String** | clientId | [optional] 
 **userId** | **Number** | ID of User | [optional] 
 **variableId** | **Number** | Id for the variable to be tracked | [optional] 

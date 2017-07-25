@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.quantimodoApi);
+    factory(root.expect, root.QMApi);
   }
-}(this, function(expect, quantimodoApi) {
+}(this, function(expect, QMApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new quantimodoApi.MeasurementItem();
+    instance = new QMApi.MeasurementItem();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,25 +52,25 @@
   describe('MeasurementItem', function() {
     it('should create an instance of MeasurementItem', function() {
       // uncomment below and update the code to test MeasurementItem
-      //var instane = new quantimodoApi.MeasurementItem();
-      //expect(instance).to.be.a(quantimodoApi.MeasurementItem);
+      //var instane = new QMApi.MeasurementItem();
+      //expect(instance).to.be.a(QMApi.MeasurementItem);
     });
 
     it('should have the property timestamp (base name: "timestamp")', function() {
       // uncomment below and update the code to test the property timestamp
-      //var instane = new quantimodoApi.MeasurementItem();
+      //var instane = new QMApi.MeasurementItem();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new quantimodoApi.MeasurementItem();
+      //var instane = new QMApi.MeasurementItem();
       //expect(instance).to.be();
     });
 
     it('should have the property note (base name: "note")', function() {
       // uncomment below and update the code to test the property note
-      //var instane = new quantimodoApi.MeasurementItem();
+      //var instane = new QMApi.MeasurementItem();
       //expect(instance).to.be();
     });
 

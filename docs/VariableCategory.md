@@ -1,4 +1,4 @@
-# quantimodoApi.VariableCategory
+# QMApi.VariableCategory
 
 ## Properties
 Name | Type | Description | Notes

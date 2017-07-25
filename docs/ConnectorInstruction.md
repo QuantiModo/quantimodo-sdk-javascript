@@ -1,4 +1,4 @@
-# quantimodoApi.ConnectorInstruction
+# QMApi.ConnectorInstruction
 
 ## Properties
 Name | Type | Description | Notes

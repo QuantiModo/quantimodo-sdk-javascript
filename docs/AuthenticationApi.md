@@ -1,203 +1,19 @@
-# quantimodoApi.AuthenticationApi
+# QMApi.AuthenticationApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v2AuthSocialAuthorizeCodeGet**](AuthenticationApi.md#v2AuthSocialAuthorizeCodeGet) | **GET** /v2/auth/social/authorizeCode | Second Step in Social Authentication flow with JWT Token
-[**v2AuthSocialAuthorizeTokenGet**](AuthenticationApi.md#v2AuthSocialAuthorizeTokenGet) | **GET** /v2/auth/social/authorizeToken | Native Social Authentication
-[**v2AuthSocialLoginGet**](AuthenticationApi.md#v2AuthSocialLoginGet) | **GET** /v2/auth/social/login | First Setp in Social Authentication flow with JWT Token
-[**v2Oauth2AccessTokenGet**](AuthenticationApi.md#v2Oauth2AccessTokenGet) | **GET** /v2/oauth2/access_token | Get a user access token
-[**v2OauthAuthorizeGet**](AuthenticationApi.md#v2OauthAuthorizeGet) | **GET** /v2/oauth/authorize | Request Authorization Code
+[**getAccessToken**](AuthenticationApi.md#getAccessToken) | **GET** /v2/oauth2/access_token | Get a user access token
+[**getOauthAuthorizationCode**](AuthenticationApi.md#getOauthAuthorizationCode) | **GET** /v2/oauth/authorize | Request Authorization Code
+[**getSocialAuthorizationCode**](AuthenticationApi.md#getSocialAuthorizationCode) | **GET** /v2/auth/social/authorizeCode | Second Step in Social Authentication flow with JWT Token
+[**getSocialAuthorizationToken**](AuthenticationApi.md#getSocialAuthorizationToken) | **GET** /v2/auth/social/authorizeToken | Native Social Authentication
+[**getSocialLoginPage**](AuthenticationApi.md#getSocialLoginPage) | **GET** /v2/auth/social/login | First Setp in Social Authentication flow with JWT Token
 
 
-<a name="v2AuthSocialAuthorizeCodeGet"></a>
-# **v2AuthSocialAuthorizeCodeGet**
-> v2AuthSocialAuthorizeCodeGet(code, provider)
-
-Second Step in Social Authentication flow with JWT Token
-
- Here is the flow for how social authentication works with a JWT Token 1.**Client:** The client needs to open popup with social auth url (&#x60;https://app/quantimo.do/api/v2/auth/social/login?provider&#x3D;{provider}&amp;redirectUrl&#x3D;{url}&#x60;) of server with &#x60;provider&#x60; and &#x60;redirectUrl&#x60;. (Url should be registered with our social apps. Facebook is fine with any redirect url with the same domain base url but Google needs exact redirect url.) 2.**Server:** The QM server will redirect user to that provider to get access. 3.**Client:** After successful or failed authentication, it will be redirected to given &#x60;redirectUrl&#x60; with code or error. 4.**Client:** The client needs to get that code and needs to send an Ajax request to server at &#x60;https://app.quantimo.do/api/v2/auth/social/authorizeCode?provider&#x3D;{provider}&amp;code&#x3D;{authorizationCode}&#x60; 5.**Server:** The QM server will authorize that code from the social connection and will authenticate user and will retrieve user info. 6.**Server:** The QM server will try to find existing user by unique identity. If the user already exists then it will login. Otherwise, it will create new user and will then login. 7.**Server:** Once user is found/created, it will return a JWT token for that user in the response.
-
-### Example
-```javascript
-var quantimodoApi = require('quantimodo-sdk-javascript');
-var defaultClient = quantimodoApi.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
-
-// Configure OAuth2 access token for authorization: quantimodo_oauth2
-var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
-quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-var apiInstance = new quantimodoApi.AuthenticationApi();
-
-var code = "code_example"; // String | Authorization code obtained from the provider.
-
-var provider = "provider_example"; // String | The current options are `google` and `facebook`.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.v2AuthSocialAuthorizeCodeGet(code, provider, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **code** | **String**| Authorization code obtained from the provider. | 
- **provider** | **String**| The current options are &#x60;google&#x60; and &#x60;facebook&#x60;. | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="v2AuthSocialAuthorizeTokenGet"></a>
-# **v2AuthSocialAuthorizeTokenGet**
-> v2AuthSocialAuthorizeTokenGet(accessToken, provider, opts)
-
-Native Social Authentication
-
-If you are using native authentication via Facebook or Google SDKs then you should use the following flow. 1.**Client:** Using native authentication via your native mobile app, get an access token using the instructions provided by the Facebook SDK (https://developers.facebook.com/docs/facebook-login) or Google (https://developers.google.com/identity/protocols/OAuth2) 2.**Client:** Send an Ajax request with provider name and access token on &#x60;https://app.quantimo.do/api/v2/auth/social/authorizeToken?provider&#x3D;{provider}&amp;accessToken&#x3D;{accessToken}&amp;refreshToken&#x3D;{refreshToken}&#x60; (&#x60;refreshToken&#x60; is optional) 3.**Server:** Server will try to get user info and will find existing user by unique identity. If user exist then it will do a login for that or it will create new user and will do login 4.**Server:** Once user is found/created, it will return a JWT token for that user in response 5.**Client:** After getting the JWT token to get a QM access token follow these steps and include your JWT token in them as a header (Authorization: Bearer **{yourJWThere}**) or as a url parameter (https://app.quantimo.do/api/v2/oauth/authorize?token&#x3D;{yourJWThere}).
-
-### Example
-```javascript
-var quantimodoApi = require('quantimodo-sdk-javascript');
-var defaultClient = quantimodoApi.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
-
-// Configure OAuth2 access token for authorization: quantimodo_oauth2
-var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
-quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-var apiInstance = new quantimodoApi.AuthenticationApi();
-
-var accessToken = "accessToken_example"; // String | User's OAuth2 access token obtained from Google or FB native SDK
-
-var provider = "provider_example"; // String | The current options are `google` and `facebook`.
-
-var opts = { 
-  'refreshToken': "refreshToken_example" // String | Optional refresh token obtained from Google or FB native SDK
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.v2AuthSocialAuthorizeTokenGet(accessToken, provider, opts, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accessToken** | **String**| User&#39;s OAuth2 access token obtained from Google or FB native SDK | 
- **provider** | **String**| The current options are &#x60;google&#x60; and &#x60;facebook&#x60;. | 
- **refreshToken** | **String**| Optional refresh token obtained from Google or FB native SDK | [optional] 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="v2AuthSocialLoginGet"></a>
-# **v2AuthSocialLoginGet**
-> v2AuthSocialLoginGet(redirectUrl, provider)
-
-First Setp in Social Authentication flow with JWT Token
-
- Here is the flow for how social authentication works with a JWT Token 1.**Client:** The client needs to open popup with social auth url (&#x60;https://app/quantimo.do/api/v2/auth/social/login?provider&#x3D;{provider}&amp;redirectUrl&#x3D;{url}&#x60;) of server with &#x60;provider&#x60; and &#x60;redirectUrl&#x60;. (Url should be registered with our social apps. Facebook and Twitter are fine with any redirect url with the same domain base url but Google needs exact redirect url.) 2.**Server:** The QM server will redirect user to that provider to get access. 3.**Client:** After successful or failed authentication, it will be redirected to given &#x60;redirectUrl&#x60; with code or error. 4.**Client:** The client needs to get that code and needs to send an Ajax request to server at &#x60;https://app.quantimo.do/api/v2/auth/social/authorizeCode?provider&#x3D;{provider}&amp;code&#x3D;{authorizationCode}&#x60; 5.**Server:** The QM server will authorize that code from the social connection and will authenticate user and will retrieve user info. 6.**Server:** The QM server will try to find existing user by unique identity. If the user already exists then it will login. Otherwise, it will create new user and will then login. 7.**Server:** Once user is found/created, it will return a JWT token for that user in the response.
-
-### Example
-```javascript
-var quantimodoApi = require('quantimodo-sdk-javascript');
-var defaultClient = quantimodoApi.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
-
-// Configure OAuth2 access token for authorization: quantimodo_oauth2
-var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
-quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-var apiInstance = new quantimodoApi.AuthenticationApi();
-
-var redirectUrl = "redirectUrl_example"; // String | The redirect URI is the URL within your client application that will receive the OAuth2 credentials. Url should be registered with our social apps. Facebook and Twitter are fine with any redirect url with the same domain base url but Google needs exact redirect url.
-
-var provider = "provider_example"; // String | The current options are `google` and `facebook`.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.v2AuthSocialLoginGet(redirectUrl, provider, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **redirectUrl** | **String**| The redirect URI is the URL within your client application that will receive the OAuth2 credentials. Url should be registered with our social apps. Facebook and Twitter are fine with any redirect url with the same domain base url but Google needs exact redirect url. | 
- **provider** | **String**| The current options are &#x60;google&#x60; and &#x60;facebook&#x60;. | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="v2Oauth2AccessTokenGet"></a>
-# **v2Oauth2AccessTokenGet**
-> v2Oauth2AccessTokenGet(clientId, clientSecret, grantType, code, opts)
+<a name="getAccessToken"></a>
+# **getAccessToken**
+> getAccessToken(clientId, clientSecret, grantType, code, opts)
 
 Get a user access token
 
@@ -205,8 +21,8 @@ Client provides authorization token obtained from /api/v1/oauth2/authorize to th
 
 ### Example
 ```javascript
-var quantimodoApi = require('quantimodo-sdk-javascript');
-var defaultClient = quantimodoApi.ApiClient.instance;
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -218,7 +34,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodoApi.AuthenticationApi();
+var apiInstance = new QMApi.AuthenticationApi();
 
 var clientId = "clientId_example"; // String | This is the unique ID that QuantiModo uses to identify your application. Obtain a client id by emailing info@quantimo.do.
 
@@ -242,7 +58,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.v2Oauth2AccessTokenGet(clientId, clientSecret, grantType, code, opts, callback);
+apiInstance.getAccessToken(clientId, clientSecret, grantType, code, opts, callback);
 ```
 
 ### Parameters
@@ -271,9 +87,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="v2OauthAuthorizeGet"></a>
-# **v2OauthAuthorizeGet**
-> v2OauthAuthorizeGet(clientId, clientSecret, responseType, scope, opts)
+<a name="getOauthAuthorizationCode"></a>
+# **getOauthAuthorizationCode**
+> getOauthAuthorizationCode(clientId, clientSecret, responseType, scope, opts)
 
 Request Authorization Code
 
@@ -281,8 +97,8 @@ You can implement OAuth2 authentication to your application using our **OAuth2**
 
 ### Example
 ```javascript
-var quantimodoApi = require('quantimodo-sdk-javascript');
-var defaultClient = quantimodoApi.ApiClient.instance;
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -294,7 +110,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodoApi.AuthenticationApi();
+var apiInstance = new QMApi.AuthenticationApi();
 
 var clientId = "clientId_example"; // String | This is the unique ID that QuantiModo uses to identify your application. Obtain a client id by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
 
@@ -316,7 +132,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.v2OauthAuthorizeGet(clientId, clientSecret, responseType, scope, opts, callback);
+apiInstance.getOauthAuthorizationCode(clientId, clientSecret, responseType, scope, opts, callback);
 ```
 
 ### Parameters
@@ -329,6 +145,190 @@ Name | Type | Description  | Notes
  **scope** | **String**| Scopes include basic, readmeasurements, and writemeasurements. The \&quot;basic\&quot; scope allows you to read user info (displayname, email, etc). The \&quot;readmeasurements\&quot; scope allows one to read a user&#39;s data. The \&quot;writemeasurements\&quot; scope allows you to write user data. Separate multiple scopes by a space. | 
  **redirectUri** | **String**| The redirect URI is the URL within your client application that will receive the OAuth2 credentials. | [optional] 
  **state** | **String**| An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getSocialAuthorizationCode"></a>
+# **getSocialAuthorizationCode**
+> getSocialAuthorizationCode(code, provider)
+
+Second Step in Social Authentication flow with JWT Token
+
+ Here is the flow for how social authentication works with a JWT Token 1.**Client:** The client needs to open popup with social auth url (&#x60;https://app/quantimo.do/api/v2/auth/social/login?provider&#x3D;{provider}&amp;redirectUrl&#x3D;{url}&#x60;) of server with &#x60;provider&#x60; and &#x60;redirectUrl&#x60;. (Url should be registered with our social apps. Facebook is fine with any redirect url with the same domain base url but Google needs exact redirect url.) 2.**Server:** The QM server will redirect user to that provider to get access. 3.**Client:** After successful or failed authentication, it will be redirected to given &#x60;redirectUrl&#x60; with code or error. 4.**Client:** The client needs to get that code and needs to send an Ajax request to server at &#x60;https://app.quantimo.do/api/v2/auth/social/authorizeCode?provider&#x3D;{provider}&amp;code&#x3D;{authorizationCode}&#x60; 5.**Server:** The QM server will authorize that code from the social connection and will authenticate user and will retrieve user info. 6.**Server:** The QM server will try to find existing user by unique identity. If the user already exists then it will login. Otherwise, it will create new user and will then login. 7.**Server:** Once user is found/created, it will return a JWT token for that user in the response.
+
+### Example
+```javascript
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: quantimodo_oauth2
+var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
+quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new QMApi.AuthenticationApi();
+
+var code = "code_example"; // String | Authorization code obtained from the provider.
+
+var provider = "provider_example"; // String | The current options are `google` and `facebook`.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.getSocialAuthorizationCode(code, provider, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code** | **String**| Authorization code obtained from the provider. | 
+ **provider** | **String**| The current options are &#x60;google&#x60; and &#x60;facebook&#x60;. | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getSocialAuthorizationToken"></a>
+# **getSocialAuthorizationToken**
+> getSocialAuthorizationToken(accessToken, provider, opts)
+
+Native Social Authentication
+
+If you are using native authentication via Facebook or Google SDKs then you should use the following flow. 1.**Client:** Using native authentication via your native mobile app, get an access token using the instructions provided by the Facebook SDK (https://developers.facebook.com/docs/facebook-login) or Google (https://developers.google.com/identity/protocols/OAuth2) 2.**Client:** Send an Ajax request with provider name and access token on &#x60;https://app.quantimo.do/api/v2/auth/social/authorizeToken?provider&#x3D;{provider}&amp;accessToken&#x3D;{accessToken}&amp;refreshToken&#x3D;{refreshToken}&#x60; (&#x60;refreshToken&#x60; is optional) 3.**Server:** Server will try to get user info and will find existing user by unique identity. If user exist then it will do a login for that or it will create new user and will do login 4.**Server:** Once user is found/created, it will return a JWT token for that user in response 5.**Client:** After getting the JWT token to get a QM access token follow these steps and include your JWT token in them as a header (Authorization: Bearer **{yourJWThere}**) or as a url parameter (https://app.quantimo.do/api/v2/oauth/authorize?token&#x3D;{yourJWThere}).
+
+### Example
+```javascript
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: quantimodo_oauth2
+var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
+quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new QMApi.AuthenticationApi();
+
+var accessToken = "accessToken_example"; // String | User's OAuth2 access token obtained from Google or FB native SDK
+
+var provider = "provider_example"; // String | The current options are `google` and `facebook`.
+
+var opts = { 
+  'refreshToken': "refreshToken_example" // String | Optional refresh token obtained from Google or FB native SDK
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.getSocialAuthorizationToken(accessToken, provider, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accessToken** | **String**| User&#39;s OAuth2 access token obtained from Google or FB native SDK | 
+ **provider** | **String**| The current options are &#x60;google&#x60; and &#x60;facebook&#x60;. | 
+ **refreshToken** | **String**| Optional refresh token obtained from Google or FB native SDK | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getSocialLoginPage"></a>
+# **getSocialLoginPage**
+> getSocialLoginPage(redirectUrl, provider)
+
+First Setp in Social Authentication flow with JWT Token
+
+ Here is the flow for how social authentication works with a JWT Token 1.**Client:** The client needs to open popup with social auth url (&#x60;https://app/quantimo.do/api/v2/auth/social/login?provider&#x3D;{provider}&amp;redirectUrl&#x3D;{url}&#x60;) of server with &#x60;provider&#x60; and &#x60;redirectUrl&#x60;. (Url should be registered with our social apps. Facebook and Twitter are fine with any redirect url with the same domain base url but Google needs exact redirect url.) 2.**Server:** The QM server will redirect user to that provider to get access. 3.**Client:** After successful or failed authentication, it will be redirected to given &#x60;redirectUrl&#x60; with code or error. 4.**Client:** The client needs to get that code and needs to send an Ajax request to server at &#x60;https://app.quantimo.do/api/v2/auth/social/authorizeCode?provider&#x3D;{provider}&amp;code&#x3D;{authorizationCode}&#x60; 5.**Server:** The QM server will authorize that code from the social connection and will authenticate user and will retrieve user info. 6.**Server:** The QM server will try to find existing user by unique identity. If the user already exists then it will login. Otherwise, it will create new user and will then login. 7.**Server:** Once user is found/created, it will return a JWT token for that user in the response.
+
+### Example
+```javascript
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: quantimodo_oauth2
+var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
+quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new QMApi.AuthenticationApi();
+
+var redirectUrl = "redirectUrl_example"; // String | The redirect URI is the URL within your client application that will receive the OAuth2 credentials. Url should be registered with our social apps. Facebook and Twitter are fine with any redirect url with the same domain base url but Google needs exact redirect url.
+
+var provider = "provider_example"; // String | The current options are `google` and `facebook`.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.getSocialLoginPage(redirectUrl, provider, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **redirectUrl** | **String**| The redirect URI is the URL within your client application that will receive the OAuth2 credentials. Url should be registered with our social apps. Facebook and Twitter are fine with any redirect url with the same domain base url but Google needs exact redirect url. | 
+ **provider** | **String**| The current options are &#x60;google&#x60; and &#x60;facebook&#x60;. | 
 
 ### Return type
 

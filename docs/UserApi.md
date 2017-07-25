@@ -1,80 +1,24 @@
-# quantimodoApi.UserApi
+# QMApi.UserApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1OrganizationsOrganizationIdUsersPost**](UserApi.md#v1OrganizationsOrganizationIdUsersPost) | **POST** /v1/organizations/{organizationId}/users | Get user tokens for existing users, create new users
-[**v1UserMeGet**](UserApi.md#v1UserMeGet) | **GET** /v1/user/me | Get all available units for variableGet authenticated user
+[**getUser**](UserApi.md#getUser) | **GET** /v1/user | Get user info
 
 
-<a name="v1OrganizationsOrganizationIdUsersPost"></a>
-# **v1OrganizationsOrganizationIdUsersPost**
-> UserTokenSuccessfulResponse v1OrganizationsOrganizationIdUsersPost(organizationId, body, opts)
+<a name="getUser"></a>
+# **getUser**
+> User getUser(opts)
 
-Get user tokens for existing users, create new users
+Get user info
 
-Get user tokens for existing users, create new users
-
-### Example
-```javascript
-var quantimodoApi = require('quantimodo-sdk-javascript');
-
-var apiInstance = new quantimodoApi.UserApi();
-
-var organizationId = 56; // Number | Organization ID
-
-var body = new quantimodoApi.UserTokenRequest(); // UserTokenRequest | Provides organization token and user ID
-
-var opts = { 
-  'accessToken': "accessToken_example", // String | User's OAuth2 access token
-  'userId': 56 // Number | User's id
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.v1OrganizationsOrganizationIdUsersPost(organizationId, body, opts, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **Number**| Organization ID | 
- **body** | [**UserTokenRequest**](UserTokenRequest.md)| Provides organization token and user ID | 
- **accessToken** | **String**| User&#39;s OAuth2 access token | [optional] 
- **userId** | **Number**| User&#39;s id | [optional] 
-
-### Return type
-
-[**UserTokenSuccessfulResponse**](UserTokenSuccessfulResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="v1UserMeGet"></a>
-# **v1UserMeGet**
-> User v1UserMeGet()
-
-Get all available units for variableGet authenticated user
-
-Returns user info for the currently authenticated user.
+Returns user info.  If no userId is specified, returns info for currently authenticated user
 
 ### Example
 ```javascript
-var quantimodoApi = require('quantimodo-sdk-javascript');
-var defaultClient = quantimodoApi.ApiClient.instance;
+var QMApi = require('quantimodo-sdk-javascript');
+var defaultClient = QMApi.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -86,7 +30,16 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new quantimodoApi.UserApi();
+var apiInstance = new QMApi.UserApi();
+
+var opts = { 
+  'userId': 3.4 // Number | User's id
+  'createdAt': "createdAt_example", // String | When the record was first created. Use UTC ISO 8601 \"YYYY-MM-DDThh:mm:ss\"  datetime format. Time zone should be UTC and not local.
+  'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 \"YYYY-MM-DDThh:mm:ss\"  datetime format. Time zone should be UTC and not local.
+  'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+  'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -95,11 +48,19 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.v1UserMeGet(callback);
+apiInstance.getUser(opts, callback);
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Number**| User&#39;s id | [optional] 
+ **createdAt** | **String**| When the record was first created. Use UTC ISO 8601 \&quot;YYYY-MM-DDThh:mm:ss\&quot;  datetime format. Time zone should be UTC and not local. | [optional] 
+ **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 \&quot;YYYY-MM-DDThh:mm:ss\&quot;  datetime format. Time zone should be UTC and not local. | [optional] 
+ **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
+ **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
+ **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
 
 ### Return type
 

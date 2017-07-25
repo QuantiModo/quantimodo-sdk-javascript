@@ -1,11 +1,11 @@
-# quantimodoApi.Variable
+# QMApi.Variable
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** | Variable ID | [optional] 
 **name** | **String** | User-defined variable display name. | 
-**category** | **String** | Variable category like Mood, Sleep, Physical Activity, Treatment, Symptom, etc. | 
+**variableCategoryName** | **String** | Variable category like Mood, Sleep, Physical Activity, Treatment, Symptom, etc. | 
 **unitAbbreviatedName** | **String** | Abbreviated name of the default unit for the variable | 
 **abbreviatedUnitId** | **Number** | Id of the default unit for the variable | 
 **sources** | **String** | Comma-separated list of source names to limit variables to those sources | 

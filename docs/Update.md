@@ -1,4 +1,4 @@
-# quantimodoApi.Update
+# QMApi.Update
 
 ## Properties
 Name | Type | Description | Notes

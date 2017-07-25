@@ -1,9 +1,9 @@
-# quantimodoApi.MeasurementSet
+# QMApi.MeasurementSet
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**measurements** | [**[ValueObject]**](ValueObject.md) | Array of timestamps, values, and optional notes | 
+**measurementItems** | [**[MeasurementItem]**](MeasurementItem.md) | Array of timestamps, values, and optional notes | 
 **variableName** | **String** | ORIGINAL name of the variable for which we are creating the measurement records | 
 **sourceName** | **String** | Name of the application or device used to record the measurement values | 
 **variableCategoryName** | **String** | Variable category name | [optional] 
