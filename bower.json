@@ -1,0 +1,22 @@
+{
+  "name": "quantimodo-sdk-javascript",
+  "description": "Better living through data",
+  "main": "src/quantimodoApi/index.js",
+  "authors": [
+    "Mike P. Sinn <m@quantimodo.com>"
+  ],
+  "license": "Unlicense",
+  "keywords": [
+    "digital",
+    "health"
+  ],
+  "homepage": "https://quantimo.do",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public.built/ionic/app-configuration/lib",
+    "test",
+    "tests"
+  ]
+}
