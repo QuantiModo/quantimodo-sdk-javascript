@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.UserTag();
+    instance = new quantimodo.UserTag();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,25 +52,25 @@
   describe('UserTag', function() {
     it('should create an instance of UserTag', function() {
       // uncomment below and update the code to test UserTag
-      //var instane = new QMApi.UserTag();
-      //expect(instance).to.be.a(QMApi.UserTag);
+      //var instane = new quantimodo.UserTag();
+      //expect(instance).to.be.a(quantimodo.UserTag);
     });
 
     it('should have the property taggedVariableId (base name: "taggedVariableId")', function() {
       // uncomment below and update the code to test the property taggedVariableId
-      //var instane = new QMApi.UserTag();
+      //var instane = new quantimodo.UserTag();
       //expect(instance).to.be();
     });
 
     it('should have the property tagVariableId (base name: "tagVariableId")', function() {
       // uncomment below and update the code to test the property tagVariableId
-      //var instane = new QMApi.UserTag();
+      //var instane = new quantimodo.UserTag();
       //expect(instance).to.be();
     });
 
     it('should have the property conversionFactor (base name: "conversionFactor")', function() {
       // uncomment below and update the code to test the property conversionFactor
-      //var instane = new QMApi.UserTag();
+      //var instane = new quantimodo.UserTag();
       //expect(instance).to.be();
     });
 

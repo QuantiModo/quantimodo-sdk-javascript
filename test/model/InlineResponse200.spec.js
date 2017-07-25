@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.InlineResponse200();
+    instance = new quantimodo.InlineResponse200();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('InlineResponse200', function() {
     it('should create an instance of InlineResponse200', function() {
       // uncomment below and update the code to test InlineResponse200
-      //var instane = new QMApi.InlineResponse200();
-      //expect(instance).to.be.a(QMApi.InlineResponse200);
+      //var instane = new quantimodo.InlineResponse200();
+      //expect(instance).to.be.a(quantimodo.InlineResponse200);
     });
 
     it('should have the property success (base name: "success")', function() {
       // uncomment below and update the code to test the property success
-      //var instane = new QMApi.InlineResponse200();
+      //var instane = new quantimodo.InlineResponse200();
       //expect(instance).to.be();
     });
 
     it('should have the property data (base name: "data")', function() {
       // uncomment below and update the code to test the property data
-      //var instane = new QMApi.InlineResponse200();
+      //var instane = new quantimodo.InlineResponse200();
       //expect(instance).to.be();
     });
 

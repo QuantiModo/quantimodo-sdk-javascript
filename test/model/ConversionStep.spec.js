@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.ConversionStep();
+    instance = new quantimodo.ConversionStep();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('ConversionStep', function() {
     it('should create an instance of ConversionStep', function() {
       // uncomment below and update the code to test ConversionStep
-      //var instane = new QMApi.ConversionStep();
-      //expect(instance).to.be.a(QMApi.ConversionStep);
+      //var instane = new quantimodo.ConversionStep();
+      //expect(instance).to.be.a(quantimodo.ConversionStep);
     });
 
     it('should have the property operation (base name: "operation")', function() {
       // uncomment below and update the code to test the property operation
-      //var instane = new QMApi.ConversionStep();
+      //var instane = new quantimodo.ConversionStep();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new QMApi.ConversionStep();
+      //var instane = new quantimodo.ConversionStep();
       //expect(instance).to.be();
     });
 

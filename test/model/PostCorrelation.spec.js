@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.PostCorrelation();
+    instance = new quantimodo.PostCorrelation();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,31 +52,31 @@
   describe('PostCorrelation', function() {
     it('should create an instance of PostCorrelation', function() {
       // uncomment below and update the code to test PostCorrelation
-      //var instane = new QMApi.PostCorrelation();
-      //expect(instance).to.be.a(QMApi.PostCorrelation);
+      //var instane = new quantimodo.PostCorrelation();
+      //expect(instance).to.be.a(quantimodo.PostCorrelation);
     });
 
     it('should have the property causeVariableName (base name: "causeVariableName")', function() {
       // uncomment below and update the code to test the property causeVariableName
-      //var instane = new QMApi.PostCorrelation();
+      //var instane = new quantimodo.PostCorrelation();
       //expect(instance).to.be();
     });
 
     it('should have the property effectVariableName (base name: "effectVariableName")', function() {
       // uncomment below and update the code to test the property effectVariableName
-      //var instane = new QMApi.PostCorrelation();
+      //var instane = new quantimodo.PostCorrelation();
       //expect(instance).to.be();
     });
 
     it('should have the property correlation (base name: "correlation")', function() {
       // uncomment below and update the code to test the property correlation
-      //var instane = new QMApi.PostCorrelation();
+      //var instane = new quantimodo.PostCorrelation();
       //expect(instance).to.be();
     });
 
     it('should have the property vote (base name: "vote")', function() {
       // uncomment below and update the code to test the property vote
-      //var instane = new QMApi.PostCorrelation();
+      //var instane = new quantimodo.PostCorrelation();
       //expect(instance).to.be();
     });
 

@@ -1,4 +1,4 @@
-# QMApi.UserVariable
+# quantimodo.UserVariable
 
 ## Properties
 Name | Type | Description | Notes

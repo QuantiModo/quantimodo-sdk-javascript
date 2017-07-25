@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.MeasurementUpdate();
+    instance = new quantimodo.MeasurementUpdate();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,31 +52,31 @@
   describe('MeasurementUpdate', function() {
     it('should create an instance of MeasurementUpdate', function() {
       // uncomment below and update the code to test MeasurementUpdate
-      //var instane = new QMApi.MeasurementUpdate();
-      //expect(instance).to.be.a(QMApi.MeasurementUpdate);
+      //var instane = new quantimodo.MeasurementUpdate();
+      //expect(instance).to.be.a(quantimodo.MeasurementUpdate);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new QMApi.MeasurementUpdate();
+      //var instane = new quantimodo.MeasurementUpdate();
       //expect(instance).to.be();
     });
 
     it('should have the property startTime (base name: "startTime")', function() {
       // uncomment below and update the code to test the property startTime
-      //var instane = new QMApi.MeasurementUpdate();
+      //var instane = new quantimodo.MeasurementUpdate();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new QMApi.MeasurementUpdate();
+      //var instane = new quantimodo.MeasurementUpdate();
       //expect(instance).to.be();
     });
 
     it('should have the property note (base name: "note")', function() {
       // uncomment below and update the code to test the property note
-      //var instane = new QMApi.MeasurementUpdate();
+      //var instane = new quantimodo.MeasurementUpdate();
       //expect(instance).to.be();
     });
 

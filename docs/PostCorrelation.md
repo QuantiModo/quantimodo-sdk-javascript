@@ -1,4 +1,4 @@
-# QMApi.PostCorrelation
+# quantimodo.PostCorrelation
 
 ## Properties
 Name | Type | Description | Notes

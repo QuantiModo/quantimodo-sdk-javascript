@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.VariableCategory();
+    instance = new quantimodo.VariableCategory();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('VariableCategory', function() {
     it('should create an instance of VariableCategory', function() {
       // uncomment below and update the code to test VariableCategory
-      //var instane = new QMApi.VariableCategory();
-      //expect(instance).to.be.a(QMApi.VariableCategory);
+      //var instane = new quantimodo.VariableCategory();
+      //expect(instance).to.be.a(quantimodo.VariableCategory);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new QMApi.VariableCategory();
+      //var instane = new quantimodo.VariableCategory();
       //expect(instance).to.be();
     });
 

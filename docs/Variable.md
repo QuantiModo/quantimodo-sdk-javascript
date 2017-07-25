@@ -1,4 +1,4 @@
-# QMApi.Variable
+# quantimodo.Variable
 
 ## Properties
 Name | Type | Description | Notes

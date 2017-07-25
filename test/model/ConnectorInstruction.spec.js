@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.ConnectorInstruction();
+    instance = new quantimodo.ConnectorInstruction();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,25 +52,25 @@
   describe('ConnectorInstruction', function() {
     it('should create an instance of ConnectorInstruction', function() {
       // uncomment below and update the code to test ConnectorInstruction
-      //var instane = new QMApi.ConnectorInstruction();
-      //expect(instance).to.be.a(QMApi.ConnectorInstruction);
+      //var instane = new quantimodo.ConnectorInstruction();
+      //expect(instance).to.be.a(quantimodo.ConnectorInstruction);
     });
 
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
-      //var instane = new QMApi.ConnectorInstruction();
+      //var instane = new quantimodo.ConnectorInstruction();
       //expect(instance).to.be();
     });
 
     it('should have the property parameters (base name: "parameters")', function() {
       // uncomment below and update the code to test the property parameters
-      //var instane = new QMApi.ConnectorInstruction();
+      //var instane = new quantimodo.ConnectorInstruction();
       //expect(instance).to.be();
     });
 
     it('should have the property usePopup (base name: "usePopup")', function() {
       // uncomment below and update the code to test the property usePopup
-      //var instane = new QMApi.ConnectorInstruction();
+      //var instane = new quantimodo.ConnectorInstruction();
       //expect(instance).to.be();
     });
 

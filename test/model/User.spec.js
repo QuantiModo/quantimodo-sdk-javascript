@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.User();
+    instance = new quantimodo.User();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,43 +52,43 @@
   describe('User', function() {
     it('should create an instance of User', function() {
       // uncomment below and update the code to test User
-      //var instane = new QMApi.User();
-      //expect(instance).to.be.a(QMApi.User);
+      //var instane = new quantimodo.User();
+      //expect(instance).to.be.a(quantimodo.User);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new QMApi.User();
+      //var instane = new quantimodo.User();
       //expect(instance).to.be();
     });
 
     it('should have the property displayName (base name: "displayName")', function() {
       // uncomment below and update the code to test the property displayName
-      //var instane = new QMApi.User();
+      //var instane = new quantimodo.User();
       //expect(instance).to.be();
     });
 
     it('should have the property loginName (base name: "loginName")', function() {
       // uncomment below and update the code to test the property loginName
-      //var instane = new QMApi.User();
+      //var instane = new quantimodo.User();
       //expect(instance).to.be();
     });
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
-      //var instane = new QMApi.User();
+      //var instane = new quantimodo.User();
       //expect(instance).to.be();
     });
 
     it('should have the property accessToken (base name: "accessToken")', function() {
       // uncomment below and update the code to test the property accessToken
-      //var instane = new QMApi.User();
+      //var instane = new quantimodo.User();
       //expect(instance).to.be();
     });
 
     it('should have the property administrator (base name: "administrator")', function() {
       // uncomment below and update the code to test the property administrator
-      //var instane = new QMApi.User();
+      //var instane = new quantimodo.User();
       //expect(instance).to.be();
     });
 

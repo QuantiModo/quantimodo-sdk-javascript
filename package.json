@@ -1,9 +1,9 @@
 {
-  "name": "quantimodo-sdk-javascript",
+  "name": "quantimodo",
   "version": "5.8.725",
   "description": "QuantiModo makes it easy to retrieve normalized user data from a wide array of devices and applications. [Learn about QuantiModo](https://quantimo.do), check out our [docs](https://github.com/QuantiModo/docs) or contact us at [help.quantimo.do](https://help.quantimo.do). ",
   "license": "Unlicense",
-  "main": "src/QMApi/index.js",
+  "main": "src/quantimodo/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },

@@ -1,4 +1,4 @@
-# QMApi.UnitsApi
+# quantimodo.UnitsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -18,8 +18,8 @@ Get a list of the categories of measurement units such as &#39;Distance&#39;, &#
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var quantimodo = require('quantimodo');
+var defaultClient = quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -31,7 +31,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.UnitsApi();
+var apiInstance = new quantimodo.UnitsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -69,8 +69,8 @@ Get a list of the available measurement units
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var quantimodo = require('quantimodo');
+var defaultClient = quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -82,7 +82,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.UnitsApi();
+var apiInstance = new quantimodo.UnitsApi();
 
 var callback = function(error, data, response) {
   if (error) {

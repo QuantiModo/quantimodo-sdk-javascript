@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.UserVariables();
+    instance = new quantimodo.UserVariables();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,8 +52,8 @@
   describe('UserVariables', function() {
     it('should create an instance of UserVariables', function() {
       // uncomment below and update the code to test UserVariables
-      //var instane = new QMApi.UserVariables();
-      //expect(instance).to.be.a(QMApi.UserVariables);
+      //var instane = new quantimodo.UserVariables();
+      //expect(instance).to.be.a(quantimodo.UserVariables);
     });
 
   });

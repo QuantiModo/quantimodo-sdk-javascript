@@ -16,7 +16,7 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['QMApi/ApiClient', 'QMApi/model/CommonResponse', 'QMApi/model/Connector', 'QMApi/model/ConnectorInstruction', 'QMApi/model/ConversionStep', 'QMApi/model/Correlation', 'QMApi/model/InlineResponse200', 'QMApi/model/InlineResponse2001', 'QMApi/model/InlineResponse2002', 'QMApi/model/JsonErrorResponse', 'QMApi/model/Measurement', 'QMApi/model/MeasurementDelete', 'QMApi/model/MeasurementItem', 'QMApi/model/MeasurementSet', 'QMApi/model/MeasurementUpdate', 'QMApi/model/Pairs', 'QMApi/model/PostCorrelation', 'QMApi/model/TrackingReminder', 'QMApi/model/TrackingReminderDelete', 'QMApi/model/TrackingReminderNotification', 'QMApi/model/TrackingReminderNotificationPost', 'QMApi/model/Unit', 'QMApi/model/UnitCategory', 'QMApi/model/Update', 'QMApi/model/User', 'QMApi/model/UserTag', 'QMApi/model/UserTokenFailedResponse', 'QMApi/model/UserTokenRequest', 'QMApi/model/UserTokenRequestInnerUserField', 'QMApi/model/UserTokenSuccessfulResponse', 'QMApi/model/UserTokenSuccessfulResponseInnerUserField', 'QMApi/model/UserVariable', 'QMApi/model/UserVariableDelete', 'QMApi/model/UserVariables', 'QMApi/model/Variable', 'QMApi/model/VariableCategory', 'QMApi/model/Vote', 'QMApi/model/VoteDelete', 'QMApi/api/AnalyticsApi', 'QMApi/api/AuthenticationApi', 'QMApi/api/ConnectorsApi', 'QMApi/api/MeasurementsApi', 'QMApi/api/RemindersApi', 'QMApi/api/UnitsApi', 'QMApi/api/UserApi', 'QMApi/api/VariablesApi'], factory);
+    define(['quantimodo/ApiClient', 'quantimodo/model/CommonResponse', 'quantimodo/model/Connector', 'quantimodo/model/ConnectorInstruction', 'quantimodo/model/ConversionStep', 'quantimodo/model/Correlation', 'quantimodo/model/InlineResponse200', 'quantimodo/model/InlineResponse2001', 'quantimodo/model/InlineResponse2002', 'quantimodo/model/JsonErrorResponse', 'quantimodo/model/Measurement', 'quantimodo/model/MeasurementDelete', 'quantimodo/model/MeasurementItem', 'quantimodo/model/MeasurementSet', 'quantimodo/model/MeasurementUpdate', 'quantimodo/model/Pairs', 'quantimodo/model/PostCorrelation', 'quantimodo/model/TrackingReminder', 'quantimodo/model/TrackingReminderDelete', 'quantimodo/model/TrackingReminderNotification', 'quantimodo/model/TrackingReminderNotificationPost', 'quantimodo/model/Unit', 'quantimodo/model/UnitCategory', 'quantimodo/model/Update', 'quantimodo/model/User', 'quantimodo/model/UserTag', 'quantimodo/model/UserTokenFailedResponse', 'quantimodo/model/UserTokenRequest', 'quantimodo/model/UserTokenRequestInnerUserField', 'quantimodo/model/UserTokenSuccessfulResponse', 'quantimodo/model/UserTokenSuccessfulResponseInnerUserField', 'quantimodo/model/UserVariable', 'quantimodo/model/UserVariableDelete', 'quantimodo/model/UserVariables', 'quantimodo/model/Variable', 'quantimodo/model/VariableCategory', 'quantimodo/model/Vote', 'quantimodo/model/VoteDelete', 'quantimodo/api/AnalyticsApi', 'quantimodo/api/AuthenticationApi', 'quantimodo/api/ConnectorsApi', 'quantimodo/api/MeasurementsApi', 'quantimodo/api/RemindersApi', 'quantimodo/api/UnitsApi', 'quantimodo/api/UserApi', 'quantimodo/api/VariablesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
     module.exports = factory(require('./ApiClient'), require('./model/CommonResponse'), require('./model/Connector'), require('./model/ConnectorInstruction'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse2002'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pairs'), require('./model/PostCorrelation'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationPost'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/Update'), require('./model/User'), require('./model/UserTag'), require('./model/UserTokenFailedResponse'), require('./model/UserTokenRequest'), require('./model/UserTokenRequestInnerUserField'), require('./model/UserTokenSuccessfulResponse'), require('./model/UserTokenSuccessfulResponseInnerUserField'), require('./model/UserVariable'), require('./model/UserVariableDelete'), require('./model/UserVariables'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/RemindersApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
@@ -30,260 +30,260 @@
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
    * <pre>
-   * var QMApi = require('QMApi/index'); // See note below*.
-   * var xxxSvc = new QMApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyyModel = new QMApi.Yyy(); // Construct a model instance.
+   * var quantimodo = require('quantimodo/index'); // See note below*.
+   * var xxxSvc = new quantimodo.XxxApi(); // Allocate the API class we're going to use.
+   * var yyyModel = new quantimodo.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
    * ...
    * </pre>
-   * <em>*NOTE: For a top-level AMD script, use require(['QMApi/index'], function(){...})
+   * <em>*NOTE: For a top-level AMD script, use require(['quantimodo/index'], function(){...})
    * and put the application logic within the callback function.</em>
    * </p>
    * <p>
    * A non-AMD browser application (discouraged) might do something like this:
    * <pre>
-   * var xxxSvc = new QMApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyy = new QMApi.Yyy(); // Construct a model instance.
+   * var xxxSvc = new quantimodo.XxxApi(); // Allocate the API class we're going to use.
+   * var yyy = new quantimodo.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
    * ...
    * </pre>
    * </p>
-   * @module QMApi/index
+   * @module quantimodo/index
    * @version 5.8.725
    */
   var exports = {
     /**
      * The ApiClient constructor.
-     * @property {module:QMApi/ApiClient}
+     * @property {module:quantimodo/ApiClient}
      */
     ApiClient: ApiClient,
     /**
      * The CommonResponse model constructor.
-     * @property {module:QMApi/model/CommonResponse}
+     * @property {module:quantimodo/model/CommonResponse}
      */
     CommonResponse: CommonResponse,
     /**
      * The Connector model constructor.
-     * @property {module:QMApi/model/Connector}
+     * @property {module:quantimodo/model/Connector}
      */
     Connector: Connector,
     /**
      * The ConnectorInstruction model constructor.
-     * @property {module:QMApi/model/ConnectorInstruction}
+     * @property {module:quantimodo/model/ConnectorInstruction}
      */
     ConnectorInstruction: ConnectorInstruction,
     /**
      * The ConversionStep model constructor.
-     * @property {module:QMApi/model/ConversionStep}
+     * @property {module:quantimodo/model/ConversionStep}
      */
     ConversionStep: ConversionStep,
     /**
      * The Correlation model constructor.
-     * @property {module:QMApi/model/Correlation}
+     * @property {module:quantimodo/model/Correlation}
      */
     Correlation: Correlation,
     /**
      * The InlineResponse200 model constructor.
-     * @property {module:QMApi/model/InlineResponse200}
+     * @property {module:quantimodo/model/InlineResponse200}
      */
     InlineResponse200: InlineResponse200,
     /**
      * The InlineResponse2001 model constructor.
-     * @property {module:QMApi/model/InlineResponse2001}
+     * @property {module:quantimodo/model/InlineResponse2001}
      */
     InlineResponse2001: InlineResponse2001,
     /**
      * The InlineResponse2002 model constructor.
-     * @property {module:QMApi/model/InlineResponse2002}
+     * @property {module:quantimodo/model/InlineResponse2002}
      */
     InlineResponse2002: InlineResponse2002,
     /**
      * The JsonErrorResponse model constructor.
-     * @property {module:QMApi/model/JsonErrorResponse}
+     * @property {module:quantimodo/model/JsonErrorResponse}
      */
     JsonErrorResponse: JsonErrorResponse,
     /**
      * The Measurement model constructor.
-     * @property {module:QMApi/model/Measurement}
+     * @property {module:quantimodo/model/Measurement}
      */
     Measurement: Measurement,
     /**
      * The MeasurementDelete model constructor.
-     * @property {module:QMApi/model/MeasurementDelete}
+     * @property {module:quantimodo/model/MeasurementDelete}
      */
     MeasurementDelete: MeasurementDelete,
     /**
      * The MeasurementItem model constructor.
-     * @property {module:QMApi/model/MeasurementItem}
+     * @property {module:quantimodo/model/MeasurementItem}
      */
     MeasurementItem: MeasurementItem,
     /**
      * The MeasurementSet model constructor.
-     * @property {module:QMApi/model/MeasurementSet}
+     * @property {module:quantimodo/model/MeasurementSet}
      */
     MeasurementSet: MeasurementSet,
     /**
      * The MeasurementUpdate model constructor.
-     * @property {module:QMApi/model/MeasurementUpdate}
+     * @property {module:quantimodo/model/MeasurementUpdate}
      */
     MeasurementUpdate: MeasurementUpdate,
     /**
      * The Pairs model constructor.
-     * @property {module:QMApi/model/Pairs}
+     * @property {module:quantimodo/model/Pairs}
      */
     Pairs: Pairs,
     /**
      * The PostCorrelation model constructor.
-     * @property {module:QMApi/model/PostCorrelation}
+     * @property {module:quantimodo/model/PostCorrelation}
      */
     PostCorrelation: PostCorrelation,
     /**
      * The TrackingReminder model constructor.
-     * @property {module:QMApi/model/TrackingReminder}
+     * @property {module:quantimodo/model/TrackingReminder}
      */
     TrackingReminder: TrackingReminder,
     /**
      * The TrackingReminderDelete model constructor.
-     * @property {module:QMApi/model/TrackingReminderDelete}
+     * @property {module:quantimodo/model/TrackingReminderDelete}
      */
     TrackingReminderDelete: TrackingReminderDelete,
     /**
      * The TrackingReminderNotification model constructor.
-     * @property {module:QMApi/model/TrackingReminderNotification}
+     * @property {module:quantimodo/model/TrackingReminderNotification}
      */
     TrackingReminderNotification: TrackingReminderNotification,
     /**
      * The TrackingReminderNotificationPost model constructor.
-     * @property {module:QMApi/model/TrackingReminderNotificationPost}
+     * @property {module:quantimodo/model/TrackingReminderNotificationPost}
      */
     TrackingReminderNotificationPost: TrackingReminderNotificationPost,
     /**
      * The Unit model constructor.
-     * @property {module:QMApi/model/Unit}
+     * @property {module:quantimodo/model/Unit}
      */
     Unit: Unit,
     /**
      * The UnitCategory model constructor.
-     * @property {module:QMApi/model/UnitCategory}
+     * @property {module:quantimodo/model/UnitCategory}
      */
     UnitCategory: UnitCategory,
     /**
      * The Update model constructor.
-     * @property {module:QMApi/model/Update}
+     * @property {module:quantimodo/model/Update}
      */
     Update: Update,
     /**
      * The User model constructor.
-     * @property {module:QMApi/model/User}
+     * @property {module:quantimodo/model/User}
      */
     User: User,
     /**
      * The UserTag model constructor.
-     * @property {module:QMApi/model/UserTag}
+     * @property {module:quantimodo/model/UserTag}
      */
     UserTag: UserTag,
     /**
      * The UserTokenFailedResponse model constructor.
-     * @property {module:QMApi/model/UserTokenFailedResponse}
+     * @property {module:quantimodo/model/UserTokenFailedResponse}
      */
     UserTokenFailedResponse: UserTokenFailedResponse,
     /**
      * The UserTokenRequest model constructor.
-     * @property {module:QMApi/model/UserTokenRequest}
+     * @property {module:quantimodo/model/UserTokenRequest}
      */
     UserTokenRequest: UserTokenRequest,
     /**
      * The UserTokenRequestInnerUserField model constructor.
-     * @property {module:QMApi/model/UserTokenRequestInnerUserField}
+     * @property {module:quantimodo/model/UserTokenRequestInnerUserField}
      */
     UserTokenRequestInnerUserField: UserTokenRequestInnerUserField,
     /**
      * The UserTokenSuccessfulResponse model constructor.
-     * @property {module:QMApi/model/UserTokenSuccessfulResponse}
+     * @property {module:quantimodo/model/UserTokenSuccessfulResponse}
      */
     UserTokenSuccessfulResponse: UserTokenSuccessfulResponse,
     /**
      * The UserTokenSuccessfulResponseInnerUserField model constructor.
-     * @property {module:QMApi/model/UserTokenSuccessfulResponseInnerUserField}
+     * @property {module:quantimodo/model/UserTokenSuccessfulResponseInnerUserField}
      */
     UserTokenSuccessfulResponseInnerUserField: UserTokenSuccessfulResponseInnerUserField,
     /**
      * The UserVariable model constructor.
-     * @property {module:QMApi/model/UserVariable}
+     * @property {module:quantimodo/model/UserVariable}
      */
     UserVariable: UserVariable,
     /**
      * The UserVariableDelete model constructor.
-     * @property {module:QMApi/model/UserVariableDelete}
+     * @property {module:quantimodo/model/UserVariableDelete}
      */
     UserVariableDelete: UserVariableDelete,
     /**
      * The UserVariables model constructor.
-     * @property {module:QMApi/model/UserVariables}
+     * @property {module:quantimodo/model/UserVariables}
      */
     UserVariables: UserVariables,
     /**
      * The Variable model constructor.
-     * @property {module:QMApi/model/Variable}
+     * @property {module:quantimodo/model/Variable}
      */
     Variable: Variable,
     /**
      * The VariableCategory model constructor.
-     * @property {module:QMApi/model/VariableCategory}
+     * @property {module:quantimodo/model/VariableCategory}
      */
     VariableCategory: VariableCategory,
     /**
      * The Vote model constructor.
-     * @property {module:QMApi/model/Vote}
+     * @property {module:quantimodo/model/Vote}
      */
     Vote: Vote,
     /**
      * The VoteDelete model constructor.
-     * @property {module:QMApi/model/VoteDelete}
+     * @property {module:quantimodo/model/VoteDelete}
      */
     VoteDelete: VoteDelete,
     /**
      * The AnalyticsApi service constructor.
-     * @property {module:QMApi/api/AnalyticsApi}
+     * @property {module:quantimodo/api/AnalyticsApi}
      */
     AnalyticsApi: AnalyticsApi,
     /**
      * The AuthenticationApi service constructor.
-     * @property {module:QMApi/api/AuthenticationApi}
+     * @property {module:quantimodo/api/AuthenticationApi}
      */
     AuthenticationApi: AuthenticationApi,
     /**
      * The ConnectorsApi service constructor.
-     * @property {module:QMApi/api/ConnectorsApi}
+     * @property {module:quantimodo/api/ConnectorsApi}
      */
     ConnectorsApi: ConnectorsApi,
     /**
      * The MeasurementsApi service constructor.
-     * @property {module:QMApi/api/MeasurementsApi}
+     * @property {module:quantimodo/api/MeasurementsApi}
      */
     MeasurementsApi: MeasurementsApi,
     /**
      * The RemindersApi service constructor.
-     * @property {module:QMApi/api/RemindersApi}
+     * @property {module:quantimodo/api/RemindersApi}
      */
     RemindersApi: RemindersApi,
     /**
      * The UnitsApi service constructor.
-     * @property {module:QMApi/api/UnitsApi}
+     * @property {module:quantimodo/api/UnitsApi}
      */
     UnitsApi: UnitsApi,
     /**
      * The UserApi service constructor.
-     * @property {module:QMApi/api/UserApi}
+     * @property {module:quantimodo/api/UserApi}
      */
     UserApi: UserApi,
     /**
      * The VariablesApi service constructor.
-     * @property {module:QMApi/api/VariablesApi}
+     * @property {module:quantimodo/api/VariablesApi}
      */
     VariablesApi: VariablesApi
   };

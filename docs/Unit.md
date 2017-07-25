@@ -1,4 +1,4 @@
-# QMApi.Unit
+# quantimodo.Unit
 
 ## Properties
 Name | Type | Description | Notes

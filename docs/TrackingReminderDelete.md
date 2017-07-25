@@ -1,4 +1,4 @@
-# QMApi.TrackingReminderDelete
+# quantimodo.TrackingReminderDelete
 
 ## Properties
 Name | Type | Description | Notes

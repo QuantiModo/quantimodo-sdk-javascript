@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.Measurement();
+    instance = new quantimodo.Measurement();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,61 +52,61 @@
   describe('Measurement', function() {
     it('should create an instance of Measurement', function() {
       // uncomment below and update the code to test Measurement
-      //var instane = new QMApi.Measurement();
-      //expect(instance).to.be.a(QMApi.Measurement);
+      //var instane = new quantimodo.Measurement();
+      //expect(instance).to.be.a(quantimodo.Measurement);
     });
 
     it('should have the property variableName (base name: "variableName")', function() {
       // uncomment below and update the code to test the property variableName
-      //var instane = new QMApi.Measurement();
+      //var instane = new quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
     it('should have the property sourceName (base name: "sourceName")', function() {
       // uncomment below and update the code to test the property sourceName
-      //var instane = new QMApi.Measurement();
+      //var instane = new quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
     it('should have the property startTimeString (base name: "startTimeString")', function() {
       // uncomment below and update the code to test the property startTimeString
-      //var instane = new QMApi.Measurement();
+      //var instane = new quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
     it('should have the property startTimeEpoch (base name: "startTimeEpoch")', function() {
       // uncomment below and update the code to test the property startTimeEpoch
-      //var instane = new QMApi.Measurement();
+      //var instane = new quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new QMApi.Measurement();
+      //var instane = new quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
     it('should have the property originalValue (base name: "originalValue")', function() {
       // uncomment below and update the code to test the property originalValue
-      //var instane = new QMApi.Measurement();
+      //var instane = new quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
     it('should have the property originalunitAbbreviatedName (base name: "originalunitAbbreviatedName")', function() {
       // uncomment below and update the code to test the property originalunitAbbreviatedName
-      //var instane = new QMApi.Measurement();
+      //var instane = new quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
     it('should have the property unitAbbreviatedName (base name: "unitAbbreviatedName")', function() {
       // uncomment below and update the code to test the property unitAbbreviatedName
-      //var instane = new QMApi.Measurement();
+      //var instane = new quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
     it('should have the property note (base name: "note")', function() {
       // uncomment below and update the code to test the property note
-      //var instane = new QMApi.Measurement();
+      //var instane = new quantimodo.Measurement();
       //expect(instance).to.be();
     });
 

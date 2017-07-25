@@ -1,4 +1,4 @@
-# QMApi.Correlation
+# quantimodo.Correlation
 
 ## Properties
 Name | Type | Description | Notes

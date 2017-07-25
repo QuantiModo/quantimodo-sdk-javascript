@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.QMApi);
+    factory(root.expect, root.quantimodo);
   }
-}(this, function(expect, QMApi) {
+}(this, function(expect, quantimodo) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new QMApi.Pairs();
+    instance = new quantimodo.Pairs();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('Pairs', function() {
     it('should create an instance of Pairs', function() {
       // uncomment below and update the code to test Pairs
-      //var instane = new QMApi.Pairs();
-      //expect(instance).to.be.a(QMApi.Pairs);
+      //var instane = new quantimodo.Pairs();
+      //expect(instance).to.be.a(quantimodo.Pairs);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new QMApi.Pairs();
+      //var instane = new quantimodo.Pairs();
       //expect(instance).to.be();
     });
 

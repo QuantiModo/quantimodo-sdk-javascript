@@ -1,4 +1,4 @@
-# QMApi.RemindersApi
+# quantimodo.RemindersApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -21,8 +21,8 @@ Delete previously created tracking reminder
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var quantimodo = require('quantimodo');
+var defaultClient = quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -34,9 +34,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.RemindersApi();
+var apiInstance = new quantimodo.RemindersApi();
 
-var body = new QMApi.TrackingReminderDelete(); // TrackingReminderDelete | Id of reminder to be deleted
+var body = new quantimodo.TrackingReminderDelete(); // TrackingReminderDelete | Id of reminder to be deleted
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -82,8 +82,8 @@ Specfic pending reminder instances that still need to be tracked.
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var quantimodo = require('quantimodo');
+var defaultClient = quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -95,7 +95,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.RemindersApi();
+var apiInstance = new quantimodo.RemindersApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -152,8 +152,8 @@ Users can be reminded to track certain variables at a specified frequency with a
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var quantimodo = require('quantimodo');
+var defaultClient = quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -165,7 +165,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.RemindersApi();
+var apiInstance = new quantimodo.RemindersApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -222,8 +222,8 @@ Snooze, skip, or track a pending tracking reminder notification
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var quantimodo = require('quantimodo');
+var defaultClient = quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -235,9 +235,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.RemindersApi();
+var apiInstance = new quantimodo.RemindersApi();
 
-var body = [new QMApi.TrackingReminderNotificationPost()]; // [TrackingReminderNotificationPost] | Id of the pending reminder to be snoozed
+var body = [new quantimodo.TrackingReminderNotificationPost()]; // [TrackingReminderNotificationPost] | Id of the pending reminder to be snoozed
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -283,8 +283,8 @@ This is to enable users to create reminders to track a variable with a default v
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var quantimodo = require('quantimodo');
+var defaultClient = quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -296,11 +296,11 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.RemindersApi();
+var apiInstance = new quantimodo.RemindersApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
-  'body': new QMApi.TrackingReminder() // TrackingReminder | TrackingReminder that should be stored
+  'body': new quantimodo.TrackingReminder() // TrackingReminder | TrackingReminder that should be stored
 };
 
 var callback = function(error, data, response) {
