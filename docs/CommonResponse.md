@@ -1,4 +1,4 @@
-# QMApi.CommonResponse
+# Quantimodo.CommonResponse
 
 ## Properties
 Name | Type | Description | Notes

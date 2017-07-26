@@ -1,4 +1,4 @@
-# QMApi.InlineResponse2001
+# Quantimodo.InlineResponse2001
 
 ## Properties
 Name | Type | Description | Notes

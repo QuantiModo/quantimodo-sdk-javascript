@@ -1,4 +1,4 @@
-# QMApi.MeasurementsApi
+# Quantimodo.MeasurementsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -22,8 +22,8 @@ Delete a previously submitted measurement
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -35,9 +35,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.MeasurementsApi();
+var apiInstance = new Quantimodo.MeasurementsApi();
 
-var body = new QMApi.MeasurementDelete(); // MeasurementDelete | The startTime and variableId of the measurement to be deleted.
+var body = new Quantimodo.MeasurementDelete(); // MeasurementDelete | The startTime and variableId of the measurement to be deleted.
 
 
 var callback = function(error, data, response) {
@@ -79,8 +79,8 @@ Measurements are any value that can be recorded like daily steps, a mood rating,
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -92,7 +92,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.MeasurementsApi();
+var apiInstance = new Quantimodo.MeasurementsApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -167,8 +167,8 @@ Pairs cause measurements with effect measurements grouped over the duration of a
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -180,7 +180,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.MeasurementsApi();
+var apiInstance = new Quantimodo.MeasurementsApi();
 
 var causeVariableName = "causeVariableName_example"; // String | Original variable name for the explanatory or independent variable
 
@@ -253,8 +253,8 @@ Use this endpoint to schedule a CSV export containing all user measurements to b
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -266,7 +266,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.MeasurementsApi();
+var apiInstance = new Quantimodo.MeasurementsApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -311,8 +311,8 @@ You can submit or update multiple measurements in a \&quot;measurements\&quot; s
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -324,9 +324,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.MeasurementsApi();
+var apiInstance = new Quantimodo.MeasurementsApi();
 
-var body = [new QMApi.MeasurementSet()]; // [MeasurementSet] | An array of measurement sets containing measurement items you want to insert.
+var body = [new Quantimodo.MeasurementSet()]; // [MeasurementSet] | An array of measurement sets containing measurement items you want to insert.
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -372,8 +372,8 @@ Delete a previously submitted measurement
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -385,9 +385,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.MeasurementsApi();
+var apiInstance = new Quantimodo.MeasurementsApi();
 
-var body = new QMApi.MeasurementUpdate(); // MeasurementUpdate | The id as well as the new startTime, note, and/or value of the measurement to be updated
+var body = new Quantimodo.MeasurementUpdate(); // MeasurementUpdate | The id as well as the new startTime, note, and/or value of the measurement to be updated
 
 
 var callback = function(error, data, response) {

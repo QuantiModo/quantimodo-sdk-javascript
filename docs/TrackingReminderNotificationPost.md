@@ -1,4 +1,4 @@
-# QMApi.TrackingReminderNotificationPost
+# Quantimodo.TrackingReminderNotificationPost
 
 ## Properties
 Name | Type | Description | Notes

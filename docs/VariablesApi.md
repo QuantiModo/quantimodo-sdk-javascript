@@ -1,4 +1,4 @@
-# QMApi.VariablesApi
+# Quantimodo.VariablesApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -24,8 +24,8 @@ Delete previously created user tags or ingredients.
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -37,7 +37,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.VariablesApi();
+var apiInstance = new Quantimodo.VariablesApi();
 
 var taggedVariableId = 56; // Number | This is the id of the variable being tagged with an ingredient or something.
 
@@ -84,8 +84,8 @@ Users can delete all of their measurements for a variable
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -97,9 +97,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.VariablesApi();
+var apiInstance = new Quantimodo.VariablesApi();
 
-var variableId = new QMApi.UserVariableDelete(); // UserVariableDelete | Id of the variable whose measurements should be deleted
+var variableId = new Quantimodo.UserVariableDelete(); // UserVariableDelete | Id of the variable whose measurements should be deleted
 
 
 var callback = function(error, data, response) {
@@ -141,8 +141,8 @@ This endpoint retrieves an array of all public variables. Public variables are t
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -154,7 +154,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.VariablesApi();
+var apiInstance = new Quantimodo.VariablesApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -221,8 +221,8 @@ Get variables for which the user has measurements. If the user has specified var
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -234,7 +234,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.VariablesApi();
+var apiInstance = new Quantimodo.VariablesApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -301,8 +301,8 @@ The variable categories include Activity, Causes of Illness, Cognitive Performan
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -314,7 +314,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.VariablesApi();
+var apiInstance = new Quantimodo.VariablesApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -352,8 +352,8 @@ This endpoint allows users to tag foods with their ingredients.  This informatio
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -365,9 +365,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.VariablesApi();
+var apiInstance = new Quantimodo.VariablesApi();
 
-var body = new QMApi.UserTag(); // UserTag | Contains the new user tag data
+var body = new Quantimodo.UserTag(); // UserTag | Contains the new user tag data
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -413,8 +413,8 @@ Users can change the parameters used in analysis of that variable such as the ex
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -426,9 +426,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.VariablesApi();
+var apiInstance = new Quantimodo.VariablesApi();
 
-var userVariables = new QMApi.UserVariables(); // UserVariables | Variable user settings data
+var userVariables = new Quantimodo.UserVariables(); // UserVariables | Variable user settings data
 
 
 var callback = function(error, data, response) {
@@ -470,8 +470,8 @@ Reset user settings for a variable to defaults
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -483,9 +483,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.VariablesApi();
+var apiInstance = new Quantimodo.VariablesApi();
 
-var variableId = new QMApi.UserVariableDelete(); // UserVariableDelete | Id of the variable that should be reset
+var variableId = new Quantimodo.UserVariableDelete(); // UserVariableDelete | Id of the variable that should be reset
 
 
 var callback = function(error, data, response) {

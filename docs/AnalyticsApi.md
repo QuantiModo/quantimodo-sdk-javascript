@@ -1,4 +1,4 @@
-# QMApi.AnalyticsApi
+# Quantimodo.AnalyticsApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
@@ -21,8 +21,8 @@ Delete previously posted vote
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -34,9 +34,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.AnalyticsApi();
+var apiInstance = new Quantimodo.AnalyticsApi();
 
-var body = new QMApi.VoteDelete(); // VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
+var body = new Quantimodo.VoteDelete(); // VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -82,8 +82,8 @@ Get correlations based on the anonymized aggregate data from all QuantiModo user
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -95,7 +95,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.AnalyticsApi();
+var apiInstance = new Quantimodo.AnalyticsApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -160,8 +160,8 @@ Get correlations based on data from a single user.
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -173,7 +173,7 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.AnalyticsApi();
+var apiInstance = new Quantimodo.AnalyticsApi();
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -238,8 +238,8 @@ Add correlation
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -251,9 +251,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.AnalyticsApi();
+var apiInstance = new Quantimodo.AnalyticsApi();
 
-var body = new QMApi.PostCorrelation(); // PostCorrelation | Provides correlation data
+var body = new Quantimodo.PostCorrelation(); // PostCorrelation | Provides correlation data
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -299,8 +299,8 @@ This is to enable users to indicate their opinion on the plausibility of a causa
 
 ### Example
 ```javascript
-var QMApi = require('quantimodo-sdk-javascript');
-var defaultClient = QMApi.ApiClient.instance;
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
 // Configure API key authorization: access_token
 var access_token = defaultClient.authentications['access_token'];
@@ -312,9 +312,9 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new QMApi.AnalyticsApi();
+var apiInstance = new Quantimodo.AnalyticsApi();
 
-var body = new QMApi.Vote(); // Vote | Contains the cause variable, effect variable, and vote value.
+var body = new Quantimodo.Vote(); // Vote | Contains the cause variable, effect variable, and vote value.
 
 var opts = { 
   'userId': 3.4 // Number | User's id

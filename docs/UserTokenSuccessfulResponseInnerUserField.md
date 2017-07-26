@@ -1,4 +1,4 @@
-# QMApi.UserTokenSuccessfulResponseInnerUserField
+# Quantimodo.UserTokenSuccessfulResponseInnerUserField
 
 ## Properties
 Name | Type | Description | Notes

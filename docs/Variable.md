@@ -1,4 +1,4 @@
-# QMApi.Variable
+# Quantimodo.Variable
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# QMApi.ConversionStep
+# Quantimodo.ConversionStep
 
 ## Properties
 Name | Type | Description | Notes

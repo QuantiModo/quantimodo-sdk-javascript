@@ -1,4 +1,4 @@
-# QMApi.UserTokenFailedResponse
+# Quantimodo.UserTokenFailedResponse
 
 ## Properties
 Name | Type | Description | Notes

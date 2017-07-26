@@ -1,4 +1,4 @@
-# QMApi.Connector
+# Quantimodo.Connector
 
 ## Properties
 Name | Type | Description | Notes

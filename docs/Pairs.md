@@ -1,4 +1,4 @@
-# QMApi.Pairs
+# Quantimodo.Pairs
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# QMApi.UserTokenRequest
+# Quantimodo.UserTokenRequest
 
 ## Properties
 Name | Type | Description | Notes

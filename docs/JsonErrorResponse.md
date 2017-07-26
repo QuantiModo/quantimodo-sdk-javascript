@@ -1,4 +1,4 @@
-# QMApi.JsonErrorResponse
+# Quantimodo.JsonErrorResponse
 
 ## Properties
 Name | Type | Description | Notes

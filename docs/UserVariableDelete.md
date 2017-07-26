@@ -1,4 +1,4 @@
-# QMApi.UserVariableDelete
+# Quantimodo.UserVariableDelete
 
 ## Properties
 Name | Type | Description | Notes

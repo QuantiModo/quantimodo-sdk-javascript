@@ -1,4 +1,4 @@
-# QMApi.UserTag
+# Quantimodo.UserTag
 
 ## Properties
 Name | Type | Description | Notes
