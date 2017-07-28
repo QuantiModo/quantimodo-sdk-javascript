@@ -4,12 +4,12 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteMeasurement**](MeasurementsApi.md#deleteMeasurement) | **DELETE** /v1/measurements/delete | Delete a measurement
-[**getMeasurements**](MeasurementsApi.md#getMeasurements) | **GET** /v1/measurements | Get measurements for this user
-[**getPairs**](MeasurementsApi.md#getPairs) | **GET** /v1/pairs | Get pairs of measurements for correlational analysis
+[**deleteMeasurement**](MeasurementsApi.md#deleteMeasurement) | **DELETE** /v3/measurements/delete | Delete a measurement
+[**getMeasurements**](MeasurementsApi.md#getMeasurements) | **GET** /v3/measurements | Get measurements for this user
+[**getPairs**](MeasurementsApi.md#getPairs) | **GET** /v3/pairs | Get pairs of measurements for correlational analysis
 [**measurementExportRequest**](MeasurementsApi.md#measurementExportRequest) | **POST** /v2/measurements/exportRequest | Post Request for Measurements CSV
-[**postMeasurements**](MeasurementsApi.md#postMeasurements) | **POST** /v1/measurements | Post a new set or update existing measurements to the database
-[**v1MeasurementsUpdatePut**](MeasurementsApi.md#v1MeasurementsUpdatePut) | **PUT** /v1/measurements/update | Update a measurement
+[**postMeasurements**](MeasurementsApi.md#postMeasurements) | **POST** /v3/measurements | Post a new set or update existing measurements to the database
+[**v3MeasurementsUpdatePut**](MeasurementsApi.md#v3MeasurementsUpdatePut) | **PUT** /v3/measurements/update | Update a measurement
 
 
 <a name="deleteMeasurement"></a>
@@ -362,9 +362,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="v1MeasurementsUpdatePut"></a>
-# **v1MeasurementsUpdatePut**
-> CommonResponse v1MeasurementsUpdatePut(body)
+<a name="v3MeasurementsUpdatePut"></a>
+# **v3MeasurementsUpdatePut**
+> CommonResponse v3MeasurementsUpdatePut(body)
 
 Update a measurement
 
@@ -397,7 +397,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.v1MeasurementsUpdatePut(body, callback);
+apiInstance.v3MeasurementsUpdatePut(body, callback);
 ```
 
 ### Parameters

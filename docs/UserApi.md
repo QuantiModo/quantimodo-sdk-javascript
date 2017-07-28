@@ -4,7 +4,7 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUser**](UserApi.md#getUser) | **GET** /v1/user | Get user info
+[**getUser**](UserApi.md#getUser) | **GET** /v3/user | Get user info
 
 
 <a name="getUser"></a>

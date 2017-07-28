@@ -90,7 +90,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/votes/delete', 'DELETE',
+        '/v3/votes/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -153,7 +153,7 @@
       var returnType = [Correlation];
 
       return this.apiClient.callApi(
-        '/v1/aggregatedCorrelations', 'GET',
+        '/v3/aggregatedCorrelations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -216,7 +216,7 @@
       var returnType = [Correlation];
 
       return this.apiClient.callApi(
-        '/v1/correlations', 'GET',
+        '/v3/correlations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -264,7 +264,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/aggregatedCorrelations', 'POST',
+        '/v3/aggregatedCorrelations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -313,7 +313,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/votes', 'POST',
+        '/v3/votes', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

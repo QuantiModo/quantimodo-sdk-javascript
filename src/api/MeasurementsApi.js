@@ -86,7 +86,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/measurements/delete', 'DELETE',
+        '/v3/measurements/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -159,7 +159,7 @@
       var returnType = Measurement;
 
       return this.apiClient.callApi(
-        '/v1/measurements', 'GET',
+        '/v3/measurements', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -238,7 +238,7 @@
       var returnType = [Pairs];
 
       return this.apiClient.callApi(
-        '/v1/pairs', 'GET',
+        '/v3/pairs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -329,15 +329,15 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/measurements', 'POST',
+        '/v3/measurements', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the v1MeasurementsUpdatePut operation.
-     * @callback module:api/MeasurementsApi~v1MeasurementsUpdatePutCallback
+     * Callback function to receive the result of the v3MeasurementsUpdatePut operation.
+     * @callback module:api/MeasurementsApi~v3MeasurementsUpdatePutCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CommonResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -347,15 +347,15 @@
      * Update a measurement
      * Delete a previously submitted measurement
      * @param {module:model/MeasurementUpdate} body The id as well as the new startTime, note, and/or value of the measurement to be updated
-     * @param {module:api/MeasurementsApi~v1MeasurementsUpdatePutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/MeasurementsApi~v3MeasurementsUpdatePutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
-    this.v1MeasurementsUpdatePut = function(body, callback) {
+    this.v3MeasurementsUpdatePut = function(body, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling v1MeasurementsUpdatePut");
+        throw new Error("Missing the required parameter 'body' when calling v3MeasurementsUpdatePut");
       }
 
 
@@ -374,7 +374,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/measurements/update', 'PUT',
+        '/v3/measurements/update', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

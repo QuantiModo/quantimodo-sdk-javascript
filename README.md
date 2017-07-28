@@ -132,45 +132,45 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Quantimodo.AnalyticsApi* | [**deleteVote**](docs/AnalyticsApi.md#deleteVote) | **DELETE** /v1/votes/delete | Delete vote
-*Quantimodo.AnalyticsApi* | [**getAggregatedCorrelations**](docs/AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v1/aggregatedCorrelations | Get aggregated correlations
-*Quantimodo.AnalyticsApi* | [**getCorrelations**](docs/AnalyticsApi.md#getCorrelations) | **GET** /v1/correlations | Get correlations
-*Quantimodo.AnalyticsApi* | [**postAggregatedCorrelations**](docs/AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v1/aggregatedCorrelations | Store or Update a Correlation
-*Quantimodo.AnalyticsApi* | [**postVote**](docs/AnalyticsApi.md#postVote) | **POST** /v1/votes | Post or update vote
+*Quantimodo.AnalyticsApi* | [**deleteVote**](docs/AnalyticsApi.md#deleteVote) | **DELETE** /v3/votes/delete | Delete vote
+*Quantimodo.AnalyticsApi* | [**getAggregatedCorrelations**](docs/AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
+*Quantimodo.AnalyticsApi* | [**getCorrelations**](docs/AnalyticsApi.md#getCorrelations) | **GET** /v3/correlations | Get correlations
+*Quantimodo.AnalyticsApi* | [**postAggregatedCorrelations**](docs/AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
+*Quantimodo.AnalyticsApi* | [**postVote**](docs/AnalyticsApi.md#postVote) | **POST** /v3/votes | Post or update vote
 *Quantimodo.AuthenticationApi* | [**getAccessToken**](docs/AuthenticationApi.md#getAccessToken) | **GET** /v2/oauth2/access_token | Get a user access token
 *Quantimodo.AuthenticationApi* | [**getOauthAuthorizationCode**](docs/AuthenticationApi.md#getOauthAuthorizationCode) | **GET** /v2/oauth/authorize | Request Authorization Code
 *Quantimodo.AuthenticationApi* | [**getSocialAuthorizationCode**](docs/AuthenticationApi.md#getSocialAuthorizationCode) | **GET** /v2/auth/social/authorizeCode | Second Step in Social Authentication flow with JWT Token
 *Quantimodo.AuthenticationApi* | [**getSocialAuthorizationToken**](docs/AuthenticationApi.md#getSocialAuthorizationToken) | **GET** /v2/auth/social/authorizeToken | Native Social Authentication
 *Quantimodo.AuthenticationApi* | [**getSocialLoginPage**](docs/AuthenticationApi.md#getSocialLoginPage) | **GET** /v2/auth/social/login | First Setp in Social Authentication flow with JWT Token
-*Quantimodo.ConnectorsApi* | [**connectConnector**](docs/ConnectorsApi.md#connectConnector) | **GET** /v1/connectors/{connectorName}/connect | Obtain a token from 3rd party data source
-*Quantimodo.ConnectorsApi* | [**connectConnectorWithParameters**](docs/ConnectorsApi.md#connectConnectorWithParameters) | **GET** /v1/connectors/{connectorName}/connectParameter | Connect Parameter
-*Quantimodo.ConnectorsApi* | [**disconnectConnector**](docs/ConnectorsApi.md#disconnectConnector) | **GET** /v1/connectors/{connectorName}/disconnect | Delete stored connection info
-*Quantimodo.ConnectorsApi* | [**getConnectorsList**](docs/ConnectorsApi.md#getConnectorsList) | **GET** /v1/connectors/list | List of Connectors
-*Quantimodo.ConnectorsApi* | [**getIntegrationJs**](docs/ConnectorsApi.md#getIntegrationJs) | **GET** /v1/integration.js | Get embeddable connect javascript
-*Quantimodo.ConnectorsApi* | [**getMobileConnectPage**](docs/ConnectorsApi.md#getMobileConnectPage) | **GET** /v1/connect/mobile | Mobile connect page
-*Quantimodo.ConnectorsApi* | [**updateConnector**](docs/ConnectorsApi.md#updateConnector) | **GET** /v1/connectors/{connectorName}/update | Sync with data source
-*Quantimodo.MeasurementsApi* | [**deleteMeasurement**](docs/MeasurementsApi.md#deleteMeasurement) | **DELETE** /v1/measurements/delete | Delete a measurement
-*Quantimodo.MeasurementsApi* | [**getMeasurements**](docs/MeasurementsApi.md#getMeasurements) | **GET** /v1/measurements | Get measurements for this user
-*Quantimodo.MeasurementsApi* | [**getPairs**](docs/MeasurementsApi.md#getPairs) | **GET** /v1/pairs | Get pairs of measurements for correlational analysis
+*Quantimodo.ConnectorsApi* | [**connectConnector**](docs/ConnectorsApi.md#connectConnector) | **GET** /v3/connectors/{connectorName}/connect | Obtain a token from 3rd party data source
+*Quantimodo.ConnectorsApi* | [**connectConnectorWithParameters**](docs/ConnectorsApi.md#connectConnectorWithParameters) | **GET** /v3/connectors/{connectorName}/connectParameter | Connect Parameter
+*Quantimodo.ConnectorsApi* | [**disconnectConnector**](docs/ConnectorsApi.md#disconnectConnector) | **GET** /v3/connectors/{connectorName}/disconnect | Delete stored connection info
+*Quantimodo.ConnectorsApi* | [**getConnectorsList**](docs/ConnectorsApi.md#getConnectorsList) | **GET** /v3/connectors/list | List of Connectors
+*Quantimodo.ConnectorsApi* | [**getIntegrationJs**](docs/ConnectorsApi.md#getIntegrationJs) | **GET** /v3/integration.js | Get embeddable connect javascript
+*Quantimodo.ConnectorsApi* | [**getMobileConnectPage**](docs/ConnectorsApi.md#getMobileConnectPage) | **GET** /v3/connect/mobile | Mobile connect page
+*Quantimodo.ConnectorsApi* | [**updateConnector**](docs/ConnectorsApi.md#updateConnector) | **GET** /v3/connectors/{connectorName}/update | Sync with data source
+*Quantimodo.MeasurementsApi* | [**deleteMeasurement**](docs/MeasurementsApi.md#deleteMeasurement) | **DELETE** /v3/measurements/delete | Delete a measurement
+*Quantimodo.MeasurementsApi* | [**getMeasurements**](docs/MeasurementsApi.md#getMeasurements) | **GET** /v3/measurements | Get measurements for this user
+*Quantimodo.MeasurementsApi* | [**getPairs**](docs/MeasurementsApi.md#getPairs) | **GET** /v3/pairs | Get pairs of measurements for correlational analysis
 *Quantimodo.MeasurementsApi* | [**measurementExportRequest**](docs/MeasurementsApi.md#measurementExportRequest) | **POST** /v2/measurements/exportRequest | Post Request for Measurements CSV
-*Quantimodo.MeasurementsApi* | [**postMeasurements**](docs/MeasurementsApi.md#postMeasurements) | **POST** /v1/measurements | Post a new set or update existing measurements to the database
-*Quantimodo.MeasurementsApi* | [**v1MeasurementsUpdatePut**](docs/MeasurementsApi.md#v1MeasurementsUpdatePut) | **PUT** /v1/measurements/update | Update a measurement
-*Quantimodo.RemindersApi* | [**deleteTrackingReminder**](docs/RemindersApi.md#deleteTrackingReminder) | **DELETE** /v1/trackingReminders/delete | Delete tracking reminder
-*Quantimodo.RemindersApi* | [**getTrackingReminderNotifications**](docs/RemindersApi.md#getTrackingReminderNotifications) | **GET** /v1/trackingReminderNotifications | Get specific pending tracking reminders
-*Quantimodo.RemindersApi* | [**getTrackingReminders**](docs/RemindersApi.md#getTrackingReminders) | **GET** /v1/trackingReminders | Get repeating tracking reminder settings
-*Quantimodo.RemindersApi* | [**postTrackingReminderNotifications**](docs/RemindersApi.md#postTrackingReminderNotifications) | **POST** /v1/trackingReminderNotifications | Snooze, skip, or track a pending tracking reminder notification
-*Quantimodo.RemindersApi* | [**postTrackingReminders**](docs/RemindersApi.md#postTrackingReminders) | **POST** /v1/trackingReminders | Store a Tracking Reminder
-*Quantimodo.UnitsApi* | [**getUnitCategories**](docs/UnitsApi.md#getUnitCategories) | **GET** /v1/unitCategories | Get unit categories
-*Quantimodo.UnitsApi* | [**getUnits**](docs/UnitsApi.md#getUnits) | **GET** /v1/units | Get units
-*Quantimodo.UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /v1/user | Get user info
-*Quantimodo.VariablesApi* | [**deleteUserTag**](docs/VariablesApi.md#deleteUserTag) | **DELETE** /v1/userTags/delete | Delete user tag or ingredient
-*Quantimodo.VariablesApi* | [**deleteUserVariable**](docs/VariablesApi.md#deleteUserVariable) | **DELETE** /v1/userVariables/delete | Delete All Measurements For Variable
-*Quantimodo.VariablesApi* | [**getPublicVariables**](docs/VariablesApi.md#getPublicVariables) | **GET** /v1/public/variables | Get public variables
-*Quantimodo.VariablesApi* | [**getUserVariables**](docs/VariablesApi.md#getUserVariables) | **GET** /v1/userVariables | Get variables with user&#39;s settings
-*Quantimodo.VariablesApi* | [**getVariableCategories**](docs/VariablesApi.md#getVariableCategories) | **GET** /v1/variableCategories | Variable categories
-*Quantimodo.VariablesApi* | [**postUserTags**](docs/VariablesApi.md#postUserTags) | **POST** /v1/userTags | Post or update user tags or ingredients
-*Quantimodo.VariablesApi* | [**postUserVariables**](docs/VariablesApi.md#postUserVariables) | **POST** /v1/userVariables | Update User Settings for a Variable
-*Quantimodo.VariablesApi* | [**resetUserVariableSettings**](docs/VariablesApi.md#resetUserVariableSettings) | **POST** /v1/userVariables/reset | Reset user settings for a variable to defaults
+*Quantimodo.MeasurementsApi* | [**postMeasurements**](docs/MeasurementsApi.md#postMeasurements) | **POST** /v3/measurements | Post a new set or update existing measurements to the database
+*Quantimodo.MeasurementsApi* | [**v3MeasurementsUpdatePut**](docs/MeasurementsApi.md#v3MeasurementsUpdatePut) | **PUT** /v3/measurements/update | Update a measurement
+*Quantimodo.RemindersApi* | [**deleteTrackingReminder**](docs/RemindersApi.md#deleteTrackingReminder) | **DELETE** /v3/trackingReminders/delete | Delete tracking reminder
+*Quantimodo.RemindersApi* | [**getTrackingReminderNotifications**](docs/RemindersApi.md#getTrackingReminderNotifications) | **GET** /v3/trackingReminderNotifications | Get specific pending tracking reminders
+*Quantimodo.RemindersApi* | [**getTrackingReminders**](docs/RemindersApi.md#getTrackingReminders) | **GET** /v3/trackingReminders | Get repeating tracking reminder settings
+*Quantimodo.RemindersApi* | [**postTrackingReminderNotifications**](docs/RemindersApi.md#postTrackingReminderNotifications) | **POST** /v3/trackingReminderNotifications | Snooze, skip, or track a pending tracking reminder notification
+*Quantimodo.RemindersApi* | [**postTrackingReminders**](docs/RemindersApi.md#postTrackingReminders) | **POST** /v3/trackingReminders | Store a Tracking Reminder
+*Quantimodo.UnitsApi* | [**getUnitCategories**](docs/UnitsApi.md#getUnitCategories) | **GET** /v3/unitCategories | Get unit categories
+*Quantimodo.UnitsApi* | [**getUnits**](docs/UnitsApi.md#getUnits) | **GET** /v3/units | Get units
+*Quantimodo.UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /v3/user | Get user info
+*Quantimodo.VariablesApi* | [**deleteUserTag**](docs/VariablesApi.md#deleteUserTag) | **DELETE** /v3/userTags/delete | Delete user tag or ingredient
+*Quantimodo.VariablesApi* | [**deleteUserVariable**](docs/VariablesApi.md#deleteUserVariable) | **DELETE** /v3/userVariables/delete | Delete All Measurements For Variable
+*Quantimodo.VariablesApi* | [**getPublicVariables**](docs/VariablesApi.md#getPublicVariables) | **GET** /v3/public/variables | Get public variables
+*Quantimodo.VariablesApi* | [**getUserVariables**](docs/VariablesApi.md#getUserVariables) | **GET** /v3/userVariables | Get variables with user&#39;s settings
+*Quantimodo.VariablesApi* | [**getVariableCategories**](docs/VariablesApi.md#getVariableCategories) | **GET** /v3/variableCategories | Variable categories
+*Quantimodo.VariablesApi* | [**postUserTags**](docs/VariablesApi.md#postUserTags) | **POST** /v3/userTags | Post or update user tags or ingredients
+*Quantimodo.VariablesApi* | [**postUserVariables**](docs/VariablesApi.md#postUserVariables) | **POST** /v3/userVariables | Update User Settings for a Variable
+*Quantimodo.VariablesApi* | [**resetUserVariableSettings**](docs/VariablesApi.md#resetUserVariableSettings) | **POST** /v3/userVariables/reset | Reset user settings for a variable to defaults
 
 
 ## Documentation for Models

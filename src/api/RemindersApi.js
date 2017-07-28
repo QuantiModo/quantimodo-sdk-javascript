@@ -90,7 +90,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminders/delete', 'DELETE',
+        '/v3/trackingReminders/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -145,7 +145,7 @@
       var returnType = InlineResponse2002;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminderNotifications', 'GET',
+        '/v3/trackingReminderNotifications', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -200,7 +200,7 @@
       var returnType = InlineResponse200;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminders', 'GET',
+        '/v3/trackingReminders', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -249,7 +249,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminderNotifications', 'POST',
+        '/v3/trackingReminderNotifications', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -293,7 +293,7 @@
       var returnType = InlineResponse2001;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminders', 'POST',
+        '/v3/trackingReminders', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

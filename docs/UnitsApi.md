@@ -4,8 +4,8 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUnitCategories**](UnitsApi.md#getUnitCategories) | **GET** /v1/unitCategories | Get unit categories
-[**getUnits**](UnitsApi.md#getUnits) | **GET** /v1/units | Get units
+[**getUnitCategories**](UnitsApi.md#getUnitCategories) | **GET** /v3/unitCategories | Get unit categories
+[**getUnits**](UnitsApi.md#getUnits) | **GET** /v3/units | Get units
 
 
 <a name="getUnitCategories"></a>

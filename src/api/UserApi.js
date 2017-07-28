@@ -94,7 +94,7 @@
       var returnType = User;
 
       return this.apiClient.callApi(
-        '/v1/user', 'GET',
+        '/v3/user', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

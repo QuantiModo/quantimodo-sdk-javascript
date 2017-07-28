@@ -4,11 +4,11 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteVote**](AnalyticsApi.md#deleteVote) | **DELETE** /v1/votes/delete | Delete vote
-[**getAggregatedCorrelations**](AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v1/aggregatedCorrelations | Get aggregated correlations
-[**getCorrelations**](AnalyticsApi.md#getCorrelations) | **GET** /v1/correlations | Get correlations
-[**postAggregatedCorrelations**](AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v1/aggregatedCorrelations | Store or Update a Correlation
-[**postVote**](AnalyticsApi.md#postVote) | **POST** /v1/votes | Post or update vote
+[**deleteVote**](AnalyticsApi.md#deleteVote) | **DELETE** /v3/votes/delete | Delete vote
+[**getAggregatedCorrelations**](AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
+[**getCorrelations**](AnalyticsApi.md#getCorrelations) | **GET** /v3/correlations | Get correlations
+[**postAggregatedCorrelations**](AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
+[**postVote**](AnalyticsApi.md#postVote) | **POST** /v3/votes | Post or update vote
 
 
 <a name="deleteVote"></a>

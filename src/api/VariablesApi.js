@@ -94,7 +94,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/userTags/delete', 'DELETE',
+        '/v3/userTags/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -138,7 +138,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/userVariables/delete', 'DELETE',
+        '/v3/userVariables/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -203,7 +203,7 @@
       var returnType = Variable;
 
       return this.apiClient.callApi(
-        '/v1/public/variables', 'GET',
+        '/v3/public/variables', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -268,7 +268,7 @@
       var returnType = Variable;
 
       return this.apiClient.callApi(
-        '/v1/userVariables', 'GET',
+        '/v3/userVariables', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -307,7 +307,7 @@
       var returnType = [VariableCategory];
 
       return this.apiClient.callApi(
-        '/v1/variableCategories', 'GET',
+        '/v3/variableCategories', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -356,7 +356,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/userTags', 'POST',
+        '/v3/userTags', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -400,7 +400,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/userVariables', 'POST',
+        '/v3/userVariables', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -444,7 +444,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/userVariables/reset', 'POST',
+        '/v3/userVariables/reset', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

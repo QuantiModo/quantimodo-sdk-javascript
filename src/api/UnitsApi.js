@@ -80,7 +80,7 @@
       var returnType = UnitCategory;
 
       return this.apiClient.callApi(
-        '/v1/unitCategories', 'GET',
+        '/v3/unitCategories', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -119,7 +119,7 @@
       var returnType = [Unit];
 
       return this.apiClient.callApi(
-        '/v1/units', 'GET',
+        '/v3/units', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

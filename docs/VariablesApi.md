@@ -4,14 +4,14 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteUserTag**](VariablesApi.md#deleteUserTag) | **DELETE** /v1/userTags/delete | Delete user tag or ingredient
-[**deleteUserVariable**](VariablesApi.md#deleteUserVariable) | **DELETE** /v1/userVariables/delete | Delete All Measurements For Variable
-[**getPublicVariables**](VariablesApi.md#getPublicVariables) | **GET** /v1/public/variables | Get public variables
-[**getUserVariables**](VariablesApi.md#getUserVariables) | **GET** /v1/userVariables | Get variables with user&#39;s settings
-[**getVariableCategories**](VariablesApi.md#getVariableCategories) | **GET** /v1/variableCategories | Variable categories
-[**postUserTags**](VariablesApi.md#postUserTags) | **POST** /v1/userTags | Post or update user tags or ingredients
-[**postUserVariables**](VariablesApi.md#postUserVariables) | **POST** /v1/userVariables | Update User Settings for a Variable
-[**resetUserVariableSettings**](VariablesApi.md#resetUserVariableSettings) | **POST** /v1/userVariables/reset | Reset user settings for a variable to defaults
+[**deleteUserTag**](VariablesApi.md#deleteUserTag) | **DELETE** /v3/userTags/delete | Delete user tag or ingredient
+[**deleteUserVariable**](VariablesApi.md#deleteUserVariable) | **DELETE** /v3/userVariables/delete | Delete All Measurements For Variable
+[**getPublicVariables**](VariablesApi.md#getPublicVariables) | **GET** /v3/public/variables | Get public variables
+[**getUserVariables**](VariablesApi.md#getUserVariables) | **GET** /v3/userVariables | Get variables with user&#39;s settings
+[**getVariableCategories**](VariablesApi.md#getVariableCategories) | **GET** /v3/variableCategories | Variable categories
+[**postUserTags**](VariablesApi.md#postUserTags) | **POST** /v3/userTags | Post or update user tags or ingredients
+[**postUserVariables**](VariablesApi.md#postUserVariables) | **POST** /v3/userVariables | Update User Settings for a Variable
+[**resetUserVariableSettings**](VariablesApi.md#resetUserVariableSettings) | **POST** /v3/userVariables/reset | Reset user settings for a variable to defaults
 
 
 <a name="deleteUserTag"></a>

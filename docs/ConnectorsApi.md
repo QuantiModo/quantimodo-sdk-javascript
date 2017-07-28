@@ -4,13 +4,13 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**connectConnector**](ConnectorsApi.md#connectConnector) | **GET** /v1/connectors/{connectorName}/connect | Obtain a token from 3rd party data source
-[**connectConnectorWithParameters**](ConnectorsApi.md#connectConnectorWithParameters) | **GET** /v1/connectors/{connectorName}/connectParameter | Connect Parameter
-[**disconnectConnector**](ConnectorsApi.md#disconnectConnector) | **GET** /v1/connectors/{connectorName}/disconnect | Delete stored connection info
-[**getConnectorsList**](ConnectorsApi.md#getConnectorsList) | **GET** /v1/connectors/list | List of Connectors
-[**getIntegrationJs**](ConnectorsApi.md#getIntegrationJs) | **GET** /v1/integration.js | Get embeddable connect javascript
-[**getMobileConnectPage**](ConnectorsApi.md#getMobileConnectPage) | **GET** /v1/connect/mobile | Mobile connect page
-[**updateConnector**](ConnectorsApi.md#updateConnector) | **GET** /v1/connectors/{connectorName}/update | Sync with data source
+[**connectConnector**](ConnectorsApi.md#connectConnector) | **GET** /v3/connectors/{connectorName}/connect | Obtain a token from 3rd party data source
+[**connectConnectorWithParameters**](ConnectorsApi.md#connectConnectorWithParameters) | **GET** /v3/connectors/{connectorName}/connectParameter | Connect Parameter
+[**disconnectConnector**](ConnectorsApi.md#disconnectConnector) | **GET** /v3/connectors/{connectorName}/disconnect | Delete stored connection info
+[**getConnectorsList**](ConnectorsApi.md#getConnectorsList) | **GET** /v3/connectors/list | List of Connectors
+[**getIntegrationJs**](ConnectorsApi.md#getIntegrationJs) | **GET** /v3/integration.js | Get embeddable connect javascript
+[**getMobileConnectPage**](ConnectorsApi.md#getMobileConnectPage) | **GET** /v3/connect/mobile | Mobile connect page
+[**updateConnector**](ConnectorsApi.md#updateConnector) | **GET** /v3/connectors/{connectorName}/update | Sync with data source
 
 
 <a name="connectConnector"></a>
@@ -38,7 +38,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.ConnectorsApi();
 
-var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -58,7 +58,7 @@ apiInstance.connectConnector(connectorName, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint. | 
+ **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint. | 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type
@@ -99,7 +99,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.ConnectorsApi();
 
-var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
 
 var displayName = "displayName_example"; // String | Name of the parameter that is user visible in the form
 
@@ -130,7 +130,7 @@ apiInstance.connectConnectorWithParameters(connectorNamedisplayName, key, placeh
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint. | 
+ **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint. | 
  **displayName** | **String**| Name of the parameter that is user visible in the form | 
  **key** | **String**| Name of the property that the user has to enter such as username or password Connector (used in HTTP request) | 
  **placeholder** | **String**| Placeholder hint value for the parameter input tag. | 
@@ -177,7 +177,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.ConnectorsApi();
 
-var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
 
 
 var callback = function(error, data, response) {
@@ -194,7 +194,7 @@ apiInstance.disconnectConnector(connectorName, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint. | 
+ **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint. | 
 
 ### Return type
 
@@ -313,7 +313,7 @@ No authorization required
 
 Mobile connect page
 
-This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user&#39;s access_token as a URL parameter like https://app.quantimo.do/api/v1/connect/mobile?access_token&#x3D;123
+This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user&#39;s access_token as a URL parameter like https://app.quantimo.do/api/v3/connect/mobile?access_token&#x3D;123
 
 ### Example
 ```javascript
@@ -379,7 +379,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.ConnectorsApi();
 
-var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -399,7 +399,7 @@ apiInstance.updateConnector(connectorName, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint. | 
+ **connectorName** | **String**| Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint. | 
  **userId** | **Number**| User&#39;s id | [optional] 
 
 ### Return type

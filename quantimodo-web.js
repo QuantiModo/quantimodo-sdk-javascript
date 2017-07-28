@@ -4709,7 +4709,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/votes/delete', 'DELETE',
+        '/v3/votes/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -4772,7 +4772,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = [Correlation];
 
       return this.apiClient.callApi(
-        '/v1/aggregatedCorrelations', 'GET',
+        '/v3/aggregatedCorrelations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -4835,7 +4835,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = [Correlation];
 
       return this.apiClient.callApi(
-        '/v1/correlations', 'GET',
+        '/v3/correlations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -4883,7 +4883,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/aggregatedCorrelations', 'POST',
+        '/v3/aggregatedCorrelations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -4932,7 +4932,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/votes', 'POST',
+        '/v3/votes', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5002,7 +5002,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     /**
      * Get a user access token
-     * Client provides authorization token obtained from /api/v1/oauth2/authorize to this endpoint and receives an access token. Access token can then be used to query different API endpoints of QuantiModo. ### Request Access Token After user approves your access to the given scope form the https:/app.quantimo.do/v2/oauth2/authorize endpoint, you&#39;ll receive an authorization code to request an access token. This time make a &#x60;POST&#x60; request to &#x60;/api/v2/oauth/access_token&#x60; with parameters including: * &#x60;grant_type&#x60; Can be &#x60;authorization_code&#x60; or &#x60;refresh_token&#x60; since we are getting the &#x60;access_token&#x60; for the first time we don&#39;t have a &#x60;refresh_token&#x60; so this must be &#x60;authorization_code&#x60;. * &#x60;code&#x60; Authorization code you received with the previous request. * &#x60;redirect_uri&#x60; Your application&#39;s redirect url. ### Refreshing Access Token Access tokens expire at some point, to continue using our api you need to refresh them with &#x60;refresh_token&#x60; you received along with the &#x60;access_token&#x60;. To do this make a &#x60;POST&#x60; request to &#x60;/api/v2/oauth/access_token&#x60; with correct parameters, which are: * &#x60;grant_type&#x60; This time grant type must be &#x60;refresh_token&#x60; since we have it. * &#x60;clientId&#x60; Your application&#39;s client id. * &#x60;client_secret&#x60; Your application&#39;s client secret. * &#x60;refresh_token&#x60; The refresh token you received with the &#x60;access_token&#x60;. Every request you make to this endpoint will give you a new refresh token and make the old one expired. So you can keep getting new access tokens with new refresh tokens. ### Using Access Token Currently we support 2 ways for this, you can&#39;t use both at the same time. * Adding access token to the request header as &#x60;Authorization: Bearer {access_token}&#x60; * Adding to the url as a query parameter &#x60;?access_token&#x3D;{access_token}&#x60; You can read more about OAuth2 from [here](http://oauth.net/2/)
+     * Client provides authorization token obtained from /api/v3/oauth2/authorize to this endpoint and receives an access token. Access token can then be used to query different API endpoints of QuantiModo. ### Request Access Token After user approves your access to the given scope form the https:/app.quantimo.do/v2/oauth2/authorize endpoint, you&#39;ll receive an authorization code to request an access token. This time make a &#x60;POST&#x60; request to &#x60;/api/v2/oauth/access_token&#x60; with parameters including: * &#x60;grant_type&#x60; Can be &#x60;authorization_code&#x60; or &#x60;refresh_token&#x60; since we are getting the &#x60;access_token&#x60; for the first time we don&#39;t have a &#x60;refresh_token&#x60; so this must be &#x60;authorization_code&#x60;. * &#x60;code&#x60; Authorization code you received with the previous request. * &#x60;redirect_uri&#x60; Your application&#39;s redirect url. ### Refreshing Access Token Access tokens expire at some point, to continue using our api you need to refresh them with &#x60;refresh_token&#x60; you received along with the &#x60;access_token&#x60;. To do this make a &#x60;POST&#x60; request to &#x60;/api/v2/oauth/access_token&#x60; with correct parameters, which are: * &#x60;grant_type&#x60; This time grant type must be &#x60;refresh_token&#x60; since we have it. * &#x60;clientId&#x60; Your application&#39;s client id. * &#x60;client_secret&#x60; Your application&#39;s client secret. * &#x60;refresh_token&#x60; The refresh token you received with the &#x60;access_token&#x60;. Every request you make to this endpoint will give you a new refresh token and make the old one expired. So you can keep getting new access tokens with new refresh tokens. ### Using Access Token Currently we support 2 ways for this, you can&#39;t use both at the same time. * Adding access token to the request header as &#x60;Authorization: Bearer {access_token}&#x60; * Adding to the url as a query parameter &#x60;?access_token&#x3D;{access_token}&#x60; You can read more about OAuth2 from [here](http://oauth.net/2/)
      * @param {String} clientId This is the unique ID that QuantiModo uses to identify your application. Obtain a client id by emailing info@quantimo.do.
      * @param {String} clientSecret This is the secret for your obtained clientId. QuantiModo uses this to validate that only your application uses the clientId.
      * @param {String} grantType Grant Type can be &#39;authorization_code&#39; or &#39;refresh_token&#39;
@@ -5365,7 +5365,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
     /**
      * Obtain a token from 3rd party data source
      * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
-     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~connectConnectorCallback} callback The callback function, accepting three arguments: error, data, response
@@ -5397,7 +5397,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/connectors/{connectorName}/connect', 'GET',
+        '/v3/connectors/{connectorName}/connect', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5414,7 +5414,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
     /**
      * Connect Parameter
      * Returns instructions that describe what parameters and endpoint to use to connect to the given data provider.
-     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {String} displayName Name of the parameter that is user visible in the form
      * @param {String} key Name of the property that the user has to enter such as username or password Connector (used in HTTP request)
      * @param {String} placeholder Placeholder hint value for the parameter input tag.
@@ -5484,7 +5484,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = ConnectorInstruction;
 
       return this.apiClient.callApi(
-        '/v1/connectors/{connectorName}/connectParameter', 'GET',
+        '/v3/connectors/{connectorName}/connectParameter', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5501,7 +5501,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
     /**
      * Delete stored connection info
      * The disconnect method deletes any stored tokens or connection information from the connectors database.
-     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {module:api/ConnectorsApi~disconnectConnectorCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.disconnectConnector = function(connectorName, callback) {
@@ -5529,7 +5529,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/connectors/{connectorName}/disconnect', 'GET',
+        '/v3/connectors/{connectorName}/disconnect', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5568,7 +5568,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = [Connector];
 
       return this.apiClient.callApi(
-        '/v1/connectors/list', 'GET',
+        '/v3/connectors/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5610,7 +5610,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/integration.js', 'GET',
+        '/v3/integration.js', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5626,7 +5626,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     /**
      * Mobile connect page
-     * This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user&#39;s access_token as a URL parameter like https://app.quantimo.do/api/v1/connect/mobile?access_token&#x3D;123
+     * This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user&#39;s access_token as a URL parameter like https://app.quantimo.do/api/v3/connect/mobile?access_token&#x3D;123
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~getMobileConnectPageCallback} callback The callback function, accepting three arguments: error, data, response
@@ -5652,7 +5652,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/connect/mobile', 'GET',
+        '/v3/connect/mobile', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5669,7 +5669,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
     /**
      * Sync with data source
      * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
-     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~updateConnectorCallback} callback The callback function, accepting three arguments: error, data, response
@@ -5701,7 +5701,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/connectors/{connectorName}/update', 'GET',
+        '/v3/connectors/{connectorName}/update', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5800,7 +5800,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/measurements/delete', 'DELETE',
+        '/v3/measurements/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5873,7 +5873,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = Measurement;
 
       return this.apiClient.callApi(
-        '/v1/measurements', 'GET',
+        '/v3/measurements', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -5952,7 +5952,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = [Pairs];
 
       return this.apiClient.callApi(
-        '/v1/pairs', 'GET',
+        '/v3/pairs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6043,15 +6043,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/measurements', 'POST',
+        '/v3/measurements', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the v1MeasurementsUpdatePut operation.
-     * @callback module:api/MeasurementsApi~v1MeasurementsUpdatePutCallback
+     * Callback function to receive the result of the v3MeasurementsUpdatePut operation.
+     * @callback module:api/MeasurementsApi~v3MeasurementsUpdatePutCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CommonResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -6061,15 +6061,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Update a measurement
      * Delete a previously submitted measurement
      * @param {module:model/MeasurementUpdate} body The id as well as the new startTime, note, and/or value of the measurement to be updated
-     * @param {module:api/MeasurementsApi~v1MeasurementsUpdatePutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/MeasurementsApi~v3MeasurementsUpdatePutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
-    this.v1MeasurementsUpdatePut = function(body, callback) {
+    this.v3MeasurementsUpdatePut = function(body, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling v1MeasurementsUpdatePut");
+        throw new Error("Missing the required parameter 'body' when calling v3MeasurementsUpdatePut");
       }
 
 
@@ -6088,7 +6088,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/measurements/update', 'PUT',
+        '/v3/measurements/update', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6191,7 +6191,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminders/delete', 'DELETE',
+        '/v3/trackingReminders/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6246,7 +6246,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = InlineResponse2002;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminderNotifications', 'GET',
+        '/v3/trackingReminderNotifications', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6301,7 +6301,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = InlineResponse200;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminders', 'GET',
+        '/v3/trackingReminders', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6350,7 +6350,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminderNotifications', 'POST',
+        '/v3/trackingReminderNotifications', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6394,7 +6394,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = InlineResponse2001;
 
       return this.apiClient.callApi(
-        '/v1/trackingReminders', 'POST',
+        '/v3/trackingReminders', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6487,7 +6487,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = UnitCategory;
 
       return this.apiClient.callApi(
-        '/v1/unitCategories', 'GET',
+        '/v3/unitCategories', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6526,7 +6526,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = [Unit];
 
       return this.apiClient.callApi(
-        '/v1/units', 'GET',
+        '/v3/units', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6633,7 +6633,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = User;
 
       return this.apiClient.callApi(
-        '/v1/user', 'GET',
+        '/v3/user', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6740,7 +6740,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/userTags/delete', 'DELETE',
+        '/v3/userTags/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6784,7 +6784,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/userVariables/delete', 'DELETE',
+        '/v3/userVariables/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6849,7 +6849,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = Variable;
 
       return this.apiClient.callApi(
-        '/v1/public/variables', 'GET',
+        '/v3/public/variables', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6914,7 +6914,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = Variable;
 
       return this.apiClient.callApi(
-        '/v1/userVariables', 'GET',
+        '/v3/userVariables', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -6953,7 +6953,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = [VariableCategory];
 
       return this.apiClient.callApi(
-        '/v1/variableCategories', 'GET',
+        '/v3/variableCategories', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -7002,7 +7002,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v1/userTags', 'POST',
+        '/v3/userTags', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -7046,7 +7046,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/userVariables', 'POST',
+        '/v3/userVariables', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -7090,7 +7090,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/userVariables/reset', 'POST',
+        '/v3/userVariables/reset', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

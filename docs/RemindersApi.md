@@ -4,11 +4,11 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteTrackingReminder**](RemindersApi.md#deleteTrackingReminder) | **DELETE** /v1/trackingReminders/delete | Delete tracking reminder
-[**getTrackingReminderNotifications**](RemindersApi.md#getTrackingReminderNotifications) | **GET** /v1/trackingReminderNotifications | Get specific pending tracking reminders
-[**getTrackingReminders**](RemindersApi.md#getTrackingReminders) | **GET** /v1/trackingReminders | Get repeating tracking reminder settings
-[**postTrackingReminderNotifications**](RemindersApi.md#postTrackingReminderNotifications) | **POST** /v1/trackingReminderNotifications | Snooze, skip, or track a pending tracking reminder notification
-[**postTrackingReminders**](RemindersApi.md#postTrackingReminders) | **POST** /v1/trackingReminders | Store a Tracking Reminder
+[**deleteTrackingReminder**](RemindersApi.md#deleteTrackingReminder) | **DELETE** /v3/trackingReminders/delete | Delete tracking reminder
+[**getTrackingReminderNotifications**](RemindersApi.md#getTrackingReminderNotifications) | **GET** /v3/trackingReminderNotifications | Get specific pending tracking reminders
+[**getTrackingReminders**](RemindersApi.md#getTrackingReminders) | **GET** /v3/trackingReminders | Get repeating tracking reminder settings
+[**postTrackingReminderNotifications**](RemindersApi.md#postTrackingReminderNotifications) | **POST** /v3/trackingReminderNotifications | Snooze, skip, or track a pending tracking reminder notification
+[**postTrackingReminders**](RemindersApi.md#postTrackingReminders) | **POST** /v3/trackingReminders | Store a Tracking Reminder
 
 
 <a name="deleteTrackingReminder"></a>

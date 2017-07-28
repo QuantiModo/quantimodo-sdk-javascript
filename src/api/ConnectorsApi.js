@@ -58,7 +58,7 @@
     /**
      * Obtain a token from 3rd party data source
      * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
-     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~connectConnectorCallback} callback The callback function, accepting three arguments: error, data, response
@@ -90,7 +90,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/connectors/{connectorName}/connect', 'GET',
+        '/v3/connectors/{connectorName}/connect', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -107,7 +107,7 @@
     /**
      * Connect Parameter
      * Returns instructions that describe what parameters and endpoint to use to connect to the given data provider.
-     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {String} displayName Name of the parameter that is user visible in the form
      * @param {String} key Name of the property that the user has to enter such as username or password Connector (used in HTTP request)
      * @param {String} placeholder Placeholder hint value for the parameter input tag.
@@ -177,7 +177,7 @@
       var returnType = ConnectorInstruction;
 
       return this.apiClient.callApi(
-        '/v1/connectors/{connectorName}/connectParameter', 'GET',
+        '/v3/connectors/{connectorName}/connectParameter', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -194,7 +194,7 @@
     /**
      * Delete stored connection info
      * The disconnect method deletes any stored tokens or connection information from the connectors database.
-     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {module:api/ConnectorsApi~disconnectConnectorCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.disconnectConnector = function(connectorName, callback) {
@@ -222,7 +222,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/connectors/{connectorName}/disconnect', 'GET',
+        '/v3/connectors/{connectorName}/disconnect', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -261,7 +261,7 @@
       var returnType = [Connector];
 
       return this.apiClient.callApi(
-        '/v1/connectors/list', 'GET',
+        '/v3/connectors/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -303,7 +303,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/integration.js', 'GET',
+        '/v3/integration.js', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -319,7 +319,7 @@
 
     /**
      * Mobile connect page
-     * This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user&#39;s access_token as a URL parameter like https://app.quantimo.do/api/v1/connect/mobile?access_token&#x3D;123
+     * This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user&#39;s access_token as a URL parameter like https://app.quantimo.do/api/v3/connect/mobile?access_token&#x3D;123
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~getMobileConnectPageCallback} callback The callback function, accepting three arguments: error, data, response
@@ -345,7 +345,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/connect/mobile', 'GET',
+        '/v3/connect/mobile', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -362,7 +362,7 @@
     /**
      * Sync with data source
      * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
-     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v1/connectors/list endpoint.
+     * @param {String} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/ConnectorsApi~updateConnectorCallback} callback The callback function, accepting three arguments: error, data, response
@@ -394,7 +394,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/v1/connectors/{connectorName}/update', 'GET',
+        '/v3/connectors/{connectorName}/update', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
