@@ -36,7 +36,7 @@
   /**
    * The UserTokenSuccessfulResponseInnerUserField model module.
    * @module model/UserTokenSuccessfulResponseInnerUserField
-   * @version 5.8.726
+   * @version 5.8.727
    */
 
   /**

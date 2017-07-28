@@ -36,7 +36,7 @@
   /**
    * The Connector model module.
    * @module model/Connector
-   * @version 5.8.726
+   * @version 5.8.727
    */
 
   /**

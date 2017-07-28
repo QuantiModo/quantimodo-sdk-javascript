@@ -36,7 +36,7 @@
   /**
    * The UserTokenSuccessfulResponse model module.
    * @module model/UserTokenSuccessfulResponse
-   * @version 5.8.726
+   * @version 5.8.727
    */
 
   /**

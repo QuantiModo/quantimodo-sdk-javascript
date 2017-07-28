@@ -33,7 +33,7 @@
   /**
    * Reminders service.
    * @module api/RemindersApi
-   * @version 5.8.726
+   * @version 5.8.727
    */
 
   /**
