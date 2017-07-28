@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminderNotification'], factory);
+    define(['ApiClient', 'model/TrackingReminderNotifications'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotification'));
+    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotifications'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.InlineResponse2002 = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotification);
+    root.Quantimodo.InlineResponse2002 = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotifications);
   }
-}(this, function(ApiClient, TrackingReminderNotification) {
+}(this, function(ApiClient, TrackingReminderNotifications) {
   'use strict';
 
 
@@ -66,7 +66,7 @@
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
       }
       if (data.hasOwnProperty('data')) {
-        obj['data'] = ApiClient.convertToType(data['data'], [TrackingReminderNotification]);
+        obj['data'] = ApiClient.convertToType(data['data'], [TrackingReminderNotifications]);
       }
     }
     return obj;
@@ -77,7 +77,7 @@
    */
   exports.prototype['success'] = undefined;
   /**
-   * @member {Array.<module:model/TrackingReminderNotification>} data
+   * @member {Array.<module:model/TrackingReminderNotifications>} data
    */
   exports.prototype['data'] = undefined;
 

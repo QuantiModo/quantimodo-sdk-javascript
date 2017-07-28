@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Unit', 'model/UnitCategory'], factory);
+    define(['ApiClient', 'model/UnitCategories', 'model/Units'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Unit'), require('../model/UnitCategory'));
+    module.exports = factory(require('../ApiClient'), require('../model/UnitCategories'), require('../model/Units'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UnitsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.Unit, root.Quantimodo.UnitCategory);
+    root.Quantimodo.UnitsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.UnitCategories, root.Quantimodo.Units);
   }
-}(this, function(ApiClient, Unit, UnitCategory) {
+}(this, function(ApiClient, UnitCategories, Units) {
   'use strict';
 
   /**
@@ -51,7 +51,7 @@
      * Callback function to receive the result of the getUnitCategories operation.
      * @callback module:api/UnitsApi~getUnitCategoriesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/UnitCategory} data The data returned by the service call.
+     * @param {module:model/UnitCategories} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -59,7 +59,7 @@
      * Get unit categories
      * Get a list of the categories of measurement units such as &#39;Distance&#39;, &#39;Duration&#39;, &#39;Energy&#39;, &#39;Frequency&#39;, &#39;Miscellany&#39;, &#39;Pressure&#39;, &#39;Proportion&#39;, &#39;Rating&#39;, &#39;Temperature&#39;, &#39;Volume&#39;, and &#39;Weight&#39;.
      * @param {module:api/UnitsApi~getUnitCategoriesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UnitCategory}
+     * data is of type: {@link module:model/UnitCategories}
      */
     this.getUnitCategories = function(callback) {
       var postBody = null;
@@ -77,7 +77,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = UnitCategory;
+      var returnType = UnitCategories;
 
       return this.apiClient.callApi(
         '/v3/unitCategories', 'GET',
@@ -90,7 +90,7 @@
      * Callback function to receive the result of the getUnits operation.
      * @callback module:api/UnitsApi~getUnitsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Unit>} data The data returned by the service call.
+     * @param {Array.<module:model/Units>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -98,7 +98,7 @@
      * Get units
      * Get a list of the available measurement units
      * @param {module:api/UnitsApi~getUnitsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Unit>}
+     * data is of type: {@link Array.<module:model/Units>}
      */
     this.getUnits = function(callback) {
       var postBody = null;
@@ -116,7 +116,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [Unit];
+      var returnType = [Units];
 
       return this.apiClient.callApi(
         '/v3/units', 'GET',

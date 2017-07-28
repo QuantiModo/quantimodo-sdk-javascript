@@ -133,7 +133,7 @@ null (empty response body)
 
 <a name="getPublicVariables"></a>
 # **getPublicVariables**
-> Variable getPublicVariables(opts)
+> Variables getPublicVariables(opts)
 
 Get public variables
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Variable**](Variable.md)
+[**Variables**](Variables.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 <a name="getUserVariables"></a>
 # **getUserVariables**
-> Variable getUserVariables(opts)
+> UserVariables getUserVariables(opts)
 
 Get variables with user&#39;s settings
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Variable**](Variable.md)
+[**UserVariables**](UserVariables.md)
 
 ### Authorization
 

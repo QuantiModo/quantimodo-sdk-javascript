@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** |  | [optional] 
-**data** | [**[TrackingReminder]**](TrackingReminder.md) |  | [optional] 
+**data** | [**[TrackingReminders]**](TrackingReminders.md) |  | [optional] 
 
 

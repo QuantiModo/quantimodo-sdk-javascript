@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/UserTag', 'model/UserVariableDelete', 'model/UserVariables', 'model/Variable', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/UserTag', 'model/UserVariableDelete', 'model/UserVariables', 'model/VariableCategory', 'model/Variables'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/UserTag'), require('../model/UserVariableDelete'), require('../model/UserVariables'), require('../model/Variable'), require('../model/VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/UserTag'), require('../model/UserVariableDelete'), require('../model/UserVariables'), require('../model/VariableCategory'), require('../model/Variables'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.VariablesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.UserTag, root.Quantimodo.UserVariableDelete, root.Quantimodo.UserVariables, root.Quantimodo.Variable, root.Quantimodo.VariableCategory);
+    root.Quantimodo.VariablesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.UserTag, root.Quantimodo.UserVariableDelete, root.Quantimodo.UserVariables, root.Quantimodo.VariableCategory, root.Quantimodo.Variables);
   }
-}(this, function(ApiClient, CommonResponse, UserTag, UserVariableDelete, UserVariables, Variable, VariableCategory) {
+}(this, function(ApiClient, CommonResponse, UserTag, UserVariableDelete, UserVariables, VariableCategory, Variables) {
   'use strict';
 
   /**
@@ -148,7 +148,7 @@
      * Callback function to receive the result of the getPublicVariables operation.
      * @callback module:api/VariablesApi~getPublicVariablesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Variable} data The data returned by the service call.
+     * @param {module:model/Variables} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -169,7 +169,7 @@
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {module:api/VariablesApi~getPublicVariablesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Variable}
+     * data is of type: {@link module:model/Variables}
      */
     this.getPublicVariables = function(opts, callback) {
       opts = opts || {};
@@ -200,7 +200,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = Variable;
+      var returnType = Variables;
 
       return this.apiClient.callApi(
         '/v3/public/variables', 'GET',
@@ -213,7 +213,7 @@
      * Callback function to receive the result of the getUserVariables operation.
      * @callback module:api/VariablesApi~getUserVariablesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Variable} data The data returned by the service call.
+     * @param {module:model/UserVariables} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -234,7 +234,7 @@
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {module:api/VariablesApi~getUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Variable}
+     * data is of type: {@link module:model/UserVariables}
      */
     this.getUserVariables = function(opts, callback) {
       opts = opts || {};
@@ -265,7 +265,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = Variable;
+      var returnType = UserVariables;
 
       return this.apiClient.callApi(
         '/v3/userVariables', 'GET',

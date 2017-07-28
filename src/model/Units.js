@@ -16,70 +16,60 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminders'], factory);
+    define(['ApiClient', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminders'));
+    module.exports = factory(require('../ApiClient'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.InlineResponse200 = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminders);
+    root.Quantimodo.Units = factory(root.Quantimodo.ApiClient, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, TrackingReminders) {
+}(this, function(ApiClient, Unit) {
   'use strict';
 
 
 
 
   /**
-   * The InlineResponse200 model module.
-   * @module model/InlineResponse200
+   * The Units model module.
+   * @module model/Units
    * @version 5.8.728
    */
 
   /**
-   * Constructs a new <code>InlineResponse200</code>.
-   * @alias module:model/InlineResponse200
+   * Constructs a new <code>Units</code>.
+   * Array
+   * @alias module:model/Units
    * @class
+   * @extends Array
    */
   var exports = function() {
     var _this = this;
+    _this = new Array();
+    Object.setPrototypeOf(_this, exports);
 
-
-
+    return _this;
   };
 
   /**
-   * Constructs a <code>InlineResponse200</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Units</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/InlineResponse200} obj Optional instance to populate.
-   * @return {module:model/InlineResponse200} The populated <code>InlineResponse200</code> instance.
+   * @param {module:model/Units} obj Optional instance to populate.
+   * @return {module:model/Units} The populated <code>Units</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
+      ApiClient.constructFromObject(data, obj, 'Unit');
 
-      if (data.hasOwnProperty('success')) {
-        obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
-      }
-      if (data.hasOwnProperty('data')) {
-        obj['data'] = ApiClient.convertToType(data['data'], [TrackingReminders]);
-      }
     }
     return obj;
   }
 
-  /**
-   * @member {Boolean} success
-   */
-  exports.prototype['success'] = undefined;
-  /**
-   * @member {Array.<module:model/TrackingReminders>} data
-   */
-  exports.prototype['data'] = undefined;
 
 
 

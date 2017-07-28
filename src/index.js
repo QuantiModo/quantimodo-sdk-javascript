@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/Connector', 'model/ConnectorInstruction', 'model/ConversionStep', 'model/Correlation', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse2002', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Measurements', 'model/Pairs', 'model/PostCorrelation', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationPost', 'model/Unit', 'model/UnitCategory', 'model/Update', 'model/User', 'model/UserTag', 'model/UserTokenFailedResponse', 'model/UserTokenRequest', 'model/UserTokenRequestInnerUserField', 'model/UserTokenSuccessfulResponse', 'model/UserTokenSuccessfulResponseInnerUserField', 'model/UserVariable', 'model/UserVariableDelete', 'model/UserVariables', 'model/Variable', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/RemindersApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/Connector', 'model/ConnectorInstruction', 'model/Connectors', 'model/ConversionStep', 'model/Correlation', 'model/Correlations', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse2002', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Measurements', 'model/Pairs', 'model/PostCorrelation', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotifications', 'model/TrackingReminders', 'model/Unit', 'model/UnitCategories', 'model/UnitCategory', 'model/Units', 'model/Update', 'model/User', 'model/UserTag', 'model/UserTokenFailedResponse', 'model/UserTokenRequest', 'model/UserTokenRequestInnerUserField', 'model/UserTokenSuccessfulResponse', 'model/UserTokenSuccessfulResponseInnerUserField', 'model/UserVariable', 'model/UserVariableDelete', 'model/UserVariables', 'model/Variable', 'model/VariableCategories', 'model/VariableCategory', 'model/Variables', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/RemindersApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/CommonResponse'), require('./model/Connector'), require('./model/ConnectorInstruction'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse2002'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Measurements'), require('./model/Pairs'), require('./model/PostCorrelation'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationPost'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/Update'), require('./model/User'), require('./model/UserTag'), require('./model/UserTokenFailedResponse'), require('./model/UserTokenRequest'), require('./model/UserTokenRequestInnerUserField'), require('./model/UserTokenSuccessfulResponse'), require('./model/UserTokenSuccessfulResponseInnerUserField'), require('./model/UserVariable'), require('./model/UserVariableDelete'), require('./model/UserVariables'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/RemindersApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/CommonResponse'), require('./model/Connector'), require('./model/ConnectorInstruction'), require('./model/Connectors'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/Correlations'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse2002'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Measurements'), require('./model/Pairs'), require('./model/PostCorrelation'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotifications'), require('./model/TrackingReminders'), require('./model/Unit'), require('./model/UnitCategories'), require('./model/UnitCategory'), require('./model/Units'), require('./model/Update'), require('./model/User'), require('./model/UserTag'), require('./model/UserTokenFailedResponse'), require('./model/UserTokenRequest'), require('./model/UserTokenRequestInnerUserField'), require('./model/UserTokenSuccessfulResponse'), require('./model/UserTokenSuccessfulResponseInnerUserField'), require('./model/UserVariable'), require('./model/UserVariableDelete'), require('./model/UserVariables'), require('./model/Variable'), require('./model/VariableCategories'), require('./model/VariableCategory'), require('./model/Variables'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/RemindersApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
   }
-}(function(ApiClient, CommonResponse, Connector, ConnectorInstruction, ConversionStep, Correlation, InlineResponse200, InlineResponse2001, InlineResponse2002, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Measurements, Pairs, PostCorrelation, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationPost, Unit, UnitCategory, Update, User, UserTag, UserTokenFailedResponse, UserTokenRequest, UserTokenRequestInnerUserField, UserTokenSuccessfulResponse, UserTokenSuccessfulResponseInnerUserField, UserVariable, UserVariableDelete, UserVariables, Variable, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, RemindersApi, UnitsApi, UserApi, VariablesApi) {
+}(function(ApiClient, CommonResponse, Connector, ConnectorInstruction, Connectors, ConversionStep, Correlation, Correlations, InlineResponse200, InlineResponse2001, InlineResponse2002, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Measurements, Pairs, PostCorrelation, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationPost, TrackingReminderNotifications, TrackingReminders, Unit, UnitCategories, UnitCategory, Units, Update, User, UserTag, UserTokenFailedResponse, UserTokenRequest, UserTokenRequestInnerUserField, UserTokenSuccessfulResponse, UserTokenSuccessfulResponseInnerUserField, UserVariable, UserVariableDelete, UserVariables, Variable, VariableCategories, VariableCategory, Variables, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, RemindersApi, UnitsApi, UserApi, VariablesApi) {
   'use strict';
 
   /**
@@ -77,6 +77,11 @@
      */
     ConnectorInstruction: ConnectorInstruction,
     /**
+     * The Connectors model constructor.
+     * @property {module:model/Connectors}
+     */
+    Connectors: Connectors,
+    /**
      * The ConversionStep model constructor.
      * @property {module:model/ConversionStep}
      */
@@ -86,6 +91,11 @@
      * @property {module:model/Correlation}
      */
     Correlation: Correlation,
+    /**
+     * The Correlations model constructor.
+     * @property {module:model/Correlations}
+     */
+    Correlations: Correlations,
     /**
      * The InlineResponse200 model constructor.
      * @property {module:model/InlineResponse200}
@@ -167,15 +177,35 @@
      */
     TrackingReminderNotificationPost: TrackingReminderNotificationPost,
     /**
+     * The TrackingReminderNotifications model constructor.
+     * @property {module:model/TrackingReminderNotifications}
+     */
+    TrackingReminderNotifications: TrackingReminderNotifications,
+    /**
+     * The TrackingReminders model constructor.
+     * @property {module:model/TrackingReminders}
+     */
+    TrackingReminders: TrackingReminders,
+    /**
      * The Unit model constructor.
      * @property {module:model/Unit}
      */
     Unit: Unit,
     /**
+     * The UnitCategories model constructor.
+     * @property {module:model/UnitCategories}
+     */
+    UnitCategories: UnitCategories,
+    /**
      * The UnitCategory model constructor.
      * @property {module:model/UnitCategory}
      */
     UnitCategory: UnitCategory,
+    /**
+     * The Units model constructor.
+     * @property {module:model/Units}
+     */
+    Units: Units,
     /**
      * The Update model constructor.
      * @property {module:model/Update}
@@ -237,10 +267,20 @@
      */
     Variable: Variable,
     /**
+     * The VariableCategories model constructor.
+     * @property {module:model/VariableCategories}
+     */
+    VariableCategories: VariableCategories,
+    /**
      * The VariableCategory model constructor.
      * @property {module:model/VariableCategory}
      */
     VariableCategory: VariableCategory,
+    /**
+     * The Variables model constructor.
+     * @property {module:model/Variables}
+     */
+    Variables: Variables,
     /**
      * The Vote model constructor.
      * @property {module:model/Vote}

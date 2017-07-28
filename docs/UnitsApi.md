@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getUnitCategories"></a>
 # **getUnitCategories**
-> UnitCategory getUnitCategories()
+> UnitCategories getUnitCategories()
 
 Get unit categories
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UnitCategory**](UnitCategory.md)
+[**UnitCategories**](UnitCategories.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 <a name="getUnits"></a>
 # **getUnits**
-> [Unit] getUnits()
+> [Units] getUnits()
 
 Get units
 
@@ -99,7 +99,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**[Unit]**](Unit.md)
+[**[Units]**](Units.md)
 
 ### Authorization
 

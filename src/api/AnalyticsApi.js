@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/Correlation', 'model/JsonErrorResponse', 'model/PostCorrelation', 'model/Vote', 'model/VoteDelete'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/Correlation', 'model/Correlations', 'model/JsonErrorResponse', 'model/PostCorrelation', 'model/Vote', 'model/VoteDelete'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/JsonErrorResponse'), require('../model/PostCorrelation'), require('../model/Vote'), require('../model/VoteDelete'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/Correlations'), require('../model/JsonErrorResponse'), require('../model/PostCorrelation'), require('../model/Vote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Correlation, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostCorrelation, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
+    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Correlation, root.Quantimodo.Correlations, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostCorrelation, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
   }
-}(this, function(ApiClient, CommonResponse, Correlation, JsonErrorResponse, PostCorrelation, Vote, VoteDelete) {
+}(this, function(ApiClient, CommonResponse, Correlation, Correlations, JsonErrorResponse, PostCorrelation, Vote, VoteDelete) {
   'use strict';
 
   /**
@@ -100,7 +100,7 @@
      * Callback function to receive the result of the getAggregatedCorrelations operation.
      * @callback module:api/AnalyticsApi~getAggregatedCorrelationsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Correlation>} data The data returned by the service call.
+     * @param {Array.<module:model/Correlations>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -120,7 +120,7 @@
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param {module:api/AnalyticsApi~getAggregatedCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Correlation>}
+     * data is of type: {@link Array.<module:model/Correlations>}
      */
     this.getAggregatedCorrelations = function(opts, callback) {
       opts = opts || {};
@@ -150,7 +150,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [Correlation];
+      var returnType = [Correlations];
 
       return this.apiClient.callApi(
         '/v3/aggregatedCorrelations', 'GET',

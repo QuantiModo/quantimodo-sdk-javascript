@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 <a name="getAggregatedCorrelations"></a>
 # **getAggregatedCorrelations**
-> [Correlation] getAggregatedCorrelations(opts)
+> [Correlations] getAggregatedCorrelations(opts)
 
 Get aggregated correlations
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Correlation]**](Correlation.md)
+[**[Correlations]**](Correlations.md)
 
 ### Authorization
 
