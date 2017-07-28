@@ -16,70 +16,60 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminder'], factory);
+    define(['ApiClient', 'model/Measurement'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminder'));
+    module.exports = factory(require('../ApiClient'), require('./Measurement'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.InlineResponse200 = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminder);
+    root.Quantimodo.Measurements = factory(root.Quantimodo.ApiClient, root.Quantimodo.Measurement);
   }
-}(this, function(ApiClient, TrackingReminder) {
+}(this, function(ApiClient, Measurement) {
   'use strict';
 
 
 
 
   /**
-   * The InlineResponse200 model module.
-   * @module model/InlineResponse200
+   * The Measurements model module.
+   * @module model/Measurements
    * @version 5.8.728
    */
 
   /**
-   * Constructs a new <code>InlineResponse200</code>.
-   * @alias module:model/InlineResponse200
+   * Constructs a new <code>Measurements</code>.
+   * Array of mesaurements
+   * @alias module:model/Measurements
    * @class
+   * @extends Array
    */
   var exports = function() {
     var _this = this;
+    _this = new Array();
+    Object.setPrototypeOf(_this, exports);
 
-
-
+    return _this;
   };
 
   /**
-   * Constructs a <code>InlineResponse200</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Measurements</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/InlineResponse200} obj Optional instance to populate.
-   * @return {module:model/InlineResponse200} The populated <code>InlineResponse200</code> instance.
+   * @param {module:model/Measurements} obj Optional instance to populate.
+   * @return {module:model/Measurements} The populated <code>Measurements</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
+      ApiClient.constructFromObject(data, obj, 'Measurement');
 
-      if (data.hasOwnProperty('success')) {
-        obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
-      }
-      if (data.hasOwnProperty('data')) {
-        obj['data'] = ApiClient.convertToType(data['data'], [TrackingReminder]);
-      }
     }
     return obj;
   }
 
-  /**
-   * @member {Boolean} success
-   */
-  exports.prototype['success'] = undefined;
-  /**
-   * @member {Array.<module:model/TrackingReminder>} data
-   */
-  exports.prototype['data'] = undefined;
 
 
 

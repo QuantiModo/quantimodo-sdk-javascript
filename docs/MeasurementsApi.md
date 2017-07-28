@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeasurements"></a>
 # **getMeasurements**
-> Measurement getMeasurements(opts)
+> Measurements getMeasurements(opts)
 
 Get measurements for this user
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Measurement**](Measurement.md)
+[**Measurements**](Measurements.md)
 
 ### Authorization
 

@@ -6,7 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteVote**](AnalyticsApi.md#deleteVote) | **DELETE** /v3/votes/delete | Delete vote
 [**getAggregatedCorrelations**](AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
-[**getCorrelations**](AnalyticsApi.md#getCorrelations) | **GET** /v3/correlations | Get correlations
+[**getCorrelations**](AnalyticsApi.md#getCorrelations) | **GET** /v4/correlations | Get correlations
+[**getUserCorrelationExplantions**](AnalyticsApi.md#getUserCorrelationExplantions) | **GET** /v3/correlations/explanations | Get correlation explanations
 [**postAggregatedCorrelations**](AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
 [**postVote**](AnalyticsApi.md#postVote) | **POST** /v3/votes | Post or update vote
 
@@ -214,6 +215,66 @@ Name | Type | Description  | Notes
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
  **outcomesOfInterest** | **Boolean**| Only include correlations for which the effect is an outcome of interest for the user | [optional] 
+
+### Return type
+
+[**[Correlation]**](Correlation.md)
+
+### Authorization
+
+[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getUserCorrelationExplantions"></a>
+# **getUserCorrelationExplantions**
+> [Correlation] getUserCorrelationExplantions(opts)
+
+Get correlation explanations
+
+Get explanations of  correlations based on data from a single user.
+
+### Example
+```javascript
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: quantimodo_oauth2
+var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
+quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new Quantimodo.AnalyticsApi();
+
+var opts = { 
+  'effectVariableName': "effectVariableName_example", // String | Variable name of the effect variable for which the user desires correlations
+  'causeVariableName': "causeVariableName_example", // String | Variable name of the cause variable for which the user desires correlations
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getUserCorrelationExplantions(opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **effectVariableName** | **String**| Variable name of the effect variable for which the user desires correlations | [optional] 
+ **causeVariableName** | **String**| Variable name of the cause variable for which the user desires correlations | [optional] 
 
 ### Return type
 

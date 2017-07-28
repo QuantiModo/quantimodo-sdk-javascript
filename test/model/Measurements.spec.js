@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.TrackingReminderNotificationPost();
+    instance = new Quantimodo.Measurements();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,29 +49,11 @@
       object[property] = value;
   }
 
-  describe('TrackingReminderNotificationPost', function() {
-    it('should create an instance of TrackingReminderNotificationPost', function() {
-      // uncomment below and update the code to test TrackingReminderNotificationPost
-      //var instane = new Quantimodo.TrackingReminderNotificationPost();
-      //expect(instance).to.be.a(Quantimodo.TrackingReminderNotificationPost);
-    });
-
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instane = new Quantimodo.TrackingReminderNotificationPost();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property modifiedValue (base name: "modifiedValue")', function() {
-      // uncomment below and update the code to test the property modifiedValue
-      //var instane = new Quantimodo.TrackingReminderNotificationPost();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property action (base name: "action")', function() {
-      // uncomment below and update the code to test the property action
-      //var instane = new Quantimodo.TrackingReminderNotificationPost();
-      //expect(instance).to.be();
+  describe('Measurements', function() {
+    it('should create an instance of Measurements', function() {
+      // uncomment below and update the code to test Measurements
+      //var instane = new Quantimodo.Measurements();
+      //expect(instance).to.be.a(Quantimodo.Measurements);
     });
 
   });
