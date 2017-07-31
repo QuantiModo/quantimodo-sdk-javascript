@@ -110,6 +110,114 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property connectStatus (base name: "connectStatus")', function() {
+      // uncomment below and update the code to test the property connectStatus
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updateRequestedAt (base name: "updateRequestedAt")', function() {
+      // uncomment below and update the code to test the property updateRequestedAt
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property shortDescription (base name: "shortDescription")', function() {
+      // uncomment below and update the code to test the property shortDescription
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property message (base name: "message")', function() {
+      // uncomment below and update the code to test the property message
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastSuccessfulUpdatedAt (base name: "lastSuccessfulUpdatedAt")', function() {
+      // uncomment below and update the code to test the property lastSuccessfulUpdatedAt
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property imageHtml (base name: "imageHtml")', function() {
+      // uncomment below and update the code to test the property imageHtml
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updateStatus (base name: "updateStatus")', function() {
+      // uncomment below and update the code to test the property updateStatus
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property oauth (base name: "oauth")', function() {
+      // uncomment below and update the code to test the property oauth
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property defaultVariableCategoryName (base name: "defaultVariableCategoryName")', function() {
+      // uncomment below and update the code to test the property defaultVariableCategoryName
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property connectorClientId (base name: "connectorClientId")', function() {
+      // uncomment below and update the code to test the property connectorClientId
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property longDescription (base name: "longDescription")', function() {
+      // uncomment below and update the code to test the property longDescription
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property enabled (base name: "enabled")', function() {
+      // uncomment below and update the code to test the property enabled
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property linkedDisplayNameHtml (base name: "linkedDisplayNameHtml")', function() {
+      // uncomment below and update the code to test the property linkedDisplayNameHtml
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property clientId (base name: "clientId")', function() {
+      // uncomment below and update the code to test the property clientId
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userId (base name: "userId")', function() {
+      // uncomment below and update the code to test the property userId
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property connectorId (base name: "connectorId")', function() {
+      // uncomment below and update the code to test the property connectorId
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property createdAt (base name: "createdAt")', function() {
+      // uncomment below and update the code to test the property createdAt
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updatedAt (base name: "updatedAt")', function() {
+      // uncomment below and update the code to test the property updatedAt
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -196,7 +196,7 @@ var Quantimodo = require('quantimodo');
 var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
-  'clientId': "clientId_example" // String | Your app's client id
+  'clientId': "clientId_example", // String | Example: oauth_test_client
 };
 
 var callback = function(error, data, response) {
@@ -213,7 +213,7 @@ apiInstance.getIntegrationJs(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientId** | **String**| Your app&#39;s client id | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
 
 ### Return type
 

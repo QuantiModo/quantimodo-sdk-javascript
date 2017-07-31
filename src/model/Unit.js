@@ -36,7 +36,7 @@
   /**
    * The Unit model module.
    * @module model/Unit
-   * @version 5.8.730
+   * @version 5.8.731
    */
 
   /**
@@ -57,6 +57,10 @@
 
 
     _this['conversionSteps'] = conversionSteps;
+
+
+
+
   };
 
   /**
@@ -87,6 +91,18 @@
       }
       if (data.hasOwnProperty('conversionSteps')) {
         obj['conversionSteps'] = ApiClient.convertToType(data['conversionSteps'], [ConversionStep]);
+      }
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+      }
+      if (data.hasOwnProperty('categoryName')) {
+        obj['categoryName'] = ApiClient.convertToType(data['categoryName'], 'String');
+      }
+      if (data.hasOwnProperty('categoryId')) {
+        obj['categoryId'] = ApiClient.convertToType(data['categoryId'], 'Number');
+      }
+      if (data.hasOwnProperty('advanced')) {
+        obj['advanced'] = ApiClient.convertToType(data['advanced'], 'Number');
       }
     }
     return obj;
@@ -122,6 +138,26 @@
    * @member {Array.<module:model/ConversionStep>} conversionSteps
    */
   exports.prototype['conversionSteps'] = undefined;
+  /**
+   * Example: 29
+   * @member {Number} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * Example: Miscellany
+   * @member {String} categoryName
+   */
+  exports.prototype['categoryName'] = undefined;
+  /**
+   * Example: 6
+   * @member {Number} categoryId
+   */
+  exports.prototype['categoryId'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} advanced
+   */
+  exports.prototype['advanced'] = undefined;
 
 
   /**

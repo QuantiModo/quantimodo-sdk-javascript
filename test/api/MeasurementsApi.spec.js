@@ -100,10 +100,10 @@
         done();
       });
     });
-    describe('v3MeasurementsUpdatePut', function() {
-      it('should call v3MeasurementsUpdatePut successfully', function(done) {
-        //uncomment below and update the code to test v3MeasurementsUpdatePut
-        //instance.v3MeasurementsUpdatePut(function(error) {
+    describe('v3MeasurementsUpdatePost', function() {
+      it('should call v3MeasurementsUpdatePost successfully', function(done) {
+        //uncomment below and update the code to test v3MeasurementsUpdatePost
+        //instance.v3MeasurementsUpdatePost(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

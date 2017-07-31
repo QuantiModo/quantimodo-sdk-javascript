@@ -36,7 +36,7 @@
   /**
    * The Connector model module.
    * @module model/Connector
-   * @version 5.8.730
+   * @version 5.8.731
    */
 
   /**
@@ -65,6 +65,24 @@
     _this['connectInstructions'] = connectInstructions;
     _this['lastUpdate'] = lastUpdate;
     _this['totalMeasurementsInLastUpdate'] = totalMeasurementsInLastUpdate;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   };
 
   /**
@@ -104,6 +122,60 @@
       }
       if (data.hasOwnProperty('totalMeasurementsInLastUpdate')) {
         obj['totalMeasurementsInLastUpdate'] = ApiClient.convertToType(data['totalMeasurementsInLastUpdate'], 'Number');
+      }
+      if (data.hasOwnProperty('connectStatus')) {
+        obj['connectStatus'] = ApiClient.convertToType(data['connectStatus'], 'String');
+      }
+      if (data.hasOwnProperty('updateRequestedAt')) {
+        obj['updateRequestedAt'] = ApiClient.convertToType(data['updateRequestedAt'], 'Date');
+      }
+      if (data.hasOwnProperty('shortDescription')) {
+        obj['shortDescription'] = ApiClient.convertToType(data['shortDescription'], 'String');
+      }
+      if (data.hasOwnProperty('message')) {
+        obj['message'] = ApiClient.convertToType(data['message'], 'String');
+      }
+      if (data.hasOwnProperty('lastSuccessfulUpdatedAt')) {
+        obj['lastSuccessfulUpdatedAt'] = ApiClient.convertToType(data['lastSuccessfulUpdatedAt'], 'Date');
+      }
+      if (data.hasOwnProperty('imageHtml')) {
+        obj['imageHtml'] = ApiClient.convertToType(data['imageHtml'], 'String');
+      }
+      if (data.hasOwnProperty('updateStatus')) {
+        obj['updateStatus'] = ApiClient.convertToType(data['updateStatus'], 'String');
+      }
+      if (data.hasOwnProperty('oauth')) {
+        obj['oauth'] = ApiClient.convertToType(data['oauth'], Object);
+      }
+      if (data.hasOwnProperty('defaultVariableCategoryName')) {
+        obj['defaultVariableCategoryName'] = ApiClient.convertToType(data['defaultVariableCategoryName'], 'String');
+      }
+      if (data.hasOwnProperty('connectorClientId')) {
+        obj['connectorClientId'] = ApiClient.convertToType(data['connectorClientId'], 'String');
+      }
+      if (data.hasOwnProperty('longDescription')) {
+        obj['longDescription'] = ApiClient.convertToType(data['longDescription'], 'String');
+      }
+      if (data.hasOwnProperty('enabled')) {
+        obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Number');
+      }
+      if (data.hasOwnProperty('linkedDisplayNameHtml')) {
+        obj['linkedDisplayNameHtml'] = ApiClient.convertToType(data['linkedDisplayNameHtml'], 'String');
+      }
+      if (data.hasOwnProperty('clientId')) {
+        obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
+      }
+      if (data.hasOwnProperty('userId')) {
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
+      }
+      if (data.hasOwnProperty('connectorId')) {
+        obj['connectorId'] = ApiClient.convertToType(data['connectorId'], 'Number');
+      }
+      if (data.hasOwnProperty('createdAt')) {
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+      }
+      if (data.hasOwnProperty('updatedAt')) {
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
       }
     }
     return obj;
@@ -154,6 +226,96 @@
    * @member {Number} totalMeasurementsInLastUpdate
    */
   exports.prototype['totalMeasurementsInLastUpdate'] = undefined;
+  /**
+   * Example: CONNECTED
+   * @member {String} connectStatus
+   */
+  exports.prototype['connectStatus'] = undefined;
+  /**
+   * Example: 2017-07-18 05:16:31
+   * @member {Date} updateRequestedAt
+   */
+  exports.prototype['updateRequestedAt'] = undefined;
+  /**
+   * Example: Tracks social interaction. QuantiModo requires permission to access your Facebook \"user likes\" and \"user posts\".
+   * @member {String} shortDescription
+   */
+  exports.prototype['shortDescription'] = undefined;
+  /**
+   * Example: Got 412 new measurements on 2017-07-31 10:10:34
+   * @member {String} message
+   */
+  exports.prototype['message'] = undefined;
+  /**
+   * Example: 2017-07-31 10:10:34
+   * @member {Date} lastSuccessfulUpdatedAt
+   */
+  exports.prototype['lastSuccessfulUpdatedAt'] = undefined;
+  /**
+   * Example: <a href=\"http://www.facebook.com\"><img id=\"facebook_image\" title=\"Facebook\" src=\"https://i.imgur.com/GhwqK4f.png\" alt=\"Facebook\"></a>
+   * @member {String} imageHtml
+   */
+  exports.prototype['imageHtml'] = undefined;
+  /**
+   * Example: UPDATED
+   * @member {String} updateStatus
+   */
+  exports.prototype['updateStatus'] = undefined;
+  /**
+   * Example: {}
+   * @member {Object} oauth
+   */
+  exports.prototype['oauth'] = undefined;
+  /**
+   * Example: Social Interactions
+   * @member {String} defaultVariableCategoryName
+   */
+  exports.prototype['defaultVariableCategoryName'] = undefined;
+  /**
+   * Example: 225078261031461
+   * @member {String} connectorClientId
+   */
+  exports.prototype['connectorClientId'] = undefined;
+  /**
+   * Example: Facebook is a social networking website where users may create a personal profile, add other users as friends, and exchange messages.
+   * @member {String} longDescription
+   */
+  exports.prototype['longDescription'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} enabled
+   */
+  exports.prototype['enabled'] = undefined;
+  /**
+   * Example: <a href=\"http://www.facebook.com\">Facebook</a>
+   * @member {String} linkedDisplayNameHtml
+   */
+  exports.prototype['linkedDisplayNameHtml'] = undefined;
+  /**
+   * Example: ghostInspector
+   * @member {String} clientId
+   */
+  exports.prototype['clientId'] = undefined;
+  /**
+   * Example: 230
+   * @member {Number} userId
+   */
+  exports.prototype['userId'] = undefined;
+  /**
+   * Example: 8
+   * @member {Number} connectorId
+   */
+  exports.prototype['connectorId'] = undefined;
+  /**
+   * Example: 2000-01-01 00:00:00
+   * @member {Date} createdAt
+   */
+  exports.prototype['createdAt'] = undefined;
+  /**
+   * Example: 2017-07-31 10:10:34
+   * @member {Date} updatedAt
+   */
+  exports.prototype['updatedAt'] = undefined;
 
 
 

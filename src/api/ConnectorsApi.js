@@ -33,7 +33,7 @@
   /**
    * Connectors service.
    * @module api/ConnectorsApi
-   * @version 5.8.730
+   * @version 5.8.731
    */
 
   /**
@@ -192,7 +192,7 @@
      * Get embeddable connect javascript
      * Get embeddable connect javascript. Usage:   - Embedding in applications with popups for 3rd-party authentication windows.     Use &#x60;qmSetupInPopup&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in applications with popups for 3rd-party authentication windows.     Requires a selector to block. It will be embedded in this block.     Use &#x60;qmSetupOnPage&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in mobile applications without popups for 3rd-party authentication.     Use &#x60;qmSetupOnMobile&#x60; function after connecting &#x60;connect.js&#x60;.     If using in a Cordova application call  &#x60;qmSetupOnIonic&#x60; function after connecting &#x60;connect.js&#x60;.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.clientId Your app&#39;s client id
+     * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/ConnectorsApi~getIntegrationJsCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getIntegrationJs = function(opts, callback) {
