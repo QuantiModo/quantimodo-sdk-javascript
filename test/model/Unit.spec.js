@@ -92,30 +92,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instane = new Quantimodo.Unit();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property categoryName (base name: "categoryName")', function() {
-      // uncomment below and update the code to test the property categoryName
-      //var instane = new Quantimodo.Unit();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property categoryId (base name: "categoryId")', function() {
-      // uncomment below and update the code to test the property categoryId
-      //var instane = new Quantimodo.Unit();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property advanced (base name: "advanced")', function() {
-      // uncomment below and update the code to test the property advanced
-      //var instane = new Quantimodo.Unit();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

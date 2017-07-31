@@ -36,7 +36,7 @@
   /**
    * The InlineResponse201 model module.
    * @module model/InlineResponse201
-   * @version 5.8.731
+   * @version 5.8.730
    */
 
   /**

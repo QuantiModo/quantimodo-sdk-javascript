@@ -33,7 +33,7 @@
   /**
    * Measurements service.
    * @module api/MeasurementsApi
-   * @version 5.8.731
+   * @version 5.8.730
    */
 
   /**
@@ -181,8 +181,8 @@
      * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
      * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
      * @param {String} opts.causeUnitName Name for the unit cause measurements to be returned in
-     * @param {String} opts.onsetDelay The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
-     * @param {String} opts.durationOfAction The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
+     * @param {String} opts.delay The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the “onset delay”. For example, the “onset delay” between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
+     * @param {String} opts.duration The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable’s value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
      * @param {String} opts.effectUnitName Name for the unit effect measurements to be returned in
      * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
@@ -204,8 +204,8 @@
         'effectVariableName': opts['effectVariableName'],
         'causeVariableName': opts['causeVariableName'],
         'causeUnitName': opts['causeUnitName'],
-        'onsetDelay': opts['onsetDelay'],
-        'durationOfAction': opts['durationOfAction'],
+        'delay': opts['delay'],
+        'duration': opts['duration'],
         'effectUnitName': opts['effectUnitName'],
         'earliestMeasurementTime': opts['earliestMeasurementTime'],
         'latestMeasurementTime': opts['latestMeasurementTime'],
@@ -322,8 +322,8 @@
     }
 
     /**
-     * Callback function to receive the result of the v3MeasurementsUpdatePost operation.
-     * @callback module:api/MeasurementsApi~v3MeasurementsUpdatePostCallback
+     * Callback function to receive the result of the v3MeasurementsUpdatePut operation.
+     * @callback module:api/MeasurementsApi~v3MeasurementsUpdatePutCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CommonResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -333,15 +333,15 @@
      * Update a measurement
      * Delete a previously submitted measurement
      * @param {module:model/MeasurementUpdate} body The id as well as the new startTime, note, and/or value of the measurement to be updated
-     * @param {module:api/MeasurementsApi~v3MeasurementsUpdatePostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/MeasurementsApi~v3MeasurementsUpdatePutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
-    this.v3MeasurementsUpdatePost = function(body, callback) {
+    this.v3MeasurementsUpdatePut = function(body, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling v3MeasurementsUpdatePost");
+        throw new Error("Missing the required parameter 'body' when calling v3MeasurementsUpdatePut");
       }
 
 
@@ -360,7 +360,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v3/measurements/update', 'POST',
+        '/v3/measurements/update', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

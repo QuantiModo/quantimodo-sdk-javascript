@@ -36,7 +36,7 @@
   /**
    * The User model module.
    * @module model/User
-   * @version 5.8.731
+   * @version 5.8.730
    */
 
   /**
@@ -59,28 +59,6 @@
     _this['email'] = email;
     _this['accessToken'] = accessToken;
     _this['administrator'] = administrator;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   };
 
   /**
@@ -111,72 +89,6 @@
       }
       if (data.hasOwnProperty('administrator')) {
         obj['administrator'] = ApiClient.convertToType(data['administrator'], 'Boolean');
-      }
-      if (data.hasOwnProperty('clientId')) {
-        obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
-      }
-      if (data.hasOwnProperty('earliestReminderTime')) {
-        obj['earliestReminderTime'] = ApiClient.convertToType(data['earliestReminderTime'], 'Date');
-      }
-      if (data.hasOwnProperty('lastFour')) {
-        obj['lastFour'] = ApiClient.convertToType(data['lastFour'], 'String');
-      }
-      if (data.hasOwnProperty('latestReminderTime')) {
-        obj['latestReminderTime'] = ApiClient.convertToType(data['latestReminderTime'], 'String');
-      }
-      if (data.hasOwnProperty('clientUserId')) {
-        obj['clientUserId'] = ApiClient.convertToType(data['clientUserId'], 'String');
-      }
-      if (data.hasOwnProperty('pushNotificationsEnabled')) {
-        obj['pushNotificationsEnabled'] = ApiClient.convertToType(data['pushNotificationsEnabled'], 'Boolean');
-      }
-      if (data.hasOwnProperty('roles')) {
-        obj['roles'] = ApiClient.convertToType(data['roles'], 'String');
-      }
-      if (data.hasOwnProperty('sendPredictorEmails')) {
-        obj['sendPredictorEmails'] = ApiClient.convertToType(data['sendPredictorEmails'], 'Boolean');
-      }
-      if (data.hasOwnProperty('sendReminderNotificationEmails')) {
-        obj['sendReminderNotificationEmails'] = ApiClient.convertToType(data['sendReminderNotificationEmails'], 'Boolean');
-      }
-      if (data.hasOwnProperty('stripeId')) {
-        obj['stripeId'] = ApiClient.convertToType(data['stripeId'], 'String');
-      }
-      if (data.hasOwnProperty('stripePlan')) {
-        obj['stripePlan'] = ApiClient.convertToType(data['stripePlan'], 'String');
-      }
-      if (data.hasOwnProperty('stripeSubscription')) {
-        obj['stripeSubscription'] = ApiClient.convertToType(data['stripeSubscription'], 'String');
-      }
-      if (data.hasOwnProperty('subscriptionProvider')) {
-        obj['subscriptionProvider'] = ApiClient.convertToType(data['subscriptionProvider'], 'String');
-      }
-      if (data.hasOwnProperty('timeZoneOffset')) {
-        obj['timeZoneOffset'] = ApiClient.convertToType(data['timeZoneOffset'], 'Number');
-      }
-      if (data.hasOwnProperty('password')) {
-        obj['password'] = ApiClient.convertToType(data['password'], 'String');
-      }
-      if (data.hasOwnProperty('avatar')) {
-        obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
-      }
-      if (data.hasOwnProperty('userRegistered')) {
-        obj['userRegistered'] = ApiClient.convertToType(data['userRegistered'], 'Date');
-      }
-      if (data.hasOwnProperty('userUrl')) {
-        obj['userUrl'] = ApiClient.convertToType(data['userUrl'], 'String');
-      }
-      if (data.hasOwnProperty('capabilities')) {
-        obj['capabilities'] = ApiClient.convertToType(data['capabilities'], 'String');
-      }
-      if (data.hasOwnProperty('firstName')) {
-        obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
-      }
-      if (data.hasOwnProperty('lastName')) {
-        obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
-      }
-      if (data.hasOwnProperty('trackLocation')) {
-        obj['trackLocation'] = ApiClient.convertToType(data['trackLocation'], 'Boolean');
       }
     }
     return obj;
@@ -212,116 +124,6 @@
    * @member {Boolean} administrator
    */
   exports.prototype['administrator'] = undefined;
-  /**
-   * Example: quantimodo
-   * @member {String} clientId
-   */
-  exports.prototype['clientId'] = undefined;
-  /**
-   * Earliest time user should get notifications. Example: 05:00:00
-   * @member {Date} earliestReminderTime
-   */
-  exports.prototype['earliestReminderTime'] = undefined;
-  /**
-   * Example: 2009
-   * @member {String} lastFour
-   */
-  exports.prototype['lastFour'] = undefined;
-  /**
-   * Latest time user should get notifications. Example: 23:00:00
-   * @member {String} latestReminderTime
-   */
-  exports.prototype['latestReminderTime'] = undefined;
-  /**
-   * Example: 118444693184829555362
-   * @member {String} clientUserId
-   */
-  exports.prototype['clientUserId'] = undefined;
-  /**
-   * Example: 1
-   * @member {Boolean} pushNotificationsEnabled
-   */
-  exports.prototype['pushNotificationsEnabled'] = undefined;
-  /**
-   * Example: [\"admin\"]
-   * @member {String} roles
-   */
-  exports.prototype['roles'] = undefined;
-  /**
-   * Example: 1
-   * @member {Boolean} sendPredictorEmails
-   */
-  exports.prototype['sendPredictorEmails'] = undefined;
-  /**
-   * Example: 1
-   * @member {Boolean} sendReminderNotificationEmails
-   */
-  exports.prototype['sendReminderNotificationEmails'] = undefined;
-  /**
-   * Example: cus_A8CEmcvl8jwLhV
-   * @member {String} stripeId
-   */
-  exports.prototype['stripeId'] = undefined;
-  /**
-   * Example: monthly7
-   * @member {String} stripePlan
-   */
-  exports.prototype['stripePlan'] = undefined;
-  /**
-   * Example: sub_ANTx3nOE7nzjQf
-   * @member {String} stripeSubscription
-   */
-  exports.prototype['stripeSubscription'] = undefined;
-  /**
-   * Example: google
-   * @member {String} subscriptionProvider
-   */
-  exports.prototype['subscriptionProvider'] = undefined;
-  /**
-   * Example: 300
-   * @member {Number} timeZoneOffset
-   */
-  exports.prototype['timeZoneOffset'] = undefined;
-  /**
-   * Example: PASSWORD
-   * @member {String} password
-   */
-  exports.prototype['password'] = undefined;
-  /**
-   * Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
-   * @member {String} avatar
-   */
-  exports.prototype['avatar'] = undefined;
-  /**
-   * Example: 2013-12-03 15:25:13
-   * @member {Date} userRegistered
-   */
-  exports.prototype['userRegistered'] = undefined;
-  /**
-   * Example: https://plus.google.com/+MikeSinn
-   * @member {String} userUrl
-   */
-  exports.prototype['userUrl'] = undefined;
-  /**
-   * Example: a:1:{s:13:\"administrator\";b:1;}
-   * @member {String} capabilities
-   */
-  exports.prototype['capabilities'] = undefined;
-  /**
-   * Example: Mike
-   * @member {String} firstName
-   */
-  exports.prototype['firstName'] = undefined;
-  /**
-   * Example: Sinn
-   * @member {String} lastName
-   */
-  exports.prototype['lastName'] = undefined;
-  /**
-   * Example: 1
-   * @member {Boolean} trackLocation
-   */
-  exports.prototype['trackLocation'] = undefined;
 
 
 

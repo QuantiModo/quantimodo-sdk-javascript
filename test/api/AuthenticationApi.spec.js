@@ -70,6 +70,36 @@
         done();
       });
     });
+    describe('getSocialAuthorizationCode', function() {
+      it('should call getSocialAuthorizationCode successfully', function(done) {
+        //uncomment below and update the code to test getSocialAuthorizationCode
+        //instance.getSocialAuthorizationCode(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getSocialAuthorizationToken', function() {
+      it('should call getSocialAuthorizationToken successfully', function(done) {
+        //uncomment below and update the code to test getSocialAuthorizationToken
+        //instance.getSocialAuthorizationToken(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getSocialLoginPage', function() {
+      it('should call getSocialLoginPage successfully', function(done) {
+        //uncomment below and update the code to test getSocialLoginPage
+        //instance.getSocialLoginPage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

@@ -33,7 +33,7 @@
   /**
    * Variables service.
    * @module api/VariablesApi
-   * @version 5.8.731
+   * @version 5.8.730
    */
 
   /**
@@ -161,7 +161,7 @@
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
      * @param {String} opts.name Original name of the variable (supports exact name match only)
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
+     * @param {String} opts.source The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
      * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
@@ -185,7 +185,7 @@
         'variableCategoryName': opts['variableCategoryName'],
         'name': opts['name'],
         'updatedAt': opts['updatedAt'],
-        'sourceName': opts['sourceName'],
+        'source': opts['source'],
         'earliestMeasurementTime': opts['earliestMeasurementTime'],
         'latestMeasurementTime': opts['latestMeasurementTime'],
         'numberOfRawMeasurements': opts['numberOfRawMeasurements'],
@@ -228,7 +228,7 @@
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
      * @param {String} opts.name Original name of the variable (supports exact name match only)
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
+     * @param {String} opts.source The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
      * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
@@ -252,7 +252,7 @@
         'variableCategoryName': opts['variableCategoryName'],
         'name': opts['name'],
         'updatedAt': opts['updatedAt'],
-        'sourceName': opts['sourceName'],
+        'source': opts['source'],
         'earliestMeasurementTime': opts['earliestMeasurementTime'],
         'latestMeasurementTime': opts['latestMeasurementTime'],
         'numberOfRawMeasurements': opts['numberOfRawMeasurements'],
@@ -422,7 +422,7 @@
     /**
      * Reset user settings for a variable to defaults
      * Reset user settings for a variable to defaults
-     * @param {module:model/UserVariableDelete} variableId Id of the variable whose measurements should be deleted
+     * @param {module:model/UserVariableDelete} variableId Id of the variable that should be reset
      * @param {module:api/VariablesApi~resetUserVariableSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.resetUserVariableSettings = function(variableId, callback) {

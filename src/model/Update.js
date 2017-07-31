@@ -36,7 +36,7 @@
   /**
    * The Update model module.
    * @module model/Update
-   * @version 5.8.731
+   * @version 5.8.730
    */
 
   /**

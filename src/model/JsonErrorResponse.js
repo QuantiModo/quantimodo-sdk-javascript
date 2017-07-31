@@ -36,7 +36,7 @@
   /**
    * The JsonErrorResponse model module.
    * @module model/JsonErrorResponse
-   * @version 5.8.731
+   * @version 5.8.730
    */
 
   /**

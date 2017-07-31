@@ -33,7 +33,7 @@
   /**
    * Units service.
    * @module api/UnitsApi
-   * @version 5.8.731
+   * @version 5.8.730
    */
 
   /**
