@@ -36,7 +36,7 @@
   /**
    * The TrackingReminderNotification model module.
    * @module model/TrackingReminderNotification
-   * @version 5.8.730
+   * @version 5.8.731
    */
 
   /**
@@ -49,6 +49,56 @@
     var _this = this;
 
     _this['id'] = id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -93,9 +143,6 @@
       if (data.hasOwnProperty('variableId')) {
         obj['variableId'] = ApiClient.convertToType(data['variableId'], 'Number');
       }
-      if (data.hasOwnProperty('pendingReminderTime')) {
-        obj['pendingReminderTime'] = ApiClient.convertToType(data['pendingReminderTime'], 'Date');
-      }
       if (data.hasOwnProperty('defaultValue')) {
         obj['defaultValue'] = ApiClient.convertToType(data['defaultValue'], 'Number');
       }
@@ -129,6 +176,159 @@
       if (data.hasOwnProperty('combinationOperation')) {
         obj['combinationOperation'] = ApiClient.convertToType(data['combinationOperation'], 'String');
       }
+      if (data.hasOwnProperty('reminderFrequency')) {
+        obj['reminderFrequency'] = ApiClient.convertToType(data['reminderFrequency'], 'Number');
+      }
+      if (data.hasOwnProperty('reminderStartTime')) {
+        obj['reminderStartTime'] = ApiClient.convertToType(data['reminderStartTime'], 'String');
+      }
+      if (data.hasOwnProperty('createdAt')) {
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+      }
+      if (data.hasOwnProperty('trackingReminderNotificationId')) {
+        obj['trackingReminderNotificationId'] = ApiClient.convertToType(data['trackingReminderNotificationId'], 'Number');
+      }
+      if (data.hasOwnProperty('reminderTime')) {
+        obj['reminderTime'] = ApiClient.convertToType(data['reminderTime'], 'Date');
+      }
+      if (data.hasOwnProperty('trackingReminderNotificationTime')) {
+        obj['trackingReminderNotificationTime'] = ApiClient.convertToType(data['trackingReminderNotificationTime'], 'Date');
+      }
+      if (data.hasOwnProperty('defaultUnitId')) {
+        obj['defaultUnitId'] = ApiClient.convertToType(data['defaultUnitId'], 'Number');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('variableCategoryId')) {
+        obj['variableCategoryId'] = ApiClient.convertToType(data['variableCategoryId'], 'Number');
+      }
+      if (data.hasOwnProperty('valence')) {
+        obj['valence'] = ApiClient.convertToType(data['valence'], 'String');
+      }
+      if (data.hasOwnProperty('mostCommonValue')) {
+        obj['mostCommonValue'] = ApiClient.convertToType(data['mostCommonValue'], 'Number');
+      }
+      if (data.hasOwnProperty('secondMostCommonValue')) {
+        obj['secondMostCommonValue'] = ApiClient.convertToType(data['secondMostCommonValue'], 'Number');
+      }
+      if (data.hasOwnProperty('thirdMostCommonValue')) {
+        obj['thirdMostCommonValue'] = ApiClient.convertToType(data['thirdMostCommonValue'], 'Number');
+      }
+      if (data.hasOwnProperty('lastValue')) {
+        obj['lastValue'] = ApiClient.convertToType(data['lastValue'], 'Number');
+      }
+      if (data.hasOwnProperty('secondToLastValue')) {
+        obj['secondToLastValue'] = ApiClient.convertToType(data['secondToLastValue'], 'Number');
+      }
+      if (data.hasOwnProperty('thirdToLastValue')) {
+        obj['thirdToLastValue'] = ApiClient.convertToType(data['thirdToLastValue'], 'Number');
+      }
+      if (data.hasOwnProperty('userVariableDefaultUnitId')) {
+        obj['userVariableDefaultUnitId'] = ApiClient.convertToType(data['userVariableDefaultUnitId'], 'Number');
+      }
+      if (data.hasOwnProperty('userVariableVariableCategoryId')) {
+        obj['userVariableVariableCategoryId'] = ApiClient.convertToType(data['userVariableVariableCategoryId'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfUniqueValues')) {
+        obj['numberOfUniqueValues'] = ApiClient.convertToType(data['numberOfUniqueValues'], 'Number');
+      }
+      if (data.hasOwnProperty('ionIcon')) {
+        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
+      }
+      if (data.hasOwnProperty('svgUrl')) {
+        obj['svgUrl'] = ApiClient.convertToType(data['svgUrl'], 'String');
+      }
+      if (data.hasOwnProperty('pngUrl')) {
+        obj['pngUrl'] = ApiClient.convertToType(data['pngUrl'], 'String');
+      }
+      if (data.hasOwnProperty('pngPath')) {
+        obj['pngPath'] = ApiClient.convertToType(data['pngPath'], 'String');
+      }
+      if (data.hasOwnProperty('variableCategoryImageUrl')) {
+        obj['variableCategoryImageUrl'] = ApiClient.convertToType(data['variableCategoryImageUrl'], 'String');
+      }
+      if (data.hasOwnProperty('manualTracking')) {
+        obj['manualTracking'] = ApiClient.convertToType(data['manualTracking'], 'Boolean');
+      }
+      if (data.hasOwnProperty('userVariableVariableCategoryName')) {
+        obj['userVariableVariableCategoryName'] = ApiClient.convertToType(data['userVariableVariableCategoryName'], 'String');
+      }
+      if (data.hasOwnProperty('trackingReminderNotificationTimeEpoch')) {
+        obj['trackingReminderNotificationTimeEpoch'] = ApiClient.convertToType(data['trackingReminderNotificationTimeEpoch'], 'Number');
+      }
+      if (data.hasOwnProperty('trackingReminderNotificationTimeLocal')) {
+        obj['trackingReminderNotificationTimeLocal'] = ApiClient.convertToType(data['trackingReminderNotificationTimeLocal'], 'String');
+      }
+      if (data.hasOwnProperty('lastValueInUserVariableDefaultUnit')) {
+        obj['lastValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['lastValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('secondToLastValueInUserVariableDefaultUnit')) {
+        obj['secondToLastValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['secondToLastValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('thirdToLastValueInUserVariableDefaultUnit')) {
+        obj['thirdToLastValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['thirdToLastValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('mostCommonValueInUserVariableDefaultUnit')) {
+        obj['mostCommonValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['mostCommonValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('secondMostCommonValueInUserVariableDefaultUnit')) {
+        obj['secondMostCommonValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['secondMostCommonValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('thirdMostCommonValueInUserVariableDefaultUnit')) {
+        obj['thirdMostCommonValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['thirdMostCommonValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('unitId')) {
+        obj['unitId'] = ApiClient.convertToType(data['unitId'], 'Number');
+      }
+      if (data.hasOwnProperty('unitName')) {
+        obj['unitName'] = ApiClient.convertToType(data['unitName'], 'String');
+      }
+      if (data.hasOwnProperty('unitCategoryId')) {
+        obj['unitCategoryId'] = ApiClient.convertToType(data['unitCategoryId'], 'Number');
+      }
+      if (data.hasOwnProperty('unitCategoryName')) {
+        obj['unitCategoryName'] = ApiClient.convertToType(data['unitCategoryName'], 'String');
+      }
+      if (data.hasOwnProperty('defaultUnitName')) {
+        obj['defaultUnitName'] = ApiClient.convertToType(data['defaultUnitName'], 'String');
+      }
+      if (data.hasOwnProperty('defaultUnitAbbreviatedName')) {
+        obj['defaultUnitAbbreviatedName'] = ApiClient.convertToType(data['defaultUnitAbbreviatedName'], 'String');
+      }
+      if (data.hasOwnProperty('defaultUnitCategoryId')) {
+        obj['defaultUnitCategoryId'] = ApiClient.convertToType(data['defaultUnitCategoryId'], 'Number');
+      }
+      if (data.hasOwnProperty('defaultUnitCategoryName')) {
+        obj['defaultUnitCategoryName'] = ApiClient.convertToType(data['defaultUnitCategoryName'], 'String');
+      }
+      if (data.hasOwnProperty('userVariableDefaultUnitName')) {
+        obj['userVariableDefaultUnitName'] = ApiClient.convertToType(data['userVariableDefaultUnitName'], 'String');
+      }
+      if (data.hasOwnProperty('userVariableDefaultUnitAbbreviatedName')) {
+        obj['userVariableDefaultUnitAbbreviatedName'] = ApiClient.convertToType(data['userVariableDefaultUnitAbbreviatedName'], 'String');
+      }
+      if (data.hasOwnProperty('userVariableDefaultUnitCategoryId')) {
+        obj['userVariableDefaultUnitCategoryId'] = ApiClient.convertToType(data['userVariableDefaultUnitCategoryId'], 'Number');
+      }
+      if (data.hasOwnProperty('userVariableDefaultUnitCategoryName')) {
+        obj['userVariableDefaultUnitCategoryName'] = ApiClient.convertToType(data['userVariableDefaultUnitCategoryName'], 'String');
+      }
+      if (data.hasOwnProperty('minimumAllowedValue')) {
+        obj['minimumAllowedValue'] = ApiClient.convertToType(data['minimumAllowedValue'], 'Number');
+      }
+      if (data.hasOwnProperty('maximumAllowedValue')) {
+        obj['maximumAllowedValue'] = ApiClient.convertToType(data['maximumAllowedValue'], 'Number');
+      }
+      if (data.hasOwnProperty('inputType')) {
+        obj['inputType'] = ApiClient.convertToType(data['inputType'], 'String');
+      }
+      if (data.hasOwnProperty('total')) {
+        obj['total'] = ApiClient.convertToType(data['total'], 'Number');
+      }
+      if (data.hasOwnProperty('title')) {
+        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      }
     }
     return obj;
   }
@@ -158,11 +358,6 @@
    * @member {Number} variableId
    */
   exports.prototype['variableId'] = undefined;
-  /**
-   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
-   * @member {Date} pendingReminderTime
-   */
-  exports.prototype['pendingReminderTime'] = undefined;
   /**
    * Default value to use for the measurement when tracking
    * @member {Number} defaultValue
@@ -218,6 +413,261 @@
    * @member {module:model/TrackingReminderNotification.CombinationOperationEnum} combinationOperation
    */
   exports.prototype['combinationOperation'] = undefined;
+  /**
+   * How often user should be reminded in seconds. Example: 86400
+   * @member {Number} reminderFrequency
+   */
+  exports.prototype['reminderFrequency'] = undefined;
+  /**
+   * Earliest time of day at which reminders should appear in UTC HH:MM:SS format
+   * @member {String} reminderStartTime
+   */
+  exports.prototype['reminderStartTime'] = undefined;
+  /**
+   * Example: 2017-07-29 20:49:54
+   * @member {Date} createdAt
+   */
+  exports.prototype['createdAt'] = undefined;
+  /**
+   * Example: 5072482
+   * @member {Number} trackingReminderNotificationId
+   */
+  exports.prototype['trackingReminderNotificationId'] = undefined;
+  /**
+   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
+   * @member {Date} reminderTime
+   */
+  exports.prototype['reminderTime'] = undefined;
+  /**
+   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
+   * @member {Date} trackingReminderNotificationTime
+   */
+  exports.prototype['trackingReminderNotificationTime'] = undefined;
+  /**
+   * Example: 10
+   * @member {Number} defaultUnitId
+   */
+  exports.prototype['defaultUnitId'] = undefined;
+  /**
+   * Example: positive
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} variableCategoryId
+   */
+  exports.prototype['variableCategoryId'] = undefined;
+  /**
+   * Example: positive
+   * @member {String} valence
+   */
+  exports.prototype['valence'] = undefined;
+  /**
+   * Example: 3
+   * @member {Number} mostCommonValue
+   */
+  exports.prototype['mostCommonValue'] = undefined;
+  /**
+   * Example: 4
+   * @member {Number} secondMostCommonValue
+   */
+  exports.prototype['secondMostCommonValue'] = undefined;
+  /**
+   * Example: 2
+   * @member {Number} thirdMostCommonValue
+   */
+  exports.prototype['thirdMostCommonValue'] = undefined;
+  /**
+   * Example: 3
+   * @member {Number} lastValue
+   */
+  exports.prototype['lastValue'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} secondToLastValue
+   */
+  exports.prototype['secondToLastValue'] = undefined;
+  /**
+   * Example: 2
+   * @member {Number} thirdToLastValue
+   */
+  exports.prototype['thirdToLastValue'] = undefined;
+  /**
+   * Example: 10
+   * @member {Number} userVariableDefaultUnitId
+   */
+  exports.prototype['userVariableDefaultUnitId'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} userVariableVariableCategoryId
+   */
+  exports.prototype['userVariableVariableCategoryId'] = undefined;
+  /**
+   * Example: 5
+   * @member {Number} numberOfUniqueValues
+   */
+  exports.prototype['numberOfUniqueValues'] = undefined;
+  /**
+   * Example: ion-happy-outline
+   * @member {String} ionIcon
+   */
+  exports.prototype['ionIcon'] = undefined;
+  /**
+   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.svg
+   * @member {String} svgUrl
+   */
+  exports.prototype['svgUrl'] = undefined;
+  /**
+   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.png
+   * @member {String} pngUrl
+   */
+  exports.prototype['pngUrl'] = undefined;
+  /**
+   * Example: img/variable_categories/emotions.png
+   * @member {String} pngPath
+   */
+  exports.prototype['pngPath'] = undefined;
+  /**
+   * Example: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
+   * @member {String} variableCategoryImageUrl
+   */
+  exports.prototype['variableCategoryImageUrl'] = undefined;
+  /**
+   * Example: 1
+   * @member {Boolean} manualTracking
+   */
+  exports.prototype['manualTracking'] = undefined;
+  /**
+   * Example: Emotions
+   * @member {String} userVariableVariableCategoryName
+   */
+  exports.prototype['userVariableVariableCategoryName'] = undefined;
+  /**
+   * Example: 1501534124
+   * @member {Number} trackingReminderNotificationTimeEpoch
+   */
+  exports.prototype['trackingReminderNotificationTimeEpoch'] = undefined;
+  /**
+   * Example: 15:48:44
+   * @member {String} trackingReminderNotificationTimeLocal
+   */
+  exports.prototype['trackingReminderNotificationTimeLocal'] = undefined;
+  /**
+   * Example: 3
+   * @member {Number} lastValueInUserVariableDefaultUnit
+   */
+  exports.prototype['lastValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} secondToLastValueInUserVariableDefaultUnit
+   */
+  exports.prototype['secondToLastValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 2
+   * @member {Number} thirdToLastValueInUserVariableDefaultUnit
+   */
+  exports.prototype['thirdToLastValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 3
+   * @member {Number} mostCommonValueInUserVariableDefaultUnit
+   */
+  exports.prototype['mostCommonValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 4
+   * @member {Number} secondMostCommonValueInUserVariableDefaultUnit
+   */
+  exports.prototype['secondMostCommonValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 2
+   * @member {Number} thirdMostCommonValueInUserVariableDefaultUnit
+   */
+  exports.prototype['thirdMostCommonValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 10
+   * @member {Number} unitId
+   */
+  exports.prototype['unitId'] = undefined;
+  /**
+   * Example: 1 to 5 Rating
+   * @member {String} unitName
+   */
+  exports.prototype['unitName'] = undefined;
+  /**
+   * Example: 5
+   * @member {Number} unitCategoryId
+   */
+  exports.prototype['unitCategoryId'] = undefined;
+  /**
+   * Example: Rating
+   * @member {String} unitCategoryName
+   */
+  exports.prototype['unitCategoryName'] = undefined;
+  /**
+   * Example: 1 to 5 Rating
+   * @member {String} defaultUnitName
+   */
+  exports.prototype['defaultUnitName'] = undefined;
+  /**
+   * Example: /5
+   * @member {String} defaultUnitAbbreviatedName
+   */
+  exports.prototype['defaultUnitAbbreviatedName'] = undefined;
+  /**
+   * Example: 5
+   * @member {Number} defaultUnitCategoryId
+   */
+  exports.prototype['defaultUnitCategoryId'] = undefined;
+  /**
+   * Example: Rating
+   * @member {String} defaultUnitCategoryName
+   */
+  exports.prototype['defaultUnitCategoryName'] = undefined;
+  /**
+   * Example: 1 to 5 Rating
+   * @member {String} userVariableDefaultUnitName
+   */
+  exports.prototype['userVariableDefaultUnitName'] = undefined;
+  /**
+   * Example: /5
+   * @member {String} userVariableDefaultUnitAbbreviatedName
+   */
+  exports.prototype['userVariableDefaultUnitAbbreviatedName'] = undefined;
+  /**
+   * Example: 5
+   * @member {Number} userVariableDefaultUnitCategoryId
+   */
+  exports.prototype['userVariableDefaultUnitCategoryId'] = undefined;
+  /**
+   * Example: Rating
+   * @member {String} userVariableDefaultUnitCategoryName
+   */
+  exports.prototype['userVariableDefaultUnitCategoryName'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} minimumAllowedValue
+   */
+  exports.prototype['minimumAllowedValue'] = undefined;
+  /**
+   * Example: 5
+   * @member {Number} maximumAllowedValue
+   */
+  exports.prototype['maximumAllowedValue'] = undefined;
+  /**
+   * Example: happiestFaceIsFive
+   * @member {String} inputType
+   */
+  exports.prototype['inputType'] = undefined;
+  /**
+   * Example: 3
+   * @member {Number} total
+   */
+  exports.prototype['total'] = undefined;
+  /**
+   * Example: Rate Overall Mood
+   * @member {String} title
+   */
+  exports.prototype['title'] = undefined;
 
 
   /**

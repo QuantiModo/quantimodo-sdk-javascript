@@ -9,6 +9,10 @@ Name | Type | Description | Notes
 **minimumAllowedValue** | **Number** | The minimum allowed value for measurements. While you can record a value below this minimum, it will be excluded from the correlation analysis. | [optional] 
 **maximumAllowedValue** | **Number** | The maximum allowed value for measurements. While you can record a value above this maximum, it will be excluded from the correlation analysis. | [optional] 
 **conversionSteps** | [**[ConversionStep]**](ConversionStep.md) | Conversion steps list | 
+**id** | **Number** | Example: 29 | [optional] 
+**categoryName** | **String** | Example: Miscellany | [optional] 
+**categoryId** | **Number** | Example: 6 | [optional] 
+**advanced** | **Number** | Example: 1 | [optional] 
 
 
 <a name="CategoryEnum"></a>

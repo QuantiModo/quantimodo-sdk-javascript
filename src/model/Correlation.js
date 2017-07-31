@@ -36,7 +36,7 @@
   /**
    * The Correlation model module.
    * @module model/Correlation
-   * @version 5.8.730
+   * @version 5.8.731
    */
 
   /**
@@ -45,10 +45,10 @@
    * @class
    * @param cause {String} Variable name of the cause variable for which the user desires correlations.
    * @param correlationCoefficient {Number} Pearson correlation coefficient between cause and effect measurements
-   * @param durationOfAction {Number} The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable’s value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
+   * @param durationOfAction {Number} The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
    * @param effect {String} Variable name of the effect variable for which the user desires correlations.
    * @param numberOfPairs {Number} Number of points that went into the correlation calculation
-   * @param onsetDelay {Number} The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the “onset delay”. For example, the “onset delay” between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
+   * @param onsetDelay {Number} The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
    * @param timestamp {Number} Time at which correlation was calculated
    */
   var exports = function(cause, correlationCoefficient, durationOfAction, effect, numberOfPairs, onsetDelay, timestamp) {
@@ -111,6 +111,57 @@
 
 
     _this['timestamp'] = timestamp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -319,6 +370,159 @@
       if (data.hasOwnProperty('valuePredictingLowOutcomeExplanation')) {
         obj['valuePredictingLowOutcomeExplanation'] = ApiClient.convertToType(data['valuePredictingLowOutcomeExplanation'], 'String');
       }
+      if (data.hasOwnProperty('averageForwardPearsonCorrelationOverOnsetDelays')) {
+        obj['averageForwardPearsonCorrelationOverOnsetDelays'] = ApiClient.convertToType(data['averageForwardPearsonCorrelationOverOnsetDelays'], 'Number');
+      }
+      if (data.hasOwnProperty('averageReversePearsonCorrelationOverOnsetDelays')) {
+        obj['averageReversePearsonCorrelationOverOnsetDelays'] = ApiClient.convertToType(data['averageReversePearsonCorrelationOverOnsetDelays'], 'Number');
+      }
+      if (data.hasOwnProperty('confidenceInterval')) {
+        obj['confidenceInterval'] = ApiClient.convertToType(data['confidenceInterval'], 'Number');
+      }
+      if (data.hasOwnProperty('criticalTValue')) {
+        obj['criticalTValue'] = ApiClient.convertToType(data['criticalTValue'], 'Number');
+      }
+      if (data.hasOwnProperty('effectChanges')) {
+        obj['effectChanges'] = ApiClient.convertToType(data['effectChanges'], 'Number');
+      }
+      if (data.hasOwnProperty('experimentEndTime')) {
+        obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'Date');
+      }
+      if (data.hasOwnProperty('experimentStartTime')) {
+        obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'Date');
+      }
+      if (data.hasOwnProperty('forwardSpearmanCorrelationCoefficient')) {
+        obj['forwardSpearmanCorrelationCoefficient'] = ApiClient.convertToType(data['forwardSpearmanCorrelationCoefficient'], 'Number');
+      }
+      if (data.hasOwnProperty('onsetDelayWithStrongestPearsonCorrelation')) {
+        obj['onsetDelayWithStrongestPearsonCorrelation'] = ApiClient.convertToType(data['onsetDelayWithStrongestPearsonCorrelation'], 'Number');
+      }
+      if (data.hasOwnProperty('pearsonCorrelationWithNoOnsetDelay')) {
+        obj['pearsonCorrelationWithNoOnsetDelay'] = ApiClient.convertToType(data['pearsonCorrelationWithNoOnsetDelay'], 'Number');
+      }
+      if (data.hasOwnProperty('predictivePearsonCorrelation')) {
+        obj['predictivePearsonCorrelation'] = ApiClient.convertToType(data['predictivePearsonCorrelation'], 'Number');
+      }
+      if (data.hasOwnProperty('predictsHighEffectChange')) {
+        obj['predictsHighEffectChange'] = ApiClient.convertToType(data['predictsHighEffectChange'], 'Number');
+      }
+      if (data.hasOwnProperty('predictsLowEffectChange')) {
+        obj['predictsLowEffectChange'] = ApiClient.convertToType(data['predictsLowEffectChange'], 'Number');
+      }
+      if (data.hasOwnProperty('strongestPearsonCorrelationCoefficient')) {
+        obj['strongestPearsonCorrelationCoefficient'] = ApiClient.convertToType(data['strongestPearsonCorrelationCoefficient'], 'Number');
+      }
+      if (data.hasOwnProperty('tValue')) {
+        obj['tValue'] = ApiClient.convertToType(data['tValue'], 'Number');
+      }
+      if (data.hasOwnProperty('userId')) {
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
+      }
+      if (data.hasOwnProperty('causeVariableMostCommonConnectorId')) {
+        obj['causeVariableMostCommonConnectorId'] = ApiClient.convertToType(data['causeVariableMostCommonConnectorId'], 'Number');
+      }
+      if (data.hasOwnProperty('causeVariableCategoryId')) {
+        obj['causeVariableCategoryId'] = ApiClient.convertToType(data['causeVariableCategoryId'], 'Number');
+      }
+      if (data.hasOwnProperty('effectVariableCombinationOperation')) {
+        obj['effectVariableCombinationOperation'] = ApiClient.convertToType(data['effectVariableCombinationOperation'], 'String');
+      }
+      if (data.hasOwnProperty('effectVariableCommonAlias')) {
+        obj['effectVariableCommonAlias'] = ApiClient.convertToType(data['effectVariableCommonAlias'], 'String');
+      }
+      if (data.hasOwnProperty('effectVariableDefaultUnitId')) {
+        obj['effectVariableDefaultUnitId'] = ApiClient.convertToType(data['effectVariableDefaultUnitId'], 'Number');
+      }
+      if (data.hasOwnProperty('effectVariableMostCommonConnectorId')) {
+        obj['effectVariableMostCommonConnectorId'] = ApiClient.convertToType(data['effectVariableMostCommonConnectorId'], 'Number');
+      }
+      if (data.hasOwnProperty('effectVariableCategoryId')) {
+        obj['effectVariableCategoryId'] = ApiClient.convertToType(data['effectVariableCategoryId'], 'Number');
+      }
+      if (data.hasOwnProperty('causeUserVariableShareUserMeasurements')) {
+        obj['causeUserVariableShareUserMeasurements'] = ApiClient.convertToType(data['causeUserVariableShareUserMeasurements'], 'Number');
+      }
+      if (data.hasOwnProperty('effectUserVariableShareUserMeasurements')) {
+        obj['effectUserVariableShareUserMeasurements'] = ApiClient.convertToType(data['effectUserVariableShareUserMeasurements'], 'Number');
+      }
+      if (data.hasOwnProperty('predictorFillingValue')) {
+        obj['predictorFillingValue'] = ApiClient.convertToType(data['predictorFillingValue'], 'Number');
+      }
+      if (data.hasOwnProperty('outcomeFillingValue')) {
+        obj['outcomeFillingValue'] = ApiClient.convertToType(data['outcomeFillingValue'], 'Number');
+      }
+      if (data.hasOwnProperty('createdTime')) {
+        obj['createdTime'] = ApiClient.convertToType(data['createdTime'], 'Date');
+      }
+      if (data.hasOwnProperty('updatedTime')) {
+        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'Date');
+      }
+      if (data.hasOwnProperty('durationOfActionInHours')) {
+        obj['durationOfActionInHours'] = ApiClient.convertToType(data['durationOfActionInHours'], 'Number');
+      }
+      if (data.hasOwnProperty('onsetDelayWithStrongestPearsonCorrelationInHours')) {
+        obj['onsetDelayWithStrongestPearsonCorrelationInHours'] = ApiClient.convertToType(data['onsetDelayWithStrongestPearsonCorrelationInHours'], 'Number');
+      }
+      if (data.hasOwnProperty('direction')) {
+        obj['direction'] = ApiClient.convertToType(data['direction'], 'String');
+      }
+      if (data.hasOwnProperty('causeVariableDefaultUnitAbbreviatedName')) {
+        obj['causeVariableDefaultUnitAbbreviatedName'] = ApiClient.convertToType(data['causeVariableDefaultUnitAbbreviatedName'], 'String');
+      }
+      if (data.hasOwnProperty('effectVariableDefaultUnitAbbreviatedName')) {
+        obj['effectVariableDefaultUnitAbbreviatedName'] = ApiClient.convertToType(data['effectVariableDefaultUnitAbbreviatedName'], 'String');
+      }
+      if (data.hasOwnProperty('causeVariableDefaultUnitName')) {
+        obj['causeVariableDefaultUnitName'] = ApiClient.convertToType(data['causeVariableDefaultUnitName'], 'String');
+      }
+      if (data.hasOwnProperty('effectVariableDefaultUnitName')) {
+        obj['effectVariableDefaultUnitName'] = ApiClient.convertToType(data['effectVariableDefaultUnitName'], 'String');
+      }
+      if (data.hasOwnProperty('shareUserMeasurements')) {
+        obj['shareUserMeasurements'] = ApiClient.convertToType(data['shareUserMeasurements'], 'Boolean');
+      }
+      if (data.hasOwnProperty('effectUnit')) {
+        obj['effectUnit'] = ApiClient.convertToType(data['effectUnit'], 'String');
+      }
+      if (data.hasOwnProperty('significantDifference')) {
+        obj['significantDifference'] = ApiClient.convertToType(data['significantDifference'], 'Boolean');
+      }
+      if (data.hasOwnProperty('predictsHighEffectChangeSentenceFragment')) {
+        obj['predictsHighEffectChangeSentenceFragment'] = ApiClient.convertToType(data['predictsHighEffectChangeSentenceFragment'], 'String');
+      }
+      if (data.hasOwnProperty('predictsLowEffectChangeSentenceFragment')) {
+        obj['predictsLowEffectChangeSentenceFragment'] = ApiClient.convertToType(data['predictsLowEffectChangeSentenceFragment'], 'String');
+      }
+      if (data.hasOwnProperty('confidenceLevel')) {
+        obj['confidenceLevel'] = ApiClient.convertToType(data['confidenceLevel'], 'String');
+      }
+      if (data.hasOwnProperty('predictivePearsonCorrelationCoefficient')) {
+        obj['predictivePearsonCorrelationCoefficient'] = ApiClient.convertToType(data['predictivePearsonCorrelationCoefficient'], 'Number');
+      }
+      if (data.hasOwnProperty('studyLinkEmail')) {
+        obj['studyLinkEmail'] = ApiClient.convertToType(data['studyLinkEmail'], 'String');
+      }
+      if (data.hasOwnProperty('gaugeImageSquare')) {
+        obj['gaugeImageSquare'] = ApiClient.convertToType(data['gaugeImageSquare'], 'String');
+      }
+      if (data.hasOwnProperty('causeDataSource')) {
+        obj['causeDataSource'] = ApiClient.convertToType(data['causeDataSource'], Object);
+      }
+      if (data.hasOwnProperty('dataSourcesParagraphForCause')) {
+        obj['dataSourcesParagraphForCause'] = ApiClient.convertToType(data['dataSourcesParagraphForCause'], 'String');
+      }
+      if (data.hasOwnProperty('instructionsForCause')) {
+        obj['instructionsForCause'] = ApiClient.convertToType(data['instructionsForCause'], 'String');
+      }
+      if (data.hasOwnProperty('effectDataSource')) {
+        obj['effectDataSource'] = ApiClient.convertToType(data['effectDataSource'], Object);
+      }
+      if (data.hasOwnProperty('dataSourcesParagraphForEffect')) {
+        obj['dataSourcesParagraphForEffect'] = ApiClient.convertToType(data['dataSourcesParagraphForEffect'], 'String');
+      }
+      if (data.hasOwnProperty('instructionsForEffect')) {
+        obj['instructionsForEffect'] = ApiClient.convertToType(data['instructionsForEffect'], 'String');
+      }
     }
     return obj;
   }
@@ -439,7 +643,7 @@
    */
   exports.prototype['dataSources'] = undefined;
   /**
-   * The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable’s value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
+   * The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
    * @member {Number} durationOfAction
    */
   exports.prototype['durationOfAction'] = undefined;
@@ -494,7 +698,7 @@
    */
   exports.prototype['numberOfPairs'] = undefined;
   /**
-   * The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the “onset delay”. For example, the “onset delay” between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
+   * The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
    * @member {Number} onsetDelay
    */
   exports.prototype['onsetDelay'] = undefined;
@@ -638,6 +842,261 @@
    * @member {String} valuePredictingLowOutcomeExplanation
    */
   exports.prototype['valuePredictingLowOutcomeExplanation'] = undefined;
+  /**
+   * Example: 0.396
+   * @member {Number} averageForwardPearsonCorrelationOverOnsetDelays
+   */
+  exports.prototype['averageForwardPearsonCorrelationOverOnsetDelays'] = undefined;
+  /**
+   * Example: 0.453667
+   * @member {Number} averageReversePearsonCorrelationOverOnsetDelays
+   */
+  exports.prototype['averageReversePearsonCorrelationOverOnsetDelays'] = undefined;
+  /**
+   * Example: 0.14344467795996
+   * @member {Number} confidenceInterval
+   */
+  exports.prototype['confidenceInterval'] = undefined;
+  /**
+   * Example: 1.646
+   * @member {Number} criticalTValue
+   */
+  exports.prototype['criticalTValue'] = undefined;
+  /**
+   * Example: 193
+   * @member {Number} effectChanges
+   */
+  exports.prototype['effectChanges'] = undefined;
+  /**
+   * Example: 2014-07-30 12:50:00
+   * @member {Date} experimentEndTime
+   */
+  exports.prototype['experimentEndTime'] = undefined;
+  /**
+   * Example: 2012-05-06 21:15:00
+   * @member {Date} experimentStartTime
+   */
+  exports.prototype['experimentStartTime'] = undefined;
+  /**
+   * Example: 0.528359
+   * @member {Number} forwardSpearmanCorrelationCoefficient
+   */
+  exports.prototype['forwardSpearmanCorrelationCoefficient'] = undefined;
+  /**
+   * Example: -86400
+   * @member {Number} onsetDelayWithStrongestPearsonCorrelation
+   */
+  exports.prototype['onsetDelayWithStrongestPearsonCorrelation'] = undefined;
+  /**
+   * Example: 0.477
+   * @member {Number} pearsonCorrelationWithNoOnsetDelay
+   */
+  exports.prototype['pearsonCorrelationWithNoOnsetDelay'] = undefined;
+  /**
+   * Example: 0.538
+   * @member {Number} predictivePearsonCorrelation
+   */
+  exports.prototype['predictivePearsonCorrelation'] = undefined;
+  /**
+   * Example: 17
+   * @member {Number} predictsHighEffectChange
+   */
+  exports.prototype['predictsHighEffectChange'] = undefined;
+  /**
+   * Example: -11
+   * @member {Number} predictsLowEffectChange
+   */
+  exports.prototype['predictsLowEffectChange'] = undefined;
+  /**
+   * Example: 0.613
+   * @member {Number} strongestPearsonCorrelationCoefficient
+   */
+  exports.prototype['strongestPearsonCorrelationCoefficient'] = undefined;
+  /**
+   * Example: 9.6986079652717
+   * @member {Number} tValue
+   */
+  exports.prototype['tValue'] = undefined;
+  /**
+   * Example: 230
+   * @member {Number} userId
+   */
+  exports.prototype['userId'] = undefined;
+  /**
+   * Example: 6
+   * @member {Number} causeVariableMostCommonConnectorId
+   */
+  exports.prototype['causeVariableMostCommonConnectorId'] = undefined;
+  /**
+   * Example: 6
+   * @member {Number} causeVariableCategoryId
+   */
+  exports.prototype['causeVariableCategoryId'] = undefined;
+  /**
+   * Example: MEAN
+   * @member {String} effectVariableCombinationOperation
+   */
+  exports.prototype['effectVariableCombinationOperation'] = undefined;
+  /**
+   * Example: Mood_(psychology)
+   * @member {String} effectVariableCommonAlias
+   */
+  exports.prototype['effectVariableCommonAlias'] = undefined;
+  /**
+   * Example: 10
+   * @member {Number} effectVariableDefaultUnitId
+   */
+  exports.prototype['effectVariableDefaultUnitId'] = undefined;
+  /**
+   * Example: 10
+   * @member {Number} effectVariableMostCommonConnectorId
+   */
+  exports.prototype['effectVariableMostCommonConnectorId'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} effectVariableCategoryId
+   */
+  exports.prototype['effectVariableCategoryId'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} causeUserVariableShareUserMeasurements
+   */
+  exports.prototype['causeUserVariableShareUserMeasurements'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} effectUserVariableShareUserMeasurements
+   */
+  exports.prototype['effectUserVariableShareUserMeasurements'] = undefined;
+  /**
+   * Example: -1
+   * @member {Number} predictorFillingValue
+   */
+  exports.prototype['predictorFillingValue'] = undefined;
+  /**
+   * Example: -1
+   * @member {Number} outcomeFillingValue
+   */
+  exports.prototype['outcomeFillingValue'] = undefined;
+  /**
+   * Example: 2016-12-28 20:47:30
+   * @member {Date} createdTime
+   */
+  exports.prototype['createdTime'] = undefined;
+  /**
+   * Example: 2017-05-06 15:40:38
+   * @member {Date} updatedTime
+   */
+  exports.prototype['updatedTime'] = undefined;
+  /**
+   * Example: 168
+   * @member {Number} durationOfActionInHours
+   */
+  exports.prototype['durationOfActionInHours'] = undefined;
+  /**
+   * Example: -24
+   * @member {Number} onsetDelayWithStrongestPearsonCorrelationInHours
+   */
+  exports.prototype['onsetDelayWithStrongestPearsonCorrelationInHours'] = undefined;
+  /**
+   * Example: higher
+   * @member {String} direction
+   */
+  exports.prototype['direction'] = undefined;
+  /**
+   * Example: /5
+   * @member {String} causeVariableDefaultUnitAbbreviatedName
+   */
+  exports.prototype['causeVariableDefaultUnitAbbreviatedName'] = undefined;
+  /**
+   * Example: /5
+   * @member {String} effectVariableDefaultUnitAbbreviatedName
+   */
+  exports.prototype['effectVariableDefaultUnitAbbreviatedName'] = undefined;
+  /**
+   * Example: 1 to 5 Rating
+   * @member {String} causeVariableDefaultUnitName
+   */
+  exports.prototype['causeVariableDefaultUnitName'] = undefined;
+  /**
+   * Example: 1 to 5 Rating
+   * @member {String} effectVariableDefaultUnitName
+   */
+  exports.prototype['effectVariableDefaultUnitName'] = undefined;
+  /**
+   * Example: 1
+   * @member {Boolean} shareUserMeasurements
+   */
+  exports.prototype['shareUserMeasurements'] = undefined;
+  /**
+   * Example: /5
+   * @member {String} effectUnit
+   */
+  exports.prototype['effectUnit'] = undefined;
+  /**
+   * Example: 1
+   * @member {Boolean} significantDifference
+   */
+  exports.prototype['significantDifference'] = undefined;
+  /**
+   * Example: , on average, 17% 
+   * @member {String} predictsHighEffectChangeSentenceFragment
+   */
+  exports.prototype['predictsHighEffectChangeSentenceFragment'] = undefined;
+  /**
+   * Example: , on average, 11% 
+   * @member {String} predictsLowEffectChangeSentenceFragment
+   */
+  exports.prototype['predictsLowEffectChangeSentenceFragment'] = undefined;
+  /**
+   * Example: high
+   * @member {String} confidenceLevel
+   */
+  exports.prototype['confidenceLevel'] = undefined;
+  /**
+   * Example: 0.538
+   * @member {Number} predictivePearsonCorrelationCoefficient
+   */
+  exports.prototype['predictivePearsonCorrelationCoefficient'] = undefined;
+  /**
+   * Example: mailto:?subject=N1%20Study%3A%20Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood&body=Check%20out%20my%20study%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%0A%0AHave%20a%20great%20day!
+   * @member {String} studyLinkEmail
+   */
+  exports.prototype['studyLinkEmail'] = undefined;
+  /**
+   * Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
+   * @member {String} gaugeImageSquare
+   */
+  exports.prototype['gaugeImageSquare'] = undefined;
+  /**
+   * Example: {\"id\":6,\"name\":\"up\",\"connectorClientId\":\"10RfjEgKr8U\",\"connectorClientSecret\":\"e17fd34e4bc4642f0c4c99d7acb6e661\",\"displayName\":\"Up by Jawbone\",\"image\":\"https://i.imgur.com/MXNQy3T.png\",\"getItUrl\":\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\",\"shortDescription\":\"Tracks sleep, exercise, and diet.\",\"longDescription\":\"UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.\",\"enabled\":1,\"affiliate\":true,\"defaultVariableCategoryName\":\"Physical Activity\",\"imageHtml\":\"<a href=\\\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\\\"><img id=\\\"up_image\\\" title=\\\"Up by Jawbone\\\" src=\\\"https://i.imgur.com/MXNQy3T.png\\\" alt=\\\"Up by Jawbone\\\"></a>\",\"linkedDisplayNameHtml\":\"<a href=\\\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\\\">Up by Jawbone</a>\"}
+   * @member {Object} causeDataSource
+   */
+  exports.prototype['causeDataSource'] = undefined;
+  /**
+   * Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.
+   * @member {String} dataSourcesParagraphForCause
+   */
+  exports.prototype['dataSourcesParagraphForCause'] = undefined;
+  /**
+   * Example: <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Obtain Up by Jawbone</a> and use it to record your Sleep Quality. Once you have a <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  Up by Jawbone account at QuantiModo</a> to automatically import and analyze your data.
+   * @member {String} instructionsForCause
+   */
+  exports.prototype['instructionsForCause'] = undefined;
+  /**
+   * Example: {\"id\":72,\"name\":\"quantimodo\",\"displayName\":\"QuantiModo\",\"image\":\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\",\"getItUrl\":\"https://quantimo.do\",\"shortDescription\":\"Tracks anything\",\"longDescription\":\"QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.\",\"enabled\":0,\"affiliate\":true,\"defaultVariableCategoryName\":\"Foods\",\"imageHtml\":\"<a href=\\\"https://quantimo.do\\\"><img id=\\\"quantimodo_image\\\" title=\\\"QuantiModo\\\" src=\\\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\\\" alt=\\\"QuantiModo\\\"></a>\",\"linkedDisplayNameHtml\":\"<a href=\\\"https://quantimo.do\\\">QuantiModo</a>\"}
+   * @member {Object} effectDataSource
+   */
+  exports.prototype['effectDataSource'] = undefined;
+  /**
+   * Example: Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
+   * @member {String} dataSourcesParagraphForEffect
+   */
+  exports.prototype['dataSourcesParagraphForEffect'] = undefined;
+  /**
+   * Example: <a href=\"https://quantimo.do\">Obtain QuantiModo</a> and use it to record your Overall Mood. Once you have a <a href=\"https://quantimo.do\">QuantiModo</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  QuantiModo account at QuantiModo</a> to automatically import and analyze your data.
+   * @member {String} instructionsForEffect
+   */
+  exports.prototype['instructionsForEffect'] = undefined;
 
 
 

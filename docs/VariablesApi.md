@@ -162,7 +162,7 @@ var opts = {
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'name': "name_example", // String | Original name of the variable (supports exact name match only)
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
-  'source': "source_example", // String | The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
+  'sourceName': "sourceName_example", // String | ID of the source you want measurements for (supports exact name match only)
   'earliestMeasurementTime': "earliestMeasurementTime_example", // String | Excluded records with measurement times earlier than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
   'latestMeasurementTime': "latestMeasurementTime_example", // String | Excluded records with measurement times later than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
   'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **name** | **String**| Original name of the variable (supports exact name match only) | [optional] 
  **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local. | [optional] 
- **source** | **String**| The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here | [optional] 
+ **sourceName** | **String**| ID of the source you want measurements for (supports exact name match only) | [optional] 
  **earliestMeasurementTime** | **String**| Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
  **latestMeasurementTime** | **String**| Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
  **numberOfRawMeasurements** | **String**| Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. | [optional] 
@@ -244,7 +244,7 @@ var opts = {
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'name': "name_example", // String | Original name of the variable (supports exact name match only)
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
-  'source': "source_example", // String | The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
+  'sourceName': "sourceName_example", // String | ID of the source you want measurements for (supports exact name match only)
   'earliestMeasurementTime': "earliestMeasurementTime_example", // String | Excluded records with measurement times earlier than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
   'latestMeasurementTime': "latestMeasurementTime_example", // String | Excluded records with measurement times later than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
   'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **name** | **String**| Original name of the variable (supports exact name match only) | [optional] 
  **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local. | [optional] 
- **source** | **String**| The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here | [optional] 
+ **sourceName** | **String**| ID of the source you want measurements for (supports exact name match only) | [optional] 
  **earliestMeasurementTime** | **String**| Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
  **latestMeasurementTime** | **String**| Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
  **numberOfRawMeasurements** | **String**| Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. | [optional] 
@@ -489,7 +489,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.VariablesApi();
 
-var variableId = new Quantimodo.UserVariableDelete(); // UserVariableDelete | Id of the variable that should be reset
+var variableId = new Quantimodo.UserVariableDelete(); // UserVariableDelete | Id of the variable whose measurements should be deleted
 
 
 var callback = function(error, data, response) {
@@ -506,7 +506,7 @@ apiInstance.resetUserVariableSettings(variableId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variableId** | [**UserVariableDelete**](UserVariableDelete.md)| Id of the variable that should be reset | 
+ **variableId** | [**UserVariableDelete**](UserVariableDelete.md)| Id of the variable whose measurements should be deleted | 
 
 ### Return type
 
