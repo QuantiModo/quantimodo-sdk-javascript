@@ -59,15 +59,12 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Quantimodo.AnalyticsApi* | [**deleteVote**](docs/AnalyticsApi.md#deleteVote) | **DELETE** /v3/votes/delete | Delete vote
 *Quantimodo.AnalyticsApi* | [**getAggregatedCorrelations**](docs/AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
-*Quantimodo.AnalyticsApi* | [**getCorrelations**](docs/AnalyticsApi.md#getCorrelations) | **GET** /v4/correlations | Get correlations
 *Quantimodo.AnalyticsApi* | [**getUserCorrelationExplantions**](docs/AnalyticsApi.md#getUserCorrelationExplantions) | **GET** /v3/correlations/explanations | Get correlation explanations
+*Quantimodo.AnalyticsApi* | [**getUserCorrelations**](docs/AnalyticsApi.md#getUserCorrelations) | **GET** /v4/correlations | Get correlations
 *Quantimodo.AnalyticsApi* | [**postAggregatedCorrelations**](docs/AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
 *Quantimodo.AnalyticsApi* | [**postVote**](docs/AnalyticsApi.md#postVote) | **POST** /v3/votes | Post or update vote
-*Quantimodo.AuthenticationApi* | [**getAccessToken**](docs/AuthenticationApi.md#getAccessToken) | **GET** /v2/oauth2/access_token | Get a user access token
-*Quantimodo.AuthenticationApi* | [**getOauthAuthorizationCode**](docs/AuthenticationApi.md#getOauthAuthorizationCode) | **GET** /v2/oauth/authorize | Request Authorization Code
-*Quantimodo.AuthenticationApi* | [**getSocialAuthorizationCode**](docs/AuthenticationApi.md#getSocialAuthorizationCode) | **GET** /v2/auth/social/authorizeCode | Second Step in Social Authentication flow with JWT Token
-*Quantimodo.AuthenticationApi* | [**getSocialAuthorizationToken**](docs/AuthenticationApi.md#getSocialAuthorizationToken) | **GET** /v2/auth/social/authorizeToken | Native Social Authentication
-*Quantimodo.AuthenticationApi* | [**getSocialLoginPage**](docs/AuthenticationApi.md#getSocialLoginPage) | **GET** /v2/auth/social/login | First Setp in Social Authentication flow with JWT Token
+*Quantimodo.AuthenticationApi* | [**getAccessToken**](docs/AuthenticationApi.md#getAccessToken) | **GET** /v3/oauth2/token | Get a user access token
+*Quantimodo.AuthenticationApi* | [**getOauthAuthorizationCode**](docs/AuthenticationApi.md#getOauthAuthorizationCode) | **GET** /v3/oauth2/authorize | Request Authorization Code
 *Quantimodo.ConnectorsApi* | [**connectConnector**](docs/ConnectorsApi.md#connectConnector) | **GET** /v3/connectors/{connectorName}/connect | Obtain a token from 3rd party data source
 *Quantimodo.ConnectorsApi* | [**disconnectConnector**](docs/ConnectorsApi.md#disconnectConnector) | **GET** /v3/connectors/{connectorName}/disconnect | Delete stored connection info
 *Quantimodo.ConnectorsApi* | [**getConnectorsList**](docs/ConnectorsApi.md#getConnectorsList) | **GET** /v3/connectors/list | List of Connectors
@@ -76,18 +73,21 @@ Class | Method | HTTP request | Description
 *Quantimodo.ConnectorsApi* | [**updateConnector**](docs/ConnectorsApi.md#updateConnector) | **GET** /v3/connectors/{connectorName}/update | Sync with data source
 *Quantimodo.MeasurementsApi* | [**deleteMeasurement**](docs/MeasurementsApi.md#deleteMeasurement) | **DELETE** /v3/measurements/delete | Delete a measurement
 *Quantimodo.MeasurementsApi* | [**getMeasurements**](docs/MeasurementsApi.md#getMeasurements) | **GET** /v3/measurements | Get measurements for this user
+*Quantimodo.MeasurementsApi* | [**getMeasurementsDaily**](docs/MeasurementsApi.md#getMeasurementsDaily) | **GET** /v3/measurements/daily | Get Measurements Daily
 *Quantimodo.MeasurementsApi* | [**getPairs**](docs/MeasurementsApi.md#getPairs) | **GET** /v3/pairs | Get pairs of measurements for correlational analysis
 *Quantimodo.MeasurementsApi* | [**measurementExportRequest**](docs/MeasurementsApi.md#measurementExportRequest) | **POST** /v2/measurements/exportRequest | Post Request for Measurements CSV
 *Quantimodo.MeasurementsApi* | [**postMeasurements**](docs/MeasurementsApi.md#postMeasurements) | **POST** /v3/measurements | Post a new set or update existing measurements to the database
-*Quantimodo.MeasurementsApi* | [**v3MeasurementsUpdatePut**](docs/MeasurementsApi.md#v3MeasurementsUpdatePut) | **PUT** /v3/measurements/update | Update a measurement
+*Quantimodo.MeasurementsApi* | [**v3MeasurementsUpdatePost**](docs/MeasurementsApi.md#v3MeasurementsUpdatePost) | **POST** /v3/measurements/update | Update a measurement
 *Quantimodo.RemindersApi* | [**deleteTrackingReminder**](docs/RemindersApi.md#deleteTrackingReminder) | **DELETE** /v3/trackingReminders/delete | Delete tracking reminder
 *Quantimodo.RemindersApi* | [**getTrackingReminderNotifications**](docs/RemindersApi.md#getTrackingReminderNotifications) | **GET** /v3/trackingReminderNotifications | Get specific pending tracking reminders
 *Quantimodo.RemindersApi* | [**getTrackingReminders**](docs/RemindersApi.md#getTrackingReminders) | **GET** /v3/trackingReminders | Get repeating tracking reminder settings
 *Quantimodo.RemindersApi* | [**postTrackingReminderNotifications**](docs/RemindersApi.md#postTrackingReminderNotifications) | **POST** /v3/trackingReminderNotifications | Snooze, skip, or track a pending tracking reminder notification
 *Quantimodo.RemindersApi* | [**postTrackingReminders**](docs/RemindersApi.md#postTrackingReminders) | **POST** /v3/trackingReminders | Store a Tracking Reminder
+*Quantimodo.StudyApi* | [**getStudy**](docs/StudyApi.md#getStudy) | **GET** /v3/study | Get Study
 *Quantimodo.UnitsApi* | [**getUnitCategories**](docs/UnitsApi.md#getUnitCategories) | **GET** /v3/unitCategories | Get unit categories
 *Quantimodo.UnitsApi* | [**getUnits**](docs/UnitsApi.md#getUnits) | **GET** /v3/units | Get units
 *Quantimodo.UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /v3/user | Get user info
+*Quantimodo.UserSettingsApi* | [**postUserSettings**](docs/UserSettingsApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
 *Quantimodo.VariablesApi* | [**deleteUserTag**](docs/VariablesApi.md#deleteUserTag) | **DELETE** /v3/userTags/delete | Delete user tag or ingredient
 *Quantimodo.VariablesApi* | [**deleteUserVariable**](docs/VariablesApi.md#deleteUserVariable) | **DELETE** /v3/userVariables/delete | Delete All Measurements For Variable
 *Quantimodo.VariablesApi* | [**getPublicVariables**](docs/VariablesApi.md#getPublicVariables) | **GET** /v3/public/variables | Get public variables
@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [Quantimodo.AggregatedCorrelation](docs/AggregatedCorrelation.md)
  - [Quantimodo.CommonResponse](docs/CommonResponse.md)
  - [Quantimodo.Connector](docs/Connector.md)
  - [Quantimodo.ConnectorInstruction](docs/ConnectorInstruction.md)
@@ -125,6 +126,7 @@ Class | Method | HTTP request | Description
  - [Quantimodo.UnitCategory](docs/UnitCategory.md)
  - [Quantimodo.Update](docs/Update.md)
  - [Quantimodo.User](docs/User.md)
+ - [Quantimodo.UserCorrelation](docs/UserCorrelation.md)
  - [Quantimodo.UserTag](docs/UserTag.md)
  - [Quantimodo.UserTokenFailedResponse](docs/UserTokenFailedResponse.md)
  - [Quantimodo.UserTokenRequest](docs/UserTokenRequest.md)
