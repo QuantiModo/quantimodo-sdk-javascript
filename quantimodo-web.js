@@ -3243,8 +3243,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     }
 
     /**
-     * Callback function to receive the result of the getConnectorsList operation.
-     * @callback module:api/ConnectorsApi~getConnectorsListCallback
+     * Callback function to receive the result of the getConnectors operation.
+     * @callback module:api/ConnectorsApi~getConnectorsCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/Connector>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -3256,10 +3256,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Object} opts Optional parameters
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:api/ConnectorsApi~getConnectorsListCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/ConnectorsApi~getConnectorsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Connector>}
      */
-    this.getConnectorsList = function(opts, callback) {
+    this.getConnectors = function(opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -3281,7 +3281,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var returnType = [Connector];
 
       return this.apiClient.callApi(
-        '/v3/connectors/list', 'GET',
+        '/v4/connectors/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

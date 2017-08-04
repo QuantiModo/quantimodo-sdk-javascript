@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**connectConnector**](ConnectorsApi.md#connectConnector) | **GET** /v3/connectors/{connectorName}/connect | Obtain a token from 3rd party data source
 [**disconnectConnector**](ConnectorsApi.md#disconnectConnector) | **GET** /v3/connectors/{connectorName}/disconnect | Delete stored connection info
-[**getConnectorsList**](ConnectorsApi.md#getConnectorsList) | **GET** /v3/connectors/list | List of Connectors
+[**getConnectors**](ConnectorsApi.md#getConnectors) | **GET** /v4/connectors/list | List of Connectors
 [**getIntegrationJs**](ConnectorsApi.md#getIntegrationJs) | **GET** /v3/integration.js | Get embeddable connect javascript
 [**getMobileConnectPage**](ConnectorsApi.md#getMobileConnectPage) | **GET** /v3/connect/mobile | Mobile connect page
 [**updateConnector**](ConnectorsApi.md#updateConnector) | **GET** /v3/connectors/{connectorName}/update | Sync with data source
@@ -130,9 +130,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getConnectorsList"></a>
-# **getConnectorsList**
-> [Connector] getConnectorsList(opts)
+<a name="getConnectors"></a>
+# **getConnectors**
+> [Connector] getConnectors(opts)
 
 List of Connectors
 
@@ -167,7 +167,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getConnectorsList(opts, callback);
+apiInstance.getConnectors(opts, callback);
 ```
 
 ### Parameters

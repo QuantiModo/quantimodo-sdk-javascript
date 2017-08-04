@@ -70,10 +70,10 @@
         done();
       });
     });
-    describe('getConnectorsList', function() {
-      it('should call getConnectorsList successfully', function(done) {
-        //uncomment below and update the code to test getConnectorsList
-        //instance.getConnectorsList(function(error) {
+    describe('getConnectors', function() {
+      it('should call getConnectors successfully', function(done) {
+        //uncomment below and update the code to test getConnectors
+        //instance.getConnectors(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
