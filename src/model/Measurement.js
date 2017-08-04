@@ -36,7 +36,7 @@
   /**
    * The Measurement model module.
    * @module model/Measurement
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**
@@ -60,6 +60,8 @@
 
 
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
+
+
 
 
 
@@ -244,6 +246,12 @@
       }
       if (data.hasOwnProperty('maximumAllowedValue')) {
         obj['maximumAllowedValue'] = ApiClient.convertToType(data['maximumAllowedValue'], 'Number');
+      }
+      if (data.hasOwnProperty('startDate')) {
+        obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
+      }
+      if (data.hasOwnProperty('connectorId')) {
+        obj['connectorId'] = ApiClient.convertToType(data['connectorId'], 'Number');
       }
     }
     return obj;
@@ -474,6 +482,16 @@
    * @member {Number} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
+  /**
+   * Example: 2014-08-27
+   * @member {String} startDate
+   */
+  exports.prototype['startDate'] = undefined;
+  /**
+   * Example: 13
+   * @member {Number} connectorId
+   */
+  exports.prototype['connectorId'] = undefined;
 
 
 

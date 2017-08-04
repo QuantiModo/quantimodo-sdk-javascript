@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/Correlation', 'model/Correlations', 'model/JsonErrorResponse', 'model/PostCorrelation', 'model/Vote', 'model/VoteDelete'], factory);
+    define(['ApiClient', 'model/AggregatedCorrelation', 'model/CommonResponse', 'model/JsonErrorResponse', 'model/PostCorrelation', 'model/UserCorrelation', 'model/Vote', 'model/VoteDelete'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/Correlations'), require('../model/JsonErrorResponse'), require('../model/PostCorrelation'), require('../model/Vote'), require('../model/VoteDelete'));
+    module.exports = factory(require('../ApiClient'), require('../model/AggregatedCorrelation'), require('../model/CommonResponse'), require('../model/JsonErrorResponse'), require('../model/PostCorrelation'), require('../model/UserCorrelation'), require('../model/Vote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Correlation, root.Quantimodo.Correlations, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostCorrelation, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
+    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.AggregatedCorrelation, root.Quantimodo.CommonResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostCorrelation, root.Quantimodo.UserCorrelation, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
   }
-}(this, function(ApiClient, CommonResponse, Correlation, Correlations, JsonErrorResponse, PostCorrelation, Vote, VoteDelete) {
+}(this, function(ApiClient, AggregatedCorrelation, CommonResponse, JsonErrorResponse, PostCorrelation, UserCorrelation, Vote, VoteDelete) {
   'use strict';
 
   /**
    * Analytics service.
    * @module api/AnalyticsApi
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**
@@ -100,7 +100,7 @@
      * Callback function to receive the result of the getAggregatedCorrelations operation.
      * @callback module:api/AnalyticsApi~getAggregatedCorrelationsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Correlations>} data The data returned by the service call.
+     * @param {Array.<module:model/AggregatedCorrelation>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -120,7 +120,7 @@
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param {module:api/AnalyticsApi~getAggregatedCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Correlations>}
+     * data is of type: {@link Array.<module:model/AggregatedCorrelation>}
      */
     this.getAggregatedCorrelations = function(opts, callback) {
       opts = opts || {};
@@ -150,7 +150,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [Correlations];
+      var returnType = [AggregatedCorrelation];
 
       return this.apiClient.callApi(
         '/v3/aggregatedCorrelations', 'GET',
@@ -160,10 +160,55 @@
     }
 
     /**
-     * Callback function to receive the result of the getCorrelations operation.
-     * @callback module:api/AnalyticsApi~getCorrelationsCallback
+     * Callback function to receive the result of the getUserCorrelationExplantions operation.
+     * @callback module:api/AnalyticsApi~getUserCorrelationExplantionsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Correlation>} data The data returned by the service call.
+     * @param {Array.<module:model/UserCorrelation>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get correlation explanations
+     * Get explanations of  correlations based on data from a single user.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
+     * @param {module:api/AnalyticsApi~getUserCorrelationExplantionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/UserCorrelation>}
+     */
+    this.getUserCorrelationExplantions = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'effectVariableName': opts['effectVariableName'],
+        'causeVariableName': opts['causeVariableName']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [UserCorrelation];
+
+      return this.apiClient.callApi(
+        '/v3/correlations/explanations', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUserCorrelations operation.
+     * @callback module:api/AnalyticsApi~getUserCorrelationsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/UserCorrelation>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -182,10 +227,10 @@
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
-     * @param {module:api/AnalyticsApi~getCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Correlation>}
+     * @param {module:api/AnalyticsApi~getUserCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/UserCorrelation>}
      */
-    this.getCorrelations = function(opts, callback) {
+    this.getUserCorrelations = function(opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -213,55 +258,10 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [Correlation];
+      var returnType = [UserCorrelation];
 
       return this.apiClient.callApi(
         '/v4/correlations', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getUserCorrelationExplantions operation.
-     * @callback module:api/AnalyticsApi~getUserCorrelationExplantionsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Correlation>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get correlation explanations
-     * Get explanations of  correlations based on data from a single user.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {module:api/AnalyticsApi~getUserCorrelationExplantionsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Correlation>}
-     */
-    this.getUserCorrelationExplantions = function(opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'effectVariableName': opts['effectVariableName'],
-        'causeVariableName': opts['causeVariableName']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = [Correlation];
-
-      return this.apiClient.callApi(
-        '/v3/correlations/explanations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

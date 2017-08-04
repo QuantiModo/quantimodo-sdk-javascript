@@ -70,20 +70,20 @@
         done();
       });
     });
-    describe('getCorrelations', function() {
-      it('should call getCorrelations successfully', function(done) {
-        //uncomment below and update the code to test getCorrelations
-        //instance.getCorrelations(function(error) {
+    describe('getUserCorrelationExplantions', function() {
+      it('should call getUserCorrelationExplantions successfully', function(done) {
+        //uncomment below and update the code to test getUserCorrelationExplantions
+        //instance.getUserCorrelationExplantions(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('getUserCorrelationExplantions', function() {
-      it('should call getUserCorrelationExplantions successfully', function(done) {
-        //uncomment below and update the code to test getUserCorrelationExplantions
-        //instance.getUserCorrelationExplantions(function(error) {
+    describe('getUserCorrelations', function() {
+      it('should call getUserCorrelations successfully', function(done) {
+        //uncomment below and update the code to test getUserCorrelations
+        //instance.getUserCorrelations(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

@@ -36,7 +36,7 @@
   /**
    * The UserTokenRequest model module.
    * @module model/UserTokenRequest
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**

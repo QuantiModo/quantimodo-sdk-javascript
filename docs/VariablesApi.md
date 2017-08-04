@@ -169,7 +169,7 @@ var opts = {
   'lastSource': "lastSource_example", // String | Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here. (supports exact name match only)
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
 };
 
 var callback = function(error, data, response) {
@@ -251,7 +251,7 @@ var opts = {
   'lastSource': "lastSource_example", // String | Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here. (supports exact name match only)
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
 };
 
 var callback = function(error, data, response) {
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 <a name="postUserVariables"></a>
 # **postUserVariables**
-> CommonResponse postUserVariables(userVariables)
+> CommonResponse postUserVariables(userVariables, opts)
 
 Update User Settings for a Variable
 
@@ -434,6 +434,10 @@ var apiInstance = new Quantimodo.VariablesApi();
 
 var userVariables = [new Quantimodo.UserVariable()]; // [UserVariable] | Variable user settings data
 
+var opts = { 
+  'appName': "appName_example", // String | Example: MoodiModo
+  'clientId': "clientId_example" // String | Example: oauth_test_client
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -442,7 +446,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.postUserVariables(userVariables, callback);
+apiInstance.postUserVariables(userVariables, opts, callback);
 ```
 
 ### Parameters
@@ -450,6 +454,8 @@ apiInstance.postUserVariables(userVariables, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userVariables** | [**[UserVariable]**](UserVariable.md)| Variable user settings data | 
+ **appName** | **String**| Example: MoodiModo | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
 
 ### Return type
 

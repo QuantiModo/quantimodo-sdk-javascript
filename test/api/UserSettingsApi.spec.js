@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.InlineResponse200();
+    instance = new Quantimodo.UserSettingsApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,25 +49,17 @@
       object[property] = value;
   }
 
-  describe('InlineResponse200', function() {
-    it('should create an instance of InlineResponse200', function() {
-      // uncomment below and update the code to test InlineResponse200
-      //var instane = new Quantimodo.InlineResponse200();
-      //expect(instance).to.be.a(Quantimodo.InlineResponse200);
+  describe('UserSettingsApi', function() {
+    describe('postUserSettings', function() {
+      it('should call postUserSettings successfully', function(done) {
+        //uncomment below and update the code to test postUserSettings
+        //instance.postUserSettings(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property success (base name: "success")', function() {
-      // uncomment below and update the code to test the property success
-      //var instane = new Quantimodo.InlineResponse200();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property data (base name: "data")', function() {
-      // uncomment below and update the code to test the property data
-      //var instane = new Quantimodo.InlineResponse200();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

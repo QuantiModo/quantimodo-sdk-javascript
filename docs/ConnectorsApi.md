@@ -132,7 +132,7 @@ null (empty response body)
 
 <a name="getConnectorsList"></a>
 # **getConnectorsList**
-> [Connector] getConnectorsList()
+> [Connector] getConnectorsList(opts)
 
 List of Connectors
 
@@ -155,6 +155,11 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.ConnectorsApi();
 
+var opts = { 
+  'appName': "appName_example", // String | Example: MoodiModo
+  'clientId': "clientId_example" // String | Example: oauth_test_client
+};
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -162,11 +167,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getConnectorsList(callback);
+apiInstance.getConnectorsList(opts, callback);
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appName** | **String**| Example: MoodiModo | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
 
 ### Return type
 
@@ -196,7 +205,7 @@ var Quantimodo = require('quantimodo');
 var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
-  'clientId': "clientId_example", // String | Example: oauth_test_client
+  'clientId': "clientId_example" // String | Example: oauth_test_client
 };
 
 var callback = function(error, data, response) {

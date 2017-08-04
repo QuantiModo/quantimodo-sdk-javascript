@@ -33,7 +33,7 @@
   /**
    * Variables service.
    * @module api/VariablesApi
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**
@@ -378,10 +378,14 @@
      * Update User Settings for a Variable
      * Users can change the parameters used in analysis of that variable such as the expected duration of action for a variable to have an effect, the estimated delay before the onset of action. In order to filter out erroneous data, they are able to set the maximum and minimum reasonable daily values for a variable.
      * @param {Array.<module:model/UserVariable>} userVariables Variable user settings data
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/VariablesApi~postUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
-    this.postUserVariables = function(userVariables, callback) {
+    this.postUserVariables = function(userVariables, opts, callback) {
+      opts = opts || {};
       var postBody = userVariables;
 
       // verify the required parameter 'userVariables' is set
@@ -393,6 +397,8 @@
       var pathParams = {
       };
       var queryParams = {
+        'appName': opts['appName'],
+        'clientId': opts['clientId']
       };
       var headerParams = {
       };

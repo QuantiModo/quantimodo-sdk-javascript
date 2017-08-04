@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.Correlations();
+    instance = new Quantimodo.StudyApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,13 +49,17 @@
       object[property] = value;
   }
 
-  describe('Correlations', function() {
-    it('should create an instance of Correlations', function() {
-      // uncomment below and update the code to test Correlations
-      //var instane = new Quantimodo.Correlations();
-      //expect(instance).to.be.a(Quantimodo.Correlations);
+  describe('StudyApi', function() {
+    describe('getStudy', function() {
+      it('should call getStudy successfully', function(done) {
+        //uncomment below and update the code to test getStudy
+        //instance.getStudy(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
   });
 
 }));

@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse201', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotificationPost'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/InlineResponse201', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationPost'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/InlineResponse200'), require('../model/InlineResponse2001'), require('../model/InlineResponse201'), require('../model/TrackingReminder'), require('../model/TrackingReminderDelete'), require('../model/TrackingReminderNotificationPost'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/InlineResponse201'), require('../model/TrackingReminder'), require('../model/TrackingReminderDelete'), require('../model/TrackingReminderNotification'), require('../model/TrackingReminderNotificationPost'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.RemindersApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.InlineResponse200, root.Quantimodo.InlineResponse2001, root.Quantimodo.InlineResponse201, root.Quantimodo.TrackingReminder, root.Quantimodo.TrackingReminderDelete, root.Quantimodo.TrackingReminderNotificationPost);
+    root.Quantimodo.RemindersApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.InlineResponse201, root.Quantimodo.TrackingReminder, root.Quantimodo.TrackingReminderDelete, root.Quantimodo.TrackingReminderNotification, root.Quantimodo.TrackingReminderNotificationPost);
   }
-}(this, function(ApiClient, CommonResponse, InlineResponse200, InlineResponse2001, InlineResponse201, TrackingReminder, TrackingReminderDelete, TrackingReminderNotificationPost) {
+}(this, function(ApiClient, CommonResponse, InlineResponse201, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationPost) {
   'use strict';
 
   /**
    * Reminders service.
    * @module api/RemindersApi
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**
@@ -100,7 +100,7 @@
      * Callback function to receive the result of the getTrackingReminderNotifications operation.
      * @callback module:api/RemindersApi~getTrackingReminderNotificationsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2001} data The data returned by the service call.
+     * @param {Array.<module:model/TrackingReminderNotification>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -115,8 +115,11 @@
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {String} opts.reminderTime Example: (lt)2017-07-31 21:43:26
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/RemindersApi~getTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/InlineResponse2001}
+     * data is of type: {@link Array.<module:model/TrackingReminderNotification>}
      */
     this.getTrackingReminderNotifications = function(opts, callback) {
       opts = opts || {};
@@ -132,7 +135,10 @@
         'updatedAt': opts['updatedAt'],
         'limit': opts['limit'],
         'offset': opts['offset'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
+        'reminderTime': opts['reminderTime'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId']
       };
       var headerParams = {
       };
@@ -142,7 +148,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = InlineResponse2001;
+      var returnType = [TrackingReminderNotification];
 
       return this.apiClient.callApi(
         '/v3/trackingReminderNotifications', 'GET',
@@ -155,7 +161,7 @@
      * Callback function to receive the result of the getTrackingReminders operation.
      * @callback module:api/RemindersApi~getTrackingRemindersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse200} data The data returned by the service call.
+     * @param {Array.<module:model/TrackingReminder>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -170,8 +176,10 @@
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/RemindersApi~getTrackingRemindersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/InlineResponse200}
+     * data is of type: {@link Array.<module:model/TrackingReminder>}
      */
     this.getTrackingReminders = function(opts, callback) {
       opts = opts || {};
@@ -187,7 +195,9 @@
         'updatedAt': opts['updatedAt'],
         'limit': opts['limit'],
         'offset': opts['offset'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId']
       };
       var headerParams = {
       };
@@ -197,7 +207,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = InlineResponse200;
+      var returnType = [TrackingReminder];
 
       return this.apiClient.callApi(
         '/v3/trackingReminders', 'GET',

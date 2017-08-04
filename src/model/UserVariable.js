@@ -36,7 +36,7 @@
   /**
    * The UserVariable model module.
    * @module model/UserVariable
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**
@@ -52,6 +52,24 @@
 
 
     _this['variableId'] = variableId;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -492,6 +510,60 @@
       }
       if (data.hasOwnProperty('chartsLinkEmail')) {
         obj['chartsLinkEmail'] = ApiClient.convertToType(data['chartsLinkEmail'], 'String');
+      }
+      if (data.hasOwnProperty('lastProcessedDailyValue')) {
+        obj['lastProcessedDailyValue'] = ApiClient.convertToType(data['lastProcessedDailyValue'], 'Number');
+      }
+      if (data.hasOwnProperty('userVariableMostCommonConnectorId')) {
+        obj['userVariableMostCommonConnectorId'] = ApiClient.convertToType(data['userVariableMostCommonConnectorId'], 'Number');
+      }
+      if (data.hasOwnProperty('secondToLastValue')) {
+        obj['secondToLastValue'] = ApiClient.convertToType(data['secondToLastValue'], 'Number');
+      }
+      if (data.hasOwnProperty('thirdToLastValue')) {
+        obj['thirdToLastValue'] = ApiClient.convertToType(data['thirdToLastValue'], 'Number');
+      }
+      if (data.hasOwnProperty('commonVariableMostCommonConnectorId')) {
+        obj['commonVariableMostCommonConnectorId'] = ApiClient.convertToType(data['commonVariableMostCommonConnectorId'], 'Number');
+      }
+      if (data.hasOwnProperty('mostCommonConnectorId')) {
+        obj['mostCommonConnectorId'] = ApiClient.convertToType(data['mostCommonConnectorId'], 'Number');
+      }
+      if (data.hasOwnProperty('lastValueInUserVariableDefaultUnit')) {
+        obj['lastValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['lastValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('secondToLastValueInUserVariableDefaultUnit')) {
+        obj['secondToLastValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['secondToLastValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('thirdToLastValueInUserVariableDefaultUnit')) {
+        obj['thirdToLastValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['thirdToLastValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('mostCommonValueInUserVariableDefaultUnit')) {
+        obj['mostCommonValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['mostCommonValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfUserCorrelationsAsEffect')) {
+        obj['numberOfUserCorrelationsAsEffect'] = ApiClient.convertToType(data['numberOfUserCorrelationsAsEffect'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfAggregateCorrelationsAsEffect')) {
+        obj['numberOfAggregateCorrelationsAsEffect'] = ApiClient.convertToType(data['numberOfAggregateCorrelationsAsEffect'], 'Number');
+      }
+      if (data.hasOwnProperty('thirdMostCommonValue')) {
+        obj['thirdMostCommonValue'] = ApiClient.convertToType(data['thirdMostCommonValue'], 'Number');
+      }
+      if (data.hasOwnProperty('thirdMostCommonValueInUserVariableDefaultUnit')) {
+        obj['thirdMostCommonValueInUserVariableDefaultUnit'] = ApiClient.convertToType(data['thirdMostCommonValueInUserVariableDefaultUnit'], 'Number');
+      }
+      if (data.hasOwnProperty('outcomeOfInterest')) {
+        obj['outcomeOfInterest'] = ApiClient.convertToType(data['outcomeOfInterest'], 'Number');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('valence')) {
+        obj['valence'] = ApiClient.convertToType(data['valence'], 'String');
+      }
+      if (data.hasOwnProperty('shareUserMeasurements')) {
+        obj['shareUserMeasurements'] = ApiClient.convertToType(data['shareUserMeasurements'], 'Boolean');
       }
     }
     return obj;
@@ -1037,6 +1109,96 @@
    * @member {String} chartsLinkEmail
    */
   exports.prototype['chartsLinkEmail'] = undefined;
+  /**
+   * Example: 500
+   * @member {Number} lastProcessedDailyValue
+   */
+  exports.prototype['lastProcessedDailyValue'] = undefined;
+  /**
+   * Example: 51
+   * @member {Number} userVariableMostCommonConnectorId
+   */
+  exports.prototype['userVariableMostCommonConnectorId'] = undefined;
+  /**
+   * Example: 250
+   * @member {Number} secondToLastValue
+   */
+  exports.prototype['secondToLastValue'] = undefined;
+  /**
+   * Example: 250
+   * @member {Number} thirdToLastValue
+   */
+  exports.prototype['thirdToLastValue'] = undefined;
+  /**
+   * Example: 51
+   * @member {Number} commonVariableMostCommonConnectorId
+   */
+  exports.prototype['commonVariableMostCommonConnectorId'] = undefined;
+  /**
+   * Example: 51
+   * @member {Number} mostCommonConnectorId
+   */
+  exports.prototype['mostCommonConnectorId'] = undefined;
+  /**
+   * Example: 500
+   * @member {Number} lastValueInUserVariableDefaultUnit
+   */
+  exports.prototype['lastValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 250
+   * @member {Number} secondToLastValueInUserVariableDefaultUnit
+   */
+  exports.prototype['secondToLastValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 250
+   * @member {Number} thirdToLastValueInUserVariableDefaultUnit
+   */
+  exports.prototype['thirdToLastValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 250
+   * @member {Number} mostCommonValueInUserVariableDefaultUnit
+   */
+  exports.prototype['mostCommonValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 29014
+   * @member {Number} numberOfUserCorrelationsAsEffect
+   */
+  exports.prototype['numberOfUserCorrelationsAsEffect'] = undefined;
+  /**
+   * Example: 310
+   * @member {Number} numberOfAggregateCorrelationsAsEffect
+   */
+  exports.prototype['numberOfAggregateCorrelationsAsEffect'] = undefined;
+  /**
+   * Example: 6
+   * @member {Number} thirdMostCommonValue
+   */
+  exports.prototype['thirdMostCommonValue'] = undefined;
+  /**
+   * Example: 6
+   * @member {Number} thirdMostCommonValueInUserVariableDefaultUnit
+   */
+  exports.prototype['thirdMostCommonValueInUserVariableDefaultUnit'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} outcomeOfInterest
+   */
+  exports.prototype['outcomeOfInterest'] = undefined;
+  /**
+   * Example: negative
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Example: negative
+   * @member {String} valence
+   */
+  exports.prototype['valence'] = undefined;
+  /**
+   * Example: 1
+   * @member {Boolean} shareUserMeasurements
+   */
+  exports.prototype['shareUserMeasurements'] = undefined;
 
 
 

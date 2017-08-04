@@ -326,6 +326,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property startDate (base name: "startDate")', function() {
+      // uncomment below and update the code to test the property startDate
+      //var instane = new Quantimodo.Measurement();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property connectorId (base name: "connectorId")', function() {
+      // uncomment below and update the code to test the property connectorId
+      //var instane = new Quantimodo.Measurement();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

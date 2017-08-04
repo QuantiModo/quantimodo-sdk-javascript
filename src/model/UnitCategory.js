@@ -36,7 +36,7 @@
   /**
    * The UnitCategory model module.
    * @module model/UnitCategory
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**
@@ -48,7 +48,9 @@
   var exports = function(name) {
     var _this = this;
 
+
     _this['name'] = name;
+
   };
 
   /**
@@ -62,18 +64,34 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+      }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('standardUnitAbbreviatedName')) {
+        obj['standardUnitAbbreviatedName'] = ApiClient.convertToType(data['standardUnitAbbreviatedName'], 'String');
       }
     }
     return obj;
   }
 
   /**
+   * id
+   * @member {Number} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
    * Category name
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
+  /**
+   * Base unit for in which measurements are to be converted to and stored
+   * @member {String} standardUnitAbbreviatedName
+   */
+  exports.prototype['standardUnitAbbreviatedName'] = undefined;
 
 
 

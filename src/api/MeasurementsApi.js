@@ -33,7 +33,7 @@
   /**
    * Measurements service.
    * @module api/MeasurementsApi
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**
@@ -120,6 +120,9 @@
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {Boolean} opts.doNotProcess Example: true
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/MeasurementsApi~getMeasurementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Measurement>}
      */
@@ -146,7 +149,10 @@
         'groupingTimezone': opts['groupingTimezone'],
         'limit': opts['limit'],
         'offset': opts['offset'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
+        'doNotProcess': opts['doNotProcess'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId']
       };
       var headerParams = {
       };
@@ -160,6 +166,58 @@
 
       return this.apiClient.callApi(
         '/v3/measurements', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMeasurementsDaily operation.
+     * @callback module:api/MeasurementsApi~getMeasurementsDailyCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Measurements Daily
+     * Get Measurements Daily
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {String} opts.variableName Name of the variable you want measurements for
+     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
+     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:api/MeasurementsApi~getMeasurementsDailyCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.getMeasurementsDaily = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'sort': opts['sort'],
+        'variableName': opts['variableName'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v3/measurements/daily', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

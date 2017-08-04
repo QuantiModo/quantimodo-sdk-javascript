@@ -48,5 +48,7 @@ Name | Type | Description | Notes
 **iconIcon** | **String** | Example: ion-sad-outline | [optional] 
 **minimumAllowedValue** | **Number** | Example: 1 | [optional] 
 **maximumAllowedValue** | **Number** | Example: 5 | [optional] 
+**startDate** | **String** | Example: 2014-08-27 | [optional] 
+**connectorId** | **Number** | Example: 13 | [optional] 
 
 

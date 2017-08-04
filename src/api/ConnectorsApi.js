@@ -33,7 +33,7 @@
   /**
    * Connectors service.
    * @module api/ConnectorsApi
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**
@@ -152,16 +152,22 @@
     /**
      * List of Connectors
      * A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/ConnectorsApi~getConnectorsListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Connector>}
      */
-    this.getConnectorsList = function(callback) {
+    this.getConnectorsList = function(opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
 
       var pathParams = {
       };
       var queryParams = {
+        'appName': opts['appName'],
+        'clientId': opts['clientId']
       };
       var headerParams = {
       };

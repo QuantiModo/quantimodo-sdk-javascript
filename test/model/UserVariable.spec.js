@@ -704,6 +704,114 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property lastProcessedDailyValue (base name: "lastProcessedDailyValue")', function() {
+      // uncomment below and update the code to test the property lastProcessedDailyValue
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableMostCommonConnectorId (base name: "userVariableMostCommonConnectorId")', function() {
+      // uncomment below and update the code to test the property userVariableMostCommonConnectorId
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property secondToLastValue (base name: "secondToLastValue")', function() {
+      // uncomment below and update the code to test the property secondToLastValue
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property thirdToLastValue (base name: "thirdToLastValue")', function() {
+      // uncomment below and update the code to test the property thirdToLastValue
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property commonVariableMostCommonConnectorId (base name: "commonVariableMostCommonConnectorId")', function() {
+      // uncomment below and update the code to test the property commonVariableMostCommonConnectorId
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property mostCommonConnectorId (base name: "mostCommonConnectorId")', function() {
+      // uncomment below and update the code to test the property mostCommonConnectorId
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastValueInUserVariableDefaultUnit (base name: "lastValueInUserVariableDefaultUnit")', function() {
+      // uncomment below and update the code to test the property lastValueInUserVariableDefaultUnit
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property secondToLastValueInUserVariableDefaultUnit (base name: "secondToLastValueInUserVariableDefaultUnit")', function() {
+      // uncomment below and update the code to test the property secondToLastValueInUserVariableDefaultUnit
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property thirdToLastValueInUserVariableDefaultUnit (base name: "thirdToLastValueInUserVariableDefaultUnit")', function() {
+      // uncomment below and update the code to test the property thirdToLastValueInUserVariableDefaultUnit
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property mostCommonValueInUserVariableDefaultUnit (base name: "mostCommonValueInUserVariableDefaultUnit")', function() {
+      // uncomment below and update the code to test the property mostCommonValueInUserVariableDefaultUnit
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property numberOfUserCorrelationsAsEffect (base name: "numberOfUserCorrelationsAsEffect")', function() {
+      // uncomment below and update the code to test the property numberOfUserCorrelationsAsEffect
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property numberOfAggregateCorrelationsAsEffect (base name: "numberOfAggregateCorrelationsAsEffect")', function() {
+      // uncomment below and update the code to test the property numberOfAggregateCorrelationsAsEffect
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property thirdMostCommonValue (base name: "thirdMostCommonValue")', function() {
+      // uncomment below and update the code to test the property thirdMostCommonValue
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property thirdMostCommonValueInUserVariableDefaultUnit (base name: "thirdMostCommonValueInUserVariableDefaultUnit")', function() {
+      // uncomment below and update the code to test the property thirdMostCommonValueInUserVariableDefaultUnit
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property outcomeOfInterest (base name: "outcomeOfInterest")', function() {
+      // uncomment below and update the code to test the property outcomeOfInterest
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property valence (base name: "valence")', function() {
+      // uncomment below and update the code to test the property valence
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property shareUserMeasurements (base name: "shareUserMeasurements")', function() {
+      // uncomment below and update the code to test the property shareUserMeasurements
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -224,6 +224,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property combineNotifications (base name: "combineNotifications")', function() {
+      // uncomment below and update the code to test the property combineNotifications
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

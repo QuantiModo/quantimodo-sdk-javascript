@@ -36,7 +36,7 @@
   /**
    * The User model module.
    * @module model/User
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**
@@ -59,6 +59,7 @@
     _this['email'] = email;
     _this['accessToken'] = accessToken;
     _this['administrator'] = administrator;
+
 
 
 
@@ -177,6 +178,9 @@
       }
       if (data.hasOwnProperty('trackLocation')) {
         obj['trackLocation'] = ApiClient.convertToType(data['trackLocation'], 'Boolean');
+      }
+      if (data.hasOwnProperty('combineNotifications')) {
+        obj['combineNotifications'] = ApiClient.convertToType(data['combineNotifications'], 'Boolean');
       }
     }
     return obj;
@@ -322,6 +326,11 @@
    * @member {Boolean} trackLocation
    */
   exports.prototype['trackLocation'] = undefined;
+  /**
+   * Example: 1
+   * @member {Boolean} combineNotifications
+   */
+  exports.prototype['combineNotifications'] = undefined;
 
 
 

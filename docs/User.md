@@ -31,5 +31,6 @@ Name | Type | Description | Notes
 **firstName** | **String** | Example: Mike | [optional] 
 **lastName** | **String** | Example: Sinn | [optional] 
 **trackLocation** | **Boolean** | Example: 1 | [optional] 
+**combineNotifications** | **Boolean** | Example: 1 | [optional] 
 
 

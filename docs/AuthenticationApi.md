@@ -44,7 +44,7 @@ var responseType = "responseType_example"; // String | If the value is code, lau
 var scope = "scope_example"; // String | Scopes include basic, readmeasurements, and writemeasurements. The `basic` scope allows you to read user info (displayName, email, etc). The `readmeasurements` scope allows one to read a user's data. The `writemeasurements` scope allows you to write user data. Separate multiple scopes by a space.
 
 var opts = { 
-  'clientId': "clientId_example", // String | Example: oauth_test_client
+  'clientId': "clientId_example" // String | Example: oauth_test_client
   'redirectUri': "redirectUri_example", // String | The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
   'state': "state_example" // String | An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
 };
@@ -117,7 +117,7 @@ var responseType = "responseType_example"; // String | If the value is code, lau
 var scope = "scope_example"; // String | Scopes include basic, readmeasurements, and writemeasurements. The `basic` scope allows you to read user info (displayName, email, etc). The `readmeasurements` scope allows one to read a user's data. The `writemeasurements` scope allows you to write user data. Separate multiple scopes by a space.
 
 var opts = { 
-  'clientId': "clientId_example", // String | Example: oauth_test_client
+  'clientId': "clientId_example" // String | Example: oauth_test_client
   'redirectUri': "redirectUri_example", // String | The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
   'state': "state_example" // String | An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
 };

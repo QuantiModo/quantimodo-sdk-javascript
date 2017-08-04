@@ -36,7 +36,7 @@
   /**
    * The UserTokenFailedResponse model module.
    * @module model/UserTokenFailedResponse
-   * @version 5.8.731
+   * @version 5.8.804
    */
 
   /**

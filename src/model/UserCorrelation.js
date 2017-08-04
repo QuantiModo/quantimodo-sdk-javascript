@@ -25,7 +25,7 @@
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Correlation = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.UserCorrelation = factory(root.Quantimodo.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,14 +34,14 @@
 
 
   /**
-   * The Correlation model module.
-   * @module model/Correlation
-   * @version 5.8.731
+   * The UserCorrelation model module.
+   * @module model/UserCorrelation
+   * @version 5.8.804
    */
 
   /**
-   * Constructs a new <code>Correlation</code>.
-   * @alias module:model/Correlation
+   * Constructs a new <code>UserCorrelation</code>.
+   * @alias module:model/UserCorrelation
    * @class
    * @param cause {String} Variable name of the cause variable for which the user desires correlations.
    * @param correlationCoefficient {Number} Pearson correlation coefficient between cause and effect measurements
@@ -168,14 +168,19 @@
 
 
 
+
+
+
+
+
   };
 
   /**
-   * Constructs a <code>Correlation</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>UserCorrelation</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Correlation} obj Optional instance to populate.
-   * @return {module:model/Correlation} The populated <code>Correlation</code> instance.
+   * @param {module:model/UserCorrelation} obj Optional instance to populate.
+   * @return {module:model/UserCorrelation} The populated <code>UserCorrelation</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -522,6 +527,21 @@
       }
       if (data.hasOwnProperty('instructionsForEffect')) {
         obj['instructionsForEffect'] = ApiClient.convertToType(data['instructionsForEffect'], 'String');
+      }
+      if (data.hasOwnProperty('pValue')) {
+        obj['pValue'] = ApiClient.convertToType(data['pValue'], 'Number');
+      }
+      if (data.hasOwnProperty('reversePearsonCorrelationCoefficient')) {
+        obj['reversePearsonCorrelationCoefficient'] = ApiClient.convertToType(data['reversePearsonCorrelationCoefficient'], 'Number');
+      }
+      if (data.hasOwnProperty('predictorMinimumAllowedValue')) {
+        obj['predictorMinimumAllowedValue'] = ApiClient.convertToType(data['predictorMinimumAllowedValue'], 'Number');
+      }
+      if (data.hasOwnProperty('predictorMaximumAllowedValue')) {
+        obj['predictorMaximumAllowedValue'] = ApiClient.convertToType(data['predictorMaximumAllowedValue'], 'Number');
+      }
+      if (data.hasOwnProperty('predictorDataSources')) {
+        obj['predictorDataSources'] = ApiClient.convertToType(data['predictorDataSources'], 'String');
       }
     }
     return obj;
@@ -1097,6 +1117,31 @@
    * @member {String} instructionsForEffect
    */
   exports.prototype['instructionsForEffect'] = undefined;
+  /**
+   * Example: 3.5306635529222E-5
+   * @member {Number} pValue
+   */
+  exports.prototype['pValue'] = undefined;
+  /**
+   * Example: 0.63628232030415
+   * @member {Number} reversePearsonCorrelationCoefficient
+   */
+  exports.prototype['reversePearsonCorrelationCoefficient'] = undefined;
+  /**
+   * Example: 10
+   * @member {Number} predictorMinimumAllowedValue
+   */
+  exports.prototype['predictorMinimumAllowedValue'] = undefined;
+  /**
+   * Example: 160934
+   * @member {Number} predictorMaximumAllowedValue
+   */
+  exports.prototype['predictorMaximumAllowedValue'] = undefined;
+  /**
+   * Example: RescueTime
+   * @member {String} predictorDataSources
+   */
+  exports.prototype['predictorDataSources'] = undefined;
 
 
 

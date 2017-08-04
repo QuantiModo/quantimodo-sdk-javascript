@@ -70,6 +70,16 @@
         done();
       });
     });
+    describe('getMeasurementsDaily', function() {
+      it('should call getMeasurementsDaily successfully', function(done) {
+        //uncomment below and update the code to test getMeasurementsDaily
+        //instance.getMeasurementsDaily(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getPairs', function() {
       it('should call getPairs successfully', function(done) {
         //uncomment below and update the code to test getPairs
