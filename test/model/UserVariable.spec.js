@@ -812,6 +812,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property numberOfUniqueValues (base name: "numberOfUniqueValues")', function() {
+      // uncomment below and update the code to test the property numberOfUniqueValues
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property numberOfTrackingReminders (base name: "numberOfTrackingReminders")', function() {
+      // uncomment below and update the code to test the property numberOfTrackingReminders
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property iconIcon (base name: "iconIcon")', function() {
+      // uncomment below and update the code to test the property iconIcon
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property commonAlias (base name: "commonAlias")', function() {
+      // uncomment below and update the code to test the property commonAlias
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

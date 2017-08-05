@@ -70,6 +70,8 @@ Name | Type | Description | Notes
 **inputType** | **String** | Example: happiestFaceIsFive | [optional] 
 **total** | **Number** | Example: 3 | [optional] 
 **title** | **String** | Example: Rate Overall Mood | [optional] 
+**trackingReminderImageUrl** | **String** | Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg | [optional] 
+**imageUrl** | **String** | Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg | [optional] 
 
 
 <a name="CombinationOperationEnum"></a>

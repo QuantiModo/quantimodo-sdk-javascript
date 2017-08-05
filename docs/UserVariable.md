@@ -129,5 +129,9 @@ Name | Type | Description | Notes
 **description** | **String** | Example: negative | [optional] 
 **valence** | **String** | Example: negative | [optional] 
 **shareUserMeasurements** | **Boolean** | Example: 1 | [optional] 
+**numberOfUniqueValues** | **Number** | Example: 2 | [optional] 
+**numberOfTrackingReminders** | **Number** | Example: 1 | [optional] 
+**iconIcon** | **String** | Example: ion-sad-outline | [optional] 
+**commonAlias** | **String** | Example: Anxiety / Nervousness | [optional] 
 
 

@@ -251,6 +251,8 @@ var body = [new Quantimodo.TrackingReminderNotificationPost()]; // [TrackingRemi
 
 var opts = { 
   'userId': 3.4 // Number | User's id
+  'appName': "appName_example", // String | Example: MoodiModo
+  'clientId': "clientId_example" // String | Example: oauth_test_client
 };
 
 var callback = function(error, data, response) {
@@ -269,6 +271,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**[TrackingReminderNotificationPost]**](TrackingReminderNotificationPost.md)| Id of the pending reminder to be snoozed | 
  **userId** | **Number**| User&#39;s id | [optional] 
+ **appName** | **String**| Example: MoodiModo | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
 
 ### Return type
 

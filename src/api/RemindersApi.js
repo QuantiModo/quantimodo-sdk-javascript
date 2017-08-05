@@ -230,6 +230,8 @@
      * @param {Array.<module:model/TrackingReminderNotificationPost>} body Id of the pending reminder to be snoozed
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/RemindersApi~postTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -246,7 +248,9 @@
       var pathParams = {
       };
       var queryParams = {
-        'userId': opts['userId']
+        'userId': opts['userId'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId']
       };
       var headerParams = {
       };

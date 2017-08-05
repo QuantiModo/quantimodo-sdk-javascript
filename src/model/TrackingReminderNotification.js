@@ -115,6 +115,8 @@
 
 
 
+
+
   };
 
   /**
@@ -328,6 +330,12 @@
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      }
+      if (data.hasOwnProperty('trackingReminderImageUrl')) {
+        obj['trackingReminderImageUrl'] = ApiClient.convertToType(data['trackingReminderImageUrl'], 'String');
+      }
+      if (data.hasOwnProperty('imageUrl')) {
+        obj['imageUrl'] = ApiClient.convertToType(data['imageUrl'], 'String');
       }
     }
     return obj;
@@ -668,6 +676,16 @@
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
+  /**
+   * Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg
+   * @member {String} trackingReminderImageUrl
+   */
+  exports.prototype['trackingReminderImageUrl'] = undefined;
+  /**
+   * Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg
+   * @member {String} imageUrl
+   */
+  exports.prototype['imageUrl'] = undefined;
 
 
   /**

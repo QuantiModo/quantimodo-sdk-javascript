@@ -174,6 +174,10 @@
 
 
 
+
+
+
+
   };
 
   /**
@@ -564,6 +568,18 @@
       }
       if (data.hasOwnProperty('shareUserMeasurements')) {
         obj['shareUserMeasurements'] = ApiClient.convertToType(data['shareUserMeasurements'], 'Boolean');
+      }
+      if (data.hasOwnProperty('numberOfUniqueValues')) {
+        obj['numberOfUniqueValues'] = ApiClient.convertToType(data['numberOfUniqueValues'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfTrackingReminders')) {
+        obj['numberOfTrackingReminders'] = ApiClient.convertToType(data['numberOfTrackingReminders'], 'Number');
+      }
+      if (data.hasOwnProperty('iconIcon')) {
+        obj['iconIcon'] = ApiClient.convertToType(data['iconIcon'], 'String');
+      }
+      if (data.hasOwnProperty('commonAlias')) {
+        obj['commonAlias'] = ApiClient.convertToType(data['commonAlias'], 'String');
       }
     }
     return obj;
@@ -1199,6 +1215,26 @@
    * @member {Boolean} shareUserMeasurements
    */
   exports.prototype['shareUserMeasurements'] = undefined;
+  /**
+   * Example: 2
+   * @member {Number} numberOfUniqueValues
+   */
+  exports.prototype['numberOfUniqueValues'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} numberOfTrackingReminders
+   */
+  exports.prototype['numberOfTrackingReminders'] = undefined;
+  /**
+   * Example: ion-sad-outline
+   * @member {String} iconIcon
+   */
+  exports.prototype['iconIcon'] = undefined;
+  /**
+   * Example: Anxiety / Nervousness
+   * @member {String} commonAlias
+   */
+  exports.prototype['commonAlias'] = undefined;
 
 
 

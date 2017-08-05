@@ -32,5 +32,7 @@ Name | Type | Description | Notes
 **lastName** | **String** | Example: Sinn | [optional] 
 **trackLocation** | **Boolean** | Example: 1 | [optional] 
 **combineNotifications** | **Boolean** | Example: 1 | [optional] 
+**avatarImage** | **String** | Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz&#x3D;50 | [optional] 
+**stripeActive** | **Boolean** | Example: 1 | [optional] 
 
 

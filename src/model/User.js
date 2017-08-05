@@ -82,6 +82,8 @@
 
 
 
+
+
   };
 
   /**
@@ -181,6 +183,12 @@
       }
       if (data.hasOwnProperty('combineNotifications')) {
         obj['combineNotifications'] = ApiClient.convertToType(data['combineNotifications'], 'Boolean');
+      }
+      if (data.hasOwnProperty('avatarImage')) {
+        obj['avatarImage'] = ApiClient.convertToType(data['avatarImage'], 'String');
+      }
+      if (data.hasOwnProperty('stripeActive')) {
+        obj['stripeActive'] = ApiClient.convertToType(data['stripeActive'], 'Boolean');
       }
     }
     return obj;
@@ -331,6 +339,16 @@
    * @member {Boolean} combineNotifications
    */
   exports.prototype['combineNotifications'] = undefined;
+  /**
+   * Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
+   * @member {String} avatarImage
+   */
+  exports.prototype['avatarImage'] = undefined;
+  /**
+   * Example: 1
+   * @member {Boolean} stripeActive
+   */
+  exports.prototype['stripeActive'] = undefined;
 
 
 

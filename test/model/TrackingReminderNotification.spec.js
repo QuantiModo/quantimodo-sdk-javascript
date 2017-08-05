@@ -458,6 +458,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property trackingReminderImageUrl (base name: "trackingReminderImageUrl")', function() {
+      // uncomment below and update the code to test the property trackingReminderImageUrl
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property imageUrl (base name: "imageUrl")', function() {
+      // uncomment below and update the code to test the property imageUrl
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -230,6 +230,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property avatarImage (base name: "avatarImage")', function() {
+      // uncomment below and update the code to test the property avatarImage
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property stripeActive (base name: "stripeActive")', function() {
+      // uncomment below and update the code to test the property stripeActive
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
