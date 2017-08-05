@@ -59,6 +59,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Quantimodo.AnalyticsApi* | [**deleteVote**](docs/AnalyticsApi.md#deleteVote) | **DELETE** /v3/votes/delete | Delete vote
 *Quantimodo.AnalyticsApi* | [**getAggregatedCorrelations**](docs/AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
+*Quantimodo.AnalyticsApi* | [**getStudy**](docs/AnalyticsApi.md#getStudy) | **GET** /v3/study | Get Study
 *Quantimodo.AnalyticsApi* | [**getUserCorrelationExplantions**](docs/AnalyticsApi.md#getUserCorrelationExplantions) | **GET** /v3/correlations/explanations | Get correlation explanations
 *Quantimodo.AnalyticsApi* | [**getUserCorrelations**](docs/AnalyticsApi.md#getUserCorrelations) | **GET** /v4/correlations | Get correlations
 *Quantimodo.AnalyticsApi* | [**postAggregatedCorrelations**](docs/AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
@@ -67,13 +68,12 @@ Class | Method | HTTP request | Description
 *Quantimodo.AuthenticationApi* | [**getOauthAuthorizationCode**](docs/AuthenticationApi.md#getOauthAuthorizationCode) | **GET** /v3/oauth2/authorize | Request Authorization Code
 *Quantimodo.ConnectorsApi* | [**connectConnector**](docs/ConnectorsApi.md#connectConnector) | **GET** /v3/connectors/{connectorName}/connect | Obtain a token from 3rd party data source
 *Quantimodo.ConnectorsApi* | [**disconnectConnector**](docs/ConnectorsApi.md#disconnectConnector) | **GET** /v3/connectors/{connectorName}/disconnect | Delete stored connection info
-*Quantimodo.ConnectorsApi* | [**getConnectorsList**](docs/ConnectorsApi.md#getConnectorsList) | **GET** /v3/connectors/list | List of Connectors
+*Quantimodo.ConnectorsApi* | [**getConnectors**](docs/ConnectorsApi.md#getConnectors) | **GET** /v4/connectors/list | List of Connectors
 *Quantimodo.ConnectorsApi* | [**getIntegrationJs**](docs/ConnectorsApi.md#getIntegrationJs) | **GET** /v3/integration.js | Get embeddable connect javascript
 *Quantimodo.ConnectorsApi* | [**getMobileConnectPage**](docs/ConnectorsApi.md#getMobileConnectPage) | **GET** /v3/connect/mobile | Mobile connect page
 *Quantimodo.ConnectorsApi* | [**updateConnector**](docs/ConnectorsApi.md#updateConnector) | **GET** /v3/connectors/{connectorName}/update | Sync with data source
 *Quantimodo.MeasurementsApi* | [**deleteMeasurement**](docs/MeasurementsApi.md#deleteMeasurement) | **DELETE** /v3/measurements/delete | Delete a measurement
 *Quantimodo.MeasurementsApi* | [**getMeasurements**](docs/MeasurementsApi.md#getMeasurements) | **GET** /v3/measurements | Get measurements for this user
-*Quantimodo.MeasurementsApi* | [**getMeasurementsDaily**](docs/MeasurementsApi.md#getMeasurementsDaily) | **GET** /v3/measurements/daily | Get Measurements Daily
 *Quantimodo.MeasurementsApi* | [**getPairs**](docs/MeasurementsApi.md#getPairs) | **GET** /v3/pairs | Get pairs of measurements for correlational analysis
 *Quantimodo.MeasurementsApi* | [**measurementExportRequest**](docs/MeasurementsApi.md#measurementExportRequest) | **POST** /v2/measurements/exportRequest | Post Request for Measurements CSV
 *Quantimodo.MeasurementsApi* | [**postMeasurements**](docs/MeasurementsApi.md#postMeasurements) | **POST** /v3/measurements | Post a new set or update existing measurements to the database
@@ -83,11 +83,10 @@ Class | Method | HTTP request | Description
 *Quantimodo.RemindersApi* | [**getTrackingReminders**](docs/RemindersApi.md#getTrackingReminders) | **GET** /v3/trackingReminders | Get repeating tracking reminder settings
 *Quantimodo.RemindersApi* | [**postTrackingReminderNotifications**](docs/RemindersApi.md#postTrackingReminderNotifications) | **POST** /v3/trackingReminderNotifications | Snooze, skip, or track a pending tracking reminder notification
 *Quantimodo.RemindersApi* | [**postTrackingReminders**](docs/RemindersApi.md#postTrackingReminders) | **POST** /v3/trackingReminders | Store a Tracking Reminder
-*Quantimodo.StudyApi* | [**getStudy**](docs/StudyApi.md#getStudy) | **GET** /v3/study | Get Study
 *Quantimodo.UnitsApi* | [**getUnitCategories**](docs/UnitsApi.md#getUnitCategories) | **GET** /v3/unitCategories | Get unit categories
 *Quantimodo.UnitsApi* | [**getUnits**](docs/UnitsApi.md#getUnits) | **GET** /v3/units | Get units
 *Quantimodo.UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /v3/user | Get user info
-*Quantimodo.UserSettingsApi* | [**postUserSettings**](docs/UserSettingsApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
+*Quantimodo.UserApi* | [**postUserSettings**](docs/UserApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
 *Quantimodo.VariablesApi* | [**deleteUserTag**](docs/VariablesApi.md#deleteUserTag) | **DELETE** /v3/userTags/delete | Delete user tag or ingredient
 *Quantimodo.VariablesApi* | [**deleteUserVariable**](docs/VariablesApi.md#deleteUserVariable) | **DELETE** /v3/userVariables/delete | Delete All Measurements For Variable
 *Quantimodo.VariablesApi* | [**getPublicVariables**](docs/VariablesApi.md#getPublicVariables) | **GET** /v3/public/variables | Get public variables
@@ -105,10 +104,6 @@ Class | Method | HTTP request | Description
  - [Quantimodo.Connector](docs/Connector.md)
  - [Quantimodo.ConnectorInstruction](docs/ConnectorInstruction.md)
  - [Quantimodo.ConversionStep](docs/ConversionStep.md)
- - [Quantimodo.Correlation](docs/Correlation.md)
- - [Quantimodo.Correlations](docs/Correlations.md)
- - [Quantimodo.InlineResponse200](docs/InlineResponse200.md)
- - [Quantimodo.InlineResponse2001](docs/InlineResponse2001.md)
  - [Quantimodo.InlineResponse201](docs/InlineResponse201.md)
  - [Quantimodo.JsonErrorResponse](docs/JsonErrorResponse.md)
  - [Quantimodo.Measurement](docs/Measurement.md)

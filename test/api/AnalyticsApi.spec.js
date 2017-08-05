@@ -70,6 +70,16 @@
         done();
       });
     });
+    describe('getStudy', function() {
+      it('should call getStudy successfully', function(done) {
+        //uncomment below and update the code to test getStudy
+        //instance.getStudy(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getUserCorrelationExplantions', function() {
       it('should call getUserCorrelationExplantions successfully', function(done) {
         //uncomment below and update the code to test getUserCorrelationExplantions

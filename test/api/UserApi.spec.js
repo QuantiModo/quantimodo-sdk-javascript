@@ -60,6 +60,16 @@
         done();
       });
     });
+    describe('postUserSettings', function() {
+      it('should call postUserSettings successfully', function(done) {
+        //uncomment below and update the code to test postUserSettings
+        //instance.postUserSettings(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

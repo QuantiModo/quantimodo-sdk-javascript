@@ -5,6 +5,7 @@ All URIs are relative to *https://app.quantimo.do/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getUser**](UserApi.md#getUser) | **GET** /v3/user | Get user info
+[**postUserSettings**](UserApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
 
 
 <a name="getUser"></a>
@@ -38,7 +39,7 @@ var opts = {
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
 };
 
 var callback = function(error, data, response) {
@@ -69,6 +70,55 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="postUserSettings"></a>
+# **postUserSettings**
+> postUserSettings(opts)
+
+Post UserSettings
+
+Post UserSettings
+
+### Example
+```javascript
+var Quantimodo = require('quantimodo');
+
+var apiInstance = new Quantimodo.UserApi();
+
+var opts = { 
+  'appName': "appName_example", // String | Example: MoodiModo
+  'clientId': "clientId_example" // String | Example: oauth_test_client
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.postUserSettings(opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appName** | **String**| Example: MoodiModo | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

@@ -99,6 +99,50 @@
         authNames, contentTypes, accepts, returnType, callback
       );
     }
+
+    /**
+     * Callback function to receive the result of the postUserSettings operation.
+     * @callback module:api/UserApi~postUserSettingsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Post UserSettings
+     * Post UserSettings
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:api/UserApi~postUserSettingsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.postUserSettings = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'appName': opts['appName'],
+        'clientId': opts['clientId']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v3/userSettings', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
   };
 
   return exports;

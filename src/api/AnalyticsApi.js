@@ -160,6 +160,56 @@
     }
 
     /**
+     * Callback function to receive the result of the getStudy operation.
+     * @callback module:api/AnalyticsApi~getStudyCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Study
+     * Get Study
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
+     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {Boolean} opts.includeCharts Example: true
+     * @param {module:api/AnalyticsApi~getStudyCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.getStudy = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId'],
+        'includeCharts': opts['includeCharts']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v3/study', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getUserCorrelationExplantions operation.
      * @callback module:api/AnalyticsApi~getUserCorrelationExplantionsCallback
      * @param {String} error Error message, if any.
