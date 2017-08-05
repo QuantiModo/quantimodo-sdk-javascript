@@ -36,7 +36,7 @@
   /**
    * The MeasurementUpdate model module.
    * @module model/MeasurementUpdate
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**

@@ -36,7 +36,7 @@
   /**
    * The TrackingReminderNotification model module.
    * @module model/TrackingReminderNotification
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**
@@ -49,6 +49,7 @@
     var _this = this;
 
     _this['id'] = id;
+
 
 
 
@@ -336,6 +337,9 @@
       }
       if (data.hasOwnProperty('imageUrl')) {
         obj['imageUrl'] = ApiClient.convertToType(data['imageUrl'], 'String');
+      }
+      if (data.hasOwnProperty('iconIcon')) {
+        obj['iconIcon'] = ApiClient.convertToType(data['iconIcon'], 'String');
       }
     }
     return obj;
@@ -686,6 +690,11 @@
    * @member {String} imageUrl
    */
   exports.prototype['imageUrl'] = undefined;
+  /**
+   * Example: ion-sad-outline
+   * @member {String} iconIcon
+   */
+  exports.prototype['iconIcon'] = undefined;
 
 
   /**

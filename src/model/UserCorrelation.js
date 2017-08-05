@@ -36,7 +36,7 @@
   /**
    * The UserCorrelation model module.
    * @module model/UserCorrelation
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**

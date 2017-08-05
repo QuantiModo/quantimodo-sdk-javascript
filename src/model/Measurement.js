@@ -36,7 +36,7 @@
   /**
    * The Measurement model module.
    * @module model/Measurement
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**
@@ -60,6 +60,7 @@
 
 
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
+
 
 
 
@@ -252,6 +253,9 @@
       }
       if (data.hasOwnProperty('connectorId')) {
         obj['connectorId'] = ApiClient.convertToType(data['connectorId'], 'Number');
+      }
+      if (data.hasOwnProperty('noteObject')) {
+        obj['noteObject'] = ApiClient.convertToType(data['noteObject'], Object);
       }
     }
     return obj;
@@ -492,6 +496,11 @@
    * @member {Number} connectorId
    */
   exports.prototype['connectorId'] = undefined;
+  /**
+   * Example: {\"message\":null,\"commenter\":null,\"url\":null,\"image\":null,\"icon\":null,\"description\":null,\"name\":null,\"Description\":\"Transfer from MICHAEL P SINN\",\"Original Description\":\"Bank Account\",\"Transaction Type\":\"credit\",\"Account Name\":\"Mike's Personal PayPal\"}
+   * @member {Object} noteObject
+   */
+  exports.prototype['noteObject'] = undefined;
 
 
 

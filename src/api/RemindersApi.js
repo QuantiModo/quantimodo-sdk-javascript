@@ -33,7 +33,7 @@
   /**
    * Reminders service.
    * @module api/RemindersApi
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**
@@ -151,7 +151,7 @@
       var returnType = [TrackingReminderNotification];
 
       return this.apiClient.callApi(
-        '/v3/trackingReminderNotifications', 'GET',
+        '/v4/trackingReminderNotifications', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -263,7 +263,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v3/trackingReminderNotifications', 'POST',
+        '/v4/trackingReminderNotifications', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

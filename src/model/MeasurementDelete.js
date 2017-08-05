@@ -36,7 +36,7 @@
   /**
    * The MeasurementDelete model module.
    * @module model/MeasurementDelete
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**

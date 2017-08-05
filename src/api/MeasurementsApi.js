@@ -33,7 +33,7 @@
   /**
    * Measurements service.
    * @module api/MeasurementsApi
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**

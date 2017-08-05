@@ -33,7 +33,7 @@
   /**
    * User service.
    * @module api/UserApi
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**

@@ -36,7 +36,7 @@
   /**
    * The UserTag model module.
    * @module model/UserTag
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**

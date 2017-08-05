@@ -72,6 +72,7 @@ Name | Type | Description | Notes
 **title** | **String** | Example: Rate Overall Mood | [optional] 
 **trackingReminderImageUrl** | **String** | Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg | [optional] 
 **imageUrl** | **String** | Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg | [optional] 
+**iconIcon** | **String** | Example: ion-sad-outline | [optional] 
 
 
 <a name="CombinationOperationEnum"></a>

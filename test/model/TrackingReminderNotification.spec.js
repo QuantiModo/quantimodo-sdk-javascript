@@ -470,6 +470,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property iconIcon (base name: "iconIcon")', function() {
+      // uncomment below and update the code to test the property iconIcon
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

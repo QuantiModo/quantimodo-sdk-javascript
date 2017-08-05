@@ -33,7 +33,7 @@
   /**
    * Variables service.
    * @module api/VariablesApi
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**

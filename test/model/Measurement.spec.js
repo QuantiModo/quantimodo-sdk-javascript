@@ -338,6 +338,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property noteObject (base name: "noteObject")', function() {
+      // uncomment below and update the code to test the property noteObject
+      //var instane = new Quantimodo.Measurement();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

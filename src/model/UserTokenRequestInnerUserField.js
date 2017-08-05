@@ -36,7 +36,7 @@
   /**
    * The UserTokenRequestInnerUserField model module.
    * @module model/UserTokenRequestInnerUserField
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**

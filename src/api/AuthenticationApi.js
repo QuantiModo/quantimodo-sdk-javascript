@@ -33,7 +33,7 @@
   /**
    * Authentication service.
    * @module api/AuthenticationApi
-   * @version 5.8.804
+   * @version 5.8.805
    */
 
   /**
