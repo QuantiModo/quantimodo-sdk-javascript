@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **categoryName** | **String** | Example: Miscellany | [optional] 
 **categoryId** | **Number** | Example: 6 | [optional] 
 **advanced** | **Number** | Example: 1 | [optional] 
+**minimumValue** | **Number** | Example: 0 | [optional] 
+**manualTracking** | **Number** | Example: 0 | [optional] 
 
 
 <a name="CategoryEnum"></a>

@@ -836,6 +836,36 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property predictorOfInterest (base name: "predictorOfInterest")', function() {
+      // uncomment below and update the code to test the property predictorOfInterest
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property experimentStartTimeString (base name: "experimentStartTimeString")', function() {
+      // uncomment below and update the code to test the property experimentStartTimeString
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property experimentStartTimeSeconds (base name: "experimentStartTimeSeconds")', function() {
+      // uncomment below and update the code to test the property experimentStartTimeSeconds
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property experimentEndTimeString (base name: "experimentEndTimeString")', function() {
+      // uncomment below and update the code to test the property experimentEndTimeString
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property experimentEndTimeSeconds (base name: "experimentEndTimeSeconds")', function() {
+      // uncomment below and update the code to test the property experimentEndTimeSeconds
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

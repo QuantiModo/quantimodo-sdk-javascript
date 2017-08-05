@@ -133,5 +133,10 @@ Name | Type | Description | Notes
 **numberOfTrackingReminders** | **Number** | Example: 1 | [optional] 
 **iconIcon** | **String** | Example: ion-sad-outline | [optional] 
 **commonAlias** | **String** | Example: Anxiety / Nervousness | [optional] 
+**predictorOfInterest** | **Number** | Example: 0 | [optional] 
+**experimentStartTimeString** | **Date** | Example: 2010-03-23 01:31:42 | [optional] 
+**experimentStartTimeSeconds** | **Number** | Example: 1269307902 | [optional] 
+**experimentEndTimeString** | **Date** | Example: 2030-01-01 06:00:00 | [optional] 
+**experimentEndTimeSeconds** | **Number** | Example: 1893477600 | [optional] 
 
 

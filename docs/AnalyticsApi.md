@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteVote**](AnalyticsApi.md#deleteVote) | **DELETE** /v3/votes/delete | Delete vote
 [**getAggregatedCorrelations**](AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
-[**getStudy**](AnalyticsApi.md#getStudy) | **GET** /v3/study | Get Study
+[**getStudy**](AnalyticsApi.md#getStudy) | **GET** /v4/study | Get Study
 [**getUserCorrelationExplantions**](AnalyticsApi.md#getUserCorrelationExplantions) | **GET** /v3/correlations/explanations | Get correlation explanations
 [**getUserCorrelations**](AnalyticsApi.md#getUserCorrelations) | **GET** /v4/correlations | Get correlations
 [**postAggregatedCorrelations**](AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 <a name="getStudy"></a>
 # **getStudy**
-> getStudy(opts)
+> Study getStudy(opts)
 
 Get Study
 
@@ -178,7 +178,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.getStudy(opts, callback);
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**Study**](Study.md)
 
 ### Authorization
 

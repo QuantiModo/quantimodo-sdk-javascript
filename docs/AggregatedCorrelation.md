@@ -122,5 +122,10 @@ Name | Type | Description | Notes
 **predictorMinimumAllowedValue** | **Number** | Example: 10 | [optional] 
 **predictorMaximumAllowedValue** | **Number** | Example: 160934 | [optional] 
 **predictorDataSources** | **String** | Example: RescueTime | [optional] 
+**aggregateQMScore** | **Number** | Example: 0.011598441286655 | [optional] 
+**numberOfCorrelations** | **Number** | Example: 6 | [optional] 
+**numberOfUsers** | **Number** | Example: 6 | [optional] 
+**forwardPearsonCorrelationCoefficient** | **Number** | Example: 0.0333 | [optional] 
+**correlationIsContradictoryToOptimalValues** | **Boolean** | Example: 1 | [optional] 
 
 

@@ -173,6 +173,11 @@
 
 
 
+
+
+
+
+
   };
 
   /**
@@ -542,6 +547,21 @@
       }
       if (data.hasOwnProperty('predictorDataSources')) {
         obj['predictorDataSources'] = ApiClient.convertToType(data['predictorDataSources'], 'String');
+      }
+      if (data.hasOwnProperty('aggregateQMScore')) {
+        obj['aggregateQMScore'] = ApiClient.convertToType(data['aggregateQMScore'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfCorrelations')) {
+        obj['numberOfCorrelations'] = ApiClient.convertToType(data['numberOfCorrelations'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfUsers')) {
+        obj['numberOfUsers'] = ApiClient.convertToType(data['numberOfUsers'], 'Number');
+      }
+      if (data.hasOwnProperty('forwardPearsonCorrelationCoefficient')) {
+        obj['forwardPearsonCorrelationCoefficient'] = ApiClient.convertToType(data['forwardPearsonCorrelationCoefficient'], 'Number');
+      }
+      if (data.hasOwnProperty('correlationIsContradictoryToOptimalValues')) {
+        obj['correlationIsContradictoryToOptimalValues'] = ApiClient.convertToType(data['correlationIsContradictoryToOptimalValues'], 'Boolean');
       }
     }
     return obj;
@@ -1142,6 +1162,31 @@
    * @member {String} predictorDataSources
    */
   exports.prototype['predictorDataSources'] = undefined;
+  /**
+   * Example: 0.011598441286655
+   * @member {Number} aggregateQMScore
+   */
+  exports.prototype['aggregateQMScore'] = undefined;
+  /**
+   * Example: 6
+   * @member {Number} numberOfCorrelations
+   */
+  exports.prototype['numberOfCorrelations'] = undefined;
+  /**
+   * Example: 6
+   * @member {Number} numberOfUsers
+   */
+  exports.prototype['numberOfUsers'] = undefined;
+  /**
+   * Example: 0.0333
+   * @member {Number} forwardPearsonCorrelationCoefficient
+   */
+  exports.prototype['forwardPearsonCorrelationCoefficient'] = undefined;
+  /**
+   * Example: 1
+   * @member {Boolean} correlationIsContradictoryToOptimalValues
+   */
+  exports.prototype['correlationIsContradictoryToOptimalValues'] = undefined;
 
 
 

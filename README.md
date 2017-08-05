@@ -59,7 +59,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Quantimodo.AnalyticsApi* | [**deleteVote**](docs/AnalyticsApi.md#deleteVote) | **DELETE** /v3/votes/delete | Delete vote
 *Quantimodo.AnalyticsApi* | [**getAggregatedCorrelations**](docs/AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
-*Quantimodo.AnalyticsApi* | [**getStudy**](docs/AnalyticsApi.md#getStudy) | **GET** /v3/study | Get Study
+*Quantimodo.AnalyticsApi* | [**getStudy**](docs/AnalyticsApi.md#getStudy) | **GET** /v4/study | Get Study
 *Quantimodo.AnalyticsApi* | [**getUserCorrelationExplantions**](docs/AnalyticsApi.md#getUserCorrelationExplantions) | **GET** /v3/correlations/explanations | Get correlation explanations
 *Quantimodo.AnalyticsApi* | [**getUserCorrelations**](docs/AnalyticsApi.md#getUserCorrelations) | **GET** /v4/correlations | Get correlations
 *Quantimodo.AnalyticsApi* | [**postAggregatedCorrelations**](docs/AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
  - [Quantimodo.MeasurementUpdate](docs/MeasurementUpdate.md)
  - [Quantimodo.Pairs](docs/Pairs.md)
  - [Quantimodo.PostCorrelation](docs/PostCorrelation.md)
+ - [Quantimodo.Study](docs/Study.md)
  - [Quantimodo.TrackingReminder](docs/TrackingReminder.md)
  - [Quantimodo.TrackingReminderDelete](docs/TrackingReminderDelete.md)
  - [Quantimodo.TrackingReminderNotification](docs/TrackingReminderNotification.md)

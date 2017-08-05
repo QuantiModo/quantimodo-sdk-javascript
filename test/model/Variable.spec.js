@@ -506,6 +506,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property commonAlias (base name: "commonAlias")', function() {
+      // uncomment below and update the code to test the property commonAlias
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property valence (base name: "valence")', function() {
+      // uncomment below and update the code to test the property valence
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

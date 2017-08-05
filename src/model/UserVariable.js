@@ -178,6 +178,11 @@
 
 
 
+
+
+
+
+
   };
 
   /**
@@ -580,6 +585,21 @@
       }
       if (data.hasOwnProperty('commonAlias')) {
         obj['commonAlias'] = ApiClient.convertToType(data['commonAlias'], 'String');
+      }
+      if (data.hasOwnProperty('predictorOfInterest')) {
+        obj['predictorOfInterest'] = ApiClient.convertToType(data['predictorOfInterest'], 'Number');
+      }
+      if (data.hasOwnProperty('experimentStartTimeString')) {
+        obj['experimentStartTimeString'] = ApiClient.convertToType(data['experimentStartTimeString'], 'Date');
+      }
+      if (data.hasOwnProperty('experimentStartTimeSeconds')) {
+        obj['experimentStartTimeSeconds'] = ApiClient.convertToType(data['experimentStartTimeSeconds'], 'Number');
+      }
+      if (data.hasOwnProperty('experimentEndTimeString')) {
+        obj['experimentEndTimeString'] = ApiClient.convertToType(data['experimentEndTimeString'], 'Date');
+      }
+      if (data.hasOwnProperty('experimentEndTimeSeconds')) {
+        obj['experimentEndTimeSeconds'] = ApiClient.convertToType(data['experimentEndTimeSeconds'], 'Number');
       }
     }
     return obj;
@@ -1235,6 +1255,31 @@
    * @member {String} commonAlias
    */
   exports.prototype['commonAlias'] = undefined;
+  /**
+   * Example: 0
+   * @member {Number} predictorOfInterest
+   */
+  exports.prototype['predictorOfInterest'] = undefined;
+  /**
+   * Example: 2010-03-23 01:31:42
+   * @member {Date} experimentStartTimeString
+   */
+  exports.prototype['experimentStartTimeString'] = undefined;
+  /**
+   * Example: 1269307902
+   * @member {Number} experimentStartTimeSeconds
+   */
+  exports.prototype['experimentStartTimeSeconds'] = undefined;
+  /**
+   * Example: 2030-01-01 06:00:00
+   * @member {Date} experimentEndTimeString
+   */
+  exports.prototype['experimentEndTimeString'] = undefined;
+  /**
+   * Example: 1893477600
+   * @member {Number} experimentEndTimeSeconds
+   */
+  exports.prototype['experimentEndTimeSeconds'] = undefined;
 
 
 

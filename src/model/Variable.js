@@ -150,6 +150,9 @@
 
 
 
+
+
+
   };
 
   /**
@@ -387,6 +390,15 @@
       }
       if (data.hasOwnProperty('inputType')) {
         obj['inputType'] = ApiClient.convertToType(data['inputType'], 'String');
+      }
+      if (data.hasOwnProperty('commonAlias')) {
+        obj['commonAlias'] = ApiClient.convertToType(data['commonAlias'], 'String');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('valence')) {
+        obj['valence'] = ApiClient.convertToType(data['valence'], 'String');
       }
     }
     return obj;
@@ -767,6 +779,21 @@
    * @member {String} inputType
    */
   exports.prototype['inputType'] = undefined;
+  /**
+   * Example: Mood_(psychology)
+   * @member {String} commonAlias
+   */
+  exports.prototype['commonAlias'] = undefined;
+  /**
+   * Example: positive
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Example: positive
+   * @member {String} valence
+   */
+  exports.prototype['valence'] = undefined;
 
 
   /**

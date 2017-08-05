@@ -61,6 +61,8 @@
 
 
 
+
+
   };
 
   /**
@@ -103,6 +105,12 @@
       }
       if (data.hasOwnProperty('advanced')) {
         obj['advanced'] = ApiClient.convertToType(data['advanced'], 'Number');
+      }
+      if (data.hasOwnProperty('minimumValue')) {
+        obj['minimumValue'] = ApiClient.convertToType(data['minimumValue'], 'Number');
+      }
+      if (data.hasOwnProperty('manualTracking')) {
+        obj['manualTracking'] = ApiClient.convertToType(data['manualTracking'], 'Number');
       }
     }
     return obj;
@@ -158,6 +166,16 @@
    * @member {Number} advanced
    */
   exports.prototype['advanced'] = undefined;
+  /**
+   * Example: 0
+   * @member {Number} minimumValue
+   */
+  exports.prototype['minimumValue'] = undefined;
+  /**
+   * Example: 0
+   * @member {Number} manualTracking
+   */
+  exports.prototype['manualTracking'] = undefined;
 
 
   /**

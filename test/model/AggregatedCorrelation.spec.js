@@ -770,6 +770,36 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property aggregateQMScore (base name: "aggregateQMScore")', function() {
+      // uncomment below and update the code to test the property aggregateQMScore
+      //var instane = new Quantimodo.AggregatedCorrelation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property numberOfCorrelations (base name: "numberOfCorrelations")', function() {
+      // uncomment below and update the code to test the property numberOfCorrelations
+      //var instane = new Quantimodo.AggregatedCorrelation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property numberOfUsers (base name: "numberOfUsers")', function() {
+      // uncomment below and update the code to test the property numberOfUsers
+      //var instane = new Quantimodo.AggregatedCorrelation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property forwardPearsonCorrelationCoefficient (base name: "forwardPearsonCorrelationCoefficient")', function() {
+      // uncomment below and update the code to test the property forwardPearsonCorrelationCoefficient
+      //var instane = new Quantimodo.AggregatedCorrelation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property correlationIsContradictoryToOptimalValues (base name: "correlationIsContradictoryToOptimalValues")', function() {
+      // uncomment below and update the code to test the property correlationIsContradictoryToOptimalValues
+      //var instane = new Quantimodo.AggregatedCorrelation();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

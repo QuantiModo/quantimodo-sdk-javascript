@@ -116,6 +116,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property minimumValue (base name: "minimumValue")', function() {
+      // uncomment below and update the code to test the property minimumValue
+      //var instane = new Quantimodo.Unit();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property manualTracking (base name: "manualTracking")', function() {
+      // uncomment below and update the code to test the property manualTracking
+      //var instane = new Quantimodo.Unit();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

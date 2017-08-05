@@ -78,6 +78,9 @@ Name | Type | Description | Notes
 **userVariableDefaultUnitCategoryId** | **Number** | Example: 1 | [optional] 
 **userVariableDefaultUnitCategoryName** | **String** | Example: Duration | [optional] 
 **inputType** | **String** | Example: slider | [optional] 
+**commonAlias** | **String** | Example: Mood_(psychology) | [optional] 
+**description** | **String** | Example: positive | [optional] 
+**valence** | **String** | Example: positive | [optional] 
 
 
 <a name="CombinationOperationEnum"></a>
