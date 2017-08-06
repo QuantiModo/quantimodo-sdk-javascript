@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AggregatedCorrelation', 'model/CommonResponse', 'model/Connector', 'model/ConnectorInstruction', 'model/ConversionStep', 'model/InlineResponse201', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pairs', 'model/PostCorrelation', 'model/Study', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationPost', 'model/Unit', 'model/UnitCategory', 'model/Update', 'model/User', 'model/UserCorrelation', 'model/UserTag', 'model/UserTokenFailedResponse', 'model/UserTokenRequest', 'model/UserTokenRequestInnerUserField', 'model/UserTokenSuccessfulResponse', 'model/UserTokenSuccessfulResponseInnerUserField', 'model/UserVariable', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/RemindersApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
+    define(['ApiClient', 'model/AggregatedCorrelation', 'model/Button', 'model/CommonResponse', 'model/Connector', 'model/ConnectorInstruction', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetUserCorrelationsDataResponse', 'model/GetUserCorrelationsDataResponseData', 'model/Image', 'model/InlineResponse201', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pairs', 'model/PostCorrelation', 'model/Study', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationPost', 'model/Unit', 'model/UnitCategory', 'model/Update', 'model/User', 'model/UserCorrelation', 'model/UserTag', 'model/UserTokenFailedResponse', 'model/UserTokenRequest', 'model/UserTokenRequestInnerUserField', 'model/UserTokenSuccessfulResponse', 'model/UserTokenSuccessfulResponseInnerUserField', 'model/UserVariable', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/RemindersApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AggregatedCorrelation'), require('./model/CommonResponse'), require('./model/Connector'), require('./model/ConnectorInstruction'), require('./model/ConversionStep'), require('./model/InlineResponse201'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pairs'), require('./model/PostCorrelation'), require('./model/Study'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationPost'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/Update'), require('./model/User'), require('./model/UserCorrelation'), require('./model/UserTag'), require('./model/UserTokenFailedResponse'), require('./model/UserTokenRequest'), require('./model/UserTokenRequestInnerUserField'), require('./model/UserTokenSuccessfulResponse'), require('./model/UserTokenSuccessfulResponseInnerUserField'), require('./model/UserVariable'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/RemindersApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AggregatedCorrelation'), require('./model/Button'), require('./model/CommonResponse'), require('./model/Connector'), require('./model/ConnectorInstruction'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetUserCorrelationsDataResponse'), require('./model/GetUserCorrelationsDataResponseData'), require('./model/Image'), require('./model/InlineResponse201'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pairs'), require('./model/PostCorrelation'), require('./model/Study'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationPost'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/Update'), require('./model/User'), require('./model/UserCorrelation'), require('./model/UserTag'), require('./model/UserTokenFailedResponse'), require('./model/UserTokenRequest'), require('./model/UserTokenRequestInnerUserField'), require('./model/UserTokenSuccessfulResponse'), require('./model/UserTokenSuccessfulResponseInnerUserField'), require('./model/UserVariable'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/RemindersApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
   }
-}(function(ApiClient, AggregatedCorrelation, CommonResponse, Connector, ConnectorInstruction, ConversionStep, InlineResponse201, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pairs, PostCorrelation, Study, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationPost, Unit, UnitCategory, Update, User, UserCorrelation, UserTag, UserTokenFailedResponse, UserTokenRequest, UserTokenRequestInnerUserField, UserTokenSuccessfulResponse, UserTokenSuccessfulResponseInnerUserField, UserVariable, UserVariableDelete, Variable, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, RemindersApi, UnitsApi, UserApi, VariablesApi) {
+}(function(ApiClient, AggregatedCorrelation, Button, CommonResponse, Connector, ConnectorInstruction, ConversionStep, Correlation, DataSource, Explanation, ExplanationStartTracking, GetCorrelationsDataResponse, GetCorrelationsResponse, GetUserCorrelationsDataResponse, GetUserCorrelationsDataResponseData, Image, InlineResponse201, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pairs, PostCorrelation, Study, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationPost, Unit, UnitCategory, Update, User, UserCorrelation, UserTag, UserTokenFailedResponse, UserTokenRequest, UserTokenRequestInnerUserField, UserTokenSuccessfulResponse, UserTokenSuccessfulResponseInnerUserField, UserVariable, UserVariableDelete, Variable, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, RemindersApi, UnitsApi, UserApi, VariablesApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 5.8.805
+   * @version 5.8.806
    */
   var exports = {
     /**
@@ -66,6 +66,11 @@
      * @property {module:model/AggregatedCorrelation}
      */
     AggregatedCorrelation: AggregatedCorrelation,
+    /**
+     * The Button model constructor.
+     * @property {module:model/Button}
+     */
+    Button: Button,
     /**
      * The CommonResponse model constructor.
      * @property {module:model/CommonResponse}
@@ -86,6 +91,51 @@
      * @property {module:model/ConversionStep}
      */
     ConversionStep: ConversionStep,
+    /**
+     * The Correlation model constructor.
+     * @property {module:model/Correlation}
+     */
+    Correlation: Correlation,
+    /**
+     * The DataSource model constructor.
+     * @property {module:model/DataSource}
+     */
+    DataSource: DataSource,
+    /**
+     * The Explanation model constructor.
+     * @property {module:model/Explanation}
+     */
+    Explanation: Explanation,
+    /**
+     * The ExplanationStartTracking model constructor.
+     * @property {module:model/ExplanationStartTracking}
+     */
+    ExplanationStartTracking: ExplanationStartTracking,
+    /**
+     * The GetCorrelationsDataResponse model constructor.
+     * @property {module:model/GetCorrelationsDataResponse}
+     */
+    GetCorrelationsDataResponse: GetCorrelationsDataResponse,
+    /**
+     * The GetCorrelationsResponse model constructor.
+     * @property {module:model/GetCorrelationsResponse}
+     */
+    GetCorrelationsResponse: GetCorrelationsResponse,
+    /**
+     * The GetUserCorrelationsDataResponse model constructor.
+     * @property {module:model/GetUserCorrelationsDataResponse}
+     */
+    GetUserCorrelationsDataResponse: GetUserCorrelationsDataResponse,
+    /**
+     * The GetUserCorrelationsDataResponseData model constructor.
+     * @property {module:model/GetUserCorrelationsDataResponseData}
+     */
+    GetUserCorrelationsDataResponseData: GetUserCorrelationsDataResponseData,
+    /**
+     * The Image model constructor.
+     * @property {module:model/Image}
+     */
+    Image: Image,
     /**
      * The InlineResponse201 model constructor.
      * @property {module:model/InlineResponse201}

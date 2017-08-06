@@ -36,7 +36,7 @@
   /**
    * The UserVariable model module.
    * @module model/UserVariable
-   * @version 5.8.805
+   * @version 5.8.806
    */
 
   /**

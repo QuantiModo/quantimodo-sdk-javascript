@@ -128,6 +128,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property unitCategory (base name: "unitCategory")', function() {
+      // uncomment below and update the code to test the property unitCategory
+      //var instane = new Quantimodo.Unit();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maximumValue (base name: "maximumValue")', function() {
+      // uncomment below and update the code to test the property maximumValue
+      //var instane = new Quantimodo.Unit();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

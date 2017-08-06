@@ -61,7 +61,7 @@ Class | Method | HTTP request | Description
 *Quantimodo.AnalyticsApi* | [**getAggregatedCorrelations**](docs/AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
 *Quantimodo.AnalyticsApi* | [**getStudy**](docs/AnalyticsApi.md#getStudy) | **GET** /v4/study | Get Study
 *Quantimodo.AnalyticsApi* | [**getUserCorrelationExplantions**](docs/AnalyticsApi.md#getUserCorrelationExplantions) | **GET** /v3/correlations/explanations | Get correlation explanations
-*Quantimodo.AnalyticsApi* | [**getUserCorrelations**](docs/AnalyticsApi.md#getUserCorrelations) | **GET** /v4/correlations | Get correlations
+*Quantimodo.AnalyticsApi* | [**getUserCorrelations**](docs/AnalyticsApi.md#getUserCorrelations) | **GET** /v3/correlations | Get correlations
 *Quantimodo.AnalyticsApi* | [**postAggregatedCorrelations**](docs/AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
 *Quantimodo.AnalyticsApi* | [**postVote**](docs/AnalyticsApi.md#postVote) | **POST** /v3/votes | Post or update vote
 *Quantimodo.AuthenticationApi* | [**getAccessToken**](docs/AuthenticationApi.md#getAccessToken) | **GET** /v3/oauth2/token | Get a user access token
@@ -100,10 +100,20 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Quantimodo.AggregatedCorrelation](docs/AggregatedCorrelation.md)
+ - [Quantimodo.Button](docs/Button.md)
  - [Quantimodo.CommonResponse](docs/CommonResponse.md)
  - [Quantimodo.Connector](docs/Connector.md)
  - [Quantimodo.ConnectorInstruction](docs/ConnectorInstruction.md)
  - [Quantimodo.ConversionStep](docs/ConversionStep.md)
+ - [Quantimodo.Correlation](docs/Correlation.md)
+ - [Quantimodo.DataSource](docs/DataSource.md)
+ - [Quantimodo.Explanation](docs/Explanation.md)
+ - [Quantimodo.ExplanationStartTracking](docs/ExplanationStartTracking.md)
+ - [Quantimodo.GetCorrelationsDataResponse](docs/GetCorrelationsDataResponse.md)
+ - [Quantimodo.GetCorrelationsResponse](docs/GetCorrelationsResponse.md)
+ - [Quantimodo.GetUserCorrelationsDataResponse](docs/GetUserCorrelationsDataResponse.md)
+ - [Quantimodo.GetUserCorrelationsDataResponseData](docs/GetUserCorrelationsDataResponseData.md)
+ - [Quantimodo.Image](docs/Image.md)
  - [Quantimodo.InlineResponse201](docs/InlineResponse201.md)
  - [Quantimodo.JsonErrorResponse](docs/JsonErrorResponse.md)
  - [Quantimodo.Measurement](docs/Measurement.md)
@@ -158,7 +168,7 @@ Class | Method | HTTP request | Description
 - **Flow**: accessCode
 - **Authorization URL**: https://app.quantimo.do/api/v2/oauth/authorize
 - **Scopes**: 
-  - basic: Allows you to read user info (displayname, email, etc).
+  - basic: Allows you to read user info (display name, email, etc).
   - readmeasurements: Allows one to read a user&#39;s data
   - writemeasurements: Allows you to write user data
 

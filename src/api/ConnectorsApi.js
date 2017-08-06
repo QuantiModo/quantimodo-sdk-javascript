@@ -33,7 +33,7 @@
   /**
    * Connectors service.
    * @module api/ConnectorsApi
-   * @version 5.8.805
+   * @version 5.8.806
    */
 
   /**

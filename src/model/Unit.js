@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ConversionStep'], factory);
+    define(['ApiClient', 'model/ConversionStep', 'model/UnitCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./ConversionStep'));
+    module.exports = factory(require('../ApiClient'), require('./ConversionStep'), require('./UnitCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Unit = factory(root.Quantimodo.ApiClient, root.Quantimodo.ConversionStep);
+    root.Quantimodo.Unit = factory(root.Quantimodo.ApiClient, root.Quantimodo.ConversionStep, root.Quantimodo.UnitCategory);
   }
-}(this, function(ApiClient, ConversionStep) {
+}(this, function(ApiClient, ConversionStep, UnitCategory) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Unit model module.
    * @module model/Unit
-   * @version 5.8.805
+   * @version 5.8.806
    */
 
   /**
@@ -47,8 +47,10 @@
    * @param abbreviatedName {String} Unit abbreviation
    * @param category {module:model/Unit.CategoryEnum} Unit category
    * @param conversionSteps {Array.<module:model/ConversionStep>} Conversion steps list
+   * @param unitCategory {module:model/UnitCategory} 
+   * @param maximumValue {Number} Example: 4
    */
-  var exports = function(name, abbreviatedName, category, conversionSteps) {
+  var exports = function(name, abbreviatedName, category, conversionSteps, unitCategory, maximumValue) {
     var _this = this;
 
     _this['name'] = name;
@@ -63,6 +65,8 @@
 
 
 
+    _this['unitCategory'] = unitCategory;
+    _this['maximumValue'] = maximumValue;
   };
 
   /**
@@ -111,6 +115,12 @@
       }
       if (data.hasOwnProperty('manualTracking')) {
         obj['manualTracking'] = ApiClient.convertToType(data['manualTracking'], 'Number');
+      }
+      if (data.hasOwnProperty('unitCategory')) {
+        obj['unitCategory'] = UnitCategory.constructFromObject(data['unitCategory']);
+      }
+      if (data.hasOwnProperty('maximumValue')) {
+        obj['maximumValue'] = ApiClient.convertToType(data['maximumValue'], 'Number');
       }
     }
     return obj;
@@ -176,6 +186,15 @@
    * @member {Number} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
+  /**
+   * @member {module:model/UnitCategory} unitCategory
+   */
+  exports.prototype['unitCategory'] = undefined;
+  /**
+   * Example: 4
+   * @member {Number} maximumValue
+   */
+  exports.prototype['maximumValue'] = undefined;
 
 
   /**

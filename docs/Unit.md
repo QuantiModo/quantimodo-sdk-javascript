@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **advanced** | **Number** | Example: 1 | [optional] 
 **minimumValue** | **Number** | Example: 0 | [optional] 
 **manualTracking** | **Number** | Example: 0 | [optional] 
+**unitCategory** | [**UnitCategory**](UnitCategory.md) |  | 
+**maximumValue** | **Number** | Example: 4 | 
 
 
 <a name="CategoryEnum"></a>

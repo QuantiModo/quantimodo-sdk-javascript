@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**getAggregatedCorrelations**](AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
 [**getStudy**](AnalyticsApi.md#getStudy) | **GET** /v4/study | Get Study
 [**getUserCorrelationExplantions**](AnalyticsApi.md#getUserCorrelationExplantions) | **GET** /v3/correlations/explanations | Get correlation explanations
-[**getUserCorrelations**](AnalyticsApi.md#getUserCorrelations) | **GET** /v4/correlations | Get correlations
+[**getUserCorrelations**](AnalyticsApi.md#getUserCorrelations) | **GET** /v3/correlations | Get correlations
 [**postAggregatedCorrelations**](AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
 [**postVote**](AnalyticsApi.md#postVote) | **POST** /v3/votes | Post or update vote
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 <a name="getUserCorrelations"></a>
 # **getUserCorrelations**
-> [UserCorrelation] getUserCorrelations(opts)
+> GetCorrelationsResponse getUserCorrelations(opts)
 
 Get correlations
 
@@ -304,6 +304,8 @@ var opts = {
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'outcomesOfInterest': true // Boolean | Only include correlations for which the effect is an outcome of interest for the user
+  'appName': "appName_example", // String | Example: MoodiModo
+  'clientId': "clientId_example" // String | Example: oauth_test_client
 };
 
 var callback = function(error, data, response) {
@@ -331,10 +333,12 @@ Name | Type | Description  | Notes
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
  **outcomesOfInterest** | **Boolean**| Only include correlations for which the effect is an outcome of interest for the user | [optional] 
+ **appName** | **String**| Example: MoodiModo | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
 
 ### Return type
 
-[**[UserCorrelation]**](UserCorrelation.md)
+[**GetCorrelationsResponse**](GetCorrelationsResponse.md)
 
 ### Authorization
 
