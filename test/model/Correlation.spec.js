@@ -620,12 +620,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property causeDataSource (base name: "causeDataSource")', function() {
-      // uncomment below and update the code to test the property causeDataSource
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property dataSourcesParagraphForCause (base name: "dataSourcesParagraphForCause")', function() {
       // uncomment below and update the code to test the property dataSourcesParagraphForCause
       //var instane = new Quantimodo.Correlation();
@@ -634,12 +628,6 @@
 
     it('should have the property instructionsForCause (base name: "instructionsForCause")', function() {
       // uncomment below and update the code to test the property instructionsForCause
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property effectDataSource (base name: "effectDataSource")', function() {
-      // uncomment below and update the code to test the property effectDataSource
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
@@ -706,6 +694,36 @@
 
     it('should have the property predictorDataSources (base name: "predictorDataSources")', function() {
       // uncomment below and update the code to test the property predictorDataSources
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property outcomeMinimumAllowedValue (base name: "outcomeMinimumAllowedValue")', function() {
+      // uncomment below and update the code to test the property outcomeMinimumAllowedValue
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property outcomeMaximumAllowedValue (base name: "outcomeMaximumAllowedValue")', function() {
+      // uncomment below and update the code to test the property outcomeMaximumAllowedValue
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property causeDataSource (base name: "causeDataSource")', function() {
+      // uncomment below and update the code to test the property causeDataSource
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property effectDataSource (base name: "effectDataSource")', function() {
+      // uncomment below and update the code to test the property effectDataSource
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property correlationIsContradictoryToOptimalValues (base name: "correlationIsContradictoryToOptimalValues")', function() {
+      // uncomment below and update the code to test the property correlationIsContradictoryToOptimalValues
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });

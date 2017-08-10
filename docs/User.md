@@ -34,5 +34,17 @@ Name | Type | Description | Notes
 **combineNotifications** | **Boolean** | Example: 1 | [optional] 
 **avatarImage** | **String** | Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz&#x3D;50 | [optional] 
 **stripeActive** | **Boolean** | Example: 1 | [optional] 
+**getPreviewBuilds** | **Boolean** | Example: false | [optional] 
+**hasAndroidApp** | **Boolean** | Example: false | [optional] 
+**hasChromeExtension** | **Boolean** | Example: false | [optional] 
+**hasIosApp** | **Boolean** | Example: false | [optional] 
+**lastSmsTrackingReminderNotificationId** | **String** | Example:  | [optional] 
+**phoneNumber** | **String** | Example:  | [optional] 
+**phoneVerificationCode** | **String** | Example:  | [optional] 
+**smsNotificationsEnabled** | **Boolean** | Example: false | [optional] 
+**subscriptionEndsAt** | **Date** | Example:  | [optional] 
+**refreshToken** | **String** | Example: 6e99b113d85586de1f92468433f2df1e666647cb | [optional] 
+**accessTokenExpires** | **String** | Example: 2018-08-08 02:41:19 | [optional] 
+**accessTokenExpiresAtMilliseconds** | **Number** | Example: 1533696079000 | [optional] 
 
 

@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AggregatedCorrelation', 'model/CommonResponse', 'model/GetCorrelationsResponse', 'model/JsonErrorResponse', 'model/PostCorrelation', 'model/Study', 'model/UserCorrelation', 'model/Vote', 'model/VoteDelete'], factory);
+    define(['ApiClient', 'model/AggregatedCorrelationArray', 'model/CommonResponse', 'model/GetCorrelationsResponse', 'model/GetStudyResponse', 'model/JsonErrorResponse', 'model/PostCorrelation', 'model/UserCorrelation', 'model/Vote', 'model/VoteDelete'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/AggregatedCorrelation'), require('../model/CommonResponse'), require('../model/GetCorrelationsResponse'), require('../model/JsonErrorResponse'), require('../model/PostCorrelation'), require('../model/Study'), require('../model/UserCorrelation'), require('../model/Vote'), require('../model/VoteDelete'));
+    module.exports = factory(require('../ApiClient'), require('../model/AggregatedCorrelationArray'), require('../model/CommonResponse'), require('../model/GetCorrelationsResponse'), require('../model/GetStudyResponse'), require('../model/JsonErrorResponse'), require('../model/PostCorrelation'), require('../model/UserCorrelation'), require('../model/Vote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.AggregatedCorrelation, root.Quantimodo.CommonResponse, root.Quantimodo.GetCorrelationsResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostCorrelation, root.Quantimodo.Study, root.Quantimodo.UserCorrelation, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
+    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.AggregatedCorrelationArray, root.Quantimodo.CommonResponse, root.Quantimodo.GetCorrelationsResponse, root.Quantimodo.GetStudyResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostCorrelation, root.Quantimodo.UserCorrelation, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
   }
-}(this, function(ApiClient, AggregatedCorrelation, CommonResponse, GetCorrelationsResponse, JsonErrorResponse, PostCorrelation, Study, UserCorrelation, Vote, VoteDelete) {
+}(this, function(ApiClient, AggregatedCorrelationArray, CommonResponse, GetCorrelationsResponse, GetStudyResponse, JsonErrorResponse, PostCorrelation, UserCorrelation, Vote, VoteDelete) {
   'use strict';
 
   /**
    * Analytics service.
    * @module api/AnalyticsApi
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -100,7 +100,7 @@
      * Callback function to receive the result of the getAggregatedCorrelations operation.
      * @callback module:api/AnalyticsApi~getAggregatedCorrelationsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/AggregatedCorrelation>} data The data returned by the service call.
+     * @param {module:model/AggregatedCorrelationArray} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -120,7 +120,7 @@
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param {module:api/AnalyticsApi~getAggregatedCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/AggregatedCorrelation>}
+     * data is of type: {@link module:model/AggregatedCorrelationArray}
      */
     this.getAggregatedCorrelations = function(opts, callback) {
       opts = opts || {};
@@ -150,7 +150,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [AggregatedCorrelation];
+      var returnType = AggregatedCorrelationArray;
 
       return this.apiClient.callApi(
         '/v3/aggregatedCorrelations', 'GET',
@@ -163,7 +163,7 @@
      * Callback function to receive the result of the getStudy operation.
      * @callback module:api/AnalyticsApi~getStudyCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Study} data The data returned by the service call.
+     * @param {module:model/GetStudyResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -177,7 +177,7 @@
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.includeCharts Example: true
      * @param {module:api/AnalyticsApi~getStudyCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Study}
+     * data is of type: {@link module:model/GetStudyResponse}
      */
     this.getStudy = function(opts, callback) {
       opts = opts || {};
@@ -201,7 +201,7 @@
       var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = Study;
+      var returnType = GetStudyResponse;
 
       return this.apiClient.callApi(
         '/v4/study', 'GET',
@@ -280,6 +280,8 @@
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {Boolean} opts.fallbackToStudyForCauseAndEffect Example: 1
+     * @param {Boolean} opts.fallbackToAggregateCorrelations Example: true
      * @param {module:api/AnalyticsApi~getUserCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetCorrelationsResponse}
      */
@@ -303,7 +305,9 @@
         'sort': opts['sort'],
         'outcomesOfInterest': opts['outcomesOfInterest'],
         'appName': opts['appName'],
-        'clientId': opts['clientId']
+        'clientId': opts['clientId'],
+        'fallbackToStudyForCauseAndEffect': opts['fallbackToStudyForCauseAndEffect'],
+        'fallbackToAggregateCorrelations': opts['fallbackToAggregateCorrelations']
       };
       var headerParams = {
       };

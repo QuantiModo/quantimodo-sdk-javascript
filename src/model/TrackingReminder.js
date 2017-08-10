@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Unit) {
   'use strict';
 
 
@@ -36,30 +36,42 @@
   /**
    * The TrackingReminder model module.
    * @module model/TrackingReminder
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
    * Constructs a new <code>TrackingReminder</code>.
    * @alias module:model/TrackingReminder
    * @class
-   * @param variableId {Number} Id for the variable to be tracked
-   * @param defaultValue {Number} Default value to use for the measurement when tracking
    * @param reminderFrequency {Number} Number of seconds between one reminder and the next
+   * @param variableName {String} Name of the variable to be used when sending measurements
+   * @param variableCategoryName {String} Name of the variable category to be used when sending measurements
+   * @param unitAbbreviatedName {String} Abbreviated name of the unit to be used when sending measurements
    */
-  var exports = function(variableId, defaultValue, reminderFrequency) {
+  var exports = function(reminderFrequency, variableName, variableCategoryName, unitAbbreviatedName) {
     var _this = this;
 
 
 
 
-    _this['variableId'] = variableId;
-    _this['defaultValue'] = defaultValue;
+
+
 
 
 
     _this['reminderFrequency'] = reminderFrequency;
 
+
+
+
+
+
+
+
+
+    _this['variableName'] = variableName;
+    _this['variableCategoryName'] = variableCategoryName;
+    _this['unitAbbreviatedName'] = unitAbbreviatedName;
 
 
 
@@ -334,6 +346,39 @@
       }
       if (data.hasOwnProperty('valueAndFrequencyTextDescriptionWithTime')) {
         obj['valueAndFrequencyTextDescriptionWithTime'] = ApiClient.convertToType(data['valueAndFrequencyTextDescriptionWithTime'], 'String');
+      }
+      if (data.hasOwnProperty('fillingValue')) {
+        obj['fillingValue'] = ApiClient.convertToType(data['fillingValue'], 'Number');
+      }
+      if (data.hasOwnProperty('availableDefaultUnits')) {
+        obj['availableDefaultUnits'] = ApiClient.convertToType(data['availableDefaultUnits'], [Unit]);
+      }
+      if (data.hasOwnProperty('localDailyReminderNotificationTimes')) {
+        obj['localDailyReminderNotificationTimes'] = ApiClient.convertToType(data['localDailyReminderNotificationTimes'], ['String']);
+      }
+      if (data.hasOwnProperty('localDailyReminderNotificationTimesForAllReminders')) {
+        obj['localDailyReminderNotificationTimesForAllReminders'] = ApiClient.convertToType(data['localDailyReminderNotificationTimesForAllReminders'], ['String']);
+      }
+      if (data.hasOwnProperty('repeating')) {
+        obj['repeating'] = ApiClient.convertToType(data['repeating'], 'Boolean');
+      }
+      if (data.hasOwnProperty('numberOfUniqueValues')) {
+        obj['numberOfUniqueValues'] = ApiClient.convertToType(data['numberOfUniqueValues'], 'Number');
+      }
+      if (data.hasOwnProperty('instructions')) {
+        obj['instructions'] = ApiClient.convertToType(data['instructions'], 'String');
+      }
+      if (data.hasOwnProperty('secondDailyReminderTime')) {
+        obj['secondDailyReminderTime'] = ApiClient.convertToType(data['secondDailyReminderTime'], 'Date');
+      }
+      if (data.hasOwnProperty('thirdDailyReminderTime')) {
+        obj['thirdDailyReminderTime'] = ApiClient.convertToType(data['thirdDailyReminderTime'], 'Date');
+      }
+      if (data.hasOwnProperty('errorMessage')) {
+        obj['errorMessage'] = ApiClient.convertToType(data['errorMessage'], 'String');
+      }
+      if (data.hasOwnProperty('trackingReminderImageUrl')) {
+        obj['trackingReminderImageUrl'] = ApiClient.convertToType(data['trackingReminderImageUrl'], 'String');
       }
     }
     return obj;
@@ -679,6 +724,58 @@
    * @member {String} valueAndFrequencyTextDescriptionWithTime
    */
   exports.prototype['valueAndFrequencyTextDescriptionWithTime'] = undefined;
+  /**
+   * Example: 0
+   * @member {Number} fillingValue
+   */
+  exports.prototype['fillingValue'] = undefined;
+  /**
+   * @member {Array.<module:model/Unit>} availableDefaultUnits
+   */
+  exports.prototype['availableDefaultUnits'] = undefined;
+  /**
+   * @member {Array.<String>} localDailyReminderNotificationTimes
+   */
+  exports.prototype['localDailyReminderNotificationTimes'] = undefined;
+  /**
+   * @member {Array.<String>} localDailyReminderNotificationTimesForAllReminders
+   */
+  exports.prototype['localDailyReminderNotificationTimesForAllReminders'] = undefined;
+  /**
+   * Example: true
+   * @member {Boolean} repeating
+   */
+  exports.prototype['repeating'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} numberOfUniqueValues
+   */
+  exports.prototype['numberOfUniqueValues'] = undefined;
+  /**
+   * Example: I am an instruction!
+   * @member {String} instructions
+   */
+  exports.prototype['instructions'] = undefined;
+  /**
+   * Example: 01:00:00
+   * @member {Date} secondDailyReminderTime
+   */
+  exports.prototype['secondDailyReminderTime'] = undefined;
+  /**
+   * Example: 20:00:00
+   * @member {Date} thirdDailyReminderTime
+   */
+  exports.prototype['thirdDailyReminderTime'] = undefined;
+  /**
+   * Example: reminderStartTimeLocal is less than  $user->earliestReminderTime or greater than  $user->latestReminderTime
+   * @member {String} errorMessage
+   */
+  exports.prototype['errorMessage'] = undefined;
+  /**
+   * Example: Not Found
+   * @member {String} trackingReminderImageUrl
+   */
+  exports.prototype['trackingReminderImageUrl'] = undefined;
 
 
   /**

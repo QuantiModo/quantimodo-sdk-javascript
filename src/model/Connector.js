@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Button', 'model/Scope'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Button'), require('./Scope'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Connector = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.Connector = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.Scope);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Button, Scope) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Connector model module.
    * @module model/Connector
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -65,6 +65,10 @@
     _this['connectInstructions'] = connectInstructions;
     _this['lastUpdate'] = lastUpdate;
     _this['totalMeasurementsInLastUpdate'] = totalMeasurementsInLastUpdate;
+
+
+
+
 
 
 
@@ -176,6 +180,18 @@
       }
       if (data.hasOwnProperty('updatedAt')) {
         obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+      }
+      if (data.hasOwnProperty('buttons')) {
+        obj['buttons'] = ApiClient.convertToType(data['buttons'], [Button]);
+      }
+      if (data.hasOwnProperty('affiliate')) {
+        obj['affiliate'] = ApiClient.convertToType(data['affiliate'], 'Boolean');
+      }
+      if (data.hasOwnProperty('scopes')) {
+        obj['scopes'] = ApiClient.convertToType(data['scopes'], [Scope]);
+      }
+      if (data.hasOwnProperty('connectError')) {
+        obj['connectError'] = ApiClient.convertToType(data['connectError'], 'String');
       }
     }
     return obj;
@@ -316,6 +332,24 @@
    * @member {Date} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} buttons
+   */
+  exports.prototype['buttons'] = undefined;
+  /**
+   * Example: false
+   * @member {Boolean} affiliate
+   */
+  exports.prototype['affiliate'] = undefined;
+  /**
+   * @member {Array.<module:model/Scope>} scopes
+   */
+  exports.prototype['scopes'] = undefined;
+  /**
+   * Example: Your token is expired. Please re-connect
+   * @member {String} connectError
+   */
+  exports.prototype['connectError'] = undefined;
 
 
 

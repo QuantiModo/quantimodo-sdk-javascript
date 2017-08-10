@@ -866,6 +866,114 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property availableDefaultUnits (base name: "availableDefaultUnits")', function() {
+      // uncomment below and update the code to test the property availableDefaultUnits
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property price (base name: "price")', function() {
+      // uncomment below and update the code to test the property price
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property alias (base name: "alias")', function() {
+      // uncomment below and update the code to test the property alias
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableValence (base name: "userVariableValence")', function() {
+      // uncomment below and update the code to test the property userVariableValence
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableWikipediaTitle (base name: "userVariableWikipediaTitle")', function() {
+      // uncomment below and update the code to test the property userVariableWikipediaTitle
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property informationalUrl (base name: "informationalUrl")', function() {
+      // uncomment below and update the code to test the property informationalUrl
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property parent (base name: "parent")', function() {
+      // uncomment below and update the code to test the property parent
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property productUrl (base name: "productUrl")', function() {
+      // uncomment below and update the code to test the property productUrl
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property wikipediaTitle (base name: "wikipediaTitle")', function() {
+      // uncomment below and update the code to test the property wikipediaTitle
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userTagVariables (base name: "userTagVariables")', function() {
+      // uncomment below and update the code to test the property userTagVariables
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userTaggedVariables (base name: "userTaggedVariables")', function() {
+      // uncomment below and update the code to test the property userTaggedVariables
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property joinedUserTagVariables (base name: "joinedUserTagVariables")', function() {
+      // uncomment below and update the code to test the property joinedUserTagVariables
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ingredientUserTagVariables (base name: "ingredientUserTagVariables")', function() {
+      // uncomment below and update the code to test the property ingredientUserTagVariables
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ingredientOfUserTagVariables (base name: "ingredientOfUserTagVariables")', function() {
+      // uncomment below and update the code to test the property ingredientOfUserTagVariables
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property childUserTagVariables (base name: "childUserTagVariables")', function() {
+      // uncomment below and update the code to test the property childUserTagVariables
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property parentUserTagVariables (base name: "parentUserTagVariables")', function() {
+      // uncomment below and update the code to test the property parentUserTagVariables
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property commonTagVariables (base name: "commonTagVariables")', function() {
+      // uncomment below and update the code to test the property commonTagVariables
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property commonTaggedVariables (base name: "commonTaggedVariables")', function() {
+      // uncomment below and update the code to test the property commonTaggedVariables
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

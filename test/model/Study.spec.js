@@ -56,6 +56,18 @@
       //expect(instance).to.be.a(Quantimodo.Study);
     });
 
+    it('should have the property userId (base name: "userId")', function() {
+      // uncomment below and update the code to test the property userId
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property causeProcessedDailyMeasurements (base name: "causeProcessedDailyMeasurements")', function() {
+      // uncomment below and update the code to test the property causeProcessedDailyMeasurements
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
     it('should have the property causeVariable (base name: "causeVariable")', function() {
       // uncomment below and update the code to test the property causeVariable
       //var instane = new Quantimodo.Study();
@@ -68,14 +80,44 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property charts (base name: "charts")', function() {
+      // uncomment below and update the code to test the property charts
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property effectProcessedDailyMeasurements (base name: "effectProcessedDailyMeasurements")', function() {
+      // uncomment below and update the code to test the property effectProcessedDailyMeasurements
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property pairs (base name: "pairs")', function() {
+      // uncomment below and update the code to test the property pairs
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
     it('should have the property statistics (base name: "statistics")', function() {
       // uncomment below and update the code to test the property statistics
       //var instane = new Quantimodo.Study();
       //expect(instance).to.be();
     });
 
-    it('should have the property userId (base name: "userId")', function() {
-      // uncomment below and update the code to test the property userId
+    it('should have the property text (base name: "text")', function() {
+      // uncomment below and update the code to test the property text
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property user (base name: "user")', function() {
+      // uncomment below and update the code to test the property user
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property highchartArray (base name: "highchartArray")', function() {
+      // uncomment below and update the code to test the property highchartArray
       //var instane = new Quantimodo.Study();
       //expect(instance).to.be();
     });

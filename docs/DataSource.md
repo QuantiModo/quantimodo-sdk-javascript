@@ -3,19 +3,18 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Example: 6 | 
-**name** | **String** | Example: up | 
-**connectorClientId** | **String** | Example: 10RfjEgKr8U | 
-**connectorClientSecret** | **String** | Example: e17fd34e4bc4642f0c4c99d7acb6e661 | 
-**displayName** | **String** | Example: Up by Jawbone | 
-**image** | **String** | Example: https://i.imgur.com/MXNQy3T.png | 
-**getItUrl** | **String** | Example: http://www.amazon.com/gp/product/B00A17IAO0/ref&#x3D;as_li_qf_sp_asin_tl?ie&#x3D;UTF8&amp;camp&#x3D;1789&amp;creative&#x3D;9325&amp;creativeASIN&#x3D;B00A17IAO0&amp;linkCode&#x3D;as2&amp;tag&#x3D;quant08-20 | 
-**shortDescription** | **String** | Example: Tracks sleep, exercise, and diet. | 
-**longDescription** | **String** | Example: UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best. | 
-**enabled** | **Number** | Example: 1 | 
-**affiliate** | **Boolean** | Example: 1 | 
-**defaultVariableCategoryName** | **String** | Example: Physical Activity | 
-**imageHtml** | **String** | Example: &lt;a href&#x3D;\&quot;http://www.amazon.com/gp/product/B00A17IAO0/ref&#x3D;as_li_qf_sp_asin_tl?ie&#x3D;UTF8&amp;camp&#x3D;1789&amp;creative&#x3D;9325&amp;creativeASIN&#x3D;B00A17IAO0&amp;linkCode&#x3D;as2&amp;tag&#x3D;quant08-20\&quot;&gt;&lt;img id&#x3D;\&quot;up_image\&quot; title&#x3D;\&quot;Up by Jawbone\&quot; src&#x3D;\&quot;https://i.imgur.com/MXNQy3T.png\&quot; alt&#x3D;\&quot;Up by Jawbone\&quot;&gt;&lt;/a&gt; | 
-**linkedDisplayNameHtml** | **String** | Example: &lt;a href&#x3D;\&quot;http://www.amazon.com/gp/product/B00A17IAO0/ref&#x3D;as_li_qf_sp_asin_tl?ie&#x3D;UTF8&amp;camp&#x3D;1789&amp;creative&#x3D;9325&amp;creativeASIN&#x3D;B00A17IAO0&amp;linkCode&#x3D;as2&amp;tag&#x3D;quant08-20\&quot;&gt;Up by Jawbone&lt;/a&gt; | 
+**id** | **Number** | Example: 72 | 
+**name** | **String** | Example: quantimodo | 
+**displayName** | **String** | Example: QuantiModo | 
+**image** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png | 
+**getItUrl** | **String** | Example: https://quantimo.do | 
+**shortDescription** | **String** | Example: Tracks anything | 
+**longDescription** | **String** | Example: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values. | 
+**enabled** | **Number** | Example: 0 | 
+**affiliate** | **Boolean** | Example: true | 
+**defaultVariableCategoryName** | **String** | Example: Foods | 
+**imageHtml** | **String** | Example: &lt;a href&#x3D;\&quot;https://quantimo.do\&quot;&gt;&lt;img id&#x3D;\&quot;quantimodo_image\&quot; title&#x3D;\&quot;QuantiModo\&quot; src&#x3D;\&quot;https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\&quot; alt&#x3D;\&quot;QuantiModo\&quot;&gt;&lt;/a&gt; | 
+**linkedDisplayNameHtml** | **String** | Example: &lt;a href&#x3D;\&quot;https://quantimo.do\&quot;&gt;QuantiModo&lt;/a&gt; | 
+**connectorClientId** | **String** | Example: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30 | 
 
 

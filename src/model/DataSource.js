@@ -36,35 +36,32 @@
   /**
    * The DataSource model module.
    * @module model/DataSource
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
    * Constructs a new <code>DataSource</code>.
    * @alias module:model/DataSource
    * @class
-   * @param id {Number} Example: 6
-   * @param name {String} Example: up
-   * @param connectorClientId {String} Example: 10RfjEgKr8U
-   * @param connectorClientSecret {String} Example: e17fd34e4bc4642f0c4c99d7acb6e661
-   * @param displayName {String} Example: Up by Jawbone
-   * @param image {String} Example: https://i.imgur.com/MXNQy3T.png
-   * @param getItUrl {String} Example: http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20
-   * @param shortDescription {String} Example: Tracks sleep, exercise, and diet.
-   * @param longDescription {String} Example: UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.
-   * @param enabled {Number} Example: 1
-   * @param affiliate {Boolean} Example: 1
-   * @param defaultVariableCategoryName {String} Example: Physical Activity
-   * @param imageHtml {String} Example: <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\"><img id=\"up_image\" title=\"Up by Jawbone\" src=\"https://i.imgur.com/MXNQy3T.png\" alt=\"Up by Jawbone\"></a>
-   * @param linkedDisplayNameHtml {String} Example: <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>
+   * @param id {Number} Example: 72
+   * @param name {String} Example: quantimodo
+   * @param displayName {String} Example: QuantiModo
+   * @param image {String} Example: https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
+   * @param getItUrl {String} Example: https://quantimo.do
+   * @param shortDescription {String} Example: Tracks anything
+   * @param longDescription {String} Example: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
+   * @param enabled {Number} Example: 0
+   * @param affiliate {Boolean} Example: true
+   * @param defaultVariableCategoryName {String} Example: Foods
+   * @param imageHtml {String} Example: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
+   * @param linkedDisplayNameHtml {String} Example: <a href=\"https://quantimo.do\">QuantiModo</a>
+   * @param connectorClientId {String} Example: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
    */
-  var exports = function(id, name, connectorClientId, connectorClientSecret, displayName, image, getItUrl, shortDescription, longDescription, enabled, affiliate, defaultVariableCategoryName, imageHtml, linkedDisplayNameHtml) {
+  var exports = function(id, name, displayName, image, getItUrl, shortDescription, longDescription, enabled, affiliate, defaultVariableCategoryName, imageHtml, linkedDisplayNameHtml, connectorClientId) {
     var _this = this;
 
     _this['id'] = id;
     _this['name'] = name;
-    _this['connectorClientId'] = connectorClientId;
-    _this['connectorClientSecret'] = connectorClientSecret;
     _this['displayName'] = displayName;
     _this['image'] = image;
     _this['getItUrl'] = getItUrl;
@@ -75,6 +72,7 @@
     _this['defaultVariableCategoryName'] = defaultVariableCategoryName;
     _this['imageHtml'] = imageHtml;
     _this['linkedDisplayNameHtml'] = linkedDisplayNameHtml;
+    _this['connectorClientId'] = connectorClientId;
   };
 
   /**
@@ -93,12 +91,6 @@
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('connectorClientId')) {
-        obj['connectorClientId'] = ApiClient.convertToType(data['connectorClientId'], 'String');
-      }
-      if (data.hasOwnProperty('connectorClientSecret')) {
-        obj['connectorClientSecret'] = ApiClient.convertToType(data['connectorClientSecret'], 'String');
       }
       if (data.hasOwnProperty('displayName')) {
         obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
@@ -130,80 +122,78 @@
       if (data.hasOwnProperty('linkedDisplayNameHtml')) {
         obj['linkedDisplayNameHtml'] = ApiClient.convertToType(data['linkedDisplayNameHtml'], 'String');
       }
+      if (data.hasOwnProperty('connectorClientId')) {
+        obj['connectorClientId'] = ApiClient.convertToType(data['connectorClientId'], 'String');
+      }
     }
     return obj;
   }
 
   /**
-   * Example: 6
+   * Example: 72
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: up
+   * Example: quantimodo
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * Example: 10RfjEgKr8U
-   * @member {String} connectorClientId
-   */
-  exports.prototype['connectorClientId'] = undefined;
-  /**
-   * Example: e17fd34e4bc4642f0c4c99d7acb6e661
-   * @member {String} connectorClientSecret
-   */
-  exports.prototype['connectorClientSecret'] = undefined;
-  /**
-   * Example: Up by Jawbone
+   * Example: QuantiModo
    * @member {String} displayName
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * Example: https://i.imgur.com/MXNQy3T.png
+   * Example: https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
    * @member {String} image
    */
   exports.prototype['image'] = undefined;
   /**
-   * Example: http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20
+   * Example: https://quantimo.do
    * @member {String} getItUrl
    */
   exports.prototype['getItUrl'] = undefined;
   /**
-   * Example: Tracks sleep, exercise, and diet.
+   * Example: Tracks anything
    * @member {String} shortDescription
    */
   exports.prototype['shortDescription'] = undefined;
   /**
-   * Example: UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.
+   * Example: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
    * @member {String} longDescription
    */
   exports.prototype['longDescription'] = undefined;
   /**
-   * Example: 1
+   * Example: 0
    * @member {Number} enabled
    */
   exports.prototype['enabled'] = undefined;
   /**
-   * Example: 1
+   * Example: true
    * @member {Boolean} affiliate
    */
   exports.prototype['affiliate'] = undefined;
   /**
-   * Example: Physical Activity
+   * Example: Foods
    * @member {String} defaultVariableCategoryName
    */
   exports.prototype['defaultVariableCategoryName'] = undefined;
   /**
-   * Example: <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\"><img id=\"up_image\" title=\"Up by Jawbone\" src=\"https://i.imgur.com/MXNQy3T.png\" alt=\"Up by Jawbone\"></a>
+   * Example: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
    * @member {String} imageHtml
    */
   exports.prototype['imageHtml'] = undefined;
   /**
-   * Example: <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>
+   * Example: <a href=\"https://quantimo.do\">QuantiModo</a>
    * @member {String} linkedDisplayNameHtml
    */
   exports.prototype['linkedDisplayNameHtml'] = undefined;
+  /**
+   * Example: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
+   * @member {String} connectorClientId
+   */
+  exports.prototype['connectorClientId'] = undefined;
 
 
 

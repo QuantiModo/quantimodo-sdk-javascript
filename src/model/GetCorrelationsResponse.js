@@ -36,7 +36,7 @@
   /**
    * The GetCorrelationsResponse model module.
    * @module model/GetCorrelationsResponse
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**

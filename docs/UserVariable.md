@@ -138,5 +138,23 @@ Name | Type | Description | Notes
 **experimentStartTimeSeconds** | **Number** | Example: 1269307902 | [optional] 
 **experimentEndTimeString** | **Date** | Example: 2030-01-01 06:00:00 | [optional] 
 **experimentEndTimeSeconds** | **Number** | Example: 1893477600 | [optional] 
+**availableDefaultUnits** | [**[Unit]**](Unit.md) |  | 
+**price** | **Number** | Example: 95.4 | 
+**alias** | **String** | Example:  | 
+**userVariableValence** | **String** | Example:  | 
+**userVariableWikipediaTitle** | **String** | Example:  | 
+**informationalUrl** | **String** | Example:  | 
+**parent** | **String** | Example:  | 
+**productUrl** | **String** | Example:  | 
+**wikipediaTitle** | **String** | Example:  | 
+**userTagVariables** | [**UserVariableArray**](UserVariableArray.md) |  | 
+**userTaggedVariables** | [**UserVariableArray**](UserVariableArray.md) |  | 
+**joinedUserTagVariables** | [**UserVariableArray**](UserVariableArray.md) |  | 
+**ingredientUserTagVariables** | [**UserVariableArray**](UserVariableArray.md) |  | 
+**ingredientOfUserTagVariables** | [**UserVariableArray**](UserVariableArray.md) |  | 
+**childUserTagVariables** | [**UserVariableArray**](UserVariableArray.md) |  | 
+**parentUserTagVariables** | [**UserVariableArray**](UserVariableArray.md) |  | 
+**commonTagVariables** | [**CommonVariableArray**](CommonVariableArray.md) |  | 
+**commonTaggedVariables** | [**CommonVariableArray**](CommonVariableArray.md) |  | 
 
 

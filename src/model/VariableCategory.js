@@ -36,7 +36,7 @@
   /**
    * The VariableCategory model module.
    * @module model/VariableCategory
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -49,6 +49,34 @@
     var _this = this;
 
     _this['name'] = name;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   };
 
   /**
@@ -65,6 +93,90 @@
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+      }
+      if (data.hasOwnProperty('appType')) {
+        obj['appType'] = ApiClient.convertToType(data['appType'], 'String');
+      }
+      if (data.hasOwnProperty('fillingValue')) {
+        obj['fillingValue'] = ApiClient.convertToType(data['fillingValue'], 'Number');
+      }
+      if (data.hasOwnProperty('maximumAllowedValue')) {
+        obj['maximumAllowedValue'] = ApiClient.convertToType(data['maximumAllowedValue'], 'String');
+      }
+      if (data.hasOwnProperty('minimumAllowedValue')) {
+        obj['minimumAllowedValue'] = ApiClient.convertToType(data['minimumAllowedValue'], 'String');
+      }
+      if (data.hasOwnProperty('durationOfAction')) {
+        obj['durationOfAction'] = ApiClient.convertToType(data['durationOfAction'], 'Number');
+      }
+      if (data.hasOwnProperty('onsetDelay')) {
+        obj['onsetDelay'] = ApiClient.convertToType(data['onsetDelay'], 'Number');
+      }
+      if (data.hasOwnProperty('combinationOperation')) {
+        obj['combinationOperation'] = ApiClient.convertToType(data['combinationOperation'], 'String');
+      }
+      if (data.hasOwnProperty('causeOnly')) {
+        obj['causeOnly'] = ApiClient.convertToType(data['causeOnly'], 'Boolean');
+      }
+      if (data.hasOwnProperty('public')) {
+        obj['public'] = ApiClient.convertToType(data['public'], 'Boolean');
+      }
+      if (data.hasOwnProperty('outcome')) {
+        obj['outcome'] = ApiClient.convertToType(data['outcome'], 'Boolean');
+      }
+      if (data.hasOwnProperty('updated')) {
+        obj['updated'] = ApiClient.convertToType(data['updated'], 'Number');
+      }
+      if (data.hasOwnProperty('createdTime')) {
+        obj['createdTime'] = ApiClient.convertToType(data['createdTime'], 'Date');
+      }
+      if (data.hasOwnProperty('updatedTime')) {
+        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'Date');
+      }
+      if (data.hasOwnProperty('imageUrl')) {
+        obj['imageUrl'] = ApiClient.convertToType(data['imageUrl'], 'String');
+      }
+      if (data.hasOwnProperty('ionIcon')) {
+        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
+      }
+      if (data.hasOwnProperty('manualTracking')) {
+        obj['manualTracking'] = ApiClient.convertToType(data['manualTracking'], 'Boolean');
+      }
+      if (data.hasOwnProperty('svgUrl')) {
+        obj['svgUrl'] = ApiClient.convertToType(data['svgUrl'], 'String');
+      }
+      if (data.hasOwnProperty('pngUrl')) {
+        obj['pngUrl'] = ApiClient.convertToType(data['pngUrl'], 'String');
+      }
+      if (data.hasOwnProperty('pngPath')) {
+        obj['pngPath'] = ApiClient.convertToType(data['pngPath'], 'String');
+      }
+      if (data.hasOwnProperty('svgPath')) {
+        obj['svgPath'] = ApiClient.convertToType(data['svgPath'], 'String');
+      }
+      if (data.hasOwnProperty('defaultUnitAbbreviatedName')) {
+        obj['defaultUnitAbbreviatedName'] = ApiClient.convertToType(data['defaultUnitAbbreviatedName'], 'String');
+      }
+      if (data.hasOwnProperty('helpText')) {
+        obj['helpText'] = ApiClient.convertToType(data['helpText'], 'String');
+      }
+      if (data.hasOwnProperty('variableCategoryName')) {
+        obj['variableCategoryName'] = ApiClient.convertToType(data['variableCategoryName'], 'String');
+      }
+      if (data.hasOwnProperty('variableCategoryNameSingular')) {
+        obj['variableCategoryNameSingular'] = ApiClient.convertToType(data['variableCategoryNameSingular'], 'String');
+      }
+      if (data.hasOwnProperty('measurementSynonymSingularLowercase')) {
+        obj['measurementSynonymSingularLowercase'] = ApiClient.convertToType(data['measurementSynonymSingularLowercase'], 'String');
+      }
+      if (data.hasOwnProperty('moreInfo')) {
+        obj['moreInfo'] = ApiClient.convertToType(data['moreInfo'], 'String');
+      }
+      if (data.hasOwnProperty('defaultUnitId')) {
+        obj['defaultUnitId'] = ApiClient.convertToType(data['defaultUnitId'], 'Number');
+      }
     }
     return obj;
   }
@@ -74,6 +186,146 @@
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * Example: mood
+   * @member {String} appType
+   */
+  exports.prototype['appType'] = undefined;
+  /**
+   * Example: -1
+   * @member {Number} fillingValue
+   */
+  exports.prototype['fillingValue'] = undefined;
+  /**
+   * Example: 
+   * @member {String} maximumAllowedValue
+   */
+  exports.prototype['maximumAllowedValue'] = undefined;
+  /**
+   * Example: 
+   * @member {String} minimumAllowedValue
+   */
+  exports.prototype['minimumAllowedValue'] = undefined;
+  /**
+   * Example: 86400
+   * @member {Number} durationOfAction
+   */
+  exports.prototype['durationOfAction'] = undefined;
+  /**
+   * Example: 0
+   * @member {Number} onsetDelay
+   */
+  exports.prototype['onsetDelay'] = undefined;
+  /**
+   * Example: MEAN
+   * @member {String} combinationOperation
+   */
+  exports.prototype['combinationOperation'] = undefined;
+  /**
+   * Example: false
+   * @member {Boolean} causeOnly
+   */
+  exports.prototype['causeOnly'] = undefined;
+  /**
+   * Example: true
+   * @member {Boolean} public
+   */
+  exports.prototype['public'] = undefined;
+  /**
+   * Example: true
+   * @member {Boolean} outcome
+   */
+  exports.prototype['outcome'] = undefined;
+  /**
+   * Example: 1
+   * @member {Number} updated
+   */
+  exports.prototype['updated'] = undefined;
+  /**
+   * Example: 
+   * @member {Date} createdTime
+   */
+  exports.prototype['createdTime'] = undefined;
+  /**
+   * Example: 
+   * @member {Date} updatedTime
+   */
+  exports.prototype['updatedTime'] = undefined;
+  /**
+   * Example: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
+   * @member {String} imageUrl
+   */
+  exports.prototype['imageUrl'] = undefined;
+  /**
+   * Example: ion-happy-outline
+   * @member {String} ionIcon
+   */
+  exports.prototype['ionIcon'] = undefined;
+  /**
+   * Example: true
+   * @member {Boolean} manualTracking
+   */
+  exports.prototype['manualTracking'] = undefined;
+  /**
+   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.svg
+   * @member {String} svgUrl
+   */
+  exports.prototype['svgUrl'] = undefined;
+  /**
+   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.png
+   * @member {String} pngUrl
+   */
+  exports.prototype['pngUrl'] = undefined;
+  /**
+   * Example: img/variable_categories/emotions.png
+   * @member {String} pngPath
+   */
+  exports.prototype['pngPath'] = undefined;
+  /**
+   * Example: img/variable_categories/emotions.svg
+   * @member {String} svgPath
+   */
+  exports.prototype['svgPath'] = undefined;
+  /**
+   * Example: /5
+   * @member {String} defaultUnitAbbreviatedName
+   */
+  exports.prototype['defaultUnitAbbreviatedName'] = undefined;
+  /**
+   * Example: What emotion do you want to rate?
+   * @member {String} helpText
+   */
+  exports.prototype['helpText'] = undefined;
+  /**
+   * Example: Emotions
+   * @member {String} variableCategoryName
+   */
+  exports.prototype['variableCategoryName'] = undefined;
+  /**
+   * Example: Emotion
+   * @member {String} variableCategoryNameSingular
+   */
+  exports.prototype['variableCategoryNameSingular'] = undefined;
+  /**
+   * Example: rating
+   * @member {String} measurementSynonymSingularLowercase
+   */
+  exports.prototype['measurementSynonymSingularLowercase'] = undefined;
+  /**
+   * Example: Do you have any emotions that fluctuate regularly?  If so, add them so I can try to determine which factors are influencing them.
+   * @member {String} moreInfo
+   */
+  exports.prototype['moreInfo'] = undefined;
+  /**
+   * Example: 10
+   * @member {Number} defaultUnitId
+   */
+  exports.prototype['defaultUnitId'] = undefined;
 
 
 

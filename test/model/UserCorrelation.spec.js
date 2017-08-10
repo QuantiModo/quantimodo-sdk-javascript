@@ -704,12 +704,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property causeDataSource (base name: "causeDataSource")', function() {
-      // uncomment below and update the code to test the property causeDataSource
-      //var instane = new Quantimodo.UserCorrelation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property dataSourcesParagraphForCause (base name: "dataSourcesParagraphForCause")', function() {
       // uncomment below and update the code to test the property dataSourcesParagraphForCause
       //var instane = new Quantimodo.UserCorrelation();
@@ -718,12 +712,6 @@
 
     it('should have the property instructionsForCause (base name: "instructionsForCause")', function() {
       // uncomment below and update the code to test the property instructionsForCause
-      //var instane = new Quantimodo.UserCorrelation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property effectDataSource (base name: "effectDataSource")', function() {
-      // uncomment below and update the code to test the property effectDataSource
       //var instane = new Quantimodo.UserCorrelation();
       //expect(instance).to.be();
     });

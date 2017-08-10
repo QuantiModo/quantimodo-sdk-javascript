@@ -464,6 +464,72 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property fillingValue (base name: "fillingValue")', function() {
+      // uncomment below and update the code to test the property fillingValue
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property availableDefaultUnits (base name: "availableDefaultUnits")', function() {
+      // uncomment below and update the code to test the property availableDefaultUnits
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property localDailyReminderNotificationTimes (base name: "localDailyReminderNotificationTimes")', function() {
+      // uncomment below and update the code to test the property localDailyReminderNotificationTimes
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property localDailyReminderNotificationTimesForAllReminders (base name: "localDailyReminderNotificationTimesForAllReminders")', function() {
+      // uncomment below and update the code to test the property localDailyReminderNotificationTimesForAllReminders
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property repeating (base name: "repeating")', function() {
+      // uncomment below and update the code to test the property repeating
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property numberOfUniqueValues (base name: "numberOfUniqueValues")', function() {
+      // uncomment below and update the code to test the property numberOfUniqueValues
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property instructions (base name: "instructions")', function() {
+      // uncomment below and update the code to test the property instructions
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property secondDailyReminderTime (base name: "secondDailyReminderTime")', function() {
+      // uncomment below and update the code to test the property secondDailyReminderTime
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property thirdDailyReminderTime (base name: "thirdDailyReminderTime")', function() {
+      // uncomment below and update the code to test the property thirdDailyReminderTime
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property errorMessage (base name: "errorMessage")', function() {
+      // uncomment below and update the code to test the property errorMessage
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property trackingReminderImageUrl (base name: "trackingReminderImageUrl")', function() {
+      // uncomment below and update the code to test the property trackingReminderImageUrl
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

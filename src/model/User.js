@@ -36,7 +36,7 @@
   /**
    * The User model module.
    * @module model/User
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -59,6 +59,18 @@
     _this['email'] = email;
     _this['accessToken'] = accessToken;
     _this['administrator'] = administrator;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -189,6 +201,42 @@
       }
       if (data.hasOwnProperty('stripeActive')) {
         obj['stripeActive'] = ApiClient.convertToType(data['stripeActive'], 'Boolean');
+      }
+      if (data.hasOwnProperty('getPreviewBuilds')) {
+        obj['getPreviewBuilds'] = ApiClient.convertToType(data['getPreviewBuilds'], 'Boolean');
+      }
+      if (data.hasOwnProperty('hasAndroidApp')) {
+        obj['hasAndroidApp'] = ApiClient.convertToType(data['hasAndroidApp'], 'Boolean');
+      }
+      if (data.hasOwnProperty('hasChromeExtension')) {
+        obj['hasChromeExtension'] = ApiClient.convertToType(data['hasChromeExtension'], 'Boolean');
+      }
+      if (data.hasOwnProperty('hasIosApp')) {
+        obj['hasIosApp'] = ApiClient.convertToType(data['hasIosApp'], 'Boolean');
+      }
+      if (data.hasOwnProperty('lastSmsTrackingReminderNotificationId')) {
+        obj['lastSmsTrackingReminderNotificationId'] = ApiClient.convertToType(data['lastSmsTrackingReminderNotificationId'], 'String');
+      }
+      if (data.hasOwnProperty('phoneNumber')) {
+        obj['phoneNumber'] = ApiClient.convertToType(data['phoneNumber'], 'String');
+      }
+      if (data.hasOwnProperty('phoneVerificationCode')) {
+        obj['phoneVerificationCode'] = ApiClient.convertToType(data['phoneVerificationCode'], 'String');
+      }
+      if (data.hasOwnProperty('smsNotificationsEnabled')) {
+        obj['smsNotificationsEnabled'] = ApiClient.convertToType(data['smsNotificationsEnabled'], 'Boolean');
+      }
+      if (data.hasOwnProperty('subscriptionEndsAt')) {
+        obj['subscriptionEndsAt'] = ApiClient.convertToType(data['subscriptionEndsAt'], 'Date');
+      }
+      if (data.hasOwnProperty('refreshToken')) {
+        obj['refreshToken'] = ApiClient.convertToType(data['refreshToken'], 'String');
+      }
+      if (data.hasOwnProperty('accessTokenExpires')) {
+        obj['accessTokenExpires'] = ApiClient.convertToType(data['accessTokenExpires'], 'String');
+      }
+      if (data.hasOwnProperty('accessTokenExpiresAtMilliseconds')) {
+        obj['accessTokenExpiresAtMilliseconds'] = ApiClient.convertToType(data['accessTokenExpiresAtMilliseconds'], 'Number');
       }
     }
     return obj;
@@ -349,6 +397,66 @@
    * @member {Boolean} stripeActive
    */
   exports.prototype['stripeActive'] = undefined;
+  /**
+   * Example: false
+   * @member {Boolean} getPreviewBuilds
+   */
+  exports.prototype['getPreviewBuilds'] = undefined;
+  /**
+   * Example: false
+   * @member {Boolean} hasAndroidApp
+   */
+  exports.prototype['hasAndroidApp'] = undefined;
+  /**
+   * Example: false
+   * @member {Boolean} hasChromeExtension
+   */
+  exports.prototype['hasChromeExtension'] = undefined;
+  /**
+   * Example: false
+   * @member {Boolean} hasIosApp
+   */
+  exports.prototype['hasIosApp'] = undefined;
+  /**
+   * Example: 
+   * @member {String} lastSmsTrackingReminderNotificationId
+   */
+  exports.prototype['lastSmsTrackingReminderNotificationId'] = undefined;
+  /**
+   * Example: 
+   * @member {String} phoneNumber
+   */
+  exports.prototype['phoneNumber'] = undefined;
+  /**
+   * Example: 
+   * @member {String} phoneVerificationCode
+   */
+  exports.prototype['phoneVerificationCode'] = undefined;
+  /**
+   * Example: false
+   * @member {Boolean} smsNotificationsEnabled
+   */
+  exports.prototype['smsNotificationsEnabled'] = undefined;
+  /**
+   * Example: 
+   * @member {Date} subscriptionEndsAt
+   */
+  exports.prototype['subscriptionEndsAt'] = undefined;
+  /**
+   * Example: 6e99b113d85586de1f92468433f2df1e666647cb
+   * @member {String} refreshToken
+   */
+  exports.prototype['refreshToken'] = undefined;
+  /**
+   * Example: 2018-08-08 02:41:19
+   * @member {String} accessTokenExpires
+   */
+  exports.prototype['accessTokenExpires'] = undefined;
+  /**
+   * Example: 1533696079000
+   * @member {Number} accessTokenExpiresAtMilliseconds
+   */
+  exports.prototype['accessTokenExpiresAtMilliseconds'] = undefined;
 
 
 

@@ -70,10 +70,10 @@
         done();
       });
     });
-    describe('getPublicVariables', function() {
-      it('should call getPublicVariables successfully', function(done) {
-        //uncomment below and update the code to test getPublicVariables
-        //instance.getPublicVariables(function(error) {
+    describe('getCommonVariables', function() {
+      it('should call getCommonVariables successfully', function(done) {
+        //uncomment below and update the code to test getCommonVariables
+        //instance.getCommonVariables(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

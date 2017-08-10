@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteUserTag**](VariablesApi.md#deleteUserTag) | **DELETE** /v3/userTags/delete | Delete user tag or ingredient
 [**deleteUserVariable**](VariablesApi.md#deleteUserVariable) | **DELETE** /v3/userVariables/delete | Delete All Measurements For Variable
-[**getPublicVariables**](VariablesApi.md#getPublicVariables) | **GET** /v3/public/variables | Get public variables
-[**getUserVariables**](VariablesApi.md#getUserVariables) | **GET** /v3/userVariables | Get variables with user&#39;s settings
+[**getCommonVariables**](VariablesApi.md#getCommonVariables) | **GET** /v3/public/variables | Get common variables with aggregated instead of user-specific data
+[**getUserVariables**](VariablesApi.md#getUserVariables) | **GET** /v3/userVariables | Get variables along with related user-specific analysis settings and statistics
 [**getVariableCategories**](VariablesApi.md#getVariableCategories) | **GET** /v3/variableCategories | Variable categories
 [**postUserTags**](VariablesApi.md#postUserTags) | **POST** /v3/userTags | Post or update user tags or ingredients
 [**postUserVariables**](VariablesApi.md#postUserVariables) | **POST** /v3/userVariables | Update User Settings for a Variable
@@ -131,11 +131,11 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getPublicVariables"></a>
-# **getPublicVariables**
-> [Variable] getPublicVariables(opts)
+<a name="getCommonVariables"></a>
+# **getCommonVariables**
+> CommonVariableArray getCommonVariables(opts)
 
-Get public variables
+Get common variables with aggregated instead of user-specific data
 
 This endpoint retrieves an array of all public variables. Public variables are things like foods, medications, symptoms, conditions, and anything not unique to a particular user. For instance, a telephone number or name would not be a public variable.
 
@@ -169,7 +169,16 @@ var opts = {
   'lastSourceName': "lastSourceName_example", // String | Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'effectOrCause': "effectOrCause_example", // String | Example: 
+  'publicEffectOrCause': "publicEffectOrCause_example", // String | Example: 
+  'exactMatch': true, // Boolean | Example: 
+  'manualTracking': true, // Boolean | Example: 
+  'variableCategoryId': 56, // Number | Example: 13
+  'includePrivate': true, // Boolean | Example: 
+  'clientId': "clientId_example" // String | Example: oauth_test_client
+  'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
+  'synonyms': "synonyms_example" // String | Example: %McDonalds hotcake%
 };
 
 var callback = function(error, data, response) {
@@ -179,7 +188,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getPublicVariables(opts, callback);
+apiInstance.getCommonVariables(opts, callback);
 ```
 
 ### Parameters
@@ -199,10 +208,19 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
+ **effectOrCause** | **String**| Example:  | [optional] 
+ **publicEffectOrCause** | **String**| Example:  | [optional] 
+ **exactMatch** | **Boolean**| Example:  | [optional] 
+ **manualTracking** | **Boolean**| Example:  | [optional] 
+ **variableCategoryId** | **Number**| Example: 13 | [optional] 
+ **includePrivate** | **Boolean**| Example:  | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **searchPhrase** | **String**| Example: %Body Fat% | [optional] 
+ **synonyms** | **String**| Example: %McDonalds hotcake% | [optional] 
 
 ### Return type
 
-[**[Variable]**](Variable.md)
+[**CommonVariableArray**](CommonVariableArray.md)
 
 ### Authorization
 
@@ -217,7 +235,7 @@ Name | Type | Description  | Notes
 # **getUserVariables**
 > [UserVariable] getUserVariables(opts)
 
-Get variables with user&#39;s settings
+Get variables along with related user-specific analysis settings and statistics
 
 Get variables for which the user has measurements. If the user has specified variable settings, these are provided instead of the common variable defaults.
 
@@ -251,7 +269,11 @@ var opts = {
   'lastSourceName': "lastSourceName_example", // String | Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'includePublic': true, // Boolean | Example: true
+  'manualTracking': true, // Boolean | Example: 
+  'appName': "appName_example", // String | Example: MoodiModo
+  'clientId': "clientId_example" // String | Example: oauth_test_client
 };
 
 var callback = function(error, data, response) {
@@ -281,6 +303,10 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
+ **includePublic** | **Boolean**| Example: true | [optional] 
+ **manualTracking** | **Boolean**| Example:  | [optional] 
+ **appName** | **String**| Example: MoodiModo | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
 
 ### Return type
 
@@ -437,6 +463,14 @@ var userVariables = [new Quantimodo.UserVariable()]; // [UserVariable] | Variabl
 var opts = { 
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example" // String | Example: oauth_test_client
+  'includePublic': true, // Boolean | Example: true
+  'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
+  'includePrivate': true, // Boolean | Example: 
+  'exactMatch': true, // Boolean | Example: 
+  'manualTracking': true, // Boolean | Example: 
+  'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
+  'variableCategoryId': 56, // Number | Example: 13
+  'synonyms': "synonyms_example" // String | Example: %McDonalds hotcake%
 };
 
 var callback = function(error, data, response) {
@@ -456,6 +490,14 @@ Name | Type | Description  | Notes
  **userVariables** | [**[UserVariable]**](UserVariable.md)| Variable user settings data | 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **includePublic** | **Boolean**| Example: true | [optional] 
+ **searchPhrase** | **String**| Example: %Body Fat% | [optional] 
+ **includePrivate** | **Boolean**| Example:  | [optional] 
+ **exactMatch** | **Boolean**| Example:  | [optional] 
+ **manualTracking** | **Boolean**| Example:  | [optional] 
+ **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
+ **variableCategoryId** | **Number**| Example: 13 | [optional] 
+ **synonyms** | **String**| Example: %McDonalds hotcake% | [optional] 
 
 ### Return type
 

@@ -73,6 +73,13 @@ Name | Type | Description | Notes
 **trackingReminderImageUrl** | **String** | Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg | [optional] 
 **imageUrl** | **String** | Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg | [optional] 
 **iconIcon** | **String** | Example: ion-sad-outline | [optional] 
+**availableDefaultUnits** | [**[Unit]**](Unit.md) |  | 
+**actionArray** | [**[TrackingReminderNotificationActionArray]**](TrackingReminderNotificationActionArray.md) |  | 
+**trackAllActions** | [**[TrackingReminderNotificationTrackAllAction]**](TrackingReminderNotificationTrackAllAction.md) |  | 
+**fillingValue** | **Number** | Example: 0 | 
+**reminderEndTime** | **Date** | Example:  | [optional] 
+**notifiedAt** | **Date** | Example:  | [optional] 
+**variableImageUrl** | **String** | Example:  | [optional] 
 
 
 <a name="CombinationOperationEnum"></a>

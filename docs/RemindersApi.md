@@ -5,9 +5,9 @@ All URIs are relative to *https://app.quantimo.do/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteTrackingReminder**](RemindersApi.md#deleteTrackingReminder) | **DELETE** /v3/trackingReminders/delete | Delete tracking reminder
-[**getTrackingReminderNotifications**](RemindersApi.md#getTrackingReminderNotifications) | **GET** /v4/trackingReminderNotifications | Get specific pending tracking reminders
+[**getTrackingReminderNotifications**](RemindersApi.md#getTrackingReminderNotifications) | **GET** /v3/trackingReminderNotifications | Get specific tracking reminder notifications
 [**getTrackingReminders**](RemindersApi.md#getTrackingReminders) | **GET** /v3/trackingReminders | Get repeating tracking reminder settings
-[**postTrackingReminderNotifications**](RemindersApi.md#postTrackingReminderNotifications) | **POST** /v4/trackingReminderNotifications | Snooze, skip, or track a pending tracking reminder notification
+[**postTrackingReminderNotifications**](RemindersApi.md#postTrackingReminderNotifications) | **POST** /v3/trackingReminderNotifications | Snooze, skip, or track a tracking reminder notification
 [**postTrackingReminders**](RemindersApi.md#postTrackingReminders) | **POST** /v3/trackingReminders | Store a Tracking Reminder
 
 
@@ -74,11 +74,11 @@ Name | Type | Description  | Notes
 
 <a name="getTrackingReminderNotifications"></a>
 # **getTrackingReminderNotifications**
-> [TrackingReminderNotification] getTrackingReminderNotifications(opts)
+> GetTrackingReminderNotificationsResponse getTrackingReminderNotifications(opts)
 
-Get specific pending tracking reminders
+Get specific tracking reminder notifications
 
-Specfic pending reminder instances that still need to be tracked.  
+Specific tracking reminder notification instances that still need to be tracked.  
 
 ### Example
 ```javascript
@@ -104,10 +104,12 @@ var opts = {
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'reminderTime': "reminderTime_example", // String | Example: (lt)2017-07-31 21:43:26
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example" // String | Example: oauth_test_client
+  'onlyPast': true, // Boolean | Example: 1
+  'includeDeleted': true // Boolean | Example: 
 };
 
 var callback = function(error, data, response) {
@@ -134,10 +136,12 @@ Name | Type | Description  | Notes
  **reminderTime** | **String**| Example: (lt)2017-07-31 21:43:26 | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **onlyPast** | **Boolean**| Example: 1 | [optional] 
+ **includeDeleted** | **Boolean**| Example:  | [optional] 
 
 ### Return type
 
-[**[TrackingReminderNotification]**](TrackingReminderNotification.md)
+[**GetTrackingReminderNotificationsResponse**](GetTrackingReminderNotificationsResponse.md)
 
 ### Authorization
 
@@ -150,7 +154,7 @@ Name | Type | Description  | Notes
 
 <a name="getTrackingReminders"></a>
 # **getTrackingReminders**
-> [TrackingReminder] getTrackingReminders(opts)
+> TrackingReminderArray getTrackingReminders(opts)
 
 Get repeating tracking reminder settings
 
@@ -180,9 +184,10 @@ var opts = {
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example" // String | Example: oauth_test_client
+  'appVersion': "appVersion_example", // String | Example: 2.1.1.0
 };
 
 var callback = function(error, data, response) {
@@ -208,10 +213,11 @@ Name | Type | Description  | Notes
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **appVersion** | **String**| Example: 2.1.1.0 | [optional] 
 
 ### Return type
 
-[**[TrackingReminder]**](TrackingReminder.md)
+[**TrackingReminderArray**](TrackingReminderArray.md)
 
 ### Authorization
 
@@ -226,9 +232,9 @@ Name | Type | Description  | Notes
 # **postTrackingReminderNotifications**
 > CommonResponse postTrackingReminderNotifications(body, opts)
 
-Snooze, skip, or track a pending tracking reminder notification
+Snooze, skip, or track a tracking reminder notification
 
-Snooze, skip, or track a pending tracking reminder notification
+Snooze, skip, or track a tracking reminder notification
 
 ### Example
 ```javascript
@@ -247,7 +253,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.RemindersApi();
 
-var body = [new Quantimodo.TrackingReminderNotificationPost()]; // [TrackingReminderNotificationPost] | Id of the pending reminder to be snoozed
+var body = [new Quantimodo.TrackingReminderNotificationPost()]; // [TrackingReminderNotificationPost] | Id of the tracking reminder notification to be snoozed
 
 var opts = { 
   'userId': 3.4 // Number | User's id
@@ -269,7 +275,7 @@ apiInstance.postTrackingReminderNotifications(body, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**[TrackingReminderNotificationPost]**](TrackingReminderNotificationPost.md)| Id of the pending reminder to be snoozed | 
+ **body** | [**[TrackingReminderNotificationPost]**](TrackingReminderNotificationPost.md)| Id of the tracking reminder notification to be snoozed | 
  **userId** | **Number**| User&#39;s id | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
@@ -289,7 +295,7 @@ Name | Type | Description  | Notes
 
 <a name="postTrackingReminders"></a>
 # **postTrackingReminders**
-> InlineResponse201 postTrackingReminders(opts)
+> PostTrackingRemindersResponse postTrackingReminders(body)
 
 Store a Tracking Reminder
 
@@ -312,10 +318,8 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.RemindersApi();
 
-var opts = { 
-  'userId': 3.4 // Number | User's id
-  'body': new Quantimodo.TrackingReminder() // TrackingReminder | TrackingReminder that should be stored
-};
+var body = new Quantimodo.TrackingReminderArray(); // TrackingReminderArray | TrackingReminder that should be stored
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -324,19 +328,18 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.postTrackingReminders(opts, callback);
+apiInstance.postTrackingReminders(body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| User&#39;s id | [optional] 
- **body** | [**TrackingReminder**](TrackingReminder.md)| TrackingReminder that should be stored | [optional] 
+ **body** | [**TrackingReminderArray**](TrackingReminderArray.md)| TrackingReminder that should be stored | 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**PostTrackingRemindersResponse**](PostTrackingRemindersResponse.md)
 
 ### Authorization
 

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/GetCorrelationsDataResponse'], factory);
+    define(['ApiClient', 'model/GetStudyDataResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./GetCorrelationsDataResponse'));
+    module.exports = factory(require('../ApiClient'), require('./GetStudyDataResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.CommonResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.GetCorrelationsDataResponse);
+    root.Quantimodo.CommonResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.GetStudyDataResponse);
   }
-}(this, function(ApiClient, GetCorrelationsDataResponse) {
+}(this, function(ApiClient, GetStudyDataResponse) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The CommonResponse model module.
    * @module model/CommonResponse
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -76,7 +76,7 @@
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
       }
       if (data.hasOwnProperty('data')) {
-        obj['data'] = GetCorrelationsDataResponse.constructFromObject(data['data']);
+        obj['data'] = GetStudyDataResponse.constructFromObject(data['data']);
       }
     }
     return obj;
@@ -97,7 +97,7 @@
    */
   exports.prototype['success'] = undefined;
   /**
-   * @member {module:model/GetCorrelationsDataResponse} data
+   * @member {module:model/GetStudyDataResponse} data
    */
   exports.prototype['data'] = undefined;
 

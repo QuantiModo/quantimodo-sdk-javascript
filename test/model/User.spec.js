@@ -242,6 +242,78 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property getPreviewBuilds (base name: "getPreviewBuilds")', function() {
+      // uncomment below and update the code to test the property getPreviewBuilds
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property hasAndroidApp (base name: "hasAndroidApp")', function() {
+      // uncomment below and update the code to test the property hasAndroidApp
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property hasChromeExtension (base name: "hasChromeExtension")', function() {
+      // uncomment below and update the code to test the property hasChromeExtension
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property hasIosApp (base name: "hasIosApp")', function() {
+      // uncomment below and update the code to test the property hasIosApp
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastSmsTrackingReminderNotificationId (base name: "lastSmsTrackingReminderNotificationId")', function() {
+      // uncomment below and update the code to test the property lastSmsTrackingReminderNotificationId
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property phoneNumber (base name: "phoneNumber")', function() {
+      // uncomment below and update the code to test the property phoneNumber
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property phoneVerificationCode (base name: "phoneVerificationCode")', function() {
+      // uncomment below and update the code to test the property phoneVerificationCode
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property smsNotificationsEnabled (base name: "smsNotificationsEnabled")', function() {
+      // uncomment below and update the code to test the property smsNotificationsEnabled
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property subscriptionEndsAt (base name: "subscriptionEndsAt")', function() {
+      // uncomment below and update the code to test the property subscriptionEndsAt
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property refreshToken (base name: "refreshToken")', function() {
+      // uncomment below and update the code to test the property refreshToken
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property accessTokenExpires (base name: "accessTokenExpires")', function() {
+      // uncomment below and update the code to test the property accessTokenExpires
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property accessTokenExpiresAtMilliseconds (base name: "accessTokenExpiresAtMilliseconds")', function() {
+      // uncomment below and update the code to test the property accessTokenExpiresAtMilliseconds
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

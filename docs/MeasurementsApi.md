@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeasurements"></a>
 # **getMeasurements**
-> [Measurement] getMeasurements(opts)
+> MeasurementArray getMeasurements(opts)
 
 Get measurements for this user
 
@@ -110,10 +110,12 @@ var opts = {
   'groupingTimezone': "groupingTimezone_example", // String | The time (in seconds) over which measurements are grouped together
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'doNotProcess': true, // Boolean | Example: true
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example" // String | Example: oauth_test_client
+  'doNotConvert': true, // Boolean | Example: 1
+  'minMaxFilter': true // Boolean | Example: 1
 };
 
 var callback = function(error, data, response) {
@@ -149,10 +151,12 @@ Name | Type | Description  | Notes
  **doNotProcess** | **Boolean**| Example: true | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **doNotConvert** | **Boolean**| Example: 1 | [optional] 
+ **minMaxFilter** | **Boolean**| Example: 1 | [optional] 
 
 ### Return type
 
-[**[Measurement]**](Measurement.md)
+[**MeasurementArray**](MeasurementArray.md)
 
 ### Authorization
 
@@ -165,7 +169,7 @@ Name | Type | Description  | Notes
 
 <a name="getPairs"></a>
 # **getPairs**
-> [Pairs] getPairs(opts)
+> PairArray getPairs(opts)
 
 Get pairs of measurements for correlational analysis
 
@@ -200,7 +204,7 @@ var opts = {
   'latestMeasurementTime': "latestMeasurementTime_example", // String | Excluded records with measurement times later than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example" // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
 };
 
 var callback = function(error, data, response) {
@@ -232,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Pairs]**](Pairs.md)
+[**PairArray**](PairArray.md)
 
 ### Authorization
 
@@ -303,7 +307,7 @@ Name | Type | Description  | Notes
 
 <a name="postMeasurements"></a>
 # **postMeasurements**
-> postMeasurements(body, opts)
+> PostMeasurementsResponse postMeasurements(body, opts)
 
 Post a new set or update existing measurements to the database
 
@@ -336,7 +340,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.postMeasurements(body, opts, callback);
@@ -351,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**PostMeasurementsResponse**](PostMeasurementsResponse.md)
 
 ### Authorization
 

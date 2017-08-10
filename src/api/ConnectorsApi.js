@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Connector'], factory);
+    define(['ApiClient', 'model/GetConnectorsResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Connector'));
+    module.exports = factory(require('../ApiClient'), require('../model/GetConnectorsResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.ConnectorsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.Connector);
+    root.Quantimodo.ConnectorsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.GetConnectorsResponse);
   }
-}(this, function(ApiClient, Connector) {
+}(this, function(ApiClient, GetConnectorsResponse) {
   'use strict';
 
   /**
    * Connectors service.
    * @module api/ConnectorsApi
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -145,7 +145,7 @@
      * Callback function to receive the result of the getConnectors operation.
      * @callback module:api/ConnectorsApi~getConnectorsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Connector>} data The data returned by the service call.
+     * @param {module:model/GetConnectorsResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -156,7 +156,7 @@
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/ConnectorsApi~getConnectorsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Connector>}
+     * data is of type: {@link module:model/GetConnectorsResponse}
      */
     this.getConnectors = function(opts, callback) {
       opts = opts || {};
@@ -177,10 +177,10 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [Connector];
+      var returnType = GetConnectorsResponse;
 
       return this.apiClient.callApi(
-        '/v4/connectors/list', 'GET',
+        '/v3/connectors/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

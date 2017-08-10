@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/InlineResponse201', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationPost'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/PostTrackingRemindersResponse', 'model/TrackingReminderArray', 'model/TrackingReminderDelete', 'model/TrackingReminderNotificationPost'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/InlineResponse201'), require('../model/TrackingReminder'), require('../model/TrackingReminderDelete'), require('../model/TrackingReminderNotification'), require('../model/TrackingReminderNotificationPost'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/GetTrackingReminderNotificationsResponse'), require('../model/PostTrackingRemindersResponse'), require('../model/TrackingReminderArray'), require('../model/TrackingReminderDelete'), require('../model/TrackingReminderNotificationPost'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.RemindersApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.InlineResponse201, root.Quantimodo.TrackingReminder, root.Quantimodo.TrackingReminderDelete, root.Quantimodo.TrackingReminderNotification, root.Quantimodo.TrackingReminderNotificationPost);
+    root.Quantimodo.RemindersApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.GetTrackingReminderNotificationsResponse, root.Quantimodo.PostTrackingRemindersResponse, root.Quantimodo.TrackingReminderArray, root.Quantimodo.TrackingReminderDelete, root.Quantimodo.TrackingReminderNotificationPost);
   }
-}(this, function(ApiClient, CommonResponse, InlineResponse201, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationPost) {
+}(this, function(ApiClient, CommonResponse, GetTrackingReminderNotificationsResponse, PostTrackingRemindersResponse, TrackingReminderArray, TrackingReminderDelete, TrackingReminderNotificationPost) {
   'use strict';
 
   /**
    * Reminders service.
    * @module api/RemindersApi
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -100,13 +100,13 @@
      * Callback function to receive the result of the getTrackingReminderNotifications operation.
      * @callback module:api/RemindersApi~getTrackingReminderNotificationsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/TrackingReminderNotification>} data The data returned by the service call.
+     * @param {module:model/GetTrackingReminderNotificationsResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get specific pending tracking reminders
-     * Specfic pending reminder instances that still need to be tracked.  
+     * Get specific tracking reminder notifications
+     * Specific tracking reminder notification instances that still need to be tracked.  
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
@@ -118,8 +118,10 @@
      * @param {String} opts.reminderTime Example: (lt)2017-07-31 21:43:26
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {Boolean} opts.onlyPast Example: 1
+     * @param {Boolean} opts.includeDeleted Example: 
      * @param {module:api/RemindersApi~getTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/TrackingReminderNotification>}
+     * data is of type: {@link module:model/GetTrackingReminderNotificationsResponse}
      */
     this.getTrackingReminderNotifications = function(opts, callback) {
       opts = opts || {};
@@ -138,7 +140,9 @@
         'sort': opts['sort'],
         'reminderTime': opts['reminderTime'],
         'appName': opts['appName'],
-        'clientId': opts['clientId']
+        'clientId': opts['clientId'],
+        'onlyPast': opts['onlyPast'],
+        'includeDeleted': opts['includeDeleted']
       };
       var headerParams = {
       };
@@ -148,10 +152,10 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [TrackingReminderNotification];
+      var returnType = GetTrackingReminderNotificationsResponse;
 
       return this.apiClient.callApi(
-        '/v4/trackingReminderNotifications', 'GET',
+        '/v3/trackingReminderNotifications', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -161,7 +165,7 @@
      * Callback function to receive the result of the getTrackingReminders operation.
      * @callback module:api/RemindersApi~getTrackingRemindersCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/TrackingReminder>} data The data returned by the service call.
+     * @param {module:model/TrackingReminderArray} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -178,8 +182,9 @@
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.appVersion Example: 2.1.1.0
      * @param {module:api/RemindersApi~getTrackingRemindersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/TrackingReminder>}
+     * data is of type: {@link module:model/TrackingReminderArray}
      */
     this.getTrackingReminders = function(opts, callback) {
       opts = opts || {};
@@ -197,7 +202,8 @@
         'offset': opts['offset'],
         'sort': opts['sort'],
         'appName': opts['appName'],
-        'clientId': opts['clientId']
+        'clientId': opts['clientId'],
+        'appVersion': opts['appVersion']
       };
       var headerParams = {
       };
@@ -207,7 +213,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [TrackingReminder];
+      var returnType = TrackingReminderArray;
 
       return this.apiClient.callApi(
         '/v3/trackingReminders', 'GET',
@@ -225,9 +231,9 @@
      */
 
     /**
-     * Snooze, skip, or track a pending tracking reminder notification
-     * Snooze, skip, or track a pending tracking reminder notification
-     * @param {Array.<module:model/TrackingReminderNotificationPost>} body Id of the pending reminder to be snoozed
+     * Snooze, skip, or track a tracking reminder notification
+     * Snooze, skip, or track a tracking reminder notification
+     * @param {Array.<module:model/TrackingReminderNotificationPost>} body Id of the tracking reminder notification to be snoozed
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.appName Example: MoodiModo
@@ -263,7 +269,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v4/trackingReminderNotifications', 'POST',
+        '/v3/trackingReminderNotifications', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -273,28 +279,29 @@
      * Callback function to receive the result of the postTrackingReminders operation.
      * @callback module:api/RemindersApi~postTrackingRemindersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse201} data The data returned by the service call.
+     * @param {module:model/PostTrackingRemindersResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Store a Tracking Reminder
      * This is to enable users to create reminders to track a variable with a default value at a specified frequency
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId User&#39;s id
-     * @param {module:model/TrackingReminder} opts.body TrackingReminder that should be stored
+     * @param {module:model/TrackingReminderArray} body TrackingReminder that should be stored
      * @param {module:api/RemindersApi~postTrackingRemindersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/InlineResponse201}
+     * data is of type: {@link module:model/PostTrackingRemindersResponse}
      */
-    this.postTrackingReminders = function(opts, callback) {
-      opts = opts || {};
-      var postBody = opts['body'];
+    this.postTrackingReminders = function(body, callback) {
+      var postBody = body;
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling postTrackingReminders");
+      }
 
 
       var pathParams = {
       };
       var queryParams = {
-        'userId': opts['userId']
       };
       var headerParams = {
       };
@@ -304,7 +311,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = InlineResponse201;
+      var returnType = PostTrackingRemindersResponse;
 
       return this.apiClient.callApi(
         '/v3/trackingReminders', 'POST',

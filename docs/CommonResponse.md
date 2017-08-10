@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 **status** | **Number** | Status code | 
 **message** | **String** | Message | [optional] 
 **success** | **Boolean** |  | 
-**data** | [**GetCorrelationsDataResponse**](GetCorrelationsDataResponse.md) |  | [optional] 
+**data** | [**GetStudyDataResponse**](GetStudyDataResponse.md) |  | [optional] 
 
 

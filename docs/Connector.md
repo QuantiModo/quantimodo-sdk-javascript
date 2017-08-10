@@ -30,5 +30,9 @@ Name | Type | Description | Notes
 **connectorId** | **Number** | Example: 8 | [optional] 
 **createdAt** | **Date** | Example: 2000-01-01 00:00:00 | [optional] 
 **updatedAt** | **Date** | Example: 2017-07-31 10:10:34 | [optional] 
+**buttons** | [**[Button]**](Button.md) |  | [optional] 
+**affiliate** | **Boolean** | Example: false | [optional] 
+**scopes** | [**[Scope]**](Scope.md) |  | [optional] 
+**connectError** | **String** | Example: Your token is expired. Please re-connect | [optional] 
 
 

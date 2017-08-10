@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/DataSource'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./DataSource'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Correlation = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.Correlation = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, DataSource) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Correlation model module.
    * @module model/Correlation
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -137,10 +137,8 @@
    * @param studyDesign {String} Example: This study is based on data donated by one QuantiModo user. Thus, the study design is consistent with an n=1 observational natural experiment. 
    * @param studyObjective {String} Example: The objective of this study is to determine the nature of the relationship (if any) between the Sleep Quality and the Overall Mood. Additionally, we attempt to determine the Sleep Quality values most likely to produce optimal Overall Mood values. 
    * @param dataSources {String} Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.<br>Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
-   * @param causeDataSource {Object} Example: {\"id\":6,\"name\":\"up\",\"connectorClientId\":\"10RfjEgKr8U\",\"connectorClientSecret\":\"e17fd34e4bc4642f0c4c99d7acb6e661\",\"displayName\":\"Up by Jawbone\",\"image\":\"https://i.imgur.com/MXNQy3T.png\",\"getItUrl\":\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\",\"shortDescription\":\"Tracks sleep, exercise, and diet.\",\"longDescription\":\"UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.\",\"enabled\":1,\"affiliate\":true,\"defaultVariableCategoryName\":\"Physical Activity\",\"imageHtml\":\"<a href=\\\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\\\"><img id=\\\"up_image\\\" title=\\\"Up by Jawbone\\\" src=\\\"https://i.imgur.com/MXNQy3T.png\\\" alt=\\\"Up by Jawbone\\\"></a>\",\"linkedDisplayNameHtml\":\"<a href=\\\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\\\">Up by Jawbone</a>\"}
    * @param dataSourcesParagraphForCause {String} Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.
    * @param instructionsForCause {String} Example: <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Obtain Up by Jawbone</a> and use it to record your Sleep Quality. Once you have a <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  Up by Jawbone account at QuantiModo</a> to automatically import and analyze your data.
-   * @param effectDataSource {Object} Example: {\"id\":72,\"name\":\"quantimodo\",\"displayName\":\"QuantiModo\",\"image\":\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\",\"getItUrl\":\"https://quantimo.do\",\"shortDescription\":\"Tracks anything\",\"longDescription\":\"QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.\",\"enabled\":0,\"affiliate\":true,\"defaultVariableCategoryName\":\"Foods\",\"imageHtml\":\"<a href=\\\"https://quantimo.do\\\"><img id=\\\"quantimodo_image\\\" title=\\\"QuantiModo\\\" src=\\\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\\\" alt=\\\"QuantiModo\\\"></a>\",\"linkedDisplayNameHtml\":\"<a href=\\\"https://quantimo.do\\\">QuantiModo</a>\"}
    * @param dataSourcesParagraphForEffect {String} Example: Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
    * @param instructionsForEffect {String} Example: <a href=\"https://quantimo.do\">Obtain QuantiModo</a> and use it to record your Overall Mood. Once you have a <a href=\"https://quantimo.do\">QuantiModo</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  QuantiModo account at QuantiModo</a> to automatically import and analyze your data.
    * @param dataAnalysis {String} Example: It was assumed that 0 hours would pass before a change in Sleep Quality would produce an observable change in Overall Mood.  It was assumed that Sleep Quality could produce an observable change in Overall Mood for as much as 7 days after the stimulus event.  
@@ -153,7 +151,7 @@
    * @param reversePearsonCorrelationCoefficient {Number} Example: 0.01377184270977
    * @param predictorDataSources {String} Example: RescueTime
    */
-  var exports = function(causeVariableName, effectVariableName, averageDailyHighCause, averageDailyLowCause, averageEffect, averageEffectFollowingHighCause, averageEffectFollowingLowCause, averageForwardPearsonCorrelationOverOnsetDelays, averageReversePearsonCorrelationOverOnsetDelays, causeChanges, causeVariableId, confidenceInterval, createdAt, criticalTValue, durationOfAction, effectChanges, effectVariableId, experimentEndTime, experimentStartTime, correlationCoefficient, forwardSpearmanCorrelationCoefficient, numberOfPairs, onsetDelayWithStrongestPearsonCorrelation, optimalPearsonProduct, pearsonCorrelationWithNoOnsetDelay, predictivePearsonCorrelation, predictsHighEffectChange, predictsLowEffectChange, qmScore, statisticalSignificance, strongestPearsonCorrelationCoefficient, tValue, updatedAt, userId, valuePredictingHighOutcome, valuePredictingLowOutcome, causeVariableCombinationOperation, causeVariableDefaultUnitId, causeVariableImageUrl, causeVariableIonIcon, causeVariableMostCommonConnectorId, causeVariableCategoryId, effectVariableCombinationOperation, effectVariableCommonAlias, effectVariableDefaultUnitId, effectVariableImageUrl, effectVariableIonIcon, effectVariableMostCommonConnectorId, effectVariableCategoryId, timestamp, userVote, causeUserVariableShareUserMeasurements, effectUserVariableShareUserMeasurements, predictorFillingValue, outcomeFillingValue, averageVote, durationOfActionInHours, onsetDelayWithStrongestPearsonCorrelationInHours, effectVariableCategoryName, causeVariableCategoryName, direction, causeVariableDefaultUnitAbbreviatedName, effectVariableDefaultUnitAbbreviatedName, causeVariableDefaultUnitName, effectVariableDefaultUnitName, shareUserMeasurements, effectUnit, significanceExplanation, significantDifference, effectSize, predictsHighEffectChangeSentenceFragment, predictsLowEffectChangeSentenceFragment, valuePredictingHighOutcomeExplanation, averageEffectFollowingHighCauseExplanation, averageEffectFollowingLowCauseExplanation, valuePredictingLowOutcomeExplanation, strengthLevel, confidenceLevel, predictivePearsonCorrelationCoefficient, predictorExplanation, studyTitle, studyAbstract, studyLinkStatic, studyLinkDynamic, studyLinkFacebook, studyLinkGoogle, studyLinkTwitter, studyLinkEmail, gaugeImage, gaugeImageSquare, imageUrl, studyDesign, studyObjective, dataSources, causeDataSource, dataSourcesParagraphForCause, instructionsForCause, effectDataSource, dataSourcesParagraphForEffect, instructionsForEffect, dataAnalysis, studyResults, studyLimitations, onsetDelay, onsetDelayInHours, predictorMinimumAllowedValue, predictorMaximumAllowedValue, reversePearsonCorrelationCoefficient, predictorDataSources) {
+  var exports = function(causeVariableName, effectVariableName, averageDailyHighCause, averageDailyLowCause, averageEffect, averageEffectFollowingHighCause, averageEffectFollowingLowCause, averageForwardPearsonCorrelationOverOnsetDelays, averageReversePearsonCorrelationOverOnsetDelays, causeChanges, causeVariableId, confidenceInterval, createdAt, criticalTValue, durationOfAction, effectChanges, effectVariableId, experimentEndTime, experimentStartTime, correlationCoefficient, forwardSpearmanCorrelationCoefficient, numberOfPairs, onsetDelayWithStrongestPearsonCorrelation, optimalPearsonProduct, pearsonCorrelationWithNoOnsetDelay, predictivePearsonCorrelation, predictsHighEffectChange, predictsLowEffectChange, qmScore, statisticalSignificance, strongestPearsonCorrelationCoefficient, tValue, updatedAt, userId, valuePredictingHighOutcome, valuePredictingLowOutcome, causeVariableCombinationOperation, causeVariableDefaultUnitId, causeVariableImageUrl, causeVariableIonIcon, causeVariableMostCommonConnectorId, causeVariableCategoryId, effectVariableCombinationOperation, effectVariableCommonAlias, effectVariableDefaultUnitId, effectVariableImageUrl, effectVariableIonIcon, effectVariableMostCommonConnectorId, effectVariableCategoryId, timestamp, userVote, causeUserVariableShareUserMeasurements, effectUserVariableShareUserMeasurements, predictorFillingValue, outcomeFillingValue, averageVote, durationOfActionInHours, onsetDelayWithStrongestPearsonCorrelationInHours, effectVariableCategoryName, causeVariableCategoryName, direction, causeVariableDefaultUnitAbbreviatedName, effectVariableDefaultUnitAbbreviatedName, causeVariableDefaultUnitName, effectVariableDefaultUnitName, shareUserMeasurements, effectUnit, significanceExplanation, significantDifference, effectSize, predictsHighEffectChangeSentenceFragment, predictsLowEffectChangeSentenceFragment, valuePredictingHighOutcomeExplanation, averageEffectFollowingHighCauseExplanation, averageEffectFollowingLowCauseExplanation, valuePredictingLowOutcomeExplanation, strengthLevel, confidenceLevel, predictivePearsonCorrelationCoefficient, predictorExplanation, studyTitle, studyAbstract, studyLinkStatic, studyLinkDynamic, studyLinkFacebook, studyLinkGoogle, studyLinkTwitter, studyLinkEmail, gaugeImage, gaugeImageSquare, imageUrl, studyDesign, studyObjective, dataSources, dataSourcesParagraphForCause, instructionsForCause, dataSourcesParagraphForEffect, instructionsForEffect, dataAnalysis, studyResults, studyLimitations, onsetDelay, onsetDelayInHours, predictorMinimumAllowedValue, predictorMaximumAllowedValue, reversePearsonCorrelationCoefficient, predictorDataSources) {
     var _this = this;
 
     _this['causeVariableName'] = causeVariableName;
@@ -250,10 +248,8 @@
     _this['studyDesign'] = studyDesign;
     _this['studyObjective'] = studyObjective;
     _this['dataSources'] = dataSources;
-    _this['causeDataSource'] = causeDataSource;
     _this['dataSourcesParagraphForCause'] = dataSourcesParagraphForCause;
     _this['instructionsForCause'] = instructionsForCause;
-    _this['effectDataSource'] = effectDataSource;
     _this['dataSourcesParagraphForEffect'] = dataSourcesParagraphForEffect;
     _this['instructionsForEffect'] = instructionsForEffect;
     _this['dataAnalysis'] = dataAnalysis;
@@ -265,6 +261,11 @@
     _this['predictorMaximumAllowedValue'] = predictorMaximumAllowedValue;
     _this['reversePearsonCorrelationCoefficient'] = reversePearsonCorrelationCoefficient;
     _this['predictorDataSources'] = predictorDataSources;
+
+
+
+
+
   };
 
   /**
@@ -560,17 +561,11 @@
       if (data.hasOwnProperty('dataSources')) {
         obj['dataSources'] = ApiClient.convertToType(data['dataSources'], 'String');
       }
-      if (data.hasOwnProperty('causeDataSource')) {
-        obj['causeDataSource'] = ApiClient.convertToType(data['causeDataSource'], Object);
-      }
       if (data.hasOwnProperty('dataSourcesParagraphForCause')) {
         obj['dataSourcesParagraphForCause'] = ApiClient.convertToType(data['dataSourcesParagraphForCause'], 'String');
       }
       if (data.hasOwnProperty('instructionsForCause')) {
         obj['instructionsForCause'] = ApiClient.convertToType(data['instructionsForCause'], 'String');
-      }
-      if (data.hasOwnProperty('effectDataSource')) {
-        obj['effectDataSource'] = ApiClient.convertToType(data['effectDataSource'], Object);
       }
       if (data.hasOwnProperty('dataSourcesParagraphForEffect')) {
         obj['dataSourcesParagraphForEffect'] = ApiClient.convertToType(data['dataSourcesParagraphForEffect'], 'String');
@@ -604,6 +599,21 @@
       }
       if (data.hasOwnProperty('predictorDataSources')) {
         obj['predictorDataSources'] = ApiClient.convertToType(data['predictorDataSources'], 'String');
+      }
+      if (data.hasOwnProperty('outcomeMinimumAllowedValue')) {
+        obj['outcomeMinimumAllowedValue'] = ApiClient.convertToType(data['outcomeMinimumAllowedValue'], 'Number');
+      }
+      if (data.hasOwnProperty('outcomeMaximumAllowedValue')) {
+        obj['outcomeMaximumAllowedValue'] = ApiClient.convertToType(data['outcomeMaximumAllowedValue'], 'Number');
+      }
+      if (data.hasOwnProperty('causeDataSource')) {
+        obj['causeDataSource'] = DataSource.constructFromObject(data['causeDataSource']);
+      }
+      if (data.hasOwnProperty('effectDataSource')) {
+        obj['effectDataSource'] = DataSource.constructFromObject(data['effectDataSource']);
+      }
+      if (data.hasOwnProperty('correlationIsContradictoryToOptimalValues')) {
+        obj['correlationIsContradictoryToOptimalValues'] = ApiClient.convertToType(data['correlationIsContradictoryToOptimalValues'], 'Boolean');
       }
     }
     return obj;
@@ -1080,11 +1090,6 @@
    */
   exports.prototype['dataSources'] = undefined;
   /**
-   * Example: {\"id\":6,\"name\":\"up\",\"connectorClientId\":\"10RfjEgKr8U\",\"connectorClientSecret\":\"e17fd34e4bc4642f0c4c99d7acb6e661\",\"displayName\":\"Up by Jawbone\",\"image\":\"https://i.imgur.com/MXNQy3T.png\",\"getItUrl\":\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\",\"shortDescription\":\"Tracks sleep, exercise, and diet.\",\"longDescription\":\"UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.\",\"enabled\":1,\"affiliate\":true,\"defaultVariableCategoryName\":\"Physical Activity\",\"imageHtml\":\"<a href=\\\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\\\"><img id=\\\"up_image\\\" title=\\\"Up by Jawbone\\\" src=\\\"https://i.imgur.com/MXNQy3T.png\\\" alt=\\\"Up by Jawbone\\\"></a>\",\"linkedDisplayNameHtml\":\"<a href=\\\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\\\">Up by Jawbone</a>\"}
-   * @member {Object} causeDataSource
-   */
-  exports.prototype['causeDataSource'] = undefined;
-  /**
    * Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.
    * @member {String} dataSourcesParagraphForCause
    */
@@ -1094,11 +1099,6 @@
    * @member {String} instructionsForCause
    */
   exports.prototype['instructionsForCause'] = undefined;
-  /**
-   * Example: {\"id\":72,\"name\":\"quantimodo\",\"displayName\":\"QuantiModo\",\"image\":\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\",\"getItUrl\":\"https://quantimo.do\",\"shortDescription\":\"Tracks anything\",\"longDescription\":\"QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.\",\"enabled\":0,\"affiliate\":true,\"defaultVariableCategoryName\":\"Foods\",\"imageHtml\":\"<a href=\\\"https://quantimo.do\\\"><img id=\\\"quantimodo_image\\\" title=\\\"QuantiModo\\\" src=\\\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\\\" alt=\\\"QuantiModo\\\"></a>\",\"linkedDisplayNameHtml\":\"<a href=\\\"https://quantimo.do\\\">QuantiModo</a>\"}
-   * @member {Object} effectDataSource
-   */
-  exports.prototype['effectDataSource'] = undefined;
   /**
    * Example: Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
    * @member {String} dataSourcesParagraphForEffect
@@ -1154,6 +1154,29 @@
    * @member {String} predictorDataSources
    */
   exports.prototype['predictorDataSources'] = undefined;
+  /**
+   * Example: 0.1
+   * @member {Number} outcomeMinimumAllowedValue
+   */
+  exports.prototype['outcomeMinimumAllowedValue'] = undefined;
+  /**
+   * Example: 23
+   * @member {Number} outcomeMaximumAllowedValue
+   */
+  exports.prototype['outcomeMaximumAllowedValue'] = undefined;
+  /**
+   * @member {module:model/DataSource} causeDataSource
+   */
+  exports.prototype['causeDataSource'] = undefined;
+  /**
+   * @member {module:model/DataSource} effectDataSource
+   */
+  exports.prototype['effectDataSource'] = undefined;
+  /**
+   * Example: false
+   * @member {Boolean} correlationIsContradictoryToOptimalValues
+   */
+  exports.prototype['correlationIsContradictoryToOptimalValues'] = undefined;
 
 
 

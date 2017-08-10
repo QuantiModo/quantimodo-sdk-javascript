@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/UserTag', 'model/UserVariable', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/CommonVariableArray', 'model/UserTag', 'model/UserVariable', 'model/UserVariableDelete', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/UserTag'), require('../model/UserVariable'), require('../model/UserVariableDelete'), require('../model/Variable'), require('../model/VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/CommonVariableArray'), require('../model/UserTag'), require('../model/UserVariable'), require('../model/UserVariableDelete'), require('../model/VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.VariablesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.UserTag, root.Quantimodo.UserVariable, root.Quantimodo.UserVariableDelete, root.Quantimodo.Variable, root.Quantimodo.VariableCategory);
+    root.Quantimodo.VariablesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.CommonVariableArray, root.Quantimodo.UserTag, root.Quantimodo.UserVariable, root.Quantimodo.UserVariableDelete, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, CommonResponse, UserTag, UserVariable, UserVariableDelete, Variable, VariableCategory) {
+}(this, function(ApiClient, CommonResponse, CommonVariableArray, UserTag, UserVariable, UserVariableDelete, VariableCategory) {
   'use strict';
 
   /**
    * Variables service.
    * @module api/VariablesApi
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -145,15 +145,15 @@
     }
 
     /**
-     * Callback function to receive the result of the getPublicVariables operation.
-     * @callback module:api/VariablesApi~getPublicVariablesCallback
+     * Callback function to receive the result of the getCommonVariables operation.
+     * @callback module:api/VariablesApi~getCommonVariablesCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Variable>} data The data returned by the service call.
+     * @param {module:model/CommonVariableArray} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get public variables
+     * Get common variables with aggregated instead of user-specific data
      * This endpoint retrieves an array of all public variables. Public variables are things like foods, medications, symptoms, conditions, and anything not unique to a particular user. For instance, a telephone number or name would not be a public variable.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
@@ -169,10 +169,19 @@
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
-     * @param {module:api/VariablesApi~getPublicVariablesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Variable>}
+     * @param {String} opts.effectOrCause Example: 
+     * @param {String} opts.publicEffectOrCause Example: 
+     * @param {Boolean} opts.exactMatch Example: 
+     * @param {Boolean} opts.manualTracking Example: 
+     * @param {Number} opts.variableCategoryId Example: 13
+     * @param {Boolean} opts.includePrivate Example: 
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.searchPhrase Example: %Body Fat%
+     * @param {String} opts.synonyms Example: %McDonalds hotcake%
+     * @param {module:api/VariablesApi~getCommonVariablesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CommonVariableArray}
      */
-    this.getPublicVariables = function(opts, callback) {
+    this.getCommonVariables = function(opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -192,7 +201,16 @@
         'lastSourceName': opts['lastSourceName'],
         'limit': opts['limit'],
         'offset': opts['offset'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
+        'effectOrCause': opts['effectOrCause'],
+        'publicEffectOrCause': opts['publicEffectOrCause'],
+        'exactMatch': opts['exactMatch'],
+        'manualTracking': opts['manualTracking'],
+        'variableCategoryId': opts['variableCategoryId'],
+        'includePrivate': opts['includePrivate'],
+        'clientId': opts['clientId'],
+        'searchPhrase': opts['searchPhrase'],
+        'synonyms': opts['synonyms']
       };
       var headerParams = {
       };
@@ -202,7 +220,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [Variable];
+      var returnType = CommonVariableArray;
 
       return this.apiClient.callApi(
         '/v3/public/variables', 'GET',
@@ -220,7 +238,7 @@
      */
 
     /**
-     * Get variables with user&#39;s settings
+     * Get variables along with related user-specific analysis settings and statistics
      * Get variables for which the user has measurements. If the user has specified variable settings, these are provided instead of the common variable defaults.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
@@ -236,6 +254,10 @@
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {Boolean} opts.includePublic Example: true
+     * @param {Boolean} opts.manualTracking Example: 
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/VariablesApi~getUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserVariable>}
      */
@@ -259,7 +281,11 @@
         'lastSourceName': opts['lastSourceName'],
         'limit': opts['limit'],
         'offset': opts['offset'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
+        'includePublic': opts['includePublic'],
+        'manualTracking': opts['manualTracking'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId']
       };
       var headerParams = {
       };
@@ -381,6 +407,14 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {Boolean} opts.includePublic Example: true
+     * @param {String} opts.searchPhrase Example: %Body Fat%
+     * @param {Boolean} opts.includePrivate Example: 
+     * @param {Boolean} opts.exactMatch Example: 
+     * @param {Boolean} opts.manualTracking Example: 
+     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {Number} opts.variableCategoryId Example: 13
+     * @param {String} opts.synonyms Example: %McDonalds hotcake%
      * @param {module:api/VariablesApi~postUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -398,7 +432,15 @@
       };
       var queryParams = {
         'appName': opts['appName'],
-        'clientId': opts['clientId']
+        'clientId': opts['clientId'],
+        'includePublic': opts['includePublic'],
+        'searchPhrase': opts['searchPhrase'],
+        'includePrivate': opts['includePrivate'],
+        'exactMatch': opts['exactMatch'],
+        'manualTracking': opts['manualTracking'],
+        'variableCategoryName': opts['variableCategoryName'],
+        'variableCategoryId': opts['variableCategoryId'],
+        'synonyms': opts['synonyms']
       };
       var headerParams = {
       };

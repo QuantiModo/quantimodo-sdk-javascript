@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **id** | **Number** | id | [optional] 
 **clientId** | **String** | clientId | [optional] 
 **userId** | **Number** | ID of User | [optional] 
-**variableId** | **Number** | Id for the variable to be tracked | 
-**defaultValue** | **Number** | Default value to use for the measurement when tracking | 
+**variableId** | **Number** | Id for the variable to be tracked | [optional] 
+**defaultValue** | **Number** | Default value to use for the measurement when tracking | [optional] 
 **reminderStartTime** | **String** | Earliest time of day at which reminders should appear in UTC HH:MM:SS format | [optional] 
 **reminderEndTime** | **String** | Latest time of day at which reminders should appear in UTC HH:MM:SS format | [optional] 
 **reminderSound** | **String** | String identifier for the sound to accompany the reminder | [optional] 
@@ -21,9 +21,9 @@ Name | Type | Description | Notes
 **startTrackingDate** | **String** | Earliest date on which the user should be reminded to track in YYYY-MM-DD format | [optional] 
 **stopTrackingDate** | **String** | Latest date on which the user should be reminded to track in YYYY-MM-DD format | [optional] 
 **updatedAt** | **Date** | When the record in the database was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
-**variableName** | **String** | Name of the variable to be used when sending measurements | [optional] 
-**variableCategoryName** | **String** | Name of the variable category to be used when sending measurements | [optional] 
-**unitAbbreviatedName** | **String** | Abbreviated name of the unit to be used when sending measurements | [optional] 
+**variableName** | **String** | Name of the variable to be used when sending measurements | 
+**variableCategoryName** | **String** | Name of the variable category to be used when sending measurements | 
+**unitAbbreviatedName** | **String** | Abbreviated name of the unit to be used when sending measurements | 
 **combinationOperation** | **String** | The way multiple measurements are aggregated over time | [optional] 
 **createdAt** | **Date** | Example: 2016-05-18 02:24:08 | [optional] 
 **trackingReminderId** | **Number** | Example: 11841 | [optional] 
@@ -71,6 +71,17 @@ Name | Type | Description | Notes
 **frequencyTextDescriptionWithTime** | **String** | Example: Daily at 09:45 PM | [optional] 
 **valueAndFrequencyTextDescription** | **String** | Example: Rate daily | [optional] 
 **valueAndFrequencyTextDescriptionWithTime** | **String** | Example: Rate daily at 09:45 PM | [optional] 
+**fillingValue** | **Number** | Example: 0 | [optional] 
+**availableDefaultUnits** | [**[Unit]**](Unit.md) |  | [optional] 
+**localDailyReminderNotificationTimes** | **[String]** |  | [optional] 
+**localDailyReminderNotificationTimesForAllReminders** | **[String]** |  | [optional] 
+**repeating** | **Boolean** | Example: true | [optional] 
+**numberOfUniqueValues** | **Number** | Example: 1 | [optional] 
+**instructions** | **String** | Example: I am an instruction! | [optional] 
+**secondDailyReminderTime** | **Date** | Example: 01:00:00 | [optional] 
+**thirdDailyReminderTime** | **Date** | Example: 20:00:00 | [optional] 
+**errorMessage** | **String** | Example: reminderStartTimeLocal is less than  $user-&gt;earliestReminderTime or greater than  $user-&gt;latestReminderTime | [optional] 
+**trackingReminderImageUrl** | **String** | Example: Not Found | [optional] 
 
 
 <a name="CombinationOperationEnum"></a>

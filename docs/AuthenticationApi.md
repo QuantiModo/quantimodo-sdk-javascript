@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAccessToken**](AuthenticationApi.md#getAccessToken) | **GET** /v3/oauth2/token | Get a user access token
 [**getOauthAuthorizationCode**](AuthenticationApi.md#getOauthAuthorizationCode) | **GET** /v3/oauth2/authorize | Request Authorization Code
+[**postGoogleIdToken**](AuthenticationApi.md#postGoogleIdToken) | **POST** /v3/googleIdToken | Post GoogleIdToken
 
 
 <a name="getAccessToken"></a>
@@ -150,6 +151,46 @@ null (empty response body)
 ### Authorization
 
 [access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="postGoogleIdToken"></a>
+# **postGoogleIdToken**
+> postGoogleIdToken()
+
+Post GoogleIdToken
+
+Post GoogleIdToken
+
+### Example
+```javascript
+var Quantimodo = require('quantimodo');
+
+var apiInstance = new Quantimodo.AuthenticationApi();
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.postGoogleIdToken(callback);
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

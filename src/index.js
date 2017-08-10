@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AggregatedCorrelation', 'model/Button', 'model/CommonResponse', 'model/Connector', 'model/ConnectorInstruction', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetUserCorrelationsDataResponse', 'model/GetUserCorrelationsDataResponseData', 'model/Image', 'model/InlineResponse201', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pairs', 'model/PostCorrelation', 'model/Study', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationPost', 'model/Unit', 'model/UnitCategory', 'model/Update', 'model/User', 'model/UserCorrelation', 'model/UserTag', 'model/UserTokenFailedResponse', 'model/UserTokenRequest', 'model/UserTokenRequestInnerUserField', 'model/UserTokenSuccessfulResponse', 'model/UserTokenSuccessfulResponseInnerUserField', 'model/UserVariable', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/RemindersApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
+    define(['ApiClient', 'model/AggregatedCorrelation', 'model/AggregatedCorrelationArray', 'model/Animation', 'model/Button', 'model/Category', 'model/Chart', 'model/ChartConfig', 'model/ChartStyle', 'model/Color', 'model/Column', 'model/CommonResponse', 'model/CommonVariable', 'model/CommonVariableArray', 'model/Connector', 'model/ConnectorArray', 'model/ConnectorInstruction', 'model/ConversionStep', 'model/Correlation', 'model/CorrelationArray', 'model/Credit', 'model/DataSource', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetAggregatedCorrelationsResponse', 'model/GetAggregatedCorrelationsResponseArray', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetMeasurementsResponse', 'model/GetMeasurementsResponseArray', 'model/GetPairsResponse', 'model/GetPairsResponseArray', 'model/GetPublicVariablesResponse', 'model/GetPublicVariablesResponseArray', 'model/GetStudyDataResponse', 'model/GetStudyResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/GetTrackingRemindersResponse', 'model/GetTrackingRemindersResponseArray', 'model/Highchart', 'model/HighchartArray', 'model/Hover', 'model/Image', 'model/JsonErrorResponse', 'model/Lang', 'model/Legend', 'model/Loading', 'model/LocalDailyReminderNotificationTime', 'model/LocalDailyReminderNotificationTimeArray', 'model/LocalDailyReminderNotificationTimesForAllReminder', 'model/LocalDailyReminderNotificationTimesForAllReminderArray', 'model/Marker', 'model/Measurement', 'model/MeasurementArray', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Option', 'model/Pair', 'model/PairArray', 'model/Pairs', 'model/PlotOption', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/ProcessedDailyMeasurement', 'model/Scatter', 'model/Scope', 'model/ScopeArray', 'model/Series', 'model/State', 'model/Statistic', 'model/Study', 'model/Subtitle', 'model/Title', 'model/Tooltip', 'model/TrackingReminder', 'model/TrackingReminderArray', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationActionArray', 'model/TrackingReminderNotificationArray', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/TrackingReminderNotificationsArray', 'model/TrackingRemindersArray', 'model/Unit', 'model/UnitArray', 'model/UnitCategory', 'model/User', 'model/UserCorrelation', 'model/UserStudy', 'model/UserTag', 'model/UserVariable', 'model/UserVariableArray', 'model/UserVariableDelete', 'model/VariableCategory', 'model/VariableCategoryArray', 'model/Vote', 'model/VoteDelete', 'model/XAxi', 'model/YAxi', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AggregatedCorrelation'), require('./model/Button'), require('./model/CommonResponse'), require('./model/Connector'), require('./model/ConnectorInstruction'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetUserCorrelationsDataResponse'), require('./model/GetUserCorrelationsDataResponseData'), require('./model/Image'), require('./model/InlineResponse201'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pairs'), require('./model/PostCorrelation'), require('./model/Study'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationPost'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/Update'), require('./model/User'), require('./model/UserCorrelation'), require('./model/UserTag'), require('./model/UserTokenFailedResponse'), require('./model/UserTokenRequest'), require('./model/UserTokenRequestInnerUserField'), require('./model/UserTokenSuccessfulResponse'), require('./model/UserTokenSuccessfulResponseInnerUserField'), require('./model/UserVariable'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/RemindersApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AggregatedCorrelation'), require('./model/AggregatedCorrelationArray'), require('./model/Animation'), require('./model/Button'), require('./model/Category'), require('./model/Chart'), require('./model/ChartConfig'), require('./model/ChartStyle'), require('./model/Color'), require('./model/Column'), require('./model/CommonResponse'), require('./model/CommonVariable'), require('./model/CommonVariableArray'), require('./model/Connector'), require('./model/ConnectorArray'), require('./model/ConnectorInstruction'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/CorrelationArray'), require('./model/Credit'), require('./model/DataSource'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetAggregatedCorrelationsResponse'), require('./model/GetAggregatedCorrelationsResponseArray'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetMeasurementsResponse'), require('./model/GetMeasurementsResponseArray'), require('./model/GetPairsResponse'), require('./model/GetPairsResponseArray'), require('./model/GetPublicVariablesResponse'), require('./model/GetPublicVariablesResponseArray'), require('./model/GetStudyDataResponse'), require('./model/GetStudyResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/GetTrackingRemindersResponse'), require('./model/GetTrackingRemindersResponseArray'), require('./model/Highchart'), require('./model/HighchartArray'), require('./model/Hover'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Lang'), require('./model/Legend'), require('./model/Loading'), require('./model/LocalDailyReminderNotificationTime'), require('./model/LocalDailyReminderNotificationTimeArray'), require('./model/LocalDailyReminderNotificationTimesForAllReminder'), require('./model/LocalDailyReminderNotificationTimesForAllReminderArray'), require('./model/Marker'), require('./model/Measurement'), require('./model/MeasurementArray'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Option'), require('./model/Pair'), require('./model/PairArray'), require('./model/Pairs'), require('./model/PlotOption'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/ProcessedDailyMeasurement'), require('./model/Scatter'), require('./model/Scope'), require('./model/ScopeArray'), require('./model/Series'), require('./model/State'), require('./model/Statistic'), require('./model/Study'), require('./model/Subtitle'), require('./model/Title'), require('./model/Tooltip'), require('./model/TrackingReminder'), require('./model/TrackingReminderArray'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationActionArray'), require('./model/TrackingReminderNotificationArray'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/TrackingReminderNotificationsArray'), require('./model/TrackingRemindersArray'), require('./model/Unit'), require('./model/UnitArray'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserCorrelation'), require('./model/UserStudy'), require('./model/UserTag'), require('./model/UserVariable'), require('./model/UserVariableArray'), require('./model/UserVariableDelete'), require('./model/VariableCategory'), require('./model/VariableCategoryArray'), require('./model/Vote'), require('./model/VoteDelete'), require('./model/XAxi'), require('./model/YAxi'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
   }
-}(function(ApiClient, AggregatedCorrelation, Button, CommonResponse, Connector, ConnectorInstruction, ConversionStep, Correlation, DataSource, Explanation, ExplanationStartTracking, GetCorrelationsDataResponse, GetCorrelationsResponse, GetUserCorrelationsDataResponse, GetUserCorrelationsDataResponseData, Image, InlineResponse201, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pairs, PostCorrelation, Study, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationPost, Unit, UnitCategory, Update, User, UserCorrelation, UserTag, UserTokenFailedResponse, UserTokenRequest, UserTokenRequestInnerUserField, UserTokenSuccessfulResponse, UserTokenSuccessfulResponseInnerUserField, UserVariable, UserVariableDelete, Variable, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, RemindersApi, UnitsApi, UserApi, VariablesApi) {
+}(function(ApiClient, AggregatedCorrelation, AggregatedCorrelationArray, Animation, Button, Category, Chart, ChartConfig, ChartStyle, Color, Column, CommonResponse, CommonVariable, CommonVariableArray, Connector, ConnectorArray, ConnectorInstruction, ConversionStep, Correlation, CorrelationArray, Credit, DataSource, Explanation, ExplanationStartTracking, GetAggregatedCorrelationsResponse, GetAggregatedCorrelationsResponseArray, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetMeasurementsResponse, GetMeasurementsResponseArray, GetPairsResponse, GetPairsResponseArray, GetPublicVariablesResponse, GetPublicVariablesResponseArray, GetStudyDataResponse, GetStudyResponse, GetTrackingReminderNotificationsResponse, GetTrackingRemindersResponse, GetTrackingRemindersResponseArray, Highchart, HighchartArray, Hover, Image, JsonErrorResponse, Lang, Legend, Loading, LocalDailyReminderNotificationTime, LocalDailyReminderNotificationTimeArray, LocalDailyReminderNotificationTimesForAllReminder, LocalDailyReminderNotificationTimesForAllReminderArray, Marker, Measurement, MeasurementArray, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Option, Pair, PairArray, Pairs, PlotOption, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, ProcessedDailyMeasurement, Scatter, Scope, ScopeArray, Series, State, Statistic, Study, Subtitle, Title, Tooltip, TrackingReminder, TrackingReminderArray, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationActionArray, TrackingReminderNotificationArray, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, TrackingReminderNotificationsArray, TrackingRemindersArray, Unit, UnitArray, UnitCategory, User, UserCorrelation, UserStudy, UserTag, UserVariable, UserVariableArray, UserVariableDelete, VariableCategory, VariableCategoryArray, Vote, VoteDelete, XAxi, YAxi, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, UnitsApi, UserApi, VariablesApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 5.8.806
+   * @version 5.8.810
    */
   var exports = {
     /**
@@ -67,20 +67,75 @@
      */
     AggregatedCorrelation: AggregatedCorrelation,
     /**
+     * The AggregatedCorrelationArray model constructor.
+     * @property {module:model/AggregatedCorrelationArray}
+     */
+    AggregatedCorrelationArray: AggregatedCorrelationArray,
+    /**
+     * The Animation model constructor.
+     * @property {module:model/Animation}
+     */
+    Animation: Animation,
+    /**
      * The Button model constructor.
      * @property {module:model/Button}
      */
     Button: Button,
+    /**
+     * The Category model constructor.
+     * @property {module:model/Category}
+     */
+    Category: Category,
+    /**
+     * The Chart model constructor.
+     * @property {module:model/Chart}
+     */
+    Chart: Chart,
+    /**
+     * The ChartConfig model constructor.
+     * @property {module:model/ChartConfig}
+     */
+    ChartConfig: ChartConfig,
+    /**
+     * The ChartStyle model constructor.
+     * @property {module:model/ChartStyle}
+     */
+    ChartStyle: ChartStyle,
+    /**
+     * The Color model constructor.
+     * @property {module:model/Color}
+     */
+    Color: Color,
+    /**
+     * The Column model constructor.
+     * @property {module:model/Column}
+     */
+    Column: Column,
     /**
      * The CommonResponse model constructor.
      * @property {module:model/CommonResponse}
      */
     CommonResponse: CommonResponse,
     /**
+     * The CommonVariable model constructor.
+     * @property {module:model/CommonVariable}
+     */
+    CommonVariable: CommonVariable,
+    /**
+     * The CommonVariableArray model constructor.
+     * @property {module:model/CommonVariableArray}
+     */
+    CommonVariableArray: CommonVariableArray,
+    /**
      * The Connector model constructor.
      * @property {module:model/Connector}
      */
     Connector: Connector,
+    /**
+     * The ConnectorArray model constructor.
+     * @property {module:model/ConnectorArray}
+     */
+    ConnectorArray: ConnectorArray,
     /**
      * The ConnectorInstruction model constructor.
      * @property {module:model/ConnectorInstruction}
@@ -97,6 +152,16 @@
      */
     Correlation: Correlation,
     /**
+     * The CorrelationArray model constructor.
+     * @property {module:model/CorrelationArray}
+     */
+    CorrelationArray: CorrelationArray,
+    /**
+     * The Credit model constructor.
+     * @property {module:model/Credit}
+     */
+    Credit: Credit,
+    /**
      * The DataSource model constructor.
      * @property {module:model/DataSource}
      */
@@ -112,6 +177,21 @@
      */
     ExplanationStartTracking: ExplanationStartTracking,
     /**
+     * The GetAggregatedCorrelationsResponse model constructor.
+     * @property {module:model/GetAggregatedCorrelationsResponse}
+     */
+    GetAggregatedCorrelationsResponse: GetAggregatedCorrelationsResponse,
+    /**
+     * The GetAggregatedCorrelationsResponseArray model constructor.
+     * @property {module:model/GetAggregatedCorrelationsResponseArray}
+     */
+    GetAggregatedCorrelationsResponseArray: GetAggregatedCorrelationsResponseArray,
+    /**
+     * The GetConnectorsResponse model constructor.
+     * @property {module:model/GetConnectorsResponse}
+     */
+    GetConnectorsResponse: GetConnectorsResponse,
+    /**
      * The GetCorrelationsDataResponse model constructor.
      * @property {module:model/GetCorrelationsDataResponse}
      */
@@ -122,35 +202,135 @@
      */
     GetCorrelationsResponse: GetCorrelationsResponse,
     /**
-     * The GetUserCorrelationsDataResponse model constructor.
-     * @property {module:model/GetUserCorrelationsDataResponse}
+     * The GetMeasurementsResponse model constructor.
+     * @property {module:model/GetMeasurementsResponse}
      */
-    GetUserCorrelationsDataResponse: GetUserCorrelationsDataResponse,
+    GetMeasurementsResponse: GetMeasurementsResponse,
     /**
-     * The GetUserCorrelationsDataResponseData model constructor.
-     * @property {module:model/GetUserCorrelationsDataResponseData}
+     * The GetMeasurementsResponseArray model constructor.
+     * @property {module:model/GetMeasurementsResponseArray}
      */
-    GetUserCorrelationsDataResponseData: GetUserCorrelationsDataResponseData,
+    GetMeasurementsResponseArray: GetMeasurementsResponseArray,
+    /**
+     * The GetPairsResponse model constructor.
+     * @property {module:model/GetPairsResponse}
+     */
+    GetPairsResponse: GetPairsResponse,
+    /**
+     * The GetPairsResponseArray model constructor.
+     * @property {module:model/GetPairsResponseArray}
+     */
+    GetPairsResponseArray: GetPairsResponseArray,
+    /**
+     * The GetPublicVariablesResponse model constructor.
+     * @property {module:model/GetPublicVariablesResponse}
+     */
+    GetPublicVariablesResponse: GetPublicVariablesResponse,
+    /**
+     * The GetPublicVariablesResponseArray model constructor.
+     * @property {module:model/GetPublicVariablesResponseArray}
+     */
+    GetPublicVariablesResponseArray: GetPublicVariablesResponseArray,
+    /**
+     * The GetStudyDataResponse model constructor.
+     * @property {module:model/GetStudyDataResponse}
+     */
+    GetStudyDataResponse: GetStudyDataResponse,
+    /**
+     * The GetStudyResponse model constructor.
+     * @property {module:model/GetStudyResponse}
+     */
+    GetStudyResponse: GetStudyResponse,
+    /**
+     * The GetTrackingReminderNotificationsResponse model constructor.
+     * @property {module:model/GetTrackingReminderNotificationsResponse}
+     */
+    GetTrackingReminderNotificationsResponse: GetTrackingReminderNotificationsResponse,
+    /**
+     * The GetTrackingRemindersResponse model constructor.
+     * @property {module:model/GetTrackingRemindersResponse}
+     */
+    GetTrackingRemindersResponse: GetTrackingRemindersResponse,
+    /**
+     * The GetTrackingRemindersResponseArray model constructor.
+     * @property {module:model/GetTrackingRemindersResponseArray}
+     */
+    GetTrackingRemindersResponseArray: GetTrackingRemindersResponseArray,
+    /**
+     * The Highchart model constructor.
+     * @property {module:model/Highchart}
+     */
+    Highchart: Highchart,
+    /**
+     * The HighchartArray model constructor.
+     * @property {module:model/HighchartArray}
+     */
+    HighchartArray: HighchartArray,
+    /**
+     * The Hover model constructor.
+     * @property {module:model/Hover}
+     */
+    Hover: Hover,
     /**
      * The Image model constructor.
      * @property {module:model/Image}
      */
     Image: Image,
     /**
-     * The InlineResponse201 model constructor.
-     * @property {module:model/InlineResponse201}
-     */
-    InlineResponse201: InlineResponse201,
-    /**
      * The JsonErrorResponse model constructor.
      * @property {module:model/JsonErrorResponse}
      */
     JsonErrorResponse: JsonErrorResponse,
     /**
+     * The Lang model constructor.
+     * @property {module:model/Lang}
+     */
+    Lang: Lang,
+    /**
+     * The Legend model constructor.
+     * @property {module:model/Legend}
+     */
+    Legend: Legend,
+    /**
+     * The Loading model constructor.
+     * @property {module:model/Loading}
+     */
+    Loading: Loading,
+    /**
+     * The LocalDailyReminderNotificationTime model constructor.
+     * @property {module:model/LocalDailyReminderNotificationTime}
+     */
+    LocalDailyReminderNotificationTime: LocalDailyReminderNotificationTime,
+    /**
+     * The LocalDailyReminderNotificationTimeArray model constructor.
+     * @property {module:model/LocalDailyReminderNotificationTimeArray}
+     */
+    LocalDailyReminderNotificationTimeArray: LocalDailyReminderNotificationTimeArray,
+    /**
+     * The LocalDailyReminderNotificationTimesForAllReminder model constructor.
+     * @property {module:model/LocalDailyReminderNotificationTimesForAllReminder}
+     */
+    LocalDailyReminderNotificationTimesForAllReminder: LocalDailyReminderNotificationTimesForAllReminder,
+    /**
+     * The LocalDailyReminderNotificationTimesForAllReminderArray model constructor.
+     * @property {module:model/LocalDailyReminderNotificationTimesForAllReminderArray}
+     */
+    LocalDailyReminderNotificationTimesForAllReminderArray: LocalDailyReminderNotificationTimesForAllReminderArray,
+    /**
+     * The Marker model constructor.
+     * @property {module:model/Marker}
+     */
+    Marker: Marker,
+    /**
      * The Measurement model constructor.
      * @property {module:model/Measurement}
      */
     Measurement: Measurement,
+    /**
+     * The MeasurementArray model constructor.
+     * @property {module:model/MeasurementArray}
+     */
+    MeasurementArray: MeasurementArray,
     /**
      * The MeasurementDelete model constructor.
      * @property {module:model/MeasurementDelete}
@@ -172,25 +352,130 @@
      */
     MeasurementUpdate: MeasurementUpdate,
     /**
+     * The Option model constructor.
+     * @property {module:model/Option}
+     */
+    Option: Option,
+    /**
+     * The Pair model constructor.
+     * @property {module:model/Pair}
+     */
+    Pair: Pair,
+    /**
+     * The PairArray model constructor.
+     * @property {module:model/PairArray}
+     */
+    PairArray: PairArray,
+    /**
      * The Pairs model constructor.
      * @property {module:model/Pairs}
      */
     Pairs: Pairs,
+    /**
+     * The PlotOption model constructor.
+     * @property {module:model/PlotOption}
+     */
+    PlotOption: PlotOption,
     /**
      * The PostCorrelation model constructor.
      * @property {module:model/PostCorrelation}
      */
     PostCorrelation: PostCorrelation,
     /**
+     * The PostMeasurementsDataResponse model constructor.
+     * @property {module:model/PostMeasurementsDataResponse}
+     */
+    PostMeasurementsDataResponse: PostMeasurementsDataResponse,
+    /**
+     * The PostMeasurementsResponse model constructor.
+     * @property {module:model/PostMeasurementsResponse}
+     */
+    PostMeasurementsResponse: PostMeasurementsResponse,
+    /**
+     * The PostTrackingRemindersDataResponse model constructor.
+     * @property {module:model/PostTrackingRemindersDataResponse}
+     */
+    PostTrackingRemindersDataResponse: PostTrackingRemindersDataResponse,
+    /**
+     * The PostTrackingRemindersResponse model constructor.
+     * @property {module:model/PostTrackingRemindersResponse}
+     */
+    PostTrackingRemindersResponse: PostTrackingRemindersResponse,
+    /**
+     * The PostUserSettingsDataResponse model constructor.
+     * @property {module:model/PostUserSettingsDataResponse}
+     */
+    PostUserSettingsDataResponse: PostUserSettingsDataResponse,
+    /**
+     * The PostUserSettingsResponse model constructor.
+     * @property {module:model/PostUserSettingsResponse}
+     */
+    PostUserSettingsResponse: PostUserSettingsResponse,
+    /**
+     * The ProcessedDailyMeasurement model constructor.
+     * @property {module:model/ProcessedDailyMeasurement}
+     */
+    ProcessedDailyMeasurement: ProcessedDailyMeasurement,
+    /**
+     * The Scatter model constructor.
+     * @property {module:model/Scatter}
+     */
+    Scatter: Scatter,
+    /**
+     * The Scope model constructor.
+     * @property {module:model/Scope}
+     */
+    Scope: Scope,
+    /**
+     * The ScopeArray model constructor.
+     * @property {module:model/ScopeArray}
+     */
+    ScopeArray: ScopeArray,
+    /**
+     * The Series model constructor.
+     * @property {module:model/Series}
+     */
+    Series: Series,
+    /**
+     * The State model constructor.
+     * @property {module:model/State}
+     */
+    State: State,
+    /**
+     * The Statistic model constructor.
+     * @property {module:model/Statistic}
+     */
+    Statistic: Statistic,
+    /**
      * The Study model constructor.
      * @property {module:model/Study}
      */
     Study: Study,
     /**
+     * The Subtitle model constructor.
+     * @property {module:model/Subtitle}
+     */
+    Subtitle: Subtitle,
+    /**
+     * The Title model constructor.
+     * @property {module:model/Title}
+     */
+    Title: Title,
+    /**
+     * The Tooltip model constructor.
+     * @property {module:model/Tooltip}
+     */
+    Tooltip: Tooltip,
+    /**
      * The TrackingReminder model constructor.
      * @property {module:model/TrackingReminder}
      */
     TrackingReminder: TrackingReminder,
+    /**
+     * The TrackingReminderArray model constructor.
+     * @property {module:model/TrackingReminderArray}
+     */
+    TrackingReminderArray: TrackingReminderArray,
     /**
      * The TrackingReminderDelete model constructor.
      * @property {module:model/TrackingReminderDelete}
@@ -202,25 +487,50 @@
      */
     TrackingReminderNotification: TrackingReminderNotification,
     /**
+     * The TrackingReminderNotificationActionArray model constructor.
+     * @property {module:model/TrackingReminderNotificationActionArray}
+     */
+    TrackingReminderNotificationActionArray: TrackingReminderNotificationActionArray,
+    /**
+     * The TrackingReminderNotificationArray model constructor.
+     * @property {module:model/TrackingReminderNotificationArray}
+     */
+    TrackingReminderNotificationArray: TrackingReminderNotificationArray,
+    /**
      * The TrackingReminderNotificationPost model constructor.
      * @property {module:model/TrackingReminderNotificationPost}
      */
     TrackingReminderNotificationPost: TrackingReminderNotificationPost,
+    /**
+     * The TrackingReminderNotificationTrackAllAction model constructor.
+     * @property {module:model/TrackingReminderNotificationTrackAllAction}
+     */
+    TrackingReminderNotificationTrackAllAction: TrackingReminderNotificationTrackAllAction,
+    /**
+     * The TrackingReminderNotificationsArray model constructor.
+     * @property {module:model/TrackingReminderNotificationsArray}
+     */
+    TrackingReminderNotificationsArray: TrackingReminderNotificationsArray,
+    /**
+     * The TrackingRemindersArray model constructor.
+     * @property {module:model/TrackingRemindersArray}
+     */
+    TrackingRemindersArray: TrackingRemindersArray,
     /**
      * The Unit model constructor.
      * @property {module:model/Unit}
      */
     Unit: Unit,
     /**
+     * The UnitArray model constructor.
+     * @property {module:model/UnitArray}
+     */
+    UnitArray: UnitArray,
+    /**
      * The UnitCategory model constructor.
      * @property {module:model/UnitCategory}
      */
     UnitCategory: UnitCategory,
-    /**
-     * The Update model constructor.
-     * @property {module:model/Update}
-     */
-    Update: Update,
     /**
      * The User model constructor.
      * @property {module:model/User}
@@ -232,55 +542,40 @@
      */
     UserCorrelation: UserCorrelation,
     /**
+     * The UserStudy model constructor.
+     * @property {module:model/UserStudy}
+     */
+    UserStudy: UserStudy,
+    /**
      * The UserTag model constructor.
      * @property {module:model/UserTag}
      */
     UserTag: UserTag,
-    /**
-     * The UserTokenFailedResponse model constructor.
-     * @property {module:model/UserTokenFailedResponse}
-     */
-    UserTokenFailedResponse: UserTokenFailedResponse,
-    /**
-     * The UserTokenRequest model constructor.
-     * @property {module:model/UserTokenRequest}
-     */
-    UserTokenRequest: UserTokenRequest,
-    /**
-     * The UserTokenRequestInnerUserField model constructor.
-     * @property {module:model/UserTokenRequestInnerUserField}
-     */
-    UserTokenRequestInnerUserField: UserTokenRequestInnerUserField,
-    /**
-     * The UserTokenSuccessfulResponse model constructor.
-     * @property {module:model/UserTokenSuccessfulResponse}
-     */
-    UserTokenSuccessfulResponse: UserTokenSuccessfulResponse,
-    /**
-     * The UserTokenSuccessfulResponseInnerUserField model constructor.
-     * @property {module:model/UserTokenSuccessfulResponseInnerUserField}
-     */
-    UserTokenSuccessfulResponseInnerUserField: UserTokenSuccessfulResponseInnerUserField,
     /**
      * The UserVariable model constructor.
      * @property {module:model/UserVariable}
      */
     UserVariable: UserVariable,
     /**
+     * The UserVariableArray model constructor.
+     * @property {module:model/UserVariableArray}
+     */
+    UserVariableArray: UserVariableArray,
+    /**
      * The UserVariableDelete model constructor.
      * @property {module:model/UserVariableDelete}
      */
     UserVariableDelete: UserVariableDelete,
     /**
-     * The Variable model constructor.
-     * @property {module:model/Variable}
-     */
-    Variable: Variable,
-    /**
      * The VariableCategory model constructor.
      * @property {module:model/VariableCategory}
      */
     VariableCategory: VariableCategory,
+    /**
+     * The VariableCategoryArray model constructor.
+     * @property {module:model/VariableCategoryArray}
+     */
+    VariableCategoryArray: VariableCategoryArray,
     /**
      * The Vote model constructor.
      * @property {module:model/Vote}
@@ -291,6 +586,16 @@
      * @property {module:model/VoteDelete}
      */
     VoteDelete: VoteDelete,
+    /**
+     * The XAxi model constructor.
+     * @property {module:model/XAxi}
+     */
+    XAxi: XAxi,
+    /**
+     * The YAxi model constructor.
+     * @property {module:model/YAxi}
+     */
+    YAxi: YAxi,
     /**
      * The AnalyticsApi service constructor.
      * @property {module:api/AnalyticsApi}
@@ -311,6 +616,11 @@
      * @property {module:api/MeasurementsApi}
      */
     MeasurementsApi: MeasurementsApi,
+    /**
+     * The NotificationsApi service constructor.
+     * @property {module:api/NotificationsApi}
+     */
+    NotificationsApi: NotificationsApi,
     /**
      * The RemindersApi service constructor.
      * @property {module:api/RemindersApi}

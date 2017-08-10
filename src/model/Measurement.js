@@ -36,7 +36,7 @@
   /**
    * The Measurement model module.
    * @module model/Measurement
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -60,8 +60,6 @@
 
 
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
-
-
 
 
 
@@ -194,9 +192,6 @@
       if (data.hasOwnProperty('userVariableVariableCategoryName')) {
         obj['userVariableVariableCategoryName'] = ApiClient.convertToType(data['userVariableVariableCategoryName'], 'String');
       }
-      if (data.hasOwnProperty('humanTime')) {
-        obj['humanTime'] = ApiClient.convertToType(data['humanTime'], Object);
-      }
       if (data.hasOwnProperty('unitName')) {
         obj['unitName'] = ApiClient.convertToType(data['unitName'], 'String');
       }
@@ -253,9 +248,6 @@
       }
       if (data.hasOwnProperty('connectorId')) {
         obj['connectorId'] = ApiClient.convertToType(data['connectorId'], 'Number');
-      }
-      if (data.hasOwnProperty('noteObject')) {
-        obj['noteObject'] = ApiClient.convertToType(data['noteObject'], Object);
       }
     }
     return obj;
@@ -397,11 +389,6 @@
    */
   exports.prototype['userVariableVariableCategoryName'] = undefined;
   /**
-   * Example: {\"date\":\"2017-07-30 20:05:30.000000\",\"timezone_type\":1,\"timezone\":\"+00:00\"}
-   * @member {Object} humanTime
-   */
-  exports.prototype['humanTime'] = undefined;
-  /**
    * Example: Count
    * @member {String} unitName
    */
@@ -496,11 +483,6 @@
    * @member {Number} connectorId
    */
   exports.prototype['connectorId'] = undefined;
-  /**
-   * Example: {\"message\":null,\"commenter\":null,\"url\":null,\"image\":null,\"icon\":null,\"description\":null,\"name\":null,\"Description\":\"Transfer from MICHAEL P SINN\",\"Original Description\":\"Bank Account\",\"Transaction Type\":\"credit\",\"Account Name\":\"Mike's Personal PayPal\"}
-   * @member {Object} noteObject
-   */
-  exports.prototype['noteObject'] = undefined;
 
 
 

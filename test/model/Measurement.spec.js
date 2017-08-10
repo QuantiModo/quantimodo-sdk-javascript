@@ -218,12 +218,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property humanTime (base name: "humanTime")', function() {
-      // uncomment below and update the code to test the property humanTime
-      //var instane = new Quantimodo.Measurement();
-      //expect(instance).to.be();
-    });
-
     it('should have the property unitName (base name: "unitName")', function() {
       // uncomment below and update the code to test the property unitName
       //var instane = new Quantimodo.Measurement();
@@ -334,12 +328,6 @@
 
     it('should have the property connectorId (base name: "connectorId")', function() {
       // uncomment below and update the code to test the property connectorId
-      //var instane = new Quantimodo.Measurement();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property noteObject (base name: "noteObject")', function() {
-      // uncomment below and update the code to test the property noteObject
       //var instane = new Quantimodo.Measurement();
       //expect(instance).to.be();
     });

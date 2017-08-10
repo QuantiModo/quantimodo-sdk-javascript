@@ -218,6 +218,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property buttons (base name: "buttons")', function() {
+      // uncomment below and update the code to test the property buttons
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property affiliate (base name: "affiliate")', function() {
+      // uncomment below and update the code to test the property affiliate
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property scopes (base name: "scopes")', function() {
+      // uncomment below and update the code to test the property scopes
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property connectError (base name: "connectError")', function() {
+      // uncomment below and update the code to test the property connectError
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pairs'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/MeasurementArray', 'model/MeasurementDelete', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/PairArray', 'model/PostMeasurementsResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Measurement'), require('../model/MeasurementDelete'), require('../model/MeasurementSet'), require('../model/MeasurementUpdate'), require('../model/Pairs'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/MeasurementArray'), require('../model/MeasurementDelete'), require('../model/MeasurementSet'), require('../model/MeasurementUpdate'), require('../model/PairArray'), require('../model/PostMeasurementsResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.MeasurementsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Measurement, root.Quantimodo.MeasurementDelete, root.Quantimodo.MeasurementSet, root.Quantimodo.MeasurementUpdate, root.Quantimodo.Pairs);
+    root.Quantimodo.MeasurementsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.MeasurementArray, root.Quantimodo.MeasurementDelete, root.Quantimodo.MeasurementSet, root.Quantimodo.MeasurementUpdate, root.Quantimodo.PairArray, root.Quantimodo.PostMeasurementsResponse);
   }
-}(this, function(ApiClient, CommonResponse, Measurement, MeasurementDelete, MeasurementSet, MeasurementUpdate, Pairs) {
+}(this, function(ApiClient, CommonResponse, MeasurementArray, MeasurementDelete, MeasurementSet, MeasurementUpdate, PairArray, PostMeasurementsResponse) {
   'use strict';
 
   /**
    * Measurements service.
    * @module api/MeasurementsApi
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -96,7 +96,7 @@
      * Callback function to receive the result of the getMeasurements operation.
      * @callback module:api/MeasurementsApi~getMeasurementsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Measurement>} data The data returned by the service call.
+     * @param {module:model/MeasurementArray} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -123,8 +123,10 @@
      * @param {Boolean} opts.doNotProcess Example: true
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {Boolean} opts.doNotConvert Example: 1
+     * @param {Boolean} opts.minMaxFilter Example: 1
      * @param {module:api/MeasurementsApi~getMeasurementsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Measurement>}
+     * data is of type: {@link module:model/MeasurementArray}
      */
     this.getMeasurements = function(opts, callback) {
       opts = opts || {};
@@ -152,7 +154,9 @@
         'sort': opts['sort'],
         'doNotProcess': opts['doNotProcess'],
         'appName': opts['appName'],
-        'clientId': opts['clientId']
+        'clientId': opts['clientId'],
+        'doNotConvert': opts['doNotConvert'],
+        'minMaxFilter': opts['minMaxFilter']
       };
       var headerParams = {
       };
@@ -162,7 +166,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [Measurement];
+      var returnType = MeasurementArray;
 
       return this.apiClient.callApi(
         '/v3/measurements', 'GET',
@@ -175,7 +179,7 @@
      * Callback function to receive the result of the getPairs operation.
      * @callback module:api/MeasurementsApi~getPairsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Pairs>} data The data returned by the service call.
+     * @param {module:model/PairArray} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -196,7 +200,7 @@
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {module:api/MeasurementsApi~getPairsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Pairs>}
+     * data is of type: {@link module:model/PairArray}
      */
     this.getPairs = function(opts, callback) {
       opts = opts || {};
@@ -227,7 +231,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [Pairs];
+      var returnType = PairArray;
 
       return this.apiClient.callApi(
         '/v3/pairs', 'GET',
@@ -283,7 +287,7 @@
      * Callback function to receive the result of the postMeasurements operation.
      * @callback module:api/MeasurementsApi~postMeasurementsCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/PostMeasurementsResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -294,6 +298,7 @@
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {module:api/MeasurementsApi~postMeasurementsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostMeasurementsResponse}
      */
     this.postMeasurements = function(body, opts, callback) {
       opts = opts || {};
@@ -318,7 +323,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = null;
+      var returnType = PostMeasurementsResponse;
 
       return this.apiClient.callApi(
         '/v3/measurements', 'POST',

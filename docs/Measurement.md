@@ -30,7 +30,6 @@ Name | Type | Description | Notes
 **variableCategoryImageUrl** | **String** | Example: https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png | [optional] 
 **manualTracking** | **Boolean** | Example: 1 | [optional] 
 **userVariableVariableCategoryName** | **String** | Example: Treatments | [optional] 
-**humanTime** | **Object** | Example: {\&quot;date\&quot;:\&quot;2017-07-30 20:05:30.000000\&quot;,\&quot;timezone_type\&quot;:1,\&quot;timezone\&quot;:\&quot;+00:00\&quot;} | [optional] 
 **unitName** | **String** | Example: Count | [optional] 
 **unitCategoryId** | **Number** | Example: 6 | [optional] 
 **unitCategoryName** | **String** | Example: Miscellany | [optional] 
@@ -50,6 +49,5 @@ Name | Type | Description | Notes
 **maximumAllowedValue** | **Number** | Example: 5 | [optional] 
 **startDate** | **String** | Example: 2014-08-27 | [optional] 
 **connectorId** | **Number** | Example: 13 | [optional] 
-**noteObject** | **Object** | Example: {\&quot;message\&quot;:null,\&quot;commenter\&quot;:null,\&quot;url\&quot;:null,\&quot;image\&quot;:null,\&quot;icon\&quot;:null,\&quot;description\&quot;:null,\&quot;name\&quot;:null,\&quot;Description\&quot;:\&quot;Transfer from MICHAEL P SINN\&quot;,\&quot;Original Description\&quot;:\&quot;Bank Account\&quot;,\&quot;Transaction Type\&quot;:\&quot;credit\&quot;,\&quot;Account Name\&quot;:\&quot;Mike&#39;s Personal PayPal\&quot;} | [optional] 
 
 

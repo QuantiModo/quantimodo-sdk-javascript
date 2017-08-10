@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/CommonVariableArray', 'model/Unit', 'model/UserVariableArray'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./CommonVariableArray'), require('./Unit'), require('./UserVariableArray'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonVariableArray, root.Quantimodo.Unit, root.Quantimodo.UserVariableArray);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, CommonVariableArray, Unit, UserVariableArray) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The UserVariable model module.
    * @module model/UserVariable
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -44,8 +44,26 @@
    * @alias module:model/UserVariable
    * @class
    * @param variableId {Number} ID of variable
+   * @param availableDefaultUnits {Array.<module:model/Unit>} 
+   * @param price {Number} Example: 95.4
+   * @param alias {String} Example: 
+   * @param userVariableValence {String} Example: 
+   * @param userVariableWikipediaTitle {String} Example: 
+   * @param informationalUrl {String} Example: 
+   * @param parent {String} Example: 
+   * @param productUrl {String} Example: 
+   * @param wikipediaTitle {String} Example: 
+   * @param userTagVariables {module:model/UserVariableArray} 
+   * @param userTaggedVariables {module:model/UserVariableArray} 
+   * @param joinedUserTagVariables {module:model/UserVariableArray} 
+   * @param ingredientUserTagVariables {module:model/UserVariableArray} 
+   * @param ingredientOfUserTagVariables {module:model/UserVariableArray} 
+   * @param childUserTagVariables {module:model/UserVariableArray} 
+   * @param parentUserTagVariables {module:model/UserVariableArray} 
+   * @param commonTagVariables {module:model/CommonVariableArray} 
+   * @param commonTaggedVariables {module:model/CommonVariableArray} 
    */
-  var exports = function(variableId) {
+  var exports = function(variableId, availableDefaultUnits, price, alias, userVariableValence, userVariableWikipediaTitle, informationalUrl, parent, productUrl, wikipediaTitle, userTagVariables, userTaggedVariables, joinedUserTagVariables, ingredientUserTagVariables, ingredientOfUserTagVariables, childUserTagVariables, parentUserTagVariables, commonTagVariables, commonTaggedVariables) {
     var _this = this;
 
 
@@ -183,6 +201,24 @@
 
 
 
+    _this['availableDefaultUnits'] = availableDefaultUnits;
+    _this['price'] = price;
+    _this['alias'] = alias;
+    _this['userVariableValence'] = userVariableValence;
+    _this['userVariableWikipediaTitle'] = userVariableWikipediaTitle;
+    _this['informationalUrl'] = informationalUrl;
+    _this['parent'] = parent;
+    _this['productUrl'] = productUrl;
+    _this['wikipediaTitle'] = wikipediaTitle;
+    _this['userTagVariables'] = userTagVariables;
+    _this['userTaggedVariables'] = userTaggedVariables;
+    _this['joinedUserTagVariables'] = joinedUserTagVariables;
+    _this['ingredientUserTagVariables'] = ingredientUserTagVariables;
+    _this['ingredientOfUserTagVariables'] = ingredientOfUserTagVariables;
+    _this['childUserTagVariables'] = childUserTagVariables;
+    _this['parentUserTagVariables'] = parentUserTagVariables;
+    _this['commonTagVariables'] = commonTagVariables;
+    _this['commonTaggedVariables'] = commonTaggedVariables;
   };
 
   /**
@@ -600,6 +636,60 @@
       }
       if (data.hasOwnProperty('experimentEndTimeSeconds')) {
         obj['experimentEndTimeSeconds'] = ApiClient.convertToType(data['experimentEndTimeSeconds'], 'Number');
+      }
+      if (data.hasOwnProperty('availableDefaultUnits')) {
+        obj['availableDefaultUnits'] = ApiClient.convertToType(data['availableDefaultUnits'], [Unit]);
+      }
+      if (data.hasOwnProperty('price')) {
+        obj['price'] = ApiClient.convertToType(data['price'], 'Number');
+      }
+      if (data.hasOwnProperty('alias')) {
+        obj['alias'] = ApiClient.convertToType(data['alias'], 'String');
+      }
+      if (data.hasOwnProperty('userVariableValence')) {
+        obj['userVariableValence'] = ApiClient.convertToType(data['userVariableValence'], 'String');
+      }
+      if (data.hasOwnProperty('userVariableWikipediaTitle')) {
+        obj['userVariableWikipediaTitle'] = ApiClient.convertToType(data['userVariableWikipediaTitle'], 'String');
+      }
+      if (data.hasOwnProperty('informationalUrl')) {
+        obj['informationalUrl'] = ApiClient.convertToType(data['informationalUrl'], 'String');
+      }
+      if (data.hasOwnProperty('parent')) {
+        obj['parent'] = ApiClient.convertToType(data['parent'], 'String');
+      }
+      if (data.hasOwnProperty('productUrl')) {
+        obj['productUrl'] = ApiClient.convertToType(data['productUrl'], 'String');
+      }
+      if (data.hasOwnProperty('wikipediaTitle')) {
+        obj['wikipediaTitle'] = ApiClient.convertToType(data['wikipediaTitle'], 'String');
+      }
+      if (data.hasOwnProperty('userTagVariables')) {
+        obj['userTagVariables'] = UserVariableArray.constructFromObject(data['userTagVariables']);
+      }
+      if (data.hasOwnProperty('userTaggedVariables')) {
+        obj['userTaggedVariables'] = UserVariableArray.constructFromObject(data['userTaggedVariables']);
+      }
+      if (data.hasOwnProperty('joinedUserTagVariables')) {
+        obj['joinedUserTagVariables'] = UserVariableArray.constructFromObject(data['joinedUserTagVariables']);
+      }
+      if (data.hasOwnProperty('ingredientUserTagVariables')) {
+        obj['ingredientUserTagVariables'] = UserVariableArray.constructFromObject(data['ingredientUserTagVariables']);
+      }
+      if (data.hasOwnProperty('ingredientOfUserTagVariables')) {
+        obj['ingredientOfUserTagVariables'] = UserVariableArray.constructFromObject(data['ingredientOfUserTagVariables']);
+      }
+      if (data.hasOwnProperty('childUserTagVariables')) {
+        obj['childUserTagVariables'] = UserVariableArray.constructFromObject(data['childUserTagVariables']);
+      }
+      if (data.hasOwnProperty('parentUserTagVariables')) {
+        obj['parentUserTagVariables'] = UserVariableArray.constructFromObject(data['parentUserTagVariables']);
+      }
+      if (data.hasOwnProperty('commonTagVariables')) {
+        obj['commonTagVariables'] = CommonVariableArray.constructFromObject(data['commonTagVariables']);
+      }
+      if (data.hasOwnProperty('commonTaggedVariables')) {
+        obj['commonTaggedVariables'] = CommonVariableArray.constructFromObject(data['commonTaggedVariables']);
       }
     }
     return obj;
@@ -1280,6 +1370,86 @@
    * @member {Number} experimentEndTimeSeconds
    */
   exports.prototype['experimentEndTimeSeconds'] = undefined;
+  /**
+   * @member {Array.<module:model/Unit>} availableDefaultUnits
+   */
+  exports.prototype['availableDefaultUnits'] = undefined;
+  /**
+   * Example: 95.4
+   * @member {Number} price
+   */
+  exports.prototype['price'] = undefined;
+  /**
+   * Example: 
+   * @member {String} alias
+   */
+  exports.prototype['alias'] = undefined;
+  /**
+   * Example: 
+   * @member {String} userVariableValence
+   */
+  exports.prototype['userVariableValence'] = undefined;
+  /**
+   * Example: 
+   * @member {String} userVariableWikipediaTitle
+   */
+  exports.prototype['userVariableWikipediaTitle'] = undefined;
+  /**
+   * Example: 
+   * @member {String} informationalUrl
+   */
+  exports.prototype['informationalUrl'] = undefined;
+  /**
+   * Example: 
+   * @member {String} parent
+   */
+  exports.prototype['parent'] = undefined;
+  /**
+   * Example: 
+   * @member {String} productUrl
+   */
+  exports.prototype['productUrl'] = undefined;
+  /**
+   * Example: 
+   * @member {String} wikipediaTitle
+   */
+  exports.prototype['wikipediaTitle'] = undefined;
+  /**
+   * @member {module:model/UserVariableArray} userTagVariables
+   */
+  exports.prototype['userTagVariables'] = undefined;
+  /**
+   * @member {module:model/UserVariableArray} userTaggedVariables
+   */
+  exports.prototype['userTaggedVariables'] = undefined;
+  /**
+   * @member {module:model/UserVariableArray} joinedUserTagVariables
+   */
+  exports.prototype['joinedUserTagVariables'] = undefined;
+  /**
+   * @member {module:model/UserVariableArray} ingredientUserTagVariables
+   */
+  exports.prototype['ingredientUserTagVariables'] = undefined;
+  /**
+   * @member {module:model/UserVariableArray} ingredientOfUserTagVariables
+   */
+  exports.prototype['ingredientOfUserTagVariables'] = undefined;
+  /**
+   * @member {module:model/UserVariableArray} childUserTagVariables
+   */
+  exports.prototype['childUserTagVariables'] = undefined;
+  /**
+   * @member {module:model/UserVariableArray} parentUserTagVariables
+   */
+  exports.prototype['parentUserTagVariables'] = undefined;
+  /**
+   * @member {module:model/CommonVariableArray} commonTagVariables
+   */
+  exports.prototype['commonTagVariables'] = undefined;
+  /**
+   * @member {module:model/CommonVariableArray} commonTaggedVariables
+   */
+  exports.prototype['commonTaggedVariables'] = undefined;
 
 
 

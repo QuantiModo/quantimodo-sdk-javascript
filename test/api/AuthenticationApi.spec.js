@@ -70,6 +70,16 @@
         done();
       });
     });
+    describe('postGoogleIdToken', function() {
+      it('should call postGoogleIdToken successfully', function(done) {
+        //uncomment below and update the code to test postGoogleIdToken
+        //instance.postGoogleIdToken(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

@@ -68,18 +68,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property connectorClientId (base name: "connectorClientId")', function() {
-      // uncomment below and update the code to test the property connectorClientId
-      //var instane = new Quantimodo.DataSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property connectorClientSecret (base name: "connectorClientSecret")', function() {
-      // uncomment below and update the code to test the property connectorClientSecret
-      //var instane = new Quantimodo.DataSource();
-      //expect(instance).to.be();
-    });
-
     it('should have the property displayName (base name: "displayName")', function() {
       // uncomment below and update the code to test the property displayName
       //var instane = new Quantimodo.DataSource();
@@ -136,6 +124,12 @@
 
     it('should have the property linkedDisplayNameHtml (base name: "linkedDisplayNameHtml")', function() {
       // uncomment below and update the code to test the property linkedDisplayNameHtml
+      //var instane = new Quantimodo.DataSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property connectorClientId (base name: "connectorClientId")', function() {
+      // uncomment below and update the code to test the property connectorClientId
       //var instane = new Quantimodo.DataSource();
       //expect(instance).to.be();
     });

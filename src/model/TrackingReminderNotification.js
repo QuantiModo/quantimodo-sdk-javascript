@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/TrackingReminderNotificationActionArray', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationActionArray'), require('./TrackingReminderNotificationTrackAllAction'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationActionArray, root.Quantimodo.TrackingReminderNotificationTrackAllAction, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, TrackingReminderNotificationActionArray, TrackingReminderNotificationTrackAllAction, Unit) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The TrackingReminderNotification model module.
    * @module model/TrackingReminderNotification
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -44,8 +44,12 @@
    * @alias module:model/TrackingReminderNotification
    * @class
    * @param id {Number} id for the specific PENDING tracking remidner
+   * @param availableDefaultUnits {Array.<module:model/Unit>} 
+   * @param actionArray {Array.<module:model/TrackingReminderNotificationActionArray>} 
+   * @param trackAllActions {Array.<module:model/TrackingReminderNotificationTrackAllAction>} 
+   * @param fillingValue {Number} Example: 0
    */
-  var exports = function(id) {
+  var exports = function(id, availableDefaultUnits, actionArray, trackAllActions, fillingValue) {
     var _this = this;
 
     _this['id'] = id;
@@ -115,6 +119,13 @@
 
 
 
+
+
+
+    _this['availableDefaultUnits'] = availableDefaultUnits;
+    _this['actionArray'] = actionArray;
+    _this['trackAllActions'] = trackAllActions;
+    _this['fillingValue'] = fillingValue;
 
 
 
@@ -340,6 +351,27 @@
       }
       if (data.hasOwnProperty('iconIcon')) {
         obj['iconIcon'] = ApiClient.convertToType(data['iconIcon'], 'String');
+      }
+      if (data.hasOwnProperty('availableDefaultUnits')) {
+        obj['availableDefaultUnits'] = ApiClient.convertToType(data['availableDefaultUnits'], [Unit]);
+      }
+      if (data.hasOwnProperty('actionArray')) {
+        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationActionArray]);
+      }
+      if (data.hasOwnProperty('trackAllActions')) {
+        obj['trackAllActions'] = ApiClient.convertToType(data['trackAllActions'], [TrackingReminderNotificationTrackAllAction]);
+      }
+      if (data.hasOwnProperty('fillingValue')) {
+        obj['fillingValue'] = ApiClient.convertToType(data['fillingValue'], 'Number');
+      }
+      if (data.hasOwnProperty('reminderEndTime')) {
+        obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'Date');
+      }
+      if (data.hasOwnProperty('notifiedAt')) {
+        obj['notifiedAt'] = ApiClient.convertToType(data['notifiedAt'], 'Date');
+      }
+      if (data.hasOwnProperty('variableImageUrl')) {
+        obj['variableImageUrl'] = ApiClient.convertToType(data['variableImageUrl'], 'String');
       }
     }
     return obj;
@@ -695,6 +727,38 @@
    * @member {String} iconIcon
    */
   exports.prototype['iconIcon'] = undefined;
+  /**
+   * @member {Array.<module:model/Unit>} availableDefaultUnits
+   */
+  exports.prototype['availableDefaultUnits'] = undefined;
+  /**
+   * @member {Array.<module:model/TrackingReminderNotificationActionArray>} actionArray
+   */
+  exports.prototype['actionArray'] = undefined;
+  /**
+   * @member {Array.<module:model/TrackingReminderNotificationTrackAllAction>} trackAllActions
+   */
+  exports.prototype['trackAllActions'] = undefined;
+  /**
+   * Example: 0
+   * @member {Number} fillingValue
+   */
+  exports.prototype['fillingValue'] = undefined;
+  /**
+   * Example: 
+   * @member {Date} reminderEndTime
+   */
+  exports.prototype['reminderEndTime'] = undefined;
+  /**
+   * Example: 
+   * @member {Date} notifiedAt
+   */
+  exports.prototype['notifiedAt'] = undefined;
+  /**
+   * Example: 
+   * @member {String} variableImageUrl
+   */
+  exports.prototype['variableImageUrl'] = undefined;
 
 
   /**

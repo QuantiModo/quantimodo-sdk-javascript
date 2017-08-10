@@ -33,7 +33,7 @@
   /**
    * Authentication service.
    * @module api/AuthenticationApi
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -190,6 +190,44 @@
 
       return this.apiClient.callApi(
         '/v3/oauth2/authorize', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postGoogleIdToken operation.
+     * @callback module:api/AuthenticationApi~postGoogleIdTokenCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Post GoogleIdToken
+     * Post GoogleIdToken
+     * @param {module:api/AuthenticationApi~postGoogleIdTokenCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.postGoogleIdToken = function(callback) {
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v3/googleIdToken', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

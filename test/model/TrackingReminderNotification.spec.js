@@ -476,6 +476,48 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property availableDefaultUnits (base name: "availableDefaultUnits")', function() {
+      // uncomment below and update the code to test the property availableDefaultUnits
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property actionArray (base name: "actionArray")', function() {
+      // uncomment below and update the code to test the property actionArray
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property trackAllActions (base name: "trackAllActions")', function() {
+      // uncomment below and update the code to test the property trackAllActions
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fillingValue (base name: "fillingValue")', function() {
+      // uncomment below and update the code to test the property fillingValue
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property reminderEndTime (base name: "reminderEndTime")', function() {
+      // uncomment below and update the code to test the property reminderEndTime
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property notifiedAt (base name: "notifiedAt")', function() {
+      // uncomment below and update the code to test the property notifiedAt
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property variableImageUrl (base name: "variableImageUrl")', function() {
+      // uncomment below and update the code to test the property variableImageUrl
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/User'], factory);
+    define(['ApiClient', 'model/PostUserSettingsResponse', 'model/User'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/User'));
+    module.exports = factory(require('../ApiClient'), require('../model/PostUserSettingsResponse'), require('../model/User'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.User);
+    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User);
   }
-}(this, function(ApiClient, User) {
+}(this, function(ApiClient, PostUserSettingsResponse, User) {
   'use strict';
 
   /**
    * User service.
    * @module api/UserApi
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -65,6 +65,10 @@
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.appVersion Example: 2.1.1.0
+     * @param {Number} opts.clientUserId Example: 74802
      * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -81,7 +85,11 @@
         'updatedAt': opts['updatedAt'],
         'limit': opts['limit'],
         'offset': opts['offset'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
+        'clientId': opts['clientId'],
+        'appName': opts['appName'],
+        'appVersion': opts['appVersion'],
+        'clientUserId': opts['clientUserId']
       };
       var headerParams = {
       };
@@ -104,7 +112,7 @@
      * Callback function to receive the result of the postUserSettings operation.
      * @callback module:api/UserApi~postUserSettingsCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/PostUserSettingsResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -115,6 +123,7 @@
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/UserApi~postUserSettingsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostUserSettingsResponse}
      */
     this.postUserSettings = function(opts, callback) {
       opts = opts || {};
@@ -135,7 +144,7 @@
       var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = null;
+      var returnType = PostUserSettingsResponse;
 
       return this.apiClient.callApi(
         '/v3/userSettings', 'POST',

@@ -36,7 +36,7 @@
   /**
    * The UserCorrelation model module.
    * @module model/UserCorrelation
-   * @version 5.8.806
+   * @version 5.8.810
    */
 
   /**
@@ -111,8 +111,6 @@
 
 
     _this['timestamp'] = timestamp;
-
-
 
 
 
@@ -510,17 +508,11 @@
       if (data.hasOwnProperty('gaugeImageSquare')) {
         obj['gaugeImageSquare'] = ApiClient.convertToType(data['gaugeImageSquare'], 'String');
       }
-      if (data.hasOwnProperty('causeDataSource')) {
-        obj['causeDataSource'] = ApiClient.convertToType(data['causeDataSource'], Object);
-      }
       if (data.hasOwnProperty('dataSourcesParagraphForCause')) {
         obj['dataSourcesParagraphForCause'] = ApiClient.convertToType(data['dataSourcesParagraphForCause'], 'String');
       }
       if (data.hasOwnProperty('instructionsForCause')) {
         obj['instructionsForCause'] = ApiClient.convertToType(data['instructionsForCause'], 'String');
-      }
-      if (data.hasOwnProperty('effectDataSource')) {
-        obj['effectDataSource'] = ApiClient.convertToType(data['effectDataSource'], Object);
       }
       if (data.hasOwnProperty('dataSourcesParagraphForEffect')) {
         obj['dataSourcesParagraphForEffect'] = ApiClient.convertToType(data['dataSourcesParagraphForEffect'], 'String');
@@ -1088,11 +1080,6 @@
    */
   exports.prototype['gaugeImageSquare'] = undefined;
   /**
-   * Example: {\"id\":6,\"name\":\"up\",\"connectorClientId\":\"10RfjEgKr8U\",\"connectorClientSecret\":\"e17fd34e4bc4642f0c4c99d7acb6e661\",\"displayName\":\"Up by Jawbone\",\"image\":\"https://i.imgur.com/MXNQy3T.png\",\"getItUrl\":\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\",\"shortDescription\":\"Tracks sleep, exercise, and diet.\",\"longDescription\":\"UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.\",\"enabled\":1,\"affiliate\":true,\"defaultVariableCategoryName\":\"Physical Activity\",\"imageHtml\":\"<a href=\\\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\\\"><img id=\\\"up_image\\\" title=\\\"Up by Jawbone\\\" src=\\\"https://i.imgur.com/MXNQy3T.png\\\" alt=\\\"Up by Jawbone\\\"></a>\",\"linkedDisplayNameHtml\":\"<a href=\\\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\\\">Up by Jawbone</a>\"}
-   * @member {Object} causeDataSource
-   */
-  exports.prototype['causeDataSource'] = undefined;
-  /**
    * Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.
    * @member {String} dataSourcesParagraphForCause
    */
@@ -1102,11 +1089,6 @@
    * @member {String} instructionsForCause
    */
   exports.prototype['instructionsForCause'] = undefined;
-  /**
-   * Example: {\"id\":72,\"name\":\"quantimodo\",\"displayName\":\"QuantiModo\",\"image\":\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\",\"getItUrl\":\"https://quantimo.do\",\"shortDescription\":\"Tracks anything\",\"longDescription\":\"QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.\",\"enabled\":0,\"affiliate\":true,\"defaultVariableCategoryName\":\"Foods\",\"imageHtml\":\"<a href=\\\"https://quantimo.do\\\"><img id=\\\"quantimodo_image\\\" title=\\\"QuantiModo\\\" src=\\\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\\\" alt=\\\"QuantiModo\\\"></a>\",\"linkedDisplayNameHtml\":\"<a href=\\\"https://quantimo.do\\\">QuantiModo</a>\"}
-   * @member {Object} effectDataSource
-   */
-  exports.prototype['effectDataSource'] = undefined;
   /**
    * Example: Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
    * @member {String} dataSourcesParagraphForEffect
