@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonVariableArray', 'model/Unit', 'model/UserVariableArray'], factory);
+    define(['ApiClient', 'model/CommonVariableArray', 'model/Unit', 'model/UserVariableArray', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./CommonVariableArray'), require('./Unit'), require('./UserVariableArray'));
+    module.exports = factory(require('../ApiClient'), require('./CommonVariableArray'), require('./Unit'), require('./UserVariableArray'), require('./VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonVariableArray, root.Quantimodo.Unit, root.Quantimodo.UserVariableArray);
+    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonVariableArray, root.Quantimodo.Unit, root.Quantimodo.UserVariableArray, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, CommonVariableArray, Unit, UserVariableArray) {
+}(this, function(ApiClient, CommonVariableArray, Unit, UserVariableArray, VariableCategory) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The UserVariable model module.
    * @module model/UserVariable
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**
@@ -219,6 +219,8 @@
     _this['parentUserTagVariables'] = parentUserTagVariables;
     _this['commonTagVariables'] = commonTagVariables;
     _this['commonTaggedVariables'] = commonTaggedVariables;
+
+
   };
 
   /**
@@ -690,6 +692,12 @@
       }
       if (data.hasOwnProperty('commonTaggedVariables')) {
         obj['commonTaggedVariables'] = CommonVariableArray.constructFromObject(data['commonTaggedVariables']);
+      }
+      if (data.hasOwnProperty('variableCategory')) {
+        obj['variableCategory'] = VariableCategory.constructFromObject(data['variableCategory']);
+      }
+      if (data.hasOwnProperty('unit')) {
+        obj['unit'] = Unit.constructFromObject(data['unit']);
       }
     }
     return obj;
@@ -1450,6 +1458,14 @@
    * @member {module:model/CommonVariableArray} commonTaggedVariables
    */
   exports.prototype['commonTaggedVariables'] = undefined;
+  /**
+   * @member {module:model/VariableCategory} variableCategory
+   */
+  exports.prototype['variableCategory'] = undefined;
+  /**
+   * @member {module:model/Unit} unit
+   */
+  exports.prototype['unit'] = undefined;
 
 
 

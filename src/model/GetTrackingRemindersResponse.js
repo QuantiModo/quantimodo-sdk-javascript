@@ -36,7 +36,7 @@
   /**
    * The GetTrackingRemindersResponse model module.
    * @module model/GetTrackingRemindersResponse
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

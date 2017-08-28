@@ -36,7 +36,7 @@
   /**
    * The MeasurementItem model module.
    * @module model/MeasurementItem
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

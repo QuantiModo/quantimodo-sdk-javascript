@@ -36,7 +36,7 @@
   /**
    * The Correlation model module.
    * @module model/Correlation
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**
@@ -261,6 +261,7 @@
     _this['predictorMaximumAllowedValue'] = predictorMaximumAllowedValue;
     _this['reversePearsonCorrelationCoefficient'] = reversePearsonCorrelationCoefficient;
     _this['predictorDataSources'] = predictorDataSources;
+
 
 
 
@@ -614,6 +615,9 @@
       }
       if (data.hasOwnProperty('correlationIsContradictoryToOptimalValues')) {
         obj['correlationIsContradictoryToOptimalValues'] = ApiClient.convertToType(data['correlationIsContradictoryToOptimalValues'], 'Boolean');
+      }
+      if (data.hasOwnProperty('pValue')) {
+        obj['pValue'] = ApiClient.convertToType(data['pValue'], 'Number');
       }
     }
     return obj;
@@ -1177,6 +1181,11 @@
    * @member {Boolean} correlationIsContradictoryToOptimalValues
    */
   exports.prototype['correlationIsContradictoryToOptimalValues'] = undefined;
+  /**
+   * Example: 0.39628900511586
+   * @member {Number} pValue
+   */
+  exports.prototype['pValue'] = undefined;
 
 
 

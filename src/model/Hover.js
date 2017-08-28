@@ -36,7 +36,7 @@
   /**
    * The Hover model module.
    * @module model/Hover
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

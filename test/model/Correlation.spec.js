@@ -728,6 +728,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property pValue (base name: "pValue")', function() {
+      // uncomment below and update the code to test the property pValue
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

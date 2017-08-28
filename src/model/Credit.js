@@ -36,7 +36,7 @@
   /**
    * The Credit model module.
    * @module model/Credit
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

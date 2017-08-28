@@ -17,5 +17,11 @@ Name | Type | Description | Notes
 **statistics** | [**Statistic**](Statistic.md) |  | [optional] 
 **userId** | **Number** | Example: 230 | [optional] 
 **highchartArray** | [**[HighchartArray]**](HighchartArray.md) |  | [optional] 
+**userCorrelations** | [**[Correlation]**](Correlation.md) |  | [optional] 
+**pairsOfAveragesForAllUsers** | [**[PairsOfAveragesForAllUser]**](PairsOfAveragesForAllUser.md) |  | [optional] 
+**text** | [**Text**](Text.md) |  | [optional] 
+**type** | **String** | Example: population | [optional] 
+**participantInstructions** | [**ParticipantInstruction**](ParticipantInstruction.md) |  | [optional] 
+**highcharts** | [**Highchart**](Highchart.md) |  | [optional] 
 
 

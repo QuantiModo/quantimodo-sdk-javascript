@@ -36,7 +36,7 @@
   /**
    * The GetPublicVariablesResponse model module.
    * @module model/GetPublicVariablesResponse
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

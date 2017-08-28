@@ -36,7 +36,7 @@
   /**
    * The GetAggregatedCorrelationsResponse model module.
    * @module model/GetAggregatedCorrelationsResponse
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

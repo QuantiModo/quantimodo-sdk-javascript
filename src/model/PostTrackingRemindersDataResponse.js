@@ -36,7 +36,7 @@
   /**
    * The PostTrackingRemindersDataResponse model module.
    * @module model/PostTrackingRemindersDataResponse
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

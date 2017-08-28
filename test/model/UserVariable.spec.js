@@ -974,6 +974,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property variableCategory (base name: "variableCategory")', function() {
+      // uncomment below and update the code to test the property variableCategory
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unit (base name: "unit")', function() {
+      // uncomment below and update the code to test the property unit
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -36,7 +36,7 @@
   /**
    * The Tooltip model module.
    * @module model/Tooltip
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

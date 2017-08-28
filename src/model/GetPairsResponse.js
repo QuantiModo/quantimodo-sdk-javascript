@@ -36,7 +36,7 @@
   /**
    * The GetPairsResponse model module.
    * @module model/GetPairsResponse
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

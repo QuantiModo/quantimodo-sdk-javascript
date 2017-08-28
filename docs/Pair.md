@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **startTimeSting** | **Date** | Example: 2016-06-03 07:00:00 | 
 **causeMeasurementValue** | **Number** | Example: 101341.66666667 | 
 **effectMeasurementValue** | **Number** | Example: 7.98 | 
-**causeVariableDefaultUnitAbbreviatedName** | **String** | Example:  | 
-**effectVariableDefaultUnitAbbreviatedName** | **String** | Example:  | 
+**causeVariableDefaultUnitAbbreviatedName** | **String** | Example: mg | 
+**effectVariableDefaultUnitAbbreviatedName** | **String** | Example: % | 
 **eventAtUnixTime** | **Number** | Example: 1438876142 | [optional] 
 **eventAt** | **Date** | Example: 2015-08-06 15:49:02 | [optional] 
 **startTimeString** | **Date** | Example: 2015-08-06 15:49:02 | [optional] 

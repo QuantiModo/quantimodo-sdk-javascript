@@ -36,7 +36,7 @@
   /**
    * The ConnectorInstruction model module.
    * @module model/ConnectorInstruction
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

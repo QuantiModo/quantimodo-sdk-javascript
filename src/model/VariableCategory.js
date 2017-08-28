@@ -36,7 +36,7 @@
   /**
    * The VariableCategory model module.
    * @module model/VariableCategory
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

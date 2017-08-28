@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/GetStudyDataResponse', 'model/HighchartArray', 'model/Pair', 'model/ProcessedDailyMeasurement', 'model/Statistic', 'model/UserStudy', 'model/UserVariable'], factory);
+    define(['ApiClient', 'model/Chart', 'model/Correlation', 'model/GetStudyDataResponse', 'model/Highchart', 'model/HighchartArray', 'model/Pair', 'model/PairsOfAveragesForAllUser', 'model/ParticipantInstruction', 'model/ProcessedDailyMeasurement', 'model/Statistic', 'model/Text', 'model/UserStudy', 'model/UserVariable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./GetStudyDataResponse'), require('./HighchartArray'), require('./Pair'), require('./ProcessedDailyMeasurement'), require('./Statistic'), require('./UserStudy'), require('./UserVariable'));
+    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./Correlation'), require('./GetStudyDataResponse'), require('./Highchart'), require('./HighchartArray'), require('./Pair'), require('./PairsOfAveragesForAllUser'), require('./ParticipantInstruction'), require('./ProcessedDailyMeasurement'), require('./Statistic'), require('./Text'), require('./UserStudy'), require('./UserVariable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GetStudyResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.GetStudyDataResponse, root.Quantimodo.HighchartArray, root.Quantimodo.Pair, root.Quantimodo.ProcessedDailyMeasurement, root.Quantimodo.Statistic, root.Quantimodo.UserStudy, root.Quantimodo.UserVariable);
+    root.Quantimodo.GetStudyResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.Correlation, root.Quantimodo.GetStudyDataResponse, root.Quantimodo.Highchart, root.Quantimodo.HighchartArray, root.Quantimodo.Pair, root.Quantimodo.PairsOfAveragesForAllUser, root.Quantimodo.ParticipantInstruction, root.Quantimodo.ProcessedDailyMeasurement, root.Quantimodo.Statistic, root.Quantimodo.Text, root.Quantimodo.UserStudy, root.Quantimodo.UserVariable);
   }
-}(this, function(ApiClient, Chart, GetStudyDataResponse, HighchartArray, Pair, ProcessedDailyMeasurement, Statistic, UserStudy, UserVariable) {
+}(this, function(ApiClient, Chart, Correlation, GetStudyDataResponse, Highchart, HighchartArray, Pair, PairsOfAveragesForAllUser, ParticipantInstruction, ProcessedDailyMeasurement, Statistic, Text, UserStudy, UserVariable) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The GetStudyResponse model module.
    * @module model/GetStudyResponse
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**
@@ -52,6 +52,12 @@
     _this['status'] = status;
 
     _this['success'] = success;
+
+
+
+
+
+
 
 
 
@@ -118,6 +124,24 @@
       if (data.hasOwnProperty('highchartArray')) {
         obj['highchartArray'] = ApiClient.convertToType(data['highchartArray'], [HighchartArray]);
       }
+      if (data.hasOwnProperty('userCorrelations')) {
+        obj['userCorrelations'] = ApiClient.convertToType(data['userCorrelations'], [Correlation]);
+      }
+      if (data.hasOwnProperty('pairsOfAveragesForAllUsers')) {
+        obj['pairsOfAveragesForAllUsers'] = ApiClient.convertToType(data['pairsOfAveragesForAllUsers'], [PairsOfAveragesForAllUser]);
+      }
+      if (data.hasOwnProperty('text')) {
+        obj['text'] = Text.constructFromObject(data['text']);
+      }
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      }
+      if (data.hasOwnProperty('participantInstructions')) {
+        obj['participantInstructions'] = ParticipantInstruction.constructFromObject(data['participantInstructions']);
+      }
+      if (data.hasOwnProperty('highcharts')) {
+        obj['highcharts'] = Highchart.constructFromObject(data['highcharts']);
+      }
     }
     return obj;
   }
@@ -181,6 +205,31 @@
    * @member {Array.<module:model/HighchartArray>} highchartArray
    */
   exports.prototype['highchartArray'] = undefined;
+  /**
+   * @member {Array.<module:model/Correlation>} userCorrelations
+   */
+  exports.prototype['userCorrelations'] = undefined;
+  /**
+   * @member {Array.<module:model/PairsOfAveragesForAllUser>} pairsOfAveragesForAllUsers
+   */
+  exports.prototype['pairsOfAveragesForAllUsers'] = undefined;
+  /**
+   * @member {module:model/Text} text
+   */
+  exports.prototype['text'] = undefined;
+  /**
+   * Example: population
+   * @member {String} type
+   */
+  exports.prototype['type'] = undefined;
+  /**
+   * @member {module:model/ParticipantInstruction} participantInstructions
+   */
+  exports.prototype['participantInstructions'] = undefined;
+  /**
+   * @member {module:model/Highchart} highcharts
+   */
+  exports.prototype['highcharts'] = undefined;
 
 
 

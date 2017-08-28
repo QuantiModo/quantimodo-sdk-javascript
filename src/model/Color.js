@@ -36,7 +36,7 @@
   /**
    * The Color model module.
    * @module model/Color
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

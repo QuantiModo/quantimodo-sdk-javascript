@@ -36,7 +36,7 @@
   /**
    * The Column model module.
    * @module model/Column
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

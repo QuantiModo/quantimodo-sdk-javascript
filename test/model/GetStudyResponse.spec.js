@@ -140,6 +140,42 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property userCorrelations (base name: "userCorrelations")', function() {
+      // uncomment below and update the code to test the property userCorrelations
+      //var instane = new Quantimodo.GetStudyResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property pairsOfAveragesForAllUsers (base name: "pairsOfAveragesForAllUsers")', function() {
+      // uncomment below and update the code to test the property pairsOfAveragesForAllUsers
+      //var instane = new Quantimodo.GetStudyResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property text (base name: "text")', function() {
+      // uncomment below and update the code to test the property text
+      //var instane = new Quantimodo.GetStudyResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instane = new Quantimodo.GetStudyResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property participantInstructions (base name: "participantInstructions")', function() {
+      // uncomment below and update the code to test the property participantInstructions
+      //var instane = new Quantimodo.GetStudyResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property highcharts (base name: "highcharts")', function() {
+      // uncomment below and update the code to test the property highcharts
+      //var instane = new Quantimodo.GetStudyResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

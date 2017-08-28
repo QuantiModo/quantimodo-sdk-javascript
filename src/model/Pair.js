@@ -36,7 +36,7 @@
   /**
    * The Pair model module.
    * @module model/Pair
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**
@@ -49,8 +49,8 @@
    * @param startTimeSting {Date} Example: 2016-06-03 07:00:00
    * @param causeMeasurementValue {Number} Example: 101341.66666667
    * @param effectMeasurementValue {Number} Example: 7.98
-   * @param causeVariableDefaultUnitAbbreviatedName {String} Example: 
-   * @param effectVariableDefaultUnitAbbreviatedName {String} Example: 
+   * @param causeVariableDefaultUnitAbbreviatedName {String} Example: mg
+   * @param effectVariableDefaultUnitAbbreviatedName {String} Example: %
    */
   var exports = function(causeMeasurement, effectMeasurement, timestamp, startTimeSting, causeMeasurementValue, effectMeasurementValue, causeVariableDefaultUnitAbbreviatedName, effectVariableDefaultUnitAbbreviatedName) {
     var _this = this;
@@ -147,12 +147,12 @@
    */
   exports.prototype['effectMeasurementValue'] = undefined;
   /**
-   * Example: 
+   * Example: mg
    * @member {String} causeVariableDefaultUnitAbbreviatedName
    */
   exports.prototype['causeVariableDefaultUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 
+   * Example: %
    * @member {String} effectVariableDefaultUnitAbbreviatedName
    */
   exports.prototype['effectVariableDefaultUnitAbbreviatedName'] = undefined;

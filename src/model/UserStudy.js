@@ -36,7 +36,7 @@
   /**
    * The UserStudy model module.
    * @module model/UserStudy
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

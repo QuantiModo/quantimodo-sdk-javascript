@@ -156,5 +156,7 @@ Name | Type | Description | Notes
 **parentUserTagVariables** | [**UserVariableArray**](UserVariableArray.md) |  | 
 **commonTagVariables** | [**CommonVariableArray**](CommonVariableArray.md) |  | 
 **commonTaggedVariables** | [**CommonVariableArray**](CommonVariableArray.md) |  | 
+**variableCategory** | [**VariableCategory**](VariableCategory.md) |  | [optional] 
+**unit** | [**Unit**](Unit.md) |  | [optional] 
 
 

@@ -36,7 +36,7 @@
   /**
    * The MeasurementArray model module.
    * @module model/MeasurementArray
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

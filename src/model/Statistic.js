@@ -36,7 +36,7 @@
   /**
    * The Statistic model module.
    * @module model/Statistic
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

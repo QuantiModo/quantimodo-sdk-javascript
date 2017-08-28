@@ -36,7 +36,7 @@
   /**
    * The LocalDailyReminderNotificationTime model module.
    * @module model/LocalDailyReminderNotificationTime
-   * @version 5.8.810
+   * @version 5.8.824
    */
 
   /**

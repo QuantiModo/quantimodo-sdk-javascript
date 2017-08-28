@@ -115,5 +115,6 @@ Name | Type | Description | Notes
 **causeDataSource** | [**DataSource**](DataSource.md) |  | [optional] 
 **effectDataSource** | [**DataSource**](DataSource.md) |  | [optional] 
 **correlationIsContradictoryToOptimalValues** | **Boolean** | Example: false | [optional] 
+**pValue** | **Number** | Example: 0.39628900511586 | [optional] 
 
 
