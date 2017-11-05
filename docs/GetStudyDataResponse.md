@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **effectProcessedDailyMeasurements** | [**[ProcessedDailyMeasurement]**](ProcessedDailyMeasurement.md) |  | 
 **effectVariable** | [**UserVariable**](UserVariable.md) |  | 
 **pairs** | [**[Pair]**](Pair.md) |  | 
-**statistics** | [**Statistic**](Statistic.md) |  | 
+**statistics** | [**Correlation**](Correlation.md) |  | 
 **text** | **String** | Example:  | 
 **user** | **String** | Example:  | 
 **userId** | **Number** | Example: 230 | 

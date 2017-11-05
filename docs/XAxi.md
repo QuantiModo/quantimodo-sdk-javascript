@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | [**Title**](Title.md) |  | 
-**startOnTick** | **Boolean** | Example: true | 
+**categories** | **[String]** |  | 
 **endOnTick** | **Boolean** | Example: true | 
 **showLastLabel** | **Boolean** | Example: true | 
+**startOnTick** | **Boolean** | Example: true | 
 **text** | **String** | Example: Date | 
-**categories** | [**[Category]**](Category.md) |  | 
+**title** | [**Title**](Title.md) |  | 
 
 

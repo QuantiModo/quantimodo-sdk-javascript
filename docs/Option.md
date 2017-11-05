@@ -4,14 +4,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **chart** | [**Chart**](Chart.md) |  | 
-**plotOptions** | [**PlotOption**](PlotOption.md) |  | 
+**colors** | **[String]** |  | 
 **credits** | [**Credit**](Credit.md) |  | 
-**yAxis** | [**[YAxi]**](YAxi.md) |  | 
+**lang** | [**Lang**](Lang.md) |  | 
+**legend** | [**Legend**](Legend.md) |  | 
+**loading** | [**Loading**](Loading.md) |  | 
+**plotOptions** | [**PlotOption**](PlotOption.md) |  | 
 **title** | [**Title**](Title.md) |  | 
 **xAxis** | [**XAxi**](XAxi.md) |  | 
-**lang** | [**Lang**](Lang.md) |  | 
-**loading** | [**Loading**](Loading.md) |  | 
-**legend** | [**Legend**](Legend.md) |  | 
-**colors** | [**[Color]**](Color.md) |  | 
+**yAxis** | [**[YAxi]**](YAxi.md) |  | 
 
 

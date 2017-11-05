@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **String** | url | [optional] 
 **parameters** | **[String]** | parameters array | [optional] 
+**url** | **String** | url | [optional] 
 **usePopup** | **Boolean** | usePopup | [optional] 
 
 

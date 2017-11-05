@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 Get specific tracking reminder notifications
 
-Specific tracking reminder notification instances that still need to be tracked.  
+Specific tracking reminder notification instances that still need to be tracked.
 
 ### Example
 ```javascript
@@ -98,16 +98,16 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.RemindersApi();
 
 var opts = { 
+  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'userId': 3.4 // Number | User's id
-  'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'createdAt': "createdAt_example", // String | When the record was first created. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
+  'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'reminderTime': "reminderTime_example", // String | Example: (lt)2017-07-31 21:43:26
   'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example" // String | Example: oauth_test_client
+  'clientId': "clientId_example", // String | Example: oauth_test_client
   'onlyPast': true, // Boolean | Example: 1
   'includeDeleted': true // Boolean | Example: 
 };
@@ -126,13 +126,13 @@ apiInstance.getTrackingReminderNotifications(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
- **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **createdAt** | **String**| When the record was first created. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local. | [optional] 
  **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local. | [optional] 
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
- **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
+ **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **reminderTime** | **String**| Example: (lt)2017-07-31 21:43:26 | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
@@ -186,7 +186,7 @@ var opts = {
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example" // String | Example: oauth_test_client
+  'clientId': "clientId_example", // String | Example: oauth_test_client
   'appVersion': "appVersion_example", // String | Example: 2.1.1.0
 };
 
@@ -258,7 +258,7 @@ var body = [new Quantimodo.TrackingReminderNotificationPost()]; // [TrackingRemi
 var opts = { 
   'userId': 3.4 // Number | User's id
   'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example" // String | Example: oauth_test_client
+  'clientId': "clientId_example", // String | Example: oauth_test_client
 };
 
 var callback = function(error, data, response) {

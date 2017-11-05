@@ -3,20 +3,20 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Unit name | 
 **abbreviatedName** | **String** | Unit abbreviation | 
+**advanced** | **Number** | Example: 1 | [optional] 
 **category** | **String** | Unit category | 
-**minimumAllowedValue** | **Number** | The minimum allowed value for measurements. While you can record a value below this minimum, it will be excluded from the correlation analysis. | [optional] 
-**maximumAllowedValue** | **Number** | The maximum allowed value for measurements. While you can record a value above this maximum, it will be excluded from the correlation analysis. | [optional] 
+**categoryId** | **Number** | Example: 6 | [optional] 
+**categoryName** | **String** | Example: Miscellany | [optional] 
 **conversionSteps** | [**[ConversionStep]**](ConversionStep.md) | Conversion steps list | 
 **id** | **Number** | Example: 29 | [optional] 
-**categoryName** | **String** | Example: Miscellany | [optional] 
-**categoryId** | **Number** | Example: 6 | [optional] 
-**advanced** | **Number** | Example: 1 | [optional] 
-**minimumValue** | **Number** | Example: 0 | [optional] 
 **manualTracking** | **Number** | Example: 0 | [optional] 
-**unitCategory** | [**UnitCategory**](UnitCategory.md) |  | 
+**maximumAllowedValue** | **Number** | The maximum allowed value for measurements. While you can record a value above this maximum, it will be excluded from the correlation analysis. | [optional] 
 **maximumValue** | **Number** | Example: 4 | 
+**minimumAllowedValue** | **Number** | The minimum allowed value for measurements. While you can record a value below this minimum, it will be excluded from the correlation analysis. | [optional] 
+**minimumValue** | **Number** | Example: 0 | [optional] 
+**name** | **String** | Unit name | 
+**unitCategory** | [**UnitCategory**](UnitCategory.md) |  | 
 
 
 <a name="CategoryEnum"></a>

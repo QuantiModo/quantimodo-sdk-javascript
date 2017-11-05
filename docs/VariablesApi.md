@@ -157,8 +157,8 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.VariablesApi();
 
 var opts = { 
+  'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'userId': 3.4 // Number | User's id
-  'id': 56, // Number | Common variable id
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'name': "name_example", // String | Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain `Mood`, the following query should be used: ?variableName=%Mood%
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
@@ -168,7 +168,7 @@ var opts = {
   'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
   'lastSourceName': "lastSourceName_example", // String | Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
-  'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+  'id': 56, // Number | Common variable id
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'effectOrCause': "effectOrCause_example", // String | Example: 
   'publicEffectOrCause': "publicEffectOrCause_example", // String | Example: 
@@ -176,7 +176,7 @@ var opts = {
   'manualTracking': true, // Boolean | Example: 
   'variableCategoryId': 56, // Number | Example: 13
   'includePrivate': true, // Boolean | Example: 
-  'clientId': "clientId_example" // String | Example: oauth_test_client
+  'clientId': "clientId_example", // String | Example: oauth_test_client
   'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
   'synonyms': "synonyms_example" // String | Example: %McDonalds hotcake%
 };
@@ -195,8 +195,8 @@ apiInstance.getCommonVariables(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
- **id** | **Number**| Common variable id | [optional] 
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **name** | **String**| Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood% | [optional] 
  **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local. | [optional] 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
  **numberOfRawMeasurements** | **String**| Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. | [optional] 
  **lastSourceName** | **String**| Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here | [optional] 
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
- **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
+ **id** | **Number**| Common variable id | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
  **effectOrCause** | **String**| Example:  | [optional] 
  **publicEffectOrCause** | **String**| Example:  | [optional] 
@@ -257,15 +257,16 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.VariablesApi();
 
 var opts = { 
+  'includeCharts': true, // Boolean | Return highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+  'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
   'userId': 3.4 // Number | User's id
-  'id': 56, // Number | Common variable id
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'name': "name_example", // String | Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain `Mood`, the following query should be used: ?variableName=%Mood%
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'sourceName': "sourceName_example", // String | ID of the source you want measurements for (supports exact name match only)
   'earliestMeasurementTime': "earliestMeasurementTime_example", // String | Excluded records with measurement times earlier than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
   'latestMeasurementTime': "latestMeasurementTime_example", // String | Excluded records with measurement times later than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
-  'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
+  'id': 56, // Number | Common variable id
   'lastSourceName': "lastSourceName_example", // String | Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
@@ -273,7 +274,7 @@ var opts = {
   'includePublic': true, // Boolean | Example: true
   'manualTracking': true, // Boolean | Example: 
   'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example" // String | Example: oauth_test_client
+  'clientId': "clientId_example", // String | Example: oauth_test_client
 };
 
 var callback = function(error, data, response) {
@@ -290,15 +291,16 @@ apiInstance.getUserVariables(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **includeCharts** | **Boolean**| Return highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
+ **numberOfRawMeasurements** | **String**| Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
- **id** | **Number**| Common variable id | [optional] 
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **name** | **String**| Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood% | [optional] 
  **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local. | [optional] 
  **sourceName** | **String**| ID of the source you want measurements for (supports exact name match only) | [optional] 
  **earliestMeasurementTime** | **String**| Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
  **latestMeasurementTime** | **String**| Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
- **numberOfRawMeasurements** | **String**| Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. | [optional] 
+ **id** | **Number**| Common variable id | [optional] 
  **lastSourceName** | **String**| Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here | [optional] 
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
@@ -461,11 +463,11 @@ var apiInstance = new Quantimodo.VariablesApi();
 var userVariables = [new Quantimodo.UserVariable()]; // [UserVariable] | Variable user settings data
 
 var opts = { 
-  'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example" // String | Example: oauth_test_client
+  'includePrivate': true, // Boolean | Example: 
+  'clientId': "clientId_example", // String | Example: oauth_test_client
   'includePublic': true, // Boolean | Example: true
   'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
-  'includePrivate': true, // Boolean | Example: 
+  'appName': "appName_example", // String | Example: MoodiModo
   'exactMatch': true, // Boolean | Example: 
   'manualTracking': true, // Boolean | Example: 
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
@@ -488,11 +490,11 @@ apiInstance.postUserVariables(userVariables, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userVariables** | [**[UserVariable]**](UserVariable.md)| Variable user settings data | 
- **appName** | **String**| Example: MoodiModo | [optional] 
+ **includePrivate** | **Boolean**| Example:  | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
  **includePublic** | **Boolean**| Example: true | [optional] 
  **searchPhrase** | **String**| Example: %Body Fat% | [optional] 
- **includePrivate** | **Boolean**| Example:  | [optional] 
+ **appName** | **String**| Example: MoodiModo | [optional] 
  **exactMatch** | **Boolean**| Example:  | [optional] 
  **manualTracking** | **Boolean**| Example:  | [optional] 
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 

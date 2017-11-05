@@ -157,7 +157,7 @@ var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
   'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example" // String | Example: oauth_test_client
+  'clientId': "clientId_example", // String | Example: oauth_test_client
 };
 
 var callback = function(error, data, response) {
@@ -205,7 +205,7 @@ var Quantimodo = require('quantimodo');
 var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
-  'clientId': "clientId_example" // String | Example: oauth_test_client
+  'clientId': "clientId_example", // String | Example: oauth_test_client
 };
 
 var callback = function(error, data, response) {

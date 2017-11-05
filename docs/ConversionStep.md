@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 ## Enum: OperationEnum
 
 
-* `MULTIPLY` (value: `"MULTIPLY"`)
-
 * `ADD` (value: `"ADD"`)
+
+* `MULTIPLY` (value: `"MULTIPLY"`)
 
 
 
