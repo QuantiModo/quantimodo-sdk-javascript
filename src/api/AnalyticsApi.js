@@ -33,7 +33,7 @@
   /**
    * Analytics service.
    * @module api/AnalyticsApi
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

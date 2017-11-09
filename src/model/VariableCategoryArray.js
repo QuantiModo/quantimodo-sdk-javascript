@@ -36,7 +36,7 @@
   /**
    * The VariableCategoryArray model module.
    * @module model/VariableCategoryArray
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

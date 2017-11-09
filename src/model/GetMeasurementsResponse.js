@@ -36,7 +36,7 @@
   /**
    * The GetMeasurementsResponse model module.
    * @module model/GetMeasurementsResponse
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

@@ -36,7 +36,7 @@
   /**
    * The Legend model module.
    * @module model/Legend
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **notificationBar** | **Boolean** | True if the reminders should appear in the notification bar | [optional] 
 **numberOfRawMeasurements** | **Number** | Example: 445 | [optional] 
 **numberOfUniqueValues** | **Number** | Example: 1 | [optional] 
+**outcome** | **Boolean** | Indicates whether or not the variable is usually an outcome of interest such as a symptom or emotion | [optional] 
 **pngPath** | **String** | Example: img/variable_categories/symptoms.png | [optional] 
 **pngUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/symptoms.png | [optional] 
 **popUp** | **Boolean** | True if the reminders should appear as a popup notification | [optional] 

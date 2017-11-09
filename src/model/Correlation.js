@@ -36,7 +36,7 @@
   /**
    * The Correlation model module.
    * @module model/Correlation
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**
@@ -52,19 +52,9 @@
    * @param averageEffectFollowingLowCauseExplanation {String} Example: Overall Mood is 2.65/5 (14% lower) on average after days with around 1.97/5 Sleep Quality
    * @param averageForwardPearsonCorrelationOverOnsetDelays {Number} Example: 0.396
    * @param averageReversePearsonCorrelationOverOnsetDelays {Number} Example: 0.453667
-   * @param averageVote {String} Example: 0.9855
+   * @param averageVote {Number} Example: 0.9855
    * @param causeChanges {Number} Example: 164
    * @param causeUserVariableShareUserMeasurements {Number} Example: 1
-   * @param causeVariableCategoryId {Number} Example: 6
-   * @param causeVariableCategoryName {String} Example: Sleep
-   * @param causeVariableCombinationOperation {String} Example: MEAN
-   * @param causeVariableUnitAbbreviatedName {String} Example: /5
-   * @param causeVariableUnitId {Number} Example: 10
-   * @param causeVariableUnitName {String} Example: 1 to 5 Rating
-   * @param causeVariableId {Number} Example: 1448
-   * @param causeVariableImageUrl {String} Example: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
-   * @param causeVariableIonIcon {String} Example: ion-ios-cloudy-night-outline
-   * @param causeVariableMostCommonConnectorId {Number} Example: 6
    * @param causeVariableName {String} Example: Sleep Quality
    * @param confidenceInterval {Number} Example: 0.14344467795996
    * @param confidenceLevel {String} Example: high
@@ -73,26 +63,12 @@
    * @param criticalTValue {Number} Example: 1.646
    * @param dataAnalysis {String} Example: It was assumed that 0 hours would pass before a change in Sleep Quality would produce an observable change in Overall Mood.  It was assumed that Sleep Quality could produce an observable change in Overall Mood for as much as 7 days after the stimulus event.
    * @param dataSources {String} Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.<br>Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
-   * @param dataSourcesParagraphForCause {String} Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.
-   * @param dataSourcesParagraphForEffect {String} Example: Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
    * @param direction {String} Example: higher
    * @param durationOfAction {Number} Example: 604800
    * @param durationOfActionInHours {Number} Example: 168
    * @param effectChanges {Number} Example: 193
    * @param effectSize {String} Example: moderately positive
    * @param effectUnit {String} Example: /5
-   * @param effectUserVariableShareUserMeasurements {Number} Example: 1
-   * @param effectVariableCategoryId {Number} Example: 1
-   * @param effectVariableCategoryName {String} Example: Emotions
-   * @param effectVariableCombinationOperation {String} Example: MEAN
-   * @param effectVariableCommonAlias {String} Example: Mood_(psychology)
-   * @param effectVariableUnitAbbreviatedName {String} Example: /5
-   * @param effectVariableUnitId {Number} Example: 10
-   * @param effectVariableUnitName {String} Example: 1 to 5 Rating
-   * @param effectVariableId {Number} Example: 1398
-   * @param effectVariableImageUrl {String} Example: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
-   * @param effectVariableIonIcon {String} Example: ion-happy-outline
-   * @param effectVariableMostCommonConnectorId {Number} Example: 10
    * @param effectVariableName {String} Example: Overall Mood
    * @param experimentEndTime {Date} Example: 2014-07-30 12:50:00
    * @param experimentStartTime {Date} Example: 2012-05-06 21:15:00
@@ -100,8 +76,6 @@
    * @param gaugeImage {String} Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
    * @param gaugeImageSquare {String} Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
    * @param imageUrl {String} Example: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
-   * @param instructionsForCause {String} Example: <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Obtain Up by Jawbone</a> and use it to record your Sleep Quality. Once you have a <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  Up by Jawbone account at QuantiModo</a> to automatically import and analyze your data.
-   * @param instructionsForEffect {String} Example: <a href=\"https://quantimo.do\">Obtain QuantiModo</a> and use it to record your Overall Mood. Once you have a <a href=\"https://quantimo.do\">QuantiModo</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  QuantiModo account at QuantiModo</a> to automatically import and analyze your data.
    * @param numberOfPairs {Number} Example: 298
    * @param onsetDelay {Number} Example: 0
    * @param onsetDelayInHours {Number} Example: 0
@@ -141,7 +115,6 @@
    * @param studyObjective {String} Example: The objective of this study is to determine the nature of the relationship (if any) between the Sleep Quality and the Overall Mood. Additionally, we attempt to determine the Sleep Quality values most likely to produce optimal Overall Mood values.
    * @param studyResults {String} Example: This analysis suggests that higher Sleep Quality (Sleep) generally predicts higher Overall Mood (p = 0).  Overall Mood is, on average, 17%  higher after around 4.14 Sleep Quality.  After an onset delay of 168 hours, Overall Mood is, on average, 11%  lower than its average over the 168 hours following around 3.03 Sleep Quality.  298 data points were used in this analysis.  The value for Sleep Quality changed 164 times, effectively running 82 separate natural experiments.  The top quartile outcome values are preceded by an average 4.14 /5 of Sleep Quality.  The bottom quartile outcome values are preceded by an average 3.03 /5 of Sleep Quality.  Forward Pearson Correlation Coefficient was 0.538 (p=0, 95% CI 0.395 to 0.681 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0 (P=0, 95% CI -0.143 to 0.143, onset delay = -0 hours, duration of action = -168 hours). When the Sleep Quality value is closer to 4.14 /5 than 3.03 /5, the Overall Mood value which follows is, on average, 17%  percent higher than its typical value.  When the Sleep Quality value is closer to 3.03 /5 than 4.14 /5, the Overall Mood value which follows is 0% lower than its typical value.  Overall Mood is 3.55/5 (15% higher) on average after days with around 4.19/5 Sleep Quality  Overall Mood is 2.65/5 (14% lower) on average after days with around 1.97/5 Sleep Quality
    * @param studyTitle {String} Example: N1 Study: Sleep Quality Predicts Higher Overall Mood
-   * @param timestamp {Number} Example: 1494085127
    * @param tValue {Number} Example: 9.6986079652717
    * @param updatedAt {Date} Example: 2017-05-06 15:40:38
    * @param userId {Number} Example: 230
@@ -151,7 +124,7 @@
    * @param valuePredictingLowOutcome {Number} Example: 3.03
    * @param valuePredictingLowOutcomeExplanation {String} Example: Overall Mood, on average, 11% lower after around 3.03/5 Sleep Quality
    */
-  var exports = function(averageDailyHighCause, averageDailyLowCause, averageEffect, averageEffectFollowingHighCause, averageEffectFollowingHighCauseExplanation, averageEffectFollowingLowCause, averageEffectFollowingLowCauseExplanation, averageForwardPearsonCorrelationOverOnsetDelays, averageReversePearsonCorrelationOverOnsetDelays, averageVote, causeChanges, causeUserVariableShareUserMeasurements, causeVariableCategoryId, causeVariableCategoryName, causeVariableCombinationOperation, causeVariableUnitAbbreviatedName, causeVariableUnitId, causeVariableUnitName, causeVariableId, causeVariableImageUrl, causeVariableIonIcon, causeVariableMostCommonConnectorId, causeVariableName, confidenceInterval, confidenceLevel, correlationCoefficient, createdAt, criticalTValue, dataAnalysis, dataSources, dataSourcesParagraphForCause, dataSourcesParagraphForEffect, direction, durationOfAction, durationOfActionInHours, effectChanges, effectSize, effectUnit, effectUserVariableShareUserMeasurements, effectVariableCategoryId, effectVariableCategoryName, effectVariableCombinationOperation, effectVariableCommonAlias, effectVariableUnitAbbreviatedName, effectVariableUnitId, effectVariableUnitName, effectVariableId, effectVariableImageUrl, effectVariableIonIcon, effectVariableMostCommonConnectorId, effectVariableName, experimentEndTime, experimentStartTime, forwardSpearmanCorrelationCoefficient, gaugeImage, gaugeImageSquare, imageUrl, instructionsForCause, instructionsForEffect, numberOfPairs, onsetDelay, onsetDelayInHours, onsetDelayWithStrongestPearsonCorrelation, onsetDelayWithStrongestPearsonCorrelationInHours, optimalPearsonProduct, outcomeFillingValue, pearsonCorrelationWithNoOnsetDelay, predictivePearsonCorrelation, predictivePearsonCorrelationCoefficient, predictorDataSources, predictorExplanation, predictorFillingValue, predictorMaximumAllowedValue, predictorMinimumAllowedValue, predictsHighEffectChange, predictsHighEffectChangeSentenceFragment, predictsLowEffectChange, predictsLowEffectChangeSentenceFragment, qmScore, reversePearsonCorrelationCoefficient, shareUserMeasurements, significanceExplanation, significantDifference, statisticalSignificance, strengthLevel, strongestPearsonCorrelationCoefficient, studyAbstract, studyDesign, studyLimitations, studyLinkDynamic, studyLinkEmail, studyLinkFacebook, studyLinkGoogle, studyLinkStatic, studyLinkTwitter, studyObjective, studyResults, studyTitle, timestamp, tValue, updatedAt, userId, userVote, valuePredictingHighOutcome, valuePredictingHighOutcomeExplanation, valuePredictingLowOutcome, valuePredictingLowOutcomeExplanation) {
+  var exports = function(averageDailyHighCause, averageDailyLowCause, averageEffect, averageEffectFollowingHighCause, averageEffectFollowingHighCauseExplanation, averageEffectFollowingLowCause, averageEffectFollowingLowCauseExplanation, averageForwardPearsonCorrelationOverOnsetDelays, averageReversePearsonCorrelationOverOnsetDelays, averageVote, causeChanges, causeUserVariableShareUserMeasurements, causeVariableName, confidenceInterval, confidenceLevel, correlationCoefficient, createdAt, criticalTValue, dataAnalysis, dataSources, direction, durationOfAction, durationOfActionInHours, effectChanges, effectSize, effectUnit, effectVariableName, experimentEndTime, experimentStartTime, forwardSpearmanCorrelationCoefficient, gaugeImage, gaugeImageSquare, imageUrl, numberOfPairs, onsetDelay, onsetDelayInHours, onsetDelayWithStrongestPearsonCorrelation, onsetDelayWithStrongestPearsonCorrelationInHours, optimalPearsonProduct, outcomeFillingValue, pearsonCorrelationWithNoOnsetDelay, predictivePearsonCorrelation, predictivePearsonCorrelationCoefficient, predictorDataSources, predictorExplanation, predictorFillingValue, predictorMaximumAllowedValue, predictorMinimumAllowedValue, predictsHighEffectChange, predictsHighEffectChangeSentenceFragment, predictsLowEffectChange, predictsLowEffectChangeSentenceFragment, qmScore, reversePearsonCorrelationCoefficient, shareUserMeasurements, significanceExplanation, significantDifference, statisticalSignificance, strengthLevel, strongestPearsonCorrelationCoefficient, studyAbstract, studyDesign, studyLimitations, studyLinkDynamic, studyLinkEmail, studyLinkFacebook, studyLinkGoogle, studyLinkStatic, studyLinkTwitter, studyObjective, studyResults, studyTitle, tValue, updatedAt, userId, userVote, valuePredictingHighOutcome, valuePredictingHighOutcomeExplanation, valuePredictingLowOutcome, valuePredictingLowOutcomeExplanation) {
     var _this = this;
 
     _this['averageDailyHighCause'] = averageDailyHighCause;
@@ -167,16 +140,14 @@
     _this['causeChanges'] = causeChanges;
 
     _this['causeUserVariableShareUserMeasurements'] = causeUserVariableShareUserMeasurements;
-    _this['causeVariableCategoryId'] = causeVariableCategoryId;
-    _this['causeVariableCategoryName'] = causeVariableCategoryName;
-    _this['causeVariableCombinationOperation'] = causeVariableCombinationOperation;
-    _this['causeVariableUnitAbbreviatedName'] = causeVariableUnitAbbreviatedName;
-    _this['causeVariableUnitId'] = causeVariableUnitId;
-    _this['causeVariableUnitName'] = causeVariableUnitName;
-    _this['causeVariableId'] = causeVariableId;
-    _this['causeVariableImageUrl'] = causeVariableImageUrl;
-    _this['causeVariableIonIcon'] = causeVariableIonIcon;
-    _this['causeVariableMostCommonConnectorId'] = causeVariableMostCommonConnectorId;
+
+
+
+
+
+
+
+
     _this['causeVariableName'] = causeVariableName;
     _this['confidenceInterval'] = confidenceInterval;
     _this['confidenceLevel'] = confidenceLevel;
@@ -186,8 +157,6 @@
     _this['criticalTValue'] = criticalTValue;
     _this['dataAnalysis'] = dataAnalysis;
     _this['dataSources'] = dataSources;
-    _this['dataSourcesParagraphForCause'] = dataSourcesParagraphForCause;
-    _this['dataSourcesParagraphForEffect'] = dataSourcesParagraphForEffect;
     _this['direction'] = direction;
     _this['durationOfAction'] = durationOfAction;
     _this['durationOfActionInHours'] = durationOfActionInHours;
@@ -195,27 +164,26 @@
 
     _this['effectSize'] = effectSize;
     _this['effectUnit'] = effectUnit;
-    _this['effectUserVariableShareUserMeasurements'] = effectUserVariableShareUserMeasurements;
-    _this['effectVariableCategoryId'] = effectVariableCategoryId;
-    _this['effectVariableCategoryName'] = effectVariableCategoryName;
-    _this['effectVariableCombinationOperation'] = effectVariableCombinationOperation;
-    _this['effectVariableCommonAlias'] = effectVariableCommonAlias;
-    _this['effectVariableUnitAbbreviatedName'] = effectVariableUnitAbbreviatedName;
-    _this['effectVariableUnitId'] = effectVariableUnitId;
-    _this['effectVariableUnitName'] = effectVariableUnitName;
-    _this['effectVariableId'] = effectVariableId;
-    _this['effectVariableImageUrl'] = effectVariableImageUrl;
-    _this['effectVariableIonIcon'] = effectVariableIonIcon;
-    _this['effectVariableMostCommonConnectorId'] = effectVariableMostCommonConnectorId;
+
+
+
+
+
+
+
+
+
+
+
+
     _this['effectVariableName'] = effectVariableName;
     _this['experimentEndTime'] = experimentEndTime;
     _this['experimentStartTime'] = experimentStartTime;
     _this['forwardSpearmanCorrelationCoefficient'] = forwardSpearmanCorrelationCoefficient;
     _this['gaugeImage'] = gaugeImage;
     _this['gaugeImageSquare'] = gaugeImageSquare;
+
     _this['imageUrl'] = imageUrl;
-    _this['instructionsForCause'] = instructionsForCause;
-    _this['instructionsForEffect'] = instructionsForEffect;
     _this['numberOfPairs'] = numberOfPairs;
     _this['onsetDelay'] = onsetDelay;
     _this['onsetDelayInHours'] = onsetDelayInHours;
@@ -240,7 +208,10 @@
 
     _this['qmScore'] = qmScore;
     _this['reversePearsonCorrelationCoefficient'] = reversePearsonCorrelationCoefficient;
+
     _this['shareUserMeasurements'] = shareUserMeasurements;
+
+
     _this['significanceExplanation'] = significanceExplanation;
     _this['significantDifference'] = significantDifference;
     _this['statisticalSignificance'] = statisticalSignificance;
@@ -258,7 +229,6 @@
     _this['studyObjective'] = studyObjective;
     _this['studyResults'] = studyResults;
     _this['studyTitle'] = studyTitle;
-    _this['timestamp'] = timestamp;
     _this['tValue'] = tValue;
     _this['updatedAt'] = updatedAt;
     _this['userId'] = userId;
@@ -267,41 +237,6 @@
     _this['valuePredictingHighOutcomeExplanation'] = valuePredictingHighOutcomeExplanation;
     _this['valuePredictingLowOutcome'] = valuePredictingLowOutcome;
     _this['valuePredictingLowOutcomeExplanation'] = valuePredictingLowOutcomeExplanation;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -367,7 +302,7 @@
         obj['averageReversePearsonCorrelationOverOnsetDelays'] = ApiClient.convertToType(data['averageReversePearsonCorrelationOverOnsetDelays'], 'Number');
       }
       if (data.hasOwnProperty('averageVote')) {
-        obj['averageVote'] = ApiClient.convertToType(data['averageVote'], 'String');
+        obj['averageVote'] = ApiClient.convertToType(data['averageVote'], 'Number');
       }
       if (data.hasOwnProperty('causeChanges')) {
         obj['causeChanges'] = ApiClient.convertToType(data['causeChanges'], 'Number');
@@ -389,12 +324,6 @@
       }
       if (data.hasOwnProperty('causeVariableUnitAbbreviatedName')) {
         obj['causeVariableUnitAbbreviatedName'] = ApiClient.convertToType(data['causeVariableUnitAbbreviatedName'], 'String');
-      }
-      if (data.hasOwnProperty('causeVariableUnitId')) {
-        obj['causeVariableUnitId'] = ApiClient.convertToType(data['causeVariableUnitId'], 'Number');
-      }
-      if (data.hasOwnProperty('causeVariableUnitName')) {
-        obj['causeVariableUnitName'] = ApiClient.convertToType(data['causeVariableUnitName'], 'String');
       }
       if (data.hasOwnProperty('causeVariableId')) {
         obj['causeVariableId'] = ApiClient.convertToType(data['causeVariableId'], 'Number');
@@ -434,12 +363,6 @@
       }
       if (data.hasOwnProperty('dataSources')) {
         obj['dataSources'] = ApiClient.convertToType(data['dataSources'], 'String');
-      }
-      if (data.hasOwnProperty('dataSourcesParagraphForCause')) {
-        obj['dataSourcesParagraphForCause'] = ApiClient.convertToType(data['dataSourcesParagraphForCause'], 'String');
-      }
-      if (data.hasOwnProperty('dataSourcesParagraphForEffect')) {
-        obj['dataSourcesParagraphForEffect'] = ApiClient.convertToType(data['dataSourcesParagraphForEffect'], 'String');
       }
       if (data.hasOwnProperty('direction')) {
         obj['direction'] = ApiClient.convertToType(data['direction'], 'String');
@@ -516,14 +439,11 @@
       if (data.hasOwnProperty('gaugeImageSquare')) {
         obj['gaugeImageSquare'] = ApiClient.convertToType(data['gaugeImageSquare'], 'String');
       }
+      if (data.hasOwnProperty('gaugeSharingImageUrl')) {
+        obj['gaugeSharingImageUrl'] = ApiClient.convertToType(data['gaugeSharingImageUrl'], 'String');
+      }
       if (data.hasOwnProperty('imageUrl')) {
         obj['imageUrl'] = ApiClient.convertToType(data['imageUrl'], 'String');
-      }
-      if (data.hasOwnProperty('instructionsForCause')) {
-        obj['instructionsForCause'] = ApiClient.convertToType(data['instructionsForCause'], 'String');
-      }
-      if (data.hasOwnProperty('instructionsForEffect')) {
-        obj['instructionsForEffect'] = ApiClient.convertToType(data['instructionsForEffect'], 'String');
       }
       if (data.hasOwnProperty('numberOfPairs')) {
         obj['numberOfPairs'] = ApiClient.convertToType(data['numberOfPairs'], 'Number');
@@ -597,8 +517,17 @@
       if (data.hasOwnProperty('reversePearsonCorrelationCoefficient')) {
         obj['reversePearsonCorrelationCoefficient'] = ApiClient.convertToType(data['reversePearsonCorrelationCoefficient'], 'Number');
       }
+      if (data.hasOwnProperty('robotSharingImageUrl')) {
+        obj['robotSharingImageUrl'] = ApiClient.convertToType(data['robotSharingImageUrl'], 'String');
+      }
       if (data.hasOwnProperty('shareUserMeasurements')) {
         obj['shareUserMeasurements'] = ApiClient.convertToType(data['shareUserMeasurements'], 'Boolean');
+      }
+      if (data.hasOwnProperty('sharingDescription')) {
+        obj['sharingDescription'] = ApiClient.convertToType(data['sharingDescription'], 'String');
+      }
+      if (data.hasOwnProperty('sharingTitle')) {
+        obj['sharingTitle'] = ApiClient.convertToType(data['sharingTitle'], 'String');
       }
       if (data.hasOwnProperty('significanceExplanation')) {
         obj['significanceExplanation'] = ApiClient.convertToType(data['significanceExplanation'], 'String');
@@ -651,9 +580,6 @@
       if (data.hasOwnProperty('studyTitle')) {
         obj['studyTitle'] = ApiClient.convertToType(data['studyTitle'], 'String');
       }
-      if (data.hasOwnProperty('timestamp')) {
-        obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Number');
-      }
       if (data.hasOwnProperty('tValue')) {
         obj['tValue'] = ApiClient.convertToType(data['tValue'], 'Number');
       }
@@ -678,9 +604,6 @@
       if (data.hasOwnProperty('valuePredictingLowOutcomeExplanation')) {
         obj['valuePredictingLowOutcomeExplanation'] = ApiClient.convertToType(data['valuePredictingLowOutcomeExplanation'], 'String');
       }
-      if (data.hasOwnProperty('causalityFactor')) {
-        obj['causalityFactor'] = ApiClient.convertToType(data['causalityFactor'], 'Number');
-      }
       if (data.hasOwnProperty('outcomeDataSources')) {
         obj['outcomeDataSources'] = ApiClient.convertToType(data['outcomeDataSources'], 'String');
       }
@@ -699,26 +622,14 @@
       if (data.hasOwnProperty('studyQuestion')) {
         obj['studyQuestion'] = ApiClient.convertToType(data['studyQuestion'], 'String');
       }
-      if (data.hasOwnProperty('allPairsSignificance')) {
-        obj['allPairsSignificance'] = ApiClient.convertToType(data['allPairsSignificance'], 'Number');
-      }
       if (data.hasOwnProperty('averagePearsonCorrelationCoefficientOverOnsetDelays')) {
         obj['averagePearsonCorrelationCoefficientOverOnsetDelays'] = ApiClient.convertToType(data['averagePearsonCorrelationCoefficientOverOnsetDelays'], 'String');
       }
       if (data.hasOwnProperty('calculationStartTime')) {
         obj['calculationStartTime'] = ApiClient.convertToType(data['calculationStartTime'], 'Date');
       }
-      if (data.hasOwnProperty('causeChangesStatisticalSignificance')) {
-        obj['causeChangesStatisticalSignificance'] = ApiClient.convertToType(data['causeChangesStatisticalSignificance'], 'Number');
-      }
-      if (data.hasOwnProperty('causeNumberOfProcessedDailyMeasurements')) {
-        obj['causeNumberOfProcessedDailyMeasurements'] = ApiClient.convertToType(data['causeNumberOfProcessedDailyMeasurements'], 'Number');
-      }
       if (data.hasOwnProperty('causeNumberOfRawMeasurements')) {
         obj['causeNumberOfRawMeasurements'] = ApiClient.convertToType(data['causeNumberOfRawMeasurements'], 'Number');
-      }
-      if (data.hasOwnProperty('causeValueSpread')) {
-        obj['causeValueSpread'] = ApiClient.convertToType(data['causeValueSpread'], 'Number');
       }
       if (data.hasOwnProperty('correlationsOverDurationsOfAction')) {
         obj['correlationsOverDurationsOfAction'] = ApiClient.convertToType(data['correlationsOverDurationsOfAction'], 'String');
@@ -729,89 +640,17 @@
       if (data.hasOwnProperty('correlationsOverOnsetDelaysChartConfig')) {
         obj['correlationsOverOnsetDelaysChartConfig'] = ApiClient.convertToType(data['correlationsOverOnsetDelaysChartConfig'], 'String');
       }
-      if (data.hasOwnProperty('dataPoints')) {
-        obj['dataPoints'] = ApiClient.convertToType(data['dataPoints'], 'String');
-      }
       if (data.hasOwnProperty('degreesOfFreedom')) {
         obj['degreesOfFreedom'] = ApiClient.convertToType(data['degreesOfFreedom'], 'Number');
-      }
-      if (data.hasOwnProperty('distanceFromMiddleToBeHightLowEffect')) {
-        obj['distanceFromMiddleToBeHightLowEffect'] = ApiClient.convertToType(data['distanceFromMiddleToBeHightLowEffect'], 'Number');
       }
       if (data.hasOwnProperty('effectNumberOfProcessedDailyMeasurements')) {
         obj['effectNumberOfProcessedDailyMeasurements'] = ApiClient.convertToType(data['effectNumberOfProcessedDailyMeasurements'], 'Number');
       }
-      if (data.hasOwnProperty('effectNumberOfRawMeasurements')) {
-        obj['effectNumberOfRawMeasurements'] = ApiClient.convertToType(data['effectNumberOfRawMeasurements'], 'Number');
-      }
-      if (data.hasOwnProperty('effectValueSpread')) {
-        obj['effectValueSpread'] = ApiClient.convertToType(data['effectValueSpread'], 'Number');
-      }
       if (data.hasOwnProperty('error')) {
         obj['error'] = ApiClient.convertToType(data['error'], 'String');
       }
-      if (data.hasOwnProperty('maximumCauseValue')) {
-        obj['maximumCauseValue'] = ApiClient.convertToType(data['maximumCauseValue'], 'Number');
-      }
-      if (data.hasOwnProperty('maximumEffectValue')) {
-        obj['maximumEffectValue'] = ApiClient.convertToType(data['maximumEffectValue'], 'Number');
-      }
-      if (data.hasOwnProperty('medianOfLowerHalfOfEffectMeasurements')) {
-        obj['medianOfLowerHalfOfEffectMeasurements'] = ApiClient.convertToType(data['medianOfLowerHalfOfEffectMeasurements'], 'String');
-      }
-      if (data.hasOwnProperty('medianOfUpperHalfOfEffectMeasurements')) {
-        obj['medianOfUpperHalfOfEffectMeasurements'] = ApiClient.convertToType(data['medianOfUpperHalfOfEffectMeasurements'], 'String');
-      }
-      if (data.hasOwnProperty('minimumCauseValue')) {
-        obj['minimumCauseValue'] = ApiClient.convertToType(data['minimumCauseValue'], 'Number');
-      }
-      if (data.hasOwnProperty('minimumEffectValue')) {
-        obj['minimumEffectValue'] = ApiClient.convertToType(data['minimumEffectValue'], 'Number');
-      }
-      if (data.hasOwnProperty('minimumProbability')) {
-        obj['minimumProbability'] = ApiClient.convertToType(data['minimumProbability'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfCauseChangesForOptimalValues')) {
-        obj['numberOfCauseChangesForOptimalValues'] = ApiClient.convertToType(data['numberOfCauseChangesForOptimalValues'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfDays')) {
-        obj['numberOfDays'] = ApiClient.convertToType(data['numberOfDays'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfDaysSignificance')) {
-        obj['numberOfDaysSignificance'] = ApiClient.convertToType(data['numberOfDaysSignificance'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfEffectChangesForOptimalValues')) {
-        obj['numberOfEffectChangesForOptimalValues'] = ApiClient.convertToType(data['numberOfEffectChangesForOptimalValues'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfHighEffectPairs')) {
-        obj['numberOfHighEffectPairs'] = ApiClient.convertToType(data['numberOfHighEffectPairs'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfLowEffectPairs')) {
-        obj['numberOfLowEffectPairs'] = ApiClient.convertToType(data['numberOfLowEffectPairs'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfSamples')) {
-        obj['numberOfSamples'] = ApiClient.convertToType(data['numberOfSamples'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfUniqueCauseValuesForOptimalValues')) {
-        obj['numberOfUniqueCauseValuesForOptimalValues'] = ApiClient.convertToType(data['numberOfUniqueCauseValuesForOptimalValues'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfUniqueEffectValuesForOptimalValues')) {
-        obj['numberOfUniqueEffectValuesForOptimalValues'] = ApiClient.convertToType(data['numberOfUniqueEffectValuesForOptimalValues'], 'Number');
-      }
       if (data.hasOwnProperty('numberOfUsers')) {
-        obj['numberOfUsers'] = ApiClient.convertToType(data['numberOfUsers'], 'String');
-      }
-      if (data.hasOwnProperty('optimalChangeSpread')) {
-        obj['optimalChangeSpread'] = ApiClient.convertToType(data['optimalChangeSpread'], 'Number');
-      }
-      if (data.hasOwnProperty('optimalChangeSpreadSignificance')) {
-        obj['optimalChangeSpreadSignificance'] = ApiClient.convertToType(data['optimalChangeSpreadSignificance'], 'Number');
-      }
-      if (data.hasOwnProperty('pairsOverTimeChartConfig')) {
-        obj['pairsOverTimeChartConfig'] = ApiClient.convertToType(data['pairsOverTimeChartConfig'], 'Date');
-      }
-      if (data.hasOwnProperty('perDaySentenceFragment')) {
-        obj['perDaySentenceFragment'] = ApiClient.convertToType(data['perDaySentenceFragment'], 'String');
+        obj['numberOfUsers'] = ApiClient.convertToType(data['numberOfUsers'], 'Number');
       }
       if (data.hasOwnProperty('rawCauseMeasurementSignificance')) {
         obj['rawCauseMeasurementSignificance'] = ApiClient.convertToType(data['rawCauseMeasurementSignificance'], 'Number');
@@ -828,24 +667,6 @@
       if (data.hasOwnProperty('aggregateQMScore')) {
         obj['aggregateQMScore'] = ApiClient.convertToType(data['aggregateQMScore'], 'Number');
       }
-      if (data.hasOwnProperty('causeUnit')) {
-        obj['causeUnit'] = ApiClient.convertToType(data['causeUnit'], 'String');
-      }
-      if (data.hasOwnProperty('causeVariableCommonAlias')) {
-        obj['causeVariableCommonAlias'] = ApiClient.convertToType(data['causeVariableCommonAlias'], 'String');
-      }
-      if (data.hasOwnProperty('causeVariableInformationalUrl')) {
-        obj['causeVariableInformationalUrl'] = ApiClient.convertToType(data['causeVariableInformationalUrl'], 'String');
-      }
-      if (data.hasOwnProperty('causeVariableProductUrl')) {
-        obj['causeVariableProductUrl'] = ApiClient.convertToType(data['causeVariableProductUrl'], 'String');
-      }
-      if (data.hasOwnProperty('effectVariableInformationalUrl')) {
-        obj['effectVariableInformationalUrl'] = ApiClient.convertToType(data['effectVariableInformationalUrl'], 'String');
-      }
-      if (data.hasOwnProperty('effectVariableProductUrl')) {
-        obj['effectVariableProductUrl'] = ApiClient.convertToType(data['effectVariableProductUrl'], 'String');
-      }
       if (data.hasOwnProperty('forwardPearsonCorrelationCoefficient')) {
         obj['forwardPearsonCorrelationCoefficient'] = ApiClient.convertToType(data['forwardPearsonCorrelationCoefficient'], 'Number');
       }
@@ -853,7 +674,7 @@
         obj['numberOfCorrelations'] = ApiClient.convertToType(data['numberOfCorrelations'], 'Number');
       }
       if (data.hasOwnProperty('vote')) {
-        obj['vote'] = ApiClient.convertToType(data['vote'], 'String');
+        obj['vote'] = ApiClient.convertToType(data['vote'], 'Number');
       }
     }
     return obj;
@@ -906,7 +727,7 @@
   exports.prototype['averageReversePearsonCorrelationOverOnsetDelays'] = undefined;
   /**
    * Example: 0.9855
-   * @member {String} averageVote
+   * @member {Number} averageVote
    */
   exports.prototype['averageVote'] = undefined;
   /**
@@ -943,16 +764,6 @@
    * @member {String} causeVariableUnitAbbreviatedName
    */
   exports.prototype['causeVariableUnitAbbreviatedName'] = undefined;
-  /**
-   * Example: 10
-   * @member {Number} causeVariableUnitId
-   */
-  exports.prototype['causeVariableUnitId'] = undefined;
-  /**
-   * Example: 1 to 5 Rating
-   * @member {String} causeVariableUnitName
-   */
-  exports.prototype['causeVariableUnitName'] = undefined;
   /**
    * Example: 1448
    * @member {Number} causeVariableId
@@ -1018,16 +829,6 @@
    * @member {String} dataSources
    */
   exports.prototype['dataSources'] = undefined;
-  /**
-   * Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.
-   * @member {String} dataSourcesParagraphForCause
-   */
-  exports.prototype['dataSourcesParagraphForCause'] = undefined;
-  /**
-   * Example: Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
-   * @member {String} dataSourcesParagraphForEffect
-   */
-  exports.prototype['dataSourcesParagraphForEffect'] = undefined;
   /**
    * Example: higher
    * @member {String} direction
@@ -1153,20 +954,15 @@
    */
   exports.prototype['gaugeImageSquare'] = undefined;
   /**
+   * Image with gauge and category images
+   * @member {String} gaugeSharingImageUrl
+   */
+  exports.prototype['gaugeSharingImageUrl'] = undefined;
+  /**
    * Example: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
    * @member {String} imageUrl
    */
   exports.prototype['imageUrl'] = undefined;
-  /**
-   * Example: <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Obtain Up by Jawbone</a> and use it to record your Sleep Quality. Once you have a <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  Up by Jawbone account at QuantiModo</a> to automatically import and analyze your data.
-   * @member {String} instructionsForCause
-   */
-  exports.prototype['instructionsForCause'] = undefined;
-  /**
-   * Example: <a href=\"https://quantimo.do\">Obtain QuantiModo</a> and use it to record your Overall Mood. Once you have a <a href=\"https://quantimo.do\">QuantiModo</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  QuantiModo account at QuantiModo</a> to automatically import and analyze your data.
-   * @member {String} instructionsForEffect
-   */
-  exports.prototype['instructionsForEffect'] = undefined;
   /**
    * Example: 298
    * @member {Number} numberOfPairs
@@ -1288,10 +1084,25 @@
    */
   exports.prototype['reversePearsonCorrelationCoefficient'] = undefined;
   /**
+   * Image with robot and category images
+   * @member {String} robotSharingImageUrl
+   */
+  exports.prototype['robotSharingImageUrl'] = undefined;
+  /**
    * Example: 1
    * @member {Boolean} shareUserMeasurements
    */
   exports.prototype['shareUserMeasurements'] = undefined;
+  /**
+   * Example: N1 Study: Sleep Quality Predicts Higher Overall Mood
+   * @member {String} sharingDescription
+   */
+  exports.prototype['sharingDescription'] = undefined;
+  /**
+   * Example: N1 Study: Sleep Quality Predicts Higher Overall Mood
+   * @member {String} sharingTitle
+   */
+  exports.prototype['sharingTitle'] = undefined;
   /**
    * Example: Using a two-tailed t-test with alpha = 0.05, it was determined that the change in Overall Mood is statistically significant at 95% confidence interval.
    * @member {String} significanceExplanation
@@ -1378,11 +1189,6 @@
    */
   exports.prototype['studyTitle'] = undefined;
   /**
-   * Example: 1494085127
-   * @member {Number} timestamp
-   */
-  exports.prototype['timestamp'] = undefined;
-  /**
    * Example: 9.6986079652717
    * @member {Number} tValue
    */
@@ -1423,11 +1229,6 @@
    */
   exports.prototype['valuePredictingLowOutcomeExplanation'] = undefined;
   /**
-   * 
-   * @member {Number} causalityFactor
-   */
-  exports.prototype['causalityFactor'] = undefined;
-  /**
    * original name of the cause.
    * @member {String} outcomeDataSources
    */
@@ -1458,11 +1259,6 @@
    */
   exports.prototype['studyQuestion'] = undefined;
   /**
-   * Example: 0.99994982531794
-   * @member {Number} allPairsSignificance
-   */
-  exports.prototype['allPairsSignificance'] = undefined;
-  /**
    * Example: 
    * @member {String} averagePearsonCorrelationCoefficientOverOnsetDelays
    */
@@ -1473,25 +1269,10 @@
    */
   exports.prototype['calculationStartTime'] = undefined;
   /**
-   * Example: 0.9999299755903
-   * @member {Number} causeChangesStatisticalSignificance
-   */
-  exports.prototype['causeChangesStatisticalSignificance'] = undefined;
-  /**
-   * Example: 1364
-   * @member {Number} causeNumberOfProcessedDailyMeasurements
-   */
-  exports.prototype['causeNumberOfProcessedDailyMeasurements'] = undefined;
-  /**
    * Example: 14764
    * @member {Number} causeNumberOfRawMeasurements
    */
   exports.prototype['causeNumberOfRawMeasurements'] = undefined;
-  /**
-   * Example: 99032.44787234
-   * @member {Number} causeValueSpread
-   */
-  exports.prototype['causeValueSpread'] = undefined;
   /**
    * Example: 
    * @member {String} correlationsOverDurationsOfAction
@@ -1508,145 +1289,25 @@
    */
   exports.prototype['correlationsOverOnsetDelaysChartConfig'] = undefined;
   /**
-   * Example: 
-   * @member {String} dataPoints
-   */
-  exports.prototype['dataPoints'] = undefined;
-  /**
    * Example: 200
    * @member {Number} degreesOfFreedom
    */
   exports.prototype['degreesOfFreedom'] = undefined;
-  /**
-   * Example: 25
-   * @member {Number} distanceFromMiddleToBeHightLowEffect
-   */
-  exports.prototype['distanceFromMiddleToBeHightLowEffect'] = undefined;
   /**
    * Example: 145
    * @member {Number} effectNumberOfProcessedDailyMeasurements
    */
   exports.prototype['effectNumberOfProcessedDailyMeasurements'] = undefined;
   /**
-   * Example: 4045
-   * @member {Number} effectNumberOfRawMeasurements
-   */
-  exports.prototype['effectNumberOfRawMeasurements'] = undefined;
-  /**
-   * Example: 20.2
-   * @member {Number} effectValueSpread
-   */
-  exports.prototype['effectValueSpread'] = undefined;
-  /**
    * Example: optimalPearsonProduct is not defined
    * @member {String} error
    */
   exports.prototype['error'] = undefined;
   /**
-   * Example: 104300
-   * @member {Number} maximumCauseValue
-   */
-  exports.prototype['maximumCauseValue'] = undefined;
-  /**
-   * Example: 20.38
-   * @member {Number} maximumEffectValue
-   */
-  exports.prototype['maximumEffectValue'] = undefined;
-  /**
    * Example: 
-   * @member {String} medianOfLowerHalfOfEffectMeasurements
-   */
-  exports.prototype['medianOfLowerHalfOfEffectMeasurements'] = undefined;
-  /**
-   * Example: 
-   * @member {String} medianOfUpperHalfOfEffectMeasurements
-   */
-  exports.prototype['medianOfUpperHalfOfEffectMeasurements'] = undefined;
-  /**
-   * Example: 5267.5521276596
-   * @member {Number} minimumCauseValue
-   */
-  exports.prototype['minimumCauseValue'] = undefined;
-  /**
-   * Example: 0.18
-   * @member {Number} minimumEffectValue
-   */
-  exports.prototype['minimumEffectValue'] = undefined;
-  /**
-   * Example: 0.05
-   * @member {Number} minimumProbability
-   */
-  exports.prototype['minimumProbability'] = undefined;
-  /**
-   * Example: 287
-   * @member {Number} numberOfCauseChangesForOptimalValues
-   */
-  exports.prototype['numberOfCauseChangesForOptimalValues'] = undefined;
-  /**
-   * Example: 425
-   * @member {Number} numberOfDays
-   */
-  exports.prototype['numberOfDays'] = undefined;
-  /**
-   * Example: 0.99999929612614
-   * @member {Number} numberOfDaysSignificance
-   */
-  exports.prototype['numberOfDaysSignificance'] = undefined;
-  /**
-   * Example: 295
-   * @member {Number} numberOfEffectChangesForOptimalValues
-   */
-  exports.prototype['numberOfEffectChangesForOptimalValues'] = undefined;
-  /**
-   * Example: 27
-   * @member {Number} numberOfHighEffectPairs
-   */
-  exports.prototype['numberOfHighEffectPairs'] = undefined;
-  /**
-   * Example: 57
-   * @member {Number} numberOfLowEffectPairs
-   */
-  exports.prototype['numberOfLowEffectPairs'] = undefined;
-  /**
-   * Example: 297
-   * @member {Number} numberOfSamples
-   */
-  exports.prototype['numberOfSamples'] = undefined;
-  /**
-   * Example: 201
-   * @member {Number} numberOfUniqueCauseValuesForOptimalValues
-   */
-  exports.prototype['numberOfUniqueCauseValuesForOptimalValues'] = undefined;
-  /**
-   * Example: 264
-   * @member {Number} numberOfUniqueEffectValuesForOptimalValues
-   */
-  exports.prototype['numberOfUniqueEffectValuesForOptimalValues'] = undefined;
-  /**
-   * Example: 
-   * @member {String} numberOfUsers
+   * @member {Number} numberOfUsers
    */
   exports.prototype['numberOfUsers'] = undefined;
-  /**
-   * Example: 83.44
-   * @member {Number} optimalChangeSpread
-   */
-  exports.prototype['optimalChangeSpread'] = undefined;
-  /**
-   * Example: 0.99999999999917
-   * @member {Number} optimalChangeSpreadSignificance
-   */
-  exports.prototype['optimalChangeSpreadSignificance'] = undefined;
-  /**
-   * Example: 
-   * @member {Date} pairsOverTimeChartConfig
-   */
-  exports.prototype['pairsOverTimeChartConfig'] = undefined;
-  /**
-   * Example: 
-   * @member {String} perDaySentenceFragment
-   */
-  exports.prototype['perDaySentenceFragment'] = undefined;
   /**
    * Example: 1
    * @member {Number} rawCauseMeasurementSignificance
@@ -1673,36 +1334,6 @@
    */
   exports.prototype['aggregateQMScore'] = undefined;
   /**
-   * Unit of the predictor variable
-   * @member {String} causeUnit
-   */
-  exports.prototype['causeUnit'] = undefined;
-  /**
-   * Example: 
-   * @member {String} causeVariableCommonAlias
-   */
-  exports.prototype['causeVariableCommonAlias'] = undefined;
-  /**
-   * Example: 
-   * @member {String} causeVariableInformationalUrl
-   */
-  exports.prototype['causeVariableInformationalUrl'] = undefined;
-  /**
-   * Example: 
-   * @member {String} causeVariableProductUrl
-   */
-  exports.prototype['causeVariableProductUrl'] = undefined;
-  /**
-   * Example: 
-   * @member {String} effectVariableInformationalUrl
-   */
-  exports.prototype['effectVariableInformationalUrl'] = undefined;
-  /**
-   * Example: 
-   * @member {String} effectVariableProductUrl
-   */
-  exports.prototype['effectVariableProductUrl'] = undefined;
-  /**
    * Example: 0.0333
    * @member {Number} forwardPearsonCorrelationCoefficient
    */
@@ -1714,7 +1345,7 @@
   exports.prototype['numberOfCorrelations'] = undefined;
   /**
    * Example: 
-   * @member {String} vote
+   * @member {Number} vote
    */
   exports.prototype['vote'] = undefined;
 

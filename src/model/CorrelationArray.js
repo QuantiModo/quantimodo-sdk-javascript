@@ -36,7 +36,7 @@
   /**
    * The CorrelationArray model module.
    * @module model/CorrelationArray
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

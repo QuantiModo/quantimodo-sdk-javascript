@@ -36,7 +36,7 @@
   /**
    * The Study model module.
    * @module model/Study
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

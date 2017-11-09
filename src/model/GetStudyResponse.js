@@ -36,7 +36,7 @@
   /**
    * The GetStudyResponse model module.
    * @module model/GetStudyResponse
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

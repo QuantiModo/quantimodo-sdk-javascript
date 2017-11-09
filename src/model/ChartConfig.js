@@ -36,7 +36,7 @@
   /**
    * The ChartConfig model module.
    * @module model/ChartConfig
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

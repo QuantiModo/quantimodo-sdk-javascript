@@ -36,7 +36,7 @@
   /**
    * The ProcessedDailyMeasurement model module.
    * @module model/ProcessedDailyMeasurement
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

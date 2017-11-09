@@ -36,7 +36,7 @@
   /**
    * The ScopeArray model module.
    * @module model/ScopeArray
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

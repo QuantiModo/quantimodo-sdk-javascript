@@ -36,7 +36,7 @@
   /**
    * The Scatter model module.
    * @module model/Scatter
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

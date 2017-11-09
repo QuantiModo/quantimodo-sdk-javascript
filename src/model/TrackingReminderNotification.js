@@ -36,7 +36,7 @@
   /**
    * The TrackingReminderNotification model module.
    * @module model/TrackingReminderNotification
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**
@@ -69,6 +69,7 @@
     _this['fillingValue'] = fillingValue;
 
     _this['id'] = id;
+
 
 
 
@@ -215,6 +216,9 @@
       }
       if (data.hasOwnProperty('numberOfUniqueValues')) {
         obj['numberOfUniqueValues'] = ApiClient.convertToType(data['numberOfUniqueValues'], 'Number');
+      }
+      if (data.hasOwnProperty('outcome')) {
+        obj['outcome'] = ApiClient.convertToType(data['outcome'], 'Boolean');
       }
       if (data.hasOwnProperty('pngPath')) {
         obj['pngPath'] = ApiClient.convertToType(data['pngPath'], 'String');
@@ -475,6 +479,11 @@
    * @member {Number} numberOfUniqueValues
    */
   exports.prototype['numberOfUniqueValues'] = undefined;
+  /**
+   * Indicates whether or not the variable is usually an outcome of interest such as a symptom or emotion
+   * @member {Boolean} outcome
+   */
+  exports.prototype['outcome'] = undefined;
   /**
    * Example: img/variable_categories/emotions.png
    * @member {String} pngPath

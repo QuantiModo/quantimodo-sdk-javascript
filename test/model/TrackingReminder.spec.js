@@ -248,6 +248,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property outcome (base name: "outcome")', function() {
+      // uncomment below and update the code to test the property outcome
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
     it('should have the property pngPath (base name: "pngPath")', function() {
       // uncomment below and update the code to test the property pngPath
       //var instane = new Quantimodo.TrackingReminder();

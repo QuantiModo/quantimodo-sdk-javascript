@@ -33,7 +33,7 @@
   /**
    * Study service.
    * @module api/StudyApi
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**

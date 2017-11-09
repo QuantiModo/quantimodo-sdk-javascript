@@ -36,7 +36,7 @@
   /**
    * The Marker model module.
    * @module model/Marker
-   * @version 5.8.1105
+   * @version 5.8.1109
    */
 
   /**
