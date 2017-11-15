@@ -1,6 +1,6 @@
 {
-  "name": "quantimodo-sdk-javascript",
-  "description": "Better living through data",
+  "name": "quantimodo",
+  "description": "QuantiModo makes it easy to retrieve and analyze normalized user data from a wide array of devices and applications.",
   "main": "src/quantimodoApi/index.js",
   "authors": [
     "Mike P. Sinn <m@quantimodo.com>"
