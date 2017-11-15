@@ -1,5 +1,5 @@
 {
-  "name": "quantimodo-sdk-javascript ",
+  "name": "quantimodo",
   "version": "5.8.1114",
   "description": "QuantiModo makes it easy to retrieve and analyze normalized user data from a wide array of devices and applications.",
   "license": "Unlicense",
