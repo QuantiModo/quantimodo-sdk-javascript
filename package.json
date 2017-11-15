@@ -1,6 +1,6 @@
 {
   "name": "quantimodo-sdk-javascript ",
-  "version": "5.8.727",
+  "version": "5.8.726",
   "description": "quantimodo-sdk-javascript has been deprecated. Please use https://www.npmjs.com/package/quantimodo instead.",
   "license": "Unlicense",
   "main": "src/index.js",
