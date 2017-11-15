@@ -36,7 +36,7 @@
   /**
    * The PairsOfAveragesForAllUserArray model module.
    * @module model/PairsOfAveragesForAllUserArray
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**

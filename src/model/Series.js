@@ -36,7 +36,7 @@
   /**
    * The Series model module.
    * @module model/Series
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**

@@ -36,7 +36,7 @@
   /**
    * The Highchart model module.
    * @module model/Highchart
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -76,6 +77,9 @@
       if (data.hasOwnProperty('explanation')) {
         obj['explanation'] = ApiClient.convertToType(data['explanation'], 'String');
       }
+      if (data.hasOwnProperty('svgUrl')) {
+        obj['svgUrl'] = ApiClient.convertToType(data['svgUrl'], 'String');
+      }
     }
     return obj;
   }
@@ -99,6 +103,11 @@
    * @member {String} explanation
    */
   exports.prototype['explanation'] = undefined;
+  /**
+   * Url to a static svg of the chart
+   * @member {String} svgUrl
+   */
+  exports.prototype['svgUrl'] = undefined;
 
 
 

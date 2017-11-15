@@ -33,7 +33,7 @@
   /**
    * Notifications service.
    * @module api/NotificationsApi
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**

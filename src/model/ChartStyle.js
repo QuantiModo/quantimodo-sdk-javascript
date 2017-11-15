@@ -36,7 +36,7 @@
   /**
    * The ChartStyle model module.
    * @module model/ChartStyle
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**

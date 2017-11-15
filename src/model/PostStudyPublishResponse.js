@@ -36,7 +36,7 @@
   /**
    * The PostStudyPublishResponse model module.
    * @module model/PostStudyPublishResponse
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**

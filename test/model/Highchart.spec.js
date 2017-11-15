@@ -80,6 +80,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property svgUrl (base name: "svgUrl")', function() {
+      // uncomment below and update the code to test the property svgUrl
+      //var instane = new Quantimodo.Highchart();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -36,7 +36,7 @@
   /**
    * The HighchartArray model module.
    * @module model/HighchartArray
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**

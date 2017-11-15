@@ -36,7 +36,7 @@
   /**
    * The PostUserSettingsResponse model module.
    * @module model/PostUserSettingsResponse
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**

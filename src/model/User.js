@@ -36,7 +36,7 @@
   /**
    * The User model module.
    * @module model/User
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**
@@ -143,7 +143,7 @@
         obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
       }
       if (data.hasOwnProperty('earliestReminderTime')) {
-        obj['earliestReminderTime'] = ApiClient.convertToType(data['earliestReminderTime'], 'Date');
+        obj['earliestReminderTime'] = ApiClient.convertToType(data['earliestReminderTime'], 'String');
       }
       if (data.hasOwnProperty('email')) {
         obj['email'] = ApiClient.convertToType(data['email'], 'String');
@@ -299,7 +299,7 @@
   exports.prototype['displayName'] = undefined;
   /**
    * Earliest time user should get notifications. Example: 05:00:00
-   * @member {Date} earliestReminderTime
+   * @member {String} earliestReminderTime
    */
   exports.prototype['earliestReminderTime'] = undefined;
   /**

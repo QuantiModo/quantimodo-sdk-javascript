@@ -36,7 +36,7 @@
   /**
    * The Chart model module.
    * @module model/Chart
-   * @version 5.8.1109
+   * @version 5.8.1114
    */
 
   /**

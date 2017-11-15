@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **clientUserId** | **String** | Example: 118444693184829555362 | [optional] 
 **combineNotifications** | **Boolean** | Example: 1 | [optional] 
 **displayName** | **String** | User display name | 
-**earliestReminderTime** | **Date** | Earliest time user should get notifications. Example: 05:00:00 | [optional] 
+**earliestReminderTime** | **String** | Earliest time user should get notifications. Example: 05:00:00 | [optional] 
 **email** | **String** | User email | 
 **firstName** | **String** | Example: Mike | [optional] 
 **getPreviewBuilds** | **Boolean** | Example: false | [optional] 
