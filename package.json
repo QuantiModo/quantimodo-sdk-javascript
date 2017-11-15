@@ -1,7 +1,7 @@
 {
   "name": "quantimodo-sdk-javascript ",
-  "version": "5.8.726",
-  "description": "quantimodo-sdk-javascript has been deprecated. Please use https://www.npmjs.com/package/quantimodo instead.",
+  "version": "5.8.1114",
+  "description": "QuantiModo makes it easy to retrieve and analyze normalized user data from a wide array of devices and applications.",
   "license": "Unlicense",
   "main": "src/index.js",
   "scripts": {
