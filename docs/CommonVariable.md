@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **availableUnits** | [**[Unit]**](Unit.md) |  | 
 **category** | **String** | Example: Sleep | [optional] 
 **causeOnly** | **Number** | A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user. | 
+**charts** | [**[Chart]**](Chart.md) |  | [optional] 
 **chartsLinkDynamic** | **String** | Example: https://local.quantimo.do/ionic/Modo/www/#/app/charts/Barometric%20Pressure?variableName&#x3D;Barometric%20Pressure&amp;userId&#x3D;230&amp;pngUrl&#x3D;https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Fenvironment.png | 
 **chartsLinkEmail** | **String** | Example: mailto:?subject&#x3D;Check%20out%20my%20Barometric%20Pressure%20data%21&amp;body&#x3D;See%20my%20Barometric%20Pressure%20history%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DBarometric%2520Pressure%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Fenvironment.png%0A%0AHave%20a%20great%20day! | 
 **chartsLinkFacebook** | **String** | Example: https://www.facebook.com/sharer/sharer.php?u&#x3D;https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DBarometric%2520Pressure%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Fenvironment.png | 
@@ -23,7 +24,6 @@ Name | Type | Description | Notes
 **commonVariableUpdatedAt** | **Date** | Example: 2017-07-30 20:47:38 | 
 **createdAt** | **Date** | Example: 2014-10-23 03:41:06 | [optional] 
 **dataSource** | [**DataSource**](DataSource.md) |  | 
-**highcharts** | [**HighchartArray**](HighchartArray.md) |  | [optional] 
 **unitAbbreviatedName** | **String** | Abbreviated name of the default unit for the variable | 
 **unitCategoryId** | **Number** | Example: 1 | [optional] 
 **unitCategoryName** | **String** | Example: Duration | [optional] 
@@ -118,6 +118,7 @@ Name | Type | Description | Notes
 **svgUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/sleep.svg | [optional] 
 **thirdMostCommonValue** | **Number** | Example: 7 | [optional] 
 **thirdToLastValue** | **Number** | Example: 102000 | 
+**upc** | **String** | Universal product code or similar | [optional] 
 **updated** | **Number** | When this variable or its settings were last updated | 
 **updatedAt** | **Date** | Example: 2017-07-31 03:57:06 | [optional] 
 **userId** | **Number** | Example: 230 | 

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **data** | [**GetStudyDataResponse**](GetStudyDataResponse.md) |  | [optional] 
 **effectProcessedDailyMeasurements** | [**[ProcessedDailyMeasurement]**](ProcessedDailyMeasurement.md) |  | [optional] 
 **effectVariable** | [**UserVariable**](UserVariable.md) |  | [optional] 
-**highcharts** | [**HighchartArray**](HighchartArray.md) |  | [optional] 
 **message** | **String** | Message | [optional] 
 **pairs** | [**[Pair]**](Pair.md) |  | [optional] 
 **pairsOfAveragesForAllUsers** | [**[PairsOfAveragesForAllUser]**](PairsOfAveragesForAllUser.md) |  | [optional] 

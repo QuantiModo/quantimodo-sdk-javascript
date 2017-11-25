@@ -119,6 +119,7 @@ Name | Type | Description | Notes
 **studyBackground** | **String** | In order to reduce suffering through the advancement of human knowledge... | [optional] 
 **studyInvitation** | **String** | Help us determine if Remeron affects Overall Mood! | [optional] 
 **studyQuestion** | **String** | Does Remeron affect Overall Mood? | [optional] 
+**studyHtml** | **String** | Embeddable study HTML including chart svg&#39;s | [optional] 
 **averagePearsonCorrelationCoefficientOverOnsetDelays** | **String** | Example:  | [optional] 
 **calculationStartTime** | **Date** | Example:  | [optional] 
 **causeNumberOfRawMeasurements** | **Number** | Example: 14764 | [optional] 

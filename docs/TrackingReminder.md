@@ -57,6 +57,7 @@ Name | Type | Description | Notes
 **thirdToLastValue** | **Number** | Example: 3 | [optional] 
 **trackingReminderId** | **Number** | Example: 11841 | [optional] 
 **trackingReminderImageUrl** | **String** | Example: Not Found | [optional] 
+**upc** | **String** | UPC or other barcode scan result | [optional] 
 **updatedAt** | **Date** | When the record in the database was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
 **userId** | **Number** | ID of User | [optional] 
 **userVariableUnitAbbreviatedName** | **String** | Example: /5 | [optional] 

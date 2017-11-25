@@ -39,7 +39,7 @@ var apiInstance = new Quantimodo.RemindersApi();
 var body = new Quantimodo.TrackingReminderDelete(); // TrackingReminderDelete | Id of reminder to be deleted
 
 var opts = { 
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
 };
 
 var callback = function(error, data, response) {
@@ -99,7 +99,7 @@ var apiInstance = new Quantimodo.RemindersApi();
 
 var opts = { 
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
   'createdAt': "createdAt_example", // String | When the record was first created. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -178,7 +178,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.RemindersApi();
 
 var opts = { 
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'createdAt': "createdAt_example", // String | When the record was first created. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
@@ -256,7 +256,7 @@ var apiInstance = new Quantimodo.RemindersApi();
 var body = [new Quantimodo.TrackingReminderNotificationPost()]; // [TrackingReminderNotificationPost] | Id of the tracking reminder notification to be snoozed
 
 var opts = { 
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
 };

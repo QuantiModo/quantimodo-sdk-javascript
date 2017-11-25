@@ -158,7 +158,7 @@ var apiInstance = new Quantimodo.VariablesApi();
 
 var opts = { 
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'name': "name_example", // String | Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain `Mood`, the following query should be used: ?variableName=%Mood%
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
@@ -179,6 +179,7 @@ var opts = {
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
   'synonyms': "synonyms_example" // String | Example: %McDonalds hotcake%
+  'upc': "upc_example" // String | UPC or other barcode scan result
 };
 
 var callback = function(error, data, response) {
@@ -217,6 +218,7 @@ Name | Type | Description  | Notes
  **clientId** | **String**| Example: oauth_test_client | [optional] 
  **searchPhrase** | **String**| Example: %Body Fat% | [optional] 
  **synonyms** | **String**| Example: %McDonalds hotcake% | [optional] 
+ **upc** | **String**| UPC or other barcode scan result | [optional] 
 
 ### Return type
 
@@ -257,9 +259,9 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.VariablesApi();
 
 var opts = { 
-  'includeCharts': true, // Boolean | Return highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+  'includeCharts': true, // Boolean | Return Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
   'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'name': "name_example", // String | Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain `Mood`, the following query should be used: ?variableName=%Mood%
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
@@ -275,6 +277,7 @@ var opts = {
   'manualTracking': true, // Boolean | Example: 
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'upc': "upc_example" // String | UPC or other barcode scan result
 };
 
 var callback = function(error, data, response) {
@@ -291,7 +294,7 @@ apiInstance.getUserVariables(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **includeCharts** | **Boolean**| Return highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
+ **includeCharts** | **Boolean**| Return Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
  **numberOfRawMeasurements** | **String**| Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
@@ -309,6 +312,7 @@ Name | Type | Description  | Notes
  **manualTracking** | **Boolean**| Example:  | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **upc** | **String**| UPC or other barcode scan result | [optional] 
 
 ### Return type
 
@@ -402,7 +406,7 @@ var apiInstance = new Quantimodo.VariablesApi();
 var body = new Quantimodo.UserTag(); // UserTag | Contains the new user tag data
 
 var opts = { 
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
 };
 
 var callback = function(error, data, response) {

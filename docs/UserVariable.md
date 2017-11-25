@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **alias** | **String** | Example:  | 
 **availableUnits** | [**[Unit]**](Unit.md) |  | 
 **causeOnly** | **Boolean** | A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user | [optional] 
-**charts** | **Object** | Highcharts configs you can use if you add highcharts.js to your page | [optional] 
+**charts** | [**[Chart]**](Chart.md) |  | [optional] 
 **chartsLinkDynamic** | **String** | Example: https://local.quantimo.do/ionic/Modo/www/#/app/charts/Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29?variableName&#x3D;Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&amp;userId&#x3D;230&amp;pngUrl&#x3D;https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png | [optional] 
 **chartsLinkEmail** | **String** | Example: mailto:?subject&#x3D;Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21&amp;body&#x3D;See%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20history%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%0A%0AHave%20a%20great%20day! | [optional] 
 **chartsLinkFacebook** | **String** | Example: https://www.facebook.com/sharer/sharer.php?u&#x3D;https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png | [optional] 
@@ -43,7 +43,6 @@ Name | Type | Description | Notes
 **fillingType** | **String** | 0 -&gt; No filling, 1 -&gt; Use filling-value | [optional] 
 **fillingValue** | **Number** | When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven&#39;t taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing. | [optional] 
 **iconIcon** | **String** | Example: ion-sad-outline | [optional] 
-**highcharts** | [**HighchartArray**](HighchartArray.md) |  | [optional] 
 **id** | **Number** | Example: 95614 | [optional] 
 **imageUrl** | **String** |  | [optional] 
 **informationalUrl** | **String** | Example:  | 
@@ -113,14 +112,14 @@ Name | Type | Description | Notes
 **shareUserMeasurements** | **Boolean** | Example: 1 | [optional] 
 **skewness** | **Number** | Skewness | [optional] 
 **sources** | **String** | Comma-separated list of source names to limit variables to those sources | [optional] 
-**standardDeviation** | **Number** | Standard deviation | [optional] 
-**standardDeviation** | **Number** | Example: 0.46483219855434 | [optional] 
+**standardDeviation** | **Number** | Standard deviation Example: 0.46483219855434 | [optional] 
 **status** | **String** | status | [optional] 
 **subtitle** | **String** | Based on sort filter and can be shown beneath variable name on search list | [optional] 
 **svgUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.svg | [optional] 
 **thirdMostCommonValue** | **Number** | Example: 6 | [optional] 
 **thirdToLastValue** | **Number** | Example: 250 | [optional] 
 **unit** | [**Unit**](Unit.md) |  | [optional] 
+**upc** | **String** | Universal product code or similar | [optional] 
 **updated** | **Number** | updated | [optional] 
 **updatedAt** | **Date** | When the record in the database was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format | [optional] 
 **updatedTime** | **Date** | Example: 2017-07-30 14:58:26 | [optional] 

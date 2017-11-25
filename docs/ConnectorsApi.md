@@ -40,7 +40,7 @@ var apiInstance = new Quantimodo.ConnectorsApi();
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
 
 var opts = { 
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
 };
 
 var callback = function(error, data, response) {
@@ -252,7 +252,7 @@ var Quantimodo = require('quantimodo');
 var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
 };
 
 var callback = function(error, data, response) {
@@ -312,7 +312,7 @@ var apiInstance = new Quantimodo.ConnectorsApi();
 var connectorName = "connectorName_example"; // String | Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
 
 var opts = { 
-  'userId': 3.4 // Number | User's id
+  'userId': 3.4, // Number | User's id
 };
 
 var callback = function(error, data, response) {

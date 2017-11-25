@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **unitAbbreviatedName** | **String** | Unit of measurement | 
 **variableCategoryName** | **String** | Variable category name | [optional] 
 **variableName** | **String** | ORIGINAL name of the variable for which we are creating the measurement records | 
+**upc** | **String** | UPC or other barcode scan result | [optional] 
 
 
 <a name="CombinationOperationEnum"></a>
