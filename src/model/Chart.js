@@ -36,7 +36,7 @@
   /**
    * The Chart model module.
    * @module model/Chart
-   * @version 5.8.1125
+   * @version 5.8.1126
    */
 
   /**
@@ -67,7 +67,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('highchartConfig')) {
-        obj['highchartConfig'] = ApiClient.convertToType(data['highchartConfig'], 'String');
+        obj['highchartConfig'] = ApiClient.convertToType(data['highchartConfig'], Object);
       }
       if (data.hasOwnProperty('chartId')) {
         obj['chartId'] = ApiClient.convertToType(data['chartId'], 'String');
@@ -90,7 +90,7 @@
 
   /**
    *  Highcharts config that can be used if you have highcharts.js included on the page
-   * @member {String} highchartConfig
+   * @member {Object} highchartConfig
    */
   exports.prototype['highchartConfig'] = undefined;
   /**
@@ -114,7 +114,7 @@
    */
   exports.prototype['svgUrl'] = undefined;
   /**
-   * Url to a static svg of the chart
+   * SVG string than can be embedded directly in HTML
    * @member {String} svg
    */
   exports.prototype['svg'] = undefined;

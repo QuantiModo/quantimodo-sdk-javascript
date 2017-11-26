@@ -33,7 +33,7 @@
   /**
    * Measurements service.
    * @module api/MeasurementsApi
-   * @version 5.8.1125
+   * @version 5.8.1126
    */
 
   /**
@@ -335,8 +335,8 @@
     }
 
     /**
-     * Callback function to receive the result of the v3MeasurementsUpdatePost operation.
-     * @callback module:api/MeasurementsApi~v3MeasurementsUpdatePostCallback
+     * Callback function to receive the result of the updateMeasurement operation.
+     * @callback module:api/MeasurementsApi~updateMeasurementCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CommonResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -344,17 +344,17 @@
 
     /**
      * Update a measurement
-     * Delete a previously submitted measurement
+     * Update a previously submitted measurement
      * @param {module:model/MeasurementUpdate} body The id as well as the new startTime, note, and/or value of the measurement to be updated
-     * @param {module:api/MeasurementsApi~v3MeasurementsUpdatePostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/MeasurementsApi~updateMeasurementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
-    this.v3MeasurementsUpdatePost = function(body, callback) {
+    this.updateMeasurement = function(body, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling v3MeasurementsUpdatePost");
+        throw new Error("Missing the required parameter 'body' when calling updateMeasurement");
       }
 
 

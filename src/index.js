@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/CommonVariable', 'model/CommonVariableArray', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetStudyDataResponse', 'model/GetStudyResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Hover', 'model/Image', 'model/JsonErrorResponse', 'model/Marker', 'model/Measurement', 'model/MeasurementArray', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/PairArray', 'model/PairsOfAveragesForAllUser', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/ProcessedDailyMeasurement', 'model/Scope', 'model/Series', 'model/State', 'model/Text', 'model/Tooltip', 'model/TrackingReminder', 'model/TrackingReminderArray', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationActionArray', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/TrackingReminderNotificationsArray', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserStudy', 'model/UserTag', 'model/UserVariable', 'model/UserVariableArray', 'model/UserVariableDelete', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/StudyApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
+    define(['ApiClient', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/CommonVariable', 'model/CommonVariableArray', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementArray', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/PairArray', 'model/PairsOfAveragesForAllUser', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/ProcessedDailyMeasurement', 'model/Scope', 'model/Study', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/TrackingReminder', 'model/TrackingReminderArray', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationActionArray', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/TrackingReminderNotificationsArray', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariable', 'model/UserVariableArray', 'model/UserVariableDelete', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/StudyApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/CommonVariable'), require('./model/CommonVariableArray'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetStudyDataResponse'), require('./model/GetStudyResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Hover'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Marker'), require('./model/Measurement'), require('./model/MeasurementArray'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/PairArray'), require('./model/PairsOfAveragesForAllUser'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/ProcessedDailyMeasurement'), require('./model/Scope'), require('./model/Series'), require('./model/State'), require('./model/Text'), require('./model/Tooltip'), require('./model/TrackingReminder'), require('./model/TrackingReminderArray'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationActionArray'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/TrackingReminderNotificationsArray'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserStudy'), require('./model/UserTag'), require('./model/UserVariable'), require('./model/UserVariableArray'), require('./model/UserVariableDelete'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/StudyApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/CommonVariable'), require('./model/CommonVariableArray'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementArray'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/PairArray'), require('./model/PairsOfAveragesForAllUser'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/ProcessedDailyMeasurement'), require('./model/Scope'), require('./model/Study'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyLinks'), require('./model/StudyText'), require('./model/TrackingReminder'), require('./model/TrackingReminderArray'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationActionArray'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/TrackingReminderNotificationsArray'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariable'), require('./model/UserVariableArray'), require('./model/UserVariableDelete'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/StudyApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
   }
-}(function(ApiClient, Button, Chart, CommonResponse, CommonVariable, CommonVariableArray, Connector, ConversionStep, Correlation, DataSource, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetStudyDataResponse, GetStudyResponse, GetTrackingReminderNotificationsResponse, Hover, Image, JsonErrorResponse, Marker, Measurement, MeasurementArray, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, PairArray, PairsOfAveragesForAllUser, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, ProcessedDailyMeasurement, Scope, Series, State, Text, Tooltip, TrackingReminder, TrackingReminderArray, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationActionArray, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, TrackingReminderNotificationsArray, Unit, UnitCategory, User, UserStudy, UserTag, UserVariable, UserVariableArray, UserVariableDelete, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, StudyApi, UnitsApi, UserApi, VariablesApi) {
+}(function(ApiClient, Button, Chart, CommonResponse, CommonVariable, CommonVariableArray, Connector, ConversionStep, Correlation, DataSource, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetTrackingReminderNotificationsResponse, Image, JsonErrorResponse, Measurement, MeasurementArray, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, PairArray, PairsOfAveragesForAllUser, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, ProcessedDailyMeasurement, Scope, Study, StudyHtml, StudyImages, StudyLinks, StudyText, TrackingReminder, TrackingReminderArray, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationActionArray, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, TrackingReminderNotificationsArray, Unit, UnitCategory, User, UserTag, UserVariable, UserVariableArray, UserVariableDelete, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, StudyApi, UnitsApi, UserApi, VariablesApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 5.8.1125
+   * @version 5.8.1126
    */
   var exports = {
     /**
@@ -132,25 +132,10 @@
      */
     GetCorrelationsResponse: GetCorrelationsResponse,
     /**
-     * The GetStudyDataResponse model constructor.
-     * @property {module:model/GetStudyDataResponse}
-     */
-    GetStudyDataResponse: GetStudyDataResponse,
-    /**
-     * The GetStudyResponse model constructor.
-     * @property {module:model/GetStudyResponse}
-     */
-    GetStudyResponse: GetStudyResponse,
-    /**
      * The GetTrackingReminderNotificationsResponse model constructor.
      * @property {module:model/GetTrackingReminderNotificationsResponse}
      */
     GetTrackingReminderNotificationsResponse: GetTrackingReminderNotificationsResponse,
-    /**
-     * The Hover model constructor.
-     * @property {module:model/Hover}
-     */
-    Hover: Hover,
     /**
      * The Image model constructor.
      * @property {module:model/Image}
@@ -161,11 +146,6 @@
      * @property {module:model/JsonErrorResponse}
      */
     JsonErrorResponse: JsonErrorResponse,
-    /**
-     * The Marker model constructor.
-     * @property {module:model/Marker}
-     */
-    Marker: Marker,
     /**
      * The Measurement model constructor.
      * @property {module:model/Measurement}
@@ -267,25 +247,30 @@
      */
     Scope: Scope,
     /**
-     * The Series model constructor.
-     * @property {module:model/Series}
+     * The Study model constructor.
+     * @property {module:model/Study}
      */
-    Series: Series,
+    Study: Study,
     /**
-     * The State model constructor.
-     * @property {module:model/State}
+     * The StudyHtml model constructor.
+     * @property {module:model/StudyHtml}
      */
-    State: State,
+    StudyHtml: StudyHtml,
     /**
-     * The Text model constructor.
-     * @property {module:model/Text}
+     * The StudyImages model constructor.
+     * @property {module:model/StudyImages}
      */
-    Text: Text,
+    StudyImages: StudyImages,
     /**
-     * The Tooltip model constructor.
-     * @property {module:model/Tooltip}
+     * The StudyLinks model constructor.
+     * @property {module:model/StudyLinks}
      */
-    Tooltip: Tooltip,
+    StudyLinks: StudyLinks,
+    /**
+     * The StudyText model constructor.
+     * @property {module:model/StudyText}
+     */
+    StudyText: StudyText,
     /**
      * The TrackingReminder model constructor.
      * @property {module:model/TrackingReminder}
@@ -341,11 +326,6 @@
      * @property {module:model/User}
      */
     User: User,
-    /**
-     * The UserStudy model constructor.
-     * @property {module:model/UserStudy}
-     */
-    UserStudy: UserStudy,
     /**
      * The UserTag model constructor.
      * @property {module:model/UserTag}

@@ -36,7 +36,7 @@
   /**
    * The ParticipantInstruction model module.
    * @module model/ParticipantInstruction
-   * @version 5.8.1125
+   * @version 5.8.1126
    */
 
   /**

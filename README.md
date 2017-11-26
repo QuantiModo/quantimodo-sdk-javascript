@@ -50,7 +50,7 @@ var api = new Quantimodo.AnalyticsApi()
 var body = new Quantimodo.VoteDelete(); // {VoteDelete} The cause and effect variable names for the predictor vote to be deleted.
 
 var opts = { 
-  'userId': 3.4 // {Number} User's id
+  'userId': 3.4, // {Number} User's id
 };
 
 var callback = function(error, data, response) {
@@ -91,7 +91,7 @@ Class | Method | HTTP request | Description
 *Quantimodo.MeasurementsApi* | [**getPairs**](docs/MeasurementsApi.md#getPairs) | **GET** /v3/pairs | Get pairs of measurements for correlational analysis
 *Quantimodo.MeasurementsApi* | [**measurementExportRequest**](docs/MeasurementsApi.md#measurementExportRequest) | **POST** /v2/measurements/exportRequest | Post Request for Measurements CSV
 *Quantimodo.MeasurementsApi* | [**postMeasurements**](docs/MeasurementsApi.md#postMeasurements) | **POST** /v3/measurements/post | Post a new set or update existing measurements to the database
-*Quantimodo.MeasurementsApi* | [**v3MeasurementsUpdatePost**](docs/MeasurementsApi.md#v3MeasurementsUpdatePost) | **POST** /v3/measurements/update | Update a measurement
+*Quantimodo.MeasurementsApi* | [**updateMeasurement**](docs/MeasurementsApi.md#updateMeasurement) | **POST** /v3/measurements/update | Update a measurement
 *Quantimodo.NotificationsApi* | [**getNotificationPreferences**](docs/NotificationsApi.md#getNotificationPreferences) | **GET** /v3/notificationPreferences | Get NotificationPreferences
 *Quantimodo.NotificationsApi* | [**postDeviceTokens**](docs/NotificationsApi.md#postDeviceTokens) | **POST** /v3/deviceTokens | Post DeviceTokens
 *Quantimodo.RemindersApi* | [**deleteTrackingReminder**](docs/RemindersApi.md#deleteTrackingReminder) | **DELETE** /v3/trackingReminders/delete | Delete tracking reminder
@@ -130,13 +130,9 @@ Class | Method | HTTP request | Description
  - [Quantimodo.GetConnectorsResponse](docs/GetConnectorsResponse.md)
  - [Quantimodo.GetCorrelationsDataResponse](docs/GetCorrelationsDataResponse.md)
  - [Quantimodo.GetCorrelationsResponse](docs/GetCorrelationsResponse.md)
- - [Quantimodo.GetStudyDataResponse](docs/GetStudyDataResponse.md)
- - [Quantimodo.GetStudyResponse](docs/GetStudyResponse.md)
  - [Quantimodo.GetTrackingReminderNotificationsResponse](docs/GetTrackingReminderNotificationsResponse.md)
- - [Quantimodo.Hover](docs/Hover.md)
  - [Quantimodo.Image](docs/Image.md)
  - [Quantimodo.JsonErrorResponse](docs/JsonErrorResponse.md)
- - [Quantimodo.Marker](docs/Marker.md)
  - [Quantimodo.Measurement](docs/Measurement.md)
  - [Quantimodo.MeasurementArray](docs/MeasurementArray.md)
  - [Quantimodo.MeasurementDelete](docs/MeasurementDelete.md)
@@ -157,10 +153,11 @@ Class | Method | HTTP request | Description
  - [Quantimodo.PostUserSettingsResponse](docs/PostUserSettingsResponse.md)
  - [Quantimodo.ProcessedDailyMeasurement](docs/ProcessedDailyMeasurement.md)
  - [Quantimodo.Scope](docs/Scope.md)
- - [Quantimodo.Series](docs/Series.md)
- - [Quantimodo.State](docs/State.md)
- - [Quantimodo.Text](docs/Text.md)
- - [Quantimodo.Tooltip](docs/Tooltip.md)
+ - [Quantimodo.Study](docs/Study.md)
+ - [Quantimodo.StudyHtml](docs/StudyHtml.md)
+ - [Quantimodo.StudyImages](docs/StudyImages.md)
+ - [Quantimodo.StudyLinks](docs/StudyLinks.md)
+ - [Quantimodo.StudyText](docs/StudyText.md)
  - [Quantimodo.TrackingReminder](docs/TrackingReminder.md)
  - [Quantimodo.TrackingReminderArray](docs/TrackingReminderArray.md)
  - [Quantimodo.TrackingReminderDelete](docs/TrackingReminderDelete.md)
@@ -172,7 +169,6 @@ Class | Method | HTTP request | Description
  - [Quantimodo.Unit](docs/Unit.md)
  - [Quantimodo.UnitCategory](docs/UnitCategory.md)
  - [Quantimodo.User](docs/User.md)
- - [Quantimodo.UserStudy](docs/UserStudy.md)
  - [Quantimodo.UserTag](docs/UserTag.md)
  - [Quantimodo.UserVariable](docs/UserVariable.md)
  - [Quantimodo.UserVariableArray](docs/UserVariableArray.md)

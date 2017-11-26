@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**getPairs**](MeasurementsApi.md#getPairs) | **GET** /v3/pairs | Get pairs of measurements for correlational analysis
 [**measurementExportRequest**](MeasurementsApi.md#measurementExportRequest) | **POST** /v2/measurements/exportRequest | Post Request for Measurements CSV
 [**postMeasurements**](MeasurementsApi.md#postMeasurements) | **POST** /v3/measurements/post | Post a new set or update existing measurements to the database
-[**v3MeasurementsUpdatePost**](MeasurementsApi.md#v3MeasurementsUpdatePost) | **POST** /v3/measurements/update | Update a measurement
+[**updateMeasurement**](MeasurementsApi.md#updateMeasurement) | **POST** /v3/measurements/update | Update a measurement
 
 
 <a name="deleteMeasurement"></a>
@@ -368,13 +368,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="v3MeasurementsUpdatePost"></a>
-# **v3MeasurementsUpdatePost**
-> CommonResponse v3MeasurementsUpdatePost(body)
+<a name="updateMeasurement"></a>
+# **updateMeasurement**
+> CommonResponse updateMeasurement(body)
 
 Update a measurement
 
-Delete a previously submitted measurement
+Update a previously submitted measurement
 
 ### Example
 ```javascript
@@ -403,7 +403,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.v3MeasurementsUpdatePost(body, callback);
+apiInstance.updateMeasurement(body, callback);
 ```
 
 ### Parameters

@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.Series();
+    instance = new Quantimodo.StudyLinks();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,46 +49,46 @@
       object[property] = value;
   }
 
-  describe('Series', function() {
-    it('should create an instance of Series', function() {
-      // uncomment below and update the code to test Series
-      //var instane = new Quantimodo.Series();
-      //expect(instance).to.be.a(Quantimodo.Series);
+  describe('StudyLinks', function() {
+    it('should create an instance of StudyLinks', function() {
+      // uncomment below and update the code to test StudyLinks
+      //var instane = new Quantimodo.StudyLinks();
+      //expect(instance).to.be.a(Quantimodo.StudyLinks);
     });
 
-    it('should have the property color (base name: "color")', function() {
-      // uncomment below and update the code to test the property color
-      //var instane = new Quantimodo.Series();
+    it('should have the property studyLinkEmail (base name: "studyLinkEmail")', function() {
+      // uncomment below and update the code to test the property studyLinkEmail
+      //var instane = new Quantimodo.StudyLinks();
       //expect(instance).to.be();
     });
 
-    it('should have the property data (base name: "data")', function() {
-      // uncomment below and update the code to test the property data
-      //var instane = new Quantimodo.Series();
+    it('should have the property studyLinkFacebook (base name: "studyLinkFacebook")', function() {
+      // uncomment below and update the code to test the property studyLinkFacebook
+      //var instane = new Quantimodo.StudyLinks();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new Quantimodo.Series();
+    it('should have the property studyLinkGoogle (base name: "studyLinkGoogle")', function() {
+      // uncomment below and update the code to test the property studyLinkGoogle
+      //var instane = new Quantimodo.StudyLinks();
       //expect(instance).to.be();
     });
 
-    it('should have the property tooltip (base name: "tooltip")', function() {
-      // uncomment below and update the code to test the property tooltip
-      //var instane = new Quantimodo.Series();
+    it('should have the property studyLinkStatic (base name: "studyLinkStatic")', function() {
+      // uncomment below and update the code to test the property studyLinkStatic
+      //var instane = new Quantimodo.StudyLinks();
       //expect(instance).to.be();
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instane = new Quantimodo.Series();
+    it('should have the property studyLinkDynamic (base name: "studyLinkDynamic")', function() {
+      // uncomment below and update the code to test the property studyLinkDynamic
+      //var instane = new Quantimodo.StudyLinks();
       //expect(instance).to.be();
     });
 
-    it('should have the property yAxis (base name: "yAxis")', function() {
-      // uncomment below and update the code to test the property yAxis
-      //var instane = new Quantimodo.Series();
+    it('should have the property studyLinkTwitter (base name: "studyLinkTwitter")', function() {
+      // uncomment below and update the code to test the property studyLinkTwitter
+      //var instane = new Quantimodo.StudyLinks();
       //expect(instance).to.be();
     });
 

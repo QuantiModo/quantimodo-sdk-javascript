@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.Text();
+    instance = new Quantimodo.StudyText();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,64 +49,112 @@
       object[property] = value;
   }
 
-  describe('Text', function() {
-    it('should create an instance of Text', function() {
-      // uncomment below and update the code to test Text
-      //var instane = new Quantimodo.Text();
-      //expect(instance).to.be.a(Quantimodo.Text);
+  describe('StudyText', function() {
+    it('should create an instance of StudyText', function() {
+      // uncomment below and update the code to test StudyText
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be.a(Quantimodo.StudyText);
+    });
+
+    it('should have the property averageEffectFollowingHighCauseExplanation (base name: "averageEffectFollowingHighCauseExplanation")', function() {
+      // uncomment below and update the code to test the property averageEffectFollowingHighCauseExplanation
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property averageEffectFollowingLowCauseExplanation (base name: "averageEffectFollowingLowCauseExplanation")', function() {
+      // uncomment below and update the code to test the property averageEffectFollowingLowCauseExplanation
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property valuePredictingHighOutcomeExplanation (base name: "valuePredictingHighOutcomeExplanation")', function() {
+      // uncomment below and update the code to test the property valuePredictingHighOutcomeExplanation
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property valuePredictingLowOutcomeExplanation (base name: "valuePredictingLowOutcomeExplanation")', function() {
+      // uncomment below and update the code to test the property valuePredictingLowOutcomeExplanation
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
     });
 
     it('should have the property dataAnalysis (base name: "dataAnalysis")', function() {
       // uncomment below and update the code to test the property dataAnalysis
-      //var instane = new Quantimodo.Text();
+      //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });
 
     it('should have the property dataSources (base name: "dataSources")', function() {
       // uncomment below and update the code to test the property dataSources
-      //var instane = new Quantimodo.Text();
+      //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });
 
     it('should have the property significanceExplanation (base name: "significanceExplanation")', function() {
       // uncomment below and update the code to test the property significanceExplanation
-      //var instane = new Quantimodo.Text();
+      //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });
 
     it('should have the property studyAbstract (base name: "studyAbstract")', function() {
       // uncomment below and update the code to test the property studyAbstract
-      //var instane = new Quantimodo.Text();
+      //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });
 
     it('should have the property studyDesign (base name: "studyDesign")', function() {
       // uncomment below and update the code to test the property studyDesign
-      //var instane = new Quantimodo.Text();
+      //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });
 
     it('should have the property studyLimitations (base name: "studyLimitations")', function() {
       // uncomment below and update the code to test the property studyLimitations
-      //var instane = new Quantimodo.Text();
+      //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });
 
     it('should have the property studyObjective (base name: "studyObjective")', function() {
       // uncomment below and update the code to test the property studyObjective
-      //var instane = new Quantimodo.Text();
+      //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });
 
     it('should have the property studyResults (base name: "studyResults")', function() {
       // uncomment below and update the code to test the property studyResults
-      //var instane = new Quantimodo.Text();
+      //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });
 
     it('should have the property studyTitle (base name: "studyTitle")', function() {
       // uncomment below and update the code to test the property studyTitle
-      //var instane = new Quantimodo.Text();
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property studyInvitation (base name: "studyInvitation")', function() {
+      // uncomment below and update the code to test the property studyInvitation
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property studyQuestion (base name: "studyQuestion")', function() {
+      // uncomment below and update the code to test the property studyQuestion
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property studyBackground (base name: "studyBackground")', function() {
+      // uncomment below and update the code to test the property studyBackground
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property predictorExplanation (base name: "predictorExplanation")', function() {
+      // uncomment below and update the code to test the property predictorExplanation
+      //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });
 

@@ -80,20 +80,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property averageEffectFollowingHighCauseExplanation (base name: "averageEffectFollowingHighCauseExplanation")', function() {
-      // uncomment below and update the code to test the property averageEffectFollowingHighCauseExplanation
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property averageEffectFollowingLowCause (base name: "averageEffectFollowingLowCause")', function() {
       // uncomment below and update the code to test the property averageEffectFollowingLowCause
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property averageEffectFollowingLowCauseExplanation (base name: "averageEffectFollowingLowCauseExplanation")', function() {
-      // uncomment below and update the code to test the property averageEffectFollowingLowCauseExplanation
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
@@ -164,18 +152,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property causeVariableImageUrl (base name: "causeVariableImageUrl")', function() {
-      // uncomment below and update the code to test the property causeVariableImageUrl
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property causeVariableIonIcon (base name: "causeVariableIonIcon")', function() {
-      // uncomment below and update the code to test the property causeVariableIonIcon
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property causeVariableMostCommonConnectorId (base name: "causeVariableMostCommonConnectorId")', function() {
       // uncomment below and update the code to test the property causeVariableMostCommonConnectorId
       //var instane = new Quantimodo.Correlation();
@@ -220,18 +196,6 @@
 
     it('should have the property criticalTValue (base name: "criticalTValue")', function() {
       // uncomment below and update the code to test the property criticalTValue
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property dataAnalysis (base name: "dataAnalysis")', function() {
-      // uncomment below and update the code to test the property dataAnalysis
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property dataSources (base name: "dataSources")', function() {
-      // uncomment below and update the code to test the property dataSources
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
@@ -332,18 +296,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property effectVariableImageUrl (base name: "effectVariableImageUrl")', function() {
-      // uncomment below and update the code to test the property effectVariableImageUrl
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property effectVariableIonIcon (base name: "effectVariableIonIcon")', function() {
-      // uncomment below and update the code to test the property effectVariableIonIcon
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property effectVariableMostCommonConnectorId (base name: "effectVariableMostCommonConnectorId")', function() {
       // uncomment below and update the code to test the property effectVariableMostCommonConnectorId
       //var instane = new Quantimodo.Correlation();
@@ -370,30 +322,6 @@
 
     it('should have the property forwardSpearmanCorrelationCoefficient (base name: "forwardSpearmanCorrelationCoefficient")', function() {
       // uncomment below and update the code to test the property forwardSpearmanCorrelationCoefficient
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property gaugeImage (base name: "gaugeImage")', function() {
-      // uncomment below and update the code to test the property gaugeImage
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property gaugeImageSquare (base name: "gaugeImageSquare")', function() {
-      // uncomment below and update the code to test the property gaugeImageSquare
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property gaugeSharingImageUrl (base name: "gaugeSharingImageUrl")', function() {
-      // uncomment below and update the code to test the property gaugeSharingImageUrl
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property imageUrl (base name: "imageUrl")', function() {
-      // uncomment below and update the code to test the property imageUrl
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
@@ -476,12 +404,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property predictorExplanation (base name: "predictorExplanation")', function() {
-      // uncomment below and update the code to test the property predictorExplanation
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property predictorFillingValue (base name: "predictorFillingValue")', function() {
       // uncomment below and update the code to test the property predictorFillingValue
       //var instane = new Quantimodo.Correlation();
@@ -506,20 +428,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property predictsHighEffectChangeSentenceFragment (base name: "predictsHighEffectChangeSentenceFragment")', function() {
-      // uncomment below and update the code to test the property predictsHighEffectChangeSentenceFragment
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property predictsLowEffectChange (base name: "predictsLowEffectChange")', function() {
       // uncomment below and update the code to test the property predictsLowEffectChange
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property predictsLowEffectChangeSentenceFragment (base name: "predictsLowEffectChangeSentenceFragment")', function() {
-      // uncomment below and update the code to test the property predictsLowEffectChangeSentenceFragment
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
@@ -542,12 +452,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property robotSharingImageUrl (base name: "robotSharingImageUrl")', function() {
-      // uncomment below and update the code to test the property robotSharingImageUrl
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property shareUserMeasurements (base name: "shareUserMeasurements")', function() {
       // uncomment below and update the code to test the property shareUserMeasurements
       //var instane = new Quantimodo.Correlation();
@@ -562,12 +466,6 @@
 
     it('should have the property sharingTitle (base name: "sharingTitle")', function() {
       // uncomment below and update the code to test the property sharingTitle
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property significanceExplanation (base name: "significanceExplanation")', function() {
-      // uncomment below and update the code to test the property significanceExplanation
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
@@ -596,74 +494,26 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property studyAbstract (base name: "studyAbstract")', function() {
-      // uncomment below and update the code to test the property studyAbstract
+    it('should have the property studyImages (base name: "studyImages")', function() {
+      // uncomment below and update the code to test the property studyImages
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
 
-    it('should have the property studyDesign (base name: "studyDesign")', function() {
-      // uncomment below and update the code to test the property studyDesign
+    it('should have the property studyLinks (base name: "studyLinks")', function() {
+      // uncomment below and update the code to test the property studyLinks
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
 
-    it('should have the property studyLimitations (base name: "studyLimitations")', function() {
-      // uncomment below and update the code to test the property studyLimitations
+    it('should have the property studyText (base name: "studyText")', function() {
+      // uncomment below and update the code to test the property studyText
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
 
-    it('should have the property studyLinkDynamic (base name: "studyLinkDynamic")', function() {
-      // uncomment below and update the code to test the property studyLinkDynamic
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyLinkEmail (base name: "studyLinkEmail")', function() {
-      // uncomment below and update the code to test the property studyLinkEmail
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyLinkFacebook (base name: "studyLinkFacebook")', function() {
-      // uncomment below and update the code to test the property studyLinkFacebook
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyLinkGoogle (base name: "studyLinkGoogle")', function() {
-      // uncomment below and update the code to test the property studyLinkGoogle
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyLinkStatic (base name: "studyLinkStatic")', function() {
-      // uncomment below and update the code to test the property studyLinkStatic
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyLinkTwitter (base name: "studyLinkTwitter")', function() {
-      // uncomment below and update the code to test the property studyLinkTwitter
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyObjective (base name: "studyObjective")', function() {
-      // uncomment below and update the code to test the property studyObjective
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyResults (base name: "studyResults")', function() {
-      // uncomment below and update the code to test the property studyResults
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyTitle (base name: "studyTitle")', function() {
-      // uncomment below and update the code to test the property studyTitle
+    it('should have the property studyHtml (base name: "studyHtml")', function() {
+      // uncomment below and update the code to test the property studyHtml
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
@@ -698,20 +548,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property valuePredictingHighOutcomeExplanation (base name: "valuePredictingHighOutcomeExplanation")', function() {
-      // uncomment below and update the code to test the property valuePredictingHighOutcomeExplanation
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property valuePredictingLowOutcome (base name: "valuePredictingLowOutcome")', function() {
       // uncomment below and update the code to test the property valuePredictingLowOutcome
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property valuePredictingLowOutcomeExplanation (base name: "valuePredictingLowOutcomeExplanation")', function() {
-      // uncomment below and update the code to test the property valuePredictingLowOutcomeExplanation
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });
@@ -734,38 +572,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property studyBackground (base name: "studyBackground")', function() {
-      // uncomment below and update the code to test the property studyBackground
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyInvitation (base name: "studyInvitation")', function() {
-      // uncomment below and update the code to test the property studyInvitation
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyQuestion (base name: "studyQuestion")', function() {
-      // uncomment below and update the code to test the property studyQuestion
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyHtml (base name: "studyHtml")', function() {
-      // uncomment below and update the code to test the property studyHtml
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
     it('should have the property averagePearsonCorrelationCoefficientOverOnsetDelays (base name: "averagePearsonCorrelationCoefficientOverOnsetDelays")', function() {
       // uncomment below and update the code to test the property averagePearsonCorrelationCoefficientOverOnsetDelays
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property calculationStartTime (base name: "calculationStartTime")', function() {
-      // uncomment below and update the code to test the property calculationStartTime
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });

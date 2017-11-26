@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 <a name="getStudy"></a>
 # **getStudy**
-> GetStudyResponse getStudy(opts)
+> Study getStudy(opts)
 
 Get Study
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetStudyResponse**](GetStudyResponse.md)
+[**Study**](Study.md)
 
 ### Authorization
 

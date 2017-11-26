@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataSource'], factory);
+    define(['ApiClient', 'model/DataSource', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./DataSource'));
+    module.exports = factory(require('../ApiClient'), require('./DataSource'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Correlation = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource);
+    root.Quantimodo.Correlation = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText);
   }
-}(this, function(ApiClient, DataSource) {
+}(this, function(ApiClient, DataSource, StudyImages, StudyLinks, StudyText) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Correlation model module.
    * @module model/Correlation
-   * @version 5.8.1125
+   * @version 5.8.1126
    */
 
   /**
@@ -47,9 +47,7 @@
    * @param averageDailyLowCause {Number} Example: 1.97
    * @param averageEffect {Number} Example: 3.0791054117396
    * @param averageEffectFollowingHighCause {Number} Example: 3.55
-   * @param averageEffectFollowingHighCauseExplanation {String} Example: Overall Mood is 3.55/5 (15% higher) on average after days with around 4.19/5 Sleep Quality
    * @param averageEffectFollowingLowCause {Number} Example: 2.65
-   * @param averageEffectFollowingLowCauseExplanation {String} Example: Overall Mood is 2.65/5 (14% lower) on average after days with around 1.97/5 Sleep Quality
    * @param averageForwardPearsonCorrelationOverOnsetDelays {Number} Example: 0.396
    * @param averageReversePearsonCorrelationOverOnsetDelays {Number} Example: 0.453667
    * @param averageVote {Number} Example: 0.9855
@@ -61,8 +59,6 @@
    * @param correlationCoefficient {Number} Example: 0.538
    * @param createdAt {Date} Example: 2016-12-28 20:47:30
    * @param criticalTValue {Number} Example: 1.646
-   * @param dataAnalysis {String} Example: It was assumed that 0 hours would pass before a change in Sleep Quality would produce an observable change in Overall Mood.  It was assumed that Sleep Quality could produce an observable change in Overall Mood for as much as 7 days after the stimulus event.
-   * @param dataSources {String} Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.<br>Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
    * @param direction {String} Example: higher
    * @param durationOfAction {Number} Example: 604800
    * @param durationOfActionInHours {Number} Example: 168
@@ -73,9 +69,6 @@
    * @param experimentEndTime {Date} Example: 2014-07-30 12:50:00
    * @param experimentStartTime {Date} Example: 2012-05-06 21:15:00
    * @param forwardSpearmanCorrelationCoefficient {Number} Example: 0.528359
-   * @param gaugeImage {String} Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
-   * @param gaugeImageSquare {String} Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
-   * @param imageUrl {String} Example: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
    * @param numberOfPairs {Number} Example: 298
    * @param onsetDelay {Number} Example: 0
    * @param onsetDelayInHours {Number} Example: 0
@@ -87,61 +80,39 @@
    * @param predictivePearsonCorrelation {Number} Example: 0.538
    * @param predictivePearsonCorrelationCoefficient {Number} Example: 0.538
    * @param predictorDataSources {String} Example: RescueTime
-   * @param predictorExplanation {String} Example: Sleep Quality Predicts Higher Overall Mood
    * @param predictorFillingValue {Number} Example: -1
    * @param predictorMaximumAllowedValue {Number} Example: 200
    * @param predictorMinimumAllowedValue {Number} Example: 30
    * @param predictsHighEffectChange {Number} Example: 17
-   * @param predictsHighEffectChangeSentenceFragment {String} Example: , on average, 17% 
    * @param predictsLowEffectChange {Number} Example: -11
-   * @param predictsLowEffectChangeSentenceFragment {String} Example: , on average, 11% 
    * @param qmScore {Number} Example: 0.528
    * @param reversePearsonCorrelationCoefficient {Number} Example: 0.01377184270977
    * @param shareUserMeasurements {Boolean} Example: 1
-   * @param significanceExplanation {String} Example: Using a two-tailed t-test with alpha = 0.05, it was determined that the change in Overall Mood is statistically significant at 95% confidence interval.
    * @param significantDifference {Boolean} Example: 1
    * @param statisticalSignificance {Number} Example: 0.9813
    * @param strengthLevel {String} Example: moderate
    * @param strongestPearsonCorrelationCoefficient {Number} Example: 0.613
-   * @param studyAbstract {String} Example: Your data suggests with a high degree of confidence (p=0) that Sleep Quality (Sleep) has a moderately positive predictive relationship (R=0.538) with Overall Mood  (Emotions).  The highest quartile of Overall Mood  measurements were observed following an average 4.14/5 Sleep Quality.  The lowest quartile of Overall Mood measurements were observed following an average 3.03/5 Sleep Quality.
-   * @param studyDesign {String} Example: This study is based on data donated by one QuantiModo user. Thus, the study design is consistent with an n=1 observational natural experiment.
-   * @param studyLimitations {String} Example: As with any human experiment, it was impossible to control for all potentially confounding variables.              Correlation does not necessarily imply correlation.  We can never know for sure if one factor is definitely the cause of an outcome.             However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great             confidence rule out non-existent relationships. For instance, if we discover no relationship between mood             and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.             <br>             <br>              We can also take advantage of several characteristics of time series data from many subjects  to infer the likelihood of a causal relationship if we do find a correlational relationship.             The criteria for causation are a group of minimal conditions necessary to provide adequate evidence of a causal relationship between an incidence and a possible consequence.             The list of the criteria is as follows:             <br>             1. Strength (effect size): A small association does not mean that there is not a causal effect, though the larger the association, the more likely that it is causal.             <br>             2. Consistency (reproducibility): Consistent findings observed by different persons in different places with different samples strengthens the likelihood of an effect.             <br>             3. Specificity: Causation is likely if a very specific population at a specific site and disease with no other likely explanation. The more specific an association between a factor and an effect is, the bigger the probability of a causal relationship.             <br>             4. Temporality: The effect has to occur after the cause (and if there is an expected delay between the cause and expected effect, then the effect must occur after that delay).             <br>             5. Biological gradient: Greater exposure should generally lead to greater incidence of the effect. However, in some cases, the mere presence of the factor can trigger the effect. In other cases, an inverse proportion is observed: greater exposure leads to lower incidence.             <br>             6. Plausibility: A plausible mechanism between cause and effect is helpful.             <br>             7. Coherence: Coherence between epidemiological and laboratory findings increases the likelihood of an effect.             <br>             8. Experiment: \"Occasionally it is possible to appeal to experimental evidence\".             <br>             9. Analogy: The effect of similar factors may be considered.             <br>             <br>               The confidence in a causal relationship is bolstered by the fact that time-precedence was taken into account in all calculations. Furthermore, in accordance with the law of large numbers (LLN), the predictive power and accuracy of these results will continually grow over time.  298 paired data points were used in this analysis.   Assuming that the relationship is merely coincidental, as the participant independently modifies their Sleep Quality values, the observed strength of the relationship will decline until it is below the threshold of significance.  To it another way, in the case that we do find a spurious correlation, suggesting that banana intake improves mood for instance,             one will likely increase their banana intake.  Due to the fact that this correlation is spurious, it is unlikely             that you will see a continued and persistent corresponding increase in mood.  So over time, the spurious correlation will             naturally dissipate.Furthermore, it will be very enlightening to aggregate this data with the data from other participants  with similar genetic, diseasomic, environmentomic, and demographic profiles.
-   * @param studyLinkDynamic {String} Example: https://local.quantimo.do/ionic/Modo/www/index.html#/app/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
-   * @param studyLinkEmail {String} Example: mailto:?subject=N1%20Study%3A%20Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood&body=Check%20out%20my%20study%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%0A%0AHave%20a%20great%20day!
-   * @param studyLinkFacebook {String} Example: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
-   * @param studyLinkGoogle {String} Example: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
-   * @param studyLinkStatic {String} Example: https://local.quantimo.do/api/v2/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
-   * @param studyLinkTwitter {String} Example: https://twitter.com/home?status=Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%20%40quantimodo
-   * @param studyObjective {String} Example: The objective of this study is to determine the nature of the relationship (if any) between the Sleep Quality and the Overall Mood. Additionally, we attempt to determine the Sleep Quality values most likely to produce optimal Overall Mood values.
-   * @param studyResults {String} Example: This analysis suggests that higher Sleep Quality (Sleep) generally predicts higher Overall Mood (p = 0).  Overall Mood is, on average, 17%  higher after around 4.14 Sleep Quality.  After an onset delay of 168 hours, Overall Mood is, on average, 11%  lower than its average over the 168 hours following around 3.03 Sleep Quality.  298 data points were used in this analysis.  The value for Sleep Quality changed 164 times, effectively running 82 separate natural experiments.  The top quartile outcome values are preceded by an average 4.14 /5 of Sleep Quality.  The bottom quartile outcome values are preceded by an average 3.03 /5 of Sleep Quality.  Forward Pearson Correlation Coefficient was 0.538 (p=0, 95% CI 0.395 to 0.681 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0 (P=0, 95% CI -0.143 to 0.143, onset delay = -0 hours, duration of action = -168 hours). When the Sleep Quality value is closer to 4.14 /5 than 3.03 /5, the Overall Mood value which follows is, on average, 17%  percent higher than its typical value.  When the Sleep Quality value is closer to 3.03 /5 than 4.14 /5, the Overall Mood value which follows is 0% lower than its typical value.  Overall Mood is 3.55/5 (15% higher) on average after days with around 4.19/5 Sleep Quality  Overall Mood is 2.65/5 (14% lower) on average after days with around 1.97/5 Sleep Quality
-   * @param studyTitle {String} Example: N1 Study: Sleep Quality Predicts Higher Overall Mood
    * @param tValue {Number} Example: 9.6986079652717
    * @param updatedAt {Date} Example: 2017-05-06 15:40:38
    * @param userId {Number} Example: 230
    * @param userVote {Number} Example: 1
    * @param valuePredictingHighOutcome {Number} Example: 4.14
-   * @param valuePredictingHighOutcomeExplanation {String} Example: Overall Mood, on average, 17% higher after around 4.14/5 Sleep Quality
    * @param valuePredictingLowOutcome {Number} Example: 3.03
-   * @param valuePredictingLowOutcomeExplanation {String} Example: Overall Mood, on average, 11% lower after around 3.03/5 Sleep Quality
    */
-  var exports = function(averageDailyHighCause, averageDailyLowCause, averageEffect, averageEffectFollowingHighCause, averageEffectFollowingHighCauseExplanation, averageEffectFollowingLowCause, averageEffectFollowingLowCauseExplanation, averageForwardPearsonCorrelationOverOnsetDelays, averageReversePearsonCorrelationOverOnsetDelays, averageVote, causeChanges, causeUserVariableShareUserMeasurements, causeVariableName, confidenceInterval, confidenceLevel, correlationCoefficient, createdAt, criticalTValue, dataAnalysis, dataSources, direction, durationOfAction, durationOfActionInHours, effectChanges, effectSize, effectUnit, effectVariableName, experimentEndTime, experimentStartTime, forwardSpearmanCorrelationCoefficient, gaugeImage, gaugeImageSquare, imageUrl, numberOfPairs, onsetDelay, onsetDelayInHours, onsetDelayWithStrongestPearsonCorrelation, onsetDelayWithStrongestPearsonCorrelationInHours, optimalPearsonProduct, outcomeFillingValue, pearsonCorrelationWithNoOnsetDelay, predictivePearsonCorrelation, predictivePearsonCorrelationCoefficient, predictorDataSources, predictorExplanation, predictorFillingValue, predictorMaximumAllowedValue, predictorMinimumAllowedValue, predictsHighEffectChange, predictsHighEffectChangeSentenceFragment, predictsLowEffectChange, predictsLowEffectChangeSentenceFragment, qmScore, reversePearsonCorrelationCoefficient, shareUserMeasurements, significanceExplanation, significantDifference, statisticalSignificance, strengthLevel, strongestPearsonCorrelationCoefficient, studyAbstract, studyDesign, studyLimitations, studyLinkDynamic, studyLinkEmail, studyLinkFacebook, studyLinkGoogle, studyLinkStatic, studyLinkTwitter, studyObjective, studyResults, studyTitle, tValue, updatedAt, userId, userVote, valuePredictingHighOutcome, valuePredictingHighOutcomeExplanation, valuePredictingLowOutcome, valuePredictingLowOutcomeExplanation) {
+  var exports = function(averageDailyHighCause, averageDailyLowCause, averageEffect, averageEffectFollowingHighCause, averageEffectFollowingLowCause, averageForwardPearsonCorrelationOverOnsetDelays, averageReversePearsonCorrelationOverOnsetDelays, averageVote, causeChanges, causeUserVariableShareUserMeasurements, causeVariableName, confidenceInterval, confidenceLevel, correlationCoefficient, createdAt, criticalTValue, direction, durationOfAction, durationOfActionInHours, effectChanges, effectSize, effectUnit, effectVariableName, experimentEndTime, experimentStartTime, forwardSpearmanCorrelationCoefficient, numberOfPairs, onsetDelay, onsetDelayInHours, onsetDelayWithStrongestPearsonCorrelation, onsetDelayWithStrongestPearsonCorrelationInHours, optimalPearsonProduct, outcomeFillingValue, pearsonCorrelationWithNoOnsetDelay, predictivePearsonCorrelation, predictivePearsonCorrelationCoefficient, predictorDataSources, predictorFillingValue, predictorMaximumAllowedValue, predictorMinimumAllowedValue, predictsHighEffectChange, predictsLowEffectChange, qmScore, reversePearsonCorrelationCoefficient, shareUserMeasurements, significantDifference, statisticalSignificance, strengthLevel, strongestPearsonCorrelationCoefficient, tValue, updatedAt, userId, userVote, valuePredictingHighOutcome, valuePredictingLowOutcome) {
     var _this = this;
 
     _this['averageDailyHighCause'] = averageDailyHighCause;
     _this['averageDailyLowCause'] = averageDailyLowCause;
     _this['averageEffect'] = averageEffect;
     _this['averageEffectFollowingHighCause'] = averageEffectFollowingHighCause;
-    _this['averageEffectFollowingHighCauseExplanation'] = averageEffectFollowingHighCauseExplanation;
     _this['averageEffectFollowingLowCause'] = averageEffectFollowingLowCause;
-    _this['averageEffectFollowingLowCauseExplanation'] = averageEffectFollowingLowCauseExplanation;
     _this['averageForwardPearsonCorrelationOverOnsetDelays'] = averageForwardPearsonCorrelationOverOnsetDelays;
     _this['averageReversePearsonCorrelationOverOnsetDelays'] = averageReversePearsonCorrelationOverOnsetDelays;
     _this['averageVote'] = averageVote;
     _this['causeChanges'] = causeChanges;
 
     _this['causeUserVariableShareUserMeasurements'] = causeUserVariableShareUserMeasurements;
-
-
 
 
 
@@ -155,8 +126,6 @@
 
     _this['createdAt'] = createdAt;
     _this['criticalTValue'] = criticalTValue;
-    _this['dataAnalysis'] = dataAnalysis;
-    _this['dataSources'] = dataSources;
     _this['direction'] = direction;
     _this['durationOfAction'] = durationOfAction;
     _this['durationOfActionInHours'] = durationOfActionInHours;
@@ -174,16 +143,10 @@
 
 
 
-
-
     _this['effectVariableName'] = effectVariableName;
     _this['experimentEndTime'] = experimentEndTime;
     _this['experimentStartTime'] = experimentStartTime;
     _this['forwardSpearmanCorrelationCoefficient'] = forwardSpearmanCorrelationCoefficient;
-    _this['gaugeImage'] = gaugeImage;
-    _this['gaugeImageSquare'] = gaugeImageSquare;
-
-    _this['imageUrl'] = imageUrl;
     _this['numberOfPairs'] = numberOfPairs;
     _this['onsetDelay'] = onsetDelay;
     _this['onsetDelayInHours'] = onsetDelayInHours;
@@ -197,51 +160,31 @@
     _this['predictivePearsonCorrelation'] = predictivePearsonCorrelation;
     _this['predictivePearsonCorrelationCoefficient'] = predictivePearsonCorrelationCoefficient;
     _this['predictorDataSources'] = predictorDataSources;
-    _this['predictorExplanation'] = predictorExplanation;
     _this['predictorFillingValue'] = predictorFillingValue;
     _this['predictorMaximumAllowedValue'] = predictorMaximumAllowedValue;
     _this['predictorMinimumAllowedValue'] = predictorMinimumAllowedValue;
     _this['predictsHighEffectChange'] = predictsHighEffectChange;
-    _this['predictsHighEffectChangeSentenceFragment'] = predictsHighEffectChangeSentenceFragment;
     _this['predictsLowEffectChange'] = predictsLowEffectChange;
-    _this['predictsLowEffectChangeSentenceFragment'] = predictsLowEffectChangeSentenceFragment;
 
     _this['qmScore'] = qmScore;
     _this['reversePearsonCorrelationCoefficient'] = reversePearsonCorrelationCoefficient;
-
     _this['shareUserMeasurements'] = shareUserMeasurements;
 
 
-    _this['significanceExplanation'] = significanceExplanation;
     _this['significantDifference'] = significantDifference;
     _this['statisticalSignificance'] = statisticalSignificance;
     _this['strengthLevel'] = strengthLevel;
     _this['strongestPearsonCorrelationCoefficient'] = strongestPearsonCorrelationCoefficient;
-    _this['studyAbstract'] = studyAbstract;
-    _this['studyDesign'] = studyDesign;
-    _this['studyLimitations'] = studyLimitations;
-    _this['studyLinkDynamic'] = studyLinkDynamic;
-    _this['studyLinkEmail'] = studyLinkEmail;
-    _this['studyLinkFacebook'] = studyLinkFacebook;
-    _this['studyLinkGoogle'] = studyLinkGoogle;
-    _this['studyLinkStatic'] = studyLinkStatic;
-    _this['studyLinkTwitter'] = studyLinkTwitter;
-    _this['studyObjective'] = studyObjective;
-    _this['studyResults'] = studyResults;
-    _this['studyTitle'] = studyTitle;
+
+
+
+
     _this['tValue'] = tValue;
     _this['updatedAt'] = updatedAt;
     _this['userId'] = userId;
     _this['userVote'] = userVote;
     _this['valuePredictingHighOutcome'] = valuePredictingHighOutcome;
-    _this['valuePredictingHighOutcomeExplanation'] = valuePredictingHighOutcomeExplanation;
     _this['valuePredictingLowOutcome'] = valuePredictingLowOutcome;
-    _this['valuePredictingLowOutcomeExplanation'] = valuePredictingLowOutcomeExplanation;
-
-
-
-
-
 
 
 
@@ -287,14 +230,8 @@
       if (data.hasOwnProperty('averageEffectFollowingHighCause')) {
         obj['averageEffectFollowingHighCause'] = ApiClient.convertToType(data['averageEffectFollowingHighCause'], 'Number');
       }
-      if (data.hasOwnProperty('averageEffectFollowingHighCauseExplanation')) {
-        obj['averageEffectFollowingHighCauseExplanation'] = ApiClient.convertToType(data['averageEffectFollowingHighCauseExplanation'], 'String');
-      }
       if (data.hasOwnProperty('averageEffectFollowingLowCause')) {
         obj['averageEffectFollowingLowCause'] = ApiClient.convertToType(data['averageEffectFollowingLowCause'], 'Number');
-      }
-      if (data.hasOwnProperty('averageEffectFollowingLowCauseExplanation')) {
-        obj['averageEffectFollowingLowCauseExplanation'] = ApiClient.convertToType(data['averageEffectFollowingLowCauseExplanation'], 'String');
       }
       if (data.hasOwnProperty('averageForwardPearsonCorrelationOverOnsetDelays')) {
         obj['averageForwardPearsonCorrelationOverOnsetDelays'] = ApiClient.convertToType(data['averageForwardPearsonCorrelationOverOnsetDelays'], 'Number');
@@ -329,12 +266,6 @@
       if (data.hasOwnProperty('causeVariableId')) {
         obj['causeVariableId'] = ApiClient.convertToType(data['causeVariableId'], 'Number');
       }
-      if (data.hasOwnProperty('causeVariableImageUrl')) {
-        obj['causeVariableImageUrl'] = ApiClient.convertToType(data['causeVariableImageUrl'], 'String');
-      }
-      if (data.hasOwnProperty('causeVariableIonIcon')) {
-        obj['causeVariableIonIcon'] = ApiClient.convertToType(data['causeVariableIonIcon'], 'String');
-      }
       if (data.hasOwnProperty('causeVariableMostCommonConnectorId')) {
         obj['causeVariableMostCommonConnectorId'] = ApiClient.convertToType(data['causeVariableMostCommonConnectorId'], 'Number');
       }
@@ -358,12 +289,6 @@
       }
       if (data.hasOwnProperty('criticalTValue')) {
         obj['criticalTValue'] = ApiClient.convertToType(data['criticalTValue'], 'Number');
-      }
-      if (data.hasOwnProperty('dataAnalysis')) {
-        obj['dataAnalysis'] = ApiClient.convertToType(data['dataAnalysis'], 'String');
-      }
-      if (data.hasOwnProperty('dataSources')) {
-        obj['dataSources'] = ApiClient.convertToType(data['dataSources'], 'String');
       }
       if (data.hasOwnProperty('direction')) {
         obj['direction'] = ApiClient.convertToType(data['direction'], 'String');
@@ -413,12 +338,6 @@
       if (data.hasOwnProperty('effectVariableId')) {
         obj['effectVariableId'] = ApiClient.convertToType(data['effectVariableId'], 'Number');
       }
-      if (data.hasOwnProperty('effectVariableImageUrl')) {
-        obj['effectVariableImageUrl'] = ApiClient.convertToType(data['effectVariableImageUrl'], 'String');
-      }
-      if (data.hasOwnProperty('effectVariableIonIcon')) {
-        obj['effectVariableIonIcon'] = ApiClient.convertToType(data['effectVariableIonIcon'], 'String');
-      }
       if (data.hasOwnProperty('effectVariableMostCommonConnectorId')) {
         obj['effectVariableMostCommonConnectorId'] = ApiClient.convertToType(data['effectVariableMostCommonConnectorId'], 'Number');
       }
@@ -433,18 +352,6 @@
       }
       if (data.hasOwnProperty('forwardSpearmanCorrelationCoefficient')) {
         obj['forwardSpearmanCorrelationCoefficient'] = ApiClient.convertToType(data['forwardSpearmanCorrelationCoefficient'], 'Number');
-      }
-      if (data.hasOwnProperty('gaugeImage')) {
-        obj['gaugeImage'] = ApiClient.convertToType(data['gaugeImage'], 'String');
-      }
-      if (data.hasOwnProperty('gaugeImageSquare')) {
-        obj['gaugeImageSquare'] = ApiClient.convertToType(data['gaugeImageSquare'], 'String');
-      }
-      if (data.hasOwnProperty('gaugeSharingImageUrl')) {
-        obj['gaugeSharingImageUrl'] = ApiClient.convertToType(data['gaugeSharingImageUrl'], 'String');
-      }
-      if (data.hasOwnProperty('imageUrl')) {
-        obj['imageUrl'] = ApiClient.convertToType(data['imageUrl'], 'String');
       }
       if (data.hasOwnProperty('numberOfPairs')) {
         obj['numberOfPairs'] = ApiClient.convertToType(data['numberOfPairs'], 'Number');
@@ -485,9 +392,6 @@
       if (data.hasOwnProperty('predictorDataSources')) {
         obj['predictorDataSources'] = ApiClient.convertToType(data['predictorDataSources'], 'String');
       }
-      if (data.hasOwnProperty('predictorExplanation')) {
-        obj['predictorExplanation'] = ApiClient.convertToType(data['predictorExplanation'], 'String');
-      }
       if (data.hasOwnProperty('predictorFillingValue')) {
         obj['predictorFillingValue'] = ApiClient.convertToType(data['predictorFillingValue'], 'Number');
       }
@@ -500,14 +404,8 @@
       if (data.hasOwnProperty('predictsHighEffectChange')) {
         obj['predictsHighEffectChange'] = ApiClient.convertToType(data['predictsHighEffectChange'], 'Number');
       }
-      if (data.hasOwnProperty('predictsHighEffectChangeSentenceFragment')) {
-        obj['predictsHighEffectChangeSentenceFragment'] = ApiClient.convertToType(data['predictsHighEffectChangeSentenceFragment'], 'String');
-      }
       if (data.hasOwnProperty('predictsLowEffectChange')) {
         obj['predictsLowEffectChange'] = ApiClient.convertToType(data['predictsLowEffectChange'], 'Number');
-      }
-      if (data.hasOwnProperty('predictsLowEffectChangeSentenceFragment')) {
-        obj['predictsLowEffectChangeSentenceFragment'] = ApiClient.convertToType(data['predictsLowEffectChangeSentenceFragment'], 'String');
       }
       if (data.hasOwnProperty('pValue')) {
         obj['pValue'] = ApiClient.convertToType(data['pValue'], 'Number');
@@ -518,9 +416,6 @@
       if (data.hasOwnProperty('reversePearsonCorrelationCoefficient')) {
         obj['reversePearsonCorrelationCoefficient'] = ApiClient.convertToType(data['reversePearsonCorrelationCoefficient'], 'Number');
       }
-      if (data.hasOwnProperty('robotSharingImageUrl')) {
-        obj['robotSharingImageUrl'] = ApiClient.convertToType(data['robotSharingImageUrl'], 'String');
-      }
       if (data.hasOwnProperty('shareUserMeasurements')) {
         obj['shareUserMeasurements'] = ApiClient.convertToType(data['shareUserMeasurements'], 'Boolean');
       }
@@ -529,9 +424,6 @@
       }
       if (data.hasOwnProperty('sharingTitle')) {
         obj['sharingTitle'] = ApiClient.convertToType(data['sharingTitle'], 'String');
-      }
-      if (data.hasOwnProperty('significanceExplanation')) {
-        obj['significanceExplanation'] = ApiClient.convertToType(data['significanceExplanation'], 'String');
       }
       if (data.hasOwnProperty('significantDifference')) {
         obj['significantDifference'] = ApiClient.convertToType(data['significantDifference'], 'Boolean');
@@ -545,41 +437,17 @@
       if (data.hasOwnProperty('strongestPearsonCorrelationCoefficient')) {
         obj['strongestPearsonCorrelationCoefficient'] = ApiClient.convertToType(data['strongestPearsonCorrelationCoefficient'], 'Number');
       }
-      if (data.hasOwnProperty('studyAbstract')) {
-        obj['studyAbstract'] = ApiClient.convertToType(data['studyAbstract'], 'String');
+      if (data.hasOwnProperty('studyImages')) {
+        obj['studyImages'] = StudyImages.constructFromObject(data['studyImages']);
       }
-      if (data.hasOwnProperty('studyDesign')) {
-        obj['studyDesign'] = ApiClient.convertToType(data['studyDesign'], 'String');
+      if (data.hasOwnProperty('studyLinks')) {
+        obj['studyLinks'] = StudyLinks.constructFromObject(data['studyLinks']);
       }
-      if (data.hasOwnProperty('studyLimitations')) {
-        obj['studyLimitations'] = ApiClient.convertToType(data['studyLimitations'], 'String');
+      if (data.hasOwnProperty('studyText')) {
+        obj['studyText'] = StudyText.constructFromObject(data['studyText']);
       }
-      if (data.hasOwnProperty('studyLinkDynamic')) {
-        obj['studyLinkDynamic'] = ApiClient.convertToType(data['studyLinkDynamic'], 'String');
-      }
-      if (data.hasOwnProperty('studyLinkEmail')) {
-        obj['studyLinkEmail'] = ApiClient.convertToType(data['studyLinkEmail'], 'String');
-      }
-      if (data.hasOwnProperty('studyLinkFacebook')) {
-        obj['studyLinkFacebook'] = ApiClient.convertToType(data['studyLinkFacebook'], 'String');
-      }
-      if (data.hasOwnProperty('studyLinkGoogle')) {
-        obj['studyLinkGoogle'] = ApiClient.convertToType(data['studyLinkGoogle'], 'String');
-      }
-      if (data.hasOwnProperty('studyLinkStatic')) {
-        obj['studyLinkStatic'] = ApiClient.convertToType(data['studyLinkStatic'], 'String');
-      }
-      if (data.hasOwnProperty('studyLinkTwitter')) {
-        obj['studyLinkTwitter'] = ApiClient.convertToType(data['studyLinkTwitter'], 'String');
-      }
-      if (data.hasOwnProperty('studyObjective')) {
-        obj['studyObjective'] = ApiClient.convertToType(data['studyObjective'], 'String');
-      }
-      if (data.hasOwnProperty('studyResults')) {
-        obj['studyResults'] = ApiClient.convertToType(data['studyResults'], 'String');
-      }
-      if (data.hasOwnProperty('studyTitle')) {
-        obj['studyTitle'] = ApiClient.convertToType(data['studyTitle'], 'String');
+      if (data.hasOwnProperty('studyHtml')) {
+        obj['studyHtml'] = ApiClient.convertToType(data['studyHtml'], 'String');
       }
       if (data.hasOwnProperty('tValue')) {
         obj['tValue'] = ApiClient.convertToType(data['tValue'], 'Number');
@@ -596,14 +464,8 @@
       if (data.hasOwnProperty('valuePredictingHighOutcome')) {
         obj['valuePredictingHighOutcome'] = ApiClient.convertToType(data['valuePredictingHighOutcome'], 'Number');
       }
-      if (data.hasOwnProperty('valuePredictingHighOutcomeExplanation')) {
-        obj['valuePredictingHighOutcomeExplanation'] = ApiClient.convertToType(data['valuePredictingHighOutcomeExplanation'], 'String');
-      }
       if (data.hasOwnProperty('valuePredictingLowOutcome')) {
         obj['valuePredictingLowOutcome'] = ApiClient.convertToType(data['valuePredictingLowOutcome'], 'Number');
-      }
-      if (data.hasOwnProperty('valuePredictingLowOutcomeExplanation')) {
-        obj['valuePredictingLowOutcomeExplanation'] = ApiClient.convertToType(data['valuePredictingLowOutcomeExplanation'], 'String');
       }
       if (data.hasOwnProperty('outcomeDataSources')) {
         obj['outcomeDataSources'] = ApiClient.convertToType(data['outcomeDataSources'], 'String');
@@ -614,23 +476,8 @@
       if (data.hasOwnProperty('reverseCorrelation')) {
         obj['reverseCorrelation'] = ApiClient.convertToType(data['reverseCorrelation'], 'Number');
       }
-      if (data.hasOwnProperty('studyBackground')) {
-        obj['studyBackground'] = ApiClient.convertToType(data['studyBackground'], 'String');
-      }
-      if (data.hasOwnProperty('studyInvitation')) {
-        obj['studyInvitation'] = ApiClient.convertToType(data['studyInvitation'], 'String');
-      }
-      if (data.hasOwnProperty('studyQuestion')) {
-        obj['studyQuestion'] = ApiClient.convertToType(data['studyQuestion'], 'String');
-      }
-      if (data.hasOwnProperty('studyHtml')) {
-        obj['studyHtml'] = ApiClient.convertToType(data['studyHtml'], 'String');
-      }
       if (data.hasOwnProperty('averagePearsonCorrelationCoefficientOverOnsetDelays')) {
         obj['averagePearsonCorrelationCoefficientOverOnsetDelays'] = ApiClient.convertToType(data['averagePearsonCorrelationCoefficientOverOnsetDelays'], 'String');
-      }
-      if (data.hasOwnProperty('calculationStartTime')) {
-        obj['calculationStartTime'] = ApiClient.convertToType(data['calculationStartTime'], 'Date');
       }
       if (data.hasOwnProperty('causeNumberOfRawMeasurements')) {
         obj['causeNumberOfRawMeasurements'] = ApiClient.convertToType(data['causeNumberOfRawMeasurements'], 'Number');
@@ -705,20 +552,10 @@
    */
   exports.prototype['averageEffectFollowingHighCause'] = undefined;
   /**
-   * Example: Overall Mood is 3.55/5 (15% higher) on average after days with around 4.19/5 Sleep Quality
-   * @member {String} averageEffectFollowingHighCauseExplanation
-   */
-  exports.prototype['averageEffectFollowingHighCauseExplanation'] = undefined;
-  /**
    * Example: 2.65
    * @member {Number} averageEffectFollowingLowCause
    */
   exports.prototype['averageEffectFollowingLowCause'] = undefined;
-  /**
-   * Example: Overall Mood is 2.65/5 (14% lower) on average after days with around 1.97/5 Sleep Quality
-   * @member {String} averageEffectFollowingLowCauseExplanation
-   */
-  exports.prototype['averageEffectFollowingLowCauseExplanation'] = undefined;
   /**
    * Example: 0.396
    * @member {Number} averageForwardPearsonCorrelationOverOnsetDelays
@@ -774,16 +611,6 @@
    */
   exports.prototype['causeVariableId'] = undefined;
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
-   * @member {String} causeVariableImageUrl
-   */
-  exports.prototype['causeVariableImageUrl'] = undefined;
-  /**
-   * Example: ion-ios-cloudy-night-outline
-   * @member {String} causeVariableIonIcon
-   */
-  exports.prototype['causeVariableIonIcon'] = undefined;
-  /**
    * Example: 6
    * @member {Number} causeVariableMostCommonConnectorId
    */
@@ -823,16 +650,6 @@
    * @member {Number} criticalTValue
    */
   exports.prototype['criticalTValue'] = undefined;
-  /**
-   * Example: It was assumed that 0 hours would pass before a change in Sleep Quality would produce an observable change in Overall Mood.  It was assumed that Sleep Quality could produce an observable change in Overall Mood for as much as 7 days after the stimulus event.
-   * @member {String} dataAnalysis
-   */
-  exports.prototype['dataAnalysis'] = undefined;
-  /**
-   * Example: Sleep Quality data was primarily collected using <a href=\"http://www.amazon.com/gp/product/B00A17IAO0/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A17IAO0&linkCode=as2&tag=quant08-20\">Up by Jawbone</a>.  UP by Jawbone is a wristband and app that tracks how you sleep, move and eat and then helps you use that information to feel your best.<br>Overall Mood data was primarily collected using <a href=\"https://quantimo.do\">QuantiModo</a>.  <a href=\"https://quantimo.do\">QuantiModo</a> is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  <a href=\"https://quantimo.do\">QuantiModo</a> then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
-   * @member {String} dataSources
-   */
-  exports.prototype['dataSources'] = undefined;
   /**
    * Example: higher
    * @member {String} direction
@@ -913,16 +730,6 @@
    */
   exports.prototype['effectVariableId'] = undefined;
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
-   * @member {String} effectVariableImageUrl
-   */
-  exports.prototype['effectVariableImageUrl'] = undefined;
-  /**
-   * Example: ion-happy-outline
-   * @member {String} effectVariableIonIcon
-   */
-  exports.prototype['effectVariableIonIcon'] = undefined;
-  /**
    * Example: 10
    * @member {Number} effectVariableMostCommonConnectorId
    */
@@ -947,26 +754,6 @@
    * @member {Number} forwardSpearmanCorrelationCoefficient
    */
   exports.prototype['forwardSpearmanCorrelationCoefficient'] = undefined;
-  /**
-   * Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
-   * @member {String} gaugeImage
-   */
-  exports.prototype['gaugeImage'] = undefined;
-  /**
-   * Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
-   * @member {String} gaugeImageSquare
-   */
-  exports.prototype['gaugeImageSquare'] = undefined;
-  /**
-   * Image with gauge and category images
-   * @member {String} gaugeSharingImageUrl
-   */
-  exports.prototype['gaugeSharingImageUrl'] = undefined;
-  /**
-   * Example: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
-   * @member {String} imageUrl
-   */
-  exports.prototype['imageUrl'] = undefined;
   /**
    * Example: 298
    * @member {Number} numberOfPairs
@@ -1033,11 +820,6 @@
    */
   exports.prototype['predictorDataSources'] = undefined;
   /**
-   * Example: Sleep Quality Predicts Higher Overall Mood
-   * @member {String} predictorExplanation
-   */
-  exports.prototype['predictorExplanation'] = undefined;
-  /**
    * Example: -1
    * @member {Number} predictorFillingValue
    */
@@ -1058,20 +840,10 @@
    */
   exports.prototype['predictsHighEffectChange'] = undefined;
   /**
-   * Example: , on average, 17% 
-   * @member {String} predictsHighEffectChangeSentenceFragment
-   */
-  exports.prototype['predictsHighEffectChangeSentenceFragment'] = undefined;
-  /**
    * Example: -11
    * @member {Number} predictsLowEffectChange
    */
   exports.prototype['predictsLowEffectChange'] = undefined;
-  /**
-   * Example: , on average, 11% 
-   * @member {String} predictsLowEffectChangeSentenceFragment
-   */
-  exports.prototype['predictsLowEffectChangeSentenceFragment'] = undefined;
   /**
    * Example: 0.39628900511586
    * @member {Number} pValue
@@ -1088,11 +860,6 @@
    */
   exports.prototype['reversePearsonCorrelationCoefficient'] = undefined;
   /**
-   * Image with robot and category images
-   * @member {String} robotSharingImageUrl
-   */
-  exports.prototype['robotSharingImageUrl'] = undefined;
-  /**
    * Example: 1
    * @member {Boolean} shareUserMeasurements
    */
@@ -1107,11 +874,6 @@
    * @member {String} sharingTitle
    */
   exports.prototype['sharingTitle'] = undefined;
-  /**
-   * Example: Using a two-tailed t-test with alpha = 0.05, it was determined that the change in Overall Mood is statistically significant at 95% confidence interval.
-   * @member {String} significanceExplanation
-   */
-  exports.prototype['significanceExplanation'] = undefined;
   /**
    * Example: 1
    * @member {Boolean} significantDifference
@@ -1133,65 +895,22 @@
    */
   exports.prototype['strongestPearsonCorrelationCoefficient'] = undefined;
   /**
-   * Example: Your data suggests with a high degree of confidence (p=0) that Sleep Quality (Sleep) has a moderately positive predictive relationship (R=0.538) with Overall Mood  (Emotions).  The highest quartile of Overall Mood  measurements were observed following an average 4.14/5 Sleep Quality.  The lowest quartile of Overall Mood measurements were observed following an average 3.03/5 Sleep Quality.
-   * @member {String} studyAbstract
+   * @member {module:model/StudyImages} studyImages
    */
-  exports.prototype['studyAbstract'] = undefined;
+  exports.prototype['studyImages'] = undefined;
   /**
-   * Example: This study is based on data donated by one QuantiModo user. Thus, the study design is consistent with an n=1 observational natural experiment.
-   * @member {String} studyDesign
+   * @member {module:model/StudyLinks} studyLinks
    */
-  exports.prototype['studyDesign'] = undefined;
+  exports.prototype['studyLinks'] = undefined;
   /**
-   * Example: As with any human experiment, it was impossible to control for all potentially confounding variables.              Correlation does not necessarily imply correlation.  We can never know for sure if one factor is definitely the cause of an outcome.             However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great             confidence rule out non-existent relationships. For instance, if we discover no relationship between mood             and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.             <br>             <br>              We can also take advantage of several characteristics of time series data from many subjects  to infer the likelihood of a causal relationship if we do find a correlational relationship.             The criteria for causation are a group of minimal conditions necessary to provide adequate evidence of a causal relationship between an incidence and a possible consequence.             The list of the criteria is as follows:             <br>             1. Strength (effect size): A small association does not mean that there is not a causal effect, though the larger the association, the more likely that it is causal.             <br>             2. Consistency (reproducibility): Consistent findings observed by different persons in different places with different samples strengthens the likelihood of an effect.             <br>             3. Specificity: Causation is likely if a very specific population at a specific site and disease with no other likely explanation. The more specific an association between a factor and an effect is, the bigger the probability of a causal relationship.             <br>             4. Temporality: The effect has to occur after the cause (and if there is an expected delay between the cause and expected effect, then the effect must occur after that delay).             <br>             5. Biological gradient: Greater exposure should generally lead to greater incidence of the effect. However, in some cases, the mere presence of the factor can trigger the effect. In other cases, an inverse proportion is observed: greater exposure leads to lower incidence.             <br>             6. Plausibility: A plausible mechanism between cause and effect is helpful.             <br>             7. Coherence: Coherence between epidemiological and laboratory findings increases the likelihood of an effect.             <br>             8. Experiment: \"Occasionally it is possible to appeal to experimental evidence\".             <br>             9. Analogy: The effect of similar factors may be considered.             <br>             <br>               The confidence in a causal relationship is bolstered by the fact that time-precedence was taken into account in all calculations. Furthermore, in accordance with the law of large numbers (LLN), the predictive power and accuracy of these results will continually grow over time.  298 paired data points were used in this analysis.   Assuming that the relationship is merely coincidental, as the participant independently modifies their Sleep Quality values, the observed strength of the relationship will decline until it is below the threshold of significance.  To it another way, in the case that we do find a spurious correlation, suggesting that banana intake improves mood for instance,             one will likely increase their banana intake.  Due to the fact that this correlation is spurious, it is unlikely             that you will see a continued and persistent corresponding increase in mood.  So over time, the spurious correlation will             naturally dissipate.Furthermore, it will be very enlightening to aggregate this data with the data from other participants  with similar genetic, diseasomic, environmentomic, and demographic profiles.
-   * @member {String} studyLimitations
+   * @member {module:model/StudyText} studyText
    */
-  exports.prototype['studyLimitations'] = undefined;
+  exports.prototype['studyText'] = undefined;
   /**
-   * Example: https://local.quantimo.do/ionic/Modo/www/index.html#/app/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
-   * @member {String} studyLinkDynamic
+   * Embeddable study HTML including chart svg's
+   * @member {String} studyHtml
    */
-  exports.prototype['studyLinkDynamic'] = undefined;
-  /**
-   * Example: mailto:?subject=N1%20Study%3A%20Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood&body=Check%20out%20my%20study%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%0A%0AHave%20a%20great%20day!
-   * @member {String} studyLinkEmail
-   */
-  exports.prototype['studyLinkEmail'] = undefined;
-  /**
-   * Example: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
-   * @member {String} studyLinkFacebook
-   */
-  exports.prototype['studyLinkFacebook'] = undefined;
-  /**
-   * Example: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
-   * @member {String} studyLinkGoogle
-   */
-  exports.prototype['studyLinkGoogle'] = undefined;
-  /**
-   * Example: https://local.quantimo.do/api/v2/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
-   * @member {String} studyLinkStatic
-   */
-  exports.prototype['studyLinkStatic'] = undefined;
-  /**
-   * Example: https://twitter.com/home?status=Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%20%40quantimodo
-   * @member {String} studyLinkTwitter
-   */
-  exports.prototype['studyLinkTwitter'] = undefined;
-  /**
-   * Example: The objective of this study is to determine the nature of the relationship (if any) between the Sleep Quality and the Overall Mood. Additionally, we attempt to determine the Sleep Quality values most likely to produce optimal Overall Mood values.
-   * @member {String} studyObjective
-   */
-  exports.prototype['studyObjective'] = undefined;
-  /**
-   * Example: This analysis suggests that higher Sleep Quality (Sleep) generally predicts higher Overall Mood (p = 0).  Overall Mood is, on average, 17%  higher after around 4.14 Sleep Quality.  After an onset delay of 168 hours, Overall Mood is, on average, 11%  lower than its average over the 168 hours following around 3.03 Sleep Quality.  298 data points were used in this analysis.  The value for Sleep Quality changed 164 times, effectively running 82 separate natural experiments.  The top quartile outcome values are preceded by an average 4.14 /5 of Sleep Quality.  The bottom quartile outcome values are preceded by an average 3.03 /5 of Sleep Quality.  Forward Pearson Correlation Coefficient was 0.538 (p=0, 95% CI 0.395 to 0.681 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0 (P=0, 95% CI -0.143 to 0.143, onset delay = -0 hours, duration of action = -168 hours). When the Sleep Quality value is closer to 4.14 /5 than 3.03 /5, the Overall Mood value which follows is, on average, 17%  percent higher than its typical value.  When the Sleep Quality value is closer to 3.03 /5 than 4.14 /5, the Overall Mood value which follows is 0% lower than its typical value.  Overall Mood is 3.55/5 (15% higher) on average after days with around 4.19/5 Sleep Quality  Overall Mood is 2.65/5 (14% lower) on average after days with around 1.97/5 Sleep Quality
-   * @member {String} studyResults
-   */
-  exports.prototype['studyResults'] = undefined;
-  /**
-   * Example: N1 Study: Sleep Quality Predicts Higher Overall Mood
-   * @member {String} studyTitle
-   */
-  exports.prototype['studyTitle'] = undefined;
+  exports.prototype['studyHtml'] = undefined;
   /**
    * Example: 9.6986079652717
    * @member {Number} tValue
@@ -1218,20 +937,10 @@
    */
   exports.prototype['valuePredictingHighOutcome'] = undefined;
   /**
-   * Example: Overall Mood, on average, 17% higher after around 4.14/5 Sleep Quality
-   * @member {String} valuePredictingHighOutcomeExplanation
-   */
-  exports.prototype['valuePredictingHighOutcomeExplanation'] = undefined;
-  /**
    * Example: 3.03
    * @member {Number} valuePredictingLowOutcome
    */
   exports.prototype['valuePredictingLowOutcome'] = undefined;
-  /**
-   * Example: Overall Mood, on average, 11% lower after around 3.03/5 Sleep Quality
-   * @member {String} valuePredictingLowOutcomeExplanation
-   */
-  exports.prototype['valuePredictingLowOutcomeExplanation'] = undefined;
   /**
    * original name of the cause.
    * @member {String} outcomeDataSources
@@ -1248,35 +957,10 @@
    */
   exports.prototype['reverseCorrelation'] = undefined;
   /**
-   * In order to reduce suffering through the advancement of human knowledge...
-   * @member {String} studyBackground
-   */
-  exports.prototype['studyBackground'] = undefined;
-  /**
-   * Help us determine if Remeron affects Overall Mood!
-   * @member {String} studyInvitation
-   */
-  exports.prototype['studyInvitation'] = undefined;
-  /**
-   * Does Remeron affect Overall Mood?
-   * @member {String} studyQuestion
-   */
-  exports.prototype['studyQuestion'] = undefined;
-  /**
-   * Embeddable study HTML including chart svg's
-   * @member {String} studyHtml
-   */
-  exports.prototype['studyHtml'] = undefined;
-  /**
    * Example: 
    * @member {String} averagePearsonCorrelationCoefficientOverOnsetDelays
    */
   exports.prototype['averagePearsonCorrelationCoefficientOverOnsetDelays'] = undefined;
-  /**
-   * Example: 
-   * @member {Date} calculationStartTime
-   */
-  exports.prototype['calculationStartTime'] = undefined;
   /**
    * Example: 14764
    * @member {Number} causeNumberOfRawMeasurements
