@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/CommonVariable', 'model/CommonVariableArray', 'model/DataSource', 'model/Unit', 'model/UserVariableArray'], factory);
+    define(['ApiClient', 'model/Chart', 'model/CommonVariable', 'model/CommonVariableArray', 'model/DataSource', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariable'), require('./CommonVariableArray'), require('./DataSource'), require('./Unit'), require('./UserVariableArray'));
+    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariable'), require('./CommonVariableArray'), require('./DataSource'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.CommonVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariable, root.Quantimodo.CommonVariableArray, root.Quantimodo.DataSource, root.Quantimodo.Unit, root.Quantimodo.UserVariableArray);
+    root.Quantimodo.CommonVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariable, root.Quantimodo.CommonVariableArray, root.Quantimodo.DataSource, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, Chart, CommonVariable, CommonVariableArray, DataSource, Unit, UserVariableArray) {
+}(this, function(ApiClient, Chart, CommonVariable, CommonVariableArray, DataSource, Unit) {
   'use strict';
 
 
@@ -44,19 +44,8 @@
    * @alias module:model/CommonVariable
    * @class
    * @param alias {String} Example: 
-   * @param availableUnits {Array.<module:model/Unit>} 
-   * @param causeOnly {Number} A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user.
-   * @param chartsLinkDynamic {String} Example: https://local.quantimo.do/ionic/Modo/www/#/app/charts/Barometric%20Pressure?variableName=Barometric%20Pressure&userId=230&pngUrl=https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Fenvironment.png
-   * @param chartsLinkEmail {String} Example: mailto:?subject=Check%20out%20my%20Barometric%20Pressure%20data%21&body=See%20my%20Barometric%20Pressure%20history%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DBarometric%2520Pressure%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Fenvironment.png%0A%0AHave%20a%20great%20day!
-   * @param chartsLinkFacebook {String} Example: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DBarometric%2520Pressure%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Fenvironment.png
-   * @param chartsLinkGoogle {String} Example: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DBarometric%2520Pressure%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Fenvironment.png
-   * @param chartsLinkStatic {String} Example: https://local.quantimo.do/api/v2/charts?variableName=Barometric%20Pressure&userId=230&pngUrl=https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Fenvironment.png
-   * @param chartsLinkTwitter {String} Example: https://twitter.com/home?status=Check%20out%20my%20Barometric%20Pressure%20data%21%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DBarometric%2520Pressure%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Fenvironment.png%20%40quantimodo
-   * @param childUserTagVariables {module:model/UserVariableArray} 
    * @param clientId {String} Example: local
    * @param combinationOperation {module:model/CommonVariable.CombinationOperationEnum} Way to aggregate measurements over time. Options are \"MEAN\" or \"SUM\". SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.
-   * @param commonTaggedVariables {module:model/CommonVariableArray} 
-   * @param commonTagVariables {module:model/CommonVariableArray} 
    * @param commonVariableMostCommonConnectorId {Number} Example: 13
    * @param commonVariableUpdatedAt {Date} Example: 2017-07-30 20:47:38
    * @param dataSource {module:model/DataSource} 
@@ -66,18 +55,9 @@
    * @param earliestFillingTime {Number} Example: 1362099600
    * @param earliestMeasurementTime {Number} Earliest measurement time
    * @param earliestSourceTime {Number} Example: 1334473200
-   * @param experimentEndTime {Date} Example: 
-   * @param experimentEndTimeSeconds {Date} Example: 
-   * @param experimentEndTimeString {Date} Example: 
-   * @param experimentStartTime {Date} Example: 
-   * @param experimentStartTimeSeconds {Date} Example: 
-   * @param experimentStartTimeString {Date} Example: 
    * @param fillingType {String} Example: 
    * @param fillingValue {Number} When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.
    * @param informationalUrl {String} Example: 
-   * @param ingredientOfUserTagVariables {module:model/UserVariableArray} 
-   * @param ingredientUserTagVariables {module:model/UserVariableArray} 
-   * @param joinedUserTagVariables {module:model/UserVariableArray} 
    * @param joinedVariables {Array.<module:model/CommonVariable>} Array of Variables that are joined with this Variable
    * @param joinWith {String} The Variable this Variable should be joined with. If the variable is joined with some other variable then it is not shown to user in the list of variables.
    * @param lastOriginalUnitId {Number} Example: 47
@@ -91,7 +71,6 @@
    * @param latestFillingTime {Number} Example: 1501722000
    * @param latestMeasurementTime {Number} Latest measurement time
    * @param latestSourceTime {Number} Example: 1501722000
-   * @param latestUserMeasurementTime {Number} Example: 1501722000
    * @param maximumAllowedValue {Number} The maximum allowed value for measurements. While you can record a value above this maximum, it will be excluded from the correlation analysis.
    * @param maximumRecordedValue {Number} Example: 104700
    * @param measurementsAtLastAnalysis {Number} Example: 9795
@@ -100,57 +79,36 @@
    * @param mostCommonUnit {String} Most common unit
    * @param mostCommonValue {Number} Most common value
    * @param name {String} User-defined variable display name.
-   * @param numberOfChanges {Number} Example: 1317
-   * @param numberOfCorrelations {Number} Number of correlations
-   * @param numberOfProcessedDailyMeasurements {Number} Example: 1364
-   * @param numberOfRawMeasurements {Number} Number of measurements
-   * @param numberOfUniqueDailyValues {Number} Example: 283
-   * @param numberOfUserCorrelationsAsCause {Number} Example: 155
-   * @param numberOfUserCorrelationsAsEffect {Number} Example: 0
-   * @param onsetDelay {Number} The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
-   * @param onsetDelayInHours {Number} Example: 0
-   * @param outcome {Number} Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors. These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables.
-   * @param outcomeOfInterest {Number} Example: 0
-   * @param parent {Number} Id of the parent variable if this variable has any parent
-   * @param parentId {String} Example: 
-   * @param parentUserTagVariables {module:model/UserVariableArray} 
-   * @param predictorOfInterest {Number} Example: 0
    * @param price {String} Example: 
    * @param productUrl {String} Example: 
    * @param rawMeasurementsAtLastAnalysis {Number} The number of measurements that a given user had for this variable the last time a correlation calculation was performed. Generally correlation values are only updated once the current number of measurements for a variable is more than 10% greater than the rawMeasurementsAtLastAnalysis.  This avoids a computationally-demanding recalculation when there's not enough new data to make a significant difference in the correlation.
    * @param secondToLastValue {Number} Example: 101800
-   * @param shareUserMeasurements {Boolean} Example: false
    * @param sources {String} Comma-separated list of source names to limit variables to those sources
    * @param status {String} Example: UPDATED
-   * @param subVariables {Array.<module:model/CommonVariable>} Array of Variables that are sub variables to this Variable
    * @param thirdToLastValue {Number} Example: 102000
-   * @param updated {Number} When this variable or its settings were last updated
-   * @param userId {Number} Example: 230
    * @param variableCategoryName {String} Variable category like Mood, Sleep, Physical Activity, Treatment, Symptom, etc.
    * @param variableFillingValue {Number} Example: -1
    * @param variableId {Number} Example: 96380
-   * @param wikipediaTitle {String} Example: 
    */
-  var exports = function(alias, availableUnits, causeOnly, chartsLinkDynamic, chartsLinkEmail, chartsLinkFacebook, chartsLinkGoogle, chartsLinkStatic, chartsLinkTwitter, childUserTagVariables, clientId, combinationOperation, commonTaggedVariables, commonTagVariables, commonVariableMostCommonConnectorId, commonVariableUpdatedAt, dataSource, unitAbbreviatedName, unitId, durationOfAction, earliestFillingTime, earliestMeasurementTime, earliestSourceTime, experimentEndTime, experimentEndTimeSeconds, experimentEndTimeString, experimentStartTime, experimentStartTimeSeconds, experimentStartTimeString, fillingType, fillingValue, informationalUrl, ingredientOfUserTagVariables, ingredientUserTagVariables, joinedUserTagVariables, joinedVariables, joinWith, lastOriginalUnitId, lastOriginalValue, lastProcessedDailyValue, lastSource, lastSuccessfulUpdateTime, lastUnit, lastUnitId, lastValue, latestFillingTime, latestMeasurementTime, latestSourceTime, latestUserMeasurementTime, maximumAllowedValue, maximumRecordedValue, measurementsAtLastAnalysis, minimumAllowedValue, minimumRecordedValue, mostCommonUnit, mostCommonValue, name, numberOfChanges, numberOfCorrelations, numberOfProcessedDailyMeasurements, numberOfRawMeasurements, numberOfUniqueDailyValues, numberOfUserCorrelationsAsCause, numberOfUserCorrelationsAsEffect, onsetDelay, onsetDelayInHours, outcome, outcomeOfInterest, parent, parentId, parentUserTagVariables, predictorOfInterest, price, productUrl, rawMeasurementsAtLastAnalysis, secondToLastValue, shareUserMeasurements, sources, status, subVariables, thirdToLastValue, updated, userId, variableCategoryName, variableFillingValue, variableId, wikipediaTitle) {
+  var exports = function(alias, clientId, combinationOperation, commonVariableMostCommonConnectorId, commonVariableUpdatedAt, dataSource, unitAbbreviatedName, unitId, durationOfAction, earliestFillingTime, earliestMeasurementTime, earliestSourceTime, fillingType, fillingValue, informationalUrl, joinedVariables, joinWith, lastOriginalUnitId, lastOriginalValue, lastProcessedDailyValue, lastSource, lastSuccessfulUpdateTime, lastUnit, lastUnitId, lastValue, latestFillingTime, latestMeasurementTime, latestSourceTime, maximumAllowedValue, maximumRecordedValue, measurementsAtLastAnalysis, minimumAllowedValue, minimumRecordedValue, mostCommonUnit, mostCommonValue, name, price, productUrl, rawMeasurementsAtLastAnalysis, secondToLastValue, sources, status, thirdToLastValue, variableCategoryName, variableFillingValue, variableId) {
     var _this = this;
 
     _this['alias'] = alias;
-    _this['availableUnits'] = availableUnits;
 
-    _this['causeOnly'] = causeOnly;
 
-    _this['chartsLinkDynamic'] = chartsLinkDynamic;
-    _this['chartsLinkEmail'] = chartsLinkEmail;
-    _this['chartsLinkFacebook'] = chartsLinkFacebook;
-    _this['chartsLinkGoogle'] = chartsLinkGoogle;
-    _this['chartsLinkStatic'] = chartsLinkStatic;
-    _this['chartsLinkTwitter'] = chartsLinkTwitter;
-    _this['childUserTagVariables'] = childUserTagVariables;
+
+
+
+
+
+
+
+
     _this['clientId'] = clientId;
     _this['combinationOperation'] = combinationOperation;
 
-    _this['commonTaggedVariables'] = commonTaggedVariables;
-    _this['commonTagVariables'] = commonTagVariables;
+
+
     _this['commonVariableMostCommonConnectorId'] = commonVariableMostCommonConnectorId;
     _this['commonVariableUpdatedAt'] = commonVariableUpdatedAt;
 
@@ -166,22 +124,19 @@
     _this['earliestFillingTime'] = earliestFillingTime;
     _this['earliestMeasurementTime'] = earliestMeasurementTime;
     _this['earliestSourceTime'] = earliestSourceTime;
-    _this['experimentEndTime'] = experimentEndTime;
-    _this['experimentEndTimeSeconds'] = experimentEndTimeSeconds;
-    _this['experimentEndTimeString'] = experimentEndTimeString;
-    _this['experimentStartTime'] = experimentStartTime;
-    _this['experimentStartTimeSeconds'] = experimentStartTimeSeconds;
-    _this['experimentStartTimeString'] = experimentStartTimeString;
+
+
+
+
+
+
     _this['fillingType'] = fillingType;
     _this['fillingValue'] = fillingValue;
 
 
     _this['informationalUrl'] = informationalUrl;
-    _this['ingredientOfUserTagVariables'] = ingredientOfUserTagVariables;
-    _this['ingredientUserTagVariables'] = ingredientUserTagVariables;
 
 
-    _this['joinedUserTagVariables'] = joinedUserTagVariables;
     _this['joinedVariables'] = joinedVariables;
     _this['joinWith'] = joinWith;
 
@@ -196,7 +151,7 @@
     _this['latestFillingTime'] = latestFillingTime;
     _this['latestMeasurementTime'] = latestMeasurementTime;
     _this['latestSourceTime'] = latestSourceTime;
-    _this['latestUserMeasurementTime'] = latestUserMeasurementTime;
+
 
     _this['maximumAllowedValue'] = maximumAllowedValue;
     _this['maximumRecordedValue'] = maximumRecordedValue;
@@ -212,47 +167,43 @@
     _this['name'] = name;
 
 
-    _this['numberOfChanges'] = numberOfChanges;
-    _this['numberOfCorrelations'] = numberOfCorrelations;
-
-    _this['numberOfProcessedDailyMeasurements'] = numberOfProcessedDailyMeasurements;
-    _this['numberOfRawMeasurements'] = numberOfRawMeasurements;
-
-    _this['numberOfUniqueDailyValues'] = numberOfUniqueDailyValues;
-
-    _this['numberOfUserCorrelationsAsCause'] = numberOfUserCorrelationsAsCause;
-    _this['numberOfUserCorrelationsAsEffect'] = numberOfUserCorrelationsAsEffect;
-
-    _this['onsetDelay'] = onsetDelay;
-    _this['onsetDelayInHours'] = onsetDelayInHours;
-    _this['outcome'] = outcome;
-    _this['outcomeOfInterest'] = outcomeOfInterest;
-    _this['parent'] = parent;
-    _this['parentId'] = parentId;
-    _this['parentUserTagVariables'] = parentUserTagVariables;
 
 
-    _this['predictorOfInterest'] = predictorOfInterest;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     _this['price'] = price;
     _this['productUrl'] = productUrl;
 
     _this['rawMeasurementsAtLastAnalysis'] = rawMeasurementsAtLastAnalysis;
 
     _this['secondToLastValue'] = secondToLastValue;
-    _this['shareUserMeasurements'] = shareUserMeasurements;
 
     _this['sources'] = sources;
 
     _this['status'] = status;
 
-    _this['subVariables'] = subVariables;
+
 
 
     _this['thirdToLastValue'] = thirdToLastValue;
 
-    _this['updated'] = updated;
 
-    _this['userId'] = userId;
 
 
 
@@ -261,7 +212,7 @@
     _this['variableId'] = variableId;
 
 
-    _this['wikipediaTitle'] = wikipediaTitle;
+
   };
 
   /**
@@ -307,9 +258,6 @@
       }
       if (data.hasOwnProperty('chartsLinkTwitter')) {
         obj['chartsLinkTwitter'] = ApiClient.convertToType(data['chartsLinkTwitter'], 'String');
-      }
-      if (data.hasOwnProperty('childUserTagVariables')) {
-        obj['childUserTagVariables'] = UserVariableArray.constructFromObject(data['childUserTagVariables']);
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -404,20 +352,11 @@
       if (data.hasOwnProperty('informationalUrl')) {
         obj['informationalUrl'] = ApiClient.convertToType(data['informationalUrl'], 'String');
       }
-      if (data.hasOwnProperty('ingredientOfUserTagVariables')) {
-        obj['ingredientOfUserTagVariables'] = UserVariableArray.constructFromObject(data['ingredientOfUserTagVariables']);
-      }
-      if (data.hasOwnProperty('ingredientUserTagVariables')) {
-        obj['ingredientUserTagVariables'] = UserVariableArray.constructFromObject(data['ingredientUserTagVariables']);
-      }
       if (data.hasOwnProperty('inputType')) {
         obj['inputType'] = ApiClient.convertToType(data['inputType'], 'String');
       }
       if (data.hasOwnProperty('ionIcon')) {
         obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
-      }
-      if (data.hasOwnProperty('joinedUserTagVariables')) {
-        obj['joinedUserTagVariables'] = UserVariableArray.constructFromObject(data['joinedUserTagVariables']);
       }
       if (data.hasOwnProperty('joinedVariables')) {
         obj['joinedVariables'] = ApiClient.convertToType(data['joinedVariables'], [CommonVariable]);
@@ -560,9 +499,6 @@
       if (data.hasOwnProperty('parentId')) {
         obj['parentId'] = ApiClient.convertToType(data['parentId'], 'String');
       }
-      if (data.hasOwnProperty('parentUserTagVariables')) {
-        obj['parentUserTagVariables'] = UserVariableArray.constructFromObject(data['parentUserTagVariables']);
-      }
       if (data.hasOwnProperty('pngPath')) {
         obj['pngPath'] = ApiClient.convertToType(data['pngPath'], 'String');
       }
@@ -589,9 +525,6 @@
       }
       if (data.hasOwnProperty('secondToLastValue')) {
         obj['secondToLastValue'] = ApiClient.convertToType(data['secondToLastValue'], 'Number');
-      }
-      if (data.hasOwnProperty('shareUserMeasurements')) {
-        obj['shareUserMeasurements'] = ApiClient.convertToType(data['shareUserMeasurements'], 'Boolean');
       }
       if (data.hasOwnProperty('skewness')) {
         obj['skewness'] = ApiClient.convertToType(data['skewness'], 'Number');
@@ -623,14 +556,8 @@
       if (data.hasOwnProperty('upc')) {
         obj['upc'] = ApiClient.convertToType(data['upc'], 'String');
       }
-      if (data.hasOwnProperty('updated')) {
-        obj['updated'] = ApiClient.convertToType(data['updated'], 'Number');
-      }
       if (data.hasOwnProperty('updatedAt')) {
         obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
-      }
-      if (data.hasOwnProperty('userId')) {
-        obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
       }
       if (data.hasOwnProperty('valence')) {
         obj['valence'] = ApiClient.convertToType(data['valence'], 'String');
@@ -716,10 +643,6 @@
    * @member {String} chartsLinkTwitter
    */
   exports.prototype['chartsLinkTwitter'] = undefined;
-  /**
-   * @member {module:model/UserVariableArray} childUserTagVariables
-   */
-  exports.prototype['childUserTagVariables'] = undefined;
   /**
    * Example: local
    * @member {String} clientId
@@ -873,14 +796,6 @@
    */
   exports.prototype['informationalUrl'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} ingredientOfUserTagVariables
-   */
-  exports.prototype['ingredientOfUserTagVariables'] = undefined;
-  /**
-   * @member {module:model/UserVariableArray} ingredientUserTagVariables
-   */
-  exports.prototype['ingredientUserTagVariables'] = undefined;
-  /**
    * Example: slider
    * @member {String} inputType
    */
@@ -890,10 +805,6 @@
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
-  /**
-   * @member {module:model/UserVariableArray} joinedUserTagVariables
-   */
-  exports.prototype['joinedUserTagVariables'] = undefined;
   /**
    * Array of Variables that are joined with this Variable
    * @member {Array.<module:model/CommonVariable>} joinedVariables
@@ -1130,10 +1041,6 @@
    */
   exports.prototype['parentId'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} parentUserTagVariables
-   */
-  exports.prototype['parentUserTagVariables'] = undefined;
-  /**
    * Example: img/variable_categories/sleep.png
    * @member {String} pngPath
    */
@@ -1178,11 +1085,6 @@
    * @member {Number} secondToLastValue
    */
   exports.prototype['secondToLastValue'] = undefined;
-  /**
-   * Example: false
-   * @member {Boolean} shareUserMeasurements
-   */
-  exports.prototype['shareUserMeasurements'] = undefined;
   /**
    * Example: 0.2461351905455
    * @member {Number} skewness
@@ -1235,19 +1137,9 @@
   exports.prototype['upc'] = undefined;
   /**
    * When this variable or its settings were last updated
-   * @member {Number} updated
-   */
-  exports.prototype['updated'] = undefined;
-  /**
-   * Example: 2017-07-31 03:57:06
    * @member {Date} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
-  /**
-   * Example: 230
-   * @member {Number} userId
-   */
-  exports.prototype['userId'] = undefined;
   /**
    * Example: positive
    * @member {String} valence

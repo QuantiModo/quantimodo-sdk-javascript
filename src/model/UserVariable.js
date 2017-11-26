@@ -43,31 +43,14 @@
    * Constructs a new <code>UserVariable</code>.
    * @alias module:model/UserVariable
    * @class
-   * @param alias {String} Example: 
-   * @param availableUnits {Array.<module:model/Unit>} 
-   * @param childUserTagVariables {module:model/UserVariableArray} 
-   * @param commonTaggedVariables {module:model/CommonVariableArray} 
-   * @param commonTagVariables {module:model/CommonVariableArray} 
-   * @param informationalUrl {String} Example: 
-   * @param ingredientOfUserTagVariables {module:model/UserVariableArray} 
-   * @param ingredientUserTagVariables {module:model/UserVariableArray} 
-   * @param joinedUserTagVariables {module:model/UserVariableArray} 
-   * @param parent {String} Example: 
-   * @param parentUserTagVariables {module:model/UserVariableArray} 
-   * @param price {Number} Example: 95.4
-   * @param productUrl {String} Example: 
-   * @param userTaggedVariables {module:model/UserVariableArray} 
-   * @param userTagVariables {module:model/UserVariableArray} 
-   * @param userVariableValence {String} Example: 
-   * @param userVariableWikipediaTitle {String} Example: 
+   * @param id {Number} Example: 95614
+   * @param name {String} Example: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)
+   * @param userId {Number} User ID
    * @param variableId {Number} ID of variable
-   * @param wikipediaTitle {String} Example: 
    */
-  var exports = function(alias, availableUnits, childUserTagVariables, commonTaggedVariables, commonTagVariables, informationalUrl, ingredientOfUserTagVariables, ingredientUserTagVariables, joinedUserTagVariables, parent, parentUserTagVariables, price, productUrl, userTaggedVariables, userTagVariables, userVariableValence, userVariableWikipediaTitle, variableId, wikipediaTitle) {
+  var exports = function(id, name, userId, variableId) {
     var _this = this;
 
-    _this['alias'] = alias;
-    _this['availableUnits'] = availableUnits;
 
 
 
@@ -76,12 +59,9 @@
 
 
 
-    _this['childUserTagVariables'] = childUserTagVariables;
 
 
 
-    _this['commonTaggedVariables'] = commonTaggedVariables;
-    _this['commonTagVariables'] = commonTagVariables;
 
 
 
@@ -108,13 +88,10 @@
 
 
 
-    _this['informationalUrl'] = informationalUrl;
-    _this['ingredientOfUserTagVariables'] = ingredientOfUserTagVariables;
-    _this['ingredientUserTagVariables'] = ingredientUserTagVariables;
 
 
-    _this['joinedUserTagVariables'] = joinedUserTagVariables;
 
+    _this['id'] = id;
 
 
 
@@ -150,6 +127,7 @@
 
 
 
+    _this['name'] = name;
 
 
 
@@ -160,14 +138,10 @@
 
 
 
-    _this['parent'] = parent;
 
-    _this['parentUserTagVariables'] = parentUserTagVariables;
 
 
 
-    _this['price'] = price;
-    _this['productUrl'] = productUrl;
 
 
 
@@ -187,8 +161,6 @@
 
 
 
-    _this['userTaggedVariables'] = userTaggedVariables;
-    _this['userTagVariables'] = userTagVariables;
 
 
 
@@ -197,10 +169,23 @@
 
 
 
-    _this['userVariableValence'] = userVariableValence;
 
 
-    _this['userVariableWikipediaTitle'] = userVariableWikipediaTitle;
+    _this['userId'] = userId;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -210,7 +195,7 @@
     _this['variableId'] = variableId;
 
 
-    _this['wikipediaTitle'] = wikipediaTitle;
+
   };
 
   /**

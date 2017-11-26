@@ -122,12 +122,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property childUserTagVariables (base name: "childUserTagVariables")', function() {
-      // uncomment below and update the code to test the property childUserTagVariables
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
       //var instane = new Quantimodo.CommonVariable();
@@ -314,18 +308,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property ingredientOfUserTagVariables (base name: "ingredientOfUserTagVariables")', function() {
-      // uncomment below and update the code to test the property ingredientOfUserTagVariables
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property ingredientUserTagVariables (base name: "ingredientUserTagVariables")', function() {
-      // uncomment below and update the code to test the property ingredientUserTagVariables
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property inputType (base name: "inputType")', function() {
       // uncomment below and update the code to test the property inputType
       //var instane = new Quantimodo.CommonVariable();
@@ -334,12 +316,6 @@
 
     it('should have the property ionIcon (base name: "ionIcon")', function() {
       // uncomment below and update the code to test the property ionIcon
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property joinedUserTagVariables (base name: "joinedUserTagVariables")', function() {
-      // uncomment below and update the code to test the property joinedUserTagVariables
       //var instane = new Quantimodo.CommonVariable();
       //expect(instance).to.be();
     });
@@ -626,12 +602,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property parentUserTagVariables (base name: "parentUserTagVariables")', function() {
-      // uncomment below and update the code to test the property parentUserTagVariables
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property pngPath (base name: "pngPath")', function() {
       // uncomment below and update the code to test the property pngPath
       //var instane = new Quantimodo.CommonVariable();
@@ -682,12 +652,6 @@
 
     it('should have the property secondToLastValue (base name: "secondToLastValue")', function() {
       // uncomment below and update the code to test the property secondToLastValue
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property shareUserMeasurements (base name: "shareUserMeasurements")', function() {
-      // uncomment below and update the code to test the property shareUserMeasurements
       //var instane = new Quantimodo.CommonVariable();
       //expect(instance).to.be();
     });
@@ -752,20 +716,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property updated (base name: "updated")', function() {
-      // uncomment below and update the code to test the property updated
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property updatedAt (base name: "updatedAt")', function() {
       // uncomment below and update the code to test the property updatedAt
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property userId (base name: "userId")', function() {
-      // uncomment below and update the code to test the property userId
       //var instane = new Quantimodo.CommonVariable();
       //expect(instance).to.be();
     });
