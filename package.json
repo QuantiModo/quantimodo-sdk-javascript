@@ -1,7 +1,7 @@
 {
   "name": "quantimodo",
   "description": "QuantiModo makes it easy to retrieve and analyze normalized user data from a wide array of devices and applications.",
-  "version": "5.8.1126",
+  "version": "5.8.112612",
   "license": "Unlicense",
   "main": "src/index.js",
   "scripts": {
