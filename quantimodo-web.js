@@ -5056,7 +5056,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":16,"../model/CommonResponse":30,"../model/Correlation":35,"../model/GetCorrelationsResponse":41,"../model/JsonErrorResponse":44,"../model/PostCorrelation":55,"../model/Study":65,"../model/Vote":86,"../model/VoteDelete":87}],18:[function(require,module,exports){
+},{"../ApiClient":16,"../model/CommonResponse":30,"../model/Correlation":35,"../model/GetCorrelationsResponse":41,"../model/JsonErrorResponse":44,"../model/PostCorrelation":55,"../model/Study":65,"../model/Vote":85,"../model/VoteDelete":86}],18:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -7366,7 +7366,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":16,"../model/CommonResponse":30,"../model/CommonVariableArray":32,"../model/UserTag":81,"../model/UserVariable":82,"../model/UserVariableDelete":84,"../model/VariableCategory":85}],27:[function(require,module,exports){
+},{"../ApiClient":16,"../model/CommonResponse":30,"../model/CommonVariableArray":32,"../model/UserTag":81,"../model/UserVariable":82,"../model/UserVariableDelete":83,"../model/VariableCategory":84}],27:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -7385,12 +7385,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/CommonVariable', 'model/CommonVariableArray', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementArray', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/PairArray', 'model/PairsOfAveragesForAllUser', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/ProcessedDailyMeasurement', 'model/Scope', 'model/Study', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/TrackingReminder', 'model/TrackingReminderArray', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationActionArray', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/TrackingReminderNotificationsArray', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariable', 'model/UserVariableArray', 'model/UserVariableDelete', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/StudyApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
+    define(['ApiClient', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/CommonVariable', 'model/CommonVariableArray', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementArray', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/PairArray', 'model/PairsOfAveragesForAllUser', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/ProcessedDailyMeasurement', 'model/Scope', 'model/Study', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/TrackingReminder', 'model/TrackingReminderArray', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationActionArray', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/TrackingReminderNotificationsArray', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariable', 'model/UserVariableDelete', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/StudyApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/CommonVariable'), require('./model/CommonVariableArray'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementArray'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/PairArray'), require('./model/PairsOfAveragesForAllUser'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/ProcessedDailyMeasurement'), require('./model/Scope'), require('./model/Study'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyLinks'), require('./model/StudyText'), require('./model/TrackingReminder'), require('./model/TrackingReminderArray'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationActionArray'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/TrackingReminderNotificationsArray'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariable'), require('./model/UserVariableArray'), require('./model/UserVariableDelete'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/StudyApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/CommonVariable'), require('./model/CommonVariableArray'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementArray'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/PairArray'), require('./model/PairsOfAveragesForAllUser'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/ProcessedDailyMeasurement'), require('./model/Scope'), require('./model/Study'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyLinks'), require('./model/StudyText'), require('./model/TrackingReminder'), require('./model/TrackingReminderArray'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationActionArray'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/TrackingReminderNotificationsArray'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariable'), require('./model/UserVariableDelete'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/StudyApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
   }
-}(function(ApiClient, Button, Chart, CommonResponse, CommonVariable, CommonVariableArray, Connector, ConversionStep, Correlation, DataSource, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetTrackingReminderNotificationsResponse, Image, JsonErrorResponse, Measurement, MeasurementArray, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, PairArray, PairsOfAveragesForAllUser, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, ProcessedDailyMeasurement, Scope, Study, StudyHtml, StudyImages, StudyLinks, StudyText, TrackingReminder, TrackingReminderArray, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationActionArray, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, TrackingReminderNotificationsArray, Unit, UnitCategory, User, UserTag, UserVariable, UserVariableArray, UserVariableDelete, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, StudyApi, UnitsApi, UserApi, VariablesApi) {
+}(function(ApiClient, Button, Chart, CommonResponse, CommonVariable, CommonVariableArray, Connector, ConversionStep, Correlation, DataSource, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetTrackingReminderNotificationsResponse, Image, JsonErrorResponse, Measurement, MeasurementArray, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, PairArray, PairsOfAveragesForAllUser, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, ProcessedDailyMeasurement, Scope, Study, StudyHtml, StudyImages, StudyLinks, StudyText, TrackingReminder, TrackingReminderArray, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationActionArray, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, TrackingReminderNotificationsArray, Unit, UnitCategory, User, UserTag, UserVariable, UserVariableDelete, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, StudyApi, UnitsApi, UserApi, VariablesApi) {
   'use strict';
 
   /**
@@ -7706,11 +7706,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
     UserVariable: UserVariable,
     /**
-     * The UserVariableArray model constructor.
-     * @property {module:model/UserVariableArray}
-     */
-    UserVariableArray: UserVariableArray,
-    /**
      * The UserVariableDelete model constructor.
      * @property {module:model/UserVariableDelete}
      */
@@ -7785,7 +7780,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"./ApiClient":16,"./api/AnalyticsApi":17,"./api/AuthenticationApi":18,"./api/ConnectorsApi":19,"./api/MeasurementsApi":20,"./api/NotificationsApi":21,"./api/RemindersApi":22,"./api/StudyApi":23,"./api/UnitsApi":24,"./api/UserApi":25,"./api/VariablesApi":26,"./model/Button":28,"./model/Chart":29,"./model/CommonResponse":30,"./model/CommonVariable":31,"./model/CommonVariableArray":32,"./model/Connector":33,"./model/ConversionStep":34,"./model/Correlation":35,"./model/DataSource":36,"./model/Explanation":37,"./model/ExplanationStartTracking":38,"./model/GetConnectorsResponse":39,"./model/GetCorrelationsDataResponse":40,"./model/GetCorrelationsResponse":41,"./model/GetTrackingReminderNotificationsResponse":42,"./model/Image":43,"./model/JsonErrorResponse":44,"./model/Measurement":45,"./model/MeasurementArray":46,"./model/MeasurementDelete":47,"./model/MeasurementItem":48,"./model/MeasurementSet":49,"./model/MeasurementUpdate":50,"./model/Pair":51,"./model/PairArray":52,"./model/PairsOfAveragesForAllUser":53,"./model/ParticipantInstruction":54,"./model/PostCorrelation":55,"./model/PostMeasurementsDataResponse":56,"./model/PostMeasurementsResponse":57,"./model/PostStudyPublishResponse":58,"./model/PostTrackingRemindersDataResponse":59,"./model/PostTrackingRemindersResponse":60,"./model/PostUserSettingsDataResponse":61,"./model/PostUserSettingsResponse":62,"./model/ProcessedDailyMeasurement":63,"./model/Scope":64,"./model/Study":65,"./model/StudyHtml":66,"./model/StudyImages":67,"./model/StudyLinks":68,"./model/StudyText":69,"./model/TrackingReminder":70,"./model/TrackingReminderArray":71,"./model/TrackingReminderDelete":72,"./model/TrackingReminderNotification":73,"./model/TrackingReminderNotificationActionArray":74,"./model/TrackingReminderNotificationPost":75,"./model/TrackingReminderNotificationTrackAllAction":76,"./model/TrackingReminderNotificationsArray":77,"./model/Unit":78,"./model/UnitCategory":79,"./model/User":80,"./model/UserTag":81,"./model/UserVariable":82,"./model/UserVariableArray":83,"./model/UserVariableDelete":84,"./model/VariableCategory":85,"./model/Vote":86,"./model/VoteDelete":87}],28:[function(require,module,exports){
+},{"./ApiClient":16,"./api/AnalyticsApi":17,"./api/AuthenticationApi":18,"./api/ConnectorsApi":19,"./api/MeasurementsApi":20,"./api/NotificationsApi":21,"./api/RemindersApi":22,"./api/StudyApi":23,"./api/UnitsApi":24,"./api/UserApi":25,"./api/VariablesApi":26,"./model/Button":28,"./model/Chart":29,"./model/CommonResponse":30,"./model/CommonVariable":31,"./model/CommonVariableArray":32,"./model/Connector":33,"./model/ConversionStep":34,"./model/Correlation":35,"./model/DataSource":36,"./model/Explanation":37,"./model/ExplanationStartTracking":38,"./model/GetConnectorsResponse":39,"./model/GetCorrelationsDataResponse":40,"./model/GetCorrelationsResponse":41,"./model/GetTrackingReminderNotificationsResponse":42,"./model/Image":43,"./model/JsonErrorResponse":44,"./model/Measurement":45,"./model/MeasurementArray":46,"./model/MeasurementDelete":47,"./model/MeasurementItem":48,"./model/MeasurementSet":49,"./model/MeasurementUpdate":50,"./model/Pair":51,"./model/PairArray":52,"./model/PairsOfAveragesForAllUser":53,"./model/ParticipantInstruction":54,"./model/PostCorrelation":55,"./model/PostMeasurementsDataResponse":56,"./model/PostMeasurementsResponse":57,"./model/PostStudyPublishResponse":58,"./model/PostTrackingRemindersDataResponse":59,"./model/PostTrackingRemindersResponse":60,"./model/PostUserSettingsDataResponse":61,"./model/PostUserSettingsResponse":62,"./model/ProcessedDailyMeasurement":63,"./model/Scope":64,"./model/Study":65,"./model/StudyHtml":66,"./model/StudyImages":67,"./model/StudyLinks":68,"./model/StudyText":69,"./model/TrackingReminder":70,"./model/TrackingReminderArray":71,"./model/TrackingReminderDelete":72,"./model/TrackingReminderNotification":73,"./model/TrackingReminderNotificationActionArray":74,"./model/TrackingReminderNotificationPost":75,"./model/TrackingReminderNotificationTrackAllAction":76,"./model/TrackingReminderNotificationsArray":77,"./model/Unit":78,"./model/UnitCategory":79,"./model/User":80,"./model/UserTag":81,"./model/UserVariable":82,"./model/UserVariableDelete":83,"./model/VariableCategory":84,"./model/Vote":85,"./model/VoteDelete":86}],28:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -18428,18 +18423,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/CommonVariableArray', 'model/Unit', 'model/UserVariableArray', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/Chart', 'model/CommonVariableArray', 'model/Unit', 'model/UserVariable', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariableArray'), require('./Unit'), require('./UserVariableArray'), require('./VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariableArray'), require('./Unit'), require('./UserVariable'), require('./VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariableArray, root.Quantimodo.Unit, root.Quantimodo.UserVariableArray, root.Quantimodo.VariableCategory);
+    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariableArray, root.Quantimodo.Unit, root.Quantimodo.UserVariable, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, Chart, CommonVariableArray, Unit, UserVariableArray, VariableCategory) {
+}(this, function(ApiClient, Chart, CommonVariableArray, Unit, UserVariable, VariableCategory) {
   'use strict';
 
 
@@ -18652,7 +18647,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['chartsLinkTwitter'] = ApiClient.convertToType(data['chartsLinkTwitter'], 'String');
       }
       if (data.hasOwnProperty('childUserTagVariables')) {
-        obj['childUserTagVariables'] = UserVariableArray.constructFromObject(data['childUserTagVariables']);
+        obj['childUserTagVariables'] = ApiClient.convertToType(data['childUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -18751,10 +18746,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['informationalUrl'] = ApiClient.convertToType(data['informationalUrl'], 'String');
       }
       if (data.hasOwnProperty('ingredientOfUserTagVariables')) {
-        obj['ingredientOfUserTagVariables'] = UserVariableArray.constructFromObject(data['ingredientOfUserTagVariables']);
+        obj['ingredientOfUserTagVariables'] = ApiClient.convertToType(data['ingredientOfUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('ingredientUserTagVariables')) {
-        obj['ingredientUserTagVariables'] = UserVariableArray.constructFromObject(data['ingredientUserTagVariables']);
+        obj['ingredientUserTagVariables'] = ApiClient.convertToType(data['ingredientUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('inputType')) {
         obj['inputType'] = ApiClient.convertToType(data['inputType'], 'String');
@@ -18763,7 +18758,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
       }
       if (data.hasOwnProperty('joinedUserTagVariables')) {
-        obj['joinedUserTagVariables'] = UserVariableArray.constructFromObject(data['joinedUserTagVariables']);
+        obj['joinedUserTagVariables'] = ApiClient.convertToType(data['joinedUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('joinWith')) {
         obj['joinWith'] = ApiClient.convertToType(data['joinWith'], 'Number');
@@ -18910,7 +18905,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['parentId'] = ApiClient.convertToType(data['parentId'], 'Number');
       }
       if (data.hasOwnProperty('parentUserTagVariables')) {
-        obj['parentUserTagVariables'] = UserVariableArray.constructFromObject(data['parentUserTagVariables']);
+        obj['parentUserTagVariables'] = ApiClient.convertToType(data['parentUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('pngPath')) {
         obj['pngPath'] = ApiClient.convertToType(data['pngPath'], 'String');
@@ -18985,10 +18980,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
       }
       if (data.hasOwnProperty('userTaggedVariables')) {
-        obj['userTaggedVariables'] = UserVariableArray.constructFromObject(data['userTaggedVariables']);
+        obj['userTaggedVariables'] = ApiClient.convertToType(data['userTaggedVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('userTagVariables')) {
-        obj['userTagVariables'] = UserVariableArray.constructFromObject(data['userTagVariables']);
+        obj['userTagVariables'] = ApiClient.convertToType(data['userTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('userVariableUnitAbbreviatedName')) {
         obj['userVariableUnitAbbreviatedName'] = ApiClient.convertToType(data['userVariableUnitAbbreviatedName'], 'String');
@@ -19109,7 +19104,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['chartsLinkTwitter'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} childUserTagVariables
+   * @member {Array.<module:model/UserVariable>} childUserTagVariables
    */
   exports.prototype['childUserTagVariables'] = undefined;
   /**
@@ -19271,11 +19266,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['informationalUrl'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} ingredientOfUserTagVariables
+   * @member {Array.<module:model/UserVariable>} ingredientOfUserTagVariables
    */
   exports.prototype['ingredientOfUserTagVariables'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} ingredientUserTagVariables
+   * @member {Array.<module:model/UserVariable>} ingredientUserTagVariables
    */
   exports.prototype['ingredientUserTagVariables'] = undefined;
   /**
@@ -19289,7 +19284,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} joinedUserTagVariables
+   * @member {Array.<module:model/UserVariable>} joinedUserTagVariables
    */
   exports.prototype['joinedUserTagVariables'] = undefined;
   /**
@@ -19533,7 +19528,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['parentId'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} parentUserTagVariables
+   * @member {Array.<module:model/UserVariable>} parentUserTagVariables
    */
   exports.prototype['parentUserTagVariables'] = undefined;
   /**
@@ -19656,11 +19651,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userId'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} userTaggedVariables
+   * @member {Array.<module:model/UserVariable>} userTaggedVariables
    */
   exports.prototype['userTaggedVariables'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} userTagVariables
+   * @member {Array.<module:model/UserVariable>} userTagVariables
    */
   exports.prototype['userTagVariables'] = undefined;
   /**
@@ -19780,87 +19775,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Chart":29,"./CommonVariableArray":32,"./Unit":78,"./UserVariableArray":83,"./VariableCategory":85}],83:[function(require,module,exports){
-/**
- * quantimodo
- * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
- *
- * OpenAPI spec version: 5.8.112511
- *
- * NOTE: This class is auto generated by the swagger code generator program.
- * https://github.com/swagger-api/swagger-codegen.git
- *
- * Swagger Codegen version: 2.2.3
- *
- * Do not edit the class manually.
- *
- */
-
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/UserVariable'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./UserVariable'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.Quantimodo) {
-      root.Quantimodo = {};
-    }
-    root.Quantimodo.UserVariableArray = factory(root.Quantimodo.ApiClient, root.Quantimodo.UserVariable);
-  }
-}(this, function(ApiClient, UserVariable) {
-  'use strict';
-
-
-
-
-  /**
-   * The UserVariableArray model module.
-   * @module model/UserVariableArray
-   * @version 5.8.1126
-   */
-
-  /**
-   * Constructs a new <code>UserVariableArray</code>.
-   * @alias module:model/UserVariableArray
-   * @class
-   * @extends Array
-   */
-  var exports = function() {
-    var _this = this;
-    _this = new Array();
-    Object.setPrototypeOf(_this, exports);
-
-    return _this;
-  };
-
-  /**
-   * Constructs a <code>UserVariableArray</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/UserVariableArray} obj Optional instance to populate.
-   * @return {module:model/UserVariableArray} The populated <code>UserVariableArray</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-      ApiClient.constructFromObject(data, obj, 'UserVariable');
-
-    }
-    return obj;
-  }
-
-
-
-
-  return exports;
-}));
-
-
-
-},{"../ApiClient":16,"./UserVariable":82}],84:[function(require,module,exports){
+},{"../ApiClient":16,"./Chart":29,"./CommonVariableArray":32,"./Unit":78,"./UserVariable":82,"./VariableCategory":84}],83:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -19945,7 +19860,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16}],85:[function(require,module,exports){
+},{"../ApiClient":16}],84:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20282,7 +20197,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16}],86:[function(require,module,exports){
+},{"../ApiClient":16}],85:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20434,7 +20349,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16}],87:[function(require,module,exports){
+},{"../ApiClient":16}],86:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).

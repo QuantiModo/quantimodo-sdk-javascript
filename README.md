@@ -171,7 +171,6 @@ Class | Method | HTTP request | Description
  - [Quantimodo.User](docs/User.md)
  - [Quantimodo.UserTag](docs/UserTag.md)
  - [Quantimodo.UserVariable](docs/UserVariable.md)
- - [Quantimodo.UserVariableArray](docs/UserVariableArray.md)
  - [Quantimodo.UserVariableDelete](docs/UserVariableDelete.md)
  - [Quantimodo.VariableCategory](docs/VariableCategory.md)
  - [Quantimodo.Vote](docs/Vote.md)

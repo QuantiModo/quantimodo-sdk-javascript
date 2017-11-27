@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/CommonVariableArray', 'model/Unit', 'model/UserVariableArray', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/Chart', 'model/CommonVariableArray', 'model/Unit', 'model/UserVariable', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariableArray'), require('./Unit'), require('./UserVariableArray'), require('./VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariableArray'), require('./Unit'), require('./UserVariable'), require('./VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariableArray, root.Quantimodo.Unit, root.Quantimodo.UserVariableArray, root.Quantimodo.VariableCategory);
+    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariableArray, root.Quantimodo.Unit, root.Quantimodo.UserVariable, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, Chart, CommonVariableArray, Unit, UserVariableArray, VariableCategory) {
+}(this, function(ApiClient, Chart, CommonVariableArray, Unit, UserVariable, VariableCategory) {
   'use strict';
 
 
@@ -240,7 +240,7 @@
         obj['chartsLinkTwitter'] = ApiClient.convertToType(data['chartsLinkTwitter'], 'String');
       }
       if (data.hasOwnProperty('childUserTagVariables')) {
-        obj['childUserTagVariables'] = UserVariableArray.constructFromObject(data['childUserTagVariables']);
+        obj['childUserTagVariables'] = ApiClient.convertToType(data['childUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -339,10 +339,10 @@
         obj['informationalUrl'] = ApiClient.convertToType(data['informationalUrl'], 'String');
       }
       if (data.hasOwnProperty('ingredientOfUserTagVariables')) {
-        obj['ingredientOfUserTagVariables'] = UserVariableArray.constructFromObject(data['ingredientOfUserTagVariables']);
+        obj['ingredientOfUserTagVariables'] = ApiClient.convertToType(data['ingredientOfUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('ingredientUserTagVariables')) {
-        obj['ingredientUserTagVariables'] = UserVariableArray.constructFromObject(data['ingredientUserTagVariables']);
+        obj['ingredientUserTagVariables'] = ApiClient.convertToType(data['ingredientUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('inputType')) {
         obj['inputType'] = ApiClient.convertToType(data['inputType'], 'String');
@@ -351,7 +351,7 @@
         obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
       }
       if (data.hasOwnProperty('joinedUserTagVariables')) {
-        obj['joinedUserTagVariables'] = UserVariableArray.constructFromObject(data['joinedUserTagVariables']);
+        obj['joinedUserTagVariables'] = ApiClient.convertToType(data['joinedUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('joinWith')) {
         obj['joinWith'] = ApiClient.convertToType(data['joinWith'], 'Number');
@@ -498,7 +498,7 @@
         obj['parentId'] = ApiClient.convertToType(data['parentId'], 'Number');
       }
       if (data.hasOwnProperty('parentUserTagVariables')) {
-        obj['parentUserTagVariables'] = UserVariableArray.constructFromObject(data['parentUserTagVariables']);
+        obj['parentUserTagVariables'] = ApiClient.convertToType(data['parentUserTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('pngPath')) {
         obj['pngPath'] = ApiClient.convertToType(data['pngPath'], 'String');
@@ -573,10 +573,10 @@
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
       }
       if (data.hasOwnProperty('userTaggedVariables')) {
-        obj['userTaggedVariables'] = UserVariableArray.constructFromObject(data['userTaggedVariables']);
+        obj['userTaggedVariables'] = ApiClient.convertToType(data['userTaggedVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('userTagVariables')) {
-        obj['userTagVariables'] = UserVariableArray.constructFromObject(data['userTagVariables']);
+        obj['userTagVariables'] = ApiClient.convertToType(data['userTagVariables'], [UserVariable]);
       }
       if (data.hasOwnProperty('userVariableUnitAbbreviatedName')) {
         obj['userVariableUnitAbbreviatedName'] = ApiClient.convertToType(data['userVariableUnitAbbreviatedName'], 'String');
@@ -697,7 +697,7 @@
    */
   exports.prototype['chartsLinkTwitter'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} childUserTagVariables
+   * @member {Array.<module:model/UserVariable>} childUserTagVariables
    */
   exports.prototype['childUserTagVariables'] = undefined;
   /**
@@ -859,11 +859,11 @@
    */
   exports.prototype['informationalUrl'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} ingredientOfUserTagVariables
+   * @member {Array.<module:model/UserVariable>} ingredientOfUserTagVariables
    */
   exports.prototype['ingredientOfUserTagVariables'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} ingredientUserTagVariables
+   * @member {Array.<module:model/UserVariable>} ingredientUserTagVariables
    */
   exports.prototype['ingredientUserTagVariables'] = undefined;
   /**
@@ -877,7 +877,7 @@
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} joinedUserTagVariables
+   * @member {Array.<module:model/UserVariable>} joinedUserTagVariables
    */
   exports.prototype['joinedUserTagVariables'] = undefined;
   /**
@@ -1121,7 +1121,7 @@
    */
   exports.prototype['parentId'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} parentUserTagVariables
+   * @member {Array.<module:model/UserVariable>} parentUserTagVariables
    */
   exports.prototype['parentUserTagVariables'] = undefined;
   /**
@@ -1244,11 +1244,11 @@
    */
   exports.prototype['userId'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} userTaggedVariables
+   * @member {Array.<module:model/UserVariable>} userTaggedVariables
    */
   exports.prototype['userTaggedVariables'] = undefined;
   /**
-   * @member {module:model/UserVariableArray} userTagVariables
+   * @member {Array.<module:model/UserVariable>} userTagVariables
    */
   exports.prototype['userTagVariables'] = undefined;
   /**
