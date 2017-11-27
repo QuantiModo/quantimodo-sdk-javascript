@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/MeasurementArray', 'model/MeasurementDelete', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/PairArray', 'model/PostMeasurementsResponse'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/PairArray', 'model/PostMeasurementsResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/MeasurementArray'), require('../model/MeasurementDelete'), require('../model/MeasurementSet'), require('../model/MeasurementUpdate'), require('../model/PairArray'), require('../model/PostMeasurementsResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Measurement'), require('../model/MeasurementDelete'), require('../model/MeasurementSet'), require('../model/MeasurementUpdate'), require('../model/PairArray'), require('../model/PostMeasurementsResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.MeasurementsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.MeasurementArray, root.Quantimodo.MeasurementDelete, root.Quantimodo.MeasurementSet, root.Quantimodo.MeasurementUpdate, root.Quantimodo.PairArray, root.Quantimodo.PostMeasurementsResponse);
+    root.Quantimodo.MeasurementsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Measurement, root.Quantimodo.MeasurementDelete, root.Quantimodo.MeasurementSet, root.Quantimodo.MeasurementUpdate, root.Quantimodo.PairArray, root.Quantimodo.PostMeasurementsResponse);
   }
-}(this, function(ApiClient, CommonResponse, MeasurementArray, MeasurementDelete, MeasurementSet, MeasurementUpdate, PairArray, PostMeasurementsResponse) {
+}(this, function(ApiClient, CommonResponse, Measurement, MeasurementDelete, MeasurementSet, MeasurementUpdate, PairArray, PostMeasurementsResponse) {
   'use strict';
 
   /**
@@ -96,7 +96,7 @@
      * Callback function to receive the result of the getMeasurements operation.
      * @callback module:api/MeasurementsApi~getMeasurementsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/MeasurementArray} data The data returned by the service call.
+     * @param {Array.<module:model/Measurement>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -127,7 +127,7 @@
      * @param {Boolean} opts.doNotConvert Example: 1
      * @param {Boolean} opts.minMaxFilter Example: 1
      * @param {module:api/MeasurementsApi~getMeasurementsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/MeasurementArray}
+     * data is of type: {@link Array.<module:model/Measurement>}
      */
     this.getMeasurements = function(opts, callback) {
       opts = opts || {};
@@ -168,7 +168,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = MeasurementArray;
+      var returnType = [Measurement];
 
       return this.apiClient.callApi(
         '/v3/measurements', 'GET',

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/PostTrackingRemindersResponse', 'model/TrackingReminderArray', 'model/TrackingReminderDelete', 'model/TrackingReminderNotificationPost'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/PostTrackingRemindersResponse', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotificationPost'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/GetTrackingReminderNotificationsResponse'), require('../model/PostTrackingRemindersResponse'), require('../model/TrackingReminderArray'), require('../model/TrackingReminderDelete'), require('../model/TrackingReminderNotificationPost'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/GetTrackingReminderNotificationsResponse'), require('../model/PostTrackingRemindersResponse'), require('../model/TrackingReminder'), require('../model/TrackingReminderDelete'), require('../model/TrackingReminderNotificationPost'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.RemindersApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.GetTrackingReminderNotificationsResponse, root.Quantimodo.PostTrackingRemindersResponse, root.Quantimodo.TrackingReminderArray, root.Quantimodo.TrackingReminderDelete, root.Quantimodo.TrackingReminderNotificationPost);
+    root.Quantimodo.RemindersApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.GetTrackingReminderNotificationsResponse, root.Quantimodo.PostTrackingRemindersResponse, root.Quantimodo.TrackingReminder, root.Quantimodo.TrackingReminderDelete, root.Quantimodo.TrackingReminderNotificationPost);
   }
-}(this, function(ApiClient, CommonResponse, GetTrackingReminderNotificationsResponse, PostTrackingRemindersResponse, TrackingReminderArray, TrackingReminderDelete, TrackingReminderNotificationPost) {
+}(this, function(ApiClient, CommonResponse, GetTrackingReminderNotificationsResponse, PostTrackingRemindersResponse, TrackingReminder, TrackingReminderDelete, TrackingReminderNotificationPost) {
   'use strict';
 
   /**
@@ -165,7 +165,7 @@
      * Callback function to receive the result of the getTrackingReminders operation.
      * @callback module:api/RemindersApi~getTrackingRemindersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/TrackingReminderArray} data The data returned by the service call.
+     * @param {Array.<module:model/TrackingReminder>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -184,7 +184,7 @@
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {String} opts.appVersion Example: 2.1.1.0
      * @param {module:api/RemindersApi~getTrackingRemindersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/TrackingReminderArray}
+     * data is of type: {@link Array.<module:model/TrackingReminder>}
      */
     this.getTrackingReminders = function(opts, callback) {
       opts = opts || {};
@@ -213,7 +213,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = TrackingReminderArray;
+      var returnType = [TrackingReminder];
 
       return this.apiClient.callApi(
         '/v3/trackingReminders', 'GET',
@@ -286,7 +286,7 @@
     /**
      * Store a Tracking Reminder
      * This is to enable users to create reminders to track a variable with a default value at a specified frequency
-     * @param {module:model/TrackingReminderArray} body TrackingReminder that should be stored
+     * @param {Array.<module:model/TrackingReminder>} body TrackingReminder that should be stored
      * @param {module:api/RemindersApi~postTrackingRemindersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PostTrackingRemindersResponse}
      */

@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 <a name="getTrackingReminders"></a>
 # **getTrackingReminders**
-> TrackingReminderArray getTrackingReminders(opts)
+> [TrackingReminder] getTrackingReminders(opts)
 
 Get repeating tracking reminder settings
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TrackingReminderArray**](TrackingReminderArray.md)
+[**[TrackingReminder]**](TrackingReminder.md)
 
 ### Authorization
 
@@ -318,7 +318,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.RemindersApi();
 
-var body = new Quantimodo.TrackingReminderArray(); // TrackingReminderArray | TrackingReminder that should be stored
+var body = [new Quantimodo.TrackingReminder()]; // [TrackingReminder] | TrackingReminder that should be stored
 
 
 var callback = function(error, data, response) {
@@ -335,7 +335,7 @@ apiInstance.postTrackingReminders(body, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TrackingReminderArray**](TrackingReminderArray.md)| TrackingReminder that should be stored | 
+ **body** | [**[TrackingReminder]**](TrackingReminder.md)| TrackingReminder that should be stored | 
 
 ### Return type
 

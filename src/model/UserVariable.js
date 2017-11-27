@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/CommonVariableArray', 'model/Unit', 'model/UserVariable', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/Chart', 'model/CommonVariable', 'model/Unit', 'model/UserVariable', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariableArray'), require('./Unit'), require('./UserVariable'), require('./VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariable'), require('./Unit'), require('./UserVariable'), require('./VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariableArray, root.Quantimodo.Unit, root.Quantimodo.UserVariable, root.Quantimodo.VariableCategory);
+    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariable, root.Quantimodo.Unit, root.Quantimodo.UserVariable, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, Chart, CommonVariableArray, Unit, UserVariable, VariableCategory) {
+}(this, function(ApiClient, Chart, CommonVariable, Unit, UserVariable, VariableCategory) {
   'use strict';
 
 
@@ -252,10 +252,10 @@
         obj['commonAlias'] = ApiClient.convertToType(data['commonAlias'], 'String');
       }
       if (data.hasOwnProperty('commonTaggedVariables')) {
-        obj['commonTaggedVariables'] = CommonVariableArray.constructFromObject(data['commonTaggedVariables']);
+        obj['commonTaggedVariables'] = ApiClient.convertToType(data['commonTaggedVariables'], [CommonVariable]);
       }
       if (data.hasOwnProperty('commonTagVariables')) {
-        obj['commonTagVariables'] = CommonVariableArray.constructFromObject(data['commonTagVariables']);
+        obj['commonTagVariables'] = ApiClient.convertToType(data['commonTagVariables'], [CommonVariable]);
       }
       if (data.hasOwnProperty('commonVariableMostCommonConnectorId')) {
         obj['commonVariableMostCommonConnectorId'] = ApiClient.convertToType(data['commonVariableMostCommonConnectorId'], 'Number');
@@ -716,11 +716,11 @@
    */
   exports.prototype['commonAlias'] = undefined;
   /**
-   * @member {module:model/CommonVariableArray} commonTaggedVariables
+   * @member {Array.<module:model/CommonVariable>} commonTaggedVariables
    */
   exports.prototype['commonTaggedVariables'] = undefined;
   /**
-   * @member {module:model/CommonVariableArray} commonTagVariables
+   * @member {Array.<module:model/CommonVariable>} commonTagVariables
    */
   exports.prototype['commonTagVariables'] = undefined;
   /**

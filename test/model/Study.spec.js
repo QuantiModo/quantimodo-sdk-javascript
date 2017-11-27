@@ -104,8 +104,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property text (base name: "text")', function() {
-      // uncomment below and update the code to test the property text
+    it('should have the property studyText (base name: "studyText")', function() {
+      // uncomment below and update the code to test the property studyText
       //var instane = new Quantimodo.Study();
       //expect(instance).to.be();
     });

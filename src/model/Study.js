@@ -95,8 +95,8 @@
       if (data.hasOwnProperty('studyLinks')) {
         obj['studyLinks'] = StudyLinks.constructFromObject(data['studyLinks']);
       }
-      if (data.hasOwnProperty('text')) {
-        obj['text'] = StudyText.constructFromObject(data['text']);
+      if (data.hasOwnProperty('studyText')) {
+        obj['studyText'] = StudyText.constructFromObject(data['studyText']);
       }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
@@ -138,9 +138,9 @@
    */
   exports.prototype['studyLinks'] = undefined;
   /**
-   * @member {module:model/StudyText} text
+   * @member {module:model/StudyText} studyText
    */
-  exports.prototype['text'] = undefined;
+  exports.prototype['studyText'] = undefined;
   /**
    * Example: population
    * @member {String} type

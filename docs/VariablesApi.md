@@ -133,7 +133,7 @@ null (empty response body)
 
 <a name="getCommonVariables"></a>
 # **getCommonVariables**
-> CommonVariableArray getCommonVariables(opts)
+> [CommonVariable] getCommonVariables(opts)
 
 Get common variables with aggregated instead of user-specific data
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonVariableArray**](CommonVariableArray.md)
+[**[CommonVariable]**](CommonVariable.md)
 
 ### Authorization
 

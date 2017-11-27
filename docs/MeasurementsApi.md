@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="getMeasurements"></a>
 # **getMeasurements**
-> MeasurementArray getMeasurements(opts)
+> [Measurement] getMeasurements(opts)
 
 Get measurements for this user
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MeasurementArray**](MeasurementArray.md)
+[**[Measurement]**](Measurement.md)
 
 ### Authorization
 

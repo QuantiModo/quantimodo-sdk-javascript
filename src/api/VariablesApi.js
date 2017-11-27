@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/CommonVariableArray', 'model/UserTag', 'model/UserVariable', 'model/UserVariableDelete', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/CommonVariable', 'model/UserTag', 'model/UserVariable', 'model/UserVariableDelete', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/CommonVariableArray'), require('../model/UserTag'), require('../model/UserVariable'), require('../model/UserVariableDelete'), require('../model/VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/CommonVariable'), require('../model/UserTag'), require('../model/UserVariable'), require('../model/UserVariableDelete'), require('../model/VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.VariablesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.CommonVariableArray, root.Quantimodo.UserTag, root.Quantimodo.UserVariable, root.Quantimodo.UserVariableDelete, root.Quantimodo.VariableCategory);
+    root.Quantimodo.VariablesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.CommonVariable, root.Quantimodo.UserTag, root.Quantimodo.UserVariable, root.Quantimodo.UserVariableDelete, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, CommonResponse, CommonVariableArray, UserTag, UserVariable, UserVariableDelete, VariableCategory) {
+}(this, function(ApiClient, CommonResponse, CommonVariable, UserTag, UserVariable, UserVariableDelete, VariableCategory) {
   'use strict';
 
   /**
@@ -148,7 +148,7 @@
      * Callback function to receive the result of the getCommonVariables operation.
      * @callback module:api/VariablesApi~getCommonVariablesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/CommonVariableArray} data The data returned by the service call.
+     * @param {Array.<module:model/CommonVariable>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -180,7 +180,7 @@
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
      * @param {String} opts.upc UPC or other barcode scan result
      * @param {module:api/VariablesApi~getCommonVariablesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/CommonVariableArray}
+     * data is of type: {@link Array.<module:model/CommonVariable>}
      */
     this.getCommonVariables = function(opts, callback) {
       opts = opts || {};
@@ -222,7 +222,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = CommonVariableArray;
+      var returnType = [CommonVariable];
 
       return this.apiClient.callApi(
         '/v3/public/variables', 'GET',
