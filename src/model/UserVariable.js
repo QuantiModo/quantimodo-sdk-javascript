@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/CommonVariable', 'model/Unit', 'model/UserVariable', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/CommonVariable', 'model/Unit', 'model/UserVariable', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariable'), require('./Unit'), require('./UserVariable'), require('./VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('./CommonVariable'), require('./Unit'), require('./UserVariable'), require('./VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariable, root.Quantimodo.Unit, root.Quantimodo.UserVariable, root.Quantimodo.VariableCategory);
+    root.Quantimodo.UserVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonVariable, root.Quantimodo.Unit, root.Quantimodo.UserVariable, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, Chart, CommonVariable, Unit, UserVariable, VariableCategory) {
+}(this, function(ApiClient, CommonVariable, Unit, UserVariable, VariableCategory) {
   'use strict';
 
 
@@ -219,7 +219,7 @@
         obj['causeOnly'] = ApiClient.convertToType(data['causeOnly'], 'Boolean');
       }
       if (data.hasOwnProperty('charts')) {
-        obj['charts'] = ApiClient.convertToType(data['charts'], [Chart]);
+        obj['charts'] = ApiClient.convertToType(data['charts'], Object);
       }
       if (data.hasOwnProperty('chartsLinkDynamic')) {
         obj['chartsLinkDynamic'] = ApiClient.convertToType(data['chartsLinkDynamic'], 'String');
@@ -663,7 +663,8 @@
    */
   exports.prototype['causeOnly'] = undefined;
   /**
-   * @member {Array.<module:model/Chart>} charts
+   * An object with various chart properties each property contain and svg and Highcharts configuration
+   * @member {Object} charts
    */
   exports.prototype['charts'] = undefined;
   /**

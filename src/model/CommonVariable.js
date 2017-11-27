@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/CommonVariable', 'model/DataSource', 'model/Unit'], factory);
+    define(['ApiClient', 'model/CommonVariable', 'model/DataSource', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./CommonVariable'), require('./DataSource'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./CommonVariable'), require('./DataSource'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.CommonVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.CommonVariable, root.Quantimodo.DataSource, root.Quantimodo.Unit);
+    root.Quantimodo.CommonVariable = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonVariable, root.Quantimodo.DataSource, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, Chart, CommonVariable, DataSource, Unit) {
+}(this, function(ApiClient, CommonVariable, DataSource, Unit) {
   'use strict';
 
 
@@ -239,7 +239,7 @@
         obj['causeOnly'] = ApiClient.convertToType(data['causeOnly'], 'Number');
       }
       if (data.hasOwnProperty('charts')) {
-        obj['charts'] = ApiClient.convertToType(data['charts'], [Chart]);
+        obj['charts'] = ApiClient.convertToType(data['charts'], Object);
       }
       if (data.hasOwnProperty('chartsLinkDynamic')) {
         obj['chartsLinkDynamic'] = ApiClient.convertToType(data['chartsLinkDynamic'], 'String');
@@ -610,7 +610,8 @@
    */
   exports.prototype['causeOnly'] = undefined;
   /**
-   * @member {Array.<module:model/Chart>} charts
+   * An object with various chart properties each property contain and svg and Highcharts configuration
+   * @member {Object} charts
    */
   exports.prototype['charts'] = undefined;
   /**

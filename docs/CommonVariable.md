@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **availableUnits** | [**[Unit]**](Unit.md) |  | [optional] 
 **category** | **String** | Example: Sleep | [optional] 
 **causeOnly** | **Number** | A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user. | [optional] 
-**charts** | [**[Chart]**](Chart.md) |  | [optional] 
+**charts** | **Object** | An object with various chart properties each property contain and svg and Highcharts configuration | [optional] 
 **chartsLinkDynamic** | **String** | Example: https://local.quantimo.do/ionic/Modo/www/#/app/charts/Barometric%20Pressure?variableName&#x3D;Barometric%20Pressure&amp;userId&#x3D;230&amp;pngUrl&#x3D;https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Fenvironment.png | [optional] 
 **chartsLinkEmail** | **String** | Example: mailto:?subject&#x3D;Check%20out%20my%20Barometric%20Pressure%20data%21&amp;body&#x3D;See%20my%20Barometric%20Pressure%20history%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DBarometric%2520Pressure%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Fenvironment.png%0A%0AHave%20a%20great%20day! | [optional] 
 **chartsLinkFacebook** | **String** | Example: https://www.facebook.com/sharer/sharer.php?u&#x3D;https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DBarometric%2520Pressure%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Fenvironment.png | [optional] 

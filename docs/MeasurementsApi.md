@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 <a name="getPairs"></a>
 # **getPairs**
-> PairArray getPairs(opts)
+> [Pair] getPairs(opts)
 
 Get pairs of measurements for correlational analysis
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PairArray**](PairArray.md)
+[**[Pair]**](Pair.md)
 
 ### Authorization
 
