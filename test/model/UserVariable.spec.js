@@ -56,6 +56,12 @@
       //expect(instance).to.be.a(Quantimodo.UserVariable);
     });
 
+    it('should have the property actionArray (base name: "actionArray")', function() {
+      // uncomment below and update the code to test the property actionArray
+      //var instane = new Quantimodo.UserVariable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property alias (base name: "alias")', function() {
       // uncomment below and update the code to test the property alias
       //var instane = new Quantimodo.UserVariable();

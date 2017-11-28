@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**actionArray** | [**[TrackingReminderNotificationActionArray]**](TrackingReminderNotificationActionArray.md) |  | [optional] 
 **alias** | **String** | Example:  | [optional] 
 **availableUnits** | [**[Unit]**](Unit.md) |  | [optional] 
 **causeOnly** | **Boolean** | A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user | [optional] 

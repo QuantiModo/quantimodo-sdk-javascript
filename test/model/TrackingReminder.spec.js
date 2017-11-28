@@ -56,6 +56,12 @@
       //expect(instance).to.be.a(Quantimodo.TrackingReminder);
     });
 
+    it('should have the property actionArray (base name: "actionArray")', function() {
+      // uncomment below and update the code to test the property actionArray
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
     it('should have the property availableUnits (base name: "availableUnits")', function() {
       // uncomment below and update the code to test the property availableUnits
       //var instane = new Quantimodo.TrackingReminder();

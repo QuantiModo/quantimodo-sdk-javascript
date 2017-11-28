@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Unit'], factory);
+    define(['ApiClient', 'model/TrackingReminderNotificationActionArray', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationActionArray'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.Unit);
+    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationActionArray, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, Unit) {
+}(this, function(ApiClient, TrackingReminderNotificationActionArray, Unit) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The TrackingReminder model module.
    * @module model/TrackingReminder
-   * @version 5.8.1126
+   * @version 5.8.1128
    */
 
   /**
@@ -50,6 +50,7 @@
    */
   var exports = function(unitAbbreviatedName, reminderFrequency, variableCategoryName, variableName) {
     var _this = this;
+
 
 
 
@@ -137,6 +138,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('actionArray')) {
+        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationActionArray]);
+      }
       if (data.hasOwnProperty('availableUnits')) {
         obj['availableUnits'] = ApiClient.convertToType(data['availableUnits'], [Unit]);
       }
@@ -360,6 +364,10 @@
     return obj;
   }
 
+  /**
+   * @member {Array.<module:model/TrackingReminderNotificationActionArray>} actionArray
+   */
+  exports.prototype['actionArray'] = undefined;
   /**
    * @member {Array.<module:model/Unit>} availableUnits
    */

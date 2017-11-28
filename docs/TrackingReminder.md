@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**actionArray** | [**[TrackingReminderNotificationActionArray]**](TrackingReminderNotificationActionArray.md) |  | [optional] 
 **availableUnits** | [**[Unit]**](Unit.md) |  | [optional] 
 **clientId** | **String** | clientId | [optional] 
 **combinationOperation** | **String** | The way multiple measurements are aggregated over time | [optional] 
