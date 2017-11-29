@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/UserVariable'], factory);
+    define(['ApiClient', 'model/Variable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./UserVariable'));
+    module.exports = factory(require('../ApiClient'), require('./Variable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostMeasurementsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.UserVariable);
+    root.Quantimodo.PostMeasurementsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Variable);
   }
-}(this, function(ApiClient, UserVariable) {
+}(this, function(ApiClient, Variable) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The PostMeasurementsDataResponse model module.
    * @module model/PostMeasurementsDataResponse
-   * @version 5.8.1126
+   * @version 5.8.1129
    */
 
   /**
@@ -62,14 +62,14 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('userVariables')) {
-        obj['userVariables'] = ApiClient.convertToType(data['userVariables'], [UserVariable]);
+        obj['userVariables'] = ApiClient.convertToType(data['userVariables'], [Variable]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Array.<module:model/UserVariable>} userVariables
+   * @member {Array.<module:model/Variable>} userVariables
    */
   exports.prototype['userVariables'] = undefined;
 

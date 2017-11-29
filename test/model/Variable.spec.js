@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.CommonVariable();
+    instance = new Quantimodo.Variable();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,730 +49,916 @@
       object[property] = value;
   }
 
-  describe('CommonVariable', function() {
-    it('should create an instance of CommonVariable', function() {
-      // uncomment below and update the code to test CommonVariable
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be.a(Quantimodo.CommonVariable);
+  describe('Variable', function() {
+    it('should create an instance of Variable', function() {
+      // uncomment below and update the code to test Variable
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be.a(Quantimodo.Variable);
+    });
+
+    it('should have the property actionArray (base name: "actionArray")', function() {
+      // uncomment below and update the code to test the property actionArray
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
     });
 
     it('should have the property alias (base name: "alias")', function() {
       // uncomment below and update the code to test the property alias
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property availableUnits (base name: "availableUnits")', function() {
       // uncomment below and update the code to test the property availableUnits
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property category (base name: "category")', function() {
-      // uncomment below and update the code to test the property category
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property causeOnly (base name: "causeOnly")', function() {
       // uncomment below and update the code to test the property causeOnly
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property charts (base name: "charts")', function() {
       // uncomment below and update the code to test the property charts
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property chartsLinkDynamic (base name: "chartsLinkDynamic")', function() {
       // uncomment below and update the code to test the property chartsLinkDynamic
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property chartsLinkEmail (base name: "chartsLinkEmail")', function() {
       // uncomment below and update the code to test the property chartsLinkEmail
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property chartsLinkFacebook (base name: "chartsLinkFacebook")', function() {
       // uncomment below and update the code to test the property chartsLinkFacebook
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property chartsLinkGoogle (base name: "chartsLinkGoogle")', function() {
       // uncomment below and update the code to test the property chartsLinkGoogle
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property chartsLinkStatic (base name: "chartsLinkStatic")', function() {
       // uncomment below and update the code to test the property chartsLinkStatic
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property chartsLinkTwitter (base name: "chartsLinkTwitter")', function() {
       // uncomment below and update the code to test the property chartsLinkTwitter
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property childUserTagVariables (base name: "childUserTagVariables")', function() {
+      // uncomment below and update the code to test the property childUserTagVariables
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property combinationOperation (base name: "combinationOperation")', function() {
       // uncomment below and update the code to test the property combinationOperation
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property commonAlias (base name: "commonAlias")', function() {
       // uncomment below and update the code to test the property commonAlias
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property commonTaggedVariables (base name: "commonTaggedVariables")', function() {
       // uncomment below and update the code to test the property commonTaggedVariables
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property commonTagVariables (base name: "commonTagVariables")', function() {
       // uncomment below and update the code to test the property commonTagVariables
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property commonVariableMostCommonConnectorId (base name: "commonVariableMostCommonConnectorId")', function() {
       // uncomment below and update the code to test the property commonVariableMostCommonConnectorId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property commonVariableUpdatedAt (base name: "commonVariableUpdatedAt")', function() {
       // uncomment below and update the code to test the property commonVariableUpdatedAt
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property createdAt (base name: "createdAt")', function() {
       // uncomment below and update the code to test the property createdAt
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property dataSource (base name: "dataSource")', function() {
-      // uncomment below and update the code to test the property dataSource
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property unitAbbreviatedName (base name: "unitAbbreviatedName")', function() {
       // uncomment below and update the code to test the property unitAbbreviatedName
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property unitCategoryId (base name: "unitCategoryId")', function() {
       // uncomment below and update the code to test the property unitCategoryId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property unitCategoryName (base name: "unitCategoryName")', function() {
       // uncomment below and update the code to test the property unitCategoryName
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property unitId (base name: "unitId")', function() {
       // uncomment below and update the code to test the property unitId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property unitName (base name: "unitName")', function() {
       // uncomment below and update the code to test the property unitName
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property durationOfAction (base name: "durationOfAction")', function() {
       // uncomment below and update the code to test the property durationOfAction
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property durationOfActionInHours (base name: "durationOfActionInHours")', function() {
       // uncomment below and update the code to test the property durationOfActionInHours
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property earliestFillingTime (base name: "earliestFillingTime")', function() {
       // uncomment below and update the code to test the property earliestFillingTime
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property earliestMeasurementTime (base name: "earliestMeasurementTime")', function() {
       // uncomment below and update the code to test the property earliestMeasurementTime
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property earliestSourceTime (base name: "earliestSourceTime")', function() {
       // uncomment below and update the code to test the property earliestSourceTime
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property errorMessage (base name: "errorMessage")', function() {
+      // uncomment below and update the code to test the property errorMessage
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property experimentEndTime (base name: "experimentEndTime")', function() {
       // uncomment below and update the code to test the property experimentEndTime
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property experimentEndTimeSeconds (base name: "experimentEndTimeSeconds")', function() {
       // uncomment below and update the code to test the property experimentEndTimeSeconds
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property experimentEndTimeString (base name: "experimentEndTimeString")', function() {
       // uncomment below and update the code to test the property experimentEndTimeString
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property experimentStartTime (base name: "experimentStartTime")', function() {
       // uncomment below and update the code to test the property experimentStartTime
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property experimentStartTimeSeconds (base name: "experimentStartTimeSeconds")', function() {
       // uncomment below and update the code to test the property experimentStartTimeSeconds
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property experimentStartTimeString (base name: "experimentStartTimeString")', function() {
       // uncomment below and update the code to test the property experimentStartTimeString
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property fillingType (base name: "fillingType")', function() {
       // uncomment below and update the code to test the property fillingType
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property fillingValue (base name: "fillingValue")', function() {
       // uncomment below and update the code to test the property fillingValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property iconIcon (base name: "iconIcon")', function() {
+      // uncomment below and update the code to test the property iconIcon
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property imageUrl (base name: "imageUrl")', function() {
       // uncomment below and update the code to test the property imageUrl
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property informationalUrl (base name: "informationalUrl")', function() {
       // uncomment below and update the code to test the property informationalUrl
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ingredientOfUserTagVariables (base name: "ingredientOfUserTagVariables")', function() {
+      // uncomment below and update the code to test the property ingredientOfUserTagVariables
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ingredientUserTagVariables (base name: "ingredientUserTagVariables")', function() {
+      // uncomment below and update the code to test the property ingredientUserTagVariables
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property inputType (base name: "inputType")', function() {
       // uncomment below and update the code to test the property inputType
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property ionIcon (base name: "ionIcon")', function() {
       // uncomment below and update the code to test the property ionIcon
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
-    it('should have the property joinedVariables (base name: "joinedVariables")', function() {
-      // uncomment below and update the code to test the property joinedVariables
-      //var instane = new Quantimodo.CommonVariable();
+    it('should have the property joinedUserTagVariables (base name: "joinedUserTagVariables")', function() {
+      // uncomment below and update the code to test the property joinedUserTagVariables
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property joinWith (base name: "joinWith")', function() {
       // uncomment below and update the code to test the property joinWith
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property kurtosis (base name: "kurtosis")', function() {
       // uncomment below and update the code to test the property kurtosis
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property lastOriginalUnitId (base name: "lastOriginalUnitId")', function() {
       // uncomment below and update the code to test the property lastOriginalUnitId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property lastOriginalValue (base name: "lastOriginalValue")', function() {
       // uncomment below and update the code to test the property lastOriginalValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property lastProcessedDailyValue (base name: "lastProcessedDailyValue")', function() {
       // uncomment below and update the code to test the property lastProcessedDailyValue
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property lastSource (base name: "lastSource")', function() {
-      // uncomment below and update the code to test the property lastSource
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property lastSuccessfulUpdateTime (base name: "lastSuccessfulUpdateTime")', function() {
       // uncomment below and update the code to test the property lastSuccessfulUpdateTime
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property lastUnit (base name: "lastUnit")', function() {
-      // uncomment below and update the code to test the property lastUnit
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property lastUnitId (base name: "lastUnitId")', function() {
       // uncomment below and update the code to test the property lastUnitId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property lastValue (base name: "lastValue")', function() {
       // uncomment below and update the code to test the property lastValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property latestFillingTime (base name: "latestFillingTime")', function() {
       // uncomment below and update the code to test the property latestFillingTime
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property latestMeasurementTime (base name: "latestMeasurementTime")', function() {
       // uncomment below and update the code to test the property latestMeasurementTime
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property latestSourceTime (base name: "latestSourceTime")', function() {
       // uncomment below and update the code to test the property latestSourceTime
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property latestUserMeasurementTime (base name: "latestUserMeasurementTime")', function() {
       // uncomment below and update the code to test the property latestUserMeasurementTime
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property latitude (base name: "latitude")', function() {
+      // uncomment below and update the code to test the property latitude
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property location (base name: "location")', function() {
+      // uncomment below and update the code to test the property location
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property longitude (base name: "longitude")', function() {
+      // uncomment below and update the code to test the property longitude
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property manualTracking (base name: "manualTracking")', function() {
       // uncomment below and update the code to test the property manualTracking
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property maximumAllowedValue (base name: "maximumAllowedValue")', function() {
       // uncomment below and update the code to test the property maximumAllowedValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maximumRecordedDailyValue (base name: "maximumRecordedDailyValue")', function() {
+      // uncomment below and update the code to test the property maximumRecordedDailyValue
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property maximumRecordedValue (base name: "maximumRecordedValue")', function() {
       // uncomment below and update the code to test the property maximumRecordedValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property mean (base name: "mean")', function() {
       // uncomment below and update the code to test the property mean
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property measurementsAtLastAnalysis (base name: "measurementsAtLastAnalysis")', function() {
       // uncomment below and update the code to test the property measurementsAtLastAnalysis
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property median (base name: "median")', function() {
       // uncomment below and update the code to test the property median
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property minimumAllowedValue (base name: "minimumAllowedValue")', function() {
       // uncomment below and update the code to test the property minimumAllowedValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property minimumRecordedValue (base name: "minimumRecordedValue")', function() {
       // uncomment below and update the code to test the property minimumRecordedValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property mostCommonConnectorId (base name: "mostCommonConnectorId")', function() {
       // uncomment below and update the code to test the property mostCommonConnectorId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property mostCommonOriginalUnitId (base name: "mostCommonOriginalUnitId")', function() {
       // uncomment below and update the code to test the property mostCommonOriginalUnitId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
-    it('should have the property mostCommonUnit (base name: "mostCommonUnit")', function() {
-      // uncomment below and update the code to test the property mostCommonUnit
-      //var instane = new Quantimodo.CommonVariable();
+    it('should have the property mostCommonUnitId (base name: "mostCommonUnitId")', function() {
+      // uncomment below and update the code to test the property mostCommonUnitId
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property mostCommonValue (base name: "mostCommonValue")', function() {
       // uncomment below and update the code to test the property mostCommonValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfAggregateCorrelationsAsCause (base name: "numberOfAggregateCorrelationsAsCause")', function() {
       // uncomment below and update the code to test the property numberOfAggregateCorrelationsAsCause
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfAggregateCorrelationsAsEffect (base name: "numberOfAggregateCorrelationsAsEffect")', function() {
       // uncomment below and update the code to test the property numberOfAggregateCorrelationsAsEffect
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfChanges (base name: "numberOfChanges")', function() {
       // uncomment below and update the code to test the property numberOfChanges
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfCorrelations (base name: "numberOfCorrelations")', function() {
       // uncomment below and update the code to test the property numberOfCorrelations
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfMeasurements (base name: "numberOfMeasurements")', function() {
       // uncomment below and update the code to test the property numberOfMeasurements
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfProcessedDailyMeasurements (base name: "numberOfProcessedDailyMeasurements")', function() {
       // uncomment below and update the code to test the property numberOfProcessedDailyMeasurements
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfRawMeasurements (base name: "numberOfRawMeasurements")', function() {
       // uncomment below and update the code to test the property numberOfRawMeasurements
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfTrackingReminders (base name: "numberOfTrackingReminders")', function() {
       // uncomment below and update the code to test the property numberOfTrackingReminders
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfUniqueDailyValues (base name: "numberOfUniqueDailyValues")', function() {
       // uncomment below and update the code to test the property numberOfUniqueDailyValues
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfUniqueValues (base name: "numberOfUniqueValues")', function() {
       // uncomment below and update the code to test the property numberOfUniqueValues
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfUserCorrelationsAsCause (base name: "numberOfUserCorrelationsAsCause")', function() {
       // uncomment below and update the code to test the property numberOfUserCorrelationsAsCause
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfUserCorrelationsAsEffect (base name: "numberOfUserCorrelationsAsEffect")', function() {
       // uncomment below and update the code to test the property numberOfUserCorrelationsAsEffect
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property numberOfUserVariables (base name: "numberOfUserVariables")', function() {
       // uncomment below and update the code to test the property numberOfUserVariables
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property onsetDelay (base name: "onsetDelay")', function() {
       // uncomment below and update the code to test the property onsetDelay
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property onsetDelayInHours (base name: "onsetDelayInHours")', function() {
       // uncomment below and update the code to test the property onsetDelayInHours
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property outcome (base name: "outcome")', function() {
       // uncomment below and update the code to test the property outcome
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property outcomeOfInterest (base name: "outcomeOfInterest")', function() {
       // uncomment below and update the code to test the property outcomeOfInterest
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property parent (base name: "parent")', function() {
       // uncomment below and update the code to test the property parent
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property parentId (base name: "parentId")', function() {
       // uncomment below and update the code to test the property parentId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property parentUserTagVariables (base name: "parentUserTagVariables")', function() {
+      // uncomment below and update the code to test the property parentUserTagVariables
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property pngPath (base name: "pngPath")', function() {
       // uncomment below and update the code to test the property pngPath
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property pngUrl (base name: "pngUrl")', function() {
       // uncomment below and update the code to test the property pngUrl
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property predictorOfInterest (base name: "predictorOfInterest")', function() {
       // uncomment below and update the code to test the property predictorOfInterest
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property price (base name: "price")', function() {
       // uncomment below and update the code to test the property price
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property productUrl (base name: "productUrl")', function() {
       // uncomment below and update the code to test the property productUrl
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property _public (base name: "public")', function() {
       // uncomment below and update the code to test the property _public
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property rawMeasurementsAtLastAnalysis (base name: "rawMeasurementsAtLastAnalysis")', function() {
       // uncomment below and update the code to test the property rawMeasurementsAtLastAnalysis
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property secondMostCommonValue (base name: "secondMostCommonValue")', function() {
       // uncomment below and update the code to test the property secondMostCommonValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property secondToLastValue (base name: "secondToLastValue")', function() {
       // uncomment below and update the code to test the property secondToLastValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property shareUserMeasurements (base name: "shareUserMeasurements")', function() {
+      // uncomment below and update the code to test the property shareUserMeasurements
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property skewness (base name: "skewness")', function() {
       // uncomment below and update the code to test the property skewness
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property sources (base name: "sources")', function() {
       // uncomment below and update the code to test the property sources
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property standardDeviation (base name: "standardDeviation")', function() {
       // uncomment below and update the code to test the property standardDeviation
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property subtitle (base name: "subtitle")', function() {
       // uncomment below and update the code to test the property subtitle
-      //var instane = new Quantimodo.CommonVariable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property subVariables (base name: "subVariables")', function() {
-      // uncomment below and update the code to test the property subVariables
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property svgUrl (base name: "svgUrl")', function() {
       // uncomment below and update the code to test the property svgUrl
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property thirdMostCommonValue (base name: "thirdMostCommonValue")', function() {
       // uncomment below and update the code to test the property thirdMostCommonValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property thirdToLastValue (base name: "thirdToLastValue")', function() {
       // uncomment below and update the code to test the property thirdToLastValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unit (base name: "unit")', function() {
+      // uncomment below and update the code to test the property unit
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property upc (base name: "upc")', function() {
       // uncomment below and update the code to test the property upc
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updated (base name: "updated")', function() {
+      // uncomment below and update the code to test the property updated
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property updatedAt (base name: "updatedAt")', function() {
       // uncomment below and update the code to test the property updatedAt
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updatedTime (base name: "updatedTime")', function() {
+      // uncomment below and update the code to test the property updatedTime
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userId (base name: "userId")', function() {
+      // uncomment below and update the code to test the property userId
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userTaggedVariables (base name: "userTaggedVariables")', function() {
+      // uncomment below and update the code to test the property userTaggedVariables
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userTagVariables (base name: "userTagVariables")', function() {
+      // uncomment below and update the code to test the property userTagVariables
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableUnitAbbreviatedName (base name: "userVariableUnitAbbreviatedName")', function() {
+      // uncomment below and update the code to test the property userVariableUnitAbbreviatedName
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableUnitCategoryId (base name: "userVariableUnitCategoryId")', function() {
+      // uncomment below and update the code to test the property userVariableUnitCategoryId
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableUnitCategoryName (base name: "userVariableUnitCategoryName")', function() {
+      // uncomment below and update the code to test the property userVariableUnitCategoryName
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableUnitId (base name: "userVariableUnitId")', function() {
+      // uncomment below and update the code to test the property userVariableUnitId
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableUnitName (base name: "userVariableUnitName")', function() {
+      // uncomment below and update the code to test the property userVariableUnitName
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableFillingValue (base name: "userVariableFillingValue")', function() {
+      // uncomment below and update the code to test the property userVariableFillingValue
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableMostCommonConnectorId (base name: "userVariableMostCommonConnectorId")', function() {
+      // uncomment below and update the code to test the property userVariableMostCommonConnectorId
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableUpdatedAt (base name: "userVariableUpdatedAt")', function() {
+      // uncomment below and update the code to test the property userVariableUpdatedAt
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableValence (base name: "userVariableValence")', function() {
+      // uncomment below and update the code to test the property userVariableValence
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableVariableCategoryId (base name: "userVariableVariableCategoryId")', function() {
+      // uncomment below and update the code to test the property userVariableVariableCategoryId
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableVariableCategoryName (base name: "userVariableVariableCategoryName")', function() {
+      // uncomment below and update the code to test the property userVariableVariableCategoryName
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userVariableWikipediaTitle (base name: "userVariableWikipediaTitle")', function() {
+      // uncomment below and update the code to test the property userVariableWikipediaTitle
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property variableCategory (base name: "variableCategory")', function() {
+      // uncomment below and update the code to test the property variableCategory
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dataSource (base name: "dataSource")', function() {
+      // uncomment below and update the code to test the property dataSource
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property joinedVariables (base name: "joinedVariables")', function() {
+      // uncomment below and update the code to test the property joinedVariables
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastSource (base name: "lastSource")', function() {
+      // uncomment below and update the code to test the property lastSource
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastUnit (base name: "lastUnit")', function() {
+      // uncomment below and update the code to test the property lastUnit
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property mostCommonUnit (base name: "mostCommonUnit")', function() {
+      // uncomment below and update the code to test the property mostCommonUnit
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property valence (base name: "valence")', function() {
       // uncomment below and update the code to test the property valence
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property variableCategoryId (base name: "variableCategoryId")', function() {
       // uncomment below and update the code to test the property variableCategoryId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property variableCategoryImageUrl (base name: "variableCategoryImageUrl")', function() {
       // uncomment below and update the code to test the property variableCategoryImageUrl
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property variableCategoryName (base name: "variableCategoryName")', function() {
       // uncomment below and update the code to test the property variableCategoryName
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property variableFillingValue (base name: "variableFillingValue")', function() {
       // uncomment below and update the code to test the property variableFillingValue
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property variableId (base name: "variableId")', function() {
       // uncomment below and update the code to test the property variableId
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property variableName (base name: "variableName")', function() {
       // uncomment below and update the code to test the property variableName
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property variance (base name: "variance")', function() {
       // uncomment below and update the code to test the property variance
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
     it('should have the property wikipediaTitle (base name: "wikipediaTitle")', function() {
       // uncomment below and update the code to test the property wikipediaTitle
-      //var instane = new Quantimodo.CommonVariable();
+      //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 

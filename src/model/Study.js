@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/UserVariable'], factory);
+    define(['ApiClient', 'model/Chart', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/Variable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'), require('./UserVariable'));
+    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'), require('./Variable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText, root.Quantimodo.UserVariable);
+    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText, root.Quantimodo.Variable);
   }
-}(this, function(ApiClient, Chart, Correlation, ParticipantInstruction, StudyHtml, StudyImages, StudyLinks, StudyText, UserVariable) {
+}(this, function(ApiClient, Chart, Correlation, ParticipantInstruction, StudyHtml, StudyImages, StudyLinks, StudyText, Variable) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Study model module.
    * @module model/Study
-   * @version 5.8.1126
+   * @version 5.8.1129
    */
 
   /**
@@ -72,13 +72,13 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('causeVariable')) {
-        obj['causeVariable'] = UserVariable.constructFromObject(data['causeVariable']);
+        obj['causeVariable'] = Variable.constructFromObject(data['causeVariable']);
       }
       if (data.hasOwnProperty('charts')) {
         obj['charts'] = ApiClient.convertToType(data['charts'], [Chart]);
       }
       if (data.hasOwnProperty('effectVariable')) {
-        obj['effectVariable'] = UserVariable.constructFromObject(data['effectVariable']);
+        obj['effectVariable'] = Variable.constructFromObject(data['effectVariable']);
       }
       if (data.hasOwnProperty('participantInstructions')) {
         obj['participantInstructions'] = ParticipantInstruction.constructFromObject(data['participantInstructions']);
@@ -106,7 +106,7 @@
   }
 
   /**
-   * @member {module:model/UserVariable} causeVariable
+   * @member {module:model/Variable} causeVariable
    */
   exports.prototype['causeVariable'] = undefined;
   /**
@@ -114,7 +114,7 @@
    */
   exports.prototype['charts'] = undefined;
   /**
-   * @member {module:model/UserVariable} effectVariable
+   * @member {module:model/Variable} effectVariable
    */
   exports.prototype['effectVariable'] = undefined;
   /**

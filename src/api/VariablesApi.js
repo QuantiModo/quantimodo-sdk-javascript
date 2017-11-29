@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/CommonVariable', 'model/UserTag', 'model/UserVariable', 'model/UserVariableDelete', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/CommonVariable'), require('../model/UserTag'), require('../model/UserVariable'), require('../model/UserVariableDelete'), require('../model/VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/UserTag'), require('../model/UserVariableDelete'), require('../model/Variable'), require('../model/VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.VariablesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.CommonVariable, root.Quantimodo.UserTag, root.Quantimodo.UserVariable, root.Quantimodo.UserVariableDelete, root.Quantimodo.VariableCategory);
+    root.Quantimodo.VariablesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.UserTag, root.Quantimodo.UserVariableDelete, root.Quantimodo.Variable, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, CommonResponse, CommonVariable, UserTag, UserVariable, UserVariableDelete, VariableCategory) {
+}(this, function(ApiClient, CommonResponse, UserTag, UserVariableDelete, Variable, VariableCategory) {
   'use strict';
 
   /**
    * Variables service.
    * @module api/VariablesApi
-   * @version 5.8.1126
+   * @version 5.8.1129
    */
 
   /**
@@ -145,182 +145,6 @@
     }
 
     /**
-     * Callback function to receive the result of the getCommonVariables operation.
-     * @callback module:api/VariablesApi~getCommonVariablesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/CommonVariable>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get common variables with aggregated instead of user-specific data
-     * This endpoint retrieves an array of all public variables. Public variables are things like foods, medications, symptoms, conditions, and anything not unique to a particular user. For instance, a telephone number or name would not be a public variable.
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {Number} opts.userId User&#39;s id
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
-     * @param {String} opts.name Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
-     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
-     * @param {String} opts.lastSourceName Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
-     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
-     * @param {Number} opts.id Common variable id
-     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
-     * @param {String} opts.effectOrCause Example: 
-     * @param {String} opts.publicEffectOrCause Example: 
-     * @param {Boolean} opts.exactMatch Example: 
-     * @param {Boolean} opts.manualTracking Example: 
-     * @param {Number} opts.variableCategoryId Example: 13
-     * @param {Boolean} opts.includePrivate Example: 
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {String} opts.searchPhrase Example: %Body Fat%
-     * @param {String} opts.synonyms Example: %McDonalds hotcake%
-     * @param {String} opts.upc UPC or other barcode scan result
-     * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
-     * @param {Number} opts.tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
-     * @param {Number} opts.joinVariableId Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId
-     * @param {Number} opts.parentUserTagVariableId Id of the parent variable (i.e. Fruit)  you would like to get eligible child variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
-     * @param {Number} opts.childUserTagVariableId Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
-     * @param {module:api/VariablesApi~getCommonVariablesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/CommonVariable>}
-     */
-    this.getCommonVariables = function(opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'offset': opts['offset'],
-        'userId': opts['userId'],
-        'variableCategoryName': opts['variableCategoryName'],
-        'name': opts['name'],
-        'updatedAt': opts['updatedAt'],
-        'sourceName': opts['sourceName'],
-        'earliestMeasurementTime': opts['earliestMeasurementTime'],
-        'latestMeasurementTime': opts['latestMeasurementTime'],
-        'numberOfRawMeasurements': opts['numberOfRawMeasurements'],
-        'lastSourceName': opts['lastSourceName'],
-        'limit': opts['limit'],
-        'id': opts['id'],
-        'sort': opts['sort'],
-        'effectOrCause': opts['effectOrCause'],
-        'publicEffectOrCause': opts['publicEffectOrCause'],
-        'exactMatch': opts['exactMatch'],
-        'manualTracking': opts['manualTracking'],
-        'variableCategoryId': opts['variableCategoryId'],
-        'includePrivate': opts['includePrivate'],
-        'clientId': opts['clientId'],
-        'searchPhrase': opts['searchPhrase'],
-        'synonyms': opts['synonyms'],
-        'upc': opts['upc'],
-        'taggedVariableId': opts['taggedVariableId'],
-        'tagVariableId': opts['tagVariableId'],
-        'joinVariableId': opts['joinVariableId'],
-        'parentUserTagVariableId': opts['parentUserTagVariableId'],
-        'childUserTagVariableId': opts['childUserTagVariableId']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = [CommonVariable];
-
-      return this.apiClient.callApi(
-        '/v3/public/variables', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getUserVariables operation.
-     * @callback module:api/VariablesApi~getUserVariablesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/UserVariable>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get variables along with related user-specific analysis settings and statistics
-     * Get variables for which the user has measurements. If the user has specified variable settings, these are provided instead of the common variable defaults.
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.includeCharts Return Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param {String} opts.numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
-     * @param {Number} opts.userId User&#39;s id
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
-     * @param {String} opts.name Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
-     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
-     * @param {Number} opts.id Common variable id
-     * @param {String} opts.lastSourceName Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
-     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
-     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
-     * @param {Boolean} opts.includePublic Example: true
-     * @param {Boolean} opts.manualTracking Example: 
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {String} opts.upc UPC or other barcode scan result
-     * @param {module:api/VariablesApi~getUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/UserVariable>}
-     */
-    this.getUserVariables = function(opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'includeCharts': opts['includeCharts'],
-        'numberOfRawMeasurements': opts['numberOfRawMeasurements'],
-        'userId': opts['userId'],
-        'variableCategoryName': opts['variableCategoryName'],
-        'name': opts['name'],
-        'updatedAt': opts['updatedAt'],
-        'sourceName': opts['sourceName'],
-        'earliestMeasurementTime': opts['earliestMeasurementTime'],
-        'latestMeasurementTime': opts['latestMeasurementTime'],
-        'id': opts['id'],
-        'lastSourceName': opts['lastSourceName'],
-        'limit': opts['limit'],
-        'offset': opts['offset'],
-        'sort': opts['sort'],
-        'includePublic': opts['includePublic'],
-        'manualTracking': opts['manualTracking'],
-        'appName': opts['appName'],
-        'clientId': opts['clientId'],
-        'upc': opts['upc']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = [UserVariable];
-
-      return this.apiClient.callApi(
-        '/v3/userVariables', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the getVariableCategories operation.
      * @callback module:api/VariablesApi~getVariableCategoriesCallback
      * @param {String} error Error message, if any.
@@ -354,6 +178,113 @@
 
       return this.apiClient.callApi(
         '/v3/variableCategories', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getVariables operation.
+     * @callback module:api/VariablesApi~getVariablesCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Variable>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get variables along with related user-specific analysis settings and statistics
+     * Get variables. If the user has specified variable settings, these are provided instead of the common variable defaults.
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.includeCharts Return Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {String} opts.numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
+     * @param {Number} opts.userId User&#39;s id
+     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {String} opts.name Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
+     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.id Common variable id
+     * @param {String} opts.lastSourceName Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
+     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
+     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {Boolean} opts.includePublic Example: true
+     * @param {Boolean} opts.manualTracking Example: 
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.upc UPC or other barcode scan result
+     * @param {String} opts.effectOrCause Example: 
+     * @param {String} opts.publicEffectOrCause Example: 
+     * @param {Boolean} opts.exactMatch Example: 
+     * @param {Number} opts.variableCategoryId Example: 13
+     * @param {Boolean} opts.includePrivate Example: 
+     * @param {String} opts.searchPhrase Example: %Body Fat%
+     * @param {String} opts.synonyms Example: %McDonalds hotcake%
+     * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {Number} opts.tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {Number} opts.joinVariableId Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId
+     * @param {Number} opts.parentUserTagVariableId Id of the parent variable (i.e. Fruit)  you would like to get eligible child variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
+     * @param {Number} opts.childUserTagVariableId Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
+     * @param {Boolean} opts.commonOnly Return only public and aggregated common variable data instead of user-specific variables
+     * @param {Boolean} opts.userOnly Return only user-specific variables and data, excluding common aggregated variable data
+     * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Variable>}
+     */
+    this.getVariables = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'includeCharts': opts['includeCharts'],
+        'numberOfRawMeasurements': opts['numberOfRawMeasurements'],
+        'userId': opts['userId'],
+        'variableCategoryName': opts['variableCategoryName'],
+        'name': opts['name'],
+        'updatedAt': opts['updatedAt'],
+        'sourceName': opts['sourceName'],
+        'earliestMeasurementTime': opts['earliestMeasurementTime'],
+        'latestMeasurementTime': opts['latestMeasurementTime'],
+        'id': opts['id'],
+        'lastSourceName': opts['lastSourceName'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'sort': opts['sort'],
+        'includePublic': opts['includePublic'],
+        'manualTracking': opts['manualTracking'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId'],
+        'upc': opts['upc'],
+        'effectOrCause': opts['effectOrCause'],
+        'publicEffectOrCause': opts['publicEffectOrCause'],
+        'exactMatch': opts['exactMatch'],
+        'variableCategoryId': opts['variableCategoryId'],
+        'includePrivate': opts['includePrivate'],
+        'searchPhrase': opts['searchPhrase'],
+        'synonyms': opts['synonyms'],
+        'taggedVariableId': opts['taggedVariableId'],
+        'tagVariableId': opts['tagVariableId'],
+        'joinVariableId': opts['joinVariableId'],
+        'parentUserTagVariableId': opts['parentUserTagVariableId'],
+        'childUserTagVariableId': opts['childUserTagVariableId'],
+        'commonOnly': opts['commonOnly'],
+        'userOnly': opts['userOnly']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [Variable];
+
+      return this.apiClient.callApi(
+        '/v3/variables', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -419,7 +350,7 @@
     /**
      * Update User Settings for a Variable
      * Users can change the parameters used in analysis of that variable such as the expected duration of action for a variable to have an effect, the estimated delay before the onset of action. In order to filter out erroneous data, they are able to set the maximum and minimum reasonable daily values for a variable.
-     * @param {Array.<module:model/UserVariable>} userVariables Variable user settings data
+     * @param {Array.<module:model/Variable>} userVariables Variable user settings data
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includePrivate Example: 
      * @param {String} opts.clientId Example: oauth_test_client
@@ -469,7 +400,7 @@
       var returnType = CommonResponse;
 
       return this.apiClient.callApi(
-        '/v3/userVariables', 'POST',
+        '/v3/variables', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

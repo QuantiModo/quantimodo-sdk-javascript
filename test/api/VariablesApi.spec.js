@@ -70,30 +70,20 @@
         done();
       });
     });
-    describe('getCommonVariables', function() {
-      it('should call getCommonVariables successfully', function(done) {
-        //uncomment below and update the code to test getCommonVariables
-        //instance.getCommonVariables(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getUserVariables', function() {
-      it('should call getUserVariables successfully', function(done) {
-        //uncomment below and update the code to test getUserVariables
-        //instance.getUserVariables(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getVariableCategories', function() {
       it('should call getVariableCategories successfully', function(done) {
         //uncomment below and update the code to test getVariableCategories
         //instance.getVariableCategories(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getVariables', function() {
+      it('should call getVariables successfully', function(done) {
+        //uncomment below and update the code to test getVariables
+        //instance.getVariables(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

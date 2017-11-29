@@ -1,4 +1,4 @@
-# Quantimodo.UserVariable
+# Quantimodo.Variable
 
 ## Properties
 Name | Type | Description | Notes
@@ -14,12 +14,12 @@ Name | Type | Description | Notes
 **chartsLinkGoogle** | **String** | Example: https://plus.google.com/share?url&#x3D;https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png | [optional] 
 **chartsLinkStatic** | **String** | Example: https://local.quantimo.do/api/v2/charts?variableName&#x3D;Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&amp;userId&#x3D;230&amp;pngUrl&#x3D;https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png | [optional] 
 **chartsLinkTwitter** | **String** | Example: https://twitter.com/home?status&#x3D;Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%20%40quantimodo | [optional] 
-**childUserTagVariables** | [**[UserVariable]**](UserVariable.md) |  | [optional] 
+**childUserTagVariables** | [**[Variable]**](Variable.md) |  | [optional] 
 **clientId** | **String** | clientId | [optional] 
 **combinationOperation** | **String** | Example: MEAN | [optional] 
 **commonAlias** | **String** | Example: Anxiety / Nervousness | [optional] 
-**commonTaggedVariables** | [**[CommonVariable]**](CommonVariable.md) |  | [optional] 
-**commonTagVariables** | [**[CommonVariable]**](CommonVariable.md) |  | [optional] 
+**commonTaggedVariables** | [**[Variable]**](Variable.md) |  | [optional] 
+**commonTagVariables** | [**[Variable]**](Variable.md) |  | [optional] 
 **commonVariableMostCommonConnectorId** | **Number** | Example: 51 | [optional] 
 **commonVariableUpdatedAt** | **Date** | Example: 2017-02-07 23:43:39 | [optional] 
 **createdAt** | **Date** | When the record was first created. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format | [optional] 
@@ -47,11 +47,11 @@ Name | Type | Description | Notes
 **id** | **Number** | Example: 95614 | 
 **imageUrl** | **String** |  | [optional] 
 **informationalUrl** | **String** | Example:  | [optional] 
-**ingredientOfUserTagVariables** | [**[UserVariable]**](UserVariable.md) |  | [optional] 
-**ingredientUserTagVariables** | [**[UserVariable]**](UserVariable.md) |  | [optional] 
+**ingredientOfUserTagVariables** | [**[Variable]**](Variable.md) |  | [optional] 
+**ingredientUserTagVariables** | [**[Variable]**](Variable.md) |  | [optional] 
 **inputType** | **String** | Example: value | [optional] 
 **ionIcon** | **String** |  | [optional] 
-**joinedUserTagVariables** | [**[UserVariable]**](UserVariable.md) |  | [optional] 
+**joinedUserTagVariables** | [**[Variable]**](Variable.md) |  | [optional] 
 **joinWith** | **Number** | The Variable this Variable should be joined with. If the variable is joined with some other variable then it is not shown to user in the list of variables | [optional] 
 **kurtosis** | **Number** | Kurtosis | [optional] 
 **lastOriginalUnitId** | **Number** | ID of last original Unit | [optional] 
@@ -100,7 +100,7 @@ Name | Type | Description | Notes
 **outcomeOfInterest** | **Number** | Example: 1 | [optional] 
 **parent** | **String** | Example:  | [optional] 
 **parentId** | **Number** | ID of the parent variable if this variable has any parent | [optional] 
-**parentUserTagVariables** | [**[UserVariable]**](UserVariable.md) |  | [optional] 
+**parentUserTagVariables** | [**[Variable]**](Variable.md) |  | [optional] 
 **pngPath** | **String** | Example: img/variable_categories/treatments.png | [optional] 
 **pngUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.png | [optional] 
 **predictorOfInterest** | **Number** | Example: 0 | [optional] 
@@ -125,8 +125,8 @@ Name | Type | Description | Notes
 **updatedAt** | **Date** | When the record in the database was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format | [optional] 
 **updatedTime** | **Date** | Example: 2017-07-30 14:58:26 | [optional] 
 **userId** | **Number** | User ID | 
-**userTaggedVariables** | [**[UserVariable]**](UserVariable.md) |  | [optional] 
-**userTagVariables** | [**[UserVariable]**](UserVariable.md) |  | [optional] 
+**userTaggedVariables** | [**[Variable]**](Variable.md) |  | [optional] 
+**userTagVariables** | [**[Variable]**](Variable.md) |  | [optional] 
 **userVariableUnitAbbreviatedName** | **String** | Example: count | [optional] 
 **userVariableUnitCategoryId** | **Number** | Example: 6 | [optional] 
 **userVariableUnitCategoryName** | **String** | Example: Miscellany | [optional] 
@@ -139,15 +139,20 @@ Name | Type | Description | Notes
 **userVariableVariableCategoryId** | **Number** | Example: 13 | [optional] 
 **userVariableVariableCategoryName** | **String** | Example: Treatments | [optional] 
 **userVariableWikipediaTitle** | **String** | Example:  | [optional] 
-**valence** | **String** | Example: negative | [optional] 
 **variableCategory** | [**VariableCategory**](VariableCategory.md) |  | [optional] 
-**variableCategoryId** | **Number** | ID of variable category | [optional] 
-**variableCategoryImageUrl** | **String** | Example: https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png | [optional] 
-**variableCategoryName** | **String** | Example: Treatments | [optional] 
+**dataSource** | [**DataSource**](DataSource.md) |  | [optional] 
+**joinedVariables** | [**[Variable]**](Variable.md) | Array of Variables that are joined with this Variable | [optional] 
+**lastSource** | **Number** | Last source | [optional] 
+**lastUnit** | **String** | Last unit | [optional] 
+**mostCommonUnit** | **String** | Most common unit | [optional] 
+**valence** | **String** | Example: positive | [optional] 
+**variableCategoryId** | **Number** | Example: 6 | [optional] 
+**variableCategoryImageUrl** | **String** | Example: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png | [optional] 
+**variableCategoryName** | **String** | Variable category like Mood, Sleep, Physical Activity, Treatment, Symptom, etc. | [optional] 
 **variableFillingValue** | **Number** | Example: -1 | [optional] 
-**variableId** | **Number** | ID of variable | 
-**variableName** | **String** | Example: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand) | [optional] 
-**variance** | **Number** | Variance | [optional] 
+**variableId** | **Number** | Example: 96380 | 
+**variableName** | **String** | Example: Sleep Duration | [optional] 
+**variance** | **Number** | Example: 115947037.40816 | [optional] 
 **wikipediaTitle** | **String** | Example:  | [optional] 
 
 

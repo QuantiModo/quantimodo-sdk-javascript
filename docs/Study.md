@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**causeVariable** | [**UserVariable**](UserVariable.md) |  | [optional] 
+**causeVariable** | [**Variable**](Variable.md) |  | [optional] 
 **charts** | [**[Chart]**](Chart.md) |  | [optional] 
-**effectVariable** | [**UserVariable**](UserVariable.md) |  | [optional] 
+**effectVariable** | [**Variable**](Variable.md) |  | [optional] 
 **participantInstructions** | [**ParticipantInstruction**](ParticipantInstruction.md) |  | [optional] 
 **statistics** | [**Correlation**](Correlation.md) |  | [optional] 
 **studyHtml** | [**StudyHtml**](StudyHtml.md) |  | [optional] 

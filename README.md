@@ -71,11 +71,9 @@ All URIs are relative to *https://app.quantimo.do/api*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Quantimodo.AnalyticsApi* | [**deleteVote**](docs/AnalyticsApi.md#deleteVote) | **DELETE** /v3/votes/delete | Delete vote
-*Quantimodo.AnalyticsApi* | [**getAggregatedCorrelations**](docs/AnalyticsApi.md#getAggregatedCorrelations) | **GET** /v3/aggregatedCorrelations | Get aggregated correlations
+*Quantimodo.AnalyticsApi* | [**getCorrelationExplanations**](docs/AnalyticsApi.md#getCorrelationExplanations) | **GET** /v3/correlations/explanations | Get correlation explanations
+*Quantimodo.AnalyticsApi* | [**getCorrelations**](docs/AnalyticsApi.md#getCorrelations) | **GET** /v3/correlations | Get correlations
 *Quantimodo.AnalyticsApi* | [**getStudy**](docs/AnalyticsApi.md#getStudy) | **GET** /v4/study | Get Study
-*Quantimodo.AnalyticsApi* | [**getUserCorrelationExplanations**](docs/AnalyticsApi.md#getUserCorrelationExplanations) | **GET** /v3/correlations/explanations | Get correlation explanations
-*Quantimodo.AnalyticsApi* | [**getUserCorrelations**](docs/AnalyticsApi.md#getUserCorrelations) | **GET** /v3/correlations | Get correlations
-*Quantimodo.AnalyticsApi* | [**postAggregatedCorrelations**](docs/AnalyticsApi.md#postAggregatedCorrelations) | **POST** /v3/aggregatedCorrelations | Store or Update a Correlation
 *Quantimodo.AnalyticsApi* | [**postVote**](docs/AnalyticsApi.md#postVote) | **POST** /v3/votes | Post or update vote
 *Quantimodo.AuthenticationApi* | [**getAccessToken**](docs/AuthenticationApi.md#getAccessToken) | **GET** /v3/oauth2/token | Get a user access token
 *Quantimodo.AuthenticationApi* | [**getOauthAuthorizationCode**](docs/AuthenticationApi.md#getOauthAuthorizationCode) | **GET** /v3/oauth2/authorize | Request Authorization Code
@@ -106,11 +104,10 @@ Class | Method | HTTP request | Description
 *Quantimodo.UserApi* | [**postUserSettings**](docs/UserApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
 *Quantimodo.VariablesApi* | [**deleteUserTag**](docs/VariablesApi.md#deleteUserTag) | **DELETE** /v3/userTags/delete | Delete user tag or ingredient
 *Quantimodo.VariablesApi* | [**deleteUserVariable**](docs/VariablesApi.md#deleteUserVariable) | **DELETE** /v3/userVariables/delete | Delete All Measurements For Variable
-*Quantimodo.VariablesApi* | [**getCommonVariables**](docs/VariablesApi.md#getCommonVariables) | **GET** /v3/public/variables | Get common variables with aggregated instead of user-specific data
-*Quantimodo.VariablesApi* | [**getUserVariables**](docs/VariablesApi.md#getUserVariables) | **GET** /v3/userVariables | Get variables along with related user-specific analysis settings and statistics
 *Quantimodo.VariablesApi* | [**getVariableCategories**](docs/VariablesApi.md#getVariableCategories) | **GET** /v3/variableCategories | Variable categories
+*Quantimodo.VariablesApi* | [**getVariables**](docs/VariablesApi.md#getVariables) | **GET** /v3/variables | Get variables along with related user-specific analysis settings and statistics
 *Quantimodo.VariablesApi* | [**postUserTags**](docs/VariablesApi.md#postUserTags) | **POST** /v3/userTags | Post or update user tags or ingredients
-*Quantimodo.VariablesApi* | [**postUserVariables**](docs/VariablesApi.md#postUserVariables) | **POST** /v3/userVariables | Update User Settings for a Variable
+*Quantimodo.VariablesApi* | [**postUserVariables**](docs/VariablesApi.md#postUserVariables) | **POST** /v3/variables | Update User Settings for a Variable
 *Quantimodo.VariablesApi* | [**resetUserVariableSettings**](docs/VariablesApi.md#resetUserVariableSettings) | **POST** /v3/userVariables/reset | Reset user settings for a variable to defaults
 
 
@@ -119,7 +116,6 @@ Class | Method | HTTP request | Description
  - [Quantimodo.Button](docs/Button.md)
  - [Quantimodo.Chart](docs/Chart.md)
  - [Quantimodo.CommonResponse](docs/CommonResponse.md)
- - [Quantimodo.CommonVariable](docs/CommonVariable.md)
  - [Quantimodo.Connector](docs/Connector.md)
  - [Quantimodo.ConversionStep](docs/ConversionStep.md)
  - [Quantimodo.Correlation](docs/Correlation.md)
@@ -138,7 +134,6 @@ Class | Method | HTTP request | Description
  - [Quantimodo.MeasurementSet](docs/MeasurementSet.md)
  - [Quantimodo.MeasurementUpdate](docs/MeasurementUpdate.md)
  - [Quantimodo.Pair](docs/Pair.md)
- - [Quantimodo.PairsOfAveragesForAllUser](docs/PairsOfAveragesForAllUser.md)
  - [Quantimodo.ParticipantInstruction](docs/ParticipantInstruction.md)
  - [Quantimodo.PostCorrelation](docs/PostCorrelation.md)
  - [Quantimodo.PostMeasurementsDataResponse](docs/PostMeasurementsDataResponse.md)
@@ -148,7 +143,6 @@ Class | Method | HTTP request | Description
  - [Quantimodo.PostTrackingRemindersResponse](docs/PostTrackingRemindersResponse.md)
  - [Quantimodo.PostUserSettingsDataResponse](docs/PostUserSettingsDataResponse.md)
  - [Quantimodo.PostUserSettingsResponse](docs/PostUserSettingsResponse.md)
- - [Quantimodo.ProcessedDailyMeasurement](docs/ProcessedDailyMeasurement.md)
  - [Quantimodo.Scope](docs/Scope.md)
  - [Quantimodo.Study](docs/Study.md)
  - [Quantimodo.StudyHtml](docs/StudyHtml.md)
@@ -165,8 +159,8 @@ Class | Method | HTTP request | Description
  - [Quantimodo.UnitCategory](docs/UnitCategory.md)
  - [Quantimodo.User](docs/User.md)
  - [Quantimodo.UserTag](docs/UserTag.md)
- - [Quantimodo.UserVariable](docs/UserVariable.md)
  - [Quantimodo.UserVariableDelete](docs/UserVariableDelete.md)
+ - [Quantimodo.Variable](docs/Variable.md)
  - [Quantimodo.VariableCategory](docs/VariableCategory.md)
  - [Quantimodo.Vote](docs/Vote.md)
  - [Quantimodo.VoteDelete](docs/VoteDelete.md)

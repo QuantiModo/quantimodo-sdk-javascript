@@ -36,7 +36,7 @@
   /**
    * The StudyText model module.
    * @module model/StudyText
-   * @version 5.8.1126
+   * @version 5.8.1129
    */
 
   /**

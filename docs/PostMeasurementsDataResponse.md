@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userVariables** | [**[UserVariable]**](UserVariable.md) |  | [optional] 
+**userVariables** | [**[Variable]**](Variable.md) |  | [optional] 
 
 

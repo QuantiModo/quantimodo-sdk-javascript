@@ -60,10 +60,20 @@
         done();
       });
     });
-    describe('getAggregatedCorrelations', function() {
-      it('should call getAggregatedCorrelations successfully', function(done) {
-        //uncomment below and update the code to test getAggregatedCorrelations
-        //instance.getAggregatedCorrelations(function(error) {
+    describe('getCorrelationExplanations', function() {
+      it('should call getCorrelationExplanations successfully', function(done) {
+        //uncomment below and update the code to test getCorrelationExplanations
+        //instance.getCorrelationExplanations(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getCorrelations', function() {
+      it('should call getCorrelations successfully', function(done) {
+        //uncomment below and update the code to test getCorrelations
+        //instance.getCorrelations(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -74,36 +84,6 @@
       it('should call getStudy successfully', function(done) {
         //uncomment below and update the code to test getStudy
         //instance.getStudy(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getUserCorrelationExplanations', function() {
-      it('should call getUserCorrelationExplanations successfully', function(done) {
-        //uncomment below and update the code to test getUserCorrelationExplanations
-        //instance.getUserCorrelationExplanations(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getUserCorrelations', function() {
-      it('should call getUserCorrelations successfully', function(done) {
-        //uncomment below and update the code to test getUserCorrelations
-        //instance.getUserCorrelations(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('postAggregatedCorrelations', function() {
-      it('should call postAggregatedCorrelations successfully', function(done) {
-        //uncomment below and update the code to test postAggregatedCorrelations
-        //instance.postAggregatedCorrelations(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

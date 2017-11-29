@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/Correlation', 'model/GetCorrelationsResponse', 'model/JsonErrorResponse', 'model/PostCorrelation', 'model/Study', 'model/Vote', 'model/VoteDelete'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/Correlation', 'model/GetCorrelationsResponse', 'model/JsonErrorResponse', 'model/Study', 'model/Vote', 'model/VoteDelete'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/GetCorrelationsResponse'), require('../model/JsonErrorResponse'), require('../model/PostCorrelation'), require('../model/Study'), require('../model/Vote'), require('../model/VoteDelete'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/GetCorrelationsResponse'), require('../model/JsonErrorResponse'), require('../model/Study'), require('../model/Vote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Correlation, root.Quantimodo.GetCorrelationsResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostCorrelation, root.Quantimodo.Study, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
+    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Correlation, root.Quantimodo.GetCorrelationsResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.Study, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
   }
-}(this, function(ApiClient, CommonResponse, Correlation, GetCorrelationsResponse, JsonErrorResponse, PostCorrelation, Study, Vote, VoteDelete) {
+}(this, function(ApiClient, CommonResponse, Correlation, GetCorrelationsResponse, JsonErrorResponse, Study, Vote, VoteDelete) {
   'use strict';
 
   /**
    * Analytics service.
    * @module api/AnalyticsApi
-   * @version 5.8.1126
+   * @version 5.8.1129
    */
 
   /**
@@ -97,16 +97,61 @@
     }
 
     /**
-     * Callback function to receive the result of the getAggregatedCorrelations operation.
-     * @callback module:api/AnalyticsApi~getAggregatedCorrelationsCallback
+     * Callback function to receive the result of the getCorrelationExplanations operation.
+     * @callback module:api/AnalyticsApi~getCorrelationExplanationsCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/Correlation>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get aggregated correlations
-     * Get correlations based on the anonymized aggregate data from all QuantiModo users.
+     * Get correlation explanations
+     * Get explanations of  correlations based on data from a single user.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
+     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {module:api/AnalyticsApi~getCorrelationExplanationsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Correlation>}
+     */
+    this.getCorrelationExplanations = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [Correlation];
+
+      return this.apiClient.callApi(
+        '/v3/correlations/explanations', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getCorrelations operation.
+     * @callback module:api/AnalyticsApi~getCorrelationsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetCorrelationsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get correlations
+     * Get a list of correlations that can be used to display top predictors of a given outcome like mood, for instance.
      * @param {Object} opts Optional parameters
      * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
      * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
@@ -117,12 +162,12 @@
      * @param {String} opts.correlationCoefficient Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
-     * @param {String} opts.onsetDelay The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
-     * @param {String} opts.durationOfAction The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
-     * @param {module:api/AnalyticsApi~getAggregatedCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Correlation>}
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {Boolean} opts.commonOnly Return only public, anonymized and aggregated population data instead of user-specific variables
+     * @param {module:api/AnalyticsApi~getCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetCorrelationsResponse}
      */
-    this.getAggregatedCorrelations = function(opts, callback) {
+    this.getCorrelations = function(opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -139,8 +184,8 @@
         'correlationCoefficient': opts['correlationCoefficient'],
         'updatedAt': opts['updatedAt'],
         'outcomesOfInterest': opts['outcomesOfInterest'],
-        'onsetDelay': opts['onsetDelay'],
-        'durationOfAction': opts['durationOfAction']
+        'clientId': opts['clientId'],
+        'commonOnly': opts['commonOnly']
       };
       var headerParams = {
       };
@@ -150,10 +195,10 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = [Correlation];
+      var returnType = GetCorrelationsResponse;
 
       return this.apiClient.callApi(
-        '/v3/aggregatedCorrelations', 'GET',
+        '/v3/correlations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -207,170 +252,6 @@
 
       return this.apiClient.callApi(
         '/v4/study', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getUserCorrelationExplanations operation.
-     * @callback module:api/AnalyticsApi~getUserCorrelationExplanationsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Correlation>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get correlation explanations
-     * Get explanations of  correlations based on data from a single user.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
-     * @param {module:api/AnalyticsApi~getUserCorrelationExplanationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Correlation>}
-     */
-    this.getUserCorrelationExplanations = function(opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'causeVariableName': opts['causeVariableName'],
-        'effectVariableName': opts['effectVariableName']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = [Correlation];
-
-      return this.apiClient.callApi(
-        '/v3/correlations/explanations', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getUserCorrelations operation.
-     * @callback module:api/AnalyticsApi~getUserCorrelationsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GetCorrelationsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get correlations
-     * Get correlations based on data from a single user.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
-     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
-     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
-     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {Number} opts.userId User&#39;s id
-     * @param {String} opts.correlationCoefficient Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
-     * @param {String} opts.onsetDelay The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
-     * @param {String} opts.durationOfAction The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
-     * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {Boolean} opts.fallbackToStudyForCauseAndEffect Example: 1
-     * @param {Boolean} opts.fallbackToAggregateCorrelations Example: true
-     * @param {module:api/AnalyticsApi~getUserCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetCorrelationsResponse}
-     */
-    this.getUserCorrelations = function(opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'causeVariableName': opts['causeVariableName'],
-        'effectVariableName': opts['effectVariableName'],
-        'sort': opts['sort'],
-        'limit': opts['limit'],
-        'offset': opts['offset'],
-        'userId': opts['userId'],
-        'correlationCoefficient': opts['correlationCoefficient'],
-        'onsetDelay': opts['onsetDelay'],
-        'durationOfAction': opts['durationOfAction'],
-        'updatedAt': opts['updatedAt'],
-        'outcomesOfInterest': opts['outcomesOfInterest'],
-        'appName': opts['appName'],
-        'clientId': opts['clientId'],
-        'fallbackToStudyForCauseAndEffect': opts['fallbackToStudyForCauseAndEffect'],
-        'fallbackToAggregateCorrelations': opts['fallbackToAggregateCorrelations']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = GetCorrelationsResponse;
-
-      return this.apiClient.callApi(
-        '/v3/correlations', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postAggregatedCorrelations operation.
-     * @callback module:api/AnalyticsApi~postAggregatedCorrelationsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Store or Update a Correlation
-     * Add correlation
-     * @param {module:model/PostCorrelation} body Provides correlation data
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId User&#39;s id
-     * @param {module:api/AnalyticsApi~postAggregatedCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    this.postAggregatedCorrelations = function(body, opts, callback) {
-      opts = opts || {};
-      var postBody = body;
-
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postAggregatedCorrelations");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'userId': opts['userId']
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = null;
-
-      return this.apiClient.callApi(
-        '/v3/aggregatedCorrelations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -36,7 +36,7 @@
   /**
    * The StudyImages model module.
    * @module model/StudyImages
-   * @version 5.8.1126
+   * @version 5.8.1129
    */
 
   /**
