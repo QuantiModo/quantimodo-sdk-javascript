@@ -36,21 +36,22 @@
   /**
    * The MeasurementDelete model module.
    * @module model/MeasurementDelete
-   * @version 5.8.1129
+   * @version 5.8.112511
    */
 
   /**
    * Constructs a new <code>MeasurementDelete</code>.
    * @alias module:model/MeasurementDelete
    * @class
-   * @param startTime {Number} Start time of the measurement to be deleted
-   * @param variableId {Number} Variable id of the measurement to be deleted
+   * @param clientId {String} Your app's client id
    */
-  var exports = function(startTime, variableId) {
+  var exports = function(clientId) {
     var _this = this;
 
-    _this['startTime'] = startTime;
-    _this['variableId'] = variableId;
+
+
+
+    _this['clientId'] = clientId;
   };
 
   /**
@@ -70,6 +71,12 @@
       if (data.hasOwnProperty('variableId')) {
         obj['variableId'] = ApiClient.convertToType(data['variableId'], 'Number');
       }
+      if (data.hasOwnProperty('connectorName')) {
+        obj['connectorName'] = ApiClient.convertToType(data['connectorName'], 'String');
+      }
+      if (data.hasOwnProperty('clientId')) {
+        obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
+      }
     }
     return obj;
   }
@@ -84,6 +91,16 @@
    * @member {Number} variableId
    */
   exports.prototype['variableId'] = undefined;
+  /**
+   * Name of the connector for which measurements should be deleted
+   * @member {String} connectorName
+   */
+  exports.prototype['connectorName'] = undefined;
+  /**
+   * Your app's client id
+   * @member {String} clientId
+   */
+  exports.prototype['clientId'] = undefined;
 
 
 

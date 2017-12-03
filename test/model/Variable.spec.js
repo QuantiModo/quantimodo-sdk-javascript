@@ -548,12 +548,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property numberOfMeasurements (base name: "numberOfMeasurements")', function() {
-      // uncomment below and update the code to test the property numberOfMeasurements
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property numberOfProcessedDailyMeasurements (base name: "numberOfProcessedDailyMeasurements")', function() {
       // uncomment below and update the code to test the property numberOfProcessedDailyMeasurements
       //var instane = new Quantimodo.Variable();

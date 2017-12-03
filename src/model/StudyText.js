@@ -36,7 +36,7 @@
   /**
    * The StudyText model module.
    * @module model/StudyText
-   * @version 5.8.1129
+   * @version 5.8.112511
    */
 
   /**
@@ -60,13 +60,17 @@
 
 
 
+
+
+
+
+
     _this['studyAbstract'] = studyAbstract;
     _this['studyDesign'] = studyDesign;
     _this['studyLimitations'] = studyLimitations;
     _this['studyObjective'] = studyObjective;
     _this['studyResults'] = studyResults;
     _this['studyTitle'] = studyTitle;
-
 
 
 
@@ -101,6 +105,21 @@
       if (data.hasOwnProperty('dataSources')) {
         obj['dataSources'] = ApiClient.convertToType(data['dataSources'], 'String');
       }
+      if (data.hasOwnProperty('lastCauseDailyValueSentenceExtended')) {
+        obj['lastCauseDailyValueSentenceExtended'] = ApiClient.convertToType(data['lastCauseDailyValueSentenceExtended'], 'String');
+      }
+      if (data.hasOwnProperty('lastCauseAndOptimalValueSentence')) {
+        obj['lastCauseAndOptimalValueSentence'] = ApiClient.convertToType(data['lastCauseAndOptimalValueSentence'], 'String');
+      }
+      if (data.hasOwnProperty('lastCauseDailyValueSentence')) {
+        obj['lastCauseDailyValueSentence'] = ApiClient.convertToType(data['lastCauseDailyValueSentence'], 'String');
+      }
+      if (data.hasOwnProperty('optimalDailyValueSentence')) {
+        obj['optimalDailyValueSentence'] = ApiClient.convertToType(data['optimalDailyValueSentence'], 'String');
+      }
+      if (data.hasOwnProperty('predictorExplanation')) {
+        obj['predictorExplanation'] = ApiClient.convertToType(data['predictorExplanation'], 'String');
+      }
       if (data.hasOwnProperty('significanceExplanation')) {
         obj['significanceExplanation'] = ApiClient.convertToType(data['significanceExplanation'], 'String');
       }
@@ -130,9 +149,6 @@
       }
       if (data.hasOwnProperty('studyBackground')) {
         obj['studyBackground'] = ApiClient.convertToType(data['studyBackground'], 'String');
-      }
-      if (data.hasOwnProperty('predictorExplanation')) {
-        obj['predictorExplanation'] = ApiClient.convertToType(data['predictorExplanation'], 'String');
       }
     }
     return obj;
@@ -168,6 +184,31 @@
    * @member {String} dataSources
    */
   exports.prototype['dataSources'] = undefined;
+  /**
+   * Example: Sleep Quality Predicts Higher Overall Mood
+   * @member {String} lastCauseDailyValueSentenceExtended
+   */
+  exports.prototype['lastCauseDailyValueSentenceExtended'] = undefined;
+  /**
+   * Example: Sleep Quality Predicts Higher Overall Mood
+   * @member {String} lastCauseAndOptimalValueSentence
+   */
+  exports.prototype['lastCauseAndOptimalValueSentence'] = undefined;
+  /**
+   * Example: Sleep Quality Predicts Higher Overall Mood
+   * @member {String} lastCauseDailyValueSentence
+   */
+  exports.prototype['lastCauseDailyValueSentence'] = undefined;
+  /**
+   * Example: Sleep Quality Predicts Higher Overall Mood
+   * @member {String} optimalDailyValueSentence
+   */
+  exports.prototype['optimalDailyValueSentence'] = undefined;
+  /**
+   * Example: Sleep Quality Predicts Higher Overall Mood
+   * @member {String} predictorExplanation
+   */
+  exports.prototype['predictorExplanation'] = undefined;
   /**
    * Example: Using a two-tailed t-test with alpha = 0.05, it was determined that the change in Video Activities is statistically significant at 95% confidence interval.
    * @member {String} significanceExplanation
@@ -218,11 +259,6 @@
    * @member {String} studyBackground
    */
   exports.prototype['studyBackground'] = undefined;
-  /**
-   * Example: Sleep Quality Predicts Higher Overall Mood
-   * @member {String} predictorExplanation
-   */
-  exports.prototype['predictorExplanation'] = undefined;
 
 
 

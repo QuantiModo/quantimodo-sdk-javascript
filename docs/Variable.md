@@ -85,7 +85,6 @@ Name | Type | Description | Notes
 **numberOfAggregateCorrelationsAsEffect** | **Number** | Example: 310 | [optional] 
 **numberOfChanges** | **Number** | Number of changes | [optional] 
 **numberOfCorrelations** | **Number** | Number of correlations for this variable | [optional] 
-**numberOfMeasurements** | **Number** | Number of measurements | [optional] 
 **numberOfProcessedDailyMeasurements** | **Number** | Number of processed measurements | [optional] 
 **numberOfRawMeasurements** | **Number** | Example: 295 | [optional] 
 **numberOfTrackingReminders** | **Number** | Example: 1 | [optional] 

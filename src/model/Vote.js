@@ -36,7 +36,7 @@
   /**
    * The Vote model module.
    * @module model/Vote
-   * @version 5.8.1129
+   * @version 5.8.112511
    */
 
   /**

@@ -92,6 +92,36 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property lastCauseDailyValueSentenceExtended (base name: "lastCauseDailyValueSentenceExtended")', function() {
+      // uncomment below and update the code to test the property lastCauseDailyValueSentenceExtended
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastCauseAndOptimalValueSentence (base name: "lastCauseAndOptimalValueSentence")', function() {
+      // uncomment below and update the code to test the property lastCauseAndOptimalValueSentence
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastCauseDailyValueSentence (base name: "lastCauseDailyValueSentence")', function() {
+      // uncomment below and update the code to test the property lastCauseDailyValueSentence
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property optimalDailyValueSentence (base name: "optimalDailyValueSentence")', function() {
+      // uncomment below and update the code to test the property optimalDailyValueSentence
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property predictorExplanation (base name: "predictorExplanation")', function() {
+      // uncomment below and update the code to test the property predictorExplanation
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
     it('should have the property significanceExplanation (base name: "significanceExplanation")', function() {
       // uncomment below and update the code to test the property significanceExplanation
       //var instane = new Quantimodo.StudyText();
@@ -148,12 +178,6 @@
 
     it('should have the property studyBackground (base name: "studyBackground")', function() {
       // uncomment below and update the code to test the property studyBackground
-      //var instane = new Quantimodo.StudyText();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property predictorExplanation (base name: "predictorExplanation")', function() {
-      // uncomment below and update the code to test the property predictorExplanation
       //var instane = new Quantimodo.StudyText();
       //expect(instance).to.be();
     });

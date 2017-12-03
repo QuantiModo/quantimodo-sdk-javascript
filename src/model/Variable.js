@@ -36,7 +36,7 @@
   /**
    * The Variable model module.
    * @module model/Variable
-   * @version 5.8.1129
+   * @version 5.8.112511
    */
 
   /**
@@ -129,7 +129,6 @@
 
 
     _this['name'] = name;
-
 
 
 
@@ -460,9 +459,6 @@
       }
       if (data.hasOwnProperty('numberOfCorrelations')) {
         obj['numberOfCorrelations'] = ApiClient.convertToType(data['numberOfCorrelations'], 'Number');
-      }
-      if (data.hasOwnProperty('numberOfMeasurements')) {
-        obj['numberOfMeasurements'] = ApiClient.convertToType(data['numberOfMeasurements'], 'Number');
       }
       if (data.hasOwnProperty('numberOfProcessedDailyMeasurements')) {
         obj['numberOfProcessedDailyMeasurements'] = ApiClient.convertToType(data['numberOfProcessedDailyMeasurements'], 'Number');
@@ -1074,11 +1070,6 @@
    * @member {Number} numberOfCorrelations
    */
   exports.prototype['numberOfCorrelations'] = undefined;
-  /**
-   * Number of measurements
-   * @member {Number} numberOfMeasurements
-   */
-  exports.prototype['numberOfMeasurements'] = undefined;
   /**
    * Number of processed measurements
    * @member {Number} numberOfProcessedDailyMeasurements

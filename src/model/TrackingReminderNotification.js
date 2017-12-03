@@ -36,7 +36,7 @@
   /**
    * The TrackingReminderNotification model module.
    * @module model/TrackingReminderNotification
-   * @version 5.8.1129
+   * @version 5.8.112511
    */
 
   /**
@@ -98,6 +98,7 @@
 
 
     _this['trackAllActions'] = trackAllActions;
+
 
 
 
@@ -288,6 +289,9 @@
       }
       if (data.hasOwnProperty('trackingReminderNotificationTimeLocal')) {
         obj['trackingReminderNotificationTimeLocal'] = ApiClient.convertToType(data['trackingReminderNotificationTimeLocal'], 'String');
+      }
+      if (data.hasOwnProperty('trackingReminderNotificationTimeLocalHumanString')) {
+        obj['trackingReminderNotificationTimeLocalHumanString'] = ApiClient.convertToType(data['trackingReminderNotificationTimeLocalHumanString'], 'String');
       }
       if (data.hasOwnProperty('updatedAt')) {
         obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
@@ -598,6 +602,11 @@
    * @member {String} trackingReminderNotificationTimeLocal
    */
   exports.prototype['trackingReminderNotificationTimeLocal'] = undefined;
+  /**
+   * Example: 8PM Sun, May 1
+   * @member {String} trackingReminderNotificationTimeLocalHumanString
+   */
+  exports.prototype['trackingReminderNotificationTimeLocalHumanString'] = undefined;
   /**
    * When the record in the database was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
    * @member {Date} updatedAt

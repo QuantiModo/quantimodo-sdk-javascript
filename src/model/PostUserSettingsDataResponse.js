@@ -36,7 +36,7 @@
   /**
    * The PostUserSettingsDataResponse model module.
    * @module model/PostUserSettingsDataResponse
-   * @version 5.8.1129
+   * @version 5.8.112511
    */
 
   /**

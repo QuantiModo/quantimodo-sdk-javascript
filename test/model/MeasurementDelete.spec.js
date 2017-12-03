@@ -68,6 +68,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property connectorName (base name: "connectorName")', function() {
+      // uncomment below and update the code to test the property connectorName
+      //var instane = new Quantimodo.MeasurementDelete();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property clientId (base name: "clientId")', function() {
+      // uncomment below and update the code to test the property clientId
+      //var instane = new Quantimodo.MeasurementDelete();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

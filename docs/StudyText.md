@@ -9,6 +9,11 @@ Name | Type | Description | Notes
 **valuePredictingLowOutcomeExplanation** | **String** | Example: Overall Mood, on average, 11% lower after around 3.03/5 Sleep Quality | [optional] 
 **dataAnalysis** | **String** | Example: It was assumed that 0 hours would pass before a change in Very Distracting Time would produce an observable change in Video Activities.  It was assumed that Very Distracting Time could produce an observable change in Video Activities for as much as 7 days after the stimulus event. | [optional] 
 **dataSources** | **String** | Example: Very Distracting Time data was primarily collected using &lt;a href&#x3D;\&quot;https://www.rescuetime.com/rp/quantimodo/plans\&quot;&gt;RescueTime&lt;/a&gt;. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.&lt;br&gt;Video Activities data was primarily collected using &lt;a href&#x3D;\&quot;https://www.rescuetime.com/rp/quantimodo/plans\&quot;&gt;RescueTime&lt;/a&gt;. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs. | [optional] 
+**lastCauseDailyValueSentenceExtended** | **String** | Example: Sleep Quality Predicts Higher Overall Mood | [optional] 
+**lastCauseAndOptimalValueSentence** | **String** | Example: Sleep Quality Predicts Higher Overall Mood | [optional] 
+**lastCauseDailyValueSentence** | **String** | Example: Sleep Quality Predicts Higher Overall Mood | [optional] 
+**optimalDailyValueSentence** | **String** | Example: Sleep Quality Predicts Higher Overall Mood | [optional] 
+**predictorExplanation** | **String** | Example: Sleep Quality Predicts Higher Overall Mood | [optional] 
 **significanceExplanation** | **String** | Example: Using a two-tailed t-test with alpha &#x3D; 0.05, it was determined that the change in Video Activities is statistically significant at 95% confidence interval. | [optional] 
 **studyAbstract** | **String** | Example: Aggregated data from 21 suggests with a low degree of confidence (p&#x3D;0.097) that Very Distracting Time (Work) has a moderately positive predictive relationship (R&#x3D;0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day. | 
 **studyDesign** | **String** | Example: This study is based on data donated by  21 QuantiModo users. Thus, the study design is equivalent to the aggregation of 21 separate n&#x3D;1 observational natural experiments. | 
@@ -19,6 +24,5 @@ Name | Type | Description | Notes
 **studyInvitation** | **String** | Help us determine if Remeron affects Overall Mood! | [optional] 
 **studyQuestion** | **String** | Does Remeron affect Overall Mood? | [optional] 
 **studyBackground** | **String** | In order to reduce suffering through the advancement of human knowledge... | [optional] 
-**predictorExplanation** | **String** | Example: Sleep Quality Predicts Higher Overall Mood | [optional] 
 
 
