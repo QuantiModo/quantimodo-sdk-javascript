@@ -92,6 +92,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property dataSourcesParagraphForCause (base name: "dataSourcesParagraphForCause")', function() {
+      // uncomment below and update the code to test the property dataSourcesParagraphForCause
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dataSourcesParagraphForEffect (base name: "dataSourcesParagraphForEffect")', function() {
+      // uncomment below and update the code to test the property dataSourcesParagraphForEffect
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
     it('should have the property lastCauseDailyValueSentenceExtended (base name: "lastCauseDailyValueSentenceExtended")', function() {
       // uncomment below and update the code to test the property lastCauseDailyValueSentenceExtended
       //var instane = new Quantimodo.StudyText();

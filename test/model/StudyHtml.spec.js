@@ -56,6 +56,24 @@
       //expect(instance).to.be.a(Quantimodo.StudyHtml);
     });
 
+    it('should have the property chartHtml (base name: "chartHtml")', function() {
+      // uncomment below and update the code to test the property chartHtml
+      //var instane = new Quantimodo.StudyHtml();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property downloadButtonsHtml (base name: "downloadButtonsHtml")', function() {
+      // uncomment below and update the code to test the property downloadButtonsHtml
+      //var instane = new Quantimodo.StudyHtml();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fullPageWithHead (base name: "fullPageWithHead")', function() {
+      // uncomment below and update the code to test the property fullPageWithHead
+      //var instane = new Quantimodo.StudyHtml();
+      //expect(instance).to.be();
+    });
+
     it('should have the property fullStudyHtml (base name: "fullStudyHtml")', function() {
       // uncomment below and update the code to test the property fullStudyHtml
       //var instane = new Quantimodo.StudyHtml();
@@ -74,20 +92,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property chartHtml (base name: "chartHtml")', function() {
-      // uncomment below and update the code to test the property chartHtml
+    it('should have the property studyAbstractHtml (base name: "studyAbstractHtml")', function() {
+      // uncomment below and update the code to test the property studyAbstractHtml
       //var instane = new Quantimodo.StudyHtml();
       //expect(instance).to.be();
     });
 
-    it('should have the property downloadButtonsHtml (base name: "downloadButtonsHtml")', function() {
-      // uncomment below and update the code to test the property downloadButtonsHtml
-      //var instane = new Quantimodo.StudyHtml();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyMetaHtml (base name: "studyMetaHtml")', function() {
-      // uncomment below and update the code to test the property studyMetaHtml
+    it('should have the property studyHeaderHtml (base name: "studyHeaderHtml")', function() {
+      // uncomment below and update the code to test the property studyHeaderHtml
       //var instane = new Quantimodo.StudyHtml();
       //expect(instance).to.be();
     });
@@ -98,8 +110,26 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property studyMetaHtml (base name: "studyMetaHtml")', function() {
+      // uncomment below and update the code to test the property studyMetaHtml
+      //var instane = new Quantimodo.StudyHtml();
+      //expect(instance).to.be();
+    });
+
     it('should have the property studyTextHtml (base name: "studyTextHtml")', function() {
       // uncomment below and update the code to test the property studyTextHtml
+      //var instane = new Quantimodo.StudyHtml();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property socialSharingButtonHtml (base name: "socialSharingButtonHtml")', function() {
+      // uncomment below and update the code to test the property socialSharingButtonHtml
+      //var instane = new Quantimodo.StudyHtml();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property studySummaryBoxHtml (base name: "studySummaryBoxHtml")', function() {
+      // uncomment below and update the code to test the property studySummaryBoxHtml
       //var instane = new Quantimodo.StudyHtml();
       //expect(instance).to.be();
     });

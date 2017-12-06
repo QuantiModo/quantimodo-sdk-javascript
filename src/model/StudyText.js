@@ -65,6 +65,8 @@
 
 
 
+
+
     _this['studyAbstract'] = studyAbstract;
     _this['studyDesign'] = studyDesign;
     _this['studyLimitations'] = studyLimitations;
@@ -104,6 +106,12 @@
       }
       if (data.hasOwnProperty('dataSources')) {
         obj['dataSources'] = ApiClient.convertToType(data['dataSources'], 'String');
+      }
+      if (data.hasOwnProperty('dataSourcesParagraphForCause')) {
+        obj['dataSourcesParagraphForCause'] = ApiClient.convertToType(data['dataSourcesParagraphForCause'], 'String');
+      }
+      if (data.hasOwnProperty('dataSourcesParagraphForEffect')) {
+        obj['dataSourcesParagraphForEffect'] = ApiClient.convertToType(data['dataSourcesParagraphForEffect'], 'String');
       }
       if (data.hasOwnProperty('lastCauseDailyValueSentenceExtended')) {
         obj['lastCauseDailyValueSentenceExtended'] = ApiClient.convertToType(data['lastCauseDailyValueSentenceExtended'], 'String');
@@ -184,6 +192,16 @@
    * @member {String} dataSources
    */
   exports.prototype['dataSources'] = undefined;
+  /**
+   * Example: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
+   * @member {String} dataSourcesParagraphForCause
+   */
+  exports.prototype['dataSourcesParagraphForCause'] = undefined;
+  /**
+   * Example: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
+   * @member {String} dataSourcesParagraphForEffect
+   */
+  exports.prototype['dataSourcesParagraphForEffect'] = undefined;
   /**
    * Example: Sleep Quality Predicts Higher Overall Mood
    * @member {String} lastCauseDailyValueSentenceExtended

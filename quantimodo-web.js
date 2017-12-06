@@ -12820,16 +12820,21 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>StudyHtml</code>.
    * @alias module:model/StudyHtml
    * @class
-   * @param fullStudyHtml {String} Embeddable study text html including charts.  Modifiable css classes are study-title, study-section-header, study-section-body
    * @param chartHtml {String} Embeddable chart html
+   * @param fullStudyHtml {String} Embeddable study text html including charts.  Modifiable css classes are study-title, study-section-header, study-section-body
    */
-  var exports = function(fullStudyHtml, chartHtml) {
+  var exports = function(chartHtml, fullStudyHtml) {
     var _this = this;
+
+    _this['chartHtml'] = chartHtml;
+
 
     _this['fullStudyHtml'] = fullStudyHtml;
 
 
-    _this['chartHtml'] = chartHtml;
+
+
+
 
 
 
@@ -12847,6 +12852,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('chartHtml')) {
+        obj['chartHtml'] = ApiClient.convertToType(data['chartHtml'], 'String');
+      }
+      if (data.hasOwnProperty('downloadButtonsHtml')) {
+        obj['downloadButtonsHtml'] = ApiClient.convertToType(data['downloadButtonsHtml'], 'String');
+      }
+      if (data.hasOwnProperty('fullPageWithHead')) {
+        obj['fullPageWithHead'] = ApiClient.convertToType(data['fullPageWithHead'], 'String');
+      }
       if (data.hasOwnProperty('fullStudyHtml')) {
         obj['fullStudyHtml'] = ApiClient.convertToType(data['fullStudyHtml'], 'String');
       }
@@ -12856,40 +12870,31 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('statisticsTableHtml')) {
         obj['statisticsTableHtml'] = ApiClient.convertToType(data['statisticsTableHtml'], 'String');
       }
-      if (data.hasOwnProperty('chartHtml')) {
-        obj['chartHtml'] = ApiClient.convertToType(data['chartHtml'], 'String');
+      if (data.hasOwnProperty('studyAbstractHtml')) {
+        obj['studyAbstractHtml'] = ApiClient.convertToType(data['studyAbstractHtml'], 'String');
       }
-      if (data.hasOwnProperty('downloadButtonsHtml')) {
-        obj['downloadButtonsHtml'] = ApiClient.convertToType(data['downloadButtonsHtml'], 'String');
-      }
-      if (data.hasOwnProperty('studyMetaHtml')) {
-        obj['studyMetaHtml'] = ApiClient.convertToType(data['studyMetaHtml'], 'String');
+      if (data.hasOwnProperty('studyHeaderHtml')) {
+        obj['studyHeaderHtml'] = ApiClient.convertToType(data['studyHeaderHtml'], 'String');
       }
       if (data.hasOwnProperty('studyImageHtml')) {
         obj['studyImageHtml'] = ApiClient.convertToType(data['studyImageHtml'], 'String');
       }
+      if (data.hasOwnProperty('studyMetaHtml')) {
+        obj['studyMetaHtml'] = ApiClient.convertToType(data['studyMetaHtml'], 'String');
+      }
       if (data.hasOwnProperty('studyTextHtml')) {
         obj['studyTextHtml'] = ApiClient.convertToType(data['studyTextHtml'], 'String');
+      }
+      if (data.hasOwnProperty('socialSharingButtonHtml')) {
+        obj['socialSharingButtonHtml'] = ApiClient.convertToType(data['socialSharingButtonHtml'], 'String');
+      }
+      if (data.hasOwnProperty('studySummaryBoxHtml')) {
+        obj['studySummaryBoxHtml'] = ApiClient.convertToType(data['studySummaryBoxHtml'], 'String');
       }
     }
     return obj;
   }
 
-  /**
-   * Embeddable study text html including charts.  Modifiable css classes are study-title, study-section-header, study-section-body
-   * @member {String} fullStudyHtml
-   */
-  exports.prototype['fullStudyHtml'] = undefined;
-  /**
-   * Embeddable study text html including charts and css styling
-   * @member {String} fullStudyHtmlWithCssStyles
-   */
-  exports.prototype['fullStudyHtmlWithCssStyles'] = undefined;
-  /**
-   * Embeddable table with statistics
-   * @member {String} statisticsTableHtml
-   */
-  exports.prototype['statisticsTableHtml'] = undefined;
   /**
    * Embeddable chart html
    * @member {String} chartHtml
@@ -12901,20 +12906,60 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['downloadButtonsHtml'] = undefined;
   /**
-   * Facebook, Twitter, Google+
-   * @member {String} studyMetaHtml
+   * Embeddable study including HTML head section charts.  Modifiable css classes are study-title, study-section-header, study-section-body
+   * @member {String} fullPageWithHead
    */
-  exports.prototype['studyMetaHtml'] = undefined;
+  exports.prototype['fullPageWithHead'] = undefined;
+  /**
+   * Embeddable study text html including charts.  Modifiable css classes are study-title, study-section-header, study-section-body
+   * @member {String} fullStudyHtml
+   */
+  exports.prototype['fullStudyHtml'] = undefined;
+  /**
+   * Embeddable study html including charts and css styling
+   * @member {String} fullStudyHtmlWithCssStyles
+   */
+  exports.prototype['fullStudyHtmlWithCssStyles'] = undefined;
+  /**
+   * Embeddable table with statistics
+   * @member {String} statisticsTableHtml
+   */
+  exports.prototype['statisticsTableHtml'] = undefined;
+  /**
+   * Text summary
+   * @member {String} studyAbstractHtml
+   */
+  exports.prototype['studyAbstractHtml'] = undefined;
+  /**
+   * Title, study image, abstract with CSS styling
+   * @member {String} studyHeaderHtml
+   */
+  exports.prototype['studyHeaderHtml'] = undefined;
   /**
    * PNG image
    * @member {String} studyImageHtml
    */
   exports.prototype['studyImageHtml'] = undefined;
   /**
-   * Formatting study text
+   * Facebook, Twitter, Google+
+   * @member {String} studyMetaHtml
+   */
+  exports.prototype['studyMetaHtml'] = undefined;
+  /**
+   * Formatted study text sections
    * @member {String} studyTextHtml
    */
   exports.prototype['studyTextHtml'] = undefined;
+  /**
+   * 
+   * @member {String} socialSharingButtonHtml
+   */
+  exports.prototype['socialSharingButtonHtml'] = undefined;
+  /**
+   * 
+   * @member {String} studySummaryBoxHtml
+   */
+  exports.prototype['studySummaryBoxHtml'] = undefined;
 
 
 
@@ -13285,6 +13330,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
     _this['studyAbstract'] = studyAbstract;
     _this['studyDesign'] = studyDesign;
     _this['studyLimitations'] = studyLimitations;
@@ -13324,6 +13371,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('dataSources')) {
         obj['dataSources'] = ApiClient.convertToType(data['dataSources'], 'String');
+      }
+      if (data.hasOwnProperty('dataSourcesParagraphForCause')) {
+        obj['dataSourcesParagraphForCause'] = ApiClient.convertToType(data['dataSourcesParagraphForCause'], 'String');
+      }
+      if (data.hasOwnProperty('dataSourcesParagraphForEffect')) {
+        obj['dataSourcesParagraphForEffect'] = ApiClient.convertToType(data['dataSourcesParagraphForEffect'], 'String');
       }
       if (data.hasOwnProperty('lastCauseDailyValueSentenceExtended')) {
         obj['lastCauseDailyValueSentenceExtended'] = ApiClient.convertToType(data['lastCauseDailyValueSentenceExtended'], 'String');
@@ -13404,6 +13457,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} dataSources
    */
   exports.prototype['dataSources'] = undefined;
+  /**
+   * Example: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
+   * @member {String} dataSourcesParagraphForCause
+   */
+  exports.prototype['dataSourcesParagraphForCause'] = undefined;
+  /**
+   * Example: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
+   * @member {String} dataSourcesParagraphForEffect
+   */
+  exports.prototype['dataSourcesParagraphForEffect'] = undefined;
   /**
    * Example: Sleep Quality Predicts Higher Overall Mood
    * @member {String} lastCauseDailyValueSentenceExtended
