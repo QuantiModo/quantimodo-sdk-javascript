@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataSource', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText'], factory);
+    define(['ApiClient', 'model/DataSource', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./DataSource'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'));
+    module.exports = factory(require('../ApiClient'), require('./DataSource'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Correlation = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText);
+    root.Quantimodo.Correlation = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText);
   }
-}(this, function(ApiClient, DataSource, StudyImages, StudyLinks, StudyText) {
+}(this, function(ApiClient, DataSource, StudyHtml, StudyImages, StudyLinks, StudyText) {
   'use strict';
 
 
@@ -437,6 +437,9 @@
       if (data.hasOwnProperty('strongestPearsonCorrelationCoefficient')) {
         obj['strongestPearsonCorrelationCoefficient'] = ApiClient.convertToType(data['strongestPearsonCorrelationCoefficient'], 'Number');
       }
+      if (data.hasOwnProperty('studyHtml')) {
+        obj['studyHtml'] = StudyHtml.constructFromObject(data['studyHtml']);
+      }
       if (data.hasOwnProperty('studyImages')) {
         obj['studyImages'] = StudyImages.constructFromObject(data['studyImages']);
       }
@@ -445,9 +448,6 @@
       }
       if (data.hasOwnProperty('studyText')) {
         obj['studyText'] = StudyText.constructFromObject(data['studyText']);
-      }
-      if (data.hasOwnProperty('studyHtml')) {
-        obj['studyHtml'] = ApiClient.convertToType(data['studyHtml'], 'String');
       }
       if (data.hasOwnProperty('tValue')) {
         obj['tValue'] = ApiClient.convertToType(data['tValue'], 'Number');
@@ -895,6 +895,10 @@
    */
   exports.prototype['strongestPearsonCorrelationCoefficient'] = undefined;
   /**
+   * @member {module:model/StudyHtml} studyHtml
+   */
+  exports.prototype['studyHtml'] = undefined;
+  /**
    * @member {module:model/StudyImages} studyImages
    */
   exports.prototype['studyImages'] = undefined;
@@ -906,11 +910,6 @@
    * @member {module:model/StudyText} studyText
    */
   exports.prototype['studyText'] = undefined;
-  /**
-   * Embeddable study HTML including chart svg's
-   * @member {String} studyHtml
-   */
-  exports.prototype['studyHtml'] = undefined;
   /**
    * Example: 9.6986079652717
    * @member {Number} tValue

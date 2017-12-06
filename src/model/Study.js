@@ -58,6 +58,7 @@
 
 
     _this['type'] = type;
+
   };
 
   /**
@@ -100,6 +101,9 @@
       }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      }
+      if (data.hasOwnProperty('userId')) {
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
       }
     }
     return obj;
@@ -146,6 +150,11 @@
    * @member {String} type
    */
   exports.prototype['type'] = undefined;
+  /**
+   * The user id if an individual study
+   * @member {String} userId
+   */
+  exports.prototype['userId'] = undefined;
 
 
 

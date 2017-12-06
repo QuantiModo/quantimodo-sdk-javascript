@@ -116,6 +116,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property userId (base name: "userId")', function() {
+      // uncomment below and update the code to test the property userId
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -494,6 +494,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property studyHtml (base name: "studyHtml")', function() {
+      // uncomment below and update the code to test the property studyHtml
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
     it('should have the property studyImages (base name: "studyImages")', function() {
       // uncomment below and update the code to test the property studyImages
       //var instane = new Quantimodo.Correlation();
@@ -508,12 +514,6 @@
 
     it('should have the property studyText (base name: "studyText")', function() {
       // uncomment below and update the code to test the property studyText
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property studyHtml (base name: "studyHtml")', function() {
-      // uncomment below and update the code to test the property studyHtml
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });

@@ -76,10 +76,10 @@ Name | Type | Description | Notes
 **statisticalSignificance** | **Number** | Example: 0.9813 | 
 **strengthLevel** | **String** | Example: moderate | 
 **strongestPearsonCorrelationCoefficient** | **Number** | Example: 0.613 | 
+**studyHtml** | [**StudyHtml**](StudyHtml.md) |  | [optional] 
 **studyImages** | [**StudyImages**](StudyImages.md) |  | [optional] 
 **studyLinks** | [**StudyLinks**](StudyLinks.md) |  | [optional] 
 **studyText** | [**StudyText**](StudyText.md) |  | [optional] 
-**studyHtml** | **String** | Embeddable study HTML including chart svg&#39;s | [optional] 
 **tValue** | **Number** | Example: 9.6986079652717 | 
 **updatedAt** | **Date** | Example: 2017-05-06 15:40:38 | 
 **userId** | **Number** | Example: 230 | 

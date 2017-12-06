@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **studyLinks** | [**StudyLinks**](StudyLinks.md) |  | [optional] 
 **studyText** | [**StudyText**](StudyText.md) |  | [optional] 
 **type** | **String** | Example: population | 
+**userId** | **String** | The user id if an individual study | [optional] 
 
 
