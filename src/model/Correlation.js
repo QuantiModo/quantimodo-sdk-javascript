@@ -129,6 +129,9 @@
     _this['direction'] = direction;
     _this['durationOfAction'] = durationOfAction;
     _this['durationOfActionInHours'] = durationOfActionInHours;
+
+
+
     _this['effectChanges'] = effectChanges;
 
     _this['effectSize'] = effectSize;
@@ -185,9 +188,6 @@
     _this['userVote'] = userVote;
     _this['valuePredictingHighOutcome'] = valuePredictingHighOutcome;
     _this['valuePredictingLowOutcome'] = valuePredictingLowOutcome;
-
-
-
 
 
 
@@ -298,6 +298,15 @@
       }
       if (data.hasOwnProperty('durationOfActionInHours')) {
         obj['durationOfActionInHours'] = ApiClient.convertToType(data['durationOfActionInHours'], 'Number');
+      }
+      if (data.hasOwnProperty('degreesOfFreedom')) {
+        obj['degreesOfFreedom'] = ApiClient.convertToType(data['degreesOfFreedom'], 'Number');
+      }
+      if (data.hasOwnProperty('effectNumberOfProcessedDailyMeasurements')) {
+        obj['effectNumberOfProcessedDailyMeasurements'] = ApiClient.convertToType(data['effectNumberOfProcessedDailyMeasurements'], 'Number');
+      }
+      if (data.hasOwnProperty('error')) {
+        obj['error'] = ApiClient.convertToType(data['error'], 'String');
       }
       if (data.hasOwnProperty('effectChanges')) {
         obj['effectChanges'] = ApiClient.convertToType(data['effectChanges'], 'Number');
@@ -491,15 +500,6 @@
       if (data.hasOwnProperty('correlationsOverOnsetDelaysChartConfig')) {
         obj['correlationsOverOnsetDelaysChartConfig'] = ApiClient.convertToType(data['correlationsOverOnsetDelaysChartConfig'], 'String');
       }
-      if (data.hasOwnProperty('degreesOfFreedom')) {
-        obj['degreesOfFreedom'] = ApiClient.convertToType(data['degreesOfFreedom'], 'Number');
-      }
-      if (data.hasOwnProperty('effectNumberOfProcessedDailyMeasurements')) {
-        obj['effectNumberOfProcessedDailyMeasurements'] = ApiClient.convertToType(data['effectNumberOfProcessedDailyMeasurements'], 'Number');
-      }
-      if (data.hasOwnProperty('error')) {
-        obj['error'] = ApiClient.convertToType(data['error'], 'String');
-      }
       if (data.hasOwnProperty('numberOfUsers')) {
         obj['numberOfUsers'] = ApiClient.convertToType(data['numberOfUsers'], 'Number');
       }
@@ -665,6 +665,21 @@
    * @member {Number} durationOfActionInHours
    */
   exports.prototype['durationOfActionInHours'] = undefined;
+  /**
+   * Example: 200
+   * @member {Number} degreesOfFreedom
+   */
+  exports.prototype['degreesOfFreedom'] = undefined;
+  /**
+   * Example: 145
+   * @member {Number} effectNumberOfProcessedDailyMeasurements
+   */
+  exports.prototype['effectNumberOfProcessedDailyMeasurements'] = undefined;
+  /**
+   * Example: optimalPearsonProduct is not defined
+   * @member {String} error
+   */
+  exports.prototype['error'] = undefined;
   /**
    * Example: 193
    * @member {Number} effectChanges
@@ -980,21 +995,6 @@
    * @member {String} correlationsOverOnsetDelaysChartConfig
    */
   exports.prototype['correlationsOverOnsetDelaysChartConfig'] = undefined;
-  /**
-   * Example: 200
-   * @member {Number} degreesOfFreedom
-   */
-  exports.prototype['degreesOfFreedom'] = undefined;
-  /**
-   * Example: 145
-   * @member {Number} effectNumberOfProcessedDailyMeasurements
-   */
-  exports.prototype['effectNumberOfProcessedDailyMeasurements'] = undefined;
-  /**
-   * Example: optimalPearsonProduct is not defined
-   * @member {String} error
-   */
-  exports.prototype['error'] = undefined;
   /**
    * Example: 
    * @member {Number} numberOfUsers

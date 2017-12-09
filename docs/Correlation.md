@@ -30,6 +30,9 @@ Name | Type | Description | Notes
 **direction** | **String** | Example: higher | 
 **durationOfAction** | **Number** | Example: 604800 | 
 **durationOfActionInHours** | **Number** | Example: 168 | 
+**degreesOfFreedom** | **Number** | Example: 200 | [optional] 
+**effectNumberOfProcessedDailyMeasurements** | **Number** | Example: 145 | [optional] 
+**error** | **String** | Example: optimalPearsonProduct is not defined | [optional] 
 **effectChanges** | **Number** | Example: 193 | 
 **effectDataSource** | [**DataSource**](DataSource.md) |  | [optional] 
 **effectSize** | **String** | Example: moderately positive | 
@@ -94,9 +97,6 @@ Name | Type | Description | Notes
 **correlationsOverDurationsOfAction** | **String** | Example:  | [optional] 
 **correlationsOverDurationsOfActionChartConfig** | **String** | Example:  | [optional] 
 **correlationsOverOnsetDelaysChartConfig** | **String** | Example:  | [optional] 
-**degreesOfFreedom** | **Number** | Example: 200 | [optional] 
-**effectNumberOfProcessedDailyMeasurements** | **Number** | Example: 145 | [optional] 
-**error** | **String** | Example: optimalPearsonProduct is not defined | [optional] 
 **numberOfUsers** | **Number** | Example:  | [optional] 
 **rawCauseMeasurementSignificance** | **Number** | Example: 1 | [optional] 
 **rawEffectMeasurementSignificance** | **Number** | Example: 1 | [optional] 

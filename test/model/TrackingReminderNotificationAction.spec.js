@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.TrackingReminderNotificationActionArray();
+    instance = new Quantimodo.TrackingReminderNotificationAction();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,34 +49,46 @@
       object[property] = value;
   }
 
-  describe('TrackingReminderNotificationActionArray', function() {
-    it('should create an instance of TrackingReminderNotificationActionArray', function() {
-      // uncomment below and update the code to test TrackingReminderNotificationActionArray
-      //var instane = new Quantimodo.TrackingReminderNotificationActionArray();
-      //expect(instance).to.be.a(Quantimodo.TrackingReminderNotificationActionArray);
+  describe('TrackingReminderNotificationAction', function() {
+    it('should create an instance of TrackingReminderNotificationAction', function() {
+      // uncomment below and update the code to test TrackingReminderNotificationAction
+      //var instane = new Quantimodo.TrackingReminderNotificationAction();
+      //expect(instance).to.be.a(Quantimodo.TrackingReminderNotificationAction);
     });
 
     it('should have the property action (base name: "action")', function() {
       // uncomment below and update the code to test the property action
-      //var instane = new Quantimodo.TrackingReminderNotificationActionArray();
+      //var instane = new Quantimodo.TrackingReminderNotificationAction();
       //expect(instance).to.be();
     });
 
     it('should have the property callback (base name: "callback")', function() {
       // uncomment below and update the code to test the property callback
-      //var instane = new Quantimodo.TrackingReminderNotificationActionArray();
+      //var instane = new Quantimodo.TrackingReminderNotificationAction();
       //expect(instance).to.be();
     });
 
     it('should have the property modifiedValue (base name: "modifiedValue")', function() {
       // uncomment below and update the code to test the property modifiedValue
-      //var instane = new Quantimodo.TrackingReminderNotificationActionArray();
+      //var instane = new Quantimodo.TrackingReminderNotificationAction();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instane = new Quantimodo.TrackingReminderNotificationActionArray();
+      //var instane = new Quantimodo.TrackingReminderNotificationAction();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property longTitle (base name: "longTitle")', function() {
+      // uncomment below and update the code to test the property longTitle
+      //var instane = new Quantimodo.TrackingReminderNotificationAction();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property shortTitle (base name: "shortTitle")', function() {
+      // uncomment below and update the code to test the property shortTitle
+      //var instane = new Quantimodo.TrackingReminderNotificationAction();
       //expect(instance).to.be();
     });
 

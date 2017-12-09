@@ -218,6 +218,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property degreesOfFreedom (base name: "degreesOfFreedom")', function() {
+      // uncomment below and update the code to test the property degreesOfFreedom
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property effectNumberOfProcessedDailyMeasurements (base name: "effectNumberOfProcessedDailyMeasurements")', function() {
+      // uncomment below and update the code to test the property effectNumberOfProcessedDailyMeasurements
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property error (base name: "error")', function() {
+      // uncomment below and update the code to test the property error
+      //var instane = new Quantimodo.Correlation();
+      //expect(instance).to.be();
+    });
+
     it('should have the property effectChanges (base name: "effectChanges")', function() {
       // uncomment below and update the code to test the property effectChanges
       //var instane = new Quantimodo.Correlation();
@@ -598,24 +616,6 @@
 
     it('should have the property correlationsOverOnsetDelaysChartConfig (base name: "correlationsOverOnsetDelaysChartConfig")', function() {
       // uncomment below and update the code to test the property correlationsOverOnsetDelaysChartConfig
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property degreesOfFreedom (base name: "degreesOfFreedom")', function() {
-      // uncomment below and update the code to test the property degreesOfFreedom
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property effectNumberOfProcessedDailyMeasurements (base name: "effectNumberOfProcessedDailyMeasurements")', function() {
-      // uncomment below and update the code to test the property effectNumberOfProcessedDailyMeasurements
-      //var instane = new Quantimodo.Correlation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property error (base name: "error")', function() {
-      // uncomment below and update the code to test the property error
       //var instane = new Quantimodo.Correlation();
       //expect(instance).to.be();
     });

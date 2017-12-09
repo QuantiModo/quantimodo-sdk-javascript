@@ -25,7 +25,7 @@
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminderNotificationActionArray = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.TrackingReminderNotificationAction = factory(root.Quantimodo.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,19 +34,19 @@
 
 
   /**
-   * The TrackingReminderNotificationActionArray model module.
-   * @module model/TrackingReminderNotificationActionArray
+   * The TrackingReminderNotificationAction model module.
+   * @module model/TrackingReminderNotificationAction
    * @version 5.8.112511
    */
 
   /**
-   * Constructs a new <code>TrackingReminderNotificationActionArray</code>.
-   * @alias module:model/TrackingReminderNotificationActionArray
+   * Constructs a new <code>TrackingReminderNotificationAction</code>.
+   * @alias module:model/TrackingReminderNotificationAction
    * @class
    * @param action {String} Example: track
    * @param callback {String} Example: trackThreeRatingAction
    * @param modifiedValue {Number} Example: 3
-   * @param title {String} Example: Rate 3/5
+   * @param title {String} Example: 3/5
    */
   var exports = function(action, callback, modifiedValue, title) {
     var _this = this;
@@ -55,14 +55,16 @@
     _this['callback'] = callback;
     _this['modifiedValue'] = modifiedValue;
     _this['title'] = title;
+
+
   };
 
   /**
-   * Constructs a <code>TrackingReminderNotificationActionArray</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>TrackingReminderNotificationAction</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/TrackingReminderNotificationActionArray} obj Optional instance to populate.
-   * @return {module:model/TrackingReminderNotificationActionArray} The populated <code>TrackingReminderNotificationActionArray</code> instance.
+   * @param {module:model/TrackingReminderNotificationAction} obj Optional instance to populate.
+   * @return {module:model/TrackingReminderNotificationAction} The populated <code>TrackingReminderNotificationAction</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -79,6 +81,12 @@
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      }
+      if (data.hasOwnProperty('longTitle')) {
+        obj['longTitle'] = ApiClient.convertToType(data['longTitle'], 'String');
+      }
+      if (data.hasOwnProperty('shortTitle')) {
+        obj['shortTitle'] = ApiClient.convertToType(data['shortTitle'], 'String');
       }
     }
     return obj;
@@ -100,10 +108,20 @@
    */
   exports.prototype['modifiedValue'] = undefined;
   /**
-   * Example: Rate 3/5
+   * Example: 3/5
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
+  /**
+   * Example: Rate 3/5
+   * @member {String} longTitle
+   */
+  exports.prototype['longTitle'] = undefined;
+  /**
+   * Example: 3
+   * @member {String} shortTitle
+   */
+  exports.prototype['shortTitle'] = undefined;
 
 
 

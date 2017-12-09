@@ -7207,12 +7207,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/Scope', 'model/Study', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationActionArray', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/StudyApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
+    define(['ApiClient', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/Scope', 'model/Study', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/StudyApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/Scope'), require('./model/Study'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyLinks'), require('./model/StudyText'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationActionArray'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/StudyApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/Scope'), require('./model/Study'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyLinks'), require('./model/StudyText'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationAction'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/StudyApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
   }
-}(function(ApiClient, Button, Chart, CommonResponse, Connector, ConversionStep, Correlation, DataSource, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetTrackingReminderNotificationsResponse, Image, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, Scope, Study, StudyHtml, StudyImages, StudyLinks, StudyText, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationActionArray, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserTag, UserVariableDelete, Variable, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, StudyApi, UnitsApi, UserApi, VariablesApi) {
+}(function(ApiClient, Button, Chart, CommonResponse, Connector, ConversionStep, Correlation, DataSource, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetTrackingReminderNotificationsResponse, Image, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, Scope, Study, StudyHtml, StudyImages, StudyLinks, StudyText, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationAction, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserTag, UserVariableDelete, Variable, VariableCategory, Vote, VoteDelete, AnalyticsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, StudyApi, UnitsApi, UserApi, VariablesApi) {
   'use strict';
 
   /**
@@ -7448,10 +7448,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
     TrackingReminderNotification: TrackingReminderNotification,
     /**
-     * The TrackingReminderNotificationActionArray model constructor.
-     * @property {module:model/TrackingReminderNotificationActionArray}
+     * The TrackingReminderNotificationAction model constructor.
+     * @property {module:model/TrackingReminderNotificationAction}
      */
-    TrackingReminderNotificationActionArray: TrackingReminderNotificationActionArray,
+    TrackingReminderNotificationAction: TrackingReminderNotificationAction,
     /**
      * The TrackingReminderNotificationPost model constructor.
      * @property {module:model/TrackingReminderNotificationPost}
@@ -7562,7 +7562,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"./ApiClient":16,"./api/AnalyticsApi":17,"./api/AuthenticationApi":18,"./api/ConnectorsApi":19,"./api/MeasurementsApi":20,"./api/NotificationsApi":21,"./api/RemindersApi":22,"./api/StudyApi":23,"./api/UnitsApi":24,"./api/UserApi":25,"./api/VariablesApi":26,"./model/Button":28,"./model/Chart":29,"./model/CommonResponse":30,"./model/Connector":31,"./model/ConversionStep":32,"./model/Correlation":33,"./model/DataSource":34,"./model/Explanation":35,"./model/ExplanationStartTracking":36,"./model/GetConnectorsResponse":37,"./model/GetCorrelationsDataResponse":38,"./model/GetCorrelationsResponse":39,"./model/GetTrackingReminderNotificationsResponse":40,"./model/Image":41,"./model/JsonErrorResponse":42,"./model/Measurement":43,"./model/MeasurementDelete":44,"./model/MeasurementItem":45,"./model/MeasurementSet":46,"./model/MeasurementUpdate":47,"./model/Pair":48,"./model/ParticipantInstruction":49,"./model/PostCorrelation":50,"./model/PostMeasurementsDataResponse":51,"./model/PostMeasurementsResponse":52,"./model/PostStudyPublishResponse":53,"./model/PostTrackingRemindersDataResponse":54,"./model/PostTrackingRemindersResponse":55,"./model/PostUserSettingsDataResponse":56,"./model/PostUserSettingsResponse":57,"./model/Scope":58,"./model/Study":59,"./model/StudyHtml":60,"./model/StudyImages":61,"./model/StudyLinks":62,"./model/StudyText":63,"./model/TrackingReminder":64,"./model/TrackingReminderDelete":65,"./model/TrackingReminderNotification":66,"./model/TrackingReminderNotificationActionArray":67,"./model/TrackingReminderNotificationPost":68,"./model/TrackingReminderNotificationTrackAllAction":69,"./model/Unit":70,"./model/UnitCategory":71,"./model/User":72,"./model/UserTag":73,"./model/UserVariableDelete":74,"./model/Variable":75,"./model/VariableCategory":76,"./model/Vote":77,"./model/VoteDelete":78}],28:[function(require,module,exports){
+},{"./ApiClient":16,"./api/AnalyticsApi":17,"./api/AuthenticationApi":18,"./api/ConnectorsApi":19,"./api/MeasurementsApi":20,"./api/NotificationsApi":21,"./api/RemindersApi":22,"./api/StudyApi":23,"./api/UnitsApi":24,"./api/UserApi":25,"./api/VariablesApi":26,"./model/Button":28,"./model/Chart":29,"./model/CommonResponse":30,"./model/Connector":31,"./model/ConversionStep":32,"./model/Correlation":33,"./model/DataSource":34,"./model/Explanation":35,"./model/ExplanationStartTracking":36,"./model/GetConnectorsResponse":37,"./model/GetCorrelationsDataResponse":38,"./model/GetCorrelationsResponse":39,"./model/GetTrackingReminderNotificationsResponse":40,"./model/Image":41,"./model/JsonErrorResponse":42,"./model/Measurement":43,"./model/MeasurementDelete":44,"./model/MeasurementItem":45,"./model/MeasurementSet":46,"./model/MeasurementUpdate":47,"./model/Pair":48,"./model/ParticipantInstruction":49,"./model/PostCorrelation":50,"./model/PostMeasurementsDataResponse":51,"./model/PostMeasurementsResponse":52,"./model/PostStudyPublishResponse":53,"./model/PostTrackingRemindersDataResponse":54,"./model/PostTrackingRemindersResponse":55,"./model/PostUserSettingsDataResponse":56,"./model/PostUserSettingsResponse":57,"./model/Scope":58,"./model/Study":59,"./model/StudyHtml":60,"./model/StudyImages":61,"./model/StudyLinks":62,"./model/StudyText":63,"./model/TrackingReminder":64,"./model/TrackingReminderDelete":65,"./model/TrackingReminderNotification":66,"./model/TrackingReminderNotificationAction":67,"./model/TrackingReminderNotificationPost":68,"./model/TrackingReminderNotificationTrackAllAction":69,"./model/Unit":70,"./model/UnitCategory":71,"./model/User":72,"./model/UserTag":73,"./model/UserVariableDelete":74,"./model/Variable":75,"./model/VariableCategory":76,"./model/Vote":77,"./model/VoteDelete":78}],28:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8494,6 +8494,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
     _this['direction'] = direction;
     _this['durationOfAction'] = durationOfAction;
     _this['durationOfActionInHours'] = durationOfActionInHours;
+
+
+
     _this['effectChanges'] = effectChanges;
 
     _this['effectSize'] = effectSize;
@@ -8550,9 +8553,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
     _this['userVote'] = userVote;
     _this['valuePredictingHighOutcome'] = valuePredictingHighOutcome;
     _this['valuePredictingLowOutcome'] = valuePredictingLowOutcome;
-
-
-
 
 
 
@@ -8663,6 +8663,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('durationOfActionInHours')) {
         obj['durationOfActionInHours'] = ApiClient.convertToType(data['durationOfActionInHours'], 'Number');
+      }
+      if (data.hasOwnProperty('degreesOfFreedom')) {
+        obj['degreesOfFreedom'] = ApiClient.convertToType(data['degreesOfFreedom'], 'Number');
+      }
+      if (data.hasOwnProperty('effectNumberOfProcessedDailyMeasurements')) {
+        obj['effectNumberOfProcessedDailyMeasurements'] = ApiClient.convertToType(data['effectNumberOfProcessedDailyMeasurements'], 'Number');
+      }
+      if (data.hasOwnProperty('error')) {
+        obj['error'] = ApiClient.convertToType(data['error'], 'String');
       }
       if (data.hasOwnProperty('effectChanges')) {
         obj['effectChanges'] = ApiClient.convertToType(data['effectChanges'], 'Number');
@@ -8856,15 +8865,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('correlationsOverOnsetDelaysChartConfig')) {
         obj['correlationsOverOnsetDelaysChartConfig'] = ApiClient.convertToType(data['correlationsOverOnsetDelaysChartConfig'], 'String');
       }
-      if (data.hasOwnProperty('degreesOfFreedom')) {
-        obj['degreesOfFreedom'] = ApiClient.convertToType(data['degreesOfFreedom'], 'Number');
-      }
-      if (data.hasOwnProperty('effectNumberOfProcessedDailyMeasurements')) {
-        obj['effectNumberOfProcessedDailyMeasurements'] = ApiClient.convertToType(data['effectNumberOfProcessedDailyMeasurements'], 'Number');
-      }
-      if (data.hasOwnProperty('error')) {
-        obj['error'] = ApiClient.convertToType(data['error'], 'String');
-      }
       if (data.hasOwnProperty('numberOfUsers')) {
         obj['numberOfUsers'] = ApiClient.convertToType(data['numberOfUsers'], 'Number');
       }
@@ -9030,6 +9030,21 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} durationOfActionInHours
    */
   exports.prototype['durationOfActionInHours'] = undefined;
+  /**
+   * Example: 200
+   * @member {Number} degreesOfFreedom
+   */
+  exports.prototype['degreesOfFreedom'] = undefined;
+  /**
+   * Example: 145
+   * @member {Number} effectNumberOfProcessedDailyMeasurements
+   */
+  exports.prototype['effectNumberOfProcessedDailyMeasurements'] = undefined;
+  /**
+   * Example: optimalPearsonProduct is not defined
+   * @member {String} error
+   */
+  exports.prototype['error'] = undefined;
   /**
    * Example: 193
    * @member {Number} effectChanges
@@ -9345,21 +9360,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} correlationsOverOnsetDelaysChartConfig
    */
   exports.prototype['correlationsOverOnsetDelaysChartConfig'] = undefined;
-  /**
-   * Example: 200
-   * @member {Number} degreesOfFreedom
-   */
-  exports.prototype['degreesOfFreedom'] = undefined;
-  /**
-   * Example: 145
-   * @member {Number} effectNumberOfProcessedDailyMeasurements
-   */
-  exports.prototype['effectNumberOfProcessedDailyMeasurements'] = undefined;
-  /**
-   * Example: optimalPearsonProduct is not defined
-   * @member {String} error
-   */
-  exports.prototype['error'] = undefined;
   /**
    * Example: 
    * @member {Number} numberOfUsers
@@ -13577,18 +13577,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminderNotificationActionArray', 'model/Unit'], factory);
+    define(['ApiClient', 'model/TrackingReminderNotificationAction', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationActionArray'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationAction'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationActionArray, root.Quantimodo.Unit);
+    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, TrackingReminderNotificationActionArray, Unit) {
+}(this, function(ApiClient, TrackingReminderNotificationAction, Unit) {
   'use strict';
 
 
@@ -13618,6 +13618,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
+
 
 
 
@@ -13700,7 +13701,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       obj = obj || new exports();
 
       if (data.hasOwnProperty('actionArray')) {
-        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationActionArray]);
+        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationAction]);
       }
       if (data.hasOwnProperty('availableUnits')) {
         obj['availableUnits'] = ApiClient.convertToType(data['availableUnits'], [Unit]);
@@ -13809,6 +13810,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('popUp')) {
         obj['popUp'] = ApiClient.convertToType(data['popUp'], 'Boolean');
+      }
+      if (data.hasOwnProperty('question')) {
+        obj['question'] = ApiClient.convertToType(data['question'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
         obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'String');
@@ -13926,7 +13930,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * @member {Array.<module:model/TrackingReminderNotificationActionArray>} actionArray
+   * @member {Array.<module:model/TrackingReminderNotificationAction>} actionArray
    */
   exports.prototype['actionArray'] = undefined;
   /**
@@ -14106,6 +14110,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Boolean} popUp
    */
   exports.prototype['popUp'] = undefined;
+  /**
+   * Example: How is your overall mood?
+   * @member {String} question
+   */
+  exports.prototype['question'] = undefined;
   /**
    * Latest time of day at which reminders should appear in UTC HH:MM:SS format
    * @member {String} reminderEndTime
@@ -14316,7 +14325,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./TrackingReminderNotificationActionArray":67,"./Unit":70}],65:[function(require,module,exports){
+},{"../ApiClient":16,"./TrackingReminderNotificationAction":67,"./Unit":70}],65:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14420,18 +14429,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminderNotificationActionArray', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit'], factory);
+    define(['ApiClient', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationActionArray'), require('./TrackingReminderNotificationTrackAllAction'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationAction'), require('./TrackingReminderNotificationTrackAllAction'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationActionArray, root.Quantimodo.TrackingReminderNotificationTrackAllAction, root.Quantimodo.Unit);
+    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.TrackingReminderNotificationTrackAllAction, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, TrackingReminderNotificationActionArray, TrackingReminderNotificationTrackAllAction, Unit) {
+}(this, function(ApiClient, TrackingReminderNotificationAction, TrackingReminderNotificationTrackAllAction, Unit) {
   'use strict';
 
 
@@ -14447,7 +14456,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>TrackingReminderNotification</code>.
    * @alias module:model/TrackingReminderNotification
    * @class
-   * @param actionArray {Array.<module:model/TrackingReminderNotificationActionArray>} 
+   * @param actionArray {Array.<module:model/TrackingReminderNotificationAction>} 
    * @param availableUnits {Array.<module:model/Unit>} 
    * @param fillingValue {Number} Example: 0
    * @param id {Number} id for the specific PENDING tracking remidner
@@ -14473,6 +14482,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
     _this['fillingValue'] = fillingValue;
 
     _this['id'] = id;
+
 
 
 
@@ -14539,7 +14549,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       obj = obj || new exports();
 
       if (data.hasOwnProperty('actionArray')) {
-        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationActionArray]);
+        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationAction]);
       }
       if (data.hasOwnProperty('availableUnits')) {
         obj['availableUnits'] = ApiClient.convertToType(data['availableUnits'], [Unit]);
@@ -14633,6 +14643,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('popUp')) {
         obj['popUp'] = ApiClient.convertToType(data['popUp'], 'Boolean');
+      }
+      if (data.hasOwnProperty('question')) {
+        obj['question'] = ApiClient.convertToType(data['question'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
         obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'Date');
@@ -14750,7 +14763,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * @member {Array.<module:model/TrackingReminderNotificationActionArray>} actionArray
+   * @member {Array.<module:model/TrackingReminderNotificationAction>} actionArray
    */
   exports.prototype['actionArray'] = undefined;
   /**
@@ -14907,6 +14920,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Boolean} popUp
    */
   exports.prototype['popUp'] = undefined;
+  /**
+   * Example: How is your overall mood?
+   * @member {String} question
+   */
+  exports.prototype['question'] = undefined;
   /**
    * Example: 
    * @member {Date} reminderEndTime
@@ -15116,7 +15134,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./TrackingReminderNotificationActionArray":67,"./TrackingReminderNotificationTrackAllAction":69,"./Unit":70}],67:[function(require,module,exports){
+},{"../ApiClient":16,"./TrackingReminderNotificationAction":67,"./TrackingReminderNotificationTrackAllAction":69,"./Unit":70}],67:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15144,7 +15162,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminderNotificationActionArray = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.TrackingReminderNotificationAction = factory(root.Quantimodo.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -15153,19 +15171,19 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
   /**
-   * The TrackingReminderNotificationActionArray model module.
-   * @module model/TrackingReminderNotificationActionArray
+   * The TrackingReminderNotificationAction model module.
+   * @module model/TrackingReminderNotificationAction
    * @version 5.8.112511
    */
 
   /**
-   * Constructs a new <code>TrackingReminderNotificationActionArray</code>.
-   * @alias module:model/TrackingReminderNotificationActionArray
+   * Constructs a new <code>TrackingReminderNotificationAction</code>.
+   * @alias module:model/TrackingReminderNotificationAction
    * @class
    * @param action {String} Example: track
    * @param callback {String} Example: trackThreeRatingAction
    * @param modifiedValue {Number} Example: 3
-   * @param title {String} Example: Rate 3/5
+   * @param title {String} Example: 3/5
    */
   var exports = function(action, callback, modifiedValue, title) {
     var _this = this;
@@ -15174,14 +15192,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
     _this['callback'] = callback;
     _this['modifiedValue'] = modifiedValue;
     _this['title'] = title;
+
+
   };
 
   /**
-   * Constructs a <code>TrackingReminderNotificationActionArray</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>TrackingReminderNotificationAction</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/TrackingReminderNotificationActionArray} obj Optional instance to populate.
-   * @return {module:model/TrackingReminderNotificationActionArray} The populated <code>TrackingReminderNotificationActionArray</code> instance.
+   * @param {module:model/TrackingReminderNotificationAction} obj Optional instance to populate.
+   * @return {module:model/TrackingReminderNotificationAction} The populated <code>TrackingReminderNotificationAction</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -15198,6 +15218,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      }
+      if (data.hasOwnProperty('longTitle')) {
+        obj['longTitle'] = ApiClient.convertToType(data['longTitle'], 'String');
+      }
+      if (data.hasOwnProperty('shortTitle')) {
+        obj['shortTitle'] = ApiClient.convertToType(data['shortTitle'], 'String');
       }
     }
     return obj;
@@ -15219,10 +15245,20 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['modifiedValue'] = undefined;
   /**
-   * Example: Rate 3/5
+   * Example: 3/5
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
+  /**
+   * Example: Rate 3/5
+   * @member {String} longTitle
+   */
+  exports.prototype['longTitle'] = undefined;
+  /**
+   * Example: 3
+   * @member {String} shortTitle
+   */
+  exports.prototype['shortTitle'] = undefined;
 
 
 
@@ -16520,18 +16556,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataSource', 'model/TrackingReminderNotificationActionArray', 'model/Unit', 'model/Variable', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/DataSource', 'model/TrackingReminderNotificationAction', 'model/Unit', 'model/Variable', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./DataSource'), require('./TrackingReminderNotificationActionArray'), require('./Unit'), require('./Variable'), require('./VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('./DataSource'), require('./TrackingReminderNotificationAction'), require('./Unit'), require('./Variable'), require('./VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Variable = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource, root.Quantimodo.TrackingReminderNotificationActionArray, root.Quantimodo.Unit, root.Quantimodo.Variable, root.Quantimodo.VariableCategory);
+    root.Quantimodo.Variable = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit, root.Quantimodo.Variable, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, DataSource, TrackingReminderNotificationActionArray, Unit, Variable, VariableCategory) {
+}(this, function(ApiClient, DataSource, TrackingReminderNotificationAction, Unit, Variable, VariableCategory) {
   'use strict';
 
 
@@ -16719,7 +16755,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       obj = obj || new exports();
 
       if (data.hasOwnProperty('actionArray')) {
-        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationActionArray]);
+        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationAction]);
       }
       if (data.hasOwnProperty('alias')) {
         obj['alias'] = ApiClient.convertToType(data['alias'], 'String');
@@ -17173,7 +17209,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * @member {Array.<module:model/TrackingReminderNotificationActionArray>} actionArray
+   * @member {Array.<module:model/TrackingReminderNotificationAction>} actionArray
    */
   exports.prototype['actionArray'] = undefined;
   /**
@@ -17916,7 +17952,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./DataSource":34,"./TrackingReminderNotificationActionArray":67,"./Unit":70,"./Variable":75,"./VariableCategory":76}],76:[function(require,module,exports){
+},{"../ApiClient":16,"./DataSource":34,"./TrackingReminderNotificationAction":67,"./Unit":70,"./Variable":75,"./VariableCategory":76}],76:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).

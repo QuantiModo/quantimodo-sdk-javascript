@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**actionArray** | [**[TrackingReminderNotificationActionArray]**](TrackingReminderNotificationActionArray.md) |  | [optional] 
+**actionArray** | [**[TrackingReminderNotificationAction]**](TrackingReminderNotificationAction.md) |  | [optional] 
 **availableUnits** | [**[Unit]**](Unit.md) |  | [optional] 
 **clientId** | **String** | clientId | [optional] 
 **combinationOperation** | **String** | The way multiple measurements are aggregated over time | [optional] 
@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **pngPath** | **String** | Example: img/variable_categories/symptoms.png | [optional] 
 **pngUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/symptoms.png | [optional] 
 **popUp** | **Boolean** | True if the reminders should appear as a popup notification | [optional] 
+**question** | **String** | Example: How is your overall mood? | [optional] 
 **reminderEndTime** | **String** | Latest time of day at which reminders should appear in UTC HH:MM:SS format | [optional] 
 **reminderFrequency** | **Number** | Number of seconds between one reminder and the next | 
 **reminderSound** | **String** | String identifier for the sound to accompany the reminder | [optional] 

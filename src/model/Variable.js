@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataSource', 'model/TrackingReminderNotificationActionArray', 'model/Unit', 'model/Variable', 'model/VariableCategory'], factory);
+    define(['ApiClient', 'model/DataSource', 'model/TrackingReminderNotificationAction', 'model/Unit', 'model/Variable', 'model/VariableCategory'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./DataSource'), require('./TrackingReminderNotificationActionArray'), require('./Unit'), require('./Variable'), require('./VariableCategory'));
+    module.exports = factory(require('../ApiClient'), require('./DataSource'), require('./TrackingReminderNotificationAction'), require('./Unit'), require('./Variable'), require('./VariableCategory'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Variable = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource, root.Quantimodo.TrackingReminderNotificationActionArray, root.Quantimodo.Unit, root.Quantimodo.Variable, root.Quantimodo.VariableCategory);
+    root.Quantimodo.Variable = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit, root.Quantimodo.Variable, root.Quantimodo.VariableCategory);
   }
-}(this, function(ApiClient, DataSource, TrackingReminderNotificationActionArray, Unit, Variable, VariableCategory) {
+}(this, function(ApiClient, DataSource, TrackingReminderNotificationAction, Unit, Variable, VariableCategory) {
   'use strict';
 
 
@@ -215,7 +215,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('actionArray')) {
-        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationActionArray]);
+        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationAction]);
       }
       if (data.hasOwnProperty('alias')) {
         obj['alias'] = ApiClient.convertToType(data['alias'], 'String');
@@ -669,7 +669,7 @@
   }
 
   /**
-   * @member {Array.<module:model/TrackingReminderNotificationActionArray>} actionArray
+   * @member {Array.<module:model/TrackingReminderNotificationAction>} actionArray
    */
   exports.prototype['actionArray'] = undefined;
   /**

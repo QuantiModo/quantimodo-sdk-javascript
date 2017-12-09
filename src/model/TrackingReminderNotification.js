@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminderNotificationActionArray', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit'], factory);
+    define(['ApiClient', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationActionArray'), require('./TrackingReminderNotificationTrackAllAction'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationAction'), require('./TrackingReminderNotificationTrackAllAction'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationActionArray, root.Quantimodo.TrackingReminderNotificationTrackAllAction, root.Quantimodo.Unit);
+    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.TrackingReminderNotificationTrackAllAction, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, TrackingReminderNotificationActionArray, TrackingReminderNotificationTrackAllAction, Unit) {
+}(this, function(ApiClient, TrackingReminderNotificationAction, TrackingReminderNotificationTrackAllAction, Unit) {
   'use strict';
 
 
@@ -43,7 +43,7 @@
    * Constructs a new <code>TrackingReminderNotification</code>.
    * @alias module:model/TrackingReminderNotification
    * @class
-   * @param actionArray {Array.<module:model/TrackingReminderNotificationActionArray>} 
+   * @param actionArray {Array.<module:model/TrackingReminderNotificationAction>} 
    * @param availableUnits {Array.<module:model/Unit>} 
    * @param fillingValue {Number} Example: 0
    * @param id {Number} id for the specific PENDING tracking remidner
@@ -69,6 +69,7 @@
     _this['fillingValue'] = fillingValue;
 
     _this['id'] = id;
+
 
 
 
@@ -135,7 +136,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('actionArray')) {
-        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationActionArray]);
+        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationAction]);
       }
       if (data.hasOwnProperty('availableUnits')) {
         obj['availableUnits'] = ApiClient.convertToType(data['availableUnits'], [Unit]);
@@ -229,6 +230,9 @@
       }
       if (data.hasOwnProperty('popUp')) {
         obj['popUp'] = ApiClient.convertToType(data['popUp'], 'Boolean');
+      }
+      if (data.hasOwnProperty('question')) {
+        obj['question'] = ApiClient.convertToType(data['question'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
         obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'Date');
@@ -346,7 +350,7 @@
   }
 
   /**
-   * @member {Array.<module:model/TrackingReminderNotificationActionArray>} actionArray
+   * @member {Array.<module:model/TrackingReminderNotificationAction>} actionArray
    */
   exports.prototype['actionArray'] = undefined;
   /**
@@ -503,6 +507,11 @@
    * @member {Boolean} popUp
    */
   exports.prototype['popUp'] = undefined;
+  /**
+   * Example: How is your overall mood?
+   * @member {String} question
+   */
+  exports.prototype['question'] = undefined;
   /**
    * Example: 
    * @member {Date} reminderEndTime

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminderNotificationActionArray', 'model/Unit'], factory);
+    define(['ApiClient', 'model/TrackingReminderNotificationAction', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationActionArray'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationAction'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationActionArray, root.Quantimodo.Unit);
+    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, TrackingReminderNotificationActionArray, Unit) {
+}(this, function(ApiClient, TrackingReminderNotificationAction, Unit) {
   'use strict';
 
 
@@ -57,6 +57,7 @@
 
 
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
+
 
 
 
@@ -139,7 +140,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('actionArray')) {
-        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationActionArray]);
+        obj['actionArray'] = ApiClient.convertToType(data['actionArray'], [TrackingReminderNotificationAction]);
       }
       if (data.hasOwnProperty('availableUnits')) {
         obj['availableUnits'] = ApiClient.convertToType(data['availableUnits'], [Unit]);
@@ -248,6 +249,9 @@
       }
       if (data.hasOwnProperty('popUp')) {
         obj['popUp'] = ApiClient.convertToType(data['popUp'], 'Boolean');
+      }
+      if (data.hasOwnProperty('question')) {
+        obj['question'] = ApiClient.convertToType(data['question'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
         obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'String');
@@ -365,7 +369,7 @@
   }
 
   /**
-   * @member {Array.<module:model/TrackingReminderNotificationActionArray>} actionArray
+   * @member {Array.<module:model/TrackingReminderNotificationAction>} actionArray
    */
   exports.prototype['actionArray'] = undefined;
   /**
@@ -545,6 +549,11 @@
    * @member {Boolean} popUp
    */
   exports.prototype['popUp'] = undefined;
+  /**
+   * Example: How is your overall mood?
+   * @member {String} question
+   */
+  exports.prototype['question'] = undefined;
   /**
    * Latest time of day at which reminders should appear in UTC HH:MM:SS format
    * @member {String} reminderEndTime

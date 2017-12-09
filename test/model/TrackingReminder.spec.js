@@ -278,6 +278,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property question (base name: "question")', function() {
+      // uncomment below and update the code to test the property question
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
     it('should have the property reminderEndTime (base name: "reminderEndTime")', function() {
       // uncomment below and update the code to test the property reminderEndTime
       //var instane = new Quantimodo.TrackingReminder();
