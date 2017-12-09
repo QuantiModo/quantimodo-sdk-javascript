@@ -214,7 +214,7 @@ Class | Method | HTTP request | Description
  - [Quantimodo.TrackingReminder](docs/TrackingReminder.md)
  - [Quantimodo.TrackingReminderDelete](docs/TrackingReminderDelete.md)
  - [Quantimodo.TrackingReminderNotification](docs/TrackingReminderNotification.md)
- - [Quantimodo.TrackingReminderNotificationActionArray](docs/TrackingReminderNotificationActionArray.md)
+ - [Quantimodo.TrackingReminderNotificationAction](docs/TrackingReminderNotificationAction.md)
  - [Quantimodo.TrackingReminderNotificationPost](docs/TrackingReminderNotificationPost.md)
  - [Quantimodo.TrackingReminderNotificationTrackAllAction](docs/TrackingReminderNotificationTrackAllAction.md)
  - [Quantimodo.Unit](docs/Unit.md)
