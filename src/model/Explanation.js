@@ -57,6 +57,7 @@
     _this['ionIcon'] = ionIcon;
     _this['startTracking'] = startTracking;
     _this['title'] = title;
+
   };
 
   /**
@@ -85,6 +86,9 @@
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
       }
+      if (data.hasOwnProperty('html')) {
+        obj['html'] = ApiClient.convertToType(data['html'], 'String');
+      }
     }
     return obj;
   }
@@ -112,6 +116,11 @@
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
+  /**
+   * Embeddable list of study summaries with explanation at the top
+   * @member {String} html
+   */
+  exports.prototype['html'] = undefined;
 
 
 

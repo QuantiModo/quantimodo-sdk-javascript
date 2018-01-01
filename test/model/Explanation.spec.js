@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property html (base name: "html")', function() {
+      // uncomment below and update the code to test the property html
+      //var instane = new Quantimodo.Explanation();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

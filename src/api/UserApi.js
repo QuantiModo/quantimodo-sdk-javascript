@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/PostUserSettingsResponse', 'model/User'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/PostUserSettingsResponse', 'model/User'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/PostUserSettingsResponse'), require('../model/User'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/PostUserSettingsResponse'), require('../model/User'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User);
+    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User);
   }
-}(this, function(ApiClient, PostUserSettingsResponse, User) {
+}(this, function(ApiClient, CommonResponse, PostUserSettingsResponse, User) {
   'use strict';
 
   /**
@@ -46,6 +46,56 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
+
+    /**
+     * Callback function to receive the result of the deleteUser operation.
+     * @callback module:api/UserApi~deleteUserCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CommonResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete user
+     * Delete user account. Only the client app that created a user can delete that user.
+     * @param {String} reason Example: I hate you!
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:api/UserApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CommonResponse}
+     */
+    this.deleteUser = function(reason, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'reason' is set
+      if (reason === undefined || reason === null) {
+        throw new Error("Missing the required parameter 'reason' when calling deleteUser");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'clientId': opts['clientId'],
+        'reason': reason
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = CommonResponse;
+
+      return this.apiClient.callApi(
+        '/v3/user/delete', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the getUser operation.

@@ -4,9 +4,71 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteUser**](UserApi.md#deleteUser) | **DELETE** /v3/user/delete | Delete user
 [**getUser**](UserApi.md#getUser) | **GET** /v3/user | Get user info
 [**postUserSettings**](UserApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
 
+
+<a name="deleteUser"></a>
+# **deleteUser**
+> CommonResponse deleteUser(reason, opts)
+
+Delete user
+
+Delete user account. Only the client app that created a user can delete that user.
+
+### Example
+```javascript
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: quantimodo_oauth2
+var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
+quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new Quantimodo.UserApi();
+
+var reason = "reason_example"; // String | Example: I hate you!
+
+var opts = { 
+  'clientId': "clientId_example", // String | Example: oauth_test_client
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.deleteUser(reason, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reason** | **String**| Example: I hate you! | 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
+
+### Return type
+
+[**CommonResponse**](CommonResponse.md)
+
+### Authorization
+
+[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="getUser"></a>
 # **getUser**

@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **ionIcon** | **String** | Example: ion-ios-person | 
 **startTracking** | [**ExplanationStartTracking**](ExplanationStartTracking.md) |  | 
 **title** | **String** | Example: Top Predictors of Overall Mood | 
+**html** | **String** | Embeddable list of study summaries with explanation at the top | [optional] 
 
 

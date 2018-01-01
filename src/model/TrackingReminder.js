@@ -269,7 +269,7 @@
         obj['reminderStartTime'] = ApiClient.convertToType(data['reminderStartTime'], 'String');
       }
       if (data.hasOwnProperty('reminderStartTimeLocal')) {
-        obj['reminderStartTimeLocal'] = ApiClient.convertToType(data['reminderStartTimeLocal'], 'Date');
+        obj['reminderStartTimeLocal'] = ApiClient.convertToType(data['reminderStartTimeLocal'], 'String');
       }
       if (data.hasOwnProperty('reminderStartTimeLocalHumanFormatted')) {
         obj['reminderStartTimeLocalHumanFormatted'] = ApiClient.convertToType(data['reminderStartTimeLocalHumanFormatted'], 'Date');
@@ -581,7 +581,7 @@
   exports.prototype['reminderStartTime'] = undefined;
   /**
    * Example: 21:45:20
-   * @member {Date} reminderStartTimeLocal
+   * @member {String} reminderStartTimeLocal
    */
   exports.prototype['reminderStartTimeLocal'] = undefined;
   /**

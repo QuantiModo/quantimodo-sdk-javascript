@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 **reminderSound** | **String** | String identifier for the sound to accompany the reminder | [optional] 
 **reminderStartEpochSeconds** | **Number** | Example: 1469760320 | [optional] 
 **reminderStartTime** | **String** | Earliest time of day at which reminders should appear in UTC HH:MM:SS format | [optional] 
-**reminderStartTimeLocal** | **Date** | Example: 21:45:20 | [optional] 
+**reminderStartTimeLocal** | **String** | Example: 21:45:20 | [optional] 
 **reminderStartTimeLocalHumanFormatted** | **Date** | Example: 09:45 PM | [optional] 
 **repeating** | **Boolean** | Example: true | [optional] 
 **secondDailyReminderTime** | **Date** | Example: 01:00:00 | [optional] 
