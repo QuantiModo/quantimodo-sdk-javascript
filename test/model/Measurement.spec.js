@@ -74,6 +74,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property displayValueAndUnitString (base name: "displayValueAndUnitString")', function() {
+      // uncomment below and update the code to test the property displayValueAndUnitString
+      //var instane = new Quantimodo.Measurement();
+      //expect(instance).to.be();
+    });
+
     it('should have the property iconIcon (base name: "iconIcon")', function() {
       // uncomment below and update the code to test the property iconIcon
       //var instane = new Quantimodo.Measurement();

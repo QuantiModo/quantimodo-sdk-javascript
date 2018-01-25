@@ -10604,6 +10604,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['sourceName'] = sourceName;
 
 
@@ -10651,6 +10652,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
+      }
+      if (data.hasOwnProperty('displayValueAndUnitString')) {
+        obj['displayValueAndUnitString'] = ApiClient.convertToType(data['displayValueAndUnitString'], 'String');
       }
       if (data.hasOwnProperty('iconIcon')) {
         obj['iconIcon'] = ApiClient.convertToType(data['iconIcon'], 'String');
@@ -10800,6 +10804,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
+  /**
+   * Examples: 3/5, $10, or 1 count
+   * @member {String} displayValueAndUnitString
+   */
+  exports.prototype['displayValueAndUnitString'] = undefined;
   /**
    * Example: ion-sad-outline
    * @member {String} iconIcon

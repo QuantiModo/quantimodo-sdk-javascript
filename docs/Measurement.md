@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **clientId** | **String** | Example: quantimodo | [optional] 
 **connectorId** | **Number** | Example: 13 | [optional] 
 **createdAt** | **String** | Example: 2017-07-30 21:08:36 | [optional] 
+**displayValueAndUnitString** | **String** | Examples: 3/5, $10, or 1 count | [optional] 
 **iconIcon** | **String** | Example: ion-sad-outline | [optional] 
 **id** | **Number** | Example: 1051466127 | [optional] 
 **inputType** | **String** | Example: value | [optional] 
