@@ -128,38 +128,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property originalunitAbbreviatedName (base name: "originalunitAbbreviatedName")', function() {
-      // uncomment below and update the code to test the property originalunitAbbreviatedName
+    it('should have the property noteObject (base name: "noteObject")', function() {
+      // uncomment below and update the code to test the property noteObject
       //var instane = new Quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
-    it('should have the property originalUnitAbbreviatedName (base name: "originalUnitAbbreviatedName")', function() {
-      // uncomment below and update the code to test the property originalUnitAbbreviatedName
-      //var instane = new Quantimodo.Measurement();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property originalUnitCategoryId (base name: "originalUnitCategoryId")', function() {
-      // uncomment below and update the code to test the property originalUnitCategoryId
-      //var instane = new Quantimodo.Measurement();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property originalUnitCategoryName (base name: "originalUnitCategoryName")', function() {
-      // uncomment below and update the code to test the property originalUnitCategoryName
+    it('should have the property noteHtml (base name: "noteHtml")', function() {
+      // uncomment below and update the code to test the property noteHtml
       //var instane = new Quantimodo.Measurement();
       //expect(instance).to.be();
     });
 
     it('should have the property originalUnitId (base name: "originalUnitId")', function() {
       // uncomment below and update the code to test the property originalUnitId
-      //var instane = new Quantimodo.Measurement();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property originalUnitName (base name: "originalUnitName")', function() {
-      // uncomment below and update the code to test the property originalUnitName
       //var instane = new Quantimodo.Measurement();
       //expect(instance).to.be();
     });
@@ -244,6 +226,12 @@
 
     it('should have the property updatedAt (base name: "updatedAt")', function() {
       // uncomment below and update the code to test the property updatedAt
+      //var instane = new Quantimodo.Measurement();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property url (base name: "url")', function() {
+      // uncomment below and update the code to test the property url
       //var instane = new Quantimodo.Measurement();
       //expect(instance).to.be();
     });

@@ -70,15 +70,13 @@
 
 
 
-
-
-
     _this['sourceName'] = sourceName;
 
 
     _this['startTimeString'] = startTimeString;
 
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
+
 
 
 
@@ -148,23 +146,14 @@
       if (data.hasOwnProperty('note')) {
         obj['note'] = ApiClient.convertToType(data['note'], 'String');
       }
-      if (data.hasOwnProperty('originalunitAbbreviatedName')) {
-        obj['originalunitAbbreviatedName'] = ApiClient.convertToType(data['originalunitAbbreviatedName'], 'String');
+      if (data.hasOwnProperty('noteObject')) {
+        obj['noteObject'] = ApiClient.convertToType(data['noteObject'], Object);
       }
-      if (data.hasOwnProperty('originalUnitAbbreviatedName')) {
-        obj['originalUnitAbbreviatedName'] = ApiClient.convertToType(data['originalUnitAbbreviatedName'], 'String');
-      }
-      if (data.hasOwnProperty('originalUnitCategoryId')) {
-        obj['originalUnitCategoryId'] = ApiClient.convertToType(data['originalUnitCategoryId'], 'Number');
-      }
-      if (data.hasOwnProperty('originalUnitCategoryName')) {
-        obj['originalUnitCategoryName'] = ApiClient.convertToType(data['originalUnitCategoryName'], 'String');
+      if (data.hasOwnProperty('noteHtml')) {
+        obj['noteHtml'] = ApiClient.convertToType(data['noteHtml'], Object);
       }
       if (data.hasOwnProperty('originalUnitId')) {
         obj['originalUnitId'] = ApiClient.convertToType(data['originalUnitId'], 'Number');
-      }
-      if (data.hasOwnProperty('originalUnitName')) {
-        obj['originalUnitName'] = ApiClient.convertToType(data['originalUnitName'], 'String');
       }
       if (data.hasOwnProperty('originalValue')) {
         obj['originalValue'] = ApiClient.convertToType(data['originalValue'], 'Number');
@@ -207,6 +196,9 @@
       }
       if (data.hasOwnProperty('updatedAt')) {
         obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
+      }
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
       if (data.hasOwnProperty('userVariableUnitAbbreviatedName')) {
         obj['userVariableUnitAbbreviatedName'] = ApiClient.convertToType(data['userVariableUnitAbbreviatedName'], 'String');
@@ -318,35 +310,20 @@
    */
   exports.prototype['note'] = undefined;
   /**
-   * Original Unit of measurement as originally submitted
-   * @member {String} originalunitAbbreviatedName
+   * Additional meta data for the measurement
+   * @member {Object} noteObject
    */
-  exports.prototype['originalunitAbbreviatedName'] = undefined;
+  exports.prototype['noteObject'] = undefined;
   /**
-   * Example: count
-   * @member {String} originalUnitAbbreviatedName
+   * Embeddable HTML with message hyperlinked with associated url
+   * @member {Object} noteHtml
    */
-  exports.prototype['originalUnitAbbreviatedName'] = undefined;
-  /**
-   * Example: 6
-   * @member {Number} originalUnitCategoryId
-   */
-  exports.prototype['originalUnitCategoryId'] = undefined;
-  /**
-   * Example: Miscellany
-   * @member {String} originalUnitCategoryName
-   */
-  exports.prototype['originalUnitCategoryName'] = undefined;
+  exports.prototype['noteHtml'] = undefined;
   /**
    * Example: 23
    * @member {Number} originalUnitId
    */
   exports.prototype['originalUnitId'] = undefined;
-  /**
-   * Example: Count
-   * @member {String} originalUnitName
-   */
-  exports.prototype['originalUnitName'] = undefined;
   /**
    * Original value as originally submitted
    * @member {Number} originalValue
@@ -417,6 +394,11 @@
    * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
+  /**
+   * Link to associated Facebook like or Github commit, for instance
+   * @member {String} url
+   */
+  exports.prototype['url'] = undefined;
   /**
    * Example: count
    * @member {String} userVariableUnitAbbreviatedName
