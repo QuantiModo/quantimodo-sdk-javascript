@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.NotificationsApi();
+    instance = new Quantimodo.DeviceToken();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,27 +49,31 @@
       object[property] = value;
   }
 
-  describe('NotificationsApi', function() {
-    describe('getNotificationPreferences', function() {
-      it('should call getNotificationPreferences successfully', function(done) {
-        //uncomment below and update the code to test getNotificationPreferences
-        //instance.getNotificationPreferences(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('DeviceToken', function() {
+    it('should create an instance of DeviceToken', function() {
+      // uncomment below and update the code to test DeviceToken
+      //var instane = new Quantimodo.DeviceToken();
+      //expect(instance).to.be.a(Quantimodo.DeviceToken);
     });
-    describe('postDeviceToken', function() {
-      it('should call postDeviceToken successfully', function(done) {
-        //uncomment below and update the code to test postDeviceToken
-        //instance.postDeviceToken(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property clientId (base name: "clientId")', function() {
+      // uncomment below and update the code to test the property clientId
+      //var instane = new Quantimodo.DeviceToken();
+      //expect(instance).to.be();
     });
+
+    it('should have the property platform (base name: "platform")', function() {
+      // uncomment below and update the code to test the property platform
+      //var instane = new Quantimodo.DeviceToken();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property deviceToken (base name: "deviceToken")', function() {
+      // uncomment below and update the code to test the property deviceToken
+      //var instane = new Quantimodo.DeviceToken();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

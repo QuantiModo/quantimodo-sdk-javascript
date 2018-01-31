@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/DeviceToken'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('../model/DeviceToken'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.NotificationsApi = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.NotificationsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.DeviceToken);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, DeviceToken) {
   'use strict';
 
   /**
@@ -86,8 +86,8 @@
     }
 
     /**
-     * Callback function to receive the result of the postDeviceTokens operation.
-     * @callback module:api/NotificationsApi~postDeviceTokensCallback
+     * Callback function to receive the result of the postDeviceToken operation.
+     * @callback module:api/NotificationsApi~postDeviceTokenCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
@@ -95,11 +95,17 @@
 
     /**
      * Post DeviceTokens
-     * Post DeviceTokens
-     * @param {module:api/NotificationsApi~postDeviceTokensCallback} callback The callback function, accepting three arguments: error, data, response
+     * Post user token for Android, iOS, or web push notifications
+     * @param {module:model/DeviceToken} body The platform and token
+     * @param {module:api/NotificationsApi~postDeviceTokenCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.postDeviceTokens = function(callback) {
-      var postBody = null;
+    this.postDeviceToken = function(body, callback) {
+      var postBody = body;
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling postDeviceToken");
+      }
 
 
       var pathParams = {

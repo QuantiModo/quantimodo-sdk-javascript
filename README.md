@@ -91,7 +91,7 @@ Class | Method | HTTP request | Description
 *Quantimodo.MeasurementsApi* | [**postMeasurements**](docs/MeasurementsApi.md#postMeasurements) | **POST** /v3/measurements/post | Post a new set or update existing measurements to the database
 *Quantimodo.MeasurementsApi* | [**updateMeasurement**](docs/MeasurementsApi.md#updateMeasurement) | **POST** /v3/measurements/update | Update a measurement
 *Quantimodo.NotificationsApi* | [**getNotificationPreferences**](docs/NotificationsApi.md#getNotificationPreferences) | **GET** /v3/notificationPreferences | Get NotificationPreferences
-*Quantimodo.NotificationsApi* | [**postDeviceTokens**](docs/NotificationsApi.md#postDeviceTokens) | **POST** /v3/deviceTokens | Post DeviceTokens
+*Quantimodo.NotificationsApi* | [**postDeviceToken**](docs/NotificationsApi.md#postDeviceToken) | **POST** /v3/deviceTokens | Post DeviceTokens
 *Quantimodo.RemindersApi* | [**deleteTrackingReminder**](docs/RemindersApi.md#deleteTrackingReminder) | **DELETE** /v3/trackingReminders/delete | Delete tracking reminder
 *Quantimodo.RemindersApi* | [**getTrackingReminderNotifications**](docs/RemindersApi.md#getTrackingReminderNotifications) | **GET** /v3/trackingReminderNotifications | Get specific tracking reminder notifications
 *Quantimodo.RemindersApi* | [**getTrackingReminders**](docs/RemindersApi.md#getTrackingReminders) | **GET** /v3/trackingReminders | Get repeating tracking reminder settings
@@ -121,6 +121,7 @@ Class | Method | HTTP request | Description
  - [Quantimodo.ConversionStep](docs/ConversionStep.md)
  - [Quantimodo.Correlation](docs/Correlation.md)
  - [Quantimodo.DataSource](docs/DataSource.md)
+ - [Quantimodo.DeviceToken](docs/DeviceToken.md)
  - [Quantimodo.Explanation](docs/Explanation.md)
  - [Quantimodo.ExplanationStartTracking](docs/ExplanationStartTracking.md)
  - [Quantimodo.GetConnectorsResponse](docs/GetConnectorsResponse.md)

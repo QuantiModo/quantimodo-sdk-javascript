@@ -5,7 +5,7 @@ All URIs are relative to *https://app.quantimo.do/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getNotificationPreferences**](NotificationsApi.md#getNotificationPreferences) | **GET** /v3/notificationPreferences | Get NotificationPreferences
-[**postDeviceTokens**](NotificationsApi.md#postDeviceTokens) | **POST** /v3/deviceTokens | Post DeviceTokens
+[**postDeviceToken**](NotificationsApi.md#postDeviceToken) | **POST** /v3/deviceTokens | Post DeviceTokens
 
 
 <a name="getNotificationPreferences"></a>
@@ -48,19 +48,22 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="postDeviceTokens"></a>
-# **postDeviceTokens**
-> postDeviceTokens()
+<a name="postDeviceToken"></a>
+# **postDeviceToken**
+> postDeviceToken(body)
 
 Post DeviceTokens
 
-Post DeviceTokens
+Post user token for Android, iOS, or web push notifications
 
 ### Example
 ```javascript
 var Quantimodo = require('quantimodo');
 
 var apiInstance = new Quantimodo.NotificationsApi();
+
+var body = new Quantimodo.DeviceToken(); // DeviceToken | The platform and token
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -69,11 +72,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.postDeviceTokens(callback);
+apiInstance.postDeviceToken(body, callback);
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DeviceToken**](DeviceToken.md)| The platform and token | 
 
 ### Return type
 
