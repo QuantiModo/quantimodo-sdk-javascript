@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Quantimodo.AppSettings](docs/AppSettings.md)
+ - [Quantimodo.AppSettingsResponse](docs/AppSettingsResponse.md)
  - [Quantimodo.Button](docs/Button.md)
  - [Quantimodo.Chart](docs/Chart.md)
  - [Quantimodo.CommonResponse](docs/CommonResponse.md)

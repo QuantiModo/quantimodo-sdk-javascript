@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getAppSettings"></a>
 # **getAppSettings**
-> AppSettings getAppSettings(opts)
+> AppSettingsResponse getAppSettings(opts)
 
 Get client app Settings
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AppSettings**](AppSettings.md)
+[**AppSettingsResponse**](AppSettingsResponse.md)
 
 ### Authorization
 
