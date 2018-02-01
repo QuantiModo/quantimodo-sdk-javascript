@@ -164,6 +164,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property productUrl (base name: "productUrl")', function() {
+      // uncomment below and update the code to test the property productUrl
+      //var instane = new Quantimodo.Measurement();
+      //expect(instance).to.be();
+    });
+
     it('should have the property sourceName (base name: "sourceName")', function() {
       // uncomment below and update the code to test the property sourceName
       //var instane = new Quantimodo.Measurement();

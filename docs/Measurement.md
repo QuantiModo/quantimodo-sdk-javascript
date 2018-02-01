@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **originalValue** | **Number** | Original value as originally submitted | [optional] 
 **pngPath** | **String** | Example: img/variable_categories/treatments.png | [optional] 
 **pngUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.png | [optional] 
+**productUrl** | **String** | Link to associated product for purchase | [optional] 
 **sourceName** | **String** | Application or device used to record the measurement values | 
 **startDate** | **String** | Example: 2014-08-27 | [optional] 
 **startTimeEpoch** | **Number** | Seconds between the start of the event measured and 1970 (Unix timestamp) | [optional] 

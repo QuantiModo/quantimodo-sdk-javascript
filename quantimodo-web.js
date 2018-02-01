@@ -11197,6 +11197,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['sourceName'] = sourceName;
 
 
@@ -11290,6 +11291,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('pngUrl')) {
         obj['pngUrl'] = ApiClient.convertToType(data['pngUrl'], 'String');
+      }
+      if (data.hasOwnProperty('productUrl')) {
+        obj['productUrl'] = ApiClient.convertToType(data['productUrl'], 'String');
       }
       if (data.hasOwnProperty('sourceName')) {
         obj['sourceName'] = ApiClient.convertToType(data['sourceName'], 'String');
@@ -11466,6 +11470,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} pngUrl
    */
   exports.prototype['pngUrl'] = undefined;
+  /**
+   * Link to associated product for purchase
+   * @member {String} productUrl
+   */
+  exports.prototype['productUrl'] = undefined;
   /**
    * Application or device used to record the measurement values
    * @member {String} sourceName
@@ -14296,6 +14305,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['reminderFrequency'] = reminderFrequency;
 
 
@@ -14452,6 +14462,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('pngUrl')) {
         obj['pngUrl'] = ApiClient.convertToType(data['pngUrl'], 'String');
+      }
+      if (data.hasOwnProperty('productUrl')) {
+        obj['productUrl'] = ApiClient.convertToType(data['productUrl'], 'String');
       }
       if (data.hasOwnProperty('popUp')) {
         obj['popUp'] = ApiClient.convertToType(data['popUp'], 'Boolean');
@@ -14750,6 +14763,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} pngUrl
    */
   exports.prototype['pngUrl'] = undefined;
+  /**
+   * Link to associated product for purchase
+   * @member {String} productUrl
+   */
+  exports.prototype['productUrl'] = undefined;
   /**
    * True if the reminders should appear as a popup notification
    * @member {Boolean} popUp
@@ -15156,6 +15174,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['trackAllActions'] = trackAllActions;
 
 
@@ -15288,6 +15307,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('popUp')) {
         obj['popUp'] = ApiClient.convertToType(data['popUp'], 'Boolean');
+      }
+      if (data.hasOwnProperty('productUrl')) {
+        obj['productUrl'] = ApiClient.convertToType(data['productUrl'], 'String');
       }
       if (data.hasOwnProperty('question')) {
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
@@ -15565,6 +15587,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Boolean} popUp
    */
   exports.prototype['popUp'] = undefined;
+  /**
+   * Link to associated product for purchase
+   * @member {String} productUrl
+   */
+  exports.prototype['productUrl'] = undefined;
   /**
    * Example: How is your overall mood?
    * @member {String} question
@@ -18350,7 +18377,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['price'] = undefined;
   /**
-   * Example: 
+   * Link to associated product for purchase
    * @member {String} productUrl
    */
   exports.prototype['productUrl'] = undefined;

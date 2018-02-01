@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **pngPath** | **String** | Example: img/variable_categories/emotions.png | [optional] 
 **pngUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.png | [optional] 
 **popUp** | **Boolean** | True if the reminders should appear as a popup notification | [optional] 
+**productUrl** | **String** | Link to associated product for purchase | [optional] 
 **question** | **String** | Example: How is your overall mood? | [optional] 
 **reminderEndTime** | **Date** | Example:  | [optional] 
 **reminderFrequency** | **Number** | How often user should be reminded in seconds. Example: 86400 | [optional] 

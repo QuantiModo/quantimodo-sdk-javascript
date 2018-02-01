@@ -272,6 +272,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property productUrl (base name: "productUrl")', function() {
+      // uncomment below and update the code to test the property productUrl
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
     it('should have the property popUp (base name: "popUp")', function() {
       // uncomment below and update the code to test the property popUp
       //var instane = new Quantimodo.TrackingReminder();

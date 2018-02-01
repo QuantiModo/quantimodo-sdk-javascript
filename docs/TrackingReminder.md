@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **outcome** | **Boolean** | Indicates whether or not the variable is usually an outcome of interest such as a symptom or emotion | [optional] 
 **pngPath** | **String** | Example: img/variable_categories/symptoms.png | [optional] 
 **pngUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/symptoms.png | [optional] 
+**productUrl** | **String** | Link to associated product for purchase | [optional] 
 **popUp** | **Boolean** | True if the reminders should appear as a popup notification | [optional] 
 **question** | **String** | Example: How is your overall mood? | [optional] 
 **reminderEndTime** | **String** | Latest time of day at which reminders should appear in UTC HH:MM:SS format | [optional] 

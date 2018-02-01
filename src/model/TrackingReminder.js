@@ -90,6 +90,7 @@
 
 
 
+
     _this['reminderFrequency'] = reminderFrequency;
 
 
@@ -246,6 +247,9 @@
       }
       if (data.hasOwnProperty('pngUrl')) {
         obj['pngUrl'] = ApiClient.convertToType(data['pngUrl'], 'String');
+      }
+      if (data.hasOwnProperty('productUrl')) {
+        obj['productUrl'] = ApiClient.convertToType(data['productUrl'], 'String');
       }
       if (data.hasOwnProperty('popUp')) {
         obj['popUp'] = ApiClient.convertToType(data['popUp'], 'Boolean');
@@ -544,6 +548,11 @@
    * @member {String} pngUrl
    */
   exports.prototype['pngUrl'] = undefined;
+  /**
+   * Link to associated product for purchase
+   * @member {String} productUrl
+   */
+  exports.prototype['productUrl'] = undefined;
   /**
    * True if the reminders should appear as a popup notification
    * @member {Boolean} popUp

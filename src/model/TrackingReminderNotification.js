@@ -98,6 +98,7 @@
 
 
 
+
     _this['trackAllActions'] = trackAllActions;
 
 
@@ -230,6 +231,9 @@
       }
       if (data.hasOwnProperty('popUp')) {
         obj['popUp'] = ApiClient.convertToType(data['popUp'], 'Boolean');
+      }
+      if (data.hasOwnProperty('productUrl')) {
+        obj['productUrl'] = ApiClient.convertToType(data['productUrl'], 'String');
       }
       if (data.hasOwnProperty('question')) {
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
@@ -507,6 +511,11 @@
    * @member {Boolean} popUp
    */
   exports.prototype['popUp'] = undefined;
+  /**
+   * Link to associated product for purchase
+   * @member {String} productUrl
+   */
+  exports.prototype['productUrl'] = undefined;
   /**
    * Example: How is your overall mood?
    * @member {String} question

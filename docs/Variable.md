@@ -104,7 +104,7 @@ Name | Type | Description | Notes
 **pngUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.png | [optional] 
 **predictorOfInterest** | **Number** | Example: 0 | [optional] 
 **price** | **Number** | Example: 95.4 | [optional] 
-**productUrl** | **String** | Example:  | [optional] 
+**productUrl** | **String** | Link to associated product for purchase | [optional] 
 **_public** | **Number** | Is variable public | [optional] 
 **rawMeasurementsAtLastAnalysis** | **Number** | Example: 131 | [optional] 
 **secondMostCommonValue** | **Number** | Example: 1 | [optional] 

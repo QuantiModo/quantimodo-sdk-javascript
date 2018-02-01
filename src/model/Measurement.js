@@ -70,6 +70,7 @@
 
 
 
+
     _this['sourceName'] = sourceName;
 
 
@@ -163,6 +164,9 @@
       }
       if (data.hasOwnProperty('pngUrl')) {
         obj['pngUrl'] = ApiClient.convertToType(data['pngUrl'], 'String');
+      }
+      if (data.hasOwnProperty('productUrl')) {
+        obj['productUrl'] = ApiClient.convertToType(data['productUrl'], 'String');
       }
       if (data.hasOwnProperty('sourceName')) {
         obj['sourceName'] = ApiClient.convertToType(data['sourceName'], 'String');
@@ -339,6 +343,11 @@
    * @member {String} pngUrl
    */
   exports.prototype['pngUrl'] = undefined;
+  /**
+   * Link to associated product for purchase
+   * @member {String} productUrl
+   */
+  exports.prototype['productUrl'] = undefined;
   /**
    * Application or device used to record the measurement values
    * @member {String} sourceName

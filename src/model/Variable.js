@@ -1165,7 +1165,7 @@
    */
   exports.prototype['price'] = undefined;
   /**
-   * Example: 
+   * Link to associated product for purchase
    * @member {String} productUrl
    */
   exports.prototype['productUrl'] = undefined;
