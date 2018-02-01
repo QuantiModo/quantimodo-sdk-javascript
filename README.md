@@ -75,6 +75,7 @@ Class | Method | HTTP request | Description
 *Quantimodo.AnalyticsApi* | [**getCorrelations**](docs/AnalyticsApi.md#getCorrelations) | **GET** /v3/correlations | Get correlations
 *Quantimodo.AnalyticsApi* | [**getStudy**](docs/AnalyticsApi.md#getStudy) | **GET** /v4/study | Get Study
 *Quantimodo.AnalyticsApi* | [**postVote**](docs/AnalyticsApi.md#postVote) | **POST** /v3/votes | Post or update vote
+*Quantimodo.AppSettingsApi* | [**getAppSettings**](docs/AppSettingsApi.md#getAppSettings) | **GET** /v3/appSettings | Get client app Settings
 *Quantimodo.AuthenticationApi* | [**getAccessToken**](docs/AuthenticationApi.md#getAccessToken) | **GET** /v3/oauth2/token | Get a user access token
 *Quantimodo.AuthenticationApi* | [**getOauthAuthorizationCode**](docs/AuthenticationApi.md#getOauthAuthorizationCode) | **GET** /v3/oauth2/authorize | Request Authorization Code
 *Quantimodo.AuthenticationApi* | [**postGoogleIdToken**](docs/AuthenticationApi.md#postGoogleIdToken) | **POST** /v3/googleIdToken | Post GoogleIdToken
@@ -114,6 +115,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [Quantimodo.AppSettings](docs/AppSettings.md)
  - [Quantimodo.Button](docs/Button.md)
  - [Quantimodo.Chart](docs/Chart.md)
  - [Quantimodo.CommonResponse](docs/CommonResponse.md)
