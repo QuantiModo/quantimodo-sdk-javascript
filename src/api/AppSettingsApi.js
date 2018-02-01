@@ -58,27 +58,22 @@
     /**
      * Get client app Settings
      * Get QuantiModo client app settings
-     * @param {String} clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientSecret Optional, but required to include any user data with response
      * @param {module:api/AppSettingsApi~getAppSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AppSettings}
      */
-    this.getAppSettings = function(clientSecret, opts, callback) {
+    this.getAppSettings = function(opts, callback) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'clientSecret' is set
-      if (clientSecret === undefined || clientSecret === null) {
-        throw new Error("Missing the required parameter 'clientSecret' when calling getAppSettings");
-      }
 
 
       var pathParams = {
       };
       var queryParams = {
         'clientId': opts['clientId'],
-        'client_secret': clientSecret
+        'client_secret': opts['clientSecret']
       };
       var headerParams = {
       };

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getAppSettings"></a>
 # **getAppSettings**
-> AppSettings getAppSettings(clientSecret, , opts)
+> AppSettings getAppSettings(opts)
 
 Get client app Settings
 
@@ -21,10 +21,9 @@ var Quantimodo = require('quantimodo');
 
 var apiInstance = new Quantimodo.AppSettingsApi();
 
-var clientSecret = "clientSecret_example"; // String | This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
-
 var opts = { 
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'clientSecret': "clientSecret_example" // String | Optional, but required to include any user data with response
 };
 
 var callback = function(error, data, response) {
@@ -34,15 +33,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getAppSettings(clientSecret, , opts, callback);
+apiInstance.getAppSettings(opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientSecret** | **String**| This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps). | 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **clientSecret** | **String**| Optional, but required to include any user data with response | [optional] 
 
 ### Return type
 
