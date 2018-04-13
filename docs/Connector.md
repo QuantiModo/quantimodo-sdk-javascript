@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **affiliate** | **Boolean** | Example: false | [optional] 
+**backgroundColor** | **String** | Background color HEX code that matches the icon | [optional] 
 **buttons** | [**[Button]**](Button.md) |  | [optional] 
 **clientId** | **String** | Example: ghostInspector | [optional] 
 **connected** | **String** | True if the authenticated user has this connector enabled | 

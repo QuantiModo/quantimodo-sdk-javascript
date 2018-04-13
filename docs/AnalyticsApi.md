@@ -39,7 +39,7 @@ var apiInstance = new Quantimodo.AnalyticsApi();
 var body = new Quantimodo.VoteDelete(); // VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
 
 var opts = { 
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
 };
 
 var callback = function(error, data, response) {
@@ -163,7 +163,7 @@ var opts = {
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
   'correlationCoefficient': "correlationCoefficient_example", // String | Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'outcomesOfInterest': true, // Boolean | Only include correlations for which the effect is an outcome of interest for the user
@@ -238,7 +238,7 @@ var apiInstance = new Quantimodo.AnalyticsApi();
 var opts = { 
   'causeVariableName': "causeVariableName_example", // String | Variable name of the hypothetical cause variable.  Example: Sleep Duration
   'effectVariableName': "effectVariableName_example", // String | Variable name of the hypothetical effect variable.  Example: Overall Mood
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'includeCharts': true // Boolean | Example: true
@@ -306,7 +306,7 @@ var apiInstance = new Quantimodo.AnalyticsApi();
 var body = new Quantimodo.Vote(); // Vote | Contains the cause variable, effect variable, and vote value.
 
 var opts = { 
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
 };
 
 var callback = function(error, data, response) {

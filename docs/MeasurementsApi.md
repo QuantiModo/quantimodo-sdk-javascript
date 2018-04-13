@@ -101,7 +101,7 @@ var opts = {
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
   'sourceName': "sourceName_example", // String | ID of the source you want measurements for (supports exact name match only)
   'connectorName': "connectorName_example", // String | Example: facebook
   'value': "value_example", // String | Value of measurement
@@ -198,7 +198,7 @@ var opts = {
   'causeVariableName': "causeVariableName_example", // String | Variable name of the hypothetical cause variable.  Example: Sleep Duration
   'effectVariableName': "effectVariableName_example", // String | Variable name of the hypothetical effect variable.  Example: Overall Mood
   'effectUnitName': "effectUnitName_example", // String | Name for the unit effect measurements to be returned in
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
   'causeUnitName': "causeUnitName_example", // String | Name for the unit cause measurements to be returned in
   'onsetDelay': "onsetDelay_example", // String | The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
   'durationOfAction': "durationOfAction_example", // String | The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
@@ -275,7 +275,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.MeasurementsApi();
 
 var opts = { 
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
 };
 
 var callback = function(error, data, response) {
@@ -335,7 +335,7 @@ var apiInstance = new Quantimodo.MeasurementsApi();
 var body = [new Quantimodo.MeasurementSet()]; // [MeasurementSet] | An array of measurement sets containing measurement items you want to insert.
 
 var opts = { 
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
 };
 
 var callback = function(error, data, response) {

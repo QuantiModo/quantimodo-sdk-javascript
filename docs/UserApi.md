@@ -96,7 +96,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.UserApi();
 
 var opts = { 
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
   'createdAt': "createdAt_example", // String | When the record was first created. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.

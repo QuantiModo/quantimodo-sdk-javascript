@@ -209,7 +209,7 @@ var apiInstance = new Quantimodo.VariablesApi();
 var opts = { 
   'includeCharts': true, // Boolean | Return Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
   'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'name': "name_example", // String | Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain `Mood`, the following query should be used: ?variableName=%Mood%
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
@@ -331,7 +331,7 @@ var apiInstance = new Quantimodo.VariablesApi();
 var body = new Quantimodo.UserTag(); // UserTag | Contains the new user tag data
 
 var opts = { 
-  'userId': 3.4, // Number | User's id
+  'userId': 8.14, // Number | User's id
 };
 
 var callback = function(error, data, response) {
