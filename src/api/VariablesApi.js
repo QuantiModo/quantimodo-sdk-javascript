@@ -58,30 +58,22 @@
     /**
      * Delete user tag or ingredient
      * Delete previously created user tags or ingredients.
-     * @param {Number} taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
-     * @param {Number} tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {Number} opts.tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {module:api/VariablesApi~deleteUserTagCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
-    this.deleteUserTag = function(taggedVariableId, tagVariableId, callback) {
+    this.deleteUserTag = function(opts, callback) {
+      opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'taggedVariableId' is set
-      if (taggedVariableId === undefined || taggedVariableId === null) {
-        throw new Error("Missing the required parameter 'taggedVariableId' when calling deleteUserTag");
-      }
-
-      // verify the required parameter 'tagVariableId' is set
-      if (tagVariableId === undefined || tagVariableId === null) {
-        throw new Error("Missing the required parameter 'tagVariableId' when calling deleteUserTag");
-      }
 
 
       var pathParams = {
       };
       var queryParams = {
-        'taggedVariableId': taggedVariableId,
-        'tagVariableId': tagVariableId,
+        'taggedVariableId': opts['taggedVariableId'],
+        'tagVariableId': opts['tagVariableId'],
       };
       var collectionQueryParams = {
       };
@@ -200,8 +192,6 @@
     /**
      * Get variables along with related user-specific analysis settings and statistics
      * Get variables. If the user has specified variable settings, these are provided instead of the common variable defaults.
-     * @param {Number} taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
-     * @param {Number} tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {String} opts.numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
@@ -229,6 +219,8 @@
      * @param {Boolean} opts.includePrivate Example: 
      * @param {String} opts.searchPhrase Example: %Body Fat%
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
+     * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {Number} opts.tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Number} opts.joinVariableId Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId
      * @param {Number} opts.parentUserTagVariableId Id of the parent variable (i.e. Fruit)  you would like to get eligible child variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
      * @param {Number} opts.childUserTagVariableId Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
@@ -237,19 +229,9 @@
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
-    this.getVariables = function(taggedVariableId, tagVariableId, opts, callback) {
+    this.getVariables = function(opts, callback) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'taggedVariableId' is set
-      if (taggedVariableId === undefined || taggedVariableId === null) {
-        throw new Error("Missing the required parameter 'taggedVariableId' when calling getVariables");
-      }
-
-      // verify the required parameter 'tagVariableId' is set
-      if (tagVariableId === undefined || tagVariableId === null) {
-        throw new Error("Missing the required parameter 'tagVariableId' when calling getVariables");
-      }
 
 
       var pathParams = {
@@ -281,8 +263,8 @@
         'includePrivate': opts['includePrivate'],
         'searchPhrase': opts['searchPhrase'],
         'synonyms': opts['synonyms'],
-        'taggedVariableId': taggedVariableId,
-        'tagVariableId': tagVariableId,
+        'taggedVariableId': opts['taggedVariableId'],
+        'tagVariableId': opts['tagVariableId'],
         'joinVariableId': opts['joinVariableId'],
         'parentUserTagVariableId': opts['parentUserTagVariableId'],
         'childUserTagVariableId': opts['childUserTagVariableId'],
