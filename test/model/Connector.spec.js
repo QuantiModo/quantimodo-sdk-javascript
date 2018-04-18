@@ -212,8 +212,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property spreadSheetUpload (base name: "spreadSheetUpload")', function() {
-      // uncomment below and update the code to test the property spreadSheetUpload
+    it('should have the property spreadsheetUpload (base name: "spreadsheetUpload")', function() {
+      // uncomment below and update the code to test the property spreadsheetUpload
       //var instane = new Quantimodo.Connector();
       //expect(instance).to.be();
     });

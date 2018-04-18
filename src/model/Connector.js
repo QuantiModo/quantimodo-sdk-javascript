@@ -179,8 +179,8 @@
       if (data.hasOwnProperty('shortDescription')) {
         obj['shortDescription'] = ApiClient.convertToType(data['shortDescription'], 'String');
       }
-      if (data.hasOwnProperty('spreadSheetUpload')) {
-        obj['spreadSheetUpload'] = ApiClient.convertToType(data['spreadSheetUpload'], 'Boolean');
+      if (data.hasOwnProperty('spreadsheetUpload')) {
+        obj['spreadsheetUpload'] = ApiClient.convertToType(data['spreadsheetUpload'], 'Boolean');
       }
       if (data.hasOwnProperty('totalMeasurementsInLastUpdate')) {
         obj['totalMeasurementsInLastUpdate'] = ApiClient.convertToType(data['totalMeasurementsInLastUpdate'], 'Number');
@@ -331,9 +331,9 @@
   exports.prototype['shortDescription'] = undefined;
   /**
    * True if the user must upload a spreadsheet.  Post the uploaded spreadsheet with your clientId and user accessToken to https://app.quantimo.do/api/v2/spreadsheetUpload
-   * @member {Boolean} spreadSheetUpload
+   * @member {Boolean} spreadsheetUpload
    */
-  exports.prototype['spreadSheetUpload'] = undefined;
+  exports.prototype['spreadsheetUpload'] = undefined;
   /**
    * Number of measurements obtained during latest update
    * @member {Number} totalMeasurementsInLastUpdate

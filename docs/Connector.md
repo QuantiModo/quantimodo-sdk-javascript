@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **name** | **String** | Connector lowercase system name | 
 **scopes** | **[String]** |  | [optional] 
 **shortDescription** | **String** | Example: Tracks social interaction. QuantiModo requires permission to access your Facebook \&quot;user likes\&quot; and \&quot;user posts\&quot;. | [optional] 
-**spreadSheetUpload** | **Boolean** | True if the user must upload a spreadsheet.  Post the uploaded spreadsheet with your clientId and user accessToken to https://app.quantimo.do/api/v2/spreadsheetUpload | [optional] 
+**spreadsheetUpload** | **Boolean** | True if the user must upload a spreadsheet.  Post the uploaded spreadsheet with your clientId and user accessToken to https://app.quantimo.do/api/v2/spreadsheetUpload | [optional] 
 **totalMeasurementsInLastUpdate** | **Number** | Number of measurements obtained during latest update | 
 **updatedAt** | **Date** | Example: 2017-07-31 10:10:34 | [optional] 
 **updateRequestedAt** | **Date** | Example: 2017-07-18 05:16:31 | [optional] 
