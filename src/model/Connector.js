@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button'], factory);
+    define(['ApiClient', 'model/Button', 'model/ConnectInstructions'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Button'));
+    module.exports = factory(require('../ApiClient'), require('./Button'), require('./ConnectInstructions'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Connector = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button);
+    root.Quantimodo.Connector = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.ConnectInstructions);
   }
-}(this, function(ApiClient, Button) {
+}(this, function(ApiClient, Button, ConnectInstructions) {
   'use strict';
 
 
@@ -43,8 +43,8 @@
    * Constructs a new <code>Connector</code>.
    * @alias module:model/Connector
    * @class
-   * @param connected {String} True if the authenticated user has this connector enabled
-   * @param connectInstructions {String} URL and parameters used when connecting to a service
+   * @param connected {Boolean} True if the authenticated user has this connector enabled
+   * @param connectInstructions {module:model/ConnectInstructions} URL and parameters used when connecting to a service
    * @param displayName {String} Connector pretty display name
    * @param getItUrl {String} URL to a site where one can get this device or application
    * @param id {Number} Connector ID number
@@ -82,7 +82,6 @@
     _this['name'] = name;
 
 
-
     _this['totalMeasurementsInLastUpdate'] = totalMeasurementsInLastUpdate;
 
 
@@ -114,13 +113,13 @@
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
       }
       if (data.hasOwnProperty('connected')) {
-        obj['connected'] = ApiClient.convertToType(data['connected'], 'String');
+        obj['connected'] = ApiClient.convertToType(data['connected'], 'Boolean');
       }
       if (data.hasOwnProperty('connectError')) {
         obj['connectError'] = ApiClient.convertToType(data['connectError'], 'String');
       }
       if (data.hasOwnProperty('connectInstructions')) {
-        obj['connectInstructions'] = ApiClient.convertToType(data['connectInstructions'], 'String');
+        obj['connectInstructions'] = ConnectInstructions.constructFromObject(data['connectInstructions']);
       }
       if (data.hasOwnProperty('connectorClientId')) {
         obj['connectorClientId'] = ApiClient.convertToType(data['connectorClientId'], 'String');
@@ -173,9 +172,6 @@
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('oauth')) {
-        obj['oauth'] = ApiClient.convertToType(data['oauth'], Object);
-      }
       if (data.hasOwnProperty('scopes')) {
         obj['scopes'] = ApiClient.convertToType(data['scopes'], ['String']);
       }
@@ -222,7 +218,7 @@
   exports.prototype['clientId'] = undefined;
   /**
    * True if the authenticated user has this connector enabled
-   * @member {String} connected
+   * @member {Boolean} connected
    */
   exports.prototype['connected'] = undefined;
   /**
@@ -232,7 +228,7 @@
   exports.prototype['connectError'] = undefined;
   /**
    * URL and parameters used when connecting to a service
-   * @member {String} connectInstructions
+   * @member {module:model/ConnectInstructions} connectInstructions
    */
   exports.prototype['connectInstructions'] = undefined;
   /**
@@ -320,11 +316,6 @@
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
-  /**
-   * Example: {}
-   * @member {Object} oauth
-   */
-  exports.prototype['oauth'] = undefined;
   /**
    * @member {Array.<String>} scopes
    */

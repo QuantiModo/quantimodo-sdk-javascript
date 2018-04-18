@@ -200,12 +200,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property oauth (base name: "oauth")', function() {
-      // uncomment below and update the code to test the property oauth
-      //var instane = new Quantimodo.Connector();
-      //expect(instance).to.be();
-    });
-
     it('should have the property scopes (base name: "scopes")', function() {
       // uncomment below and update the code to test the property scopes
       //var instane = new Quantimodo.Connector();

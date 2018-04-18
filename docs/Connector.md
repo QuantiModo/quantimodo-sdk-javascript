@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **backgroundColor** | **String** | Background color HEX code that matches the icon | [optional] 
 **buttons** | [**[Button]**](Button.md) |  | [optional] 
 **clientId** | **String** | Example: ghostInspector | [optional] 
-**connected** | **String** | True if the authenticated user has this connector enabled | 
+**connected** | **Boolean** | True if the authenticated user has this connector enabled | 
 **connectError** | **String** | Example: Your token is expired. Please re-connect | [optional] 
-**connectInstructions** | **String** | URL and parameters used when connecting to a service | 
+**connectInstructions** | [**ConnectInstructions**](ConnectInstructions.md) | URL and parameters used when connecting to a service | 
 **connectorClientId** | **String** | Example: 225078261031461 | [optional] 
 **connectorId** | **Number** | Example: 8 | [optional] 
 **connectStatus** | **String** | Example: CONNECTED | [optional] 
@@ -27,7 +27,6 @@ Name | Type | Description | Notes
 **longDescription** | **String** | Example: Facebook is a social networking website where users may create a personal profile, add other users as friends, and exchange messages. | [optional] 
 **message** | **String** | Example: Got 412 new measurements on 2017-07-31 10:10:34 | [optional] 
 **name** | **String** | Connector lowercase system name | 
-**oauth** | **Object** | Example: {} | [optional] 
 **scopes** | **[String]** |  | [optional] 
 **shortDescription** | **String** | Example: Tracks social interaction. QuantiModo requires permission to access your Facebook \&quot;user likes\&quot; and \&quot;user posts\&quot;. | [optional] 
 **totalMeasurementsInLastUpdate** | **Number** | Number of measurements obtained during latest update | 
