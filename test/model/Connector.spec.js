@@ -212,6 +212,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property spreadSheetUpload (base name: "spreadSheetUpload")', function() {
+      // uncomment below and update the code to test the property spreadSheetUpload
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
     it('should have the property totalMeasurementsInLastUpdate (base name: "totalMeasurementsInLastUpdate")', function() {
       // uncomment below and update the code to test the property totalMeasurementsInLastUpdate
       //var instane = new Quantimodo.Connector();
