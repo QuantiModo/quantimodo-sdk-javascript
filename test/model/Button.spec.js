@@ -68,6 +68,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property ionIcon (base name: "ionIcon")', function() {
+      // uncomment below and update the code to test the property ionIcon
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property color (base name: "color")', function() {
+      // uncomment below and update the code to test the property color
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property additionalInformation (base name: "additionalInformation")', function() {
+      // uncomment below and update the code to test the property additionalInformation
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

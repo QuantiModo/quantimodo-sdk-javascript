@@ -44,13 +44,16 @@
    * @alias module:model/Button
    * @class
    * @param link {String} Example: https://local.quantimo.do
-   * @param text {String} Example: Start Tracking
+   * @param text {String} Example: Connect
    */
   var exports = function(link, text) {
     var _this = this;
 
     _this['link'] = link;
     _this['text'] = text;
+
+
+
   };
 
   /**
@@ -70,6 +73,15 @@
       if (data.hasOwnProperty('text')) {
         obj['text'] = ApiClient.convertToType(data['text'], 'String');
       }
+      if (data.hasOwnProperty('ionIcon')) {
+        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
+      }
+      if (data.hasOwnProperty('color')) {
+        obj['color'] = ApiClient.convertToType(data['color'], 'String');
+      }
+      if (data.hasOwnProperty('additionalInformation')) {
+        obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], 'String');
+      }
     }
     return obj;
   }
@@ -80,10 +92,25 @@
    */
   exports.prototype['link'] = undefined;
   /**
-   * Example: Start Tracking
+   * Example: Connect
    * @member {String} text
    */
   exports.prototype['text'] = undefined;
+  /**
+   * Example: ion-refresh
+   * @member {String} ionIcon
+   */
+  exports.prototype['ionIcon'] = undefined;
+  /**
+   * Example: #f2f2f2
+   * @member {String} color
+   */
+  exports.prototype['color'] = undefined;
+  /**
+   * Example: connect
+   * @member {String} additionalInformation
+   */
+  exports.prototype['additionalInformation'] = undefined;
 
 
 
