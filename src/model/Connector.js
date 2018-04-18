@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button', 'model/Scope'], factory);
+    define(['ApiClient', 'model/Button'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Button'), require('./Scope'));
+    module.exports = factory(require('../ApiClient'), require('./Button'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Connector = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.Scope);
+    root.Quantimodo.Connector = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button);
   }
-}(this, function(ApiClient, Button, Scope) {
+}(this, function(ApiClient, Button) {
   'use strict';
 
 
@@ -177,7 +177,7 @@
         obj['oauth'] = ApiClient.convertToType(data['oauth'], Object);
       }
       if (data.hasOwnProperty('scopes')) {
-        obj['scopes'] = ApiClient.convertToType(data['scopes'], [Scope]);
+        obj['scopes'] = ApiClient.convertToType(data['scopes'], ['String']);
       }
       if (data.hasOwnProperty('shortDescription')) {
         obj['shortDescription'] = ApiClient.convertToType(data['shortDescription'], 'String');
@@ -326,7 +326,7 @@
    */
   exports.prototype['oauth'] = undefined;
   /**
-   * @member {Array.<module:model/Scope>} scopes
+   * @member {Array.<String>} scopes
    */
   exports.prototype['scopes'] = undefined;
   /**

@@ -241,7 +241,7 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
-  'includeCharts': true // Boolean | Example: true
+  'includeCharts': true // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
 };
 
 var callback = function(error, data, response) {
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
  **userId** | **Number**| User&#39;s id | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
- **includeCharts** | **Boolean**| Example: true | [optional] 
+ **includeCharts** | **Boolean**| Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
 
 ### Return type
 

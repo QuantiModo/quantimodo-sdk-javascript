@@ -23,7 +23,7 @@ var apiInstance = new Quantimodo.AppSettingsApi();
 
 var opts = { 
   'clientId': "clientId_example", // String | Example: oauth_test_client
-  'clientSecret': "clientSecret_example" // String | Optional, but required to include any user data with response
+  'clientSecret': "clientSecret_example", // String | This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
 };
 
 var callback = function(error, data, response) {
@@ -41,7 +41,7 @@ apiInstance.getAppSettings(opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientId** | **String**| Example: oauth_test_client | [optional] 
- **clientSecret** | **String**| Optional, but required to include any user data with response | [optional] 
+ **clientSecret** | **String**| This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps). | [optional] 
 
 ### Return type
 

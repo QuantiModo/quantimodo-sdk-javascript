@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **message** | **String** | Example: Got 412 new measurements on 2017-07-31 10:10:34 | [optional] 
 **name** | **String** | Connector lowercase system name | 
 **oauth** | **Object** | Example: {} | [optional] 
-**scopes** | [**[Scope]**](Scope.md) |  | [optional] 
+**scopes** | **[String]** |  | [optional] 
 **shortDescription** | **String** | Example: Tracks social interaction. QuantiModo requires permission to access your Facebook \&quot;user likes\&quot; and \&quot;user posts\&quot;. | [optional] 
 **totalMeasurementsInLastUpdate** | **Number** | Number of measurements obtained during latest update | 
 **updatedAt** | **Date** | Example: 2017-07-31 10:10:34 | [optional] 

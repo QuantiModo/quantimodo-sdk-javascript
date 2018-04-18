@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getAccessToken"></a>
 # **getAccessToken**
-> getAccessToken(clientSecret, grantType, code, responseType, scope, opts)
+> getAccessToken(grantType, code, responseType, scope, opts)
 
 Get a user access token
 
@@ -34,8 +34,6 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.AuthenticationApi();
 
-var clientSecret = "clientSecret_example"; // String | This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
-
 var grantType = "grantType_example"; // String | Grant Type can be 'authorization_code' or 'refresh_token'
 
 var code = "code_example"; // String | Authorization code you received with the previous request.
@@ -46,6 +44,7 @@ var scope = "scope_example"; // String | Scopes include basic, readmeasurements,
 
 var opts = { 
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'clientSecret': "clientSecret_example", // String | This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
   'redirectUri': "redirectUri_example", // String | The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
   'state': "state_example" // String | An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
 };
@@ -57,19 +56,19 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.getAccessToken(clientSecret, grantType, code, responseType, scope, opts, callback);
+apiInstance.getAccessToken(grantType, code, responseType, scope, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientSecret** | **String**| This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps). | 
  **grantType** | **String**| Grant Type can be &#39;authorization_code&#39; or &#39;refresh_token&#39; | 
  **code** | **String**| Authorization code you received with the previous request. | 
  **responseType** | **String**| If the value is code, launches a Basic flow, requiring a POST to the token endpoint to obtain the tokens. If the value is token id_token or id_token token, launches an Implicit flow, requiring the use of Javascript at the redirect URI to retrieve tokens from the URI #fragment. | 
  **scope** | **String**| Scopes include basic, readmeasurements, and writemeasurements. The &#x60;basic&#x60; scope allows you to read user info (displayName, email, etc). The &#x60;readmeasurements&#x60; scope allows one to read a user&#39;s data. The &#x60;writemeasurements&#x60; scope allows you to write user data. Separate multiple scopes by a space. | 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **clientSecret** | **String**| This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps). | [optional] 
  **redirectUri** | **String**| The redirect URI is the URL within your client application that will receive the OAuth2 credentials. | [optional] 
  **state** | **String**| An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI | [optional] 
 
@@ -88,7 +87,7 @@ null (empty response body)
 
 <a name="getOauthAuthorizationCode"></a>
 # **getOauthAuthorizationCode**
-> getOauthAuthorizationCode(clientSecret, responseType, scope, opts)
+> getOauthAuthorizationCode(responseType, scope, opts)
 
 Request Authorization Code
 
@@ -111,14 +110,13 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.AuthenticationApi();
 
-var clientSecret = "clientSecret_example"; // String | This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
-
 var responseType = "responseType_example"; // String | If the value is code, launches a Basic flow, requiring a POST to the token endpoint to obtain the tokens. If the value is token id_token or id_token token, launches an Implicit flow, requiring the use of Javascript at the redirect URI to retrieve tokens from the URI #fragment.
 
 var scope = "scope_example"; // String | Scopes include basic, readmeasurements, and writemeasurements. The `basic` scope allows you to read user info (displayName, email, etc). The `readmeasurements` scope allows one to read a user's data. The `writemeasurements` scope allows you to write user data. Separate multiple scopes by a space.
 
 var opts = { 
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'clientSecret': "clientSecret_example", // String | This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
   'redirectUri': "redirectUri_example", // String | The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
   'state': "state_example" // String | An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
 };
@@ -130,17 +128,17 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.getOauthAuthorizationCode(clientSecret, responseType, scope, opts, callback);
+apiInstance.getOauthAuthorizationCode(responseType, scope, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientSecret** | **String**| This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps). | 
  **responseType** | **String**| If the value is code, launches a Basic flow, requiring a POST to the token endpoint to obtain the tokens. If the value is token id_token or id_token token, launches an Implicit flow, requiring the use of Javascript at the redirect URI to retrieve tokens from the URI #fragment. | 
  **scope** | **String**| Scopes include basic, readmeasurements, and writemeasurements. The &#x60;basic&#x60; scope allows you to read user info (displayName, email, etc). The &#x60;readmeasurements&#x60; scope allows one to read a user&#39;s data. The &#x60;writemeasurements&#x60; scope allows you to write user data. Separate multiple scopes by a space. | 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **clientSecret** | **String**| This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps). | [optional] 
  **redirectUri** | **String**| The redirect URI is the URL within your client application that will receive the OAuth2 credentials. | [optional] 
  **state** | **String**| An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI | [optional] 
 

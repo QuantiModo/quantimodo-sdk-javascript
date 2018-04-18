@@ -2785,7 +2785,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
-     * @param {Boolean} opts.includeCharts Example: true
+     * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {module:api/AnalyticsApi~getStudyCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Study}
      */
@@ -2941,7 +2941,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Get QuantiModo client app settings
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId Example: oauth_test_client
-     * @param {String} opts.clientSecret Optional, but required to include any user data with response
+     * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {module:api/AppSettingsApi~getAppSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AppSettingsResponse}
      */
@@ -3040,25 +3040,20 @@ exports.cleanHeader = function(header, shouldStripCookie){
     /**
      * Get a user access token
      * Client provides authorization token obtained from /api/v3/oauth2/authorize to this endpoint and receives an access token. Access token can then be used to query API endpoints. ### Request Access Token After user approves your access to the given scope form the https:/app.quantimo.do/v2/oauth2/authorize endpoint, you&#39;ll receive an authorization code to request an access token. This time make a &#x60;POST&#x60; request to &#x60;/api/v2/oauth/access_token&#x60; with parameters including: * &#x60;grant_type&#x60; Can be &#x60;authorization_code&#x60; or &#x60;refresh_token&#x60; since we are getting the &#x60;access_token&#x60; for the first time we don&#39;t have a &#x60;refresh_token&#x60; so this must be &#x60;authorization_code&#x60;. * &#x60;code&#x60; Authorization code you received with the previous request. * &#x60;redirect_uri&#x60; Your application&#39;s redirect url. ### Refreshing Access Token Access tokens expire at some point, to continue using our api you need to refresh them with &#x60;refresh_token&#x60; you received along with the &#x60;access_token&#x60;. To do this make a &#x60;POST&#x60; request to &#x60;/api/v2/oauth/access_token&#x60; with correct parameters, which are: * &#x60;grant_type&#x60; This time grant type must be &#x60;refresh_token&#x60; since we have it. * &#x60;clientId&#x60; Your application&#39;s client id. * &#x60;client_secret&#x60; Your application&#39;s client secret. * &#x60;refresh_token&#x60; The refresh token you received with the &#x60;access_token&#x60;. Every request you make to this endpoint will give you a new refresh token and make the old one expired. So you can keep getting new access tokens with new refresh tokens. ### Using Access Token Currently we support 2 ways for this, you can&#39;t use both at the same time. * Adding access token to the request header as &#x60;Authorization: Bearer {access_token}&#x60; * Adding to the url as a query parameter &#x60;?access_token&#x3D;{access_token}&#x60; You can read more about OAuth2 from [here](http://oauth.net/2/)
-     * @param {String} clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} grantType Grant Type can be &#39;authorization_code&#39; or &#39;refresh_token&#39;
      * @param {String} code Authorization code you received with the previous request.
      * @param {String} responseType If the value is code, launches a Basic flow, requiring a POST to the token endpoint to obtain the tokens. If the value is token id_token or id_token token, launches an Implicit flow, requiring the use of Javascript at the redirect URI to retrieve tokens from the URI #fragment.
      * @param {String} scope Scopes include basic, readmeasurements, and writemeasurements. The &#x60;basic&#x60; scope allows you to read user info (displayName, email, etc). The &#x60;readmeasurements&#x60; scope allows one to read a user&#39;s data. The &#x60;writemeasurements&#x60; scope allows you to write user data. Separate multiple scopes by a space.
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} opts.redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param {String} opts.state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
      * @param {module:api/AuthenticationApi~getAccessTokenCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.getAccessToken = function(clientSecret, grantType, code, responseType, scope, opts, callback) {
+    this.getAccessToken = function(grantType, code, responseType, scope, opts, callback) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'clientSecret' is set
-      if (clientSecret === undefined || clientSecret === null) {
-        throw new Error("Missing the required parameter 'clientSecret' when calling getAccessToken");
-      }
 
       // verify the required parameter 'grantType' is set
       if (grantType === undefined || grantType === null) {
@@ -3085,7 +3080,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       };
       var queryParams = {
         'clientId': opts['clientId'],
-        'client_secret': clientSecret,
+        'client_secret': opts['clientSecret'],
         'grant_type': grantType,
         'code': code,
         'response_type': responseType,
@@ -3123,23 +3118,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
     /**
      * Request Authorization Code
      * You can implement OAuth2 authentication to your application using our **OAuth2** endpoints.  You need to redirect users to &#x60;/api/v3/oauth2/authorize&#x60; endpoint to get an authorization code and include the parameters below.   This page will ask the user if they want to allow a client&#39;s application to submit or obtain data from their QM account. It will redirect the user to the url provided by the client application with the code as a query parameter or error in case of an error. See the /api/v2/oauth/access_token endpoint for the next steps.
-     * @param {String} clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} responseType If the value is code, launches a Basic flow, requiring a POST to the token endpoint to obtain the tokens. If the value is token id_token or id_token token, launches an Implicit flow, requiring the use of Javascript at the redirect URI to retrieve tokens from the URI #fragment.
      * @param {String} scope Scopes include basic, readmeasurements, and writemeasurements. The &#x60;basic&#x60; scope allows you to read user info (displayName, email, etc). The &#x60;readmeasurements&#x60; scope allows one to read a user&#39;s data. The &#x60;writemeasurements&#x60; scope allows you to write user data. Separate multiple scopes by a space.
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} opts.redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param {String} opts.state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
      * @param {module:api/AuthenticationApi~getOauthAuthorizationCodeCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.getOauthAuthorizationCode = function(clientSecret, responseType, scope, opts, callback) {
+    this.getOauthAuthorizationCode = function(responseType, scope, opts, callback) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'clientSecret' is set
-      if (clientSecret === undefined || clientSecret === null) {
-        throw new Error("Missing the required parameter 'clientSecret' when calling getOauthAuthorizationCode");
-      }
 
       // verify the required parameter 'responseType' is set
       if (responseType === undefined || responseType === null) {
@@ -3156,7 +3146,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       };
       var queryParams = {
         'clientId': opts['clientId'],
-        'client_secret': clientSecret,
+        'client_secret': opts['clientSecret'],
         'response_type': responseType,
         'scope': scope,
         'redirect_uri': opts['redirectUri'],
@@ -4946,8 +4936,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     /**
      * Delete user tag or ingredient
      * Delete previously created user tags or ingredients.
-     * @param {Number} taggedVariableId This is the id of the variable being tagged with an ingredient or something.
-     * @param {Number} tagVariableId This is the id of the ingredient variable whose value is determined based on the value of the tagged variable.
+     * @param {Number} taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {Number} tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {module:api/VariablesApi~deleteUserTagCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -5088,8 +5078,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     /**
      * Get variables along with related user-specific analysis settings and statistics
      * Get variables. If the user has specified variable settings, these are provided instead of the common variable defaults.
+     * @param {Number} taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {Number} tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.includeCharts Return Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {String} opts.numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
      * @param {Number} opts.userId User&#39;s id
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
@@ -5115,8 +5107,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Boolean} opts.includePrivate Example: 
      * @param {String} opts.searchPhrase Example: %Body Fat%
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
-     * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
-     * @param {Number} opts.tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Number} opts.joinVariableId Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId
      * @param {Number} opts.parentUserTagVariableId Id of the parent variable (i.e. Fruit)  you would like to get eligible child variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
      * @param {Number} opts.childUserTagVariableId Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
@@ -5125,9 +5115,19 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
-    this.getVariables = function(opts, callback) {
+    this.getVariables = function(taggedVariableId, tagVariableId, opts, callback) {
       opts = opts || {};
       var postBody = null;
+
+      // verify the required parameter 'taggedVariableId' is set
+      if (taggedVariableId === undefined || taggedVariableId === null) {
+        throw new Error("Missing the required parameter 'taggedVariableId' when calling getVariables");
+      }
+
+      // verify the required parameter 'tagVariableId' is set
+      if (tagVariableId === undefined || tagVariableId === null) {
+        throw new Error("Missing the required parameter 'tagVariableId' when calling getVariables");
+      }
 
 
       var pathParams = {
@@ -5159,8 +5159,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'includePrivate': opts['includePrivate'],
         'searchPhrase': opts['searchPhrase'],
         'synonyms': opts['synonyms'],
-        'taggedVariableId': opts['taggedVariableId'],
-        'tagVariableId': opts['tagVariableId'],
+        'taggedVariableId': taggedVariableId,
+        'tagVariableId': tagVariableId,
         'joinVariableId': opts['joinVariableId'],
         'parentUserTagVariableId': opts['parentUserTagVariableId'],
         'childUserTagVariableId': opts['childUserTagVariableId'],
@@ -6462,18 +6462,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button', 'model/Scope'], factory);
+    define(['ApiClient', 'model/Button'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Button'), require('./Scope'));
+    module.exports = factory(require('../ApiClient'), require('./Button'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Connector = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.Scope);
+    root.Quantimodo.Connector = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button);
   }
-}(this, function(ApiClient, Button, Scope) {
+}(this, function(ApiClient, Button) {
   'use strict';
 
 
@@ -6623,7 +6623,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['oauth'] = ApiClient.convertToType(data['oauth'], Object);
       }
       if (data.hasOwnProperty('scopes')) {
-        obj['scopes'] = ApiClient.convertToType(data['scopes'], [Scope]);
+        obj['scopes'] = ApiClient.convertToType(data['scopes'], ['String']);
       }
       if (data.hasOwnProperty('shortDescription')) {
         obj['shortDescription'] = ApiClient.convertToType(data['shortDescription'], 'String');
@@ -6772,7 +6772,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['oauth'] = undefined;
   /**
-   * @member {Array.<module:model/Scope>} scopes
+   * @member {Array.<String>} scopes
    */
   exports.prototype['scopes'] = undefined;
   /**
@@ -6813,7 +6813,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Button":24,"./Scope":55}],28:[function(require,module,exports){
+},{"../ApiClient":9,"./Button":24}],28:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -17252,65 +17252,97 @@ for (var i = 0, len = code.length; i < len; ++i) {
 revLookup['-'.charCodeAt(0)] = 62
 revLookup['_'.charCodeAt(0)] = 63
 
-function placeHoldersCount (b64) {
+function getLens (b64) {
   var len = b64.length
+
   if (len % 4 > 0) {
     throw new Error('Invalid string. Length must be a multiple of 4')
   }
 
-  // the number of equal signs (place holders)
-  // if there are two placeholders, than the two characters before it
-  // represent one byte
-  // if there is only one, then the three characters before it represent 2 bytes
-  // this is just a cheap hack to not do indexOf twice
-  return b64[len - 2] === '=' ? 2 : b64[len - 1] === '=' ? 1 : 0
+  // Trim off extra bytes after placeholder bytes are found
+  // See: https://github.com/beatgammit/base64-js/issues/42
+  var validLen = b64.indexOf('=')
+  if (validLen === -1) validLen = len
+
+  var placeHoldersLen = validLen === len
+    ? 0
+    : 4 - (validLen % 4)
+
+  return [validLen, placeHoldersLen]
 }
 
+// base64 is 4/3 + up to two characters of the original data
 function byteLength (b64) {
-  // base64 is 4/3 + up to two characters of the original data
-  return (b64.length * 3 / 4) - placeHoldersCount(b64)
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
+}
+
+function _byteLength (b64, validLen, placeHoldersLen) {
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
 }
 
 function toByteArray (b64) {
-  var i, l, tmp, placeHolders, arr
-  var len = b64.length
-  placeHolders = placeHoldersCount(b64)
+  var tmp
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
 
-  arr = new Arr((len * 3 / 4) - placeHolders)
+  var arr = new Arr(_byteLength(b64, validLen, placeHoldersLen))
+
+  var curByte = 0
 
   // if there are placeholders, only get up to the last complete 4 chars
-  l = placeHolders > 0 ? len - 4 : len
+  var len = placeHoldersLen > 0
+    ? validLen - 4
+    : validLen
 
-  var L = 0
-
-  for (i = 0; i < l; i += 4) {
-    tmp = (revLookup[b64.charCodeAt(i)] << 18) | (revLookup[b64.charCodeAt(i + 1)] << 12) | (revLookup[b64.charCodeAt(i + 2)] << 6) | revLookup[b64.charCodeAt(i + 3)]
-    arr[L++] = (tmp >> 16) & 0xFF
-    arr[L++] = (tmp >> 8) & 0xFF
-    arr[L++] = tmp & 0xFF
+  for (var i = 0; i < len; i += 4) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 18) |
+      (revLookup[b64.charCodeAt(i + 1)] << 12) |
+      (revLookup[b64.charCodeAt(i + 2)] << 6) |
+      revLookup[b64.charCodeAt(i + 3)]
+    arr[curByte++] = (tmp >> 16) & 0xFF
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
   }
 
-  if (placeHolders === 2) {
-    tmp = (revLookup[b64.charCodeAt(i)] << 2) | (revLookup[b64.charCodeAt(i + 1)] >> 4)
-    arr[L++] = tmp & 0xFF
-  } else if (placeHolders === 1) {
-    tmp = (revLookup[b64.charCodeAt(i)] << 10) | (revLookup[b64.charCodeAt(i + 1)] << 4) | (revLookup[b64.charCodeAt(i + 2)] >> 2)
-    arr[L++] = (tmp >> 8) & 0xFF
-    arr[L++] = tmp & 0xFF
+  if (placeHoldersLen === 2) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 2) |
+      (revLookup[b64.charCodeAt(i + 1)] >> 4)
+    arr[curByte++] = tmp & 0xFF
+  }
+
+  if (placeHoldersLen === 1) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 10) |
+      (revLookup[b64.charCodeAt(i + 1)] << 4) |
+      (revLookup[b64.charCodeAt(i + 2)] >> 2)
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
   }
 
   return arr
 }
 
 function tripletToBase64 (num) {
-  return lookup[num >> 18 & 0x3F] + lookup[num >> 12 & 0x3F] + lookup[num >> 6 & 0x3F] + lookup[num & 0x3F]
+  return lookup[num >> 18 & 0x3F] +
+    lookup[num >> 12 & 0x3F] +
+    lookup[num >> 6 & 0x3F] +
+    lookup[num & 0x3F]
 }
 
 function encodeChunk (uint8, start, end) {
   var tmp
   var output = []
   for (var i = start; i < end; i += 3) {
-    tmp = ((uint8[i] << 16) & 0xFF0000) + ((uint8[i + 1] << 8) & 0xFF00) + (uint8[i + 2] & 0xFF)
+    tmp =
+      ((uint8[i] << 16) & 0xFF0000) +
+      ((uint8[i + 1] << 8) & 0xFF00) +
+      (uint8[i + 2] & 0xFF)
     output.push(tripletToBase64(tmp))
   }
   return output.join('')
@@ -17320,30 +17352,33 @@ function fromByteArray (uint8) {
   var tmp
   var len = uint8.length
   var extraBytes = len % 3 // if we have 1 byte left, pad 2 bytes
-  var output = ''
   var parts = []
   var maxChunkLength = 16383 // must be multiple of 3
 
   // go through the array every three bytes, we'll deal with trailing stuff later
   for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
-    parts.push(encodeChunk(uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)))
+    parts.push(encodeChunk(
+      uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)
+    ))
   }
 
   // pad the end with zeros, but make sure to not forget the extra bytes
   if (extraBytes === 1) {
     tmp = uint8[len - 1]
-    output += lookup[tmp >> 2]
-    output += lookup[(tmp << 4) & 0x3F]
-    output += '=='
+    parts.push(
+      lookup[tmp >> 2] +
+      lookup[(tmp << 4) & 0x3F] +
+      '=='
+    )
   } else if (extraBytes === 2) {
-    tmp = (uint8[len - 2] << 8) + (uint8[len - 1])
-    output += lookup[tmp >> 10]
-    output += lookup[(tmp >> 4) & 0x3F]
-    output += lookup[(tmp << 2) & 0x3F]
-    output += '='
+    tmp = (uint8[len - 2] << 8) + uint8[len - 1]
+    parts.push(
+      lookup[tmp >> 10] +
+      lookup[(tmp >> 4) & 0x3F] +
+      lookup[(tmp << 2) & 0x3F] +
+      '='
+    )
   }
-
-  parts.push(output)
 
   return parts.join('')
 }

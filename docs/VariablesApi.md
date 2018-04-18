@@ -38,9 +38,9 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.VariablesApi();
 
-var taggedVariableId = 56; // Number | This is the id of the variable being tagged with an ingredient or something.
+var taggedVariableId = 56; // Number | Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
 
-var tagVariableId = 56; // Number | This is the id of the ingredient variable whose value is determined based on the value of the tagged variable.
+var tagVariableId = 56; // Number | Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
 
 
 var callback = function(error, data, response) {
@@ -57,8 +57,8 @@ apiInstance.deleteUserTag(taggedVariableId, tagVariableId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taggedVariableId** | **Number**| This is the id of the variable being tagged with an ingredient or something. | 
- **tagVariableId** | **Number**| This is the id of the ingredient variable whose value is determined based on the value of the tagged variable. | 
+ **taggedVariableId** | **Number**| Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | 
+ **tagVariableId** | **Number**| Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | 
 
 ### Return type
 
@@ -183,7 +183,7 @@ This endpoint does not need any parameter.
 
 <a name="getVariables"></a>
 # **getVariables**
-> [Variable] getVariables(opts)
+> [Variable] getVariables(taggedVariableId, tagVariableId, opts)
 
 Get variables along with related user-specific analysis settings and statistics
 
@@ -206,8 +206,12 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.VariablesApi();
 
+var taggedVariableId = 56; // Number | Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+
+var tagVariableId = 56; // Number | Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+
 var opts = { 
-  'includeCharts': true, // Boolean | Return Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+  'includeCharts': true // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
   'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
   'userId': 8.14, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
@@ -233,8 +237,6 @@ var opts = {
   'includePrivate': true, // Boolean | Example: 
   'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
   'synonyms': "synonyms_example" // String | Example: %McDonalds hotcake%
-  'taggedVariableId': 56, // Number | Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
-  'tagVariableId': 56, // Number | Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
   'joinVariableId': 56, // Number | Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId
   'parentUserTagVariableId': 56, // Number | Id of the parent variable (i.e. Fruit)  you would like to get eligible child variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
   'childUserTagVariableId': 56, // Number | Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
@@ -249,14 +251,16 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getVariables(opts, callback);
+apiInstance.getVariables(taggedVariableId, tagVariableId, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **includeCharts** | **Boolean**| Return Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
+ **taggedVariableId** | **Number**| Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | 
+ **tagVariableId** | **Number**| Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | 
+ **includeCharts** | **Boolean**| Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
  **numberOfRawMeasurements** | **String**| Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
@@ -282,8 +286,6 @@ Name | Type | Description  | Notes
  **includePrivate** | **Boolean**| Example:  | [optional] 
  **searchPhrase** | **String**| Example: %Body Fat% | [optional] 
  **synonyms** | **String**| Example: %McDonalds hotcake% | [optional] 
- **taggedVariableId** | **Number**| Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | [optional] 
- **tagVariableId** | **Number**| Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop) .  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | [optional] 
  **joinVariableId** | **Number**| Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId | [optional] 
  **parentUserTagVariableId** | **Number**| Id of the parent variable (i.e. Fruit)  you would like to get eligible child variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple | [optional] 
  **childUserTagVariableId** | **Number**| Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple | [optional] 

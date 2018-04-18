@@ -227,7 +227,7 @@
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
-     * @param {Boolean} opts.includeCharts Example: true
+     * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {module:api/AnalyticsApi~getStudyCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Study}
      */
