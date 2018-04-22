@@ -27,7 +27,8 @@ Name | Type | Description | Notes
 **longDescription** | **String** | Example: Facebook is a social networking website where users may create a personal profile, add other users as friends, and exchange messages. | [optional] 
 **message** | **String** | Example: Got 412 new measurements on 2017-07-31 10:10:34 | [optional] 
 **name** | **String** | Connector lowercase system name | 
-**scopes** | **[String]** |  | [optional] 
+**platforms** | **[String]** | Platforms (chrome, android, ios, web) that you can connect on. | [optional] 
+**scopes** | **[String]** | Required connector scopes | [optional] 
 **shortDescription** | **String** | Example: Tracks social interaction. QuantiModo requires permission to access your Facebook \&quot;user likes\&quot; and \&quot;user posts\&quot;. | [optional] 
 **spreadsheetUpload** | **Boolean** | True if the user must upload a spreadsheet.  Post the uploaded spreadsheet with your clientId and user accessToken to https://app.quantimo.do/api/v2/spreadsheetUpload | [optional] 
 **totalMeasurementsInLastUpdate** | **Number** | Number of measurements obtained during latest update | 

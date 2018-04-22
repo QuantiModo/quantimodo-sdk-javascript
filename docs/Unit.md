@@ -45,6 +45,8 @@ Name | Type | Description | Notes
 
 * `Weight` (value: `"Weight"`)
 
+* `Count` (value: `"Count"`)
+
 
 
 

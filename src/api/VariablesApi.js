@@ -226,6 +226,7 @@
      * @param {Number} opts.childUserTagVariableId Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
      * @param {Boolean} opts.commonOnly Return only public and aggregated common variable data instead of user-specific variables
      * @param {Boolean} opts.userOnly Return only user-specific variables and data, excluding common aggregated variable data
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -270,6 +271,7 @@
         'childUserTagVariableId': opts['childUserTagVariableId'],
         'commonOnly': opts['commonOnly'],
         'userOnly': opts['userOnly'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -364,6 +366,7 @@
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
      * @param {Number} opts.variableCategoryId Example: 13
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/VariablesApi~postUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -390,6 +393,7 @@
         'variableCategoryName': opts['variableCategoryName'],
         'variableCategoryId': opts['variableCategoryId'],
         'synonyms': opts['synonyms'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };

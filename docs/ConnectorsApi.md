@@ -158,6 +158,7 @@ var apiInstance = new Quantimodo.ConnectorsApi();
 var opts = { 
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -176,6 +177,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -206,6 +208,7 @@ var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -223,6 +226,7 @@ apiInstance.getIntegrationJs(opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 

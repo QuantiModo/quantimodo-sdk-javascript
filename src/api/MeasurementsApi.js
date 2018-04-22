@@ -116,7 +116,7 @@
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
      * @param {String} opts.connectorName Example: facebook
      * @param {String} opts.value Value of measurement
-     * @param {module:model/String} opts.unitName Example: 86400
+     * @param {module:model/String} opts.unitName Example: Milligrams
      * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
@@ -128,6 +128,7 @@
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.doNotConvert Example: 1
      * @param {Boolean} opts.minMaxFilter Example: 1
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/MeasurementsApi~getMeasurementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Measurement>}
      */
@@ -161,6 +162,7 @@
         'clientId': opts['clientId'],
         'doNotConvert': opts['doNotConvert'],
         'minMaxFilter': opts['minMaxFilter'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };

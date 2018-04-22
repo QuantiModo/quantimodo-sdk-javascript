@@ -67,6 +67,7 @@
      * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} opts.redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param {String} opts.state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/AuthenticationApi~getAccessTokenCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getAccessToken = function(grantType, code, responseType, scope, opts, callback) {
@@ -105,6 +106,7 @@
         'scope': scope,
         'redirect_uri': opts['redirectUri'],
         'state': opts['state'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -143,6 +145,7 @@
      * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} opts.redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param {String} opts.state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/AuthenticationApi~getOauthAuthorizationCodeCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getOauthAuthorizationCode = function(responseType, scope, opts, callback) {
@@ -169,6 +172,7 @@
         'scope': scope,
         'redirect_uri': opts['redirectUri'],
         'state': opts['state'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };

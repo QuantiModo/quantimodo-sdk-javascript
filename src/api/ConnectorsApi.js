@@ -159,6 +159,7 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/ConnectorsApi~getConnectorsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetConnectorsResponse}
      */
@@ -172,6 +173,7 @@
       var queryParams = {
         'appName': opts['appName'],
         'clientId': opts['clientId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -205,6 +207,7 @@
      * Get embeddable connect javascript. Usage:   - Embedding in applications with popups for 3rd-party authentication windows.     Use &#x60;qmSetupInPopup&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in applications with popups for 3rd-party authentication windows.     Requires a selector to block. It will be embedded in this block.     Use &#x60;qmSetupOnPage&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in mobile applications without popups for 3rd-party authentication.     Use &#x60;qmSetupOnMobile&#x60; function after connecting &#x60;connect.js&#x60;.     If using in a Cordova application call  &#x60;qmSetupOnIonic&#x60; function after connecting &#x60;connect.js&#x60;.
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/ConnectorsApi~getIntegrationJsCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getIntegrationJs = function(opts, callback) {
@@ -216,6 +219,7 @@
       };
       var queryParams = {
         'clientId': opts['clientId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };

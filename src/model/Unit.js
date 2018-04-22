@@ -257,7 +257,12 @@
      * value: "Weight"
      * @const
      */
-    "Weight": "Weight"  };
+    "Weight": "Weight",
+    /**
+     * value: "Count"
+     * @const
+     */
+    "Count": "Count"  };
 
 
   return exports;

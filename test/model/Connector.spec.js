@@ -200,6 +200,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property platforms (base name: "platforms")', function() {
+      // uncomment below and update the code to test the property platforms
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
     it('should have the property scopes (base name: "scopes")', function() {
       // uncomment below and update the code to test the property scopes
       //var instane = new Quantimodo.Connector();

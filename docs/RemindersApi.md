@@ -109,7 +109,8 @@ var opts = {
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'onlyPast': true, // Boolean | Example: 1
-  'includeDeleted': true // Boolean | Example: 
+  'includeDeleted': true, // Boolean | Example: 
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -138,6 +139,7 @@ Name | Type | Description  | Notes
  **clientId** | **String**| Example: oauth_test_client | [optional] 
  **onlyPast** | **Boolean**| Example: 1 | [optional] 
  **includeDeleted** | **Boolean**| Example:  | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -188,6 +190,7 @@ var opts = {
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'appVersion': "appVersion_example", // String | Example: 2.1.1.0
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -214,6 +217,7 @@ Name | Type | Description  | Notes
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
  **appVersion** | **String**| Example: 2.1.1.0 | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -259,6 +263,7 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -279,6 +284,7 @@ Name | Type | Description  | Notes
  **userId** | **Number**| User&#39;s id | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 

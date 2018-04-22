@@ -38,6 +38,7 @@ var reason = "reason_example"; // String | Example: I hate you!
 
 var opts = { 
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -56,6 +57,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reason** | **String**| Example: I hate you! | 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -105,7 +107,8 @@ var opts = {
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'appName': "appName_example", // String | Example: MoodiModo
   'appVersion': "appVersion_example", // String | Example: 2.1.1.0
-  'clientUserId': 56 // Number | Example: 74802
+  'clientUserId': 56, // Number | Example: 74802
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -132,6 +135,7 @@ Name | Type | Description  | Notes
  **appName** | **String**| Example: MoodiModo | [optional] 
  **appVersion** | **String**| Example: 2.1.1.0 | [optional] 
  **clientUserId** | **Number**| Example: 74802 | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -163,6 +167,7 @@ var apiInstance = new Quantimodo.UserApi();
 var opts = { 
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -181,6 +186,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 

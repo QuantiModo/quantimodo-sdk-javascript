@@ -207,7 +207,7 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.VariablesApi();
 
 var opts = { 
-  'includeCharts': true // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+  'includeCharts': true, // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
   'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
   'userId': 8.14, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
@@ -232,14 +232,15 @@ var opts = {
   'variableCategoryId': 56, // Number | Example: 13
   'includePrivate': true, // Boolean | Example: 
   'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
-  'synonyms': "synonyms_example" // String | Example: %McDonalds hotcake%
+  'synonyms': "synonyms_example", // String | Example: %McDonalds hotcake%
   'taggedVariableId': 56, // Number | Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
   'tagVariableId': 56, // Number | Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
   'joinVariableId': 56, // Number | Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId
   'parentUserTagVariableId': 56, // Number | Id of the parent variable (i.e. Fruit)  you would like to get eligible child variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
   'childUserTagVariableId': 56, // Number | Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
   'commonOnly': true, // Boolean | Return only public and aggregated common variable data instead of user-specific variables
-  'userOnly': true // Boolean | Return only user-specific variables and data, excluding common aggregated variable data
+  'userOnly': true, // Boolean | Return only user-specific variables and data, excluding common aggregated variable data
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -289,6 +290,7 @@ Name | Type | Description  | Notes
  **childUserTagVariableId** | **Number**| Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple | [optional] 
  **commonOnly** | **Boolean**| Return only public and aggregated common variable data instead of user-specific variables | [optional] 
  **userOnly** | **Boolean**| Return only user-specific variables and data, excluding common aggregated variable data | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -401,7 +403,8 @@ var opts = {
   'manualTracking': true, // Boolean | Example: 
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'variableCategoryId': 56, // Number | Example: 13
-  'synonyms': "synonyms_example" // String | Example: %McDonalds hotcake%
+  'synonyms': "synonyms_example", // String | Example: %McDonalds hotcake%
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -429,6 +432,7 @@ Name | Type | Description  | Notes
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **variableCategoryId** | **Number**| Example: 13 | [optional] 
  **synonyms** | **String**| Example: %McDonalds hotcake% | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 

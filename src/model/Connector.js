@@ -83,6 +83,7 @@
 
 
 
+
     _this['totalMeasurementsInLastUpdate'] = totalMeasurementsInLastUpdate;
 
 
@@ -172,6 +173,9 @@
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('platforms')) {
+        obj['platforms'] = ApiClient.convertToType(data['platforms'], ['String']);
       }
       if (data.hasOwnProperty('scopes')) {
         obj['scopes'] = ApiClient.convertToType(data['scopes'], ['String']);
@@ -321,6 +325,12 @@
    */
   exports.prototype['name'] = undefined;
   /**
+   * Platforms (chrome, android, ios, web) that you can connect on.
+   * @member {Array.<String>} platforms
+   */
+  exports.prototype['platforms'] = undefined;
+  /**
+   * Required connector scopes
    * @member {Array.<String>} scopes
    */
   exports.prototype['scopes'] = undefined;

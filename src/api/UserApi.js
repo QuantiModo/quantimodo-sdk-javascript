@@ -61,6 +61,7 @@
      * @param {String} reason Example: I hate you!
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/UserApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -79,6 +80,7 @@
       var queryParams = {
         'clientId': opts['clientId'],
         'reason': reason,
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -121,6 +123,7 @@
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.appVersion Example: 2.1.1.0
      * @param {Number} opts.clientUserId Example: 74802
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -142,6 +145,7 @@
         'appName': opts['appName'],
         'appVersion': opts['appVersion'],
         'clientUserId': opts['clientUserId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -176,6 +180,7 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/UserApi~postUserSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PostUserSettingsResponse}
      */
@@ -189,6 +194,7 @@
       var queryParams = {
         'appName': opts['appName'],
         'clientId': opts['clientId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };

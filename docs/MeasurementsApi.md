@@ -105,7 +105,7 @@ var opts = {
   'sourceName': "sourceName_example", // String | ID of the source you want measurements for (supports exact name match only)
   'connectorName': "connectorName_example", // String | Example: facebook
   'value': "value_example", // String | Value of measurement
-  'unitName': "unitName_example", // String | Example: 86400
+  'unitName': "unitName_example", // String | Example: Milligrams
   'earliestMeasurementTime': "earliestMeasurementTime_example", // String | Excluded records with measurement times earlier than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
   'latestMeasurementTime': "latestMeasurementTime_example", // String | Excluded records with measurement times later than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
   'createdAt': "createdAt_example", // String | When the record was first created. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
@@ -116,7 +116,8 @@ var opts = {
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'doNotConvert': true, // Boolean | Example: 1
-  'minMaxFilter': true // Boolean | Example: 1
+  'minMaxFilter': true, // Boolean | Example: 1
+  'platform': "platform_example" // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -143,7 +144,7 @@ Name | Type | Description  | Notes
  **sourceName** | **String**| ID of the source you want measurements for (supports exact name match only) | [optional] 
  **connectorName** | **String**| Example: facebook | [optional] 
  **value** | **String**| Value of measurement | [optional] 
- **unitName** | **String**| Example: 86400 | [optional] 
+ **unitName** | **String**| Example: Milligrams | [optional] 
  **earliestMeasurementTime** | **String**| Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
  **latestMeasurementTime** | **String**| Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
  **createdAt** | **String**| When the record was first created. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local. | [optional] 
@@ -155,6 +156,7 @@ Name | Type | Description  | Notes
  **clientId** | **String**| Example: oauth_test_client | [optional] 
  **doNotConvert** | **Boolean**| Example: 1 | [optional] 
  **minMaxFilter** | **Boolean**| Example: 1 | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
 
 ### Return type
 

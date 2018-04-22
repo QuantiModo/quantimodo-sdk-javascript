@@ -2726,6 +2726,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.commonOnly Return only public, anonymized and aggregated population data instead of user-specific variables
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/AnalyticsApi~getCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetCorrelationsResponse}
      */
@@ -2748,6 +2749,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'outcomesOfInterest': opts['outcomesOfInterest'],
         'clientId': opts['clientId'],
         'commonOnly': opts['commonOnly'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -2786,6 +2788,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/AnalyticsApi~getStudyCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Study}
      */
@@ -2803,6 +2806,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'appName': opts['appName'],
         'clientId': opts['clientId'],
         'includeCharts': opts['includeCharts'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -2942,6 +2946,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/AppSettingsApi~getAppSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AppSettingsResponse}
      */
@@ -2955,6 +2960,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var queryParams = {
         'clientId': opts['clientId'],
         'client_secret': opts['clientSecret'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -3049,6 +3055,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} opts.redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param {String} opts.state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/AuthenticationApi~getAccessTokenCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getAccessToken = function(grantType, code, responseType, scope, opts, callback) {
@@ -3087,6 +3094,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'scope': scope,
         'redirect_uri': opts['redirectUri'],
         'state': opts['state'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -3125,6 +3133,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} opts.redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param {String} opts.state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/AuthenticationApi~getOauthAuthorizationCodeCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getOauthAuthorizationCode = function(responseType, scope, opts, callback) {
@@ -3151,6 +3160,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'scope': scope,
         'redirect_uri': opts['redirectUri'],
         'state': opts['state'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -3377,6 +3387,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Object} opts Optional parameters
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/ConnectorsApi~getConnectorsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetConnectorsResponse}
      */
@@ -3390,6 +3401,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var queryParams = {
         'appName': opts['appName'],
         'clientId': opts['clientId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -3423,6 +3435,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Get embeddable connect javascript. Usage:   - Embedding in applications with popups for 3rd-party authentication windows.     Use &#x60;qmSetupInPopup&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in applications with popups for 3rd-party authentication windows.     Requires a selector to block. It will be embedded in this block.     Use &#x60;qmSetupOnPage&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in mobile applications without popups for 3rd-party authentication.     Use &#x60;qmSetupOnMobile&#x60; function after connecting &#x60;connect.js&#x60;.     If using in a Cordova application call  &#x60;qmSetupOnIonic&#x60; function after connecting &#x60;connect.js&#x60;.
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/ConnectorsApi~getIntegrationJsCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getIntegrationJs = function(opts, callback) {
@@ -3434,6 +3447,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       };
       var queryParams = {
         'clientId': opts['clientId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -3672,7 +3686,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
      * @param {String} opts.connectorName Example: facebook
      * @param {String} opts.value Value of measurement
-     * @param {module:model/String} opts.unitName Example: 86400
+     * @param {module:model/String} opts.unitName Example: Milligrams
      * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
@@ -3684,6 +3698,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.doNotConvert Example: 1
      * @param {Boolean} opts.minMaxFilter Example: 1
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/MeasurementsApi~getMeasurementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Measurement>}
      */
@@ -3717,6 +3732,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'clientId': opts['clientId'],
         'doNotConvert': opts['doNotConvert'],
         'minMaxFilter': opts['minMaxFilter'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -4216,6 +4232,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.onlyPast Example: 1
      * @param {Boolean} opts.includeDeleted Example: 
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/RemindersApi~getTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetTrackingReminderNotificationsResponse}
      */
@@ -4239,6 +4256,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'clientId': opts['clientId'],
         'onlyPast': opts['onlyPast'],
         'includeDeleted': opts['includeDeleted'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -4281,6 +4299,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {String} opts.appVersion Example: 2.1.1.0
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/RemindersApi~getTrackingRemindersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TrackingReminder>}
      */
@@ -4302,6 +4321,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'appName': opts['appName'],
         'clientId': opts['clientId'],
         'appVersion': opts['appVersion'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -4338,6 +4358,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/RemindersApi~postTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -4357,6 +4378,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'userId': opts['userId'],
         'appName': opts['appName'],
         'clientId': opts['clientId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -4723,6 +4745,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} reason Example: I hate you!
      * @param {Object} opts Optional parameters
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/UserApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -4741,6 +4764,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var queryParams = {
         'clientId': opts['clientId'],
         'reason': reason,
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -4783,6 +4807,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.appVersion Example: 2.1.1.0
      * @param {Number} opts.clientUserId Example: 74802
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -4804,6 +4829,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'appName': opts['appName'],
         'appVersion': opts['appVersion'],
         'clientUserId': opts['clientUserId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -4838,6 +4864,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Object} opts Optional parameters
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/UserApi~postUserSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PostUserSettingsResponse}
      */
@@ -4851,6 +4878,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var queryParams = {
         'appName': opts['appName'],
         'clientId': opts['clientId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -5104,6 +5132,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.childUserTagVariableId Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
      * @param {Boolean} opts.commonOnly Return only public and aggregated common variable data instead of user-specific variables
      * @param {Boolean} opts.userOnly Return only user-specific variables and data, excluding common aggregated variable data
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -5148,6 +5177,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'childUserTagVariableId': opts['childUserTagVariableId'],
         'commonOnly': opts['commonOnly'],
         'userOnly': opts['userOnly'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -5242,6 +5272,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
      * @param {Number} opts.variableCategoryId Example: 13
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/VariablesApi~postUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -5268,6 +5299,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'variableCategoryName': opts['variableCategoryName'],
         'variableCategoryId': opts['variableCategoryId'],
         'synonyms': opts['synonyms'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -6646,6 +6678,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['totalMeasurementsInLastUpdate'] = totalMeasurementsInLastUpdate;
 
 
@@ -6735,6 +6768,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('platforms')) {
+        obj['platforms'] = ApiClient.convertToType(data['platforms'], ['String']);
       }
       if (data.hasOwnProperty('scopes')) {
         obj['scopes'] = ApiClient.convertToType(data['scopes'], ['String']);
@@ -6884,6 +6920,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['name'] = undefined;
   /**
+   * Platforms (chrome, android, ios, web) that you can connect on.
+   * @member {Array.<String>} platforms
+   */
+  exports.prototype['platforms'] = undefined;
+  /**
+   * Required connector scopes
    * @member {Array.<String>} scopes
    */
   exports.prototype['scopes'] = undefined;
@@ -14579,7 +14621,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * value: "Weight"
      * @const
      */
-    "Weight": "Weight"  };
+    "Weight": "Weight",
+    /**
+     * value: "Count"
+     * @const
+     */
+    "Count": "Count"  };
 
 
   return exports;

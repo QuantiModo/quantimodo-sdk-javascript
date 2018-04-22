@@ -122,6 +122,7 @@
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.onlyPast Example: 1
      * @param {Boolean} opts.includeDeleted Example: 
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/RemindersApi~getTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetTrackingReminderNotificationsResponse}
      */
@@ -145,6 +146,7 @@
         'clientId': opts['clientId'],
         'onlyPast': opts['onlyPast'],
         'includeDeleted': opts['includeDeleted'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -187,6 +189,7 @@
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {String} opts.appVersion Example: 2.1.1.0
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/RemindersApi~getTrackingRemindersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TrackingReminder>}
      */
@@ -208,6 +211,7 @@
         'appName': opts['appName'],
         'clientId': opts['clientId'],
         'appVersion': opts['appVersion'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
@@ -244,6 +248,7 @@
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/RemindersApi~postTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -263,6 +268,7 @@
         'userId': opts['userId'],
         'appName': opts['appName'],
         'clientId': opts['clientId'],
+        'platform': opts['platform'],
       };
       var collectionQueryParams = {
       };
