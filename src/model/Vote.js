@@ -80,7 +80,7 @@
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('effectVariableId')) {
         obj['effectVariableId'] = ApiClient.convertToType(data['effectVariableId'], 'Number');
@@ -89,7 +89,7 @@
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -112,8 +112,8 @@
    */
   exports.prototype['clientId'] = undefined;
   /**
-   * When the record was first created. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} createdAt
+   * When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -127,8 +127,8 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * When the record in the database was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} updatedAt
+   * When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**

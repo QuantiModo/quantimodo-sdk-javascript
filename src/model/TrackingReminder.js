@@ -153,7 +153,7 @@
         obj['combinationOperation'] = ApiClient.convertToType(data['combinationOperation'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('unitAbbreviatedName')) {
         obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
@@ -183,7 +183,7 @@
         obj['fillingValue'] = ApiClient.convertToType(data['fillingValue'], 'Number');
       }
       if (data.hasOwnProperty('firstDailyReminderTime')) {
-        obj['firstDailyReminderTime'] = ApiClient.convertToType(data['firstDailyReminderTime'], 'Date');
+        obj['firstDailyReminderTime'] = ApiClient.convertToType(data['firstDailyReminderTime'], 'String');
       }
       if (data.hasOwnProperty('frequencyTextDescription')) {
         obj['frequencyTextDescription'] = ApiClient.convertToType(data['frequencyTextDescription'], 'String');
@@ -204,13 +204,13 @@
         obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
       }
       if (data.hasOwnProperty('lastTracked')) {
-        obj['lastTracked'] = ApiClient.convertToType(data['lastTracked'], 'Date');
+        obj['lastTracked'] = ApiClient.convertToType(data['lastTracked'], 'String');
       }
       if (data.hasOwnProperty('lastValue')) {
         obj['lastValue'] = ApiClient.convertToType(data['lastValue'], 'Number');
       }
       if (data.hasOwnProperty('latestTrackingReminderNotificationReminderTime')) {
-        obj['latestTrackingReminderNotificationReminderTime'] = ApiClient.convertToType(data['latestTrackingReminderNotificationReminderTime'], 'Date');
+        obj['latestTrackingReminderNotificationReminderTime'] = ApiClient.convertToType(data['latestTrackingReminderNotificationReminderTime'], 'String');
       }
       if (data.hasOwnProperty('localDailyReminderNotificationTimes')) {
         obj['localDailyReminderNotificationTimes'] = ApiClient.convertToType(data['localDailyReminderNotificationTimes'], ['String']);
@@ -276,13 +276,13 @@
         obj['reminderStartTimeLocal'] = ApiClient.convertToType(data['reminderStartTimeLocal'], 'String');
       }
       if (data.hasOwnProperty('reminderStartTimeLocalHumanFormatted')) {
-        obj['reminderStartTimeLocalHumanFormatted'] = ApiClient.convertToType(data['reminderStartTimeLocalHumanFormatted'], 'Date');
+        obj['reminderStartTimeLocalHumanFormatted'] = ApiClient.convertToType(data['reminderStartTimeLocalHumanFormatted'], 'String');
       }
       if (data.hasOwnProperty('repeating')) {
         obj['repeating'] = ApiClient.convertToType(data['repeating'], 'Boolean');
       }
       if (data.hasOwnProperty('secondDailyReminderTime')) {
-        obj['secondDailyReminderTime'] = ApiClient.convertToType(data['secondDailyReminderTime'], 'Date');
+        obj['secondDailyReminderTime'] = ApiClient.convertToType(data['secondDailyReminderTime'], 'String');
       }
       if (data.hasOwnProperty('secondToLastValue')) {
         obj['secondToLastValue'] = ApiClient.convertToType(data['secondToLastValue'], 'Number');
@@ -300,7 +300,7 @@
         obj['svgUrl'] = ApiClient.convertToType(data['svgUrl'], 'String');
       }
       if (data.hasOwnProperty('thirdDailyReminderTime')) {
-        obj['thirdDailyReminderTime'] = ApiClient.convertToType(data['thirdDailyReminderTime'], 'Date');
+        obj['thirdDailyReminderTime'] = ApiClient.convertToType(data['thirdDailyReminderTime'], 'String');
       }
       if (data.hasOwnProperty('thirdToLastValue')) {
         obj['thirdToLastValue'] = ApiClient.convertToType(data['thirdToLastValue'], 'Number');
@@ -315,7 +315,7 @@
         obj['upc'] = ApiClient.convertToType(data['upc'], 'String');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -391,8 +391,8 @@
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
-   * Example: 2016-05-18 02:24:08
-   * @member {Date} createdAt
+   * Example: 2016-05-18 02:24:08 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -441,8 +441,8 @@
    */
   exports.prototype['fillingValue'] = undefined;
   /**
-   * Example: 02:45:20
-   * @member {Date} firstDailyReminderTime
+   * Example: 02:45:20 in UTC timezone
+   * @member {String} firstDailyReminderTime
    */
   exports.prototype['firstDailyReminderTime'] = undefined;
   /**
@@ -476,8 +476,8 @@
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  timestamp for the last time a measurement was received for this user and variable
-   * @member {Date} lastTracked
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the last time a measurement was received for this user and variable
+   * @member {String} lastTracked
    */
   exports.prototype['lastTracked'] = undefined;
   /**
@@ -486,8 +486,8 @@
    */
   exports.prototype['lastValue'] = undefined;
   /**
-   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  timestamp for the reminder time of the latest tracking reminder notification that has been pre-emptively generated in the database
-   * @member {Date} latestTrackingReminderNotificationReminderTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss  timestamp for the reminder time of the latest tracking reminder notification that has been pre-emptively generated in the database
+   * @member {String} latestTrackingReminderNotificationReminderTime
    */
   exports.prototype['latestTrackingReminderNotificationReminderTime'] = undefined;
   /**
@@ -595,7 +595,7 @@
   exports.prototype['reminderStartTimeLocal'] = undefined;
   /**
    * Example: 09:45 PM
-   * @member {Date} reminderStartTimeLocalHumanFormatted
+   * @member {String} reminderStartTimeLocalHumanFormatted
    */
   exports.prototype['reminderStartTimeLocalHumanFormatted'] = undefined;
   /**
@@ -605,7 +605,7 @@
   exports.prototype['repeating'] = undefined;
   /**
    * Example: 01:00:00
-   * @member {Date} secondDailyReminderTime
+   * @member {String} secondDailyReminderTime
    */
   exports.prototype['secondDailyReminderTime'] = undefined;
   /**
@@ -635,7 +635,7 @@
   exports.prototype['svgUrl'] = undefined;
   /**
    * Example: 20:00:00
-   * @member {Date} thirdDailyReminderTime
+   * @member {String} thirdDailyReminderTime
    */
   exports.prototype['thirdDailyReminderTime'] = undefined;
   /**
@@ -659,8 +659,8 @@
    */
   exports.prototype['upc'] = undefined;
   /**
-   * When the record in the database was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
-   * @member {Date} updatedAt
+   * When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**

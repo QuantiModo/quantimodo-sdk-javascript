@@ -49,10 +49,9 @@
    * @param effectMeasurement {Number} Example: 7.98
    * @param effectMeasurementValue {Number} Example: 7.98
    * @param effectVariableUnitAbbreviatedName {String} Example: %
-   * @param startTimeSting {Date} Example: 2016-06-03 07:00:00
    * @param timestamp {Number} Example: 1464937200
    */
-  var exports = function(causeMeasurement, causeMeasurementValue, causeVariableUnitAbbreviatedName, effectMeasurement, effectMeasurementValue, effectVariableUnitAbbreviatedName, startTimeSting, timestamp) {
+  var exports = function(causeMeasurement, causeMeasurementValue, causeVariableUnitAbbreviatedName, effectMeasurement, effectMeasurementValue, effectVariableUnitAbbreviatedName, timestamp) {
     var _this = this;
 
     _this['causeMeasurement'] = causeMeasurement;
@@ -63,7 +62,6 @@
     _this['effectVariableUnitAbbreviatedName'] = effectVariableUnitAbbreviatedName;
 
 
-    _this['startTimeSting'] = startTimeSting;
 
     _this['timestamp'] = timestamp;
   };
@@ -98,16 +96,13 @@
         obj['effectVariableUnitAbbreviatedName'] = ApiClient.convertToType(data['effectVariableUnitAbbreviatedName'], 'String');
       }
       if (data.hasOwnProperty('eventAt')) {
-        obj['eventAt'] = ApiClient.convertToType(data['eventAt'], 'Date');
+        obj['eventAt'] = ApiClient.convertToType(data['eventAt'], 'String');
       }
       if (data.hasOwnProperty('eventAtUnixTime')) {
         obj['eventAtUnixTime'] = ApiClient.convertToType(data['eventAtUnixTime'], 'Number');
       }
-      if (data.hasOwnProperty('startTimeSting')) {
-        obj['startTimeSting'] = ApiClient.convertToType(data['startTimeSting'], 'Date');
-      }
       if (data.hasOwnProperty('startTimeString')) {
-        obj['startTimeString'] = ApiClient.convertToType(data['startTimeString'], 'Date');
+        obj['startTimeString'] = ApiClient.convertToType(data['startTimeString'], 'String');
       }
       if (data.hasOwnProperty('timestamp')) {
         obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Number');
@@ -147,8 +142,8 @@
    */
   exports.prototype['effectVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 2015-08-06 15:49:02
-   * @member {Date} eventAt
+   * Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} eventAt
    */
   exports.prototype['eventAt'] = undefined;
   /**
@@ -157,13 +152,8 @@
    */
   exports.prototype['eventAtUnixTime'] = undefined;
   /**
-   * Example: 2016-06-03 07:00:00
-   * @member {Date} startTimeSting
-   */
-  exports.prototype['startTimeSting'] = undefined;
-  /**
-   * Example: 2015-08-06 15:49:02
-   * @member {Date} startTimeString
+   * Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} startTimeString
    */
   exports.prototype['startTimeString'] = undefined;
   /**

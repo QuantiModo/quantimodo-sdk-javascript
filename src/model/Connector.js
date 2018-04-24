@@ -133,7 +133,7 @@
         obj['connectStatus'] = ApiClient.convertToType(data['connectStatus'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('defaultVariableCategoryName')) {
         obj['defaultVariableCategoryName'] = ApiClient.convertToType(data['defaultVariableCategoryName'], 'String');
@@ -157,7 +157,7 @@
         obj['imageHtml'] = ApiClient.convertToType(data['imageHtml'], 'String');
       }
       if (data.hasOwnProperty('lastSuccessfulUpdatedAt')) {
-        obj['lastSuccessfulUpdatedAt'] = ApiClient.convertToType(data['lastSuccessfulUpdatedAt'], 'Date');
+        obj['lastSuccessfulUpdatedAt'] = ApiClient.convertToType(data['lastSuccessfulUpdatedAt'], 'String');
       }
       if (data.hasOwnProperty('lastUpdate')) {
         obj['lastUpdate'] = ApiClient.convertToType(data['lastUpdate'], 'Number');
@@ -190,10 +190,10 @@
         obj['totalMeasurementsInLastUpdate'] = ApiClient.convertToType(data['totalMeasurementsInLastUpdate'], 'Number');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('updateRequestedAt')) {
-        obj['updateRequestedAt'] = ApiClient.convertToType(data['updateRequestedAt'], 'Date');
+        obj['updateRequestedAt'] = ApiClient.convertToType(data['updateRequestedAt'], 'String');
       }
       if (data.hasOwnProperty('updateStatus')) {
         obj['updateStatus'] = ApiClient.convertToType(data['updateStatus'], 'String');
@@ -255,8 +255,8 @@
    */
   exports.prototype['connectStatus'] = undefined;
   /**
-   * Example: 2000-01-01 00:00:00
-   * @member {Date} createdAt
+   * Example: 2000-01-01 00:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -295,8 +295,8 @@
    */
   exports.prototype['imageHtml'] = undefined;
   /**
-   * Example: 2017-07-31 10:10:34
-   * @member {Date} lastSuccessfulUpdatedAt
+   * Example: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} lastSuccessfulUpdatedAt
    */
   exports.prototype['lastSuccessfulUpdatedAt'] = undefined;
   /**
@@ -350,13 +350,13 @@
    */
   exports.prototype['totalMeasurementsInLastUpdate'] = undefined;
   /**
-   * Example: 2017-07-31 10:10:34
-   * @member {Date} updatedAt
+   * Example: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
-   * Example: 2017-07-18 05:16:31
-   * @member {Date} updateRequestedAt
+   * Example: 2017-07-18 05:16:31 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} updateRequestedAt
    */
   exports.prototype['updateRequestedAt'] = undefined;
   /**

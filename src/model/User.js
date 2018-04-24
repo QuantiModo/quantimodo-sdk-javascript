@@ -221,7 +221,7 @@
         obj['stripeSubscription'] = ApiClient.convertToType(data['stripeSubscription'], 'String');
       }
       if (data.hasOwnProperty('subscriptionEndsAt')) {
-        obj['subscriptionEndsAt'] = ApiClient.convertToType(data['subscriptionEndsAt'], 'Date');
+        obj['subscriptionEndsAt'] = ApiClient.convertToType(data['subscriptionEndsAt'], 'String');
       }
       if (data.hasOwnProperty('subscriptionProvider')) {
         obj['subscriptionProvider'] = ApiClient.convertToType(data['subscriptionProvider'], 'String');
@@ -233,7 +233,7 @@
         obj['trackLocation'] = ApiClient.convertToType(data['trackLocation'], 'Boolean');
       }
       if (data.hasOwnProperty('userRegistered')) {
-        obj['userRegistered'] = ApiClient.convertToType(data['userRegistered'], 'Date');
+        obj['userRegistered'] = ApiClient.convertToType(data['userRegistered'], 'String');
       }
       if (data.hasOwnProperty('userUrl')) {
         obj['userUrl'] = ApiClient.convertToType(data['userUrl'], 'String');
@@ -348,7 +348,7 @@
    */
   exports.prototype['lastName'] = undefined;
   /**
-   * Example: 
+   * Example: 1
    * @member {String} lastSmsTrackingReminderNotificationId
    */
   exports.prototype['lastSmsTrackingReminderNotificationId'] = undefined;
@@ -368,12 +368,12 @@
    */
   exports.prototype['password'] = undefined;
   /**
-   * Example: 
+   * Example: 618-391-0002
    * @member {String} phoneNumber
    */
   exports.prototype['phoneNumber'] = undefined;
   /**
-   * Example: 
+   * Example: 1234
    * @member {String} phoneVerificationCode
    */
   exports.prototype['phoneVerificationCode'] = undefined;
@@ -428,8 +428,8 @@
    */
   exports.prototype['stripeSubscription'] = undefined;
   /**
-   * Example: 
-   * @member {Date} subscriptionEndsAt
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} subscriptionEndsAt
    */
   exports.prototype['subscriptionEndsAt'] = undefined;
   /**
@@ -448,8 +448,8 @@
    */
   exports.prototype['trackLocation'] = undefined;
   /**
-   * Example: 2013-12-03 15:25:13
-   * @member {Date} userRegistered
+   * Example: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} userRegistered
    */
   exports.prototype['userRegistered'] = undefined;
   /**

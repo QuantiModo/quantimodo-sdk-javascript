@@ -9,10 +9,9 @@ Name | Type | Description | Notes
 **effectMeasurement** | **Number** | Example: 7.98 | 
 **effectMeasurementValue** | **Number** | Example: 7.98 | 
 **effectVariableUnitAbbreviatedName** | **String** | Example: % | 
-**eventAt** | **Date** | Example: 2015-08-06 15:49:02 | [optional] 
+**eventAt** | **String** | Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **eventAtUnixTime** | **Number** | Example: 1438876142 | [optional] 
-**startTimeSting** | **Date** | Example: 2016-06-03 07:00:00 | 
-**startTimeString** | **Date** | Example: 2015-08-06 15:49:02 | [optional] 
+**startTimeString** | **String** | Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **timestamp** | **Number** | Example: 1464937200 | 
 
 

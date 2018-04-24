@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **appType** | **String** | Example: mood | [optional] 
 **causeOnly** | **Boolean** | Example: false | [optional] 
 **combinationOperation** | **String** | Example: MEAN | [optional] 
-**createdTime** | **Date** | Example:  | [optional] 
+**createdTime** | **String** | UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **unitAbbreviatedName** | **String** | Example: /5 | [optional] 
 **unitId** | **Number** | Example: 10 | [optional] 
 **durationOfAction** | **Number** | Example: 86400 | [optional] 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **svgPath** | **String** | Example: img/variable_categories/emotions.svg | [optional] 
 **svgUrl** | **String** | Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.svg | [optional] 
 **updated** | **Number** | Example: 1 | [optional] 
-**updatedTime** | **Date** | Example:  | [optional] 
+**updatedTime** | **String** | UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **variableCategoryName** | **String** | Example: Emotions | [optional] 
 **variableCategoryNameSingular** | **String** | Example: Emotion | [optional] 
 

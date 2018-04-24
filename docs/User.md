@@ -24,12 +24,12 @@ Name | Type | Description | Notes
 **id** | **Number** | User id | 
 **lastFour** | **String** | Example: 2009 | [optional] 
 **lastName** | **String** | Example: Sinn | [optional] 
-**lastSmsTrackingReminderNotificationId** | **String** | Example:  | [optional] 
+**lastSmsTrackingReminderNotificationId** | **String** | Example: 1 | [optional] 
 **latestReminderTime** | **String** | Latest time user should get notifications. Example: 23:00:00 | [optional] 
 **loginName** | **String** | User login name | 
 **password** | **String** | Example: PASSWORD | [optional] 
-**phoneNumber** | **String** | Example:  | [optional] 
-**phoneVerificationCode** | **String** | Example:  | [optional] 
+**phoneNumber** | **String** | Example: 618-391-0002 | [optional] 
+**phoneVerificationCode** | **String** | Example: 1234 | [optional] 
 **pushNotificationsEnabled** | **Boolean** | Example: 1 | [optional] 
 **refreshToken** | **String** | Example: 6e99b113d85586de1f92468433f2df1e666647cb | [optional] 
 **roles** | **String** | Example: [\&quot;admin\&quot;] | [optional] 
@@ -40,11 +40,11 @@ Name | Type | Description | Notes
 **stripeId** | **String** | Example: cus_A8CEmcvl8jwLhV | [optional] 
 **stripePlan** | **String** | Example: monthly7 | [optional] 
 **stripeSubscription** | **String** | Example: sub_ANTx3nOE7nzjQf | [optional] 
-**subscriptionEndsAt** | **Date** | Example:  | [optional] 
+**subscriptionEndsAt** | **String** | UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **subscriptionProvider** | **String** | Example: google | [optional] 
 **timeZoneOffset** | **Number** | Example: 300 | [optional] 
 **trackLocation** | **Boolean** | Example: 1 | [optional] 
-**userRegistered** | **Date** | Example: 2013-12-03 15:25:13 | [optional] 
+**userRegistered** | **String** | Example: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **userUrl** | **String** | Example: https://plus.google.com/+MikeSinn | [optional] 
 
 

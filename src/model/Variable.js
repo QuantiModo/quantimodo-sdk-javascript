@@ -269,10 +269,10 @@
         obj['commonVariableMostCommonConnectorId'] = ApiClient.convertToType(data['commonVariableMostCommonConnectorId'], 'Number');
       }
       if (data.hasOwnProperty('commonVariableUpdatedAt')) {
-        obj['commonVariableUpdatedAt'] = ApiClient.convertToType(data['commonVariableUpdatedAt'], 'Date');
+        obj['commonVariableUpdatedAt'] = ApiClient.convertToType(data['commonVariableUpdatedAt'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('unitAbbreviatedName')) {
         obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
@@ -311,22 +311,22 @@
         obj['errorMessage'] = ApiClient.convertToType(data['errorMessage'], 'String');
       }
       if (data.hasOwnProperty('experimentEndTime')) {
-        obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'Date');
+        obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'String');
       }
       if (data.hasOwnProperty('experimentEndTimeSeconds')) {
         obj['experimentEndTimeSeconds'] = ApiClient.convertToType(data['experimentEndTimeSeconds'], 'Number');
       }
       if (data.hasOwnProperty('experimentEndTimeString')) {
-        obj['experimentEndTimeString'] = ApiClient.convertToType(data['experimentEndTimeString'], 'Date');
+        obj['experimentEndTimeString'] = ApiClient.convertToType(data['experimentEndTimeString'], 'String');
       }
       if (data.hasOwnProperty('experimentStartTime')) {
-        obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'Date');
+        obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'String');
       }
       if (data.hasOwnProperty('experimentStartTimeSeconds')) {
         obj['experimentStartTimeSeconds'] = ApiClient.convertToType(data['experimentStartTimeSeconds'], 'Number');
       }
       if (data.hasOwnProperty('experimentStartTimeString')) {
-        obj['experimentStartTimeString'] = ApiClient.convertToType(data['experimentStartTimeString'], 'Date');
+        obj['experimentStartTimeString'] = ApiClient.convertToType(data['experimentStartTimeString'], 'String');
       }
       if (data.hasOwnProperty('fillingType')) {
         obj['fillingType'] = ApiClient.convertToType(data['fillingType'], 'String');
@@ -377,7 +377,7 @@
         obj['lastProcessedDailyValue'] = ApiClient.convertToType(data['lastProcessedDailyValue'], 'Number');
       }
       if (data.hasOwnProperty('lastSuccessfulUpdateTime')) {
-        obj['lastSuccessfulUpdateTime'] = ApiClient.convertToType(data['lastSuccessfulUpdateTime'], 'Date');
+        obj['lastSuccessfulUpdateTime'] = ApiClient.convertToType(data['lastSuccessfulUpdateTime'], 'String');
       }
       if (data.hasOwnProperty('lastUnitId')) {
         obj['lastUnitId'] = ApiClient.convertToType(data['lastUnitId'], 'Number');
@@ -569,10 +569,10 @@
         obj['updated'] = ApiClient.convertToType(data['updated'], 'Number');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('updatedTime')) {
-        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'Date');
+        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -605,7 +605,7 @@
         obj['userVariableMostCommonConnectorId'] = ApiClient.convertToType(data['userVariableMostCommonConnectorId'], 'Number');
       }
       if (data.hasOwnProperty('userVariableUpdatedAt')) {
-        obj['userVariableUpdatedAt'] = ApiClient.convertToType(data['userVariableUpdatedAt'], 'Date');
+        obj['userVariableUpdatedAt'] = ApiClient.convertToType(data['userVariableUpdatedAt'], 'String');
       }
       if (data.hasOwnProperty('userVariableValence')) {
         obj['userVariableValence'] = ApiClient.convertToType(data['userVariableValence'], 'String');
@@ -673,7 +673,7 @@
    */
   exports.prototype['actionArray'] = undefined;
   /**
-   * Example: 
+   * Alternative name
    * @member {String} alias
    */
   exports.prototype['alias'] = undefined;
@@ -754,13 +754,13 @@
    */
   exports.prototype['commonVariableMostCommonConnectorId'] = undefined;
   /**
-   * Example: 2017-02-07 23:43:39
-   * @member {Date} commonVariableUpdatedAt
+   * Example: 2017-02-07 23:43:39 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} commonVariableUpdatedAt
    */
   exports.prototype['commonVariableUpdatedAt'] = undefined;
   /**
-   * When the record was first created. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} createdAt
+   * When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -824,8 +824,8 @@
    */
   exports.prototype['errorMessage'] = undefined;
   /**
-   * Latest measurement start_time to be used in analysis. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} experimentEndTime
+   * Latest measurement start_time to be used in analysis. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * @member {String} experimentEndTime
    */
   exports.prototype['experimentEndTime'] = undefined;
   /**
@@ -834,13 +834,13 @@
    */
   exports.prototype['experimentEndTimeSeconds'] = undefined;
   /**
-   * Example: 2030-01-01 06:00:00
-   * @member {Date} experimentEndTimeString
+   * Example: 2030-01-01 06:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} experimentEndTimeString
    */
   exports.prototype['experimentEndTimeString'] = undefined;
   /**
-   * Earliest measurement start_time to be used in analysis. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} experimentStartTime
+   * Earliest measurement start_time to be used in analysis. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * @member {String} experimentStartTime
    */
   exports.prototype['experimentStartTime'] = undefined;
   /**
@@ -849,8 +849,8 @@
    */
   exports.prototype['experimentStartTimeSeconds'] = undefined;
   /**
-   * Example: 2010-03-23 01:31:42
-   * @member {Date} experimentStartTimeString
+   * Example: 2010-03-23 01:31:42 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} experimentStartTimeString
    */
   exports.prototype['experimentStartTimeString'] = undefined;
   /**
@@ -879,7 +879,7 @@
    */
   exports.prototype['imageUrl'] = undefined;
   /**
-   * Example: 
+   * Example: https://google.com
    * @member {String} informationalUrl
    */
   exports.prototype['informationalUrl'] = undefined;
@@ -931,8 +931,8 @@
    */
   exports.prototype['lastProcessedDailyValue'] = undefined;
   /**
-   * When this variable or its settings were last updated
-   * @member {Date} lastSuccessfulUpdateTime
+   * When this variable or its settings were last updated UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} lastSuccessfulUpdateTime
    */
   exports.prototype['lastSuccessfulUpdateTime'] = undefined;
   /**
@@ -1131,7 +1131,7 @@
    */
   exports.prototype['outcomeOfInterest'] = undefined;
   /**
-   * Example: 
+   * 
    * @member {String} parent
    */
   exports.prototype['parent'] = undefined;
@@ -1249,13 +1249,13 @@
    */
   exports.prototype['updated'] = undefined;
   /**
-   * When the record in the database was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} updatedAt
+   * When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
    * Example: 2017-07-30 14:58:26
-   * @member {Date} updatedTime
+   * @member {String} updatedTime
    */
   exports.prototype['updatedTime'] = undefined;
   /**
@@ -1308,11 +1308,11 @@
   exports.prototype['userVariableMostCommonConnectorId'] = undefined;
   /**
    * Example: 2017-07-30 14:58:26
-   * @member {Date} userVariableUpdatedAt
+   * @member {String} userVariableUpdatedAt
    */
   exports.prototype['userVariableUpdatedAt'] = undefined;
   /**
-   * Example: 
+   * Example: positive or negative
    * @member {String} userVariableValence
    */
   exports.prototype['userVariableValence'] = undefined;

@@ -100,7 +100,7 @@
         obj['combinationOperation'] = ApiClient.convertToType(data['combinationOperation'], 'String');
       }
       if (data.hasOwnProperty('createdTime')) {
-        obj['createdTime'] = ApiClient.convertToType(data['createdTime'], 'Date');
+        obj['createdTime'] = ApiClient.convertToType(data['createdTime'], 'String');
       }
       if (data.hasOwnProperty('unitAbbreviatedName')) {
         obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
@@ -169,7 +169,7 @@
         obj['updated'] = ApiClient.convertToType(data['updated'], 'Number');
       }
       if (data.hasOwnProperty('updatedTime')) {
-        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'Date');
+        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'String');
       }
       if (data.hasOwnProperty('variableCategoryName')) {
         obj['variableCategoryName'] = ApiClient.convertToType(data['variableCategoryName'], 'String');
@@ -197,8 +197,8 @@
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
-   * Example: 
-   * @member {Date} createdTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdTime
    */
   exports.prototype['createdTime'] = undefined;
   /**
@@ -312,8 +312,8 @@
    */
   exports.prototype['updated'] = undefined;
   /**
-   * Example: 
-   * @member {Date} updatedTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} updatedTime
    */
   exports.prototype['updatedTime'] = undefined;
   /**

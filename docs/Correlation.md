@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **confidenceLevel** | **String** | Example: high | 
 **correlationCoefficient** | **Number** | Example: 0.538 | 
 **correlationIsContradictoryToOptimalValues** | **Boolean** | Example: false | [optional] 
-**createdAt** | **Date** | Example: 2016-12-28 20:47:30 | 
+**createdAt** | **String** | Example: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | 
 **criticalTValue** | **Number** | Example: 1.646 | 
 **direction** | **String** | Example: higher | 
 **durationOfAction** | **Number** | Example: 604800 | 
@@ -48,8 +48,8 @@ Name | Type | Description | Notes
 **effectVariableId** | **Number** | Example: 1398 | [optional] 
 **effectVariableMostCommonConnectorId** | **Number** | Example: 10 | [optional] 
 **effectVariableName** | **String** | Example: Overall Mood | 
-**experimentEndTime** | **Date** | Example: 2014-07-30 12:50:00 | 
-**experimentStartTime** | **Date** | Example: 2012-05-06 21:15:00 | 
+**experimentEndTime** | **String** | Example: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | 
+**experimentStartTime** | **String** | Example: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | 
 **forwardSpearmanCorrelationCoefficient** | **Number** | Example: 0.528359 | 
 **numberOfPairs** | **Number** | Example: 298 | 
 **onsetDelay** | **Number** | Example: 0 | 
@@ -84,7 +84,7 @@ Name | Type | Description | Notes
 **studyLinks** | [**StudyLinks**](StudyLinks.md) |  | [optional] 
 **studyText** | [**StudyText**](StudyText.md) |  | [optional] 
 **tValue** | **Number** | Example: 9.6986079652717 | 
-**updatedAt** | **Date** | Example: 2017-05-06 15:40:38 | 
+**updatedAt** | **String** | Example: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | 
 **userId** | **Number** | Example: 230 | 
 **userVote** | **Number** | Example: 1 | 
 **valuePredictingHighOutcome** | **Number** | Example: 4.14 | 
@@ -97,14 +97,14 @@ Name | Type | Description | Notes
 **correlationsOverDurationsOfAction** | **String** | Example:  | [optional] 
 **correlationsOverDurationsOfActionChartConfig** | **String** | Example:  | [optional] 
 **correlationsOverOnsetDelaysChartConfig** | **String** | Example:  | [optional] 
-**numberOfUsers** | **Number** | Example:  | [optional] 
+**numberOfUsers** | **Number** | Example: 1 | [optional] 
 **rawCauseMeasurementSignificance** | **Number** | Example: 1 | [optional] 
 **rawEffectMeasurementSignificance** | **Number** | Example: 1 | [optional] 
-**reversePairsCount** | **String** | Example:  | [optional] 
+**reversePairsCount** | **String** | Example: 1 | [optional] 
 **voteStatisticalSignificance** | **Number** | Example: 1 | [optional] 
 **aggregateQMScore** | **Number** | Example: 0.011598441286655 | [optional] 
 **forwardPearsonCorrelationCoefficient** | **Number** | Example: 0.0333 | [optional] 
 **numberOfCorrelations** | **Number** | Example: 6 | [optional] 
-**vote** | **Number** | Example:  | [optional] 
+**vote** | **Number** | Example: 1 or 0 | [optional] 
 
 

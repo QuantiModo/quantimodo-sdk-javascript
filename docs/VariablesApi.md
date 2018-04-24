@@ -212,25 +212,25 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'name': "name_example", // String | Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain `Mood`, the following query should be used: ?variableName=%Mood%
-  'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` datetime format. Time zone should be UTC and not local.
+  'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
   'sourceName': "sourceName_example", // String | ID of the source you want measurements for (supports exact name match only)
-  'earliestMeasurementTime': "earliestMeasurementTime_example", // String | Excluded records with measurement times earlier than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
-  'latestMeasurementTime': "latestMeasurementTime_example", // String | Excluded records with measurement times later than this value. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
+  'earliestMeasurementTime': "earliestMeasurementTime_example", // String | Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+  'latestMeasurementTime': "latestMeasurementTime_example", // String | Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
   'id': 56, // Number | Common variable id
   'lastSourceName': "lastSourceName_example", // String | Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'includePublic': true, // Boolean | Example: true
-  'manualTracking': true, // Boolean | Example: 
+  'manualTracking': true, // Boolean | Only include variables tracked manually by the user
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'upc': "upc_example", // String | UPC or other barcode scan result
-  'effectOrCause': "effectOrCause_example", // String | Example: 
+  'effectOrCause': "effectOrCause_example", // String | Provided variable is the effect or cause
   'publicEffectOrCause': "publicEffectOrCause_example", // String | Example: 
-  'exactMatch': true, // Boolean | Example: 
+  'exactMatch': true, // Boolean | Require exact match
   'variableCategoryId': 56, // Number | Example: 13
-  'includePrivate': true, // Boolean | Example: 
+  'includePrivate': true, // Boolean | Include non-public variables in results
   'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
   'synonyms': "synonyms_example", // String | Example: %McDonalds hotcake%
   'taggedVariableId': 56, // Number | Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
@@ -262,25 +262,25 @@ Name | Type | Description  | Notes
  **userId** | **Number**| User&#39;s id | [optional] 
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **name** | **String**| Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood% | [optional] 
- **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local. | [optional] 
+ **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local. | [optional] 
  **sourceName** | **String**| ID of the source you want measurements for (supports exact name match only) | [optional] 
- **earliestMeasurementTime** | **String**| Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
- **latestMeasurementTime** | **String**| Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local. | [optional] 
+ **earliestMeasurementTime** | **String**| Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local. | [optional] 
+ **latestMeasurementTime** | **String**| Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local. | [optional] 
  **id** | **Number**| Common variable id | [optional] 
  **lastSourceName** | **String**| Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here | [optional] 
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
  **includePublic** | **Boolean**| Example: true | [optional] 
- **manualTracking** | **Boolean**| Example:  | [optional] 
+ **manualTracking** | **Boolean**| Only include variables tracked manually by the user | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
  **upc** | **String**| UPC or other barcode scan result | [optional] 
- **effectOrCause** | **String**| Example:  | [optional] 
+ **effectOrCause** | **String**| Provided variable is the effect or cause | [optional] 
  **publicEffectOrCause** | **String**| Example:  | [optional] 
- **exactMatch** | **Boolean**| Example:  | [optional] 
+ **exactMatch** | **Boolean**| Require exact match | [optional] 
  **variableCategoryId** | **Number**| Example: 13 | [optional] 
- **includePrivate** | **Boolean**| Example:  | [optional] 
+ **includePrivate** | **Boolean**| Include non-public variables in results | [optional] 
  **searchPhrase** | **String**| Example: %Body Fat% | [optional] 
  **synonyms** | **String**| Example: %McDonalds hotcake% | [optional] 
  **taggedVariableId** | **Number**| Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | [optional] 
@@ -394,13 +394,13 @@ var apiInstance = new Quantimodo.VariablesApi();
 var userVariables = [new Quantimodo.Variable()]; // [Variable] | Variable user settings data
 
 var opts = { 
-  'includePrivate': true, // Boolean | Example: 
+  'includePrivate': true, // Boolean | Include non-public variables in results
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'includePublic': true, // Boolean | Example: true
   'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
   'appName': "appName_example", // String | Example: MoodiModo
-  'exactMatch': true, // Boolean | Example: 
-  'manualTracking': true, // Boolean | Example: 
+  'exactMatch': true, // Boolean | Require exact match
+  'manualTracking': true, // Boolean | Only include variables tracked manually by the user
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'variableCategoryId': 56, // Number | Example: 13
   'synonyms': "synonyms_example", // String | Example: %McDonalds hotcake%
@@ -422,13 +422,13 @@ apiInstance.postUserVariables(userVariables, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userVariables** | [**[Variable]**](Variable.md)| Variable user settings data | 
- **includePrivate** | **Boolean**| Example:  | [optional] 
+ **includePrivate** | **Boolean**| Include non-public variables in results | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
  **includePublic** | **Boolean**| Example: true | [optional] 
  **searchPhrase** | **String**| Example: %Body Fat% | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
- **exactMatch** | **Boolean**| Example:  | [optional] 
- **manualTracking** | **Boolean**| Example:  | [optional] 
+ **exactMatch** | **Boolean**| Require exact match | [optional] 
+ **manualTracking** | **Boolean**| Only include variables tracked manually by the user | [optional] 
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **variableCategoryId** | **Number**| Example: 13 | [optional] 
  **synonyms** | **String**| Example: %McDonalds hotcake% | [optional] 

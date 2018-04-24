@@ -149,7 +149,7 @@
         obj['combinationOperation'] = ApiClient.convertToType(data['combinationOperation'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('modifiedValue')) {
         obj['modifiedValue'] = ApiClient.convertToType(data['modifiedValue'], 'Number');
@@ -215,7 +215,7 @@
         obj['notificationBar'] = ApiClient.convertToType(data['notificationBar'], 'Boolean');
       }
       if (data.hasOwnProperty('notifiedAt')) {
-        obj['notifiedAt'] = ApiClient.convertToType(data['notifiedAt'], 'Date');
+        obj['notifiedAt'] = ApiClient.convertToType(data['notifiedAt'], 'String');
       }
       if (data.hasOwnProperty('numberOfUniqueValues')) {
         obj['numberOfUniqueValues'] = ApiClient.convertToType(data['numberOfUniqueValues'], 'Number');
@@ -239,7 +239,7 @@
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
-        obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'Date');
+        obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'String');
       }
       if (data.hasOwnProperty('reminderFrequency')) {
         obj['reminderFrequency'] = ApiClient.convertToType(data['reminderFrequency'], 'Number');
@@ -251,7 +251,7 @@
         obj['reminderStartTime'] = ApiClient.convertToType(data['reminderStartTime'], 'String');
       }
       if (data.hasOwnProperty('reminderTime')) {
-        obj['reminderTime'] = ApiClient.convertToType(data['reminderTime'], 'Date');
+        obj['reminderTime'] = ApiClient.convertToType(data['reminderTime'], 'String');
       }
       if (data.hasOwnProperty('secondMostCommonValue')) {
         obj['secondMostCommonValue'] = ApiClient.convertToType(data['secondMostCommonValue'], 'Number');
@@ -290,7 +290,7 @@
         obj['trackingReminderNotificationId'] = ApiClient.convertToType(data['trackingReminderNotificationId'], 'Number');
       }
       if (data.hasOwnProperty('trackingReminderNotificationTime')) {
-        obj['trackingReminderNotificationTime'] = ApiClient.convertToType(data['trackingReminderNotificationTime'], 'Date');
+        obj['trackingReminderNotificationTime'] = ApiClient.convertToType(data['trackingReminderNotificationTime'], 'String');
       }
       if (data.hasOwnProperty('trackingReminderNotificationTimeEpoch')) {
         obj['trackingReminderNotificationTimeEpoch'] = ApiClient.convertToType(data['trackingReminderNotificationTimeEpoch'], 'Number');
@@ -302,7 +302,7 @@
         obj['trackingReminderNotificationTimeLocalHumanString'] = ApiClient.convertToType(data['trackingReminderNotificationTimeLocalHumanString'], 'String');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -372,8 +372,8 @@
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
-   * Example: 2017-07-29 20:49:54
-   * @member {Date} createdAt
+   * Example: 2017-07-29 20:49:54 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -482,8 +482,8 @@
    */
   exports.prototype['notificationBar'] = undefined;
   /**
-   * Example: 
-   * @member {Date} notifiedAt
+   * Example: UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} notifiedAt
    */
   exports.prototype['notifiedAt'] = undefined;
   /**
@@ -522,8 +522,8 @@
    */
   exports.prototype['question'] = undefined;
   /**
-   * Example: 
-   * @member {Date} reminderEndTime
+   * Example: 01-01-2018
+   * @member {String} reminderEndTime
    */
   exports.prototype['reminderEndTime'] = undefined;
   /**
@@ -542,8 +542,8 @@
    */
   exports.prototype['reminderStartTime'] = undefined;
   /**
-   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
-   * @member {Date} reminderTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
+   * @member {String} reminderTime
    */
   exports.prototype['reminderTime'] = undefined;
   /**
@@ -606,8 +606,8 @@
    */
   exports.prototype['trackingReminderNotificationId'] = undefined;
   /**
-   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
-   * @member {Date} trackingReminderNotificationTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
+   * @member {String} trackingReminderNotificationTime
    */
   exports.prototype['trackingReminderNotificationTime'] = undefined;
   /**
@@ -626,8 +626,8 @@
    */
   exports.prototype['trackingReminderNotificationTimeLocalHumanString'] = undefined;
   /**
-   * When the record in the database was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
-   * @member {Date} updatedAt
+   * When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
@@ -696,7 +696,7 @@
    */
   exports.prototype['variableId'] = undefined;
   /**
-   * Example: 
+   * Example: https://image.png
    * @member {String} variableImageUrl
    */
   exports.prototype['variableImageUrl'] = undefined;

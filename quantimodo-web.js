@@ -2722,7 +2722,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.correlationCoefficient Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.commonOnly Return only public, anonymized and aggregated population data instead of user-specific variables
@@ -3681,15 +3681,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
      * @param {String} opts.connectorName Example: facebook
      * @param {String} opts.value Value of measurement
      * @param {module:model/String} opts.unitName Example: Milligrams
-     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.id Measurement id
      * @param {Number} opts.groupingWidth The time (in seconds) over which measurements are grouped together
      * @param {String} opts.groupingTimezone The time (in seconds) over which measurements are grouped together
@@ -3772,8 +3772,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.causeUnitName Name for the unit cause measurements to be returned in
      * @param {String} opts.onsetDelay The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
      * @param {String} opts.durationOfAction The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
-     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
@@ -4222,8 +4222,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Object} opts Optional parameters
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Number} opts.userId User&#39;s id
-     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
@@ -4231,7 +4231,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.onlyPast Example: 1
-     * @param {Boolean} opts.includeDeleted Example: 
+     * @param {Boolean} opts.includeDeleted Include deleted variables
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {module:api/RemindersApi~getTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetTrackingReminderNotificationsResponse}
@@ -4291,8 +4291,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
-     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
@@ -4798,8 +4798,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Returns user info.  If no userId is specified, returns info for currently authenticated user
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
-     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
@@ -5108,25 +5108,25 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.userId User&#39;s id
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
      * @param {String} opts.name Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
-     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.id Common variable id
      * @param {String} opts.lastSourceName Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Boolean} opts.includePublic Example: true
-     * @param {Boolean} opts.manualTracking Example: 
+     * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {String} opts.upc UPC or other barcode scan result
-     * @param {String} opts.effectOrCause Example: 
+     * @param {String} opts.effectOrCause Provided variable is the effect or cause
      * @param {String} opts.publicEffectOrCause Example: 
-     * @param {Boolean} opts.exactMatch Example: 
+     * @param {Boolean} opts.exactMatch Require exact match
      * @param {Number} opts.variableCategoryId Example: 13
-     * @param {Boolean} opts.includePrivate Example: 
+     * @param {Boolean} opts.includePrivate Include non-public variables in results
      * @param {String} opts.searchPhrase Example: %Body Fat%
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
      * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
@@ -5266,13 +5266,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Users can change the parameters used in analysis of that variable such as the expected duration of action for a variable to have an effect, the estimated delay before the onset of action. In order to filter out erroneous data, they are able to set the maximum and minimum reasonable daily values for a variable.
      * @param {Array.<module:model/Variable>} userVariables Variable user settings data
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.includePrivate Example: 
+     * @param {Boolean} opts.includePrivate Include non-public variables in results
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.includePublic Example: true
      * @param {String} opts.searchPhrase Example: %Body Fat%
      * @param {String} opts.appName Example: MoodiModo
-     * @param {Boolean} opts.exactMatch Example: 
-     * @param {Boolean} opts.manualTracking Example: 
+     * @param {Boolean} opts.exactMatch Require exact match
+     * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
      * @param {Number} opts.variableCategoryId Example: 13
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
@@ -6732,7 +6732,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['connectStatus'] = ApiClient.convertToType(data['connectStatus'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('defaultVariableCategoryName')) {
         obj['defaultVariableCategoryName'] = ApiClient.convertToType(data['defaultVariableCategoryName'], 'String');
@@ -6756,7 +6756,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['imageHtml'] = ApiClient.convertToType(data['imageHtml'], 'String');
       }
       if (data.hasOwnProperty('lastSuccessfulUpdatedAt')) {
-        obj['lastSuccessfulUpdatedAt'] = ApiClient.convertToType(data['lastSuccessfulUpdatedAt'], 'Date');
+        obj['lastSuccessfulUpdatedAt'] = ApiClient.convertToType(data['lastSuccessfulUpdatedAt'], 'String');
       }
       if (data.hasOwnProperty('lastUpdate')) {
         obj['lastUpdate'] = ApiClient.convertToType(data['lastUpdate'], 'Number');
@@ -6789,10 +6789,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['totalMeasurementsInLastUpdate'] = ApiClient.convertToType(data['totalMeasurementsInLastUpdate'], 'Number');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('updateRequestedAt')) {
-        obj['updateRequestedAt'] = ApiClient.convertToType(data['updateRequestedAt'], 'Date');
+        obj['updateRequestedAt'] = ApiClient.convertToType(data['updateRequestedAt'], 'String');
       }
       if (data.hasOwnProperty('updateStatus')) {
         obj['updateStatus'] = ApiClient.convertToType(data['updateStatus'], 'String');
@@ -6854,8 +6854,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['connectStatus'] = undefined;
   /**
-   * Example: 2000-01-01 00:00:00
-   * @member {Date} createdAt
+   * Example: 2000-01-01 00:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -6894,8 +6894,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['imageHtml'] = undefined;
   /**
-   * Example: 2017-07-31 10:10:34
-   * @member {Date} lastSuccessfulUpdatedAt
+   * Example: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} lastSuccessfulUpdatedAt
    */
   exports.prototype['lastSuccessfulUpdatedAt'] = undefined;
   /**
@@ -6949,13 +6949,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['totalMeasurementsInLastUpdate'] = undefined;
   /**
-   * Example: 2017-07-31 10:10:34
-   * @member {Date} updatedAt
+   * Example: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
-   * Example: 2017-07-18 05:16:31
-   * @member {Date} updateRequestedAt
+   * Example: 2017-07-18 05:16:31 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} updateRequestedAt
    */
   exports.prototype['updateRequestedAt'] = undefined;
   /**
@@ -7148,7 +7148,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @param confidenceInterval {Number} Example: 0.14344467795996
    * @param confidenceLevel {String} Example: high
    * @param correlationCoefficient {Number} Example: 0.538
-   * @param createdAt {Date} Example: 2016-12-28 20:47:30
+   * @param createdAt {String} Example: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @param criticalTValue {Number} Example: 1.646
    * @param direction {String} Example: higher
    * @param durationOfAction {Number} Example: 604800
@@ -7157,8 +7157,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @param effectSize {String} Example: moderately positive
    * @param effectUnit {String} Example: /5
    * @param effectVariableName {String} Example: Overall Mood
-   * @param experimentEndTime {Date} Example: 2014-07-30 12:50:00
-   * @param experimentStartTime {Date} Example: 2012-05-06 21:15:00
+   * @param experimentEndTime {String} Example: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param experimentStartTime {String} Example: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @param forwardSpearmanCorrelationCoefficient {Number} Example: 0.528359
    * @param numberOfPairs {Number} Example: 298
    * @param onsetDelay {Number} Example: 0
@@ -7184,7 +7184,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @param strengthLevel {String} Example: moderate
    * @param strongestPearsonCorrelationCoefficient {Number} Example: 0.613
    * @param tValue {Number} Example: 9.6986079652717
-   * @param updatedAt {Date} Example: 2017-05-06 15:40:38
+   * @param updatedAt {String} Example: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @param userId {Number} Example: 230
    * @param userVote {Number} Example: 1
    * @param valuePredictingHighOutcome {Number} Example: 4.14
@@ -7376,7 +7376,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['correlationIsContradictoryToOptimalValues'] = ApiClient.convertToType(data['correlationIsContradictoryToOptimalValues'], 'Boolean');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('criticalTValue')) {
         obj['criticalTValue'] = ApiClient.convertToType(data['criticalTValue'], 'Number');
@@ -7445,10 +7445,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['effectVariableName'] = ApiClient.convertToType(data['effectVariableName'], 'String');
       }
       if (data.hasOwnProperty('experimentEndTime')) {
-        obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'Date');
+        obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'String');
       }
       if (data.hasOwnProperty('experimentStartTime')) {
-        obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'Date');
+        obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'String');
       }
       if (data.hasOwnProperty('forwardSpearmanCorrelationCoefficient')) {
         obj['forwardSpearmanCorrelationCoefficient'] = ApiClient.convertToType(data['forwardSpearmanCorrelationCoefficient'], 'Number');
@@ -7553,7 +7553,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['tValue'] = ApiClient.convertToType(data['tValue'], 'Number');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -7732,8 +7732,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['correlationIsContradictoryToOptimalValues'] = undefined;
   /**
-   * Example: 2016-12-28 20:47:30
-   * @member {Date} createdAt
+   * Example: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -7846,13 +7846,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['effectVariableName'] = undefined;
   /**
-   * Example: 2014-07-30 12:50:00
-   * @member {Date} experimentEndTime
+   * Example: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} experimentEndTime
    */
   exports.prototype['experimentEndTime'] = undefined;
   /**
-   * Example: 2012-05-06 21:15:00
-   * @member {Date} experimentStartTime
+   * Example: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} experimentStartTime
    */
   exports.prototype['experimentStartTime'] = undefined;
   /**
@@ -8022,8 +8022,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['tValue'] = undefined;
   /**
-   * Example: 2017-05-06 15:40:38
-   * @member {Date} updatedAt
+   * Example: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
@@ -8087,7 +8087,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['correlationsOverOnsetDelaysChartConfig'] = undefined;
   /**
-   * Example: 
+   * Example: 1
    * @member {Number} numberOfUsers
    */
   exports.prototype['numberOfUsers'] = undefined;
@@ -8102,7 +8102,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['rawEffectMeasurementSignificance'] = undefined;
   /**
-   * Example: 
+   * Example: 1
    * @member {String} reversePairsCount
    */
   exports.prototype['reversePairsCount'] = undefined;
@@ -8127,7 +8127,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['numberOfCorrelations'] = undefined;
   /**
-   * Example: 
+   * Example: 1 or 0
    * @member {Number} vote
    */
   exports.prototype['vote'] = undefined;
@@ -9356,7 +9356,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @alias module:model/Measurement
    * @class
    * @param sourceName {String} Application or device used to record the measurement values
-   * @param startTimeString {String} Start Time for the measurement event in UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`
+   * @param startTimeString {String} Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @param unitAbbreviatedName {String} Abbreviated name for the unit of measurement
    * @param value {Number} Converted measurement value in requested unit
    * @param variableName {String} Name of the variable for which we are creating the measurement records
@@ -9676,7 +9676,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['startTimeEpoch'] = undefined;
   /**
-   * Start Time for the measurement event in UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`
+   * Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} startTimeString
    */
   exports.prototype['startTimeString'] = undefined;
@@ -10342,10 +10342,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @param effectMeasurement {Number} Example: 7.98
    * @param effectMeasurementValue {Number} Example: 7.98
    * @param effectVariableUnitAbbreviatedName {String} Example: %
-   * @param startTimeSting {Date} Example: 2016-06-03 07:00:00
    * @param timestamp {Number} Example: 1464937200
    */
-  var exports = function(causeMeasurement, causeMeasurementValue, causeVariableUnitAbbreviatedName, effectMeasurement, effectMeasurementValue, effectVariableUnitAbbreviatedName, startTimeSting, timestamp) {
+  var exports = function(causeMeasurement, causeMeasurementValue, causeVariableUnitAbbreviatedName, effectMeasurement, effectMeasurementValue, effectVariableUnitAbbreviatedName, timestamp) {
     var _this = this;
 
     _this['causeMeasurement'] = causeMeasurement;
@@ -10356,7 +10355,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
     _this['effectVariableUnitAbbreviatedName'] = effectVariableUnitAbbreviatedName;
 
 
-    _this['startTimeSting'] = startTimeSting;
 
     _this['timestamp'] = timestamp;
   };
@@ -10391,16 +10389,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['effectVariableUnitAbbreviatedName'] = ApiClient.convertToType(data['effectVariableUnitAbbreviatedName'], 'String');
       }
       if (data.hasOwnProperty('eventAt')) {
-        obj['eventAt'] = ApiClient.convertToType(data['eventAt'], 'Date');
+        obj['eventAt'] = ApiClient.convertToType(data['eventAt'], 'String');
       }
       if (data.hasOwnProperty('eventAtUnixTime')) {
         obj['eventAtUnixTime'] = ApiClient.convertToType(data['eventAtUnixTime'], 'Number');
       }
-      if (data.hasOwnProperty('startTimeSting')) {
-        obj['startTimeSting'] = ApiClient.convertToType(data['startTimeSting'], 'Date');
-      }
       if (data.hasOwnProperty('startTimeString')) {
-        obj['startTimeString'] = ApiClient.convertToType(data['startTimeString'], 'Date');
+        obj['startTimeString'] = ApiClient.convertToType(data['startTimeString'], 'String');
       }
       if (data.hasOwnProperty('timestamp')) {
         obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Number');
@@ -10440,8 +10435,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['effectVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 2015-08-06 15:49:02
-   * @member {Date} eventAt
+   * Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} eventAt
    */
   exports.prototype['eventAt'] = undefined;
   /**
@@ -10450,13 +10445,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['eventAtUnixTime'] = undefined;
   /**
-   * Example: 2016-06-03 07:00:00
-   * @member {Date} startTimeSting
-   */
-  exports.prototype['startTimeSting'] = undefined;
-  /**
-   * Example: 2015-08-06 15:49:02
-   * @member {Date} startTimeString
+   * Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} startTimeString
    */
   exports.prototype['startTimeString'] = undefined;
   /**
@@ -12553,7 +12543,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['combinationOperation'] = ApiClient.convertToType(data['combinationOperation'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('unitAbbreviatedName')) {
         obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
@@ -12583,7 +12573,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['fillingValue'] = ApiClient.convertToType(data['fillingValue'], 'Number');
       }
       if (data.hasOwnProperty('firstDailyReminderTime')) {
-        obj['firstDailyReminderTime'] = ApiClient.convertToType(data['firstDailyReminderTime'], 'Date');
+        obj['firstDailyReminderTime'] = ApiClient.convertToType(data['firstDailyReminderTime'], 'String');
       }
       if (data.hasOwnProperty('frequencyTextDescription')) {
         obj['frequencyTextDescription'] = ApiClient.convertToType(data['frequencyTextDescription'], 'String');
@@ -12604,13 +12594,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
       }
       if (data.hasOwnProperty('lastTracked')) {
-        obj['lastTracked'] = ApiClient.convertToType(data['lastTracked'], 'Date');
+        obj['lastTracked'] = ApiClient.convertToType(data['lastTracked'], 'String');
       }
       if (data.hasOwnProperty('lastValue')) {
         obj['lastValue'] = ApiClient.convertToType(data['lastValue'], 'Number');
       }
       if (data.hasOwnProperty('latestTrackingReminderNotificationReminderTime')) {
-        obj['latestTrackingReminderNotificationReminderTime'] = ApiClient.convertToType(data['latestTrackingReminderNotificationReminderTime'], 'Date');
+        obj['latestTrackingReminderNotificationReminderTime'] = ApiClient.convertToType(data['latestTrackingReminderNotificationReminderTime'], 'String');
       }
       if (data.hasOwnProperty('localDailyReminderNotificationTimes')) {
         obj['localDailyReminderNotificationTimes'] = ApiClient.convertToType(data['localDailyReminderNotificationTimes'], ['String']);
@@ -12676,13 +12666,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['reminderStartTimeLocal'] = ApiClient.convertToType(data['reminderStartTimeLocal'], 'String');
       }
       if (data.hasOwnProperty('reminderStartTimeLocalHumanFormatted')) {
-        obj['reminderStartTimeLocalHumanFormatted'] = ApiClient.convertToType(data['reminderStartTimeLocalHumanFormatted'], 'Date');
+        obj['reminderStartTimeLocalHumanFormatted'] = ApiClient.convertToType(data['reminderStartTimeLocalHumanFormatted'], 'String');
       }
       if (data.hasOwnProperty('repeating')) {
         obj['repeating'] = ApiClient.convertToType(data['repeating'], 'Boolean');
       }
       if (data.hasOwnProperty('secondDailyReminderTime')) {
-        obj['secondDailyReminderTime'] = ApiClient.convertToType(data['secondDailyReminderTime'], 'Date');
+        obj['secondDailyReminderTime'] = ApiClient.convertToType(data['secondDailyReminderTime'], 'String');
       }
       if (data.hasOwnProperty('secondToLastValue')) {
         obj['secondToLastValue'] = ApiClient.convertToType(data['secondToLastValue'], 'Number');
@@ -12700,7 +12690,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['svgUrl'] = ApiClient.convertToType(data['svgUrl'], 'String');
       }
       if (data.hasOwnProperty('thirdDailyReminderTime')) {
-        obj['thirdDailyReminderTime'] = ApiClient.convertToType(data['thirdDailyReminderTime'], 'Date');
+        obj['thirdDailyReminderTime'] = ApiClient.convertToType(data['thirdDailyReminderTime'], 'String');
       }
       if (data.hasOwnProperty('thirdToLastValue')) {
         obj['thirdToLastValue'] = ApiClient.convertToType(data['thirdToLastValue'], 'Number');
@@ -12715,7 +12705,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['upc'] = ApiClient.convertToType(data['upc'], 'String');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -12791,8 +12781,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
-   * Example: 2016-05-18 02:24:08
-   * @member {Date} createdAt
+   * Example: 2016-05-18 02:24:08 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -12841,8 +12831,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['fillingValue'] = undefined;
   /**
-   * Example: 02:45:20
-   * @member {Date} firstDailyReminderTime
+   * Example: 02:45:20 in UTC timezone
+   * @member {String} firstDailyReminderTime
    */
   exports.prototype['firstDailyReminderTime'] = undefined;
   /**
@@ -12876,8 +12866,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  timestamp for the last time a measurement was received for this user and variable
-   * @member {Date} lastTracked
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the last time a measurement was received for this user and variable
+   * @member {String} lastTracked
    */
   exports.prototype['lastTracked'] = undefined;
   /**
@@ -12886,8 +12876,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['lastValue'] = undefined;
   /**
-   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  timestamp for the reminder time of the latest tracking reminder notification that has been pre-emptively generated in the database
-   * @member {Date} latestTrackingReminderNotificationReminderTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss  timestamp for the reminder time of the latest tracking reminder notification that has been pre-emptively generated in the database
+   * @member {String} latestTrackingReminderNotificationReminderTime
    */
   exports.prototype['latestTrackingReminderNotificationReminderTime'] = undefined;
   /**
@@ -12995,7 +12985,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   exports.prototype['reminderStartTimeLocal'] = undefined;
   /**
    * Example: 09:45 PM
-   * @member {Date} reminderStartTimeLocalHumanFormatted
+   * @member {String} reminderStartTimeLocalHumanFormatted
    */
   exports.prototype['reminderStartTimeLocalHumanFormatted'] = undefined;
   /**
@@ -13005,7 +12995,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   exports.prototype['repeating'] = undefined;
   /**
    * Example: 01:00:00
-   * @member {Date} secondDailyReminderTime
+   * @member {String} secondDailyReminderTime
    */
   exports.prototype['secondDailyReminderTime'] = undefined;
   /**
@@ -13035,7 +13025,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   exports.prototype['svgUrl'] = undefined;
   /**
    * Example: 20:00:00
-   * @member {Date} thirdDailyReminderTime
+   * @member {String} thirdDailyReminderTime
    */
   exports.prototype['thirdDailyReminderTime'] = undefined;
   /**
@@ -13059,8 +13049,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['upc'] = undefined;
   /**
-   * When the record in the database was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
-   * @member {Date} updatedAt
+   * When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
@@ -13410,7 +13400,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['combinationOperation'] = ApiClient.convertToType(data['combinationOperation'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('modifiedValue')) {
         obj['modifiedValue'] = ApiClient.convertToType(data['modifiedValue'], 'Number');
@@ -13476,7 +13466,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['notificationBar'] = ApiClient.convertToType(data['notificationBar'], 'Boolean');
       }
       if (data.hasOwnProperty('notifiedAt')) {
-        obj['notifiedAt'] = ApiClient.convertToType(data['notifiedAt'], 'Date');
+        obj['notifiedAt'] = ApiClient.convertToType(data['notifiedAt'], 'String');
       }
       if (data.hasOwnProperty('numberOfUniqueValues')) {
         obj['numberOfUniqueValues'] = ApiClient.convertToType(data['numberOfUniqueValues'], 'Number');
@@ -13500,7 +13490,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
-        obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'Date');
+        obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'String');
       }
       if (data.hasOwnProperty('reminderFrequency')) {
         obj['reminderFrequency'] = ApiClient.convertToType(data['reminderFrequency'], 'Number');
@@ -13512,7 +13502,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['reminderStartTime'] = ApiClient.convertToType(data['reminderStartTime'], 'String');
       }
       if (data.hasOwnProperty('reminderTime')) {
-        obj['reminderTime'] = ApiClient.convertToType(data['reminderTime'], 'Date');
+        obj['reminderTime'] = ApiClient.convertToType(data['reminderTime'], 'String');
       }
       if (data.hasOwnProperty('secondMostCommonValue')) {
         obj['secondMostCommonValue'] = ApiClient.convertToType(data['secondMostCommonValue'], 'Number');
@@ -13551,7 +13541,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['trackingReminderNotificationId'] = ApiClient.convertToType(data['trackingReminderNotificationId'], 'Number');
       }
       if (data.hasOwnProperty('trackingReminderNotificationTime')) {
-        obj['trackingReminderNotificationTime'] = ApiClient.convertToType(data['trackingReminderNotificationTime'], 'Date');
+        obj['trackingReminderNotificationTime'] = ApiClient.convertToType(data['trackingReminderNotificationTime'], 'String');
       }
       if (data.hasOwnProperty('trackingReminderNotificationTimeEpoch')) {
         obj['trackingReminderNotificationTimeEpoch'] = ApiClient.convertToType(data['trackingReminderNotificationTimeEpoch'], 'Number');
@@ -13563,7 +13553,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['trackingReminderNotificationTimeLocalHumanString'] = ApiClient.convertToType(data['trackingReminderNotificationTimeLocalHumanString'], 'String');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -13633,8 +13623,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
-   * Example: 2017-07-29 20:49:54
-   * @member {Date} createdAt
+   * Example: 2017-07-29 20:49:54 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -13743,8 +13733,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['notificationBar'] = undefined;
   /**
-   * Example: 
-   * @member {Date} notifiedAt
+   * Example: UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} notifiedAt
    */
   exports.prototype['notifiedAt'] = undefined;
   /**
@@ -13783,8 +13773,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['question'] = undefined;
   /**
-   * Example: 
-   * @member {Date} reminderEndTime
+   * Example: 01-01-2018
+   * @member {String} reminderEndTime
    */
   exports.prototype['reminderEndTime'] = undefined;
   /**
@@ -13803,8 +13793,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['reminderStartTime'] = undefined;
   /**
-   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
-   * @member {Date} reminderTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
+   * @member {String} reminderTime
    */
   exports.prototype['reminderTime'] = undefined;
   /**
@@ -13867,8 +13857,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['trackingReminderNotificationId'] = undefined;
   /**
-   * UTC ISO 8601 `YYYY-MM-DDThh:mm:ss` timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
-   * @member {Date} trackingReminderNotificationTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.
+   * @member {String} trackingReminderNotificationTime
    */
   exports.prototype['trackingReminderNotificationTime'] = undefined;
   /**
@@ -13887,8 +13877,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['trackingReminderNotificationTimeLocalHumanString'] = undefined;
   /**
-   * When the record in the database was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format. Time zone should be UTC and not local.
-   * @member {Date} updatedAt
+   * When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
@@ -13957,7 +13947,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableId'] = undefined;
   /**
-   * Example: 
+   * Example: https://image.png
    * @member {String} variableImageUrl
    */
   exports.prototype['variableImageUrl'] = undefined;
@@ -14965,7 +14955,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['stripeSubscription'] = ApiClient.convertToType(data['stripeSubscription'], 'String');
       }
       if (data.hasOwnProperty('subscriptionEndsAt')) {
-        obj['subscriptionEndsAt'] = ApiClient.convertToType(data['subscriptionEndsAt'], 'Date');
+        obj['subscriptionEndsAt'] = ApiClient.convertToType(data['subscriptionEndsAt'], 'String');
       }
       if (data.hasOwnProperty('subscriptionProvider')) {
         obj['subscriptionProvider'] = ApiClient.convertToType(data['subscriptionProvider'], 'String');
@@ -14977,7 +14967,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['trackLocation'] = ApiClient.convertToType(data['trackLocation'], 'Boolean');
       }
       if (data.hasOwnProperty('userRegistered')) {
-        obj['userRegistered'] = ApiClient.convertToType(data['userRegistered'], 'Date');
+        obj['userRegistered'] = ApiClient.convertToType(data['userRegistered'], 'String');
       }
       if (data.hasOwnProperty('userUrl')) {
         obj['userUrl'] = ApiClient.convertToType(data['userUrl'], 'String');
@@ -15092,7 +15082,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['lastName'] = undefined;
   /**
-   * Example: 
+   * Example: 1
    * @member {String} lastSmsTrackingReminderNotificationId
    */
   exports.prototype['lastSmsTrackingReminderNotificationId'] = undefined;
@@ -15112,12 +15102,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['password'] = undefined;
   /**
-   * Example: 
+   * Example: 618-391-0002
    * @member {String} phoneNumber
    */
   exports.prototype['phoneNumber'] = undefined;
   /**
-   * Example: 
+   * Example: 1234
    * @member {String} phoneVerificationCode
    */
   exports.prototype['phoneVerificationCode'] = undefined;
@@ -15172,8 +15162,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['stripeSubscription'] = undefined;
   /**
-   * Example: 
-   * @member {Date} subscriptionEndsAt
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} subscriptionEndsAt
    */
   exports.prototype['subscriptionEndsAt'] = undefined;
   /**
@@ -15192,8 +15182,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['trackLocation'] = undefined;
   /**
-   * Example: 2013-12-03 15:25:13
-   * @member {Date} userRegistered
+   * Example: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} userRegistered
    */
   exports.prototype['userRegistered'] = undefined;
   /**
@@ -15671,10 +15661,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['commonVariableMostCommonConnectorId'] = ApiClient.convertToType(data['commonVariableMostCommonConnectorId'], 'Number');
       }
       if (data.hasOwnProperty('commonVariableUpdatedAt')) {
-        obj['commonVariableUpdatedAt'] = ApiClient.convertToType(data['commonVariableUpdatedAt'], 'Date');
+        obj['commonVariableUpdatedAt'] = ApiClient.convertToType(data['commonVariableUpdatedAt'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('unitAbbreviatedName')) {
         obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
@@ -15713,22 +15703,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['errorMessage'] = ApiClient.convertToType(data['errorMessage'], 'String');
       }
       if (data.hasOwnProperty('experimentEndTime')) {
-        obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'Date');
+        obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'String');
       }
       if (data.hasOwnProperty('experimentEndTimeSeconds')) {
         obj['experimentEndTimeSeconds'] = ApiClient.convertToType(data['experimentEndTimeSeconds'], 'Number');
       }
       if (data.hasOwnProperty('experimentEndTimeString')) {
-        obj['experimentEndTimeString'] = ApiClient.convertToType(data['experimentEndTimeString'], 'Date');
+        obj['experimentEndTimeString'] = ApiClient.convertToType(data['experimentEndTimeString'], 'String');
       }
       if (data.hasOwnProperty('experimentStartTime')) {
-        obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'Date');
+        obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'String');
       }
       if (data.hasOwnProperty('experimentStartTimeSeconds')) {
         obj['experimentStartTimeSeconds'] = ApiClient.convertToType(data['experimentStartTimeSeconds'], 'Number');
       }
       if (data.hasOwnProperty('experimentStartTimeString')) {
-        obj['experimentStartTimeString'] = ApiClient.convertToType(data['experimentStartTimeString'], 'Date');
+        obj['experimentStartTimeString'] = ApiClient.convertToType(data['experimentStartTimeString'], 'String');
       }
       if (data.hasOwnProperty('fillingType')) {
         obj['fillingType'] = ApiClient.convertToType(data['fillingType'], 'String');
@@ -15779,7 +15769,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['lastProcessedDailyValue'] = ApiClient.convertToType(data['lastProcessedDailyValue'], 'Number');
       }
       if (data.hasOwnProperty('lastSuccessfulUpdateTime')) {
-        obj['lastSuccessfulUpdateTime'] = ApiClient.convertToType(data['lastSuccessfulUpdateTime'], 'Date');
+        obj['lastSuccessfulUpdateTime'] = ApiClient.convertToType(data['lastSuccessfulUpdateTime'], 'String');
       }
       if (data.hasOwnProperty('lastUnitId')) {
         obj['lastUnitId'] = ApiClient.convertToType(data['lastUnitId'], 'Number');
@@ -15971,10 +15961,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['updated'] = ApiClient.convertToType(data['updated'], 'Number');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('updatedTime')) {
-        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'Date');
+        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -16007,7 +15997,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['userVariableMostCommonConnectorId'] = ApiClient.convertToType(data['userVariableMostCommonConnectorId'], 'Number');
       }
       if (data.hasOwnProperty('userVariableUpdatedAt')) {
-        obj['userVariableUpdatedAt'] = ApiClient.convertToType(data['userVariableUpdatedAt'], 'Date');
+        obj['userVariableUpdatedAt'] = ApiClient.convertToType(data['userVariableUpdatedAt'], 'String');
       }
       if (data.hasOwnProperty('userVariableValence')) {
         obj['userVariableValence'] = ApiClient.convertToType(data['userVariableValence'], 'String');
@@ -16075,7 +16065,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['actionArray'] = undefined;
   /**
-   * Example: 
+   * Alternative name
    * @member {String} alias
    */
   exports.prototype['alias'] = undefined;
@@ -16156,13 +16146,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['commonVariableMostCommonConnectorId'] = undefined;
   /**
-   * Example: 2017-02-07 23:43:39
-   * @member {Date} commonVariableUpdatedAt
+   * Example: 2017-02-07 23:43:39 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} commonVariableUpdatedAt
    */
   exports.prototype['commonVariableUpdatedAt'] = undefined;
   /**
-   * When the record was first created. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} createdAt
+   * When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -16226,8 +16216,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['errorMessage'] = undefined;
   /**
-   * Latest measurement start_time to be used in analysis. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} experimentEndTime
+   * Latest measurement start_time to be used in analysis. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * @member {String} experimentEndTime
    */
   exports.prototype['experimentEndTime'] = undefined;
   /**
@@ -16236,13 +16226,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['experimentEndTimeSeconds'] = undefined;
   /**
-   * Example: 2030-01-01 06:00:00
-   * @member {Date} experimentEndTimeString
+   * Example: 2030-01-01 06:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} experimentEndTimeString
    */
   exports.prototype['experimentEndTimeString'] = undefined;
   /**
-   * Earliest measurement start_time to be used in analysis. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} experimentStartTime
+   * Earliest measurement start_time to be used in analysis. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * @member {String} experimentStartTime
    */
   exports.prototype['experimentStartTime'] = undefined;
   /**
@@ -16251,8 +16241,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['experimentStartTimeSeconds'] = undefined;
   /**
-   * Example: 2010-03-23 01:31:42
-   * @member {Date} experimentStartTimeString
+   * Example: 2010-03-23 01:31:42 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} experimentStartTimeString
    */
   exports.prototype['experimentStartTimeString'] = undefined;
   /**
@@ -16281,7 +16271,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['imageUrl'] = undefined;
   /**
-   * Example: 
+   * Example: https://google.com
    * @member {String} informationalUrl
    */
   exports.prototype['informationalUrl'] = undefined;
@@ -16333,8 +16323,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['lastProcessedDailyValue'] = undefined;
   /**
-   * When this variable or its settings were last updated
-   * @member {Date} lastSuccessfulUpdateTime
+   * When this variable or its settings were last updated UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} lastSuccessfulUpdateTime
    */
   exports.prototype['lastSuccessfulUpdateTime'] = undefined;
   /**
@@ -16533,7 +16523,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['outcomeOfInterest'] = undefined;
   /**
-   * Example: 
+   * 
    * @member {String} parent
    */
   exports.prototype['parent'] = undefined;
@@ -16651,13 +16641,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['updated'] = undefined;
   /**
-   * When the record in the database was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} updatedAt
+   * When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
    * Example: 2017-07-30 14:58:26
-   * @member {Date} updatedTime
+   * @member {String} updatedTime
    */
   exports.prototype['updatedTime'] = undefined;
   /**
@@ -16710,11 +16700,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
   exports.prototype['userVariableMostCommonConnectorId'] = undefined;
   /**
    * Example: 2017-07-30 14:58:26
-   * @member {Date} userVariableUpdatedAt
+   * @member {String} userVariableUpdatedAt
    */
   exports.prototype['userVariableUpdatedAt'] = undefined;
   /**
-   * Example: 
+   * Example: positive or negative
    * @member {String} userVariableValence
    */
   exports.prototype['userVariableValence'] = undefined;
@@ -16917,7 +16907,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['combinationOperation'] = ApiClient.convertToType(data['combinationOperation'], 'String');
       }
       if (data.hasOwnProperty('createdTime')) {
-        obj['createdTime'] = ApiClient.convertToType(data['createdTime'], 'Date');
+        obj['createdTime'] = ApiClient.convertToType(data['createdTime'], 'String');
       }
       if (data.hasOwnProperty('unitAbbreviatedName')) {
         obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
@@ -16986,7 +16976,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['updated'] = ApiClient.convertToType(data['updated'], 'Number');
       }
       if (data.hasOwnProperty('updatedTime')) {
-        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'Date');
+        obj['updatedTime'] = ApiClient.convertToType(data['updatedTime'], 'String');
       }
       if (data.hasOwnProperty('variableCategoryName')) {
         obj['variableCategoryName'] = ApiClient.convertToType(data['variableCategoryName'], 'String');
@@ -17014,8 +17004,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
-   * Example: 
-   * @member {Date} createdTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdTime
    */
   exports.prototype['createdTime'] = undefined;
   /**
@@ -17129,8 +17119,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['updated'] = undefined;
   /**
-   * Example: 
-   * @member {Date} updatedTime
+   * UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} updatedTime
    */
   exports.prototype['updatedTime'] = undefined;
   /**
@@ -17234,7 +17224,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('effectVariableId')) {
         obj['effectVariableId'] = ApiClient.convertToType(data['effectVariableId'], 'Number');
@@ -17243,7 +17233,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -17266,8 +17256,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['clientId'] = undefined;
   /**
-   * When the record was first created. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} createdAt
+   * When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -17281,8 +17271,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['id'] = undefined;
   /**
-   * When the record in the database was last updated. Use UTC ISO 8601 `YYYY-MM-DDThh:mm:ss`  datetime format
-   * @member {Date} updatedAt
+   * When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**

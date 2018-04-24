@@ -198,25 +198,25 @@
      * @param {Number} opts.userId User&#39;s id
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
      * @param {String} opts.name Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60; datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
-     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 &#x60;YYYY-MM-DDThh:mm:ss&#x60;  datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.id Common variable id
      * @param {String} opts.lastSourceName Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Boolean} opts.includePublic Example: true
-     * @param {Boolean} opts.manualTracking Example: 
+     * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {String} opts.upc UPC or other barcode scan result
-     * @param {String} opts.effectOrCause Example: 
+     * @param {String} opts.effectOrCause Provided variable is the effect or cause
      * @param {String} opts.publicEffectOrCause Example: 
-     * @param {Boolean} opts.exactMatch Example: 
+     * @param {Boolean} opts.exactMatch Require exact match
      * @param {Number} opts.variableCategoryId Example: 13
-     * @param {Boolean} opts.includePrivate Example: 
+     * @param {Boolean} opts.includePrivate Include non-public variables in results
      * @param {String} opts.searchPhrase Example: %Body Fat%
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
      * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
@@ -356,13 +356,13 @@
      * Users can change the parameters used in analysis of that variable such as the expected duration of action for a variable to have an effect, the estimated delay before the onset of action. In order to filter out erroneous data, they are able to set the maximum and minimum reasonable daily values for a variable.
      * @param {Array.<module:model/Variable>} userVariables Variable user settings data
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.includePrivate Example: 
+     * @param {Boolean} opts.includePrivate Include non-public variables in results
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {Boolean} opts.includePublic Example: true
      * @param {String} opts.searchPhrase Example: %Body Fat%
      * @param {String} opts.appName Example: MoodiModo
-     * @param {Boolean} opts.exactMatch Example: 
-     * @param {Boolean} opts.manualTracking Example: 
+     * @param {Boolean} opts.exactMatch Require exact match
+     * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
      * @param {Number} opts.variableCategoryId Example: 13
      * @param {String} opts.synonyms Example: %McDonalds hotcake%

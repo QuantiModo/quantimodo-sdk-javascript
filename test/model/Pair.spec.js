@@ -104,12 +104,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property startTimeSting (base name: "startTimeSting")', function() {
-      // uncomment below and update the code to test the property startTimeSting
-      //var instane = new Quantimodo.Pair();
-      //expect(instance).to.be();
-    });
-
     it('should have the property startTimeString (base name: "startTimeString")', function() {
       // uncomment below and update the code to test the property startTimeString
       //var instane = new Quantimodo.Pair();

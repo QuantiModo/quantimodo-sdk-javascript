@@ -57,7 +57,7 @@
    * @param confidenceInterval {Number} Example: 0.14344467795996
    * @param confidenceLevel {String} Example: high
    * @param correlationCoefficient {Number} Example: 0.538
-   * @param createdAt {Date} Example: 2016-12-28 20:47:30
+   * @param createdAt {String} Example: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @param criticalTValue {Number} Example: 1.646
    * @param direction {String} Example: higher
    * @param durationOfAction {Number} Example: 604800
@@ -66,8 +66,8 @@
    * @param effectSize {String} Example: moderately positive
    * @param effectUnit {String} Example: /5
    * @param effectVariableName {String} Example: Overall Mood
-   * @param experimentEndTime {Date} Example: 2014-07-30 12:50:00
-   * @param experimentStartTime {Date} Example: 2012-05-06 21:15:00
+   * @param experimentEndTime {String} Example: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param experimentStartTime {String} Example: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @param forwardSpearmanCorrelationCoefficient {Number} Example: 0.528359
    * @param numberOfPairs {Number} Example: 298
    * @param onsetDelay {Number} Example: 0
@@ -93,7 +93,7 @@
    * @param strengthLevel {String} Example: moderate
    * @param strongestPearsonCorrelationCoefficient {Number} Example: 0.613
    * @param tValue {Number} Example: 9.6986079652717
-   * @param updatedAt {Date} Example: 2017-05-06 15:40:38
+   * @param updatedAt {String} Example: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @param userId {Number} Example: 230
    * @param userVote {Number} Example: 1
    * @param valuePredictingHighOutcome {Number} Example: 4.14
@@ -285,7 +285,7 @@
         obj['correlationIsContradictoryToOptimalValues'] = ApiClient.convertToType(data['correlationIsContradictoryToOptimalValues'], 'Boolean');
       }
       if (data.hasOwnProperty('createdAt')) {
-        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('criticalTValue')) {
         obj['criticalTValue'] = ApiClient.convertToType(data['criticalTValue'], 'Number');
@@ -354,10 +354,10 @@
         obj['effectVariableName'] = ApiClient.convertToType(data['effectVariableName'], 'String');
       }
       if (data.hasOwnProperty('experimentEndTime')) {
-        obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'Date');
+        obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'String');
       }
       if (data.hasOwnProperty('experimentStartTime')) {
-        obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'Date');
+        obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'String');
       }
       if (data.hasOwnProperty('forwardSpearmanCorrelationCoefficient')) {
         obj['forwardSpearmanCorrelationCoefficient'] = ApiClient.convertToType(data['forwardSpearmanCorrelationCoefficient'], 'Number');
@@ -462,7 +462,7 @@
         obj['tValue'] = ApiClient.convertToType(data['tValue'], 'Number');
       }
       if (data.hasOwnProperty('updatedAt')) {
-        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Date');
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
@@ -641,8 +641,8 @@
    */
   exports.prototype['correlationIsContradictoryToOptimalValues'] = undefined;
   /**
-   * Example: 2016-12-28 20:47:30
-   * @member {Date} createdAt
+   * Example: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
@@ -755,13 +755,13 @@
    */
   exports.prototype['effectVariableName'] = undefined;
   /**
-   * Example: 2014-07-30 12:50:00
-   * @member {Date} experimentEndTime
+   * Example: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} experimentEndTime
    */
   exports.prototype['experimentEndTime'] = undefined;
   /**
-   * Example: 2012-05-06 21:15:00
-   * @member {Date} experimentStartTime
+   * Example: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} experimentStartTime
    */
   exports.prototype['experimentStartTime'] = undefined;
   /**
@@ -931,8 +931,8 @@
    */
   exports.prototype['tValue'] = undefined;
   /**
-   * Example: 2017-05-06 15:40:38
-   * @member {Date} updatedAt
+   * Example: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
@@ -996,7 +996,7 @@
    */
   exports.prototype['correlationsOverOnsetDelaysChartConfig'] = undefined;
   /**
-   * Example: 
+   * Example: 1
    * @member {Number} numberOfUsers
    */
   exports.prototype['numberOfUsers'] = undefined;
@@ -1011,7 +1011,7 @@
    */
   exports.prototype['rawEffectMeasurementSignificance'] = undefined;
   /**
-   * Example: 
+   * Example: 1
    * @member {String} reversePairsCount
    */
   exports.prototype['reversePairsCount'] = undefined;
@@ -1036,7 +1036,7 @@
    */
   exports.prototype['numberOfCorrelations'] = undefined;
   /**
-   * Example: 
+   * Example: 1 or 0
    * @member {Number} vote
    */
   exports.prototype['vote'] = undefined;
