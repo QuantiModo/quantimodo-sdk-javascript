@@ -4808,6 +4808,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.appVersion Example: 2.1.1.0
      * @param {Number} opts.clientUserId Example: 74802
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.log Username or email
+     * @param {String} opts.pwd User password
      * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -4830,6 +4832,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'appVersion': opts['appVersion'],
         'clientUserId': opts['clientUserId'],
         'platform': opts['platform'],
+        'log': opts['log'],
+        'pwd': opts['pwd'],
       };
       var collectionQueryParams = {
       };

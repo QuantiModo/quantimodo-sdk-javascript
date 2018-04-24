@@ -109,6 +109,8 @@ var opts = {
   'appVersion': "appVersion_example", // String | Example: 2.1.1.0
   'clientUserId': 56, // Number | Example: 74802
   'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'log': "log_example", // String | Username or email
+  'pwd': "pwd_example" // String | User password
 };
 
 var callback = function(error, data, response) {
@@ -136,6 +138,8 @@ Name | Type | Description  | Notes
  **appVersion** | **String**| Example: 2.1.1.0 | [optional] 
  **clientUserId** | **Number**| Example: 74802 | [optional] 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **log** | **String**| Username or email | [optional] 
+ **pwd** | **String**| User password | [optional] 
 
 ### Return type
 
