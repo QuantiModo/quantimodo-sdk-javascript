@@ -98,6 +98,7 @@
 
 
     _this['variableName'] = variableName;
+
   };
 
   /**
@@ -248,6 +249,9 @@
       }
       if (data.hasOwnProperty('variableName')) {
         obj['variableName'] = ApiClient.convertToType(data['variableName'], 'String');
+      }
+      if (data.hasOwnProperty('displayName')) {
+        obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
       }
     }
     return obj;
@@ -483,6 +487,11 @@
    * @member {String} variableName
    */
   exports.prototype['variableName'] = undefined;
+  /**
+   * Example: Trader Joe's Bedtime Tea
+   * @member {String} displayName
+   */
+  exports.prototype['displayName'] = undefined;
 
 
 

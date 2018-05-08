@@ -120,6 +120,7 @@ Class | Method | HTTP request | Description
  - [Quantimodo.Button](docs/Button.md)
  - [Quantimodo.Chart](docs/Chart.md)
  - [Quantimodo.CommonResponse](docs/CommonResponse.md)
+ - [Quantimodo.ConnectInstructions](docs/ConnectInstructions.md)
  - [Quantimodo.Connector](docs/Connector.md)
  - [Quantimodo.ConversionStep](docs/ConversionStep.md)
  - [Quantimodo.Correlation](docs/Correlation.md)

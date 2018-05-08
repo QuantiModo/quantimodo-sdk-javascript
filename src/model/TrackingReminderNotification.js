@@ -66,6 +66,7 @@
 
 
 
+
     _this['fillingValue'] = fillingValue;
 
     _this['id'] = id;
@@ -150,6 +151,9 @@
       }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
+      }
+      if (data.hasOwnProperty('displayName')) {
+        obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
       }
       if (data.hasOwnProperty('modifiedValue')) {
         obj['modifiedValue'] = ApiClient.convertToType(data['modifiedValue'], 'Number');
@@ -376,6 +380,11 @@
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
+  /**
+   * Example: Trader Joe's Bedtime Tea
+   * @member {String} displayName
+   */
+  exports.prototype['displayName'] = undefined;
   /**
    * Is the user specified default value or falls back to the last value in user unit. Good for initializing input fields
    * @member {Number} modifiedValue

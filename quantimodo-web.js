@@ -9410,6 +9410,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     _this['variableName'] = variableName;
+
   };
 
   /**
@@ -9560,6 +9561,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('variableName')) {
         obj['variableName'] = ApiClient.convertToType(data['variableName'], 'String');
+      }
+      if (data.hasOwnProperty('displayName')) {
+        obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
       }
     }
     return obj;
@@ -9795,6 +9799,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} variableName
    */
   exports.prototype['variableName'] = undefined;
+  /**
+   * Example: Trader Joe's Bedtime Tea
+   * @member {String} displayName
+   */
+  exports.prototype['displayName'] = undefined;
 
 
 
@@ -12446,6 +12455,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
 
 
@@ -12544,6 +12554,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
+      }
+      if (data.hasOwnProperty('displayName')) {
+        obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
       }
       if (data.hasOwnProperty('unitAbbreviatedName')) {
         obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
@@ -12785,6 +12798,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
+  /**
+   * Example: Trader Joe's Bedtime Tea
+   * @member {String} displayName
+   */
+  exports.prototype['displayName'] = undefined;
   /**
    * Example: /5
    * @member {String} unitAbbreviatedName
@@ -13317,6 +13335,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['fillingValue'] = fillingValue;
 
     _this['id'] = id;
@@ -13401,6 +13420,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
+      }
+      if (data.hasOwnProperty('displayName')) {
+        obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
       }
       if (data.hasOwnProperty('modifiedValue')) {
         obj['modifiedValue'] = ApiClient.convertToType(data['modifiedValue'], 'Number');
@@ -13627,6 +13649,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
+  /**
+   * Example: Trader Joe's Bedtime Tea
+   * @member {String} displayName
+   */
+  exports.prototype['displayName'] = undefined;
   /**
    * Is the user specified default value or falls back to the last value in user unit. Good for initializing input fields
    * @member {Number} modifiedValue
@@ -15484,6 +15511,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['id'] = id;
 
 
@@ -15683,6 +15711,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('displayName')) {
+        obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
       }
       if (data.hasOwnProperty('durationOfAction')) {
         obj['durationOfAction'] = ApiClient.convertToType(data['durationOfAction'], 'Number');
@@ -16185,6 +16216,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
+  /**
+   * Example: Trader Joe's Bedtime Tea
+   * @member {String} displayName
+   */
+  exports.prototype['displayName'] = undefined;
   /**
    * The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
    * @member {Number} durationOfAction

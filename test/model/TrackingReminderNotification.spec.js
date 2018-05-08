@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property displayName (base name: "displayName")', function() {
+      // uncomment below and update the code to test the property displayName
+      //var instane = new Quantimodo.TrackingReminderNotification();
+      //expect(instance).to.be();
+    });
+
     it('should have the property modifiedValue (base name: "modifiedValue")', function() {
       // uncomment below and update the code to test the property modifiedValue
       //var instane = new Quantimodo.TrackingReminderNotification();

@@ -56,6 +56,7 @@
 
 
 
+
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
 
 
@@ -154,6 +155,9 @@
       }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
+      }
+      if (data.hasOwnProperty('displayName')) {
+        obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
       }
       if (data.hasOwnProperty('unitAbbreviatedName')) {
         obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
@@ -395,6 +399,11 @@
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
+  /**
+   * Example: Trader Joe's Bedtime Tea
+   * @member {String} displayName
+   */
+  exports.prototype['displayName'] = undefined;
   /**
    * Example: /5
    * @member {String} unitAbbreviatedName

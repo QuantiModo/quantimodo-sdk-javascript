@@ -92,6 +92,7 @@
 
 
 
+
     _this['id'] = id;
 
 
@@ -291,6 +292,9 @@
       }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('displayName')) {
+        obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
       }
       if (data.hasOwnProperty('durationOfAction')) {
         obj['durationOfAction'] = ApiClient.convertToType(data['durationOfAction'], 'Number');
@@ -793,6 +797,11 @@
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
+  /**
+   * Example: Trader Joe's Bedtime Tea
+   * @member {String} displayName
+   */
+  exports.prototype['displayName'] = undefined;
   /**
    * The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
    * @member {Number} durationOfAction

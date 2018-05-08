@@ -212,6 +212,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property displayName (base name: "displayName")', function() {
+      // uncomment below and update the code to test the property displayName
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property durationOfAction (base name: "durationOfAction")', function() {
       // uncomment below and update the code to test the property durationOfAction
       //var instane = new Quantimodo.Variable();

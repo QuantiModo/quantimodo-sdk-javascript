@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **clientId** | **String** | clientId | [optional] 
 **combinationOperation** | **String** | The way multiple measurements are aggregated over time | [optional] 
 **createdAt** | **String** | Example: 2017-07-29 20:49:54 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
+**displayName** | **String** | Example: Trader Joe&#39;s Bedtime Tea | [optional] 
 **modifiedValue** | **Number** | Is the user specified default value or falls back to the last value in user unit. Good for initializing input fields | [optional] 
 **unitAbbreviatedName** | **String** | Example: /5 | [optional] 
 **unitCategoryId** | **Number** | Example: 5 | [optional] 

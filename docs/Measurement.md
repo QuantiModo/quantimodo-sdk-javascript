@@ -49,5 +49,6 @@ Name | Type | Description | Notes
 **variableDescription** | **String** | Example: negative | [optional] 
 **variableId** | **Number** | Example: 5956846 | [optional] 
 **variableName** | **String** | Name of the variable for which we are creating the measurement records | 
+**displayName** | **String** | Example: Trader Joe&#39;s Bedtime Tea | [optional] 
 
 

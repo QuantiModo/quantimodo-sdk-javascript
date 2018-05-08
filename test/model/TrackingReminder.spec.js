@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property displayName (base name: "displayName")', function() {
+      // uncomment below and update the code to test the property displayName
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
     it('should have the property unitAbbreviatedName (base name: "unitAbbreviatedName")', function() {
       // uncomment below and update the code to test the property unitAbbreviatedName
       //var instane = new Quantimodo.TrackingReminder();

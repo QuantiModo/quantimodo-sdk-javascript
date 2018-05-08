@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **clientId** | **String** | clientId | [optional] 
 **combinationOperation** | **String** | The way multiple measurements are aggregated over time | [optional] 
 **createdAt** | **String** | Example: 2016-05-18 02:24:08 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
+**displayName** | **String** | Example: Trader Joe&#39;s Bedtime Tea | [optional] 
 **unitAbbreviatedName** | **String** | Example: /5 | 
 **unitCategoryId** | **Number** | Example: 5 | [optional] 
 **unitCategoryName** | **String** | Example: Rating | [optional] 

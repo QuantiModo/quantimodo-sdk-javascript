@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **unitId** | **Number** | ID of unit to use for this variable | [optional] 
 **unitName** | **String** | Example: Count | [optional] 
 **description** | **String** | Example: negative | [optional] 
+**displayName** | **String** | Example: Trader Joe&#39;s Bedtime Tea | [optional] 
 **durationOfAction** | **Number** | The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay. | [optional] 
 **durationOfActionInHours** | **Number** | Example: 168 | [optional] 
 **earliestFillingTime** | **Number** | Earliest filling time | [optional] 
