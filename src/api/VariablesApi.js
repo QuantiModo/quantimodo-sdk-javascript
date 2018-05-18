@@ -227,6 +227,7 @@
      * @param {Boolean} opts.commonOnly Return only public and aggregated common variable data instead of user-specific variables
      * @param {Boolean} opts.userOnly Return only user-specific variables and data, excluding common aggregated variable data
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {Boolean} opts.includeTags Example: true
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -272,6 +273,7 @@
         'commonOnly': opts['commonOnly'],
         'userOnly': opts['userOnly'],
         'platform': opts['platform'],
+        'includeTags': opts['includeTags'],
       };
       var collectionQueryParams = {
       };

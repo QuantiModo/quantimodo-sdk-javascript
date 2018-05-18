@@ -241,6 +241,7 @@ var opts = {
   'commonOnly': true, // Boolean | Return only public and aggregated common variable data instead of user-specific variables
   'userOnly': true, // Boolean | Return only user-specific variables and data, excluding common aggregated variable data
   'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'includeTags': true // Boolean | Example: true
 };
 
 var callback = function(error, data, response) {
@@ -291,6 +292,7 @@ Name | Type | Description  | Notes
  **commonOnly** | **Boolean**| Return only public and aggregated common variable data instead of user-specific variables | [optional] 
  **userOnly** | **Boolean**| Return only user-specific variables and data, excluding common aggregated variable data | [optional] 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **includeTags** | **Boolean**| Example: true | [optional] 
 
 ### Return type
 
