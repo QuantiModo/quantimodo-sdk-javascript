@@ -221,7 +221,7 @@ var opts = {
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
-  'includePublic': true, // Boolean | Example: true
+  'includePublic': true, // Boolean | Include variables the user has no measurements for
   'manualTracking': true, // Boolean | Only include variables tracked manually by the user
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
@@ -230,7 +230,7 @@ var opts = {
   'publicEffectOrCause': "publicEffectOrCause_example", // String | Example: 
   'exactMatch': true, // Boolean | Require exact match
   'variableCategoryId': 56, // Number | Example: 13
-  'includePrivate': true, // Boolean | Include non-public variables in results
+  'includePrivate': true, // Boolean | Include user-specific variables in results
   'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
   'synonyms': "synonyms_example", // String | Example: %McDonalds hotcake%
   'taggedVariableId': 56, // Number | Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
@@ -241,7 +241,7 @@ var opts = {
   'commonOnly': true, // Boolean | Return only public and aggregated common variable data instead of user-specific variables
   'userOnly': true, // Boolean | Return only user-specific variables and data, excluding common aggregated variable data
   'platform': "platform_example" // String | Example: chrome, android, ios, web
-  'includeTags': true // Boolean | Example: true
+  'includeTags': true // Boolean | Return parent, child, duplicate, and ingredient variables
 };
 
 var callback = function(error, data, response) {
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
- **includePublic** | **Boolean**| Example: true | [optional] 
+ **includePublic** | **Boolean**| Include variables the user has no measurements for | [optional] 
  **manualTracking** | **Boolean**| Only include variables tracked manually by the user | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
  **publicEffectOrCause** | **String**| Example:  | [optional] 
  **exactMatch** | **Boolean**| Require exact match | [optional] 
  **variableCategoryId** | **Number**| Example: 13 | [optional] 
- **includePrivate** | **Boolean**| Include non-public variables in results | [optional] 
+ **includePrivate** | **Boolean**| Include user-specific variables in results | [optional] 
  **searchPhrase** | **String**| Example: %Body Fat% | [optional] 
  **synonyms** | **String**| Example: %McDonalds hotcake% | [optional] 
  **taggedVariableId** | **Number**| Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | [optional] 
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
  **commonOnly** | **Boolean**| Return only public and aggregated common variable data instead of user-specific variables | [optional] 
  **userOnly** | **Boolean**| Return only user-specific variables and data, excluding common aggregated variable data | [optional] 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
- **includeTags** | **Boolean**| Example: true | [optional] 
+ **includeTags** | **Boolean**| Return parent, child, duplicate, and ingredient variables | [optional] 
 
 ### Return type
 
@@ -396,9 +396,9 @@ var apiInstance = new Quantimodo.VariablesApi();
 var userVariables = [new Quantimodo.Variable()]; // [Variable] | Variable user settings data
 
 var opts = { 
-  'includePrivate': true, // Boolean | Include non-public variables in results
+  'includePrivate': true, // Boolean | Include user-specific variables in results
   'clientId': "clientId_example", // String | Example: oauth_test_client
-  'includePublic': true, // Boolean | Example: true
+  'includePublic': true, // Boolean | Include variables the user has no measurements for
   'searchPhrase': "searchPhrase_example", // String | Example: %Body Fat%
   'appName': "appName_example", // String | Example: MoodiModo
   'exactMatch': true, // Boolean | Require exact match
@@ -424,9 +424,9 @@ apiInstance.postUserVariables(userVariables, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userVariables** | [**[Variable]**](Variable.md)| Variable user settings data | 
- **includePrivate** | **Boolean**| Include non-public variables in results | [optional] 
+ **includePrivate** | **Boolean**| Include user-specific variables in results | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
- **includePublic** | **Boolean**| Example: true | [optional] 
+ **includePublic** | **Boolean**| Include variables the user has no measurements for | [optional] 
  **searchPhrase** | **String**| Example: %Body Fat% | [optional] 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **exactMatch** | **Boolean**| Require exact match | [optional] 

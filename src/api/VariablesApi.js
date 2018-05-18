@@ -207,7 +207,7 @@
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
-     * @param {Boolean} opts.includePublic Example: true
+     * @param {Boolean} opts.includePublic Include variables the user has no measurements for
      * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
@@ -216,7 +216,7 @@
      * @param {String} opts.publicEffectOrCause Example: 
      * @param {Boolean} opts.exactMatch Require exact match
      * @param {Number} opts.variableCategoryId Example: 13
-     * @param {Boolean} opts.includePrivate Include non-public variables in results
+     * @param {Boolean} opts.includePrivate Include user-specific variables in results
      * @param {String} opts.searchPhrase Example: %Body Fat%
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
      * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
@@ -227,7 +227,7 @@
      * @param {Boolean} opts.commonOnly Return only public and aggregated common variable data instead of user-specific variables
      * @param {Boolean} opts.userOnly Return only user-specific variables and data, excluding common aggregated variable data
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
-     * @param {Boolean} opts.includeTags Example: true
+     * @param {Boolean} opts.includeTags Return parent, child, duplicate, and ingredient variables
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -358,9 +358,9 @@
      * Users can change the parameters used in analysis of that variable such as the expected duration of action for a variable to have an effect, the estimated delay before the onset of action. In order to filter out erroneous data, they are able to set the maximum and minimum reasonable daily values for a variable.
      * @param {Array.<module:model/Variable>} userVariables Variable user settings data
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.includePrivate Include non-public variables in results
+     * @param {Boolean} opts.includePrivate Include user-specific variables in results
      * @param {String} opts.clientId Example: oauth_test_client
-     * @param {Boolean} opts.includePublic Example: true
+     * @param {Boolean} opts.includePublic Include variables the user has no measurements for
      * @param {String} opts.searchPhrase Example: %Body Fat%
      * @param {String} opts.appName Example: MoodiModo
      * @param {Boolean} opts.exactMatch Require exact match
