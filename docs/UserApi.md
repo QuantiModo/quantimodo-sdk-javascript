@@ -38,7 +38,7 @@ var reason = "reason_example"; // String | Example: I hate you!
 
 var opts = { 
   'clientId': "clientId_example", // String | Example: oauth_test_client
-  'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -108,7 +108,7 @@ var opts = {
   'appName': "appName_example", // String | Example: MoodiModo
   'appVersion': "appVersion_example", // String | Example: 2.1.1.0
   'clientUserId': 56, // Number | Example: 74802
-  'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
   'log': "log_example", // String | Username or email
   'pwd': "pwd_example" // String | User password
 };
@@ -171,7 +171,7 @@ var apiInstance = new Quantimodo.UserApi();
 var opts = { 
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
-  'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {

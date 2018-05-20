@@ -110,7 +110,7 @@ var opts = {
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'onlyPast': true, // Boolean | Example: 1
   'includeDeleted': true, // Boolean | Include deleted variables
-  'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -190,7 +190,7 @@ var opts = {
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'appVersion': "appVersion_example", // String | Example: 2.1.1.0
-  'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -263,7 +263,7 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
-  'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {

@@ -117,7 +117,7 @@ var opts = {
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'doNotConvert': true, // Boolean | Example: 1
   'minMaxFilter': true, // Boolean | Example: 1
-  'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {

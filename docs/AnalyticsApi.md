@@ -169,7 +169,7 @@ var opts = {
   'outcomesOfInterest': true, // Boolean | Only include correlations for which the effect is an outcome of interest for the user
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'commonOnly': true, // Boolean | Return only public, anonymized and aggregated population data instead of user-specific variables
-  'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -244,7 +244,8 @@ var opts = {
   'appName': "appName_example", // String | Example: MoodiModo
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'includeCharts': true, // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-  'platform': "platform_example" // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'recalculate': true // Boolean | Recalculate instead of using cached analysis
 };
 
 var callback = function(error, data, response) {
@@ -268,6 +269,7 @@ Name | Type | Description  | Notes
  **clientId** | **String**| Example: oauth_test_client | [optional] 
  **includeCharts** | **Boolean**| Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **recalculate** | **Boolean**| Recalculate instead of using cached analysis | [optional] 
 
 ### Return type
 
