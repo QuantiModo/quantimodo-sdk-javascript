@@ -248,6 +248,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property shareAllData (base name: "shareAllData")', function() {
+      // uncomment below and update the code to test the property shareAllData
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
     it('should have the property smsNotificationsEnabled (base name: "smsNotificationsEnabled")', function() {
       // uncomment below and update the code to test the property smsNotificationsEnabled
       //var instane = new Quantimodo.User();

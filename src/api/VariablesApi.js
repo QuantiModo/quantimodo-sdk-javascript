@@ -230,6 +230,7 @@
      * @param {Boolean} opts.userOnly Return only user-specific variables and data, excluding common aggregated variable data
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {Boolean} opts.includeTags Return parent, child, duplicate, and ingredient variables
+     * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -278,6 +279,7 @@
         'userOnly': opts['userOnly'],
         'platform': opts['platform'],
         'includeTags': opts['includeTags'],
+        'recalculate': opts['recalculate'],
       };
       var collectionQueryParams = {
       };

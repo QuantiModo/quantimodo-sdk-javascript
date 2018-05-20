@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **roles** | **String** | Example: [\&quot;admin\&quot;] | [optional] 
 **sendPredictorEmails** | **Boolean** | Example: 1 | [optional] 
 **sendReminderNotificationEmails** | **Boolean** | Example: 1 | [optional] 
+**shareAllData** | **Boolean** | Share all studies, charts, and measurement data with all other users | [optional] 
 **smsNotificationsEnabled** | **Boolean** | Example: false | [optional] 
 **stripeActive** | **Boolean** | Example: 1 | [optional] 
 **stripeId** | **String** | Example: cus_A8CEmcvl8jwLhV | [optional] 

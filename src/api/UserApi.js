@@ -181,6 +181,7 @@
     /**
      * Post UserSettings
      * Post UserSettings
+     * @param {module:model/User} body User settings to update
      * @param {Object} opts Optional parameters
      * @param {String} opts.appName Example: MoodiModo
      * @param {String} opts.clientId Example: oauth_test_client
@@ -188,9 +189,14 @@
      * @param {module:api/UserApi~postUserSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PostUserSettingsResponse}
      */
-    this.postUserSettings = function(opts, callback) {
+    this.postUserSettings = function(body, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = body;
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling postUserSettings");
+      }
 
 
       var pathParams = {

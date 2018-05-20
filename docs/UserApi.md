@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 <a name="postUserSettings"></a>
 # **postUserSettings**
-> PostUserSettingsResponse postUserSettings(opts)
+> PostUserSettingsResponse postUserSettings(body, opts)
 
 Post UserSettings
 
@@ -167,6 +167,8 @@ Post UserSettings
 var Quantimodo = require('quantimodo');
 
 var apiInstance = new Quantimodo.UserApi();
+
+var body = new Quantimodo.User(); // User | User settings to update
 
 var opts = { 
   'appName': "appName_example", // String | Example: MoodiModo
@@ -181,13 +183,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.postUserSettings(opts, callback);
+apiInstance.postUserSettings(body, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**User**](User.md)| User settings to update | 
  **appName** | **String**| Example: MoodiModo | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 

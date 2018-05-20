@@ -96,6 +96,7 @@
 
 
 
+
   };
 
   /**
@@ -204,6 +205,9 @@
       }
       if (data.hasOwnProperty('sendReminderNotificationEmails')) {
         obj['sendReminderNotificationEmails'] = ApiClient.convertToType(data['sendReminderNotificationEmails'], 'Boolean');
+      }
+      if (data.hasOwnProperty('shareAllData')) {
+        obj['shareAllData'] = ApiClient.convertToType(data['shareAllData'], 'Boolean');
       }
       if (data.hasOwnProperty('smsNotificationsEnabled')) {
         obj['smsNotificationsEnabled'] = ApiClient.convertToType(data['smsNotificationsEnabled'], 'Boolean');
@@ -402,6 +406,11 @@
    * @member {Boolean} sendReminderNotificationEmails
    */
   exports.prototype['sendReminderNotificationEmails'] = undefined;
+  /**
+   * Share all studies, charts, and measurement data with all other users
+   * @member {Boolean} shareAllData
+   */
+  exports.prototype['shareAllData'] = undefined;
   /**
    * Example: false
    * @member {Boolean} smsNotificationsEnabled

@@ -243,7 +243,8 @@ var opts = {
   'commonOnly': true, // Boolean | Return only public and aggregated common variable data instead of user-specific variables
   'userOnly': true, // Boolean | Return only user-specific variables and data, excluding common aggregated variable data
   'platform': "platform_example", // String | Example: chrome, android, ios, web
-  'includeTags': true // Boolean | Return parent, child, duplicate, and ingredient variables
+  'includeTags': true, // Boolean | Return parent, child, duplicate, and ingredient variables
+  'recalculate': true // Boolean | Recalculate instead of using cached analysis
 };
 
 var callback = function(error, data, response) {
@@ -297,6 +298,7 @@ Name | Type | Description  | Notes
  **userOnly** | **Boolean**| Return only user-specific variables and data, excluding common aggregated variable data | [optional] 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
  **includeTags** | **Boolean**| Return parent, child, duplicate, and ingredient variables | [optional] 
+ **recalculate** | **Boolean**| Recalculate instead of using cached analysis | [optional] 
 
 ### Return type
 
