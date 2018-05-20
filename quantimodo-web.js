@@ -5131,9 +5131,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.synonyms Example: %McDonalds hotcake%
      * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Number} opts.tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
-     * @param {Number} opts.joinVariableId Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId
-     * @param {Number} opts.parentUserTagVariableId Id of the parent variable (i.e. Fruit)  you would like to get eligible child variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
-     * @param {Number} opts.childUserTagVariableId Id of the child variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child of variable Fruit could be Apple
+     * @param {Number} opts.joinVariableId Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId.
+     * @param {Number} opts.parentUserTagVariableId Id of the parent category variable (i.e. Fruit) you would like to get eligible child sub-type variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child sub-type of the parent category Fruit could be Apple.  When Apple is tagged with the parent category Fruit, Apple measurements will be included when Fruit is analyzed.
+     * @param {Number} opts.childUserTagVariableId Id of the child sub-type variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child sub-type of the parent category Fruit could be Apple. When Apple is tagged with the parent category Fruit, Apple measurements will be included when Fruit is analyzed.
+     * @param {Number} opts.ingredientUserTagVariableId Id of the ingredient variable (i.e. Fructose)  you would like to get eligible ingredientOf variables (i.e. Apple) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.
+     * @param {Number} opts.ingredientOfUserTagVariableId Id of the ingredientOf variable (i.e. Apple) you would like to get eligible ingredient variables (i.e. Fructose) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.
      * @param {Boolean} opts.commonOnly Return only public and aggregated common variable data instead of user-specific variables
      * @param {Boolean} opts.userOnly Return only user-specific variables and data, excluding common aggregated variable data
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
@@ -5180,6 +5182,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'joinVariableId': opts['joinVariableId'],
         'parentUserTagVariableId': opts['parentUserTagVariableId'],
         'childUserTagVariableId': opts['childUserTagVariableId'],
+        'ingredientUserTagVariableId': opts['ingredientUserTagVariableId'],
+        'ingredientOfUserTagVariableId': opts['ingredientOfUserTagVariableId'],
         'commonOnly': opts['commonOnly'],
         'userOnly': opts['userOnly'],
         'platform': opts['platform'],
@@ -15514,6 +15518,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['id'] = id;
 
 
@@ -15550,8 +15555,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-    _this['name'] = name;
 
+
+
+    _this['name'] = name;
 
 
 
@@ -15669,6 +15676,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('chartsLinkTwitter')) {
         obj['chartsLinkTwitter'] = ApiClient.convertToType(data['chartsLinkTwitter'], 'String');
       }
+      if (data.hasOwnProperty('childCommonTagVariables')) {
+        obj['childCommonTagVariables'] = ApiClient.convertToType(data['childCommonTagVariables'], [Variable]);
+      }
       if (data.hasOwnProperty('childUserTagVariables')) {
         obj['childUserTagVariables'] = ApiClient.convertToType(data['childUserTagVariables'], [Variable]);
       }
@@ -15771,6 +15781,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('informationalUrl')) {
         obj['informationalUrl'] = ApiClient.convertToType(data['informationalUrl'], 'String');
       }
+      if (data.hasOwnProperty('ingredientOfCommonTagVariables')) {
+        obj['ingredientOfCommonTagVariables'] = ApiClient.convertToType(data['ingredientOfCommonTagVariables'], [Variable]);
+      }
+      if (data.hasOwnProperty('ingredientCommonTagVariables')) {
+        obj['ingredientCommonTagVariables'] = ApiClient.convertToType(data['ingredientCommonTagVariables'], [Variable]);
+      }
       if (data.hasOwnProperty('ingredientOfUserTagVariables')) {
         obj['ingredientOfUserTagVariables'] = ApiClient.convertToType(data['ingredientOfUserTagVariables'], [Variable]);
       }
@@ -15782,6 +15798,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('ionIcon')) {
         obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
+      }
+      if (data.hasOwnProperty('joinedCommonTagVariables')) {
+        obj['joinedCommonTagVariables'] = ApiClient.convertToType(data['joinedCommonTagVariables'], [Variable]);
       }
       if (data.hasOwnProperty('joinedUserTagVariables')) {
         obj['joinedUserTagVariables'] = ApiClient.convertToType(data['joinedUserTagVariables'], [Variable]);
@@ -15921,11 +15940,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('outcomeOfInterest')) {
         obj['outcomeOfInterest'] = ApiClient.convertToType(data['outcomeOfInterest'], 'Number');
       }
-      if (data.hasOwnProperty('parent')) {
-        obj['parent'] = ApiClient.convertToType(data['parent'], 'String');
-      }
-      if (data.hasOwnProperty('parentId')) {
-        obj['parentId'] = ApiClient.convertToType(data['parentId'], 'Number');
+      if (data.hasOwnProperty('parentCommonTagVariables')) {
+        obj['parentCommonTagVariables'] = ApiClient.convertToType(data['parentCommonTagVariables'], [Variable]);
       }
       if (data.hasOwnProperty('parentUserTagVariables')) {
         obj['parentUserTagVariables'] = ApiClient.convertToType(data['parentUserTagVariables'], [Variable]);
@@ -16147,6 +16163,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['chartsLinkTwitter'] = undefined;
   /**
+   * Commonly defined for all users. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
+   * @member {Array.<module:model/Variable>} childCommonTagVariables
+   */
+  exports.prototype['childCommonTagVariables'] = undefined;
+  /**
+   * User-defined. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
    * @member {Array.<module:model/Variable>} childUserTagVariables
    */
   exports.prototype['childUserTagVariables'] = undefined;
@@ -16314,10 +16336,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['informationalUrl'] = undefined;
   /**
+   * Commonly defined for all users. IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
+   * @member {Array.<module:model/Variable>} ingredientOfCommonTagVariables
+   */
+  exports.prototype['ingredientOfCommonTagVariables'] = undefined;
+  /**
+   * Commonly defined for all users. IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
+   * @member {Array.<module:model/Variable>} ingredientCommonTagVariables
+   */
+  exports.prototype['ingredientCommonTagVariables'] = undefined;
+  /**
+   * User-specific IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
    * @member {Array.<module:model/Variable>} ingredientOfUserTagVariables
    */
   exports.prototype['ingredientOfUserTagVariables'] = undefined;
   /**
+   * User-specific IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
    * @member {Array.<module:model/Variable>} ingredientUserTagVariables
    */
   exports.prototype['ingredientUserTagVariables'] = undefined;
@@ -16332,6 +16366,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['ionIcon'] = undefined;
   /**
+   * Commonly defined for all users.  Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.
+   * @member {Array.<module:model/Variable>} joinedCommonTagVariables
+   */
+  exports.prototype['joinedCommonTagVariables'] = undefined;
+  /**
+   * User-defined. Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.
    * @member {Array.<module:model/Variable>} joinedUserTagVariables
    */
   exports.prototype['joinedUserTagVariables'] = undefined;
@@ -16561,16 +16601,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['outcomeOfInterest'] = undefined;
   /**
-   * 
-   * @member {String} parent
+   * Commonly defined for all users.  An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
+   * @member {Array.<module:model/Variable>} parentCommonTagVariables
    */
-  exports.prototype['parent'] = undefined;
+  exports.prototype['parentCommonTagVariables'] = undefined;
   /**
-   * ID of the parent variable if this variable has any parent
-   * @member {Number} parentId
-   */
-  exports.prototype['parentId'] = undefined;
-  /**
+   * User-defined. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
    * @member {Array.<module:model/Variable>} parentUserTagVariables
    */
   exports.prototype['parentUserTagVariables'] = undefined;

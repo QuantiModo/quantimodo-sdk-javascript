@@ -122,6 +122,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property childCommonTagVariables (base name: "childCommonTagVariables")', function() {
+      // uncomment below and update the code to test the property childCommonTagVariables
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property childUserTagVariables (base name: "childUserTagVariables")', function() {
       // uncomment below and update the code to test the property childUserTagVariables
       //var instane = new Quantimodo.Variable();
@@ -326,6 +332,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property ingredientOfCommonTagVariables (base name: "ingredientOfCommonTagVariables")', function() {
+      // uncomment below and update the code to test the property ingredientOfCommonTagVariables
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ingredientCommonTagVariables (base name: "ingredientCommonTagVariables")', function() {
+      // uncomment below and update the code to test the property ingredientCommonTagVariables
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property ingredientOfUserTagVariables (base name: "ingredientOfUserTagVariables")', function() {
       // uncomment below and update the code to test the property ingredientOfUserTagVariables
       //var instane = new Quantimodo.Variable();
@@ -346,6 +364,12 @@
 
     it('should have the property ionIcon (base name: "ionIcon")', function() {
       // uncomment below and update the code to test the property ionIcon
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property joinedCommonTagVariables (base name: "joinedCommonTagVariables")', function() {
+      // uncomment below and update the code to test the property joinedCommonTagVariables
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
@@ -626,14 +650,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property parent (base name: "parent")', function() {
-      // uncomment below and update the code to test the property parent
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property parentId (base name: "parentId")', function() {
-      // uncomment below and update the code to test the property parentId
+    it('should have the property parentCommonTagVariables (base name: "parentCommonTagVariables")', function() {
+      // uncomment below and update the code to test the property parentCommonTagVariables
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
