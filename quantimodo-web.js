@@ -5149,6 +5149,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {Boolean} opts.includeTags Return parent, child, duplicate, and ingredient variables
      * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
+     * @param {Number} opts.variableId Example: 13
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -5198,6 +5199,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'platform': opts['platform'],
         'includeTags': opts['includeTags'],
         'recalculate': opts['recalculate'],
+        'variableId': opts['variableId'],
       };
       var collectionQueryParams = {
       };

@@ -245,6 +245,7 @@ var opts = {
   'platform': "platform_example", // String | Example: chrome, android, ios, web
   'includeTags': true, // Boolean | Return parent, child, duplicate, and ingredient variables
   'recalculate': true // Boolean | Recalculate instead of using cached analysis
+  'variableId': 56 // Number | Example: 13
 };
 
 var callback = function(error, data, response) {
@@ -299,6 +300,7 @@ Name | Type | Description  | Notes
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
  **includeTags** | **Boolean**| Return parent, child, duplicate, and ingredient variables | [optional] 
  **recalculate** | **Boolean**| Recalculate instead of using cached analysis | [optional] 
+ **variableId** | **Number**| Example: 13 | [optional] 
 
 ### Return type
 
