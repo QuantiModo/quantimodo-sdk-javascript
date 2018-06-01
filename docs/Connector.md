@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **linkedDisplayNameHtml** | **String** | Example: &lt;a href&#x3D;\&quot;http://www.facebook.com\&quot;&gt;Facebook&lt;/a&gt; | [optional] 
 **longDescription** | **String** | Example: Facebook is a social networking website where users may create a personal profile, add other users as friends, and exchange messages. | [optional] 
 **message** | **String** | Example: Got 412 new measurements on 2017-07-31 10:10:34 | [optional] 
+**mobileConnectMethod** | **String** | Mobile connect method: webview, cordova, google, spreadsheet, or ip | [optional] 
 **name** | **String** | Connector lowercase system name | 
 **platforms** | **[String]** | Platforms (chrome, android, ios, web) that you can connect on. | [optional] 
 **scopes** | **[String]** | Required connector scopes | [optional] 

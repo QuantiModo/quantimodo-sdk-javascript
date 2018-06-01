@@ -194,6 +194,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property mobileConnectMethod (base name: "mobileConnectMethod")', function() {
+      // uncomment below and update the code to test the property mobileConnectMethod
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
       //var instane = new Quantimodo.Connector();

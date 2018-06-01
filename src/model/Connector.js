@@ -79,6 +79,7 @@
 
 
 
+
     _this['name'] = name;
 
 
@@ -170,6 +171,9 @@
       }
       if (data.hasOwnProperty('message')) {
         obj['message'] = ApiClient.convertToType(data['message'], 'String');
+      }
+      if (data.hasOwnProperty('mobileConnectMethod')) {
+        obj['mobileConnectMethod'] = ApiClient.convertToType(data['mobileConnectMethod'], 'String');
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -319,6 +323,11 @@
    * @member {String} message
    */
   exports.prototype['message'] = undefined;
+  /**
+   * Mobile connect method: webview, cordova, google, spreadsheet, or ip
+   * @member {String} mobileConnectMethod
+   */
+  exports.prototype['mobileConnectMethod'] = undefined;
   /**
    * Connector lowercase system name
    * @member {String} name
