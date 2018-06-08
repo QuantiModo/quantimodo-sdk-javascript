@@ -85,6 +85,7 @@
 
 
 
+
     _this['totalMeasurementsInLastUpdate'] = totalMeasurementsInLastUpdate;
 
 
@@ -180,6 +181,9 @@
       }
       if (data.hasOwnProperty('platforms')) {
         obj['platforms'] = ApiClient.convertToType(data['platforms'], ['String']);
+      }
+      if (data.hasOwnProperty('premium')) {
+        obj['premium'] = ApiClient.convertToType(data['premium'], 'Boolean');
       }
       if (data.hasOwnProperty('scopes')) {
         obj['scopes'] = ApiClient.convertToType(data['scopes'], ['String']);
@@ -338,6 +342,11 @@
    * @member {Array.<String>} platforms
    */
   exports.prototype['platforms'] = undefined;
+  /**
+   * True if connection requires upgrade
+   * @member {Boolean} premium
+   */
+  exports.prototype['premium'] = undefined;
   /**
    * Required connector scopes
    * @member {Array.<String>} scopes

@@ -212,6 +212,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property premium (base name: "premium")', function() {
+      // uncomment below and update the code to test the property premium
+      //var instane = new Quantimodo.Connector();
+      //expect(instance).to.be();
+    });
+
     it('should have the property scopes (base name: "scopes")', function() {
       // uncomment below and update the code to test the property scopes
       //var instane = new Quantimodo.Connector();
