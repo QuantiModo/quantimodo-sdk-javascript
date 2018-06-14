@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/Variable'], factory);
+    define(['ApiClient', 'model/Chart', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/Variable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'), require('./Variable'));
+    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyCharts'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'), require('./Variable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText, root.Quantimodo.Variable);
+    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyCharts, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText, root.Quantimodo.Variable);
   }
-}(this, function(ApiClient, Chart, Correlation, ParticipantInstruction, StudyHtml, StudyImages, StudyLinks, StudyText, Variable) {
+}(this, function(ApiClient, Chart, Correlation, ParticipantInstruction, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudyText, Variable) {
   'use strict';
 
 
@@ -47,6 +47,7 @@
    */
   var exports = function(type) {
     var _this = this;
+
 
 
 
@@ -77,6 +78,9 @@
       }
       if (data.hasOwnProperty('charts')) {
         obj['charts'] = ApiClient.convertToType(data['charts'], [Chart]);
+      }
+      if (data.hasOwnProperty('studyCharts')) {
+        obj['studyCharts'] = ApiClient.convertToType(data['studyCharts'], [StudyCharts]);
       }
       if (data.hasOwnProperty('effectVariable')) {
         obj['effectVariable'] = Variable.constructFromObject(data['effectVariable']);
@@ -117,6 +121,10 @@
    * @member {Array.<module:model/Chart>} charts
    */
   exports.prototype['charts'] = undefined;
+  /**
+   * @member {Array.<module:model/StudyCharts>} studyCharts
+   */
+  exports.prototype['studyCharts'] = undefined;
   /**
    * @member {module:model/Variable} effectVariable
    */

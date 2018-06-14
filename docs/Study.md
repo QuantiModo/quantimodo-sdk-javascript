@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **causeVariable** | [**Variable**](Variable.md) |  | [optional] 
 **charts** | [**[Chart]**](Chart.md) |  | [optional] 
+**studyCharts** | [**[StudyCharts]**](StudyCharts.md) |  | [optional] 
 **effectVariable** | [**Variable**](Variable.md) |  | [optional] 
 **participantInstructions** | [**ParticipantInstruction**](ParticipantInstruction.md) |  | [optional] 
 **statistics** | [**Correlation**](Correlation.md) |  | [optional] 

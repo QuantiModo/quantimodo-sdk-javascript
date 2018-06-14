@@ -68,6 +68,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property studyCharts (base name: "studyCharts")', function() {
+      // uncomment below and update the code to test the property studyCharts
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
     it('should have the property effectVariable (base name: "effectVariable")', function() {
       // uncomment below and update the code to test the property effectVariable
       //var instane = new Quantimodo.Study();
