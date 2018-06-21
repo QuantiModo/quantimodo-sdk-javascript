@@ -80,7 +80,7 @@
         obj['charts'] = ApiClient.convertToType(data['charts'], [Chart]);
       }
       if (data.hasOwnProperty('studyCharts')) {
-        obj['studyCharts'] = ApiClient.convertToType(data['studyCharts'], [StudyCharts]);
+        obj['studyCharts'] = StudyCharts.constructFromObject(data['studyCharts']);
       }
       if (data.hasOwnProperty('effectVariable')) {
         obj['effectVariable'] = Variable.constructFromObject(data['effectVariable']);
@@ -122,7 +122,7 @@
    */
   exports.prototype['charts'] = undefined;
   /**
-   * @member {Array.<module:model/StudyCharts>} studyCharts
+   * @member {module:model/StudyCharts} studyCharts
    */
   exports.prototype['studyCharts'] = undefined;
   /**
