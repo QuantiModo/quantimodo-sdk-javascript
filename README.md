@@ -1,5 +1,7 @@
 # quantimodo
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/QuantiModo/quantimodo-sdk-javascript.svg)](https://greenkeeper.io/)
+
 Quantimodo - JavaScript client for quantimodo
 QuantiModo makes it easy to retrieve normalized user data from a wide array of devices and applications. [Learn about QuantiModo](https://quantimo.do), check out our [docs](https://github.com/QuantiModo/docs) or contact us at [help.quantimo.do](https://help.quantimo.do).
 
