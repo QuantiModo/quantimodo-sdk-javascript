@@ -7,12 +7,14 @@ Name | Type | Description | Notes
 **accessTokenExpires** | **String** | Example: 2018-08-08 02:41:19 | [optional] 
 **accessTokenExpiresAtMilliseconds** | **Number** | Example: 1533696079000 | [optional] 
 **administrator** | **Boolean** | Is user administrator | 
+**authorizedClients** | [**AuthorizedClients**](AuthorizedClients.md) |  | [optional] 
 **avatar** | **String** | Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz&#x3D;50 | [optional] 
 **avatarImage** | **String** | Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz&#x3D;50 | [optional] 
 **capabilities** | **String** | Example: a:1:{s:13:\&quot;administrator\&quot;;b:1;} | [optional] 
 **clientId** | **String** | Example: quantimodo | [optional] 
 **clientUserId** | **String** | Example: 118444693184829555362 | [optional] 
 **combineNotifications** | **Boolean** | Example: 1 | [optional] 
+**createdAt** | **String** | When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format | [optional] 
 **displayName** | **String** | User display name | 
 **earliestReminderTime** | **String** | Earliest time user should get notifications. Example: 05:00:00 | [optional] 
 **email** | **String** | User email | 
@@ -45,6 +47,7 @@ Name | Type | Description | Notes
 **subscriptionProvider** | **String** | Example: google | [optional] 
 **timeZoneOffset** | **Number** | Example: 300 | [optional] 
 **trackLocation** | **Boolean** | Example: 1 | [optional] 
+**updatedAt** | **String** | When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format | [optional] 
 **userRegistered** | **String** | Example: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **userUrl** | **String** | Example: https://plus.google.com/+MikeSinn | [optional] 
 

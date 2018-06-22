@@ -80,6 +80,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property authorizedClients (base name: "authorizedClients")', function() {
+      // uncomment below and update the code to test the property authorizedClients
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
     it('should have the property avatar (base name: "avatar")', function() {
       // uncomment below and update the code to test the property avatar
       //var instane = new Quantimodo.User();
@@ -112,6 +118,12 @@
 
     it('should have the property combineNotifications (base name: "combineNotifications")', function() {
       // uncomment below and update the code to test the property combineNotifications
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property createdAt (base name: "createdAt")', function() {
+      // uncomment below and update the code to test the property createdAt
       //var instane = new Quantimodo.User();
       //expect(instance).to.be();
     });
@@ -304,6 +316,12 @@
 
     it('should have the property trackLocation (base name: "trackLocation")', function() {
       // uncomment below and update the code to test the property trackLocation
+      //var instane = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updatedAt (base name: "updatedAt")', function() {
+      // uncomment below and update the code to test the property updatedAt
       //var instane = new Quantimodo.User();
       //expect(instance).to.be();
     });

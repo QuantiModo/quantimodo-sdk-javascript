@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.UserApi();
+    instance = new Quantimodo.AuthorizedClients();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,47 +49,31 @@
       object[property] = value;
   }
 
-  describe('UserApi', function() {
-    describe('deleteShare', function() {
-      it('should call deleteShare successfully', function(done) {
-        //uncomment below and update the code to test deleteShare
-        //instance.deleteShare(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('AuthorizedClients', function() {
+    it('should create an instance of AuthorizedClients', function() {
+      // uncomment below and update the code to test AuthorizedClients
+      //var instane = new Quantimodo.AuthorizedClients();
+      //expect(instance).to.be.a(Quantimodo.AuthorizedClients);
     });
-    describe('deleteUser', function() {
-      it('should call deleteUser successfully', function(done) {
-        //uncomment below and update the code to test deleteUser
-        //instance.deleteUser(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property apps (base name: "apps")', function() {
+      // uncomment below and update the code to test the property apps
+      //var instane = new Quantimodo.AuthorizedClients();
+      //expect(instance).to.be();
     });
-    describe('getUser', function() {
-      it('should call getUser successfully', function(done) {
-        //uncomment below and update the code to test getUser
-        //instance.getUser(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property individuals (base name: "individuals")', function() {
+      // uncomment below and update the code to test the property individuals
+      //var instane = new Quantimodo.AuthorizedClients();
+      //expect(instance).to.be();
     });
-    describe('postUserSettings', function() {
-      it('should call postUserSettings successfully', function(done) {
-        //uncomment below and update the code to test postUserSettings
-        //instance.postUserSettings(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property studies (base name: "studies")', function() {
+      // uncomment below and update the code to test the property studies
+      //var instane = new Quantimodo.AuthorizedClients();
+      //expect(instance).to.be();
     });
+
   });
 
 }));

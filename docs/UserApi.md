@@ -4,10 +4,74 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteShare**](UserApi.md#deleteShare) | **DELETE** /v3/sharing/delete | Delete share
 [**deleteUser**](UserApi.md#deleteUser) | **DELETE** /v3/user/delete | Delete user
 [**getUser**](UserApi.md#getUser) | **GET** /v3/user | Get user info
 [**postUserSettings**](UserApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
 
+
+<a name="deleteShare"></a>
+# **deleteShare**
+> CommonResponse deleteShare(reason, opts)
+
+Delete share
+
+Remove access to user data for a given client_id associated with a given individual, app, or study
+
+### Example
+```javascript
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: quantimodo_oauth2
+var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
+quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new Quantimodo.UserApi();
+
+var reason = "reason_example"; // String | Example: I hate you!
+
+var opts = { 
+  'clientId': "clientId_example", // String | Example: oauth_test_client
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.deleteShare(reason, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reason** | **String**| Example: I hate you! | 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+
+### Return type
+
+[**CommonResponse**](CommonResponse.md)
+
+### Authorization
+
+[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="deleteUser"></a>
 # **deleteUser**
@@ -110,7 +174,8 @@ var opts = {
   'clientUserId': 56, // Number | Example: 74802
   'platform': "platform_example", // String | Example: chrome, android, ios, web
   'log': "log_example", // String | Username or email
-  'pwd': "pwd_example" // String | User password
+  'pwd': "pwd_example", // String | User password
+  'includeAuthorizedClients': true // Boolean | Return list of apps, studies, and individuals with access to user data
 };
 
 var callback = function(error, data, response) {
@@ -140,6 +205,7 @@ Name | Type | Description  | Notes
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
  **log** | **String**| Username or email | [optional] 
  **pwd** | **String**| User password | [optional] 
+ **includeAuthorizedClients** | **Boolean**| Return list of apps, studies, and individuals with access to user data | [optional] 
 
 ### Return type
 

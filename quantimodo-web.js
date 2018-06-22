@@ -2555,7 +2555,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 }));
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":81,"fs":80,"querystring":85,"superagent":2}],10:[function(require,module,exports){
+},{"buffer":82,"fs":81,"querystring":86,"superagent":2}],10:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -2884,7 +2884,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/CommonResponse":26,"../model/Correlation":30,"../model/GetCorrelationsResponse":37,"../model/JsonErrorResponse":40,"../model/Study":57,"../model/Vote":77,"../model/VoteDelete":78}],11:[function(require,module,exports){
+},{"../ApiClient":9,"../model/CommonResponse":27,"../model/Correlation":31,"../model/GetCorrelationsResponse":38,"../model/JsonErrorResponse":41,"../model/Study":58,"../model/Vote":78,"../model/VoteDelete":79}],11:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -2987,7 +2987,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/AppSettingsResponse":23,"../model/JsonErrorResponse":40}],12:[function(require,module,exports){
+},{"../ApiClient":9,"../model/AppSettingsResponse":23,"../model/JsonErrorResponse":41}],12:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -3569,7 +3569,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/GetConnectorsResponse":35}],14:[function(require,module,exports){
+},{"../ApiClient":9,"../model/GetConnectorsResponse":36}],14:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -3969,7 +3969,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/CommonResponse":26,"../model/Measurement":41,"../model/MeasurementDelete":42,"../model/MeasurementSet":44,"../model/MeasurementUpdate":45,"../model/Pair":46,"../model/PostMeasurementsResponse":50}],15:[function(require,module,exports){
+},{"../ApiClient":9,"../model/CommonResponse":27,"../model/Measurement":42,"../model/MeasurementDelete":43,"../model/MeasurementSet":45,"../model/MeasurementUpdate":46,"../model/Pair":47,"../model/PostMeasurementsResponse":51}],15:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -4109,7 +4109,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/DeviceToken":32}],16:[function(require,module,exports){
+},{"../ApiClient":9,"../model/DeviceToken":33}],16:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -4452,7 +4452,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/CommonResponse":26,"../model/GetTrackingReminderNotificationsResponse":38,"../model/PostTrackingRemindersResponse":53,"../model/TrackingReminder":63,"../model/TrackingReminderDelete":64,"../model/TrackingReminderNotificationPost":67}],17:[function(require,module,exports){
+},{"../ApiClient":9,"../model/CommonResponse":27,"../model/GetTrackingReminderNotificationsResponse":39,"../model/PostTrackingRemindersResponse":54,"../model/TrackingReminder":64,"../model/TrackingReminderDelete":65,"../model/TrackingReminderNotificationPost":68}],17:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -4547,7 +4547,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/PostStudyPublishResponse":51}],18:[function(require,module,exports){
+},{"../ApiClient":9,"../model/PostStudyPublishResponse":52}],18:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -4683,7 +4683,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/Unit":69,"../model/UnitCategory":70}],19:[function(require,module,exports){
+},{"../ApiClient":9,"../model/Unit":70,"../model/UnitCategory":71}],19:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -4732,6 +4732,60 @@ exports.cleanHeader = function(header, shouldStripCookie){
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
+
+    /**
+     * Callback function to receive the result of the deleteShare operation.
+     * @callback module:api/UserApi~deleteShareCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CommonResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete share
+     * Remove access to user data for a given client_id associated with a given individual, app, or study
+     * @param {String} reason Example: I hate you!
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:api/UserApi~deleteShareCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CommonResponse}
+     */
+    this.deleteShare = function(reason, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'reason' is set
+      if (reason === undefined || reason === null) {
+        throw new Error("Missing the required parameter 'reason' when calling deleteShare");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'clientId': opts['clientId'],
+        'reason': reason,
+        'platform': opts['platform'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = CommonResponse;
+
+      return this.apiClient.callApi(
+        '/v3/sharing/delete', 'DELETE',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the deleteUser operation.
@@ -4812,6 +4866,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {String} opts.log Username or email
      * @param {String} opts.pwd User password
+     * @param {Boolean} opts.includeAuthorizedClients Return list of apps, studies, and individuals with access to user data
      * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -4836,6 +4891,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'platform': opts['platform'],
         'log': opts['log'],
         'pwd': opts['pwd'],
+        'includeAuthorizedClients': opts['includeAuthorizedClients'],
       };
       var collectionQueryParams = {
       };
@@ -4915,7 +4971,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/CommonResponse":26,"../model/PostUserSettingsResponse":55,"../model/User":71}],20:[function(require,module,exports){
+},{"../ApiClient":9,"../model/CommonResponse":27,"../model/PostUserSettingsResponse":56,"../model/User":72}],20:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -5392,7 +5448,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/CommonResponse":26,"../model/UserTag":72,"../model/UserVariableDelete":73,"../model/Variable":74,"../model/VariableCategory":75}],21:[function(require,module,exports){
+},{"../ApiClient":9,"../model/CommonResponse":27,"../model/UserTag":73,"../model/UserVariableDelete":74,"../model/Variable":75,"../model/VariableCategory":76}],21:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -5411,12 +5467,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AppSettings', 'model/AppSettingsResponse', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/ConnectInstructions', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/DeviceToken', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/Scope', 'model/Study', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AppSettingsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/StudyApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
+    define(['ApiClient', 'model/AppSettings', 'model/AppSettingsResponse', 'model/AuthorizedClients', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/ConnectInstructions', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/DeviceToken', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/Scope', 'model/Study', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AppSettingsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/StudyApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AppSettings'), require('./model/AppSettingsResponse'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/ConnectInstructions'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/DeviceToken'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/Scope'), require('./model/Study'), require('./model/StudyCharts'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyLinks'), require('./model/StudyText'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationAction'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/VariableCharts'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AppSettingsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/StudyApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AppSettings'), require('./model/AppSettingsResponse'), require('./model/AuthorizedClients'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/ConnectInstructions'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/DeviceToken'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/Scope'), require('./model/Study'), require('./model/StudyCharts'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyLinks'), require('./model/StudyText'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationAction'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/VariableCharts'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AppSettingsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/StudyApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
   }
-}(function(ApiClient, AppSettings, AppSettingsResponse, Button, Chart, CommonResponse, ConnectInstructions, Connector, ConversionStep, Correlation, DataSource, DeviceToken, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetTrackingReminderNotificationsResponse, Image, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, Scope, Study, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudyText, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationAction, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserTag, UserVariableDelete, Variable, VariableCategory, VariableCharts, Vote, VoteDelete, AnalyticsApi, AppSettingsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, StudyApi, UnitsApi, UserApi, VariablesApi) {
+}(function(ApiClient, AppSettings, AppSettingsResponse, AuthorizedClients, Button, Chart, CommonResponse, ConnectInstructions, Connector, ConversionStep, Correlation, DataSource, DeviceToken, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetTrackingReminderNotificationsResponse, Image, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, Scope, Study, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudyText, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationAction, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserTag, UserVariableDelete, Variable, VariableCategory, VariableCharts, Vote, VoteDelete, AnalyticsApi, AppSettingsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, StudyApi, UnitsApi, UserApi, VariablesApi) {
   'use strict';
 
   /**
@@ -5466,6 +5522,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @property {module:model/AppSettingsResponse}
      */
     AppSettingsResponse: AppSettingsResponse,
+    /**
+     * The AuthorizedClients model constructor.
+     * @property {module:model/AuthorizedClients}
+     */
+    AuthorizedClients: AuthorizedClients,
     /**
      * The Button model constructor.
      * @property {module:model/Button}
@@ -5801,7 +5862,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"./ApiClient":9,"./api/AnalyticsApi":10,"./api/AppSettingsApi":11,"./api/AuthenticationApi":12,"./api/ConnectorsApi":13,"./api/MeasurementsApi":14,"./api/NotificationsApi":15,"./api/RemindersApi":16,"./api/StudyApi":17,"./api/UnitsApi":18,"./api/UserApi":19,"./api/VariablesApi":20,"./model/AppSettings":22,"./model/AppSettingsResponse":23,"./model/Button":24,"./model/Chart":25,"./model/CommonResponse":26,"./model/ConnectInstructions":27,"./model/Connector":28,"./model/ConversionStep":29,"./model/Correlation":30,"./model/DataSource":31,"./model/DeviceToken":32,"./model/Explanation":33,"./model/ExplanationStartTracking":34,"./model/GetConnectorsResponse":35,"./model/GetCorrelationsDataResponse":36,"./model/GetCorrelationsResponse":37,"./model/GetTrackingReminderNotificationsResponse":38,"./model/Image":39,"./model/JsonErrorResponse":40,"./model/Measurement":41,"./model/MeasurementDelete":42,"./model/MeasurementItem":43,"./model/MeasurementSet":44,"./model/MeasurementUpdate":45,"./model/Pair":46,"./model/ParticipantInstruction":47,"./model/PostCorrelation":48,"./model/PostMeasurementsDataResponse":49,"./model/PostMeasurementsResponse":50,"./model/PostStudyPublishResponse":51,"./model/PostTrackingRemindersDataResponse":52,"./model/PostTrackingRemindersResponse":53,"./model/PostUserSettingsDataResponse":54,"./model/PostUserSettingsResponse":55,"./model/Scope":56,"./model/Study":57,"./model/StudyCharts":58,"./model/StudyHtml":59,"./model/StudyImages":60,"./model/StudyLinks":61,"./model/StudyText":62,"./model/TrackingReminder":63,"./model/TrackingReminderDelete":64,"./model/TrackingReminderNotification":65,"./model/TrackingReminderNotificationAction":66,"./model/TrackingReminderNotificationPost":67,"./model/TrackingReminderNotificationTrackAllAction":68,"./model/Unit":69,"./model/UnitCategory":70,"./model/User":71,"./model/UserTag":72,"./model/UserVariableDelete":73,"./model/Variable":74,"./model/VariableCategory":75,"./model/VariableCharts":76,"./model/Vote":77,"./model/VoteDelete":78}],22:[function(require,module,exports){
+},{"./ApiClient":9,"./api/AnalyticsApi":10,"./api/AppSettingsApi":11,"./api/AuthenticationApi":12,"./api/ConnectorsApi":13,"./api/MeasurementsApi":14,"./api/NotificationsApi":15,"./api/RemindersApi":16,"./api/StudyApi":17,"./api/UnitsApi":18,"./api/UserApi":19,"./api/VariablesApi":20,"./model/AppSettings":22,"./model/AppSettingsResponse":23,"./model/AuthorizedClients":24,"./model/Button":25,"./model/Chart":26,"./model/CommonResponse":27,"./model/ConnectInstructions":28,"./model/Connector":29,"./model/ConversionStep":30,"./model/Correlation":31,"./model/DataSource":32,"./model/DeviceToken":33,"./model/Explanation":34,"./model/ExplanationStartTracking":35,"./model/GetConnectorsResponse":36,"./model/GetCorrelationsDataResponse":37,"./model/GetCorrelationsResponse":38,"./model/GetTrackingReminderNotificationsResponse":39,"./model/Image":40,"./model/JsonErrorResponse":41,"./model/Measurement":42,"./model/MeasurementDelete":43,"./model/MeasurementItem":44,"./model/MeasurementSet":45,"./model/MeasurementUpdate":46,"./model/Pair":47,"./model/ParticipantInstruction":48,"./model/PostCorrelation":49,"./model/PostMeasurementsDataResponse":50,"./model/PostMeasurementsResponse":51,"./model/PostStudyPublishResponse":52,"./model/PostTrackingRemindersDataResponse":53,"./model/PostTrackingRemindersResponse":54,"./model/PostUserSettingsDataResponse":55,"./model/PostUserSettingsResponse":56,"./model/Scope":57,"./model/Study":58,"./model/StudyCharts":59,"./model/StudyHtml":60,"./model/StudyImages":61,"./model/StudyLinks":62,"./model/StudyText":63,"./model/TrackingReminder":64,"./model/TrackingReminderDelete":65,"./model/TrackingReminderNotification":66,"./model/TrackingReminderNotificationAction":67,"./model/TrackingReminderNotificationPost":68,"./model/TrackingReminderNotificationTrackAllAction":69,"./model/Unit":70,"./model/UnitCategory":71,"./model/User":72,"./model/UserTag":73,"./model/UserVariableDelete":74,"./model/Variable":75,"./model/VariableCategory":76,"./model/VariableCharts":77,"./model/Vote":78,"./model/VoteDelete":79}],22:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -6057,7 +6118,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./User":71}],23:[function(require,module,exports){
+},{"../ApiClient":9,"./User":72}],23:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -6186,6 +6247,111 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
+    define(['ApiClient', 'model/AppSettings'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'), require('./AppSettings'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.Quantimodo) {
+      root.Quantimodo = {};
+    }
+    root.Quantimodo.AuthorizedClients = factory(root.Quantimodo.ApiClient, root.Quantimodo.AppSettings);
+  }
+}(this, function(ApiClient, AppSettings) {
+  'use strict';
+
+
+
+
+  /**
+   * The AuthorizedClients model module.
+   * @module model/AuthorizedClients
+   * @version 5.8.112511
+   */
+
+  /**
+   * Constructs a new <code>AuthorizedClients</code>.
+   * @alias module:model/AuthorizedClients
+   * @class
+   * @param apps {Array.<module:model/AppSettings>} Applications with access to user measurements for all variables
+   * @param individuals {Array.<module:model/AppSettings>} Individuals such as physicians or family members with access to user measurements for all variables
+   * @param studies {Array.<module:model/AppSettings>} Studies with access to generally anonymous user measurements for a specific predictor and outcome variable
+   */
+  var exports = function(apps, individuals, studies) {
+    var _this = this;
+
+    _this['apps'] = apps;
+    _this['individuals'] = individuals;
+    _this['studies'] = studies;
+  };
+
+  /**
+   * Constructs a <code>AuthorizedClients</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/AuthorizedClients} obj Optional instance to populate.
+   * @return {module:model/AuthorizedClients} The populated <code>AuthorizedClients</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('apps')) {
+        obj['apps'] = ApiClient.convertToType(data['apps'], [AppSettings]);
+      }
+      if (data.hasOwnProperty('individuals')) {
+        obj['individuals'] = ApiClient.convertToType(data['individuals'], [AppSettings]);
+      }
+      if (data.hasOwnProperty('studies')) {
+        obj['studies'] = ApiClient.convertToType(data['studies'], [AppSettings]);
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * Applications with access to user measurements for all variables
+   * @member {Array.<module:model/AppSettings>} apps
+   */
+  exports.prototype['apps'] = undefined;
+  /**
+   * Individuals such as physicians or family members with access to user measurements for all variables
+   * @member {Array.<module:model/AppSettings>} individuals
+   */
+  exports.prototype['individuals'] = undefined;
+  /**
+   * Studies with access to generally anonymous user measurements for a specific predictor and outcome variable
+   * @member {Array.<module:model/AppSettings>} studies
+   */
+  exports.prototype['studies'] = undefined;
+
+
+
+  return exports;
+}));
+
+
+
+},{"../ApiClient":9,"./AppSettings":22}],25:[function(require,module,exports){
+/**
+ * quantimodo
+ * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
+ *
+ * OpenAPI spec version: 5.8.112511
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.3.1
+ *
+ * Do not edit the class manually.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
     define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
@@ -6289,7 +6455,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],25:[function(require,module,exports){
+},{"../ApiClient":9}],26:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -6418,7 +6584,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],26:[function(require,module,exports){
+},{"../ApiClient":9}],27:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -6521,7 +6687,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],27:[function(require,module,exports){
+},{"../ApiClient":9}],28:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -6624,7 +6790,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],28:[function(require,module,exports){
+},{"../ApiClient":9}],29:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -7022,7 +7188,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Button":24,"./ConnectInstructions":27}],29:[function(require,module,exports){
+},{"../ApiClient":9,"./Button":25,"./ConnectInstructions":28}],30:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -7134,7 +7300,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],30:[function(require,module,exports){
+},{"../ApiClient":9}],31:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8185,7 +8351,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./DataSource":31,"./StudyHtml":59,"./StudyImages":60,"./StudyLinks":61,"./StudyText":62}],31:[function(require,module,exports){
+},{"../ApiClient":9,"./DataSource":32,"./StudyHtml":60,"./StudyImages":61,"./StudyLinks":62,"./StudyText":63}],32:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8390,7 +8556,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],32:[function(require,module,exports){
+},{"../ApiClient":9}],33:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8494,7 +8660,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],33:[function(require,module,exports){
+},{"../ApiClient":9}],34:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8626,7 +8792,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./ExplanationStartTracking":34,"./Image":39}],34:[function(require,module,exports){
+},{"../ApiClient":9,"./ExplanationStartTracking":35,"./Image":40}],35:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8730,7 +8896,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Button":24}],35:[function(require,module,exports){
+},{"../ApiClient":9,"./Button":25}],36:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8841,7 +9007,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Connector":28}],36:[function(require,module,exports){
+},{"../ApiClient":9,"./Connector":29}],37:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8934,7 +9100,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Correlation":30,"./Explanation":33}],37:[function(require,module,exports){
+},{"../ApiClient":9,"./Correlation":31,"./Explanation":34}],38:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -9045,7 +9211,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./GetCorrelationsDataResponse":36}],38:[function(require,module,exports){
+},{"../ApiClient":9,"./GetCorrelationsDataResponse":37}],39:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -9156,7 +9322,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminderNotification":65}],39:[function(require,module,exports){
+},{"../ApiClient":9,"./TrackingReminderNotification":66}],40:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -9261,7 +9427,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],40:[function(require,module,exports){
+},{"../ApiClient":9}],41:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -9355,7 +9521,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],41:[function(require,module,exports){
+},{"../ApiClient":9}],42:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -9858,7 +10024,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],42:[function(require,module,exports){
+},{"../ApiClient":9}],43:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -9970,7 +10136,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],43:[function(require,module,exports){
+},{"../ApiClient":9}],44:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10074,7 +10240,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],44:[function(require,module,exports){
+},{"../ApiClient":9}],45:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10233,7 +10399,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./MeasurementItem":43}],45:[function(require,module,exports){
+},{"../ApiClient":9,"./MeasurementItem":44}],46:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10345,7 +10511,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],46:[function(require,module,exports){
+},{"../ApiClient":9}],47:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10517,7 +10683,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],47:[function(require,module,exports){
+},{"../ApiClient":9}],48:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10610,7 +10776,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],48:[function(require,module,exports){
+},{"../ApiClient":9}],49:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10724,7 +10890,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],49:[function(require,module,exports){
+},{"../ApiClient":9}],50:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10807,7 +10973,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Variable":74}],50:[function(require,module,exports){
+},{"../ApiClient":9,"./Variable":75}],51:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10918,7 +11084,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./PostMeasurementsDataResponse":49}],51:[function(require,module,exports){
+},{"../ApiClient":9,"./PostMeasurementsDataResponse":50}],52:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11011,7 +11177,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],52:[function(require,module,exports){
+},{"../ApiClient":9}],53:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11110,7 +11276,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminder":63,"./TrackingReminderNotification":65,"./Variable":74}],53:[function(require,module,exports){
+},{"../ApiClient":9,"./TrackingReminder":64,"./TrackingReminderNotification":66,"./Variable":75}],54:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11221,7 +11387,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./PostTrackingRemindersDataResponse":52}],54:[function(require,module,exports){
+},{"../ApiClient":9,"./PostTrackingRemindersDataResponse":53}],55:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11305,7 +11471,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],55:[function(require,module,exports){
+},{"../ApiClient":9}],56:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11416,7 +11582,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./PostUserSettingsDataResponse":54}],56:[function(require,module,exports){
+},{"../ApiClient":9,"./PostUserSettingsDataResponse":55}],57:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11500,7 +11666,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],57:[function(require,module,exports){
+},{"../ApiClient":9}],58:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11674,7 +11840,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Chart":25,"./Correlation":30,"./ParticipantInstruction":47,"./StudyCharts":58,"./StudyHtml":59,"./StudyImages":60,"./StudyLinks":61,"./StudyText":62,"./Variable":74}],58:[function(require,module,exports){
+},{"../ApiClient":9,"./Chart":26,"./Correlation":31,"./ParticipantInstruction":48,"./StudyCharts":59,"./StudyHtml":60,"./StudyImages":61,"./StudyLinks":62,"./StudyText":63,"./Variable":75}],59:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11790,7 +11956,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Chart":25}],59:[function(require,module,exports){
+},{"../ApiClient":9,"./Chart":26}],60:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11984,7 +12150,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],60:[function(require,module,exports){
+},{"../ApiClient":9}],61:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12143,7 +12309,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],61:[function(require,module,exports){
+},{"../ApiClient":9}],62:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12278,7 +12444,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],62:[function(require,module,exports){
+},{"../ApiClient":9}],63:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12566,7 +12732,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],63:[function(require,module,exports){
+},{"../ApiClient":9}],64:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -13351,7 +13517,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminderNotificationAction":66,"./Unit":69}],64:[function(require,module,exports){
+},{"../ApiClient":9,"./TrackingReminderNotificationAction":67,"./Unit":70}],65:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -13436,7 +13602,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],65:[function(require,module,exports){
+},{"../ApiClient":9}],66:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14178,7 +14344,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminderNotificationAction":66,"./TrackingReminderNotificationTrackAllAction":68,"./Unit":69}],66:[function(require,module,exports){
+},{"../ApiClient":9,"./TrackingReminderNotificationAction":67,"./TrackingReminderNotificationTrackAllAction":69,"./Unit":70}],67:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14311,7 +14477,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],67:[function(require,module,exports){
+},{"../ApiClient":9}],68:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14437,7 +14603,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],68:[function(require,module,exports){
+},{"../ApiClient":9}],69:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14552,7 +14718,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],69:[function(require,module,exports){
+},{"../ApiClient":9}],70:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14825,7 +14991,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./ConversionStep":29,"./UnitCategory":70}],70:[function(require,module,exports){
+},{"../ApiClient":9,"./ConversionStep":30,"./UnitCategory":71}],71:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14928,7 +15094,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],71:[function(require,module,exports){
+},{"../ApiClient":9}],72:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14947,18 +15113,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/AuthorizedClients'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./AuthorizedClients'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.User = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.User = factory(root.Quantimodo.ApiClient, root.Quantimodo.AuthorizedClients);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, AuthorizedClients) {
   'use strict';
 
 
@@ -14994,6 +15160,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
     _this['displayName'] = displayName;
 
     _this['email'] = email;
@@ -15008,6 +15176,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     _this['loginName'] = loginName;
+
 
 
 
@@ -15053,6 +15222,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('administrator')) {
         obj['administrator'] = ApiClient.convertToType(data['administrator'], 'Boolean');
       }
+      if (data.hasOwnProperty('authorizedClients')) {
+        obj['authorizedClients'] = AuthorizedClients.constructFromObject(data['authorizedClients']);
+      }
       if (data.hasOwnProperty('avatar')) {
         obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
       }
@@ -15070,6 +15242,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('combineNotifications')) {
         obj['combineNotifications'] = ApiClient.convertToType(data['combineNotifications'], 'Boolean');
+      }
+      if (data.hasOwnProperty('createdAt')) {
+        obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('displayName')) {
         obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
@@ -15167,6 +15342,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('trackLocation')) {
         obj['trackLocation'] = ApiClient.convertToType(data['trackLocation'], 'Boolean');
       }
+      if (data.hasOwnProperty('updatedAt')) {
+        obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'String');
+      }
       if (data.hasOwnProperty('userRegistered')) {
         obj['userRegistered'] = ApiClient.convertToType(data['userRegistered'], 'String');
       }
@@ -15198,6 +15376,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['administrator'] = undefined;
   /**
+   * @member {module:model/AuthorizedClients} authorizedClients
+   */
+  exports.prototype['authorizedClients'] = undefined;
+  /**
    * Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
    * @member {String} avatar
    */
@@ -15227,6 +15409,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Boolean} combineNotifications
    */
   exports.prototype['combineNotifications'] = undefined;
+  /**
+   * When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * @member {String} createdAt
+   */
+  exports.prototype['createdAt'] = undefined;
   /**
    * User display name
    * @member {String} displayName
@@ -15388,6 +15575,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['trackLocation'] = undefined;
   /**
+   * When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format
+   * @member {String} updatedAt
+   */
+  exports.prototype['updatedAt'] = undefined;
+  /**
    * Example: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} userRegistered
    */
@@ -15405,7 +15597,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],72:[function(require,module,exports){
+},{"../ApiClient":9,"./AuthorizedClients":24}],73:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15510,7 +15702,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],73:[function(require,module,exports){
+},{"../ApiClient":9}],74:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15595,7 +15787,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],74:[function(require,module,exports){
+},{"../ApiClient":9}],75:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -17050,7 +17242,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./DataSource":31,"./TrackingReminderNotificationAction":66,"./Unit":69,"./Variable":74,"./VariableCategory":75,"./VariableCharts":76}],75:[function(require,module,exports){
+},{"../ApiClient":9,"./DataSource":32,"./TrackingReminderNotificationAction":67,"./Unit":70,"./Variable":75,"./VariableCategory":76,"./VariableCharts":77}],76:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -17387,7 +17579,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],76:[function(require,module,exports){
+},{"../ApiClient":9}],77:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -17511,7 +17703,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Chart":25}],77:[function(require,module,exports){
+},{"../ApiClient":9,"./Chart":26}],78:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -17663,7 +17855,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],78:[function(require,module,exports){
+},{"../ApiClient":9}],79:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -17758,7 +17950,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],79:[function(require,module,exports){
+},{"../ApiClient":9}],80:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -17911,9 +18103,9 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],80:[function(require,module,exports){
-
 },{}],81:[function(require,module,exports){
+
+},{}],82:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -19651,7 +19843,7 @@ function numberIsNaN (obj) {
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":79,"ieee754":82}],82:[function(require,module,exports){
+},{"base64-js":80,"ieee754":83}],83:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -19737,7 +19929,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],83:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -19823,7 +20015,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],84:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -19910,11 +20102,11 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],85:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":83,"./encode":84}]},{},[21])(21)
+},{"./decode":84,"./encode":85}]},{},[21])(21)
 });

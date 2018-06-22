@@ -48,6 +48,60 @@
 
 
     /**
+     * Callback function to receive the result of the deleteShare operation.
+     * @callback module:api/UserApi~deleteShareCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CommonResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete share
+     * Remove access to user data for a given client_id associated with a given individual, app, or study
+     * @param {String} reason Example: I hate you!
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:api/UserApi~deleteShareCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CommonResponse}
+     */
+    this.deleteShare = function(reason, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'reason' is set
+      if (reason === undefined || reason === null) {
+        throw new Error("Missing the required parameter 'reason' when calling deleteShare");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'clientId': opts['clientId'],
+        'reason': reason,
+        'platform': opts['platform'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = CommonResponse;
+
+      return this.apiClient.callApi(
+        '/v3/sharing/delete', 'DELETE',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the deleteUser operation.
      * @callback module:api/UserApi~deleteUserCallback
      * @param {String} error Error message, if any.
@@ -126,6 +180,7 @@
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {String} opts.log Username or email
      * @param {String} opts.pwd User password
+     * @param {Boolean} opts.includeAuthorizedClients Return list of apps, studies, and individuals with access to user data
      * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -150,6 +205,7 @@
         'platform': opts['platform'],
         'log': opts['log'],
         'pwd': opts['pwd'],
+        'includeAuthorizedClients': opts['includeAuthorizedClients'],
       };
       var collectionQueryParams = {
       };
