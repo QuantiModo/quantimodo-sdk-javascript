@@ -8,7 +8,9 @@ Method | HTTP request | Description
 [**getCorrelationExplanations**](AnalyticsApi.md#getCorrelationExplanations) | **GET** /v3/correlations/explanations | Get correlation explanations
 [**getCorrelations**](AnalyticsApi.md#getCorrelations) | **GET** /v3/correlations | Get correlations
 [**getStudy**](AnalyticsApi.md#getStudy) | **GET** /v4/study | Get Study
+[**joinStudy**](AnalyticsApi.md#joinStudy) | **POST** /v3/study/join | Join Study
 [**postVote**](AnalyticsApi.md#postVote) | **POST** /v3/votes | Post or update vote
+[**publishStudy**](AnalyticsApi.md#publishStudy) | **POST** /v3/study/publish | Publish Study
 
 
 <a name="deleteVote"></a>
@@ -245,7 +247,8 @@ var opts = {
   'clientId': "clientId_example", // String | Example: oauth_test_client
   'includeCharts': true, // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
   'platform': "platform_example", // String | Example: chrome, android, ios, web
-  'recalculate': true // Boolean | Recalculate instead of using cached analysis
+  'recalculate': true, // Boolean | Recalculate instead of using cached analysis
+  'studyClientId': "studyClientId_example" // String | Client id for the cohort study you want
 };
 
 var callback = function(error, data, response) {
@@ -270,6 +273,7 @@ Name | Type | Description  | Notes
  **includeCharts** | **Boolean**| Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
  **recalculate** | **Boolean**| Recalculate instead of using cached analysis | [optional] 
+ **studyClientId** | **String**| Client id for the cohort study you want | [optional] 
 
 ### Return type
 
@@ -284,13 +288,70 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="joinStudy"></a>
+# **joinStudy**
+> PostStudyPublishResponse joinStudy(opts)
+
+Join Study
+
+Anonymously share measurements for specified variables
+
+### Example
+```javascript
+var Quantimodo = require('quantimodo');
+
+var apiInstance = new Quantimodo.AnalyticsApi();
+
+var opts = { 
+  'causeVariableName': "causeVariableName_example", // String | Variable name of the hypothetical cause variable.  Example: Sleep Duration
+  'effectVariableName': "effectVariableName_example", // String | Variable name of the hypothetical effect variable.  Example: Overall Mood
+  'userId': 8.14, // Number | User's id
+  'appName': "appName_example", // String | Example: MoodiModo
+  'clientId': "clientId_example", // String | Example: oauth_test_client
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.joinStudy(opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **causeVariableName** | **String**| Variable name of the hypothetical cause variable.  Example: Sleep Duration | [optional] 
+ **effectVariableName** | **String**| Variable name of the hypothetical effect variable.  Example: Overall Mood | [optional] 
+ **userId** | **Number**| User&#39;s id | [optional] 
+ **appName** | **String**| Example: MoodiModo | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+
+### Return type
+
+[**PostStudyPublishResponse**](PostStudyPublishResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="postVote"></a>
 # **postVote**
 > CommonResponse postVote(body, opts)
 
 Post or update vote
 
-This is to enable users to indicate their opinion on the plausibility of a causal relationship between a treatment and outcome. We incorporates crowd-sourced plausibility estimations into our algorithm. This is done allowing user to indicate their view of the plausibility of each relationship with thumbs up/down buttons placed next to each prediction.
+I am really good at finding correlations and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there&#39;s a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.
 
 ### Example
 ```javascript
@@ -339,6 +400,69 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="publishStudy"></a>
+# **publishStudy**
+> PostStudyPublishResponse publishStudy(opts)
+
+Publish Study
+
+Make a study and all related measurements publicly visible by anyone
+
+### Example
+```javascript
+var Quantimodo = require('quantimodo');
+
+var apiInstance = new Quantimodo.AnalyticsApi();
+
+var opts = { 
+  'causeVariableName': "causeVariableName_example", // String | Variable name of the hypothetical cause variable.  Example: Sleep Duration
+  'effectVariableName': "effectVariableName_example", // String | Variable name of the hypothetical effect variable.  Example: Overall Mood
+  'userId': 8.14, // Number | User's id
+  'appName': "appName_example", // String | Example: MoodiModo
+  'clientId': "clientId_example", // String | Example: oauth_test_client
+  'includeCharts': true, // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'recalculate': true, // Boolean | Recalculate instead of using cached analysis
+  'studyClientId': "studyClientId_example" // String | Client id for the cohort study you want
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.publishStudy(opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **causeVariableName** | **String**| Variable name of the hypothetical cause variable.  Example: Sleep Duration | [optional] 
+ **effectVariableName** | **String**| Variable name of the hypothetical effect variable.  Example: Overall Mood | [optional] 
+ **userId** | **Number**| User&#39;s id | [optional] 
+ **appName** | **String**| Example: MoodiModo | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **includeCharts** | **Boolean**| Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **recalculate** | **Boolean**| Recalculate instead of using cached analysis | [optional] 
+ **studyClientId** | **String**| Client id for the cohort study you want | [optional] 
+
+### Return type
+
+[**PostStudyPublishResponse**](PostStudyPublishResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

@@ -50,16 +50,6 @@
   }
 
   describe('UserApi', function() {
-    describe('deleteShare', function() {
-      it('should call deleteShare successfully', function(done) {
-        //uncomment below and update the code to test deleteShare
-        //instance.deleteShare(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('deleteUser', function() {
       it('should call deleteUser successfully', function(done) {
         //uncomment below and update the code to test deleteUser

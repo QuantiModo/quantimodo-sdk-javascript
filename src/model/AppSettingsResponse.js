@@ -43,15 +43,15 @@
    * Constructs a new <code>AppSettingsResponse</code>.
    * @alias module:model/AppSettingsResponse
    * @class
-   * @param status {Number} Status code
+   * @param description {String} Can be used as body of help info popup
+   * @param summary {String} Can be used as title in help info popup
    */
-  var exports = function(status) {
+  var exports = function(description, summary) {
     var _this = this;
 
 
-
-    _this['status'] = status;
-
+    _this['description'] = description;
+    _this['summary'] = summary;
   };
 
   /**
@@ -68,14 +68,11 @@
       if (data.hasOwnProperty('appSettings')) {
         obj['appSettings'] = AppSettings.constructFromObject(data['appSettings']);
       }
-      if (data.hasOwnProperty('message')) {
-        obj['message'] = ApiClient.convertToType(data['message'], 'String');
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = ApiClient.convertToType(data['status'], 'Number');
-      }
-      if (data.hasOwnProperty('success')) {
-        obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
       }
     }
     return obj;
@@ -86,19 +83,15 @@
    */
   exports.prototype['appSettings'] = undefined;
   /**
-   * Message
-   * @member {String} message
+   * Can be used as body of help info popup
+   * @member {String} description
    */
-  exports.prototype['message'] = undefined;
+  exports.prototype['description'] = undefined;
   /**
-   * Status code
-   * @member {Number} status
+   * Can be used as title in help info popup
+   * @member {String} summary
    */
-  exports.prototype['status'] = undefined;
-  /**
-   * @member {Boolean} success
-   */
-  exports.prototype['success'] = undefined;
+  exports.prototype['summary'] = undefined;
 
 
 

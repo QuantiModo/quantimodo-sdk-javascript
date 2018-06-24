@@ -4,7 +4,7 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteTrackingReminder**](RemindersApi.md#deleteTrackingReminder) | **DELETE** /v3/trackingReminders/delete | Delete tracking reminder
+[**deleteTrackingReminder**](RemindersApi.md#deleteTrackingReminder) | **DELETE** /v3/trackingReminders/delete | Delete Tracking Reminder
 [**getTrackingReminderNotifications**](RemindersApi.md#getTrackingReminderNotifications) | **GET** /v3/trackingReminderNotifications | Get specific tracking reminder notifications
 [**getTrackingReminders**](RemindersApi.md#getTrackingReminders) | **GET** /v3/trackingReminders | Get repeating tracking reminder settings
 [**postTrackingReminderNotifications**](RemindersApi.md#postTrackingReminderNotifications) | **POST** /v3/trackingReminderNotifications | Snooze, skip, or track a tracking reminder notification
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 # **deleteTrackingReminder**
 > CommonResponse deleteTrackingReminder(body, opts)
 
-Delete tracking reminder
+Delete Tracking Reminder
 
-Delete previously created tracking reminder
+Stop getting notifications to record data for a variable.  Previously recorded measurements will be preserved.
 
 ### Example
 ```javascript

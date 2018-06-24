@@ -16,29 +16,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/PostUserSettingsResponse', 'model/User'], factory);
+    define(['ApiClient', 'model/GetSharesResponse', 'model/User'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/PostUserSettingsResponse'), require('../model/User'));
+    module.exports = factory(require('../ApiClient'), require('../model/GetSharesResponse'), require('../model/User'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User);
+    root.Quantimodo.SharesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.GetSharesResponse, root.Quantimodo.User);
   }
-}(this, function(ApiClient, CommonResponse, PostUserSettingsResponse, User) {
+}(this, function(ApiClient, GetSharesResponse, User) {
   'use strict';
 
   /**
-   * User service.
-   * @module api/UserApi
+   * Shares service.
+   * @module api/SharesApi
    * @version 5.8.112511
    */
 
   /**
-   * Constructs a new UserApi. 
-   * @alias module:api/UserApi
+   * Constructs a new SharesApi. 
+   * @alias module:api/SharesApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -48,110 +48,39 @@
 
 
     /**
-     * Callback function to receive the result of the deleteUser operation.
-     * @callback module:api/UserApi~deleteUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/CommonResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Delete user
-     * Delete user account. Only the client app that created a user can delete that user.
-     * @param {String} reason Example: I hate you!
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
-     * @param {module:api/UserApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/CommonResponse}
-     */
-    this.deleteUser = function(reason, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'reason' is set
-      if (reason === undefined || reason === null) {
-        throw new Error("Missing the required parameter 'reason' when calling deleteUser");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'clientId': opts['clientId'],
-        'reason': reason,
-        'platform': opts['platform'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = CommonResponse;
-
-      return this.apiClient.callApi(
-        '/v3/user/delete', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getUser operation.
-     * @callback module:api/UserApi~getUserCallback
+     * Callback function to receive the result of the deleteShare operation.
+     * @callback module:api/SharesApi~deleteShareCallback
      * @param {String} error Error message, if any.
      * @param {module:model/User} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get user info
-     * Returns user info.  If no userId is specified, returns info for currently authenticated user
+     * Delete share
+     * Remove access to user data for a given client_id associated with a given individual, app, or study
+     * @param {String} clientIdToRevoke Client id of the individual, study, or app that the user wishes to no longer have access to their data
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId User&#39;s id
-     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
-     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
-     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.appVersion Example: 2.1.1.0
-     * @param {Number} opts.clientUserId Example: 74802
+     * @param {String} opts.reason Example: I hate you!
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
-     * @param {String} opts.log Username or email
-     * @param {String} opts.pwd User password
-     * @param {Boolean} opts.includeAuthorizedClients Return list of apps, studies, and individuals with access to user data
-     * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SharesApi~deleteShareCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    this.getUser = function(opts, callback) {
+    this.deleteShare = function(clientIdToRevoke, opts, callback) {
       opts = opts || {};
       var postBody = null;
+
+      // verify the required parameter 'clientIdToRevoke' is set
+      if (clientIdToRevoke === undefined || clientIdToRevoke === null) {
+        throw new Error("Missing the required parameter 'clientIdToRevoke' when calling deleteShare");
+      }
 
 
       var pathParams = {
       };
       var queryParams = {
-        'userId': opts['userId'],
-        'createdAt': opts['createdAt'],
-        'updatedAt': opts['updatedAt'],
-        'limit': opts['limit'],
-        'offset': opts['offset'],
-        'sort': opts['sort'],
-        'clientId': opts['clientId'],
-        'appName': opts['appName'],
-        'appVersion': opts['appVersion'],
-        'clientUserId': opts['clientUserId'],
+        'clientIdToRevoke': clientIdToRevoke,
+        'reason': opts['reason'],
         'platform': opts['platform'],
-        'log': opts['log'],
-        'pwd': opts['pwd'],
-        'includeAuthorizedClients': opts['includeAuthorizedClients'],
       };
       var collectionQueryParams = {
       };
@@ -166,47 +95,53 @@
       var returnType = User;
 
       return this.apiClient.callApi(
-        '/v3/user', 'GET',
+        '/v3/shares/delete', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the postUserSettings operation.
-     * @callback module:api/UserApi~postUserSettingsCallback
+     * Callback function to receive the result of the getShares operation.
+     * @callback module:api/SharesApi~getSharesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/PostUserSettingsResponse} data The data returned by the service call.
+     * @param {module:model/GetSharesResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Post UserSettings
-     * Post UserSettings
-     * @param {module:model/User} body User settings to update
+     * Get Authorized Apps, Studies, and Individuals
+     * This is a list of individuals, apps, or studies with access to your measurements.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.appName Example: MoodiModo
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.appVersion Example: 2.1.1.0
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
-     * @param {module:api/UserApi~postUserSettingsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostUserSettingsResponse}
+     * @param {String} opts.log Username or email
+     * @param {String} opts.pwd User password
+     * @param {module:api/SharesApi~getSharesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetSharesResponse}
      */
-    this.postUserSettings = function(body, opts, callback) {
+    this.getShares = function(opts, callback) {
       opts = opts || {};
-      var postBody = body;
-
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postUserSettings");
-      }
+      var postBody = null;
 
 
       var pathParams = {
       };
       var queryParams = {
-        'appName': opts['appName'],
+        'userId': opts['userId'],
+        'createdAt': opts['createdAt'],
+        'updatedAt': opts['updatedAt'],
         'clientId': opts['clientId'],
+        'appName': opts['appName'],
+        'appVersion': opts['appVersion'],
         'platform': opts['platform'],
+        'log': opts['log'],
+        'pwd': opts['pwd'],
       };
       var collectionQueryParams = {
       };
@@ -215,13 +150,80 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = PostUserSettingsResponse;
+      var returnType = GetSharesResponse;
 
       return this.apiClient.callApi(
-        '/v3/userSettings', 'POST',
+        '/v3/shares', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the inviteShare operation.
+     * @callback module:api/SharesApi~inviteShareCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/User} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete share
+     * Invite someone to view your measurements
+     * @param {String} emailAddress Email address of the individual that the user wishes to have access to their measurements
+     * @param {String} name Name of the individual that the user wishes to have access to their measurements
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.emailSubject Example: I would like to share my measurements with you!
+     * @param {String} opts.emailBody Example: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness.
+     * @param {String} opts.scopes Space separated list of scopes to grant to the recipient (i.e. readmeasurements, writemeasurements, measurements:read
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:api/SharesApi~inviteShareCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/User}
+     */
+    this.inviteShare = function(emailAddress, name, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'emailAddress' is set
+      if (emailAddress === undefined || emailAddress === null) {
+        throw new Error("Missing the required parameter 'emailAddress' when calling inviteShare");
+      }
+
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling inviteShare");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'emailAddress': emailAddress,
+        'name': name,
+        'emailSubject': opts['emailSubject'],
+        'emailBody': opts['emailBody'],
+        'scopes': opts['scopes'],
+        'platform': opts['platform'],
+        'clientId': opts['clientId'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = User;
+
+      return this.apiClient.callApi(
+        '/v3/shares/invite', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

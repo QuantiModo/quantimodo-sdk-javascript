@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.CommonResponse();
+    instance = new Quantimodo.GetSharesResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,22 +49,28 @@
       object[property] = value;
   }
 
-  describe('CommonResponse', function() {
-    it('should create an instance of CommonResponse', function() {
-      // uncomment below and update the code to test CommonResponse
-      //var instane = new Quantimodo.CommonResponse();
-      //expect(instance).to.be.a(Quantimodo.CommonResponse);
+  describe('GetSharesResponse', function() {
+    it('should create an instance of GetSharesResponse', function() {
+      // uncomment below and update the code to test GetSharesResponse
+      //var instane = new Quantimodo.GetSharesResponse();
+      //expect(instance).to.be.a(Quantimodo.GetSharesResponse);
+    });
+
+    it('should have the property authorizedClients (base name: "authorizedClients")', function() {
+      // uncomment below and update the code to test the property authorizedClients
+      //var instane = new Quantimodo.GetSharesResponse();
+      //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new Quantimodo.CommonResponse();
+      //var instane = new Quantimodo.GetSharesResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property summary (base name: "summary")', function() {
       // uncomment below and update the code to test the property summary
-      //var instane = new Quantimodo.CommonResponse();
+      //var instane = new Quantimodo.GetSharesResponse();
       //expect(instance).to.be();
     });
 

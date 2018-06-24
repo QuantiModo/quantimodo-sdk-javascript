@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.StudyApi();
+    instance = new Quantimodo.GetStudiesResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,17 +49,31 @@
       object[property] = value;
   }
 
-  describe('StudyApi', function() {
-    describe('postStudyPublish', function() {
-      it('should call postStudyPublish successfully', function(done) {
-        //uncomment below and update the code to test postStudyPublish
-        //instance.postStudyPublish(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('GetStudiesResponse', function() {
+    it('should create an instance of GetStudiesResponse', function() {
+      // uncomment below and update the code to test GetStudiesResponse
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be.a(Quantimodo.GetStudiesResponse);
     });
+
+    it('should have the property studies (base name: "studies")', function() {
+      // uncomment below and update the code to test the property studies
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property summary (base name: "summary")', function() {
+      // uncomment below and update the code to test the property summary
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

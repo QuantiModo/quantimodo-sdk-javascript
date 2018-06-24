@@ -244,7 +244,7 @@ var opts = {
   'userOnly': true, // Boolean | Return only user-specific variables and data, excluding common aggregated variable data
   'platform': "platform_example", // String | Example: chrome, android, ios, web
   'includeTags': true, // Boolean | Return parent, child, duplicate, and ingredient variables
-  'recalculate': true // Boolean | Recalculate instead of using cached analysis
+  'recalculate': true, // Boolean | Recalculate instead of using cached analysis
   'variableId': 56 // Number | Example: 13
 };
 

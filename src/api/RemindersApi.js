@@ -56,8 +56,8 @@
      */
 
     /**
-     * Delete tracking reminder
-     * Delete previously created tracking reminder
+     * Delete Tracking Reminder
+     * Stop getting notifications to record data for a variable.  Previously recorded measurements will be preserved.
      * @param {module:model/TrackingReminderDelete} body Id of reminder to be deleted
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id

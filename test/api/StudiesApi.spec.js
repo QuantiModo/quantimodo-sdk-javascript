@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.CommonResponse();
+    instance = new Quantimodo.StudiesApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,25 +49,37 @@
       object[property] = value;
   }
 
-  describe('CommonResponse', function() {
-    it('should create an instance of CommonResponse', function() {
-      // uncomment below and update the code to test CommonResponse
-      //var instane = new Quantimodo.CommonResponse();
-      //expect(instance).to.be.a(Quantimodo.CommonResponse);
+  describe('StudiesApi', function() {
+    describe('getOpenStudies', function() {
+      it('should call getOpenStudies successfully', function(done) {
+        //uncomment below and update the code to test getOpenStudies
+        //instance.getOpenStudies(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property description (base name: "description")', function() {
-      // uncomment below and update the code to test the property description
-      //var instane = new Quantimodo.CommonResponse();
-      //expect(instance).to.be();
+    describe('getStudiesCreated', function() {
+      it('should call getStudiesCreated successfully', function(done) {
+        //uncomment below and update the code to test getStudiesCreated
+        //instance.getStudiesCreated(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property summary (base name: "summary")', function() {
-      // uncomment below and update the code to test the property summary
-      //var instane = new Quantimodo.CommonResponse();
-      //expect(instance).to.be();
+    describe('getStudiesJoined', function() {
+      it('should call getStudiesJoined successfully', function(done) {
+        //uncomment below and update the code to test getStudiesJoined
+        //instance.getStudiesJoined(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
   });
 
 }));

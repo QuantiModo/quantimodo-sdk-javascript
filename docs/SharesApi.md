@@ -1,84 +1,21 @@
-# Quantimodo.UserApi
+# Quantimodo.SharesApi
 
 All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteUser**](UserApi.md#deleteUser) | **DELETE** /v3/user/delete | Delete user
-[**getUser**](UserApi.md#getUser) | **GET** /v3/user | Get user info
-[**postUserSettings**](UserApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
+[**deleteShare**](SharesApi.md#deleteShare) | **POST** /v3/shares/delete | Delete share
+[**getShares**](SharesApi.md#getShares) | **GET** /v3/shares | Get Authorized Apps, Studies, and Individuals
+[**inviteShare**](SharesApi.md#inviteShare) | **POST** /v3/shares/invite | Delete share
 
 
-<a name="deleteUser"></a>
-# **deleteUser**
-> CommonResponse deleteUser(reason, opts)
+<a name="deleteShare"></a>
+# **deleteShare**
+> User deleteShare(clientIdToRevoke, opts)
 
-Delete user
+Delete share
 
-Delete user account. Only the client app that created a user can delete that user.
-
-### Example
-```javascript
-var Quantimodo = require('quantimodo');
-var defaultClient = Quantimodo.ApiClient.instance;
-
-// Configure API key authorization: access_token
-var access_token = defaultClient.authentications['access_token'];
-access_token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//access_token.apiKeyPrefix = 'Token';
-
-// Configure OAuth2 access token for authorization: quantimodo_oauth2
-var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
-quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-var apiInstance = new Quantimodo.UserApi();
-
-var reason = "reason_example"; // String | Example: I hate you!
-
-var opts = { 
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.deleteUser(reason, opts, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reason** | **String**| Example: I hate you! | 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
-
-### Return type
-
-[**CommonResponse**](CommonResponse.md)
-
-### Authorization
-
-[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getUser"></a>
-# **getUser**
-> User getUser(opts)
-
-Get user info
-
-Returns user info.  If no userId is specified, returns info for currently authenticated user
+Remove access to user data for a given client_id associated with a given individual, app, or study
 
 ### Example
 ```javascript
@@ -95,23 +32,13 @@ access_token.apiKey = 'YOUR API KEY';
 var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
 quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-var apiInstance = new Quantimodo.UserApi();
+var apiInstance = new Quantimodo.SharesApi();
+
+var clientIdToRevoke = "clientIdToRevoke_example"; // String | Client id of the individual, study, or app that the user wishes to no longer have access to their data
 
 var opts = { 
-  'userId': 8.14, // Number | User's id
-  'createdAt': "createdAt_example", // String | When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
-  'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
-  'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
-  'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-  'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'appName': "appName_example", // String | Example: MoodiModo
-  'appVersion': "appVersion_example", // String | Example: 2.1.1.0
-  'clientUserId': 56, // Number | Example: 74802
+  'reason': "reason_example", // String | Example: I hate you!
   'platform': "platform_example", // String | Example: chrome, android, ios, web
-  'log': "log_example", // String | Username or email
-  'pwd': "pwd_example", // String | User password
-  'includeAuthorizedClients': true // Boolean | Return list of apps, studies, and individuals with access to user data
 };
 
 var callback = function(error, data, response) {
@@ -121,27 +48,16 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getUser(opts, callback);
+apiInstance.deleteShare(clientIdToRevoke, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| User&#39;s id | [optional] 
- **createdAt** | **String**| When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local. | [optional] 
- **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local. | [optional] 
- **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
- **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
- **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **appName** | **String**| Example: MoodiModo | [optional] 
- **appVersion** | **String**| Example: 2.1.1.0 | [optional] 
- **clientUserId** | **Number**| Example: 74802 | [optional] 
+ **clientIdToRevoke** | **String**| Client id of the individual, study, or app that the user wishes to no longer have access to their data | 
+ **reason** | **String**| Example: I hate you! | [optional] 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
- **log** | **String**| Username or email | [optional] 
- **pwd** | **String**| User password | [optional] 
- **includeAuthorizedClients** | **Boolean**| Return list of apps, studies, and individuals with access to user data | [optional] 
 
 ### Return type
 
@@ -156,26 +72,41 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="postUserSettings"></a>
-# **postUserSettings**
-> PostUserSettingsResponse postUserSettings(body, opts)
+<a name="getShares"></a>
+# **getShares**
+> GetSharesResponse getShares(opts)
 
-Post UserSettings
+Get Authorized Apps, Studies, and Individuals
 
-Post UserSettings
+This is a list of individuals, apps, or studies with access to your measurements.
 
 ### Example
 ```javascript
 var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
 
-var apiInstance = new Quantimodo.UserApi();
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
 
-var body = new Quantimodo.User(); // User | User settings to update
+// Configure OAuth2 access token for authorization: quantimodo_oauth2
+var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
+quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new Quantimodo.SharesApi();
 
 var opts = { 
-  'appName': "appName_example", // String | Example: MoodiModo
+  'userId': 8.14, // Number | User's id
+  'createdAt': "createdAt_example", // String | When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+  'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
   'clientId': "clientId_example", // String | Example: oauth_test_client
+  'appName': "appName_example", // String | Example: MoodiModo
+  'appVersion': "appVersion_example", // String | Example: 2.1.1.0
   'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'log': "log_example", // String | Username or email
+  'pwd': "pwd_example", // String | User password
 };
 
 var callback = function(error, data, response) {
@@ -185,25 +116,102 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.postUserSettings(body, opts, callback);
+apiInstance.getShares(opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**User**](User.md)| User settings to update | 
- **appName** | **String**| Example: MoodiModo | [optional] 
+ **userId** | **Number**| User&#39;s id | [optional] 
+ **createdAt** | **String**| When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local. | [optional] 
+ **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local. | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **appName** | **String**| Example: MoodiModo | [optional] 
+ **appVersion** | **String**| Example: 2.1.1.0 | [optional] 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **log** | **String**| Username or email | [optional] 
+ **pwd** | **String**| User password | [optional] 
 
 ### Return type
 
-[**PostUserSettingsResponse**](PostUserSettingsResponse.md)
+[**GetSharesResponse**](GetSharesResponse.md)
 
 ### Authorization
 
-No authorization required
+[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="inviteShare"></a>
+# **inviteShare**
+> User inviteShare(emailAddress, name, opts)
+
+Delete share
+
+Invite someone to view your measurements
+
+### Example
+```javascript
+var Quantimodo = require('quantimodo');
+var defaultClient = Quantimodo.ApiClient.instance;
+
+// Configure API key authorization: access_token
+var access_token = defaultClient.authentications['access_token'];
+access_token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access_token.apiKeyPrefix = 'Token';
+
+// Configure OAuth2 access token for authorization: quantimodo_oauth2
+var quantimodo_oauth2 = defaultClient.authentications['quantimodo_oauth2'];
+quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new Quantimodo.SharesApi();
+
+var emailAddress = "emailAddress_example"; // String | Email address of the individual that the user wishes to have access to their measurements
+
+var name = "name_example"; // String | Name of the individual that the user wishes to have access to their measurements
+
+var opts = { 
+  'emailSubject': "emailSubject_example", // String | Example: I would like to share my measurements with you!
+  'emailBody': "emailBody_example", // String | Example: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness.
+  'scopes': "scopes_example", // String | Space separated list of scopes to grant to the recipient (i.e. readmeasurements, writemeasurements, measurements:read
+  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Example: oauth_test_client
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.inviteShare(emailAddress, name, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **emailAddress** | **String**| Email address of the individual that the user wishes to have access to their measurements | 
+ **name** | **String**| Name of the individual that the user wishes to have access to their measurements | 
+ **emailSubject** | **String**| Example: I would like to share my measurements with you! | [optional] 
+ **emailBody** | **String**| Example: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness. | [optional] 
+ **scopes** | **String**| Space separated list of scopes to grant to the recipient (i.e. readmeasurements, writemeasurements, measurements:read | [optional] 
+ **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **clientId** | **String**| Example: oauth_test_client | [optional] 
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[access_token](../README.md#access_token), [quantimodo_oauth2](../README.md#quantimodo_oauth2)
 
 ### HTTP request headers
 

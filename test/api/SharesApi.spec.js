@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.CommonResponse();
+    instance = new Quantimodo.SharesApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,25 +49,37 @@
       object[property] = value;
   }
 
-  describe('CommonResponse', function() {
-    it('should create an instance of CommonResponse', function() {
-      // uncomment below and update the code to test CommonResponse
-      //var instane = new Quantimodo.CommonResponse();
-      //expect(instance).to.be.a(Quantimodo.CommonResponse);
+  describe('SharesApi', function() {
+    describe('deleteShare', function() {
+      it('should call deleteShare successfully', function(done) {
+        //uncomment below and update the code to test deleteShare
+        //instance.deleteShare(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property description (base name: "description")', function() {
-      // uncomment below and update the code to test the property description
-      //var instane = new Quantimodo.CommonResponse();
-      //expect(instance).to.be();
+    describe('getShares', function() {
+      it('should call getShares successfully', function(done) {
+        //uncomment below and update the code to test getShares
+        //instance.getShares(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property summary (base name: "summary")', function() {
-      // uncomment below and update the code to test the property summary
-      //var instane = new Quantimodo.CommonResponse();
-      //expect(instance).to.be();
+    describe('inviteShare', function() {
+      it('should call inviteShare successfully', function(done) {
+        //uncomment below and update the code to test inviteShare
+        //instance.inviteShare(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
   });
 
 }));

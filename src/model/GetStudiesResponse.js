@@ -16,32 +16,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Study'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Study'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.CommonResponse = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.GetStudiesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Study);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Study) {
   'use strict';
 
 
 
 
   /**
-   * The CommonResponse model module.
-   * @module model/CommonResponse
+   * The GetStudiesResponse model module.
+   * @module model/GetStudiesResponse
    * @version 5.8.112511
    */
 
   /**
-   * Constructs a new <code>CommonResponse</code>.
-   * @alias module:model/CommonResponse
+   * Constructs a new <code>GetStudiesResponse</code>.
+   * @alias module:model/GetStudiesResponse
    * @class
    * @param description {String} Can be used as body of help info popup
    * @param summary {String} Can be used as title in help info popup
@@ -49,21 +49,25 @@
   var exports = function(description, summary) {
     var _this = this;
 
+
     _this['description'] = description;
     _this['summary'] = summary;
   };
 
   /**
-   * Constructs a <code>CommonResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>GetStudiesResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/CommonResponse} obj Optional instance to populate.
-   * @return {module:model/CommonResponse} The populated <code>CommonResponse</code> instance.
+   * @param {module:model/GetStudiesResponse} obj Optional instance to populate.
+   * @return {module:model/GetStudiesResponse} The populated <code>GetStudiesResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('studies')) {
+        obj['studies'] = ApiClient.convertToType(data['studies'], [Study]);
+      }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
@@ -74,6 +78,10 @@
     return obj;
   }
 
+  /**
+   * @member {Array.<module:model/Study>} studies
+   */
+  exports.prototype['studies'] = undefined;
   /**
    * Can be used as body of help info popup
    * @member {String} description

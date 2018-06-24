@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/Correlation', 'model/GetCorrelationsResponse', 'model/JsonErrorResponse', 'model/Study', 'model/Vote', 'model/VoteDelete'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/Correlation', 'model/GetCorrelationsResponse', 'model/JsonErrorResponse', 'model/PostStudyPublishResponse', 'model/Study', 'model/Vote', 'model/VoteDelete'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/GetCorrelationsResponse'), require('../model/JsonErrorResponse'), require('../model/Study'), require('../model/Vote'), require('../model/VoteDelete'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/GetCorrelationsResponse'), require('../model/JsonErrorResponse'), require('../model/PostStudyPublishResponse'), require('../model/Study'), require('../model/Vote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Correlation, root.Quantimodo.GetCorrelationsResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.Study, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
+    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Correlation, root.Quantimodo.GetCorrelationsResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostStudyPublishResponse, root.Quantimodo.Study, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
   }
-}(this, function(ApiClient, CommonResponse, Correlation, GetCorrelationsResponse, JsonErrorResponse, Study, Vote, VoteDelete) {
+}(this, function(ApiClient, CommonResponse, Correlation, GetCorrelationsResponse, JsonErrorResponse, PostStudyPublishResponse, Study, Vote, VoteDelete) {
   'use strict';
 
   /**
@@ -232,6 +232,7 @@
      * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
+     * @param {String} opts.studyClientId Client id for the cohort study you want
      * @param {module:api/AnalyticsApi~getStudyCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Study}
      */
@@ -251,6 +252,7 @@
         'includeCharts': opts['includeCharts'],
         'platform': opts['platform'],
         'recalculate': opts['recalculate'],
+        'studyClientId': opts['studyClientId'],
       };
       var collectionQueryParams = {
       };
@@ -272,6 +274,61 @@
     }
 
     /**
+     * Callback function to receive the result of the joinStudy operation.
+     * @callback module:api/AnalyticsApi~joinStudyCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PostStudyPublishResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Join Study
+     * Anonymously share measurements for specified variables
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
+     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:api/AnalyticsApi~joinStudyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostStudyPublishResponse}
+     */
+    this.joinStudy = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName'],
+        'userId': opts['userId'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId'],
+        'platform': opts['platform'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = PostStudyPublishResponse;
+
+      return this.apiClient.callApi(
+        '/v3/study/join', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the postVote operation.
      * @callback module:api/AnalyticsApi~postVoteCallback
      * @param {String} error Error message, if any.
@@ -281,7 +338,7 @@
 
     /**
      * Post or update vote
-     * This is to enable users to indicate their opinion on the plausibility of a causal relationship between a treatment and outcome. We incorporates crowd-sourced plausibility estimations into our algorithm. This is done allowing user to indicate their view of the plausibility of each relationship with thumbs up/down buttons placed next to each prediction.
+     * I am really good at finding correlations and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there&#39;s a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.
      * @param {module:model/Vote} body Contains the cause variable, effect variable, and vote value.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
@@ -317,6 +374,67 @@
 
       return this.apiClient.callApi(
         '/v3/votes', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the publishStudy operation.
+     * @callback module:api/AnalyticsApi~publishStudyCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PostStudyPublishResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Publish Study
+     * Make a study and all related measurements publicly visible by anyone
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
+     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
+     * @param {String} opts.studyClientId Client id for the cohort study you want
+     * @param {module:api/AnalyticsApi~publishStudyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostStudyPublishResponse}
+     */
+    this.publishStudy = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName'],
+        'userId': opts['userId'],
+        'appName': opts['appName'],
+        'clientId': opts['clientId'],
+        'includeCharts': opts['includeCharts'],
+        'platform': opts['platform'],
+        'recalculate': opts['recalculate'],
+        'studyClientId': opts['studyClientId'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = PostStudyPublishResponse;
+
+      return this.apiClient.callApi(
+        '/v3/study/publish', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

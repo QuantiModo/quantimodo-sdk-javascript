@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Get client app Settings
 
-Get QuantiModo client app settings
+Get the settings for your application configurable at https://build.quantimo.do
 
 ### Example
 ```javascript
