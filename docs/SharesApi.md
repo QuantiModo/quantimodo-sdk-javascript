@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 <a name="inviteShare"></a>
 # **inviteShare**
-> User inviteShare(emailAddress, name, opts)
+> User inviteShare(body, opts)
 
 Delete share
 
@@ -171,14 +171,9 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.SharesApi();
 
-var emailAddress = "emailAddress_example"; // String | Email address of the individual that the user wishes to have access to their measurements
-
-var name = "name_example"; // String | Name of the individual that the user wishes to have access to their measurements
+var body = new Quantimodo.ShareInvitationBody(); // ShareInvitationBody | Details about person to share with
 
 var opts = { 
-  'emailSubject': "emailSubject_example", // String | Example: I would like to share my measurements with you!
-  'emailBody': "emailBody_example", // String | Example: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness.
-  'scopes': "scopes_example", // String | Space separated list of scopes to grant to the recipient (i.e. readmeasurements, writemeasurements, measurements:read
   'platform': "platform_example", // String | Example: chrome, android, ios, web
   'clientId': "clientId_example", // String | Example: oauth_test_client
 };
@@ -190,18 +185,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.inviteShare(emailAddress, name, opts, callback);
+apiInstance.inviteShare(body, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **emailAddress** | **String**| Email address of the individual that the user wishes to have access to their measurements | 
- **name** | **String**| Name of the individual that the user wishes to have access to their measurements | 
- **emailSubject** | **String**| Example: I would like to share my measurements with you! | [optional] 
- **emailBody** | **String**| Example: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness. | [optional] 
- **scopes** | **String**| Space separated list of scopes to grant to the recipient (i.e. readmeasurements, writemeasurements, measurements:read | [optional] 
+ **body** | [**ShareInvitationBody**](ShareInvitationBody.md)| Details about person to share with | 
  **platform** | **String**| Example: chrome, android, ios, web | [optional] 
  **clientId** | **String**| Example: oauth_test_client | [optional] 
 

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/GetSharesResponse', 'model/User'], factory);
+    define(['ApiClient', 'model/GetSharesResponse', 'model/ShareInvitationBody', 'model/User'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/GetSharesResponse'), require('../model/User'));
+    module.exports = factory(require('../ApiClient'), require('../model/GetSharesResponse'), require('../model/ShareInvitationBody'), require('../model/User'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.SharesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.GetSharesResponse, root.Quantimodo.User);
+    root.Quantimodo.SharesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.GetSharesResponse, root.Quantimodo.ShareInvitationBody, root.Quantimodo.User);
   }
-}(this, function(ApiClient, GetSharesResponse, User) {
+}(this, function(ApiClient, GetSharesResponse, ShareInvitationBody, User) {
   'use strict';
 
   /**
@@ -173,40 +173,26 @@
     /**
      * Delete share
      * Invite someone to view your measurements
-     * @param {String} emailAddress Email address of the individual that the user wishes to have access to their measurements
-     * @param {String} name Name of the individual that the user wishes to have access to their measurements
+     * @param {module:model/ShareInvitationBody} body Details about person to share with
      * @param {Object} opts Optional parameters
-     * @param {String} opts.emailSubject Example: I would like to share my measurements with you!
-     * @param {String} opts.emailBody Example: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness.
-     * @param {String} opts.scopes Space separated list of scopes to grant to the recipient (i.e. readmeasurements, writemeasurements, measurements:read
      * @param {module:model/String} opts.platform Example: chrome, android, ios, web
      * @param {String} opts.clientId Example: oauth_test_client
      * @param {module:api/SharesApi~inviteShareCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    this.inviteShare = function(emailAddress, name, opts, callback) {
+    this.inviteShare = function(body, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = body;
 
-      // verify the required parameter 'emailAddress' is set
-      if (emailAddress === undefined || emailAddress === null) {
-        throw new Error("Missing the required parameter 'emailAddress' when calling inviteShare");
-      }
-
-      // verify the required parameter 'name' is set
-      if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling inviteShare");
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling inviteShare");
       }
 
 
       var pathParams = {
       };
       var queryParams = {
-        'emailAddress': emailAddress,
-        'name': name,
-        'emailSubject': opts['emailSubject'],
-        'emailBody': opts['emailBody'],
-        'scopes': opts['scopes'],
         'platform': opts['platform'],
         'clientId': opts['clientId'],
       };
