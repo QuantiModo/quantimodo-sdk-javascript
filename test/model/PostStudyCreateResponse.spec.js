@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.PostMeasurementsDataResponse();
+    instance = new Quantimodo.PostStudyCreateResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,28 +49,40 @@
       object[property] = value;
   }
 
-  describe('PostMeasurementsDataResponse', function() {
-    it('should create an instance of PostMeasurementsDataResponse', function() {
-      // uncomment below and update the code to test PostMeasurementsDataResponse
-      //var instane = new Quantimodo.PostMeasurementsDataResponse();
-      //expect(instance).to.be.a(Quantimodo.PostMeasurementsDataResponse);
+  describe('PostStudyCreateResponse', function() {
+    it('should create an instance of PostStudyCreateResponse', function() {
+      // uncomment below and update the code to test PostStudyCreateResponse
+      //var instane = new Quantimodo.PostStudyCreateResponse();
+      //expect(instance).to.be.a(Quantimodo.PostStudyCreateResponse);
     });
 
-    it('should have the property userVariables (base name: "userVariables")', function() {
-      // uncomment below and update the code to test the property userVariables
-      //var instane = new Quantimodo.PostMeasurementsDataResponse();
+    it('should have the property study (base name: "study")', function() {
+      // uncomment below and update the code to test the property study
+      //var instane = new Quantimodo.PostStudyCreateResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instane = new Quantimodo.PostStudyCreateResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property success (base name: "success")', function() {
+      // uncomment below and update the code to test the property success
+      //var instane = new Quantimodo.PostStudyCreateResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new Quantimodo.PostMeasurementsDataResponse();
+      //var instane = new Quantimodo.PostStudyCreateResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property summary (base name: "summary")', function() {
       // uncomment below and update the code to test the property summary
-      //var instane = new Quantimodo.PostMeasurementsDataResponse();
+      //var instane = new Quantimodo.PostStudyCreateResponse();
       //expect(instance).to.be();
     });
 

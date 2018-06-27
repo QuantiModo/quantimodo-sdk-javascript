@@ -43,10 +43,10 @@
    * Constructs a new <code>TrackingReminderNotificationAction</code>.
    * @alias module:model/TrackingReminderNotificationAction
    * @class
-   * @param action {String} Example: track
-   * @param callback {String} Example: trackThreeRatingAction
-   * @param modifiedValue {Number} Example: 3
-   * @param title {String} Example: 3/5
+   * @param action {String} Ex: track
+   * @param callback {String} Ex: trackThreeRatingAction
+   * @param modifiedValue {Number} Ex: 3
+   * @param title {String} Ex: 3/5
    */
   var exports = function(action, callback, modifiedValue, title) {
     var _this = this;
@@ -93,32 +93,32 @@
   }
 
   /**
-   * Example: track
+   * Ex: track
    * @member {String} action
    */
   exports.prototype['action'] = undefined;
   /**
-   * Example: trackThreeRatingAction
+   * Ex: trackThreeRatingAction
    * @member {String} callback
    */
   exports.prototype['callback'] = undefined;
   /**
-   * Example: 3
+   * Ex: 3
    * @member {Number} modifiedValue
    */
   exports.prototype['modifiedValue'] = undefined;
   /**
-   * Example: 3/5
+   * Ex: 3/5
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
   /**
-   * Example: Rate 3/5
+   * Ex: Rate 3/5
    * @member {String} longTitle
    */
   exports.prototype['longTitle'] = undefined;
   /**
-   * Example: 3
+   * Ex: 3
    * @member {String} shortTitle
    */
   exports.prototype['shortTitle'] = undefined;

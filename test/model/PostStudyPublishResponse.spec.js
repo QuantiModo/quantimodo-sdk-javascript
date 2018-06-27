@@ -68,6 +68,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instane = new Quantimodo.PostStudyPublishResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property summary (base name: "summary")', function() {
+      // uncomment below and update the code to test the property summary
+      //var instane = new Quantimodo.PostStudyPublishResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

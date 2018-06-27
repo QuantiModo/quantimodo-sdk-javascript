@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **String** | Example: track | 
-**callback** | **String** | Example: trackThreeRatingAction | 
-**modifiedValue** | **Number** | Example: 3 | 
-**title** | **String** | Example: 3/5 | 
-**longTitle** | **String** | Example: Rate 3/5 | [optional] 
-**shortTitle** | **String** | Example: 3 | [optional] 
+**action** | **String** | Ex: track | 
+**callback** | **String** | Ex: trackThreeRatingAction | 
+**modifiedValue** | **Number** | Ex: 3 | 
+**title** | **String** | Ex: 3/5 | 
+**longTitle** | **String** | Ex: Rate 3/5 | [optional] 
+**shortTitle** | **String** | Ex: 3 | [optional] 
 
 

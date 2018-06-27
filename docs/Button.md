@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**link** | **String** | Example: https://local.quantimo.do | 
-**text** | **String** | Example: Connect | 
-**ionIcon** | **String** | Example: ion-refresh | [optional] 
-**color** | **String** | Example: #f2f2f2 | [optional] 
-**additionalInformation** | **String** | Example: connect | [optional] 
+**link** | **String** | Ex: https://local.quantimo.do | 
+**text** | **String** | Ex: Connect | 
+**ionIcon** | **String** | Ex: ion-refresh | [optional] 
+**color** | **String** | Ex: #f2f2f2 | [optional] 
+**additionalInformation** | **String** | Ex: connect | [optional] 
 
 

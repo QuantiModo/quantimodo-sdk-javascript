@@ -43,8 +43,8 @@
    * Constructs a new <code>Button</code>.
    * @alias module:model/Button
    * @class
-   * @param link {String} Example: https://local.quantimo.do
-   * @param text {String} Example: Connect
+   * @param link {String} Ex: https://local.quantimo.do
+   * @param text {String} Ex: Connect
    */
   var exports = function(link, text) {
     var _this = this;
@@ -87,27 +87,27 @@
   }
 
   /**
-   * Example: https://local.quantimo.do
+   * Ex: https://local.quantimo.do
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * Example: Connect
+   * Ex: Connect
    * @member {String} text
    */
   exports.prototype['text'] = undefined;
   /**
-   * Example: ion-refresh
+   * Ex: ion-refresh
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * Example: #f2f2f2
+   * Ex: #f2f2f2
    * @member {String} color
    */
   exports.prototype['color'] = undefined;
   /**
-   * Example: connect
+   * Ex: connect
    * @member {String} additionalInformation
    */
   exports.prototype['additionalInformation'] = undefined;

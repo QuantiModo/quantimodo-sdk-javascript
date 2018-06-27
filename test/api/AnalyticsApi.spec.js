@@ -50,16 +50,6 @@
   }
 
   describe('AnalyticsApi', function() {
-    describe('deleteVote', function() {
-      it('should call deleteVote successfully', function(done) {
-        //uncomment below and update the code to test deleteVote
-        //instance.deleteVote(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getCorrelationExplanations', function() {
       it('should call getCorrelationExplanations successfully', function(done) {
         //uncomment below and update the code to test getCorrelationExplanations
@@ -74,46 +64,6 @@
       it('should call getCorrelations successfully', function(done) {
         //uncomment below and update the code to test getCorrelations
         //instance.getCorrelations(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getStudy', function() {
-      it('should call getStudy successfully', function(done) {
-        //uncomment below and update the code to test getStudy
-        //instance.getStudy(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('joinStudy', function() {
-      it('should call joinStudy successfully', function(done) {
-        //uncomment below and update the code to test joinStudy
-        //instance.joinStudy(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('postVote', function() {
-      it('should call postVote successfully', function(done) {
-        //uncomment below and update the code to test postVote
-        //instance.postVote(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('publishStudy', function() {
-      it('should call publishStudy successfully', function(done) {
-        //uncomment below and update the code to test publishStudy
-        //instance.publishStudy(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

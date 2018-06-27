@@ -264,12 +264,12 @@
    */
   exports.prototype['accessToken'] = undefined;
   /**
-   * Example: 2018-08-08 02:41:19
+   * Ex: 2018-08-08 02:41:19
    * @member {String} accessTokenExpires
    */
   exports.prototype['accessTokenExpires'] = undefined;
   /**
-   * Example: 1533696079000
+   * Ex: 1533696079000
    * @member {Number} accessTokenExpiresAtMilliseconds
    */
   exports.prototype['accessTokenExpiresAtMilliseconds'] = undefined;
@@ -283,32 +283,32 @@
    */
   exports.prototype['authorizedClients'] = undefined;
   /**
-   * Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
+   * Ex: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
    * @member {String} avatar
    */
   exports.prototype['avatar'] = undefined;
   /**
-   * Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
+   * Ex: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
    * @member {String} avatarImage
    */
   exports.prototype['avatarImage'] = undefined;
   /**
-   * Example: a:1:{s:13:\"administrator\";b:1;}
+   * Ex: a:1:{s:13:\"administrator\";b:1;}
    * @member {String} capabilities
    */
   exports.prototype['capabilities'] = undefined;
   /**
-   * Example: quantimodo
+   * Ex: quantimodo
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
   /**
-   * Example: 118444693184829555362
+   * Ex: 118444693184829555362
    * @member {String} clientUserId
    */
   exports.prototype['clientUserId'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} combineNotifications
    */
   exports.prototype['combineNotifications'] = undefined;
@@ -323,7 +323,7 @@
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * Earliest time user should get notifications. Example: 05:00:00
+   * Earliest time user should get notifications. Ex: 05:00:00
    * @member {String} earliestReminderTime
    */
   exports.prototype['earliestReminderTime'] = undefined;
@@ -333,27 +333,27 @@
    */
   exports.prototype['email'] = undefined;
   /**
-   * Example: Mike
+   * Ex: Mike
    * @member {String} firstName
    */
   exports.prototype['firstName'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} getPreviewBuilds
    */
   exports.prototype['getPreviewBuilds'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} hasAndroidApp
    */
   exports.prototype['hasAndroidApp'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} hasChromeExtension
    */
   exports.prototype['hasChromeExtension'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} hasIosApp
    */
   exports.prototype['hasIosApp'] = undefined;
@@ -363,22 +363,22 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: 2009
+   * Ex: 2009
    * @member {String} lastFour
    */
   exports.prototype['lastFour'] = undefined;
   /**
-   * Example: Sinn
+   * Ex: Sinn
    * @member {String} lastName
    */
   exports.prototype['lastName'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {String} lastSmsTrackingReminderNotificationId
    */
   exports.prototype['lastSmsTrackingReminderNotificationId'] = undefined;
   /**
-   * Latest time user should get notifications. Example: 23:00:00
+   * Latest time user should get notifications. Ex: 23:00:00
    * @member {String} latestReminderTime
    */
   exports.prototype['latestReminderTime'] = undefined;
@@ -388,42 +388,42 @@
    */
   exports.prototype['loginName'] = undefined;
   /**
-   * Example: PASSWORD
+   * Ex: PASSWORD
    * @member {String} password
    */
   exports.prototype['password'] = undefined;
   /**
-   * Example: 618-391-0002
+   * Ex: 618-391-0002
    * @member {String} phoneNumber
    */
   exports.prototype['phoneNumber'] = undefined;
   /**
-   * Example: 1234
+   * Ex: 1234
    * @member {String} phoneVerificationCode
    */
   exports.prototype['phoneVerificationCode'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} pushNotificationsEnabled
    */
   exports.prototype['pushNotificationsEnabled'] = undefined;
   /**
-   * Example: 6e99b113d85586de1f92468433f2df1e666647cb
+   * Ex: 6e99b113d85586de1f92468433f2df1e666647cb
    * @member {String} refreshToken
    */
   exports.prototype['refreshToken'] = undefined;
   /**
-   * Example: [\"admin\"]
+   * Ex: [\"admin\"]
    * @member {String} roles
    */
   exports.prototype['roles'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} sendPredictorEmails
    */
   exports.prototype['sendPredictorEmails'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} sendReminderNotificationEmails
    */
   exports.prototype['sendReminderNotificationEmails'] = undefined;
@@ -433,27 +433,27 @@
    */
   exports.prototype['shareAllData'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} smsNotificationsEnabled
    */
   exports.prototype['smsNotificationsEnabled'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} stripeActive
    */
   exports.prototype['stripeActive'] = undefined;
   /**
-   * Example: cus_A8CEmcvl8jwLhV
+   * Ex: cus_A8CEmcvl8jwLhV
    * @member {String} stripeId
    */
   exports.prototype['stripeId'] = undefined;
   /**
-   * Example: monthly7
+   * Ex: monthly7
    * @member {String} stripePlan
    */
   exports.prototype['stripePlan'] = undefined;
   /**
-   * Example: sub_ANTx3nOE7nzjQf
+   * Ex: sub_ANTx3nOE7nzjQf
    * @member {String} stripeSubscription
    */
   exports.prototype['stripeSubscription'] = undefined;
@@ -463,17 +463,17 @@
    */
   exports.prototype['subscriptionEndsAt'] = undefined;
   /**
-   * Example: google
+   * Ex: google
    * @member {String} subscriptionProvider
    */
   exports.prototype['subscriptionProvider'] = undefined;
   /**
-   * Example: 300
+   * Ex: 300
    * @member {Number} timeZoneOffset
    */
   exports.prototype['timeZoneOffset'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} trackLocation
    */
   exports.prototype['trackLocation'] = undefined;
@@ -483,12 +483,12 @@
    */
   exports.prototype['updatedAt'] = undefined;
   /**
-   * Example: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} userRegistered
    */
   exports.prototype['userRegistered'] = undefined;
   /**
-   * Example: https://plus.google.com/+MikeSinn
+   * Ex: https://plus.google.com/+MikeSinn
    * @member {String} userUrl
    */
   exports.prototype['userUrl'] = undefined;

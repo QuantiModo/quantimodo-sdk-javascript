@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **String** | Example: trackAll | 
-**callback** | **String** | Example: trackThreeRatingAction | 
-**modifiedValue** | **Number** | Example: 3 | 
-**title** | **String** | Example: Rate 3/5 for all | 
+**action** | **String** | Ex: trackAll | 
+**callback** | **String** | Ex: trackThreeRatingAction | 
+**modifiedValue** | **Number** | Ex: 3 | 
+**title** | **String** | Ex: Rate 3/5 for all | 
 
 

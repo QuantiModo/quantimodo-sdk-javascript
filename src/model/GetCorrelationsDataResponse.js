@@ -51,6 +51,8 @@
 
     _this['correlations'] = correlations;
     _this['explanation'] = explanation;
+
+
   };
 
   /**
@@ -70,6 +72,12 @@
       if (data.hasOwnProperty('explanation')) {
         obj['explanation'] = Explanation.constructFromObject(data['explanation']);
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
@@ -82,6 +90,16 @@
    * @member {module:model/Explanation} explanation
    */
   exports.prototype['explanation'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 

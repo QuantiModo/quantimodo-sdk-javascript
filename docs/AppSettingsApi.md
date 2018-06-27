@@ -4,14 +4,14 @@ All URIs are relative to *https://app.quantimo.do/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAppSettings**](AppSettingsApi.md#getAppSettings) | **GET** /v3/appSettings | Get client app Settings
+[**getAppSettings**](AppSettingsApi.md#getAppSettings) | **GET** /v3/appSettings | Get client app settings
 
 
 <a name="getAppSettings"></a>
 # **getAppSettings**
 > AppSettingsResponse getAppSettings(opts)
 
-Get client app Settings
+Get client app settings
 
 Get the settings for your application configurable at https://build.quantimo.do
 
@@ -22,9 +22,9 @@ var Quantimodo = require('quantimodo');
 var apiInstance = new Quantimodo.AppSettingsApi();
 
 var opts = { 
-  'clientId': "clientId_example", // String | Example: oauth_test_client
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
   'clientSecret': "clientSecret_example", // String | This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -41,9 +41,9 @@ apiInstance.getAppSettings(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
  **clientSecret** | **String**| This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps). | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type
 

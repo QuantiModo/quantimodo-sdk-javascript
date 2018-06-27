@@ -214,7 +214,7 @@
   }
 
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} affiliate
    */
   exports.prototype['affiliate'] = undefined;
@@ -228,7 +228,7 @@
    */
   exports.prototype['buttons'] = undefined;
   /**
-   * Example: ghostInspector
+   * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
@@ -238,7 +238,7 @@
    */
   exports.prototype['connected'] = undefined;
   /**
-   * Example: Your token is expired. Please re-connect
+   * Ex: Your token is expired. Please re-connect
    * @member {String} connectError
    */
   exports.prototype['connectError'] = undefined;
@@ -248,27 +248,27 @@
    */
   exports.prototype['connectInstructions'] = undefined;
   /**
-   * Example: 225078261031461
+   * Ex: 225078261031461
    * @member {String} connectorClientId
    */
   exports.prototype['connectorClientId'] = undefined;
   /**
-   * Example: 8
+   * Ex: 8
    * @member {Number} connectorId
    */
   exports.prototype['connectorId'] = undefined;
   /**
-   * Example: CONNECTED
+   * Ex: CONNECTED
    * @member {String} connectStatus
    */
   exports.prototype['connectStatus'] = undefined;
   /**
-   * Example: 2000-01-01 00:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2000-01-01 00:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Example: Social Interactions
+   * Ex: Social Interactions
    * @member {String} defaultVariableCategoryName
    */
   exports.prototype['defaultVariableCategoryName'] = undefined;
@@ -278,7 +278,7 @@
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} enabled
    */
   exports.prototype['enabled'] = undefined;
@@ -298,12 +298,12 @@
    */
   exports.prototype['image'] = undefined;
   /**
-   * Example: <a href=\"http://www.facebook.com\"><img id=\"facebook_image\" title=\"Facebook\" src=\"https://i.imgur.com/GhwqK4f.png\" alt=\"Facebook\"></a>
+   * Ex: <a href=\"http://www.facebook.com\"><img id=\"facebook_image\" title=\"Facebook\" src=\"https://i.imgur.com/GhwqK4f.png\" alt=\"Facebook\"></a>
    * @member {String} imageHtml
    */
   exports.prototype['imageHtml'] = undefined;
   /**
-   * Example: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} lastSuccessfulUpdatedAt
    */
   exports.prototype['lastSuccessfulUpdatedAt'] = undefined;
@@ -313,17 +313,17 @@
    */
   exports.prototype['lastUpdate'] = undefined;
   /**
-   * Example: <a href=\"http://www.facebook.com\">Facebook</a>
+   * Ex: <a href=\"http://www.facebook.com\">Facebook</a>
    * @member {String} linkedDisplayNameHtml
    */
   exports.prototype['linkedDisplayNameHtml'] = undefined;
   /**
-   * Example: Facebook is a social networking website where users may create a personal profile, add other users as friends, and exchange messages.
+   * Ex: Facebook is a social networking website where users may create a personal profile, add other users as friends, and exchange messages.
    * @member {String} longDescription
    */
   exports.prototype['longDescription'] = undefined;
   /**
-   * Example: Got 412 new measurements on 2017-07-31 10:10:34
+   * Ex: Got 412 new measurements on 2017-07-31 10:10:34
    * @member {String} message
    */
   exports.prototype['message'] = undefined;
@@ -353,7 +353,7 @@
    */
   exports.prototype['scopes'] = undefined;
   /**
-   * Example: Tracks social interaction. QuantiModo requires permission to access your Facebook \"user likes\" and \"user posts\".
+   * Ex: Tracks social interaction. QuantiModo requires permission to access your Facebook \"user likes\" and \"user posts\".
    * @member {String} shortDescription
    */
   exports.prototype['shortDescription'] = undefined;
@@ -368,22 +368,22 @@
    */
   exports.prototype['totalMeasurementsInLastUpdate'] = undefined;
   /**
-   * Example: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
-   * Example: 2017-07-18 05:16:31 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-07-18 05:16:31 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} updateRequestedAt
    */
   exports.prototype['updateRequestedAt'] = undefined;
   /**
-   * Example: UPDATED
+   * Ex: UPDATED
    * @member {String} updateStatus
    */
   exports.prototype['updateStatus'] = undefined;
   /**
-   * Example: 230
+   * Ex: 230
    * @member {Number} userId
    */
   exports.prototype['userId'] = undefined;

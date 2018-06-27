@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Quantimodo.PostMeasurementsDataResponse();
+    instance = new Quantimodo.StudyCreationBody();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,28 +49,28 @@
       object[property] = value;
   }
 
-  describe('PostMeasurementsDataResponse', function() {
-    it('should create an instance of PostMeasurementsDataResponse', function() {
-      // uncomment below and update the code to test PostMeasurementsDataResponse
-      //var instane = new Quantimodo.PostMeasurementsDataResponse();
-      //expect(instance).to.be.a(Quantimodo.PostMeasurementsDataResponse);
+  describe('StudyCreationBody', function() {
+    it('should create an instance of StudyCreationBody', function() {
+      // uncomment below and update the code to test StudyCreationBody
+      //var instane = new Quantimodo.StudyCreationBody();
+      //expect(instance).to.be.a(Quantimodo.StudyCreationBody);
     });
 
-    it('should have the property userVariables (base name: "userVariables")', function() {
-      // uncomment below and update the code to test the property userVariables
-      //var instane = new Quantimodo.PostMeasurementsDataResponse();
+    it('should have the property predictorVariableName (base name: "predictorVariableName")', function() {
+      // uncomment below and update the code to test the property predictorVariableName
+      //var instane = new Quantimodo.StudyCreationBody();
       //expect(instance).to.be();
     });
 
-    it('should have the property description (base name: "description")', function() {
-      // uncomment below and update the code to test the property description
-      //var instane = new Quantimodo.PostMeasurementsDataResponse();
+    it('should have the property outcomeVariableName (base name: "outcomeVariableName")', function() {
+      // uncomment below and update the code to test the property outcomeVariableName
+      //var instane = new Quantimodo.StudyCreationBody();
       //expect(instance).to.be();
     });
 
-    it('should have the property summary (base name: "summary")', function() {
-      // uncomment below and update the code to test the property summary
-      //var instane = new Quantimodo.PostMeasurementsDataResponse();
+    it('should have the property studyTitle (base name: "studyTitle")', function() {
+      // uncomment below and update the code to test the property studyTitle
+      //var instane = new Quantimodo.StudyCreationBody();
       //expect(instance).to.be();
     });
 

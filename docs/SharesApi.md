@@ -37,8 +37,8 @@ var apiInstance = new Quantimodo.SharesApi();
 var clientIdToRevoke = "clientIdToRevoke_example"; // String | Client id of the individual, study, or app that the user wishes to no longer have access to their data
 
 var opts = { 
-  'reason': "reason_example", // String | Example: I hate you!
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'reason': "reason_example", // String | Ex: I hate you!
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -56,8 +56,8 @@ apiInstance.deleteShare(clientIdToRevoke, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientIdToRevoke** | **String**| Client id of the individual, study, or app that the user wishes to no longer have access to their data | 
- **reason** | **String**| Example: I hate you! | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **reason** | **String**| Ex: I hate you! | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -101,10 +101,9 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'createdAt': "createdAt_example", // String | When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'appName': "appName_example", // String | Example: MoodiModo
-  'appVersion': "appVersion_example", // String | Example: 2.1.1.0
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+  'appVersion': "appVersion_example", // String | Ex: 2.1.1.0
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
   'log': "log_example", // String | Username or email
   'pwd': "pwd_example", // String | User password
 };
@@ -126,10 +125,9 @@ Name | Type | Description  | Notes
  **userId** | **Number**| User&#39;s id | [optional] 
  **createdAt** | **String**| When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local. | [optional] 
  **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local. | [optional] 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **appName** | **String**| Example: MoodiModo | [optional] 
- **appVersion** | **String**| Example: 2.1.1.0 | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+ **appVersion** | **String**| Ex: 2.1.1.0 | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
  **log** | **String**| Username or email | [optional] 
  **pwd** | **String**| User password | [optional] 
 
@@ -174,8 +172,8 @@ var apiInstance = new Quantimodo.SharesApi();
 var body = new Quantimodo.ShareInvitationBody(); // ShareInvitationBody | Details about person to share with
 
 var opts = { 
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
-  'clientId': "clientId_example", // String | Example: oauth_test_client
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
 };
 
 var callback = function(error, data, response) {
@@ -193,8 +191,8 @@ apiInstance.inviteShare(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**ShareInvitationBody**](ShareInvitationBody.md)| Details about person to share with | 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
 
 ### Return type
 

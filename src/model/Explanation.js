@@ -43,11 +43,11 @@
    * Constructs a new <code>Explanation</code>.
    * @alias module:model/Explanation
    * @class
-   * @param description {String} Example: These factors are most predictive of Overall Mood based on your own data.
+   * @param description {String} Ex: These factors are most predictive of Overall Mood based on your own data.
    * @param image {module:model/Image} 
-   * @param ionIcon {String} Example: ion-ios-person
+   * @param ionIcon {String} Ex: ion-ios-person
    * @param startTracking {module:model/ExplanationStartTracking} 
-   * @param title {String} Example: Top Predictors of Overall Mood
+   * @param title {String} Ex: Top Predictors of Overall Mood
    */
   var exports = function(description, image, ionIcon, startTracking, title) {
     var _this = this;
@@ -94,7 +94,7 @@
   }
 
   /**
-   * Example: These factors are most predictive of Overall Mood based on your own data.
+   * Ex: These factors are most predictive of Overall Mood based on your own data.
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
@@ -103,7 +103,7 @@
    */
   exports.prototype['image'] = undefined;
   /**
-   * Example: ion-ios-person
+   * Ex: ion-ios-person
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
@@ -112,7 +112,7 @@
    */
   exports.prototype['startTracking'] = undefined;
   /**
-   * Example: Top Predictors of Overall Mood
+   * Ex: Top Predictors of Overall Mood
    * @member {String} title
    */
   exports.prototype['title'] = undefined;

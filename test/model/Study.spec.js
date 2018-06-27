@@ -56,14 +56,26 @@
       //expect(instance).to.be.a(Quantimodo.Study);
     });
 
-    it('should have the property causeVariable (base name: "causeVariable")', function() {
-      // uncomment below and update the code to test the property causeVariable
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
       //var instane = new Quantimodo.Study();
       //expect(instance).to.be();
     });
 
-    it('should have the property charts (base name: "charts")', function() {
-      // uncomment below and update the code to test the property charts
+    it('should have the property userId (base name: "userId")', function() {
+      // uncomment below and update the code to test the property userId
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property studyId (base name: "studyId")', function() {
+      // uncomment below and update the code to test the property studyId
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property causeVariable (base name: "causeVariable")', function() {
+      // uncomment below and update the code to test the property causeVariable
       //var instane = new Quantimodo.Study();
       //expect(instance).to.be();
     });
@@ -112,18 +124,6 @@
 
     it('should have the property studyText (base name: "studyText")', function() {
       // uncomment below and update the code to test the property studyText
-      //var instane = new Quantimodo.Study();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instane = new Quantimodo.Study();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property userId (base name: "userId")', function() {
-      // uncomment below and update the code to test the property userId
       //var instane = new Quantimodo.Study();
       //expect(instance).to.be();
     });

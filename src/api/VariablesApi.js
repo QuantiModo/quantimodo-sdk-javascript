@@ -209,16 +209,15 @@
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Boolean} opts.includePublic Include variables the user has no measurements for
      * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {String} opts.upc UPC or other barcode scan result
      * @param {String} opts.effectOrCause Provided variable is the effect or cause
-     * @param {String} opts.publicEffectOrCause Example: 
+     * @param {String} opts.publicEffectOrCause Ex: 
      * @param {Boolean} opts.exactMatch Require exact match
-     * @param {Number} opts.variableCategoryId Example: 13
+     * @param {Number} opts.variableCategoryId Ex: 13
      * @param {Boolean} opts.includePrivate Include user-specific variables in results
-     * @param {String} opts.searchPhrase Example: %Body Fat%
-     * @param {String} opts.synonyms Example: %McDonalds hotcake%
+     * @param {String} opts.searchPhrase Ex: %Body Fat%
+     * @param {String} opts.synonyms Ex: %McDonalds hotcake%
      * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Number} opts.tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Number} opts.joinVariableId Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId.
@@ -228,10 +227,10 @@
      * @param {Number} opts.ingredientOfUserTagVariableId Id of the ingredientOf variable (i.e. Apple) you would like to get eligible ingredient variables (i.e. Fructose) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.
      * @param {Boolean} opts.commonOnly Return only public and aggregated common variable data instead of user-specific variables
      * @param {Boolean} opts.userOnly Return only user-specific variables and data, excluding common aggregated variable data
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {Boolean} opts.includeTags Return parent, child, duplicate, and ingredient variables
      * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
-     * @param {Number} opts.variableId Example: 13
+     * @param {Number} opts.variableId Ex: 13
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -259,7 +258,6 @@
         'sort': opts['sort'],
         'includePublic': opts['includePublic'],
         'manualTracking': opts['manualTracking'],
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'upc': opts['upc'],
         'effectOrCause': opts['effectOrCause'],
@@ -367,16 +365,15 @@
      * @param {Array.<module:model/Variable>} userVariables Variable user settings data
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includePrivate Include user-specific variables in results
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {Boolean} opts.includePublic Include variables the user has no measurements for
-     * @param {String} opts.searchPhrase Example: %Body Fat%
-     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.searchPhrase Ex: %Body Fat%
      * @param {Boolean} opts.exactMatch Require exact match
      * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
-     * @param {Number} opts.variableCategoryId Example: 13
-     * @param {String} opts.synonyms Example: %McDonalds hotcake%
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {Number} opts.variableCategoryId Ex: 13
+     * @param {String} opts.synonyms Ex: %McDonalds hotcake%
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/VariablesApi~postUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -397,7 +394,6 @@
         'clientId': opts['clientId'],
         'includePublic': opts['includePublic'],
         'searchPhrase': opts['searchPhrase'],
-        'appName': opts['appName'],
         'exactMatch': opts['exactMatch'],
         'manualTracking': opts['manualTracking'],
         'variableCategoryName': opts['variableCategoryName'],

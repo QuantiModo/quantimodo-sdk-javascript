@@ -53,6 +53,8 @@
 
     _this['status'] = status;
     _this['success'] = success;
+
+
   };
 
   /**
@@ -78,6 +80,12 @@
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
@@ -100,6 +108,16 @@
    * @member {Boolean} success
    */
   exports.prototype['success'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 

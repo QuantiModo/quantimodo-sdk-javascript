@@ -44,7 +44,7 @@
    * @alias module:model/Vote
    * @class
    * @param causeVariableId {Number} Cause variable id
-   * @param clientId {String} clientId
+   * @param clientId {String} Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @param effectVariableId {Number} Effect variable id
    * @param userId {Number} ID of User
    * @param value {Boolean} Vote: 0 (for implausible) or 1 (for plausible)
@@ -107,7 +107,7 @@
    */
   exports.prototype['causeVariableId'] = undefined;
   /**
-   * clientId
+   * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;

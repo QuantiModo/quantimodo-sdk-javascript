@@ -58,10 +58,10 @@
     /**
      * Delete user
      * Delete user account. Only the client app that created a user can delete that user.
-     * @param {String} reason Example: I hate you!
+     * @param {String} reason Ex: I hate you!
      * @param {Object} opts Optional parameters
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/UserApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -119,11 +119,10 @@
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.appVersion Example: 2.1.1.0
-     * @param {Number} opts.clientUserId Example: 74802
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {String} opts.appVersion Ex: 2.1.1.0
+     * @param {Number} opts.clientUserId Ex: 74802
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {String} opts.log Username or email
      * @param {String} opts.pwd User password
      * @param {Boolean} opts.includeAuthorizedClients Return list of apps, studies, and individuals with access to user data
@@ -145,7 +144,6 @@
         'offset': opts['offset'],
         'sort': opts['sort'],
         'clientId': opts['clientId'],
-        'appName': opts['appName'],
         'appVersion': opts['appVersion'],
         'clientUserId': opts['clientUserId'],
         'platform': opts['platform'],
@@ -185,9 +183,8 @@
      * Post UserSettings
      * @param {module:model/User} body User settings to update
      * @param {Object} opts Optional parameters
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/UserApi~postUserSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PostUserSettingsResponse}
      */
@@ -204,7 +201,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'platform': opts['platform'],
       };

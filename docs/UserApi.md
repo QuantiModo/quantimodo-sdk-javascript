@@ -34,11 +34,11 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new Quantimodo.UserApi();
 
-var reason = "reason_example"; // String | Example: I hate you!
+var reason = "reason_example"; // String | Ex: I hate you!
 
 var opts = { 
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -55,9 +55,9 @@ apiInstance.deleteUser(reason, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reason** | **String**| Example: I hate you! | 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **reason** | **String**| Ex: I hate you! | 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -104,11 +104,10 @@ var opts = {
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'appName': "appName_example", // String | Example: MoodiModo
-  'appVersion': "appVersion_example", // String | Example: 2.1.1.0
-  'clientUserId': 56, // Number | Example: 74802
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+  'appVersion': "appVersion_example", // String | Ex: 2.1.1.0
+  'clientUserId': 56, // Number | Ex: 74802
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
   'log': "log_example", // String | Username or email
   'pwd': "pwd_example", // String | User password
   'includeAuthorizedClients': true // Boolean | Return list of apps, studies, and individuals with access to user data
@@ -134,11 +133,10 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **appName** | **String**| Example: MoodiModo | [optional] 
- **appVersion** | **String**| Example: 2.1.1.0 | [optional] 
- **clientUserId** | **Number**| Example: 74802 | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+ **appVersion** | **String**| Ex: 2.1.1.0 | [optional] 
+ **clientUserId** | **Number**| Ex: 74802 | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
  **log** | **String**| Username or email | [optional] 
  **pwd** | **String**| User password | [optional] 
  **includeAuthorizedClients** | **Boolean**| Return list of apps, studies, and individuals with access to user data | [optional] 
@@ -173,9 +171,8 @@ var apiInstance = new Quantimodo.UserApi();
 var body = new Quantimodo.User(); // User | User settings to update
 
 var opts = { 
-  'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -193,9 +190,8 @@ apiInstance.postUserSettings(body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**User**](User.md)| User settings to update | 
- **appName** | **String**| Example: MoodiModo | [optional] 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type
 

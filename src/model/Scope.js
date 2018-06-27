@@ -69,7 +69,7 @@
   }
 
   /**
-   * Example: user_likes
+   * Ex: user_likes
    * @member {String} scalar
    */
   exports.prototype['scalar'] = undefined;

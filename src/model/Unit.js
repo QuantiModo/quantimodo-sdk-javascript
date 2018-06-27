@@ -46,7 +46,7 @@
    * @param abbreviatedName {String} Unit abbreviation
    * @param category {module:model/Unit.CategoryEnum} Unit category
    * @param conversionSteps {Array.<module:model/ConversionStep>} Conversion steps list
-   * @param maximumValue {Number} Example: 4
+   * @param maximumValue {Number} Ex: 4
    * @param name {String} Unit name
    * @param unitCategory {module:model/UnitCategory} 
    */
@@ -132,7 +132,7 @@
    */
   exports.prototype['abbreviatedName'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} advanced
    */
   exports.prototype['advanced'] = undefined;
@@ -142,12 +142,12 @@
    */
   exports.prototype['category'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} categoryId
    */
   exports.prototype['categoryId'] = undefined;
   /**
-   * Example: Miscellany
+   * Ex: Miscellany
    * @member {String} categoryName
    */
   exports.prototype['categoryName'] = undefined;
@@ -157,12 +157,12 @@
    */
   exports.prototype['conversionSteps'] = undefined;
   /**
-   * Example: 29
+   * Ex: 29
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
@@ -172,7 +172,7 @@
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Example: 4
+   * Ex: 4
    * @member {Number} maximumValue
    */
   exports.prototype['maximumValue'] = undefined;
@@ -182,7 +182,7 @@
    */
   exports.prototype['minimumAllowedValue'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} minimumValue
    */
   exports.prototype['minimumValue'] = undefined;

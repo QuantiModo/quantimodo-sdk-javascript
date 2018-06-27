@@ -16,32 +16,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Study'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Study'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostUserSettingsDataResponse = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.PostStudyCreateResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Study);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Study) {
   'use strict';
 
 
 
 
   /**
-   * The PostUserSettingsDataResponse model module.
-   * @module model/PostUserSettingsDataResponse
+   * The PostStudyCreateResponse model module.
+   * @module model/PostStudyCreateResponse
    * @version 5.8.112511
    */
 
   /**
-   * Constructs a new <code>PostUserSettingsDataResponse</code>.
-   * @alias module:model/PostUserSettingsDataResponse
+   * Constructs a new <code>PostStudyCreateResponse</code>.
+   * @alias module:model/PostStudyCreateResponse
    * @class
    */
   var exports = function() {
@@ -50,21 +50,29 @@
 
 
 
+
+
   };
 
   /**
-   * Constructs a <code>PostUserSettingsDataResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>PostStudyCreateResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PostUserSettingsDataResponse} obj Optional instance to populate.
-   * @return {module:model/PostUserSettingsDataResponse} The populated <code>PostUserSettingsDataResponse</code> instance.
+   * @param {module:model/PostStudyCreateResponse} obj Optional instance to populate.
+   * @return {module:model/PostStudyCreateResponse} The populated <code>PostStudyCreateResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('purchaseId')) {
-        obj['purchaseId'] = ApiClient.convertToType(data['purchaseId'], 'Number');
+      if (data.hasOwnProperty('study')) {
+        obj['study'] = Study.constructFromObject(data['study']);
+      }
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = ApiClient.convertToType(data['status'], 'String');
+      }
+      if (data.hasOwnProperty('success')) {
+        obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
       }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
@@ -77,10 +85,19 @@
   }
 
   /**
-   * Ex: 1
-   * @member {Number} purchaseId
+   * @member {module:model/Study} study
    */
-  exports.prototype['purchaseId'] = undefined;
+  exports.prototype['study'] = undefined;
+  /**
+   * Ex: ok
+   * @member {String} status
+   */
+  exports.prototype['status'] = undefined;
+  /**
+   * Ex: true
+   * @member {Boolean} success
+   */
+  exports.prototype['success'] = undefined;
   /**
    * Can be used as body of help info popup
    * @member {String} description

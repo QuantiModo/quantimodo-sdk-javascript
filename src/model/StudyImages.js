@@ -43,9 +43,9 @@
    * Constructs a new <code>StudyImages</code>.
    * @alias module:model/StudyImages
    * @class
-   * @param gaugeImage {String} Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
-   * @param gaugeImageSquare {String} Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
-   * @param imageUrl {String} Example: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
+   * @param gaugeImage {String} Ex: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
+   * @param gaugeImageSquare {String} Ex: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
+   * @param imageUrl {String} Ex: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
    */
   var exports = function(gaugeImage, gaugeImageSquare, imageUrl) {
     var _this = this;
@@ -104,32 +104,32 @@
   }
 
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
+   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
    * @member {String} causeVariableImageUrl
    */
   exports.prototype['causeVariableImageUrl'] = undefined;
   /**
-   * Example: ion-ios-cloudy-night-outline
+   * Ex: ion-ios-cloudy-night-outline
    * @member {String} causeVariableIonIcon
    */
   exports.prototype['causeVariableIonIcon'] = undefined;
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
+   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
    * @member {String} effectVariableImageUrl
    */
   exports.prototype['effectVariableImageUrl'] = undefined;
   /**
-   * Example: ion-happy-outline
+   * Ex: ion-happy-outline
    * @member {String} effectVariableIonIcon
    */
   exports.prototype['effectVariableIonIcon'] = undefined;
   /**
-   * Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
+   * Ex: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
    * @member {String} gaugeImage
    */
   exports.prototype['gaugeImage'] = undefined;
   /**
-   * Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
+   * Ex: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
    * @member {String} gaugeImageSquare
    */
   exports.prototype['gaugeImageSquare'] = undefined;
@@ -139,7 +139,7 @@
    */
   exports.prototype['gaugeSharingImageUrl'] = undefined;
   /**
-   * Example: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
+   * Ex: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
    * @member {String} imageUrl
    */
   exports.prototype['imageUrl'] = undefined;

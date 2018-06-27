@@ -43,19 +43,19 @@
    * Constructs a new <code>DataSource</code>.
    * @alias module:model/DataSource
    * @class
-   * @param affiliate {Boolean} Example: true
-   * @param connectorClientId {String} Example: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
-   * @param defaultVariableCategoryName {String} Example: Foods
-   * @param displayName {String} Example: QuantiModo
-   * @param enabled {Number} Example: 0
-   * @param getItUrl {String} Example: https://quantimo.do
-   * @param id {Number} Example: 72
-   * @param image {String} Example: https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
-   * @param imageHtml {String} Example: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
-   * @param linkedDisplayNameHtml {String} Example: <a href=\"https://quantimo.do\">QuantiModo</a>
-   * @param longDescription {String} Example: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
-   * @param name {String} Example: quantimodo
-   * @param shortDescription {String} Example: Tracks anything
+   * @param affiliate {Boolean} Ex: true
+   * @param connectorClientId {String} Ex: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
+   * @param defaultVariableCategoryName {String} Ex: Foods
+   * @param displayName {String} Ex: QuantiModo
+   * @param enabled {Number} Ex: 0
+   * @param getItUrl {String} Ex: https://quantimo.do
+   * @param id {Number} Ex: 72
+   * @param image {String} Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
+   * @param imageHtml {String} Ex: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://quantimodo.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
+   * @param linkedDisplayNameHtml {String} Ex: <a href=\"https://quantimo.do\">QuantiModo</a>
+   * @param longDescription {String} Ex: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
+   * @param name {String} Ex: quantimodo
+   * @param shortDescription {String} Ex: Tracks anything
    */
   var exports = function(affiliate, connectorClientId, defaultVariableCategoryName, displayName, enabled, getItUrl, id, image, imageHtml, linkedDisplayNameHtml, longDescription, name, shortDescription) {
     var _this = this;
@@ -130,67 +130,67 @@
   }
 
   /**
-   * Example: true
+   * Ex: true
    * @member {Boolean} affiliate
    */
   exports.prototype['affiliate'] = undefined;
   /**
-   * Example: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
+   * Ex: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
    * @member {String} connectorClientId
    */
   exports.prototype['connectorClientId'] = undefined;
   /**
-   * Example: Foods
+   * Ex: Foods
    * @member {String} defaultVariableCategoryName
    */
   exports.prototype['defaultVariableCategoryName'] = undefined;
   /**
-   * Example: QuantiModo
+   * Ex: QuantiModo
    * @member {String} displayName
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} enabled
    */
   exports.prototype['enabled'] = undefined;
   /**
-   * Example: https://quantimo.do
+   * Ex: https://quantimo.do
    * @member {String} getItUrl
    */
   exports.prototype['getItUrl'] = undefined;
   /**
-   * Example: 72
+   * Ex: 72
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
    * @member {String} image
    */
   exports.prototype['image'] = undefined;
   /**
-   * Example: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
+   * Ex: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://quantimodo.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
    * @member {String} imageHtml
    */
   exports.prototype['imageHtml'] = undefined;
   /**
-   * Example: <a href=\"https://quantimo.do\">QuantiModo</a>
+   * Ex: <a href=\"https://quantimo.do\">QuantiModo</a>
    * @member {String} linkedDisplayNameHtml
    */
   exports.prototype['linkedDisplayNameHtml'] = undefined;
   /**
-   * Example: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
+   * Ex: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
    * @member {String} longDescription
    */
   exports.prototype['longDescription'] = undefined;
   /**
-   * Example: quantimodo
+   * Ex: quantimodo
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * Example: Tracks anything
+   * Ex: Tracks anything
    * @member {String} shortDescription
    */
   exports.prototype['shortDescription'] = undefined;

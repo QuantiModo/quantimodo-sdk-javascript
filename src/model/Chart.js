@@ -94,17 +94,17 @@
    */
   exports.prototype['highchartConfig'] = undefined;
   /**
-   * Example: correlationScatterPlot
+   * Ex: correlationScatterPlot
    * @member {String} chartId
    */
   exports.prototype['chartId'] = undefined;
   /**
-   * Example: Overall Mood following Sleep Duration (R = -0.173)
+   * Ex: Overall Mood following Sleep Duration (R = -0.173)
    * @member {String} chartTitle
    */
   exports.prototype['chartTitle'] = undefined;
   /**
-   * Example: The chart above indicates that an increase in Sleep Duration is usually followed by an decrease in Overall Mood.
+   * Ex: The chart above indicates that an increase in Sleep Duration is usually followed by an decrease in Overall Mood.
    * @member {String} explanation
    */
   exports.prototype['explanation'] = undefined;

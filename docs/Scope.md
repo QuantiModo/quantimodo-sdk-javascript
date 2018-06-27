@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scalar** | **String** | Example: user_likes | [optional] 
+**scalar** | **String** | Ex: user_likes | [optional] 
 
 

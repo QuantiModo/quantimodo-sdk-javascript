@@ -43,9 +43,9 @@
    * Constructs a new <code>Image</code>.
    * @alias module:model/Image
    * @class
-   * @param height {String} Example: 240
-   * @param imageUrl {String} Example: https://www.filepicker.io/api/file/TjmeNWS5Q2SFmtJlUGLf
-   * @param width {String} Example: 224
+   * @param height {String} Ex: 240
+   * @param imageUrl {String} Ex: https://www.filepicker.io/api/file/TjmeNWS5Q2SFmtJlUGLf
+   * @param width {String} Ex: 224
    */
   var exports = function(height, imageUrl, width) {
     var _this = this;
@@ -80,17 +80,17 @@
   }
 
   /**
-   * Example: 240
+   * Ex: 240
    * @member {String} height
    */
   exports.prototype['height'] = undefined;
   /**
-   * Example: https://www.filepicker.io/api/file/TjmeNWS5Q2SFmtJlUGLf
+   * Ex: https://www.filepicker.io/api/file/TjmeNWS5Q2SFmtJlUGLf
    * @member {String} imageUrl
    */
   exports.prototype['imageUrl'] = undefined;
   /**
-   * Example: 224
+   * Ex: 224
    * @member {String} width
    */
   exports.prototype['width'] = undefined;

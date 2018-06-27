@@ -2555,7 +2555,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 }));
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":86,"fs":85,"querystring":90,"superagent":2}],10:[function(require,module,exports){
+},{"buffer":88,"fs":87,"querystring":92,"superagent":2}],10:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -2574,18 +2574,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/Correlation', 'model/GetCorrelationsResponse', 'model/JsonErrorResponse', 'model/PostStudyPublishResponse', 'model/Study', 'model/Vote', 'model/VoteDelete'], factory);
+    define(['ApiClient', 'model/Correlation', 'model/GetCorrelationsResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/Correlation'), require('../model/GetCorrelationsResponse'), require('../model/JsonErrorResponse'), require('../model/PostStudyPublishResponse'), require('../model/Study'), require('../model/Vote'), require('../model/VoteDelete'));
+    module.exports = factory(require('../ApiClient'), require('../model/Correlation'), require('../model/GetCorrelationsResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.Correlation, root.Quantimodo.GetCorrelationsResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostStudyPublishResponse, root.Quantimodo.Study, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
+    root.Quantimodo.AnalyticsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.Correlation, root.Quantimodo.GetCorrelationsResponse);
   }
-}(this, function(ApiClient, CommonResponse, Correlation, GetCorrelationsResponse, JsonErrorResponse, PostStudyPublishResponse, Study, Vote, VoteDelete) {
+}(this, function(ApiClient, Correlation, GetCorrelationsResponse) {
   'use strict';
 
   /**
@@ -2606,57 +2606,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     /**
-     * Callback function to receive the result of the deleteVote operation.
-     * @callback module:api/AnalyticsApi~deleteVoteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/CommonResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Delete vote
-     * Delete previously posted vote
-     * @param {module:model/VoteDelete} body The cause and effect variable names for the predictor vote to be deleted.
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId User&#39;s id
-     * @param {module:api/AnalyticsApi~deleteVoteCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/CommonResponse}
-     */
-    this.deleteVote = function(body, opts, callback) {
-      opts = opts || {};
-      var postBody = body;
-
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling deleteVote");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'userId': opts['userId'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = CommonResponse;
-
-      return this.apiClient.callApi(
-        '/v3/votes/delete', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the getCorrelationExplanations operation.
      * @callback module:api/AnalyticsApi~getCorrelationExplanationsCallback
      * @param {String} error Error message, if any.
@@ -2668,8 +2617,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Get correlation explanations
      * Get explanations of  correlations based on data from a single user.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
      * @param {module:api/AnalyticsApi~getCorrelationExplanationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Correlation>}
      */
@@ -2715,8 +2664,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Get correlations
      * Get a list of correlations that can be used to display top predictors of a given outcome like mood, for instance.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
@@ -2724,9 +2673,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.correlationCoefficient Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {Boolean} opts.commonOnly Return only public, anonymized and aggregated population data instead of user-specific variables
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/AnalyticsApi~getCorrelationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetCorrelationsResponse}
      */
@@ -2769,240 +2718,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-
-    /**
-     * Callback function to receive the result of the getStudy operation.
-     * @callback module:api/AnalyticsApi~getStudyCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Study} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get Study
-     * Get Study
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
-     * @param {Number} opts.userId User&#39;s id
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
-     * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
-     * @param {String} opts.studyClientId Client id for the cohort study you want
-     * @param {module:api/AnalyticsApi~getStudyCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Study}
-     */
-    this.getStudy = function(opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'causeVariableName': opts['causeVariableName'],
-        'effectVariableName': opts['effectVariableName'],
-        'userId': opts['userId'],
-        'appName': opts['appName'],
-        'clientId': opts['clientId'],
-        'includeCharts': opts['includeCharts'],
-        'platform': opts['platform'],
-        'recalculate': opts['recalculate'],
-        'studyClientId': opts['studyClientId'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = Study;
-
-      return this.apiClient.callApi(
-        '/v4/study', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the joinStudy operation.
-     * @callback module:api/AnalyticsApi~joinStudyCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PostStudyPublishResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Join Study
-     * Anonymously share measurements for specified variables
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
-     * @param {Number} opts.userId User&#39;s id
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
-     * @param {module:api/AnalyticsApi~joinStudyCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostStudyPublishResponse}
-     */
-    this.joinStudy = function(opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'causeVariableName': opts['causeVariableName'],
-        'effectVariableName': opts['effectVariableName'],
-        'userId': opts['userId'],
-        'appName': opts['appName'],
-        'clientId': opts['clientId'],
-        'platform': opts['platform'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = PostStudyPublishResponse;
-
-      return this.apiClient.callApi(
-        '/v3/study/join', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the postVote operation.
-     * @callback module:api/AnalyticsApi~postVoteCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/CommonResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Post or update vote
-     * I am really good at finding correlations and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there&#39;s a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.
-     * @param {module:model/Vote} body Contains the cause variable, effect variable, and vote value.
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId User&#39;s id
-     * @param {module:api/AnalyticsApi~postVoteCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/CommonResponse}
-     */
-    this.postVote = function(body, opts, callback) {
-      opts = opts || {};
-      var postBody = body;
-
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postVote");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'userId': opts['userId'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['access_token', 'quantimodo_oauth2'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = CommonResponse;
-
-      return this.apiClient.callApi(
-        '/v3/votes', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the publishStudy operation.
-     * @callback module:api/AnalyticsApi~publishStudyCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PostStudyPublishResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Publish Study
-     * Make a study and all related measurements publicly visible by anyone
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
-     * @param {Number} opts.userId User&#39;s id
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
-     * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
-     * @param {String} opts.studyClientId Client id for the cohort study you want
-     * @param {module:api/AnalyticsApi~publishStudyCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostStudyPublishResponse}
-     */
-    this.publishStudy = function(opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-        'causeVariableName': opts['causeVariableName'],
-        'effectVariableName': opts['effectVariableName'],
-        'userId': opts['userId'],
-        'appName': opts['appName'],
-        'clientId': opts['clientId'],
-        'includeCharts': opts['includeCharts'],
-        'platform': opts['platform'],
-        'recalculate': opts['recalculate'],
-        'studyClientId': opts['studyClientId'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = PostStudyPublishResponse;
-
-      return this.apiClient.callApi(
-        '/v3/study/publish', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
   };
 
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/CommonResponse":28,"../model/Correlation":32,"../model/GetCorrelationsResponse":39,"../model/JsonErrorResponse":44,"../model/PostStudyPublishResponse":55,"../model/Study":62,"../model/Vote":82,"../model/VoteDelete":83}],11:[function(require,module,exports){
+},{"../ApiClient":9,"../model/Correlation":32,"../model/GetCorrelationsResponse":39}],11:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -3061,12 +2782,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
 
     /**
-     * Get client app Settings
+     * Get client app settings
      * Get the settings for your application configurable at https://build.quantimo.do
      * @param {Object} opts Optional parameters
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/AppSettingsApi~getAppSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AppSettingsResponse}
      */
@@ -3171,11 +2892,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} responseType If the value is code, launches a Basic flow, requiring a POST to the token endpoint to obtain the tokens. If the value is token id_token or id_token token, launches an Implicit flow, requiring the use of Javascript at the redirect URI to retrieve tokens from the URI #fragment.
      * @param {String} scope Scopes include basic, readmeasurements, and writemeasurements. The &#x60;basic&#x60; scope allows you to read user info (displayName, email, etc). The &#x60;readmeasurements&#x60; scope allows one to read a user&#39;s data. The &#x60;writemeasurements&#x60; scope allows you to write user data. Separate multiple scopes by a space.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} opts.redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param {String} opts.state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/AuthenticationApi~getAccessTokenCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getAccessToken = function(grantType, code, responseType, scope, opts, callback) {
@@ -3249,11 +2970,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} responseType If the value is code, launches a Basic flow, requiring a POST to the token endpoint to obtain the tokens. If the value is token id_token or id_token token, launches an Implicit flow, requiring the use of Javascript at the redirect URI to retrieve tokens from the URI #fragment.
      * @param {String} scope Scopes include basic, readmeasurements, and writemeasurements. The &#x60;basic&#x60; scope allows you to read user info (displayName, email, etc). The &#x60;readmeasurements&#x60; scope allows one to read a user&#39;s data. The &#x60;writemeasurements&#x60; scope allows you to write user data. Separate multiple scopes by a space.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {String} opts.clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://app.quantimo.do/api/v2/apps](https://app.quantimo.do/api/v2/apps).
      * @param {String} opts.redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param {String} opts.state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/AuthenticationApi~getOauthAuthorizationCodeCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getOauthAuthorizationCode = function(responseType, scope, opts, callback) {
@@ -3505,9 +3226,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * List of Connectors
      * A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/ConnectorsApi~getConnectorsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetConnectorsResponse}
      */
@@ -3519,7 +3239,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var pathParams = {
       };
       var queryParams = {
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'platform': opts['platform'],
       };
@@ -3554,8 +3273,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Get embeddable connect javascript
      * Get embeddable connect javascript. Usage:   - Embedding in applications with popups for 3rd-party authentication windows.     Use &#x60;qmSetupInPopup&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in applications with popups for 3rd-party authentication windows.     Requires a selector to block. It will be embedded in this block.     Use &#x60;qmSetupOnPage&#x60; function after connecting &#x60;connect.js&#x60;.   - Embedding in mobile applications without popups for 3rd-party authentication.     Use &#x60;qmSetupOnMobile&#x60; function after connecting &#x60;connect.js&#x60;.     If using in a Cordova application call  &#x60;qmSetupOnIonic&#x60; function after connecting &#x60;connect.js&#x60;.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/ConnectorsApi~getIntegrationJsCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getIntegrationJs = function(opts, callback) {
@@ -3804,21 +3523,20 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
-     * @param {String} opts.connectorName Example: facebook
+     * @param {String} opts.connectorName Ex: facebook
      * @param {String} opts.value Value of measurement
-     * @param {module:model/String} opts.unitName Example: Milligrams
+     * @param {module:model/String} opts.unitName Ex: Milligrams
      * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.id Measurement id
      * @param {Number} opts.groupingWidth The time (in seconds) over which measurements are grouped together
      * @param {String} opts.groupingTimezone The time (in seconds) over which measurements are grouped together
-     * @param {Boolean} opts.doNotProcess Example: true
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {Boolean} opts.doNotConvert Example: 1
-     * @param {Boolean} opts.minMaxFilter Example: 1
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {Boolean} opts.doNotProcess Ex: true
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {Boolean} opts.doNotConvert Ex: 1
+     * @param {Boolean} opts.minMaxFilter Ex: 1
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/MeasurementsApi~getMeasurementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Measurement>}
      */
@@ -3848,7 +3566,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'groupingWidth': opts['groupingWidth'],
         'groupingTimezone': opts['groupingTimezone'],
         'doNotProcess': opts['doNotProcess'],
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'doNotConvert': opts['doNotConvert'],
         'minMaxFilter': opts['minMaxFilter'],
@@ -3885,8 +3602,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Get pairs of measurements for correlational analysis
      * Pairs cause measurements with effect measurements grouped over the duration of action after the onset delay.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
      * @param {String} opts.effectUnitName Name for the unit effect measurements to be returned in
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.causeUnitName Name for the unit cause measurements to be returned in
@@ -4347,12 +4064,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
-     * @param {String} opts.reminderTime Example: (lt)2017-07-31 21:43:26
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {Boolean} opts.onlyPast Example: 1
+     * @param {String} opts.reminderTime Ex: (lt)2017-07-31 21:43:26
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {Boolean} opts.onlyPast Ex: 1
      * @param {Boolean} opts.includeDeleted Include deleted variables
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/RemindersApi~getTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetTrackingReminderNotificationsResponse}
      */
@@ -4372,7 +4088,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'offset': opts['offset'],
         'variableCategoryName': opts['variableCategoryName'],
         'reminderTime': opts['reminderTime'],
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'onlyPast': opts['onlyPast'],
         'includeDeleted': opts['includeDeleted'],
@@ -4416,10 +4131,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {String} opts.appVersion Example: 2.1.1.0
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {String} opts.appVersion Ex: 2.1.1.0
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/RemindersApi~getTrackingRemindersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TrackingReminder>}
      */
@@ -4438,7 +4152,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'limit': opts['limit'],
         'offset': opts['offset'],
         'sort': opts['sort'],
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'appVersion': opts['appVersion'],
         'platform': opts['platform'],
@@ -4476,9 +4189,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Array.<module:model/TrackingReminderNotificationPost>} body Id of the tracking reminder notification to be snoozed
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/RemindersApi~postTrackingReminderNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -4496,7 +4208,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
       };
       var queryParams = {
         'userId': opts['userId'],
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'platform': opts['platform'],
       };
@@ -4570,7 +4281,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/CommonResponse":28,"../model/GetTrackingReminderNotificationsResponse":42,"../model/PostTrackingRemindersResponse":57,"../model/TrackingReminder":68,"../model/TrackingReminderDelete":69,"../model/TrackingReminderNotificationPost":72}],17:[function(require,module,exports){
+},{"../ApiClient":9,"../model/CommonResponse":28,"../model/GetTrackingReminderNotificationsResponse":42,"../model/PostTrackingRemindersResponse":58,"../model/TrackingReminder":70,"../model/TrackingReminderDelete":71,"../model/TrackingReminderNotificationPost":74}],17:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -4633,8 +4344,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Remove access to user data for a given client_id associated with a given individual, app, or study
      * @param {String} clientIdToRevoke Client id of the individual, study, or app that the user wishes to no longer have access to their data
      * @param {Object} opts Optional parameters
-     * @param {String} opts.reason Example: I hate you!
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.reason Ex: I hate you!
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/SharesApi~deleteShareCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -4689,10 +4400,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.appVersion Example: 2.1.1.0
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {String} opts.appVersion Ex: 2.1.1.0
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {String} opts.log Username or email
      * @param {String} opts.pwd User password
      * @param {module:api/SharesApi~getSharesCallback} callback The callback function, accepting three arguments: error, data, response
@@ -4710,7 +4420,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'createdAt': opts['createdAt'],
         'updatedAt': opts['updatedAt'],
         'clientId': opts['clientId'],
-        'appName': opts['appName'],
         'appVersion': opts['appVersion'],
         'platform': opts['platform'],
         'log': opts['log'],
@@ -4748,8 +4457,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Invite someone to view your measurements
      * @param {module:model/ShareInvitationBody} body Details about person to share with
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {module:api/SharesApi~inviteShareCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -4792,7 +4501,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/GetSharesResponse":40,"../model/ShareInvitationBody":61,"../model/User":76}],18:[function(require,module,exports){
+},{"../ApiClient":9,"../model/GetSharesResponse":40,"../model/ShareInvitationBody":62,"../model/User":78}],18:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -4811,18 +4520,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/GetStudiesResponse', 'model/JsonErrorResponse'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/GetStudiesResponse', 'model/JsonErrorResponse', 'model/PostStudyCreateResponse', 'model/PostStudyPublishResponse', 'model/Study', 'model/StudyCreationBody', 'model/Vote', 'model/VoteDelete'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/GetStudiesResponse'), require('../model/JsonErrorResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/GetStudiesResponse'), require('../model/JsonErrorResponse'), require('../model/PostStudyCreateResponse'), require('../model/PostStudyPublishResponse'), require('../model/Study'), require('../model/StudyCreationBody'), require('../model/Vote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.StudiesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.GetStudiesResponse, root.Quantimodo.JsonErrorResponse);
+    root.Quantimodo.StudiesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.GetStudiesResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostStudyCreateResponse, root.Quantimodo.PostStudyPublishResponse, root.Quantimodo.Study, root.Quantimodo.StudyCreationBody, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
   }
-}(this, function(ApiClient, GetStudiesResponse, JsonErrorResponse) {
+}(this, function(ApiClient, CommonResponse, GetStudiesResponse, JsonErrorResponse, PostStudyCreateResponse, PostStudyPublishResponse, Study, StudyCreationBody, Vote, VoteDelete) {
   'use strict';
 
   /**
@@ -4843,6 +4552,110 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     /**
+     * Callback function to receive the result of the createStudy operation.
+     * @callback module:api/StudiesApi~createStudyCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PostStudyCreateResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a Cohort Study
+     * Create a cohort study examining the relationship between a predictor and outcome variable. You will be given a study id which you can invite participants to join and share their measurements for the specified variables.
+     * @param {module:model/StudyCreationBody} body Details about the study you want to create
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {module:api/StudiesApi~createStudyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostStudyCreateResponse}
+     */
+    this.createStudy = function(body, opts, callback) {
+      opts = opts || {};
+      var postBody = body;
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling createStudy");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'clientId': opts['clientId'],
+        'platform': opts['platform'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = PostStudyCreateResponse;
+
+      return this.apiClient.callApi(
+        '/v3/study/create', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteVote operation.
+     * @callback module:api/StudiesApi~deleteVoteCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CommonResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete vote
+     * Delete previously posted vote
+     * @param {module:model/VoteDelete} body The cause and effect variable names for the predictor vote to be deleted.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.userId User&#39;s id
+     * @param {module:api/StudiesApi~deleteVoteCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CommonResponse}
+     */
+    this.deleteVote = function(body, opts, callback) {
+      opts = opts || {};
+      var postBody = body;
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling deleteVote");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'userId': opts['userId'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = CommonResponse;
+
+      return this.apiClient.callApi(
+        '/v3/votes/delete', 'DELETE',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getOpenStudies operation.
      * @callback module:api/StudiesApi~getOpenStudiesCallback
      * @param {String} error Error message, if any.
@@ -4851,18 +4664,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
 
     /**
-     * Get Open Studies
+     * These are open studies that anyone can join
      * These are studies that anyone can join and share their data for the predictor and outcome variables of interest.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
      * @param {Number} opts.userId User&#39;s id
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
-     * @param {String} opts.studyClientId Client id for the cohort study you want
+     * @param {String} opts.studyId Client id for the cohort study you want
      * @param {module:api/StudiesApi~getOpenStudiesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetStudiesResponse}
      */
@@ -4877,12 +4689,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'causeVariableName': opts['causeVariableName'],
         'effectVariableName': opts['effectVariableName'],
         'userId': opts['userId'],
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'includeCharts': opts['includeCharts'],
         'platform': opts['platform'],
         'recalculate': opts['recalculate'],
-        'studyClientId': opts['studyClientId'],
+        'studyId': opts['studyId'],
       };
       var collectionQueryParams = {
       };
@@ -4912,18 +4723,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
 
     /**
-     * Get studies you have joined
-     * These are studies that you have created.
+     * Get cohort studies you have created
+     * These are cohort studies that you have created.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/StudiesApi~getStudiesCreatedCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetStudiesResponse}
      */
@@ -4973,11 +4784,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
 
     /**
-     * Get studies you have joined
+     * Studies You Have Joined
      * These are studies that you are currently sharing your data with.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.causeVariableName Variable name of the hypothetical cause variable.  Example: Sleep Duration
-     * @param {String} opts.effectVariableName Variable name of the hypothetical effect variable.  Example: Overall Mood
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
@@ -4985,8 +4796,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.correlationCoefficient Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/StudiesApi~getStudiesJoinedCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetStudiesResponse}
      */
@@ -5028,12 +4839,236 @@ exports.cleanHeader = function(header, shouldStripCookie){
         authNames, contentTypes, accepts, returnType, callback
       );
     }
+
+    /**
+     * Callback function to receive the result of the getStudy operation.
+     * @callback module:api/StudiesApi~getStudyCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Study} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Study
+     * Get Study
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
+     * @param {String} opts.studyId Client id for the cohort study you want
+     * @param {module:api/StudiesApi~getStudyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Study}
+     */
+    this.getStudy = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName'],
+        'userId': opts['userId'],
+        'clientId': opts['clientId'],
+        'includeCharts': opts['includeCharts'],
+        'platform': opts['platform'],
+        'recalculate': opts['recalculate'],
+        'studyId': opts['studyId'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = Study;
+
+      return this.apiClient.callApi(
+        '/v4/study', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the joinStudy operation.
+     * @callback module:api/StudiesApi~joinStudyCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PostStudyPublishResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Join a Study
+     * Anonymously share measurements for specified variables
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.studyId Client id for the cohort study you want
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {module:api/StudiesApi~joinStudyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostStudyPublishResponse}
+     */
+    this.joinStudy = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'studyId': opts['studyId'],
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName'],
+        'userId': opts['userId'],
+        'clientId': opts['clientId'],
+        'platform': opts['platform'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = PostStudyPublishResponse;
+
+      return this.apiClient.callApi(
+        '/v3/study/join', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postVote operation.
+     * @callback module:api/StudiesApi~postVoteCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CommonResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Post or update vote
+     * I am really good at finding correlations and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there&#39;s a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.
+     * @param {module:model/Vote} body Contains the cause variable, effect variable, and vote value.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.userId User&#39;s id
+     * @param {module:api/StudiesApi~postVoteCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CommonResponse}
+     */
+    this.postVote = function(body, opts, callback) {
+      opts = opts || {};
+      var postBody = body;
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling postVote");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'userId': opts['userId'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = CommonResponse;
+
+      return this.apiClient.callApi(
+        '/v3/votes', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the publishStudy operation.
+     * @callback module:api/StudiesApi~publishStudyCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PostStudyPublishResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Publish Your Study
+     * Make a study and all related measurements publicly visible by anyone
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
+     * @param {String} opts.studyId Client id for the cohort study you want
+     * @param {module:api/StudiesApi~publishStudyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PostStudyPublishResponse}
+     */
+    this.publishStudy = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName'],
+        'userId': opts['userId'],
+        'clientId': opts['clientId'],
+        'includeCharts': opts['includeCharts'],
+        'platform': opts['platform'],
+        'recalculate': opts['recalculate'],
+        'studyId': opts['studyId'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = PostStudyPublishResponse;
+
+      return this.apiClient.callApi(
+        '/v3/study/publish', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
   };
 
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/GetStudiesResponse":41,"../model/JsonErrorResponse":44}],19:[function(require,module,exports){
+},{"../ApiClient":9,"../model/CommonResponse":28,"../model/GetStudiesResponse":41,"../model/JsonErrorResponse":44,"../model/PostStudyCreateResponse":55,"../model/PostStudyPublishResponse":56,"../model/Study":63,"../model/StudyCreationBody":65,"../model/Vote":84,"../model/VoteDelete":85}],19:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -5169,7 +5204,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/Unit":74,"../model/UnitCategory":75}],20:[function(require,module,exports){
+},{"../ApiClient":9,"../model/Unit":76,"../model/UnitCategory":77}],20:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -5230,10 +5265,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     /**
      * Delete user
      * Delete user account. Only the client app that created a user can delete that user.
-     * @param {String} reason Example: I hate you!
+     * @param {String} reason Ex: I hate you!
      * @param {Object} opts Optional parameters
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/UserApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -5291,11 +5326,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.appVersion Example: 2.1.1.0
-     * @param {Number} opts.clientUserId Example: 74802
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {String} opts.appVersion Ex: 2.1.1.0
+     * @param {Number} opts.clientUserId Ex: 74802
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {String} opts.log Username or email
      * @param {String} opts.pwd User password
      * @param {Boolean} opts.includeAuthorizedClients Return list of apps, studies, and individuals with access to user data
@@ -5317,7 +5351,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'offset': opts['offset'],
         'sort': opts['sort'],
         'clientId': opts['clientId'],
-        'appName': opts['appName'],
         'appVersion': opts['appVersion'],
         'clientUserId': opts['clientUserId'],
         'platform': opts['platform'],
@@ -5357,9 +5390,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Post UserSettings
      * @param {module:model/User} body User settings to update
      * @param {Object} opts Optional parameters
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/UserApi~postUserSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PostUserSettingsResponse}
      */
@@ -5376,7 +5408,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var pathParams = {
       };
       var queryParams = {
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'platform': opts['platform'],
       };
@@ -5403,7 +5434,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/CommonResponse":28,"../model/PostUserSettingsResponse":59,"../model/User":76}],21:[function(require,module,exports){
+},{"../ApiClient":9,"../model/CommonResponse":28,"../model/PostUserSettingsResponse":60,"../model/User":78}],21:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -5615,16 +5646,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Boolean} opts.includePublic Include variables the user has no measurements for
      * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {String} opts.upc UPC or other barcode scan result
      * @param {String} opts.effectOrCause Provided variable is the effect or cause
-     * @param {String} opts.publicEffectOrCause Example: 
+     * @param {String} opts.publicEffectOrCause Ex: 
      * @param {Boolean} opts.exactMatch Require exact match
-     * @param {Number} opts.variableCategoryId Example: 13
+     * @param {Number} opts.variableCategoryId Ex: 13
      * @param {Boolean} opts.includePrivate Include user-specific variables in results
-     * @param {String} opts.searchPhrase Example: %Body Fat%
-     * @param {String} opts.synonyms Example: %McDonalds hotcake%
+     * @param {String} opts.searchPhrase Ex: %Body Fat%
+     * @param {String} opts.synonyms Ex: %McDonalds hotcake%
      * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Number} opts.tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Number} opts.joinVariableId Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId.
@@ -5634,10 +5664,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.ingredientOfUserTagVariableId Id of the ingredientOf variable (i.e. Apple) you would like to get eligible ingredient variables (i.e. Fructose) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.
      * @param {Boolean} opts.commonOnly Return only public and aggregated common variable data instead of user-specific variables
      * @param {Boolean} opts.userOnly Return only user-specific variables and data, excluding common aggregated variable data
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {Boolean} opts.includeTags Return parent, child, duplicate, and ingredient variables
      * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
-     * @param {Number} opts.variableId Example: 13
+     * @param {Number} opts.variableId Ex: 13
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -5665,7 +5695,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'sort': opts['sort'],
         'includePublic': opts['includePublic'],
         'manualTracking': opts['manualTracking'],
-        'appName': opts['appName'],
         'clientId': opts['clientId'],
         'upc': opts['upc'],
         'effectOrCause': opts['effectOrCause'],
@@ -5773,16 +5802,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Array.<module:model/Variable>} userVariables Variable user settings data
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includePrivate Include user-specific variables in results
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {Boolean} opts.includePublic Include variables the user has no measurements for
-     * @param {String} opts.searchPhrase Example: %Body Fat%
-     * @param {String} opts.appName Example: MoodiModo
+     * @param {String} opts.searchPhrase Ex: %Body Fat%
      * @param {Boolean} opts.exactMatch Require exact match
      * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
-     * @param {Number} opts.variableCategoryId Example: 13
-     * @param {String} opts.synonyms Example: %McDonalds hotcake%
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {Number} opts.variableCategoryId Ex: 13
+     * @param {String} opts.synonyms Ex: %McDonalds hotcake%
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/VariablesApi~postUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}
      */
@@ -5803,7 +5831,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'clientId': opts['clientId'],
         'includePublic': opts['includePublic'],
         'searchPhrase': opts['searchPhrase'],
-        'appName': opts['appName'],
         'exactMatch': opts['exactMatch'],
         'manualTracking': opts['manualTracking'],
         'variableCategoryName': opts['variableCategoryName'],
@@ -5880,7 +5907,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../model/CommonResponse":28,"../model/UserTag":77,"../model/UserVariableDelete":78,"../model/Variable":79,"../model/VariableCategory":80}],22:[function(require,module,exports){
+},{"../ApiClient":9,"../model/CommonResponse":28,"../model/UserTag":79,"../model/UserVariableDelete":80,"../model/Variable":81,"../model/VariableCategory":82}],22:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -5899,12 +5926,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AppSettings', 'model/AppSettingsResponse', 'model/AuthorizedClients', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/ConnectInstructions', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/DeviceToken', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetSharesResponse', 'model/GetStudiesResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/Scope', 'model/ShareInvitationBody', 'model/Study', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AppSettingsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/SharesApi', 'api/StudiesApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
+    define(['ApiClient', 'model/AppSettings', 'model/AppSettingsResponse', 'model/AuthorizedClients', 'model/Button', 'model/Chart', 'model/CommonResponse', 'model/ConnectInstructions', 'model/Connector', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/DeviceToken', 'model/Explanation', 'model/ExplanationStartTracking', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetSharesResponse', 'model/GetStudiesResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/ParticipantInstruction', 'model/PostCorrelation', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyCreateResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/Scope', 'model/ShareInvitationBody', 'model/Study', 'model/StudyCharts', 'model/StudyCreationBody', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AppSettingsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/SharesApi', 'api/StudiesApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AppSettings'), require('./model/AppSettingsResponse'), require('./model/AuthorizedClients'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/ConnectInstructions'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/DeviceToken'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetSharesResponse'), require('./model/GetStudiesResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/Scope'), require('./model/ShareInvitationBody'), require('./model/Study'), require('./model/StudyCharts'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyLinks'), require('./model/StudyText'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationAction'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/VariableCharts'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AppSettingsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/SharesApi'), require('./api/StudiesApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AppSettings'), require('./model/AppSettingsResponse'), require('./model/AuthorizedClients'), require('./model/Button'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/ConnectInstructions'), require('./model/Connector'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/DeviceToken'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetSharesResponse'), require('./model/GetStudiesResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostCorrelation'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyCreateResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/Scope'), require('./model/ShareInvitationBody'), require('./model/Study'), require('./model/StudyCharts'), require('./model/StudyCreationBody'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyLinks'), require('./model/StudyText'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationAction'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/VariableCharts'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AppSettingsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/SharesApi'), require('./api/StudiesApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
   }
-}(function(ApiClient, AppSettings, AppSettingsResponse, AuthorizedClients, Button, Chart, CommonResponse, ConnectInstructions, Connector, ConversionStep, Correlation, DataSource, DeviceToken, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetSharesResponse, GetStudiesResponse, GetTrackingReminderNotificationsResponse, Image, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, Scope, ShareInvitationBody, Study, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudyText, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationAction, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserTag, UserVariableDelete, Variable, VariableCategory, VariableCharts, Vote, VoteDelete, AnalyticsApi, AppSettingsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, SharesApi, StudiesApi, UnitsApi, UserApi, VariablesApi) {
+}(function(ApiClient, AppSettings, AppSettingsResponse, AuthorizedClients, Button, Chart, CommonResponse, ConnectInstructions, Connector, ConversionStep, Correlation, DataSource, DeviceToken, Explanation, ExplanationStartTracking, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetSharesResponse, GetStudiesResponse, GetTrackingReminderNotificationsResponse, Image, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, ParticipantInstruction, PostCorrelation, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyCreateResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, Scope, ShareInvitationBody, Study, StudyCharts, StudyCreationBody, StudyHtml, StudyImages, StudyLinks, StudyText, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationAction, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserTag, UserVariableDelete, Variable, VariableCategory, VariableCharts, Vote, VoteDelete, AnalyticsApi, AppSettingsApi, AuthenticationApi, ConnectorsApi, MeasurementsApi, NotificationsApi, RemindersApi, SharesApi, StudiesApi, UnitsApi, UserApi, VariablesApi) {
   'use strict';
 
   /**
@@ -6105,6 +6132,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
     PostMeasurementsResponse: PostMeasurementsResponse,
     /**
+     * The PostStudyCreateResponse model constructor.
+     * @property {module:model/PostStudyCreateResponse}
+     */
+    PostStudyCreateResponse: PostStudyCreateResponse,
+    /**
      * The PostStudyPublishResponse model constructor.
      * @property {module:model/PostStudyPublishResponse}
      */
@@ -6149,6 +6181,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @property {module:model/StudyCharts}
      */
     StudyCharts: StudyCharts,
+    /**
+     * The StudyCreationBody model constructor.
+     * @property {module:model/StudyCreationBody}
+     */
+    StudyCreationBody: StudyCreationBody,
     /**
      * The StudyHtml model constructor.
      * @property {module:model/StudyHtml}
@@ -6314,7 +6351,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"./ApiClient":9,"./api/AnalyticsApi":10,"./api/AppSettingsApi":11,"./api/AuthenticationApi":12,"./api/ConnectorsApi":13,"./api/MeasurementsApi":14,"./api/NotificationsApi":15,"./api/RemindersApi":16,"./api/SharesApi":17,"./api/StudiesApi":18,"./api/UnitsApi":19,"./api/UserApi":20,"./api/VariablesApi":21,"./model/AppSettings":23,"./model/AppSettingsResponse":24,"./model/AuthorizedClients":25,"./model/Button":26,"./model/Chart":27,"./model/CommonResponse":28,"./model/ConnectInstructions":29,"./model/Connector":30,"./model/ConversionStep":31,"./model/Correlation":32,"./model/DataSource":33,"./model/DeviceToken":34,"./model/Explanation":35,"./model/ExplanationStartTracking":36,"./model/GetConnectorsResponse":37,"./model/GetCorrelationsDataResponse":38,"./model/GetCorrelationsResponse":39,"./model/GetSharesResponse":40,"./model/GetStudiesResponse":41,"./model/GetTrackingReminderNotificationsResponse":42,"./model/Image":43,"./model/JsonErrorResponse":44,"./model/Measurement":45,"./model/MeasurementDelete":46,"./model/MeasurementItem":47,"./model/MeasurementSet":48,"./model/MeasurementUpdate":49,"./model/Pair":50,"./model/ParticipantInstruction":51,"./model/PostCorrelation":52,"./model/PostMeasurementsDataResponse":53,"./model/PostMeasurementsResponse":54,"./model/PostStudyPublishResponse":55,"./model/PostTrackingRemindersDataResponse":56,"./model/PostTrackingRemindersResponse":57,"./model/PostUserSettingsDataResponse":58,"./model/PostUserSettingsResponse":59,"./model/Scope":60,"./model/ShareInvitationBody":61,"./model/Study":62,"./model/StudyCharts":63,"./model/StudyHtml":64,"./model/StudyImages":65,"./model/StudyLinks":66,"./model/StudyText":67,"./model/TrackingReminder":68,"./model/TrackingReminderDelete":69,"./model/TrackingReminderNotification":70,"./model/TrackingReminderNotificationAction":71,"./model/TrackingReminderNotificationPost":72,"./model/TrackingReminderNotificationTrackAllAction":73,"./model/Unit":74,"./model/UnitCategory":75,"./model/User":76,"./model/UserTag":77,"./model/UserVariableDelete":78,"./model/Variable":79,"./model/VariableCategory":80,"./model/VariableCharts":81,"./model/Vote":82,"./model/VoteDelete":83}],23:[function(require,module,exports){
+},{"./ApiClient":9,"./api/AnalyticsApi":10,"./api/AppSettingsApi":11,"./api/AuthenticationApi":12,"./api/ConnectorsApi":13,"./api/MeasurementsApi":14,"./api/NotificationsApi":15,"./api/RemindersApi":16,"./api/SharesApi":17,"./api/StudiesApi":18,"./api/UnitsApi":19,"./api/UserApi":20,"./api/VariablesApi":21,"./model/AppSettings":23,"./model/AppSettingsResponse":24,"./model/AuthorizedClients":25,"./model/Button":26,"./model/Chart":27,"./model/CommonResponse":28,"./model/ConnectInstructions":29,"./model/Connector":30,"./model/ConversionStep":31,"./model/Correlation":32,"./model/DataSource":33,"./model/DeviceToken":34,"./model/Explanation":35,"./model/ExplanationStartTracking":36,"./model/GetConnectorsResponse":37,"./model/GetCorrelationsDataResponse":38,"./model/GetCorrelationsResponse":39,"./model/GetSharesResponse":40,"./model/GetStudiesResponse":41,"./model/GetTrackingReminderNotificationsResponse":42,"./model/Image":43,"./model/JsonErrorResponse":44,"./model/Measurement":45,"./model/MeasurementDelete":46,"./model/MeasurementItem":47,"./model/MeasurementSet":48,"./model/MeasurementUpdate":49,"./model/Pair":50,"./model/ParticipantInstruction":51,"./model/PostCorrelation":52,"./model/PostMeasurementsDataResponse":53,"./model/PostMeasurementsResponse":54,"./model/PostStudyCreateResponse":55,"./model/PostStudyPublishResponse":56,"./model/PostTrackingRemindersDataResponse":57,"./model/PostTrackingRemindersResponse":58,"./model/PostUserSettingsDataResponse":59,"./model/PostUserSettingsResponse":60,"./model/Scope":61,"./model/ShareInvitationBody":62,"./model/Study":63,"./model/StudyCharts":64,"./model/StudyCreationBody":65,"./model/StudyHtml":66,"./model/StudyImages":67,"./model/StudyLinks":68,"./model/StudyText":69,"./model/TrackingReminder":70,"./model/TrackingReminderDelete":71,"./model/TrackingReminderNotification":72,"./model/TrackingReminderNotificationAction":73,"./model/TrackingReminderNotificationPost":74,"./model/TrackingReminderNotificationTrackAllAction":75,"./model/Unit":76,"./model/UnitCategory":77,"./model/User":78,"./model/UserTag":79,"./model/UserVariableDelete":80,"./model/Variable":81,"./model/VariableCategory":82,"./model/VariableCharts":83,"./model/Vote":84,"./model/VoteDelete":85}],23:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -6570,7 +6607,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./User":76}],24:[function(require,module,exports){
+},{"../ApiClient":9,"./User":78}],24:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -6824,8 +6861,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>Button</code>.
    * @alias module:model/Button
    * @class
-   * @param link {String} Example: https://local.quantimo.do
-   * @param text {String} Example: Connect
+   * @param link {String} Ex: https://local.quantimo.do
+   * @param text {String} Ex: Connect
    */
   var exports = function(link, text) {
     var _this = this;
@@ -6868,27 +6905,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: https://local.quantimo.do
+   * Ex: https://local.quantimo.do
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * Example: Connect
+   * Ex: Connect
    * @member {String} text
    */
   exports.prototype['text'] = undefined;
   /**
-   * Example: ion-refresh
+   * Ex: ion-refresh
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * Example: #f2f2f2
+   * Ex: #f2f2f2
    * @member {String} color
    */
   exports.prototype['color'] = undefined;
   /**
-   * Example: connect
+   * Ex: connect
    * @member {String} additionalInformation
    */
   exports.prototype['additionalInformation'] = undefined;
@@ -6997,17 +7034,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['highchartConfig'] = undefined;
   /**
-   * Example: correlationScatterPlot
+   * Ex: correlationScatterPlot
    * @member {String} chartId
    */
   exports.prototype['chartId'] = undefined;
   /**
-   * Example: Overall Mood following Sleep Duration (R = -0.173)
+   * Ex: Overall Mood following Sleep Duration (R = -0.173)
    * @member {String} chartTitle
    */
   exports.prototype['chartTitle'] = undefined;
   /**
-   * Example: The chart above indicates that an increase in Sleep Duration is usually followed by an decrease in Overall Mood.
+   * Ex: The chart above indicates that an increase in Sleep Duration is usually followed by an decrease in Overall Mood.
    * @member {String} explanation
    */
   exports.prototype['explanation'] = undefined;
@@ -7444,7 +7481,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} affiliate
    */
   exports.prototype['affiliate'] = undefined;
@@ -7458,7 +7495,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['buttons'] = undefined;
   /**
-   * Example: ghostInspector
+   * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
@@ -7468,7 +7505,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['connected'] = undefined;
   /**
-   * Example: Your token is expired. Please re-connect
+   * Ex: Your token is expired. Please re-connect
    * @member {String} connectError
    */
   exports.prototype['connectError'] = undefined;
@@ -7478,27 +7515,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['connectInstructions'] = undefined;
   /**
-   * Example: 225078261031461
+   * Ex: 225078261031461
    * @member {String} connectorClientId
    */
   exports.prototype['connectorClientId'] = undefined;
   /**
-   * Example: 8
+   * Ex: 8
    * @member {Number} connectorId
    */
   exports.prototype['connectorId'] = undefined;
   /**
-   * Example: CONNECTED
+   * Ex: CONNECTED
    * @member {String} connectStatus
    */
   exports.prototype['connectStatus'] = undefined;
   /**
-   * Example: 2000-01-01 00:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2000-01-01 00:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Example: Social Interactions
+   * Ex: Social Interactions
    * @member {String} defaultVariableCategoryName
    */
   exports.prototype['defaultVariableCategoryName'] = undefined;
@@ -7508,7 +7545,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} enabled
    */
   exports.prototype['enabled'] = undefined;
@@ -7528,12 +7565,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['image'] = undefined;
   /**
-   * Example: <a href=\"http://www.facebook.com\"><img id=\"facebook_image\" title=\"Facebook\" src=\"https://i.imgur.com/GhwqK4f.png\" alt=\"Facebook\"></a>
+   * Ex: <a href=\"http://www.facebook.com\"><img id=\"facebook_image\" title=\"Facebook\" src=\"https://i.imgur.com/GhwqK4f.png\" alt=\"Facebook\"></a>
    * @member {String} imageHtml
    */
   exports.prototype['imageHtml'] = undefined;
   /**
-   * Example: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} lastSuccessfulUpdatedAt
    */
   exports.prototype['lastSuccessfulUpdatedAt'] = undefined;
@@ -7543,17 +7580,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['lastUpdate'] = undefined;
   /**
-   * Example: <a href=\"http://www.facebook.com\">Facebook</a>
+   * Ex: <a href=\"http://www.facebook.com\">Facebook</a>
    * @member {String} linkedDisplayNameHtml
    */
   exports.prototype['linkedDisplayNameHtml'] = undefined;
   /**
-   * Example: Facebook is a social networking website where users may create a personal profile, add other users as friends, and exchange messages.
+   * Ex: Facebook is a social networking website where users may create a personal profile, add other users as friends, and exchange messages.
    * @member {String} longDescription
    */
   exports.prototype['longDescription'] = undefined;
   /**
-   * Example: Got 412 new measurements on 2017-07-31 10:10:34
+   * Ex: Got 412 new measurements on 2017-07-31 10:10:34
    * @member {String} message
    */
   exports.prototype['message'] = undefined;
@@ -7583,7 +7620,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['scopes'] = undefined;
   /**
-   * Example: Tracks social interaction. QuantiModo requires permission to access your Facebook \"user likes\" and \"user posts\".
+   * Ex: Tracks social interaction. QuantiModo requires permission to access your Facebook \"user likes\" and \"user posts\".
    * @member {String} shortDescription
    */
   exports.prototype['shortDescription'] = undefined;
@@ -7598,22 +7635,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['totalMeasurementsInLastUpdate'] = undefined;
   /**
-   * Example: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
-   * Example: 2017-07-18 05:16:31 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-07-18 05:16:31 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} updateRequestedAt
    */
   exports.prototype['updateRequestedAt'] = undefined;
   /**
-   * Example: UPDATED
+   * Ex: UPDATED
    * @member {String} updateStatus
    */
   exports.prototype['updateStatus'] = undefined;
   /**
-   * Example: 230
+   * Ex: 230
    * @member {Number} userId
    */
   exports.prototype['userId'] = undefined;
@@ -7783,61 +7820,61 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>Correlation</code>.
    * @alias module:model/Correlation
    * @class
-   * @param averageDailyHighCause {Number} Example: 4.19
-   * @param averageDailyLowCause {Number} Example: 1.97
-   * @param averageEffect {Number} Example: 3.0791054117396
-   * @param averageEffectFollowingHighCause {Number} Example: 3.55
-   * @param averageEffectFollowingLowCause {Number} Example: 2.65
-   * @param averageForwardPearsonCorrelationOverOnsetDelays {Number} Example: 0.396
-   * @param averageReversePearsonCorrelationOverOnsetDelays {Number} Example: 0.453667
-   * @param averageVote {Number} Example: 0.9855
-   * @param causeChanges {Number} Example: 164
-   * @param causeUserVariableShareUserMeasurements {Number} Example: 1
-   * @param causeVariableName {String} Example: Sleep Quality
-   * @param confidenceInterval {Number} Example: 0.14344467795996
-   * @param confidenceLevel {String} Example: high
-   * @param correlationCoefficient {Number} Example: 0.538
-   * @param createdAt {String} Example: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param criticalTValue {Number} Example: 1.646
-   * @param direction {String} Example: higher
-   * @param durationOfAction {Number} Example: 604800
-   * @param durationOfActionInHours {Number} Example: 168
-   * @param effectChanges {Number} Example: 193
-   * @param effectSize {String} Example: moderately positive
-   * @param effectUnit {String} Example: /5
-   * @param effectVariableName {String} Example: Overall Mood
-   * @param experimentEndTime {String} Example: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param experimentStartTime {String} Example: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param forwardSpearmanCorrelationCoefficient {Number} Example: 0.528359
-   * @param numberOfPairs {Number} Example: 298
-   * @param onsetDelay {Number} Example: 0
-   * @param onsetDelayInHours {Number} Example: 0
-   * @param onsetDelayWithStrongestPearsonCorrelation {Number} Example: -86400
-   * @param onsetDelayWithStrongestPearsonCorrelationInHours {Number} Example: -24
-   * @param optimalPearsonProduct {Number} Example: 0.68582816186982
-   * @param outcomeFillingValue {Number} Example: -1
-   * @param pearsonCorrelationWithNoOnsetDelay {Number} Example: 0.477
-   * @param predictivePearsonCorrelation {Number} Example: 0.538
-   * @param predictivePearsonCorrelationCoefficient {Number} Example: 0.538
-   * @param predictorDataSources {String} Example: RescueTime
-   * @param predictorFillingValue {Number} Example: -1
-   * @param predictorMaximumAllowedValue {Number} Example: 200
-   * @param predictorMinimumAllowedValue {Number} Example: 30
-   * @param predictsHighEffectChange {Number} Example: 17
-   * @param predictsLowEffectChange {Number} Example: -11
-   * @param qmScore {Number} Example: 0.528
-   * @param reversePearsonCorrelationCoefficient {Number} Example: 0.01377184270977
-   * @param shareUserMeasurements {Boolean} Example: 1
-   * @param significantDifference {Boolean} Example: 1
-   * @param statisticalSignificance {Number} Example: 0.9813
-   * @param strengthLevel {String} Example: moderate
-   * @param strongestPearsonCorrelationCoefficient {Number} Example: 0.613
-   * @param tValue {Number} Example: 9.6986079652717
-   * @param updatedAt {String} Example: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param userId {Number} Example: 230
-   * @param userVote {Number} Example: 1
-   * @param valuePredictingHighOutcome {Number} Example: 4.14
-   * @param valuePredictingLowOutcome {Number} Example: 3.03
+   * @param averageDailyHighCause {Number} Ex: 4.19
+   * @param averageDailyLowCause {Number} Ex: 1.97
+   * @param averageEffect {Number} Ex: 3.0791054117396
+   * @param averageEffectFollowingHighCause {Number} Ex: 3.55
+   * @param averageEffectFollowingLowCause {Number} Ex: 2.65
+   * @param averageForwardPearsonCorrelationOverOnsetDelays {Number} Ex: 0.396
+   * @param averageReversePearsonCorrelationOverOnsetDelays {Number} Ex: 0.453667
+   * @param averageVote {Number} Ex: 0.9855
+   * @param causeChanges {Number} Ex: 164
+   * @param causeUserVariableShareUserMeasurements {Number} Ex: 1
+   * @param causeVariableName {String} Ex: Sleep Quality
+   * @param confidenceInterval {Number} Ex: 0.14344467795996
+   * @param confidenceLevel {String} Ex: high
+   * @param correlationCoefficient {Number} Ex: 0.538
+   * @param createdAt {String} Ex: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param criticalTValue {Number} Ex: 1.646
+   * @param direction {String} Ex: higher
+   * @param durationOfAction {Number} Ex: 604800
+   * @param durationOfActionInHours {Number} Ex: 168
+   * @param effectChanges {Number} Ex: 193
+   * @param effectSize {String} Ex: moderately positive
+   * @param effectUnit {String} Ex: /5
+   * @param effectVariableName {String} Ex: Overall Mood
+   * @param experimentEndTime {String} Ex: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param experimentStartTime {String} Ex: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param forwardSpearmanCorrelationCoefficient {Number} Ex: 0.528359
+   * @param numberOfPairs {Number} Ex: 298
+   * @param onsetDelay {Number} Ex: 0
+   * @param onsetDelayInHours {Number} Ex: 0
+   * @param onsetDelayWithStrongestPearsonCorrelation {Number} Ex: -86400
+   * @param onsetDelayWithStrongestPearsonCorrelationInHours {Number} Ex: -24
+   * @param optimalPearsonProduct {Number} Ex: 0.68582816186982
+   * @param outcomeFillingValue {Number} Ex: -1
+   * @param pearsonCorrelationWithNoOnsetDelay {Number} Ex: 0.477
+   * @param predictivePearsonCorrelation {Number} Ex: 0.538
+   * @param predictivePearsonCorrelationCoefficient {Number} Ex: 0.538
+   * @param predictorDataSources {String} Ex: RescueTime
+   * @param predictorFillingValue {Number} Ex: -1
+   * @param predictorMaximumAllowedValue {Number} Ex: 200
+   * @param predictorMinimumAllowedValue {Number} Ex: 30
+   * @param predictsHighEffectChange {Number} Ex: 17
+   * @param predictsLowEffectChange {Number} Ex: -11
+   * @param qmScore {Number} Ex: 0.528
+   * @param reversePearsonCorrelationCoefficient {Number} Ex: 0.01377184270977
+   * @param shareUserMeasurements {Boolean} Ex: 1
+   * @param significantDifference {Boolean} Ex: 1
+   * @param statisticalSignificance {Number} Ex: 0.9813
+   * @param strengthLevel {String} Ex: moderate
+   * @param strongestPearsonCorrelationCoefficient {Number} Ex: 0.613
+   * @param tValue {Number} Ex: 9.6986079652717
+   * @param updatedAt {String} Ex: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param userId {Number} Ex: 230
+   * @param userVote {Number} Ex: 1
+   * @param valuePredictingHighOutcome {Number} Ex: 4.14
+   * @param valuePredictingLowOutcome {Number} Ex: 3.03
    */
   var exports = function(averageDailyHighCause, averageDailyLowCause, averageEffect, averageEffectFollowingHighCause, averageEffectFollowingLowCause, averageForwardPearsonCorrelationOverOnsetDelays, averageReversePearsonCorrelationOverOnsetDelays, averageVote, causeChanges, causeUserVariableShareUserMeasurements, causeVariableName, confidenceInterval, confidenceLevel, correlationCoefficient, createdAt, criticalTValue, direction, durationOfAction, durationOfActionInHours, effectChanges, effectSize, effectUnit, effectVariableName, experimentEndTime, experimentStartTime, forwardSpearmanCorrelationCoefficient, numberOfPairs, onsetDelay, onsetDelayInHours, onsetDelayWithStrongestPearsonCorrelation, onsetDelayWithStrongestPearsonCorrelationInHours, optimalPearsonProduct, outcomeFillingValue, pearsonCorrelationWithNoOnsetDelay, predictivePearsonCorrelation, predictivePearsonCorrelationCoefficient, predictorDataSources, predictorFillingValue, predictorMaximumAllowedValue, predictorMinimumAllowedValue, predictsHighEffectChange, predictsLowEffectChange, qmScore, reversePearsonCorrelationCoefficient, shareUserMeasurements, significantDifference, statisticalSignificance, strengthLevel, strongestPearsonCorrelationCoefficient, tValue, updatedAt, userId, userVote, valuePredictingHighOutcome, valuePredictingLowOutcome) {
     var _this = this;
@@ -8272,47 +8309,47 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: 4.19
+   * Ex: 4.19
    * @member {Number} averageDailyHighCause
    */
   exports.prototype['averageDailyHighCause'] = undefined;
   /**
-   * Example: 1.97
+   * Ex: 1.97
    * @member {Number} averageDailyLowCause
    */
   exports.prototype['averageDailyLowCause'] = undefined;
   /**
-   * Example: 3.0791054117396
+   * Ex: 3.0791054117396
    * @member {Number} averageEffect
    */
   exports.prototype['averageEffect'] = undefined;
   /**
-   * Example: 3.55
+   * Ex: 3.55
    * @member {Number} averageEffectFollowingHighCause
    */
   exports.prototype['averageEffectFollowingHighCause'] = undefined;
   /**
-   * Example: 2.65
+   * Ex: 2.65
    * @member {Number} averageEffectFollowingLowCause
    */
   exports.prototype['averageEffectFollowingLowCause'] = undefined;
   /**
-   * Example: 0.396
+   * Ex: 0.396
    * @member {Number} averageForwardPearsonCorrelationOverOnsetDelays
    */
   exports.prototype['averageForwardPearsonCorrelationOverOnsetDelays'] = undefined;
   /**
-   * Example: 0.453667
+   * Ex: 0.453667
    * @member {Number} averageReversePearsonCorrelationOverOnsetDelays
    */
   exports.prototype['averageReversePearsonCorrelationOverOnsetDelays'] = undefined;
   /**
-   * Example: 0.9855
+   * Ex: 0.9855
    * @member {Number} averageVote
    */
   exports.prototype['averageVote'] = undefined;
   /**
-   * Example: 164
+   * Ex: 164
    * @member {Number} causeChanges
    */
   exports.prototype['causeChanges'] = undefined;
@@ -8321,107 +8358,107 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['causeDataSource'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} causeUserVariableShareUserMeasurements
    */
   exports.prototype['causeUserVariableShareUserMeasurements'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} causeVariableCategoryId
    */
   exports.prototype['causeVariableCategoryId'] = undefined;
   /**
-   * Example: Sleep
+   * Ex: Sleep
    * @member {String} causeVariableCategoryName
    */
   exports.prototype['causeVariableCategoryName'] = undefined;
   /**
-   * Example: MEAN
+   * Ex: MEAN
    * @member {String} causeVariableCombinationOperation
    */
   exports.prototype['causeVariableCombinationOperation'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} causeVariableUnitAbbreviatedName
    */
   exports.prototype['causeVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 1448
+   * Ex: 1448
    * @member {Number} causeVariableId
    */
   exports.prototype['causeVariableId'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} causeVariableMostCommonConnectorId
    */
   exports.prototype['causeVariableMostCommonConnectorId'] = undefined;
   /**
-   * Example: Sleep Quality
+   * Ex: Sleep Quality
    * @member {String} causeVariableName
    */
   exports.prototype['causeVariableName'] = undefined;
   /**
-   * Example: 0.14344467795996
+   * Ex: 0.14344467795996
    * @member {Number} confidenceInterval
    */
   exports.prototype['confidenceInterval'] = undefined;
   /**
-   * Example: high
+   * Ex: high
    * @member {String} confidenceLevel
    */
   exports.prototype['confidenceLevel'] = undefined;
   /**
-   * Example: 0.538
+   * Ex: 0.538
    * @member {Number} correlationCoefficient
    */
   exports.prototype['correlationCoefficient'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} correlationIsContradictoryToOptimalValues
    */
   exports.prototype['correlationIsContradictoryToOptimalValues'] = undefined;
   /**
-   * Example: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Example: 1.646
+   * Ex: 1.646
    * @member {Number} criticalTValue
    */
   exports.prototype['criticalTValue'] = undefined;
   /**
-   * Example: higher
+   * Ex: higher
    * @member {String} direction
    */
   exports.prototype['direction'] = undefined;
   /**
-   * Example: 604800
+   * Ex: 604800
    * @member {Number} durationOfAction
    */
   exports.prototype['durationOfAction'] = undefined;
   /**
-   * Example: 168
+   * Ex: 168
    * @member {Number} durationOfActionInHours
    */
   exports.prototype['durationOfActionInHours'] = undefined;
   /**
-   * Example: 200
+   * Ex: 200
    * @member {Number} degreesOfFreedom
    */
   exports.prototype['degreesOfFreedom'] = undefined;
   /**
-   * Example: 145
+   * Ex: 145
    * @member {Number} effectNumberOfProcessedDailyMeasurements
    */
   exports.prototype['effectNumberOfProcessedDailyMeasurements'] = undefined;
   /**
-   * Example: optimalPearsonProduct is not defined
+   * Ex: optimalPearsonProduct is not defined
    * @member {String} error
    */
   exports.prototype['error'] = undefined;
   /**
-   * Example: 193
+   * Ex: 193
    * @member {Number} effectChanges
    */
   exports.prototype['effectChanges'] = undefined;
@@ -8430,222 +8467,222 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['effectDataSource'] = undefined;
   /**
-   * Example: moderately positive
+   * Ex: moderately positive
    * @member {String} effectSize
    */
   exports.prototype['effectSize'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} effectUnit
    */
   exports.prototype['effectUnit'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} effectUserVariableShareUserMeasurements
    */
   exports.prototype['effectUserVariableShareUserMeasurements'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} effectVariableCategoryId
    */
   exports.prototype['effectVariableCategoryId'] = undefined;
   /**
-   * Example: Emotions
+   * Ex: Emotions
    * @member {String} effectVariableCategoryName
    */
   exports.prototype['effectVariableCategoryName'] = undefined;
   /**
-   * Example: MEAN
+   * Ex: MEAN
    * @member {String} effectVariableCombinationOperation
    */
   exports.prototype['effectVariableCombinationOperation'] = undefined;
   /**
-   * Example: Mood_(psychology)
+   * Ex: Mood_(psychology)
    * @member {String} effectVariableCommonAlias
    */
   exports.prototype['effectVariableCommonAlias'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} effectVariableUnitAbbreviatedName
    */
   exports.prototype['effectVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} effectVariableUnitId
    */
   exports.prototype['effectVariableUnitId'] = undefined;
   /**
-   * Example: 1 to 5 Rating
+   * Ex: 1 to 5 Rating
    * @member {String} effectVariableUnitName
    */
   exports.prototype['effectVariableUnitName'] = undefined;
   /**
-   * Example: 1398
+   * Ex: 1398
    * @member {Number} effectVariableId
    */
   exports.prototype['effectVariableId'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} effectVariableMostCommonConnectorId
    */
   exports.prototype['effectVariableMostCommonConnectorId'] = undefined;
   /**
-   * Example: Overall Mood
+   * Ex: Overall Mood
    * @member {String} effectVariableName
    */
   exports.prototype['effectVariableName'] = undefined;
   /**
-   * Example: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} experimentEndTime
    */
   exports.prototype['experimentEndTime'] = undefined;
   /**
-   * Example: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} experimentStartTime
    */
   exports.prototype['experimentStartTime'] = undefined;
   /**
-   * Example: 0.528359
+   * Ex: 0.528359
    * @member {Number} forwardSpearmanCorrelationCoefficient
    */
   exports.prototype['forwardSpearmanCorrelationCoefficient'] = undefined;
   /**
-   * Example: 298
+   * Ex: 298
    * @member {Number} numberOfPairs
    */
   exports.prototype['numberOfPairs'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} onsetDelay
    */
   exports.prototype['onsetDelay'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} onsetDelayInHours
    */
   exports.prototype['onsetDelayInHours'] = undefined;
   /**
-   * Example: -86400
+   * Ex: -86400
    * @member {Number} onsetDelayWithStrongestPearsonCorrelation
    */
   exports.prototype['onsetDelayWithStrongestPearsonCorrelation'] = undefined;
   /**
-   * Example: -24
+   * Ex: -24
    * @member {Number} onsetDelayWithStrongestPearsonCorrelationInHours
    */
   exports.prototype['onsetDelayWithStrongestPearsonCorrelationInHours'] = undefined;
   /**
-   * Example: 0.68582816186982
+   * Ex: 0.68582816186982
    * @member {Number} optimalPearsonProduct
    */
   exports.prototype['optimalPearsonProduct'] = undefined;
   /**
-   * Example: -1
+   * Ex: -1
    * @member {Number} outcomeFillingValue
    */
   exports.prototype['outcomeFillingValue'] = undefined;
   /**
-   * Example: 23
+   * Ex: 23
    * @member {Number} outcomeMaximumAllowedValue
    */
   exports.prototype['outcomeMaximumAllowedValue'] = undefined;
   /**
-   * Example: 0.1
+   * Ex: 0.1
    * @member {Number} outcomeMinimumAllowedValue
    */
   exports.prototype['outcomeMinimumAllowedValue'] = undefined;
   /**
-   * Example: 0.477
+   * Ex: 0.477
    * @member {Number} pearsonCorrelationWithNoOnsetDelay
    */
   exports.prototype['pearsonCorrelationWithNoOnsetDelay'] = undefined;
   /**
-   * Example: 0.538
+   * Ex: 0.538
    * @member {Number} predictivePearsonCorrelation
    */
   exports.prototype['predictivePearsonCorrelation'] = undefined;
   /**
-   * Example: 0.538
+   * Ex: 0.538
    * @member {Number} predictivePearsonCorrelationCoefficient
    */
   exports.prototype['predictivePearsonCorrelationCoefficient'] = undefined;
   /**
-   * Example: RescueTime
+   * Ex: RescueTime
    * @member {String} predictorDataSources
    */
   exports.prototype['predictorDataSources'] = undefined;
   /**
-   * Example: -1
+   * Ex: -1
    * @member {Number} predictorFillingValue
    */
   exports.prototype['predictorFillingValue'] = undefined;
   /**
-   * Example: 200
+   * Ex: 200
    * @member {Number} predictorMaximumAllowedValue
    */
   exports.prototype['predictorMaximumAllowedValue'] = undefined;
   /**
-   * Example: 30
+   * Ex: 30
    * @member {Number} predictorMinimumAllowedValue
    */
   exports.prototype['predictorMinimumAllowedValue'] = undefined;
   /**
-   * Example: 17
+   * Ex: 17
    * @member {Number} predictsHighEffectChange
    */
   exports.prototype['predictsHighEffectChange'] = undefined;
   /**
-   * Example: -11
+   * Ex: -11
    * @member {Number} predictsLowEffectChange
    */
   exports.prototype['predictsLowEffectChange'] = undefined;
   /**
-   * Example: 0.39628900511586
+   * Ex: 0.39628900511586
    * @member {Number} pValue
    */
   exports.prototype['pValue'] = undefined;
   /**
-   * Example: 0.528
+   * Ex: 0.528
    * @member {Number} qmScore
    */
   exports.prototype['qmScore'] = undefined;
   /**
-   * Example: 0.01377184270977
+   * Ex: 0.01377184270977
    * @member {Number} reversePearsonCorrelationCoefficient
    */
   exports.prototype['reversePearsonCorrelationCoefficient'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} shareUserMeasurements
    */
   exports.prototype['shareUserMeasurements'] = undefined;
   /**
-   * Example: N1 Study: Sleep Quality Predicts Higher Overall Mood
+   * Ex: N1 Study: Sleep Quality Predicts Higher Overall Mood
    * @member {String} sharingDescription
    */
   exports.prototype['sharingDescription'] = undefined;
   /**
-   * Example: N1 Study: Sleep Quality Predicts Higher Overall Mood
+   * Ex: N1 Study: Sleep Quality Predicts Higher Overall Mood
    * @member {String} sharingTitle
    */
   exports.prototype['sharingTitle'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} significantDifference
    */
   exports.prototype['significantDifference'] = undefined;
   /**
-   * Example: 0.9813
+   * Ex: 0.9813
    * @member {Number} statisticalSignificance
    */
   exports.prototype['statisticalSignificance'] = undefined;
   /**
-   * Example: moderate
+   * Ex: moderate
    * @member {String} strengthLevel
    */
   exports.prototype['strengthLevel'] = undefined;
   /**
-   * Example: 0.613
+   * Ex: 0.613
    * @member {Number} strongestPearsonCorrelationCoefficient
    */
   exports.prototype['strongestPearsonCorrelationCoefficient'] = undefined;
@@ -8666,32 +8703,32 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['studyText'] = undefined;
   /**
-   * Example: 9.6986079652717
+   * Ex: 9.6986079652717
    * @member {Number} tValue
    */
   exports.prototype['tValue'] = undefined;
   /**
-   * Example: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
-   * Example: 230
+   * Ex: 230
    * @member {Number} userId
    */
   exports.prototype['userId'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} userVote
    */
   exports.prototype['userVote'] = undefined;
   /**
-   * Example: 4.14
+   * Ex: 4.14
    * @member {Number} valuePredictingHighOutcome
    */
   exports.prototype['valuePredictingHighOutcome'] = undefined;
   /**
-   * Example: 3.03
+   * Ex: 3.03
    * @member {Number} valuePredictingLowOutcome
    */
   exports.prototype['valuePredictingLowOutcome'] = undefined;
@@ -8711,72 +8748,72 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['reverseCorrelation'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} averagePearsonCorrelationCoefficientOverOnsetDelays
    */
   exports.prototype['averagePearsonCorrelationCoefficientOverOnsetDelays'] = undefined;
   /**
-   * Example: 14764
+   * Ex: 14764
    * @member {Number} causeNumberOfRawMeasurements
    */
   exports.prototype['causeNumberOfRawMeasurements'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} correlationsOverDurationsOfAction
    */
   exports.prototype['correlationsOverDurationsOfAction'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} correlationsOverDurationsOfActionChartConfig
    */
   exports.prototype['correlationsOverDurationsOfActionChartConfig'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} correlationsOverOnsetDelaysChartConfig
    */
   exports.prototype['correlationsOverOnsetDelaysChartConfig'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} numberOfUsers
    */
   exports.prototype['numberOfUsers'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} rawCauseMeasurementSignificance
    */
   exports.prototype['rawCauseMeasurementSignificance'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} rawEffectMeasurementSignificance
    */
   exports.prototype['rawEffectMeasurementSignificance'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {String} reversePairsCount
    */
   exports.prototype['reversePairsCount'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} voteStatisticalSignificance
    */
   exports.prototype['voteStatisticalSignificance'] = undefined;
   /**
-   * Example: 0.011598441286655
+   * Ex: 0.011598441286655
    * @member {Number} aggregateQMScore
    */
   exports.prototype['aggregateQMScore'] = undefined;
   /**
-   * Example: 0.0333
+   * Ex: 0.0333
    * @member {Number} forwardPearsonCorrelationCoefficient
    */
   exports.prototype['forwardPearsonCorrelationCoefficient'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} numberOfCorrelations
    */
   exports.prototype['numberOfCorrelations'] = undefined;
   /**
-   * Example: 1 or 0
+   * Ex: 1 or 0
    * @member {Number} vote
    */
   exports.prototype['vote'] = undefined;
@@ -8788,7 +8825,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./DataSource":33,"./StudyHtml":64,"./StudyImages":65,"./StudyLinks":66,"./StudyText":67}],33:[function(require,module,exports){
+},{"../ApiClient":9,"./DataSource":33,"./StudyHtml":66,"./StudyImages":67,"./StudyLinks":68,"./StudyText":69}],33:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8834,19 +8871,19 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>DataSource</code>.
    * @alias module:model/DataSource
    * @class
-   * @param affiliate {Boolean} Example: true
-   * @param connectorClientId {String} Example: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
-   * @param defaultVariableCategoryName {String} Example: Foods
-   * @param displayName {String} Example: QuantiModo
-   * @param enabled {Number} Example: 0
-   * @param getItUrl {String} Example: https://quantimo.do
-   * @param id {Number} Example: 72
-   * @param image {String} Example: https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
-   * @param imageHtml {String} Example: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
-   * @param linkedDisplayNameHtml {String} Example: <a href=\"https://quantimo.do\">QuantiModo</a>
-   * @param longDescription {String} Example: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
-   * @param name {String} Example: quantimodo
-   * @param shortDescription {String} Example: Tracks anything
+   * @param affiliate {Boolean} Ex: true
+   * @param connectorClientId {String} Ex: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
+   * @param defaultVariableCategoryName {String} Ex: Foods
+   * @param displayName {String} Ex: QuantiModo
+   * @param enabled {Number} Ex: 0
+   * @param getItUrl {String} Ex: https://quantimo.do
+   * @param id {Number} Ex: 72
+   * @param image {String} Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
+   * @param imageHtml {String} Ex: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://quantimodo.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
+   * @param linkedDisplayNameHtml {String} Ex: <a href=\"https://quantimo.do\">QuantiModo</a>
+   * @param longDescription {String} Ex: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
+   * @param name {String} Ex: quantimodo
+   * @param shortDescription {String} Ex: Tracks anything
    */
   var exports = function(affiliate, connectorClientId, defaultVariableCategoryName, displayName, enabled, getItUrl, id, image, imageHtml, linkedDisplayNameHtml, longDescription, name, shortDescription) {
     var _this = this;
@@ -8921,67 +8958,67 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: true
+   * Ex: true
    * @member {Boolean} affiliate
    */
   exports.prototype['affiliate'] = undefined;
   /**
-   * Example: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
+   * Ex: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30
    * @member {String} connectorClientId
    */
   exports.prototype['connectorClientId'] = undefined;
   /**
-   * Example: Foods
+   * Ex: Foods
    * @member {String} defaultVariableCategoryName
    */
   exports.prototype['defaultVariableCategoryName'] = undefined;
   /**
-   * Example: QuantiModo
+   * Ex: QuantiModo
    * @member {String} displayName
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} enabled
    */
   exports.prototype['enabled'] = undefined;
   /**
-   * Example: https://quantimo.do
+   * Ex: https://quantimo.do
    * @member {String} getItUrl
    */
   exports.prototype['getItUrl'] = undefined;
   /**
-   * Example: 72
+   * Ex: 72
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png
    * @member {String} image
    */
   exports.prototype['image'] = undefined;
   /**
-   * Example: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://app.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
+   * Ex: <a href=\"https://quantimo.do\"><img id=\"quantimodo_image\" title=\"QuantiModo\" src=\"https://quantimodo.quantimo.do/ionic/Modo/www/img/logos/quantimodo-logo-qm-rainbow-200-200.png\" alt=\"QuantiModo\"></a>
    * @member {String} imageHtml
    */
   exports.prototype['imageHtml'] = undefined;
   /**
-   * Example: <a href=\"https://quantimo.do\">QuantiModo</a>
+   * Ex: <a href=\"https://quantimo.do\">QuantiModo</a>
    * @member {String} linkedDisplayNameHtml
    */
   exports.prototype['linkedDisplayNameHtml'] = undefined;
   /**
-   * Example: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
+   * Ex: QuantiModo is a Chrome extension, Android app, iOS app, and web app that allows you to easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second.  You can also import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more.  QuantiModo then analyzes your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values.
    * @member {String} longDescription
    */
   exports.prototype['longDescription'] = undefined;
   /**
-   * Example: quantimodo
+   * Ex: quantimodo
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * Example: Tracks anything
+   * Ex: Tracks anything
    * @member {String} shortDescription
    */
   exports.prototype['shortDescription'] = undefined;
@@ -9143,11 +9180,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>Explanation</code>.
    * @alias module:model/Explanation
    * @class
-   * @param description {String} Example: These factors are most predictive of Overall Mood based on your own data.
+   * @param description {String} Ex: These factors are most predictive of Overall Mood based on your own data.
    * @param image {module:model/Image} 
-   * @param ionIcon {String} Example: ion-ios-person
+   * @param ionIcon {String} Ex: ion-ios-person
    * @param startTracking {module:model/ExplanationStartTracking} 
-   * @param title {String} Example: Top Predictors of Overall Mood
+   * @param title {String} Ex: Top Predictors of Overall Mood
    */
   var exports = function(description, image, ionIcon, startTracking, title) {
     var _this = this;
@@ -9194,7 +9231,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: These factors are most predictive of Overall Mood based on your own data.
+   * Ex: These factors are most predictive of Overall Mood based on your own data.
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
@@ -9203,7 +9240,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['image'] = undefined;
   /**
-   * Example: ion-ios-person
+   * Ex: ion-ios-person
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
@@ -9212,7 +9249,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['startTracking'] = undefined;
   /**
-   * Example: Top Predictors of Overall Mood
+   * Ex: Top Predictors of Overall Mood
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
@@ -9276,8 +9313,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @alias module:model/ExplanationStartTracking
    * @class
    * @param button {module:model/Button} 
-   * @param description {String} Example: The more data I have the more accurate your results will be so track regularly!
-   * @param title {String} Example: Improve Accuracy
+   * @param description {String} Ex: The more data I have the more accurate your results will be so track regularly!
+   * @param title {String} Ex: Improve Accuracy
    */
   var exports = function(button, description, title) {
     var _this = this;
@@ -9316,12 +9353,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['button'] = undefined;
   /**
-   * Example: The more data I have the more accurate your results will be so track regularly!
+   * Ex: The more data I have the more accurate your results will be so track regularly!
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
   /**
-   * Example: Improve Accuracy
+   * Ex: Improve Accuracy
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
@@ -9490,6 +9527,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['correlations'] = correlations;
     _this['explanation'] = explanation;
+
+
   };
 
   /**
@@ -9509,6 +9548,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('explanation')) {
         obj['explanation'] = Explanation.constructFromObject(data['explanation']);
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
@@ -9521,6 +9566,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {module:model/Explanation} explanation
    */
   exports.prototype['explanation'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 
@@ -9838,7 +9893,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Study":62}],42:[function(require,module,exports){
+},{"../ApiClient":9,"./Study":63}],42:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -9941,7 +9996,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminderNotification":70}],43:[function(require,module,exports){
+},{"../ApiClient":9,"./TrackingReminderNotification":72}],43:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -9987,9 +10042,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>Image</code>.
    * @alias module:model/Image
    * @class
-   * @param height {String} Example: 240
-   * @param imageUrl {String} Example: https://www.filepicker.io/api/file/TjmeNWS5Q2SFmtJlUGLf
-   * @param width {String} Example: 224
+   * @param height {String} Ex: 240
+   * @param imageUrl {String} Ex: https://www.filepicker.io/api/file/TjmeNWS5Q2SFmtJlUGLf
+   * @param width {String} Ex: 224
    */
   var exports = function(height, imageUrl, width) {
     var _this = this;
@@ -10024,17 +10079,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: 240
+   * Ex: 240
    * @member {String} height
    */
   exports.prototype['height'] = undefined;
   /**
-   * Example: https://www.filepicker.io/api/file/TjmeNWS5Q2SFmtJlUGLf
+   * Ex: https://www.filepicker.io/api/file/TjmeNWS5Q2SFmtJlUGLf
    * @member {String} imageUrl
    */
   exports.prototype['imageUrl'] = undefined;
   /**
-   * Example: 224
+   * Ex: 224
    * @member {String} width
    */
   exports.prototype['width'] = undefined;
@@ -10099,6 +10154,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     _this['status'] = status;
+
+
   };
 
   /**
@@ -10118,6 +10175,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('status')) {
         obj['status'] = ApiClient.convertToType(data['status'], 'String');
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
@@ -10132,6 +10195,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} status
    */
   exports.prototype['status'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 
@@ -10401,17 +10474,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: quantimodo
+   * Ex: quantimodo
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
   /**
-   * Example: 13
+   * Ex: 13
    * @member {Number} connectorId
    */
   exports.prototype['connectorId'] = undefined;
   /**
-   * Example: 2017-07-30 21:08:36
+   * Ex: 2017-07-30 21:08:36
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
@@ -10421,37 +10494,37 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['displayValueAndUnitString'] = undefined;
   /**
-   * Example: ion-sad-outline
+   * Ex: ion-sad-outline
    * @member {String} iconIcon
    */
   exports.prototype['iconIcon'] = undefined;
   /**
-   * Example: 1051466127
+   * Ex: 1051466127
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: value
+   * Ex: value
    * @member {String} inputType
    */
   exports.prototype['inputType'] = undefined;
   /**
-   * Example: ion-ios-medkit-outline
+   * Ex: ion-ios-medkit-outline
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * Example: 5
+   * Ex: 5
    * @member {Number} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
@@ -10471,7 +10544,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['noteHtml'] = undefined;
   /**
-   * Example: 23
+   * Ex: 23
    * @member {Number} originalUnitId
    */
   exports.prototype['originalUnitId'] = undefined;
@@ -10481,12 +10554,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['originalValue'] = undefined;
   /**
-   * Example: img/variable_categories/treatments.png
+   * Ex: img/variable_categories/treatments.png
    * @member {String} pngPath
    */
   exports.prototype['pngPath'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.png
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.png
    * @member {String} pngUrl
    */
   exports.prototype['pngUrl'] = undefined;
@@ -10501,7 +10574,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['sourceName'] = undefined;
   /**
-   * Example: 2014-08-27
+   * Ex: 2014-08-27
    * @member {String} startDate
    */
   exports.prototype['startDate'] = undefined;
@@ -10516,7 +10589,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['startTimeString'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.svg
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.svg
    * @member {String} svgUrl
    */
   exports.prototype['svgUrl'] = undefined;
@@ -10526,27 +10599,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['unitAbbreviatedName'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} unitCategoryId
    */
   exports.prototype['unitCategoryId'] = undefined;
   /**
-   * Example: Miscellany
+   * Ex: Miscellany
    * @member {String} unitCategoryName
    */
   exports.prototype['unitCategoryName'] = undefined;
   /**
-   * Example: 23
+   * Ex: 23
    * @member {Number} unitId
    */
   exports.prototype['unitId'] = undefined;
   /**
-   * Example: Count
+   * Ex: Count
    * @member {String} unitName
    */
   exports.prototype['unitName'] = undefined;
   /**
-   * Example: 2017-07-30 21:08:36
+   * Ex: 2017-07-30 21:08:36
    * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
@@ -10556,42 +10629,42 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['url'] = undefined;
   /**
-   * Example: count
+   * Ex: count
    * @member {String} userVariableUnitAbbreviatedName
    */
   exports.prototype['userVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} userVariableUnitCategoryId
    */
   exports.prototype['userVariableUnitCategoryId'] = undefined;
   /**
-   * Example: Miscellany
+   * Ex: Miscellany
    * @member {String} userVariableUnitCategoryName
    */
   exports.prototype['userVariableUnitCategoryName'] = undefined;
   /**
-   * Example: 23
+   * Ex: 23
    * @member {Number} userVariableUnitId
    */
   exports.prototype['userVariableUnitId'] = undefined;
   /**
-   * Example: Count
+   * Ex: Count
    * @member {String} userVariableUnitName
    */
   exports.prototype['userVariableUnitName'] = undefined;
   /**
-   * Example: 13
+   * Ex: 13
    * @member {Number} userVariableVariableCategoryId
    */
   exports.prototype['userVariableVariableCategoryId'] = undefined;
   /**
-   * Example: Treatments
+   * Ex: Treatments
    * @member {String} userVariableVariableCategoryName
    */
   exports.prototype['userVariableVariableCategoryName'] = undefined;
   /**
-   * Example: negative
+   * Ex: negative
    * @member {String} valence
    */
   exports.prototype['valence'] = undefined;
@@ -10601,27 +10674,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['value'] = undefined;
   /**
-   * Example: 13
+   * Ex: 13
    * @member {Number} variableCategoryId
    */
   exports.prototype['variableCategoryId'] = undefined;
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png
+   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png
    * @member {String} variableCategoryImageUrl
    */
   exports.prototype['variableCategoryImageUrl'] = undefined;
   /**
-   * Example: Treatments
+   * Ex: Treatments
    * @member {String} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
-   * Example: negative
+   * Ex: negative
    * @member {String} variableDescription
    */
   exports.prototype['variableDescription'] = undefined;
   /**
-   * Example: 5956846
+   * Ex: 5956846
    * @member {Number} variableId
    */
   exports.prototype['variableId'] = undefined;
@@ -10631,7 +10704,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableName'] = undefined;
   /**
-   * Example: Trader Joe's Bedtime Tea
+   * Ex: Trader Joe's Bedtime Tea
    * @member {String} displayName
    */
   exports.prototype['displayName'] = undefined;
@@ -11176,13 +11249,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>Pair</code>.
    * @alias module:model/Pair
    * @class
-   * @param causeMeasurement {Number} Example: 101341.66666667
-   * @param causeMeasurementValue {Number} Example: 101341.66666667
-   * @param causeVariableUnitAbbreviatedName {String} Example: mg
-   * @param effectMeasurement {Number} Example: 7.98
-   * @param effectMeasurementValue {Number} Example: 7.98
-   * @param effectVariableUnitAbbreviatedName {String} Example: %
-   * @param timestamp {Number} Example: 1464937200
+   * @param causeMeasurement {Number} Ex: 101341.66666667
+   * @param causeMeasurementValue {Number} Ex: 101341.66666667
+   * @param causeVariableUnitAbbreviatedName {String} Ex: mg
+   * @param effectMeasurement {Number} Ex: 7.98
+   * @param effectMeasurementValue {Number} Ex: 7.98
+   * @param effectVariableUnitAbbreviatedName {String} Ex: %
+   * @param timestamp {Number} Ex: 1464937200
    */
   var exports = function(causeMeasurement, causeMeasurementValue, causeVariableUnitAbbreviatedName, effectMeasurement, effectMeasurementValue, effectVariableUnitAbbreviatedName, timestamp) {
     var _this = this;
@@ -11245,52 +11318,52 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: 101341.66666667
+   * Ex: 101341.66666667
    * @member {Number} causeMeasurement
    */
   exports.prototype['causeMeasurement'] = undefined;
   /**
-   * Example: 101341.66666667
+   * Ex: 101341.66666667
    * @member {Number} causeMeasurementValue
    */
   exports.prototype['causeMeasurementValue'] = undefined;
   /**
-   * Example: mg
+   * Ex: mg
    * @member {String} causeVariableUnitAbbreviatedName
    */
   exports.prototype['causeVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 7.98
+   * Ex: 7.98
    * @member {Number} effectMeasurement
    */
   exports.prototype['effectMeasurement'] = undefined;
   /**
-   * Example: 7.98
+   * Ex: 7.98
    * @member {Number} effectMeasurementValue
    */
   exports.prototype['effectMeasurementValue'] = undefined;
   /**
-   * Example: %
+   * Ex: %
    * @member {String} effectVariableUnitAbbreviatedName
    */
   exports.prototype['effectVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} eventAt
    */
   exports.prototype['eventAt'] = undefined;
   /**
-   * Example: 1438876142
+   * Ex: 1438876142
    * @member {Number} eventAtUnixTime
    */
   exports.prototype['eventAtUnixTime'] = undefined;
   /**
-   * Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} startTimeString
    */
   exports.prototype['startTimeString'] = undefined;
   /**
-   * Example: 1464937200
+   * Ex: 1464937200
    * @member {Number} timestamp
    */
   exports.prototype['timestamp'] = undefined;
@@ -11378,12 +11451,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: <a href=\"https://www.amazon.com/Fitbit-Charge-Heart-Fitness-Wristband/dp/B01K9S260E/ref=as_li_ss_tl?ie=UTF8&qid=1493518902&sr=8-3&keywords=fitbit&th=1&linkCode=ll1&tag=quant08-20&linkId=b357b0833de73b0c4e935fd7c13a079e\">Obtain Fitbit</a> and use it to record your Sleep Duration. Once you have a <a href=\"https://www.amazon.com/Fitbit-Charge-Heart-Fitness-Wristband/dp/B01K9S260E/ref=as_li_ss_tl?ie=UTF8&qid=1493518902&sr=8-3&keywords=fitbit&th=1&linkCode=ll1&tag=quant08-20&linkId=b357b0833de73b0c4e935fd7c13a079e\">Fitbit</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  Fitbit account at QuantiModo</a> to automatically import and analyze your data.
+   * Ex: <a href=\"https://www.amazon.com/Fitbit-Charge-Heart-Fitness-Wristband/dp/B01K9S260E/ref=as_li_ss_tl?ie=UTF8&qid=1493518902&sr=8-3&keywords=fitbit&th=1&linkCode=ll1&tag=quant08-20&linkId=b357b0833de73b0c4e935fd7c13a079e\">Obtain Fitbit</a> and use it to record your Sleep Duration. Once you have a <a href=\"https://www.amazon.com/Fitbit-Charge-Heart-Fitness-Wristband/dp/B01K9S260E/ref=as_li_ss_tl?ie=UTF8&qid=1493518902&sr=8-3&keywords=fitbit&th=1&linkCode=ll1&tag=quant08-20&linkId=b357b0833de73b0c4e935fd7c13a079e\">Fitbit</a> account, <a href=\"https://quantimodo.quantimo.do/ionic/Modo/www/#/app/import\">connect your  Fitbit account at QuantiModo</a> to automatically import and analyze your data.
    * @member {String} instructionsForCauseVariable
    */
   exports.prototype['instructionsForCauseVariable'] = undefined;
   /**
-   * Example: <a href=\"https://quantimo.do\">Obtain QuantiModo</a> and use it to record your Overall Mood. Once you have a <a href=\"https://quantimo.do\">QuantiModo</a> account, <a href=\"https://app.quantimo.do/ionic/Modo/www/#/app/import\">connect your  QuantiModo account at QuantiModo</a> to automatically import and analyze your data.
+   * Ex: <a href=\"https://quantimo.do\">Obtain QuantiModo</a> and use it to record your Overall Mood. Once you have a <a href=\"https://quantimo.do\">QuantiModo</a> account, <a href=\"https://quantimodo.quantimo.do/ionic/Modo/www/#/app/import\">connect your  QuantiModo account at QuantiModo</a> to automatically import and analyze your data.
    * @member {String} instructionsForEffectVariable
    */
   exports.prototype['instructionsForEffectVariable'] = undefined;
@@ -11560,6 +11633,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
 
+
+
   };
 
   /**
@@ -11576,6 +11651,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('userVariables')) {
         obj['userVariables'] = ApiClient.convertToType(data['userVariables'], [Variable]);
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
@@ -11584,6 +11665,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Array.<module:model/Variable>} userVariables
    */
   exports.prototype['userVariables'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 
@@ -11592,7 +11683,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Variable":79}],54:[function(require,module,exports){
+},{"../ApiClient":9,"./Variable":81}],54:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11648,6 +11739,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['status'] = status;
     _this['success'] = success;
+
+
   };
 
   /**
@@ -11673,6 +11766,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
@@ -11695,6 +11794,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Boolean} success
    */
   exports.prototype['success'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 
@@ -11704,6 +11813,125 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 },{"../ApiClient":9,"./PostMeasurementsDataResponse":53}],55:[function(require,module,exports){
+/**
+ * quantimodo
+ * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
+ *
+ * OpenAPI spec version: 5.8.112511
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.3.1
+ *
+ * Do not edit the class manually.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['ApiClient', 'model/Study'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'), require('./Study'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.Quantimodo) {
+      root.Quantimodo = {};
+    }
+    root.Quantimodo.PostStudyCreateResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Study);
+  }
+}(this, function(ApiClient, Study) {
+  'use strict';
+
+
+
+
+  /**
+   * The PostStudyCreateResponse model module.
+   * @module model/PostStudyCreateResponse
+   * @version 5.8.112511
+   */
+
+  /**
+   * Constructs a new <code>PostStudyCreateResponse</code>.
+   * @alias module:model/PostStudyCreateResponse
+   * @class
+   */
+  var exports = function() {
+    var _this = this;
+
+
+
+
+
+
+  };
+
+  /**
+   * Constructs a <code>PostStudyCreateResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/PostStudyCreateResponse} obj Optional instance to populate.
+   * @return {module:model/PostStudyCreateResponse} The populated <code>PostStudyCreateResponse</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('study')) {
+        obj['study'] = Study.constructFromObject(data['study']);
+      }
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = ApiClient.convertToType(data['status'], 'String');
+      }
+      if (data.hasOwnProperty('success')) {
+        obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * @member {module:model/Study} study
+   */
+  exports.prototype['study'] = undefined;
+  /**
+   * Ex: ok
+   * @member {String} status
+   */
+  exports.prototype['status'] = undefined;
+  /**
+   * Ex: true
+   * @member {Boolean} success
+   */
+  exports.prototype['success'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
+
+
+
+  return exports;
+}));
+
+
+
+},{"../ApiClient":9,"./Study":63}],56:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11755,6 +11983,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
   };
 
   /**
@@ -11774,20 +12004,36 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
 
   /**
-   * Example: ok
+   * Ex: ok
    * @member {String} status
    */
   exports.prototype['status'] = undefined;
   /**
-   * Example: true
+   * Ex: true
    * @member {Boolean} success
    */
   exports.prototype['success'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 
@@ -11796,7 +12042,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],56:[function(require,module,exports){
+},{"../ApiClient":9}],57:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11849,6 +12095,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
   };
 
   /**
@@ -11871,6 +12119,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('userVariables')) {
         obj['userVariables'] = ApiClient.convertToType(data['userVariables'], [Variable]);
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
@@ -11887,6 +12141,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Array.<module:model/Variable>} userVariables
    */
   exports.prototype['userVariables'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 
@@ -11895,7 +12159,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminder":68,"./TrackingReminderNotification":70,"./Variable":79}],57:[function(require,module,exports){
+},{"../ApiClient":9,"./TrackingReminder":70,"./TrackingReminderNotification":72,"./Variable":81}],58:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11951,6 +12215,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['status'] = status;
     _this['success'] = success;
+
+
   };
 
   /**
@@ -11976,6 +12242,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
@@ -11998,6 +12270,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Boolean} success
    */
   exports.prototype['success'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 
@@ -12006,7 +12288,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./PostTrackingRemindersDataResponse":56}],58:[function(require,module,exports){
+},{"../ApiClient":9,"./PostTrackingRemindersDataResponse":57}],59:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12057,6 +12339,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
 
+
+
   };
 
   /**
@@ -12073,15 +12357,31 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('purchaseId')) {
         obj['purchaseId'] = ApiClient.convertToType(data['purchaseId'], 'Number');
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
 
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} purchaseId
    */
   exports.prototype['purchaseId'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 
@@ -12090,7 +12390,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],59:[function(require,module,exports){
+},{"../ApiClient":9}],60:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12146,6 +12446,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['status'] = status;
     _this['success'] = success;
+
+
   };
 
   /**
@@ -12171,6 +12473,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('success')) {
         obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
     }
     return obj;
   }
@@ -12193,6 +12501,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Boolean} success
    */
   exports.prototype['success'] = undefined;
+  /**
+   * Can be used as body of help info popup
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Can be used as title in help info popup
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
 
 
 
@@ -12201,7 +12519,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./PostUserSettingsDataResponse":58}],60:[function(require,module,exports){
+},{"../ApiClient":9,"./PostUserSettingsDataResponse":59}],61:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12273,7 +12591,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: user_likes
+   * Ex: user_likes
    * @member {String} scalar
    */
   exports.prototype['scalar'] = undefined;
@@ -12285,7 +12603,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],61:[function(require,module,exports){
+},{"../ApiClient":9}],62:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12384,12 +12702,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['name'] = undefined;
   /**
-   * Example: I would like to share my measurements with you!
+   * Ex: I would like to share my measurements with you!
    * @member {String} emailSubject
    */
   exports.prototype['emailSubject'] = undefined;
   /**
-   * Example: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness.
+   * Ex: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness.
    * @member {String} emailBody
    */
   exports.prototype['emailBody'] = undefined;
@@ -12406,7 +12724,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],62:[function(require,module,exports){
+},{"../ApiClient":9}],63:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12425,18 +12743,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Chart', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/Variable'], factory);
+    define(['ApiClient', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/Variable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Chart'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyCharts'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'), require('./Variable'));
+    module.exports = factory(require('../ApiClient'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyCharts'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'), require('./Variable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Chart, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyCharts, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText, root.Quantimodo.Variable);
+    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyCharts, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText, root.Quantimodo.Variable);
   }
-}(this, function(ApiClient, Chart, Correlation, ParticipantInstruction, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudyText, Variable) {
+}(this, function(ApiClient, Correlation, ParticipantInstruction, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudyText, Variable) {
   'use strict';
 
 
@@ -12452,22 +12770,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>Study</code>.
    * @alias module:model/Study
    * @class
-   * @param type {String} Example: population
+   * @param type {String} Ex: population, cohort, or individual
    */
   var exports = function(type) {
     var _this = this;
 
-
-
-
-
-
-
-
-
-
-
     _this['type'] = type;
+
+
+
+
+
+
+
+
+
+
 
   };
 
@@ -12482,11 +12800,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      }
+      if (data.hasOwnProperty('userId')) {
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
+      }
+      if (data.hasOwnProperty('studyId')) {
+        obj['studyId'] = ApiClient.convertToType(data['studyId'], 'String');
+      }
       if (data.hasOwnProperty('causeVariable')) {
         obj['causeVariable'] = Variable.constructFromObject(data['causeVariable']);
-      }
-      if (data.hasOwnProperty('charts')) {
-        obj['charts'] = ApiClient.convertToType(data['charts'], [Chart]);
       }
       if (data.hasOwnProperty('studyCharts')) {
         obj['studyCharts'] = StudyCharts.constructFromObject(data['studyCharts']);
@@ -12512,24 +12836,29 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('studyText')) {
         obj['studyText'] = StudyText.constructFromObject(data['studyText']);
       }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
-      }
-      if (data.hasOwnProperty('userId')) {
-        obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
-      }
     }
     return obj;
   }
 
   /**
+   * Ex: population, cohort, or individual
+   * @member {String} type
+   */
+  exports.prototype['type'] = undefined;
+  /**
+   * The user id of the principal investigator or subject if an individual studies
+   * @member {String} userId
+   */
+  exports.prototype['userId'] = undefined;
+  /**
+   * ID of the cohort study which is necessary to allow participants to join
+   * @member {String} studyId
+   */
+  exports.prototype['studyId'] = undefined;
+  /**
    * @member {module:model/Variable} causeVariable
    */
   exports.prototype['causeVariable'] = undefined;
-  /**
-   * @member {Array.<module:model/Chart>} charts
-   */
-  exports.prototype['charts'] = undefined;
   /**
    * @member {module:model/StudyCharts} studyCharts
    */
@@ -12562,16 +12891,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {module:model/StudyText} studyText
    */
   exports.prototype['studyText'] = undefined;
-  /**
-   * Example: population
-   * @member {String} type
-   */
-  exports.prototype['type'] = undefined;
-  /**
-   * The user id if an individual study
-   * @member {String} userId
-   */
-  exports.prototype['userId'] = undefined;
 
 
 
@@ -12580,7 +12899,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Chart":27,"./Correlation":32,"./ParticipantInstruction":51,"./StudyCharts":63,"./StudyHtml":64,"./StudyImages":65,"./StudyLinks":66,"./StudyText":67,"./Variable":79}],63:[function(require,module,exports){
+},{"../ApiClient":9,"./Correlation":32,"./ParticipantInstruction":51,"./StudyCharts":64,"./StudyHtml":66,"./StudyImages":67,"./StudyLinks":68,"./StudyText":69,"./Variable":81}],64:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12696,7 +13015,111 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Chart":27}],64:[function(require,module,exports){
+},{"../ApiClient":9,"./Chart":27}],65:[function(require,module,exports){
+/**
+ * quantimodo
+ * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
+ *
+ * OpenAPI spec version: 5.8.112511
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.3.1
+ *
+ * Do not edit the class manually.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['ApiClient'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.Quantimodo) {
+      root.Quantimodo = {};
+    }
+    root.Quantimodo.StudyCreationBody = factory(root.Quantimodo.ApiClient);
+  }
+}(this, function(ApiClient) {
+  'use strict';
+
+
+
+
+  /**
+   * The StudyCreationBody model module.
+   * @module model/StudyCreationBody
+   * @version 5.8.112511
+   */
+
+  /**
+   * Constructs a new <code>StudyCreationBody</code>.
+   * @alias module:model/StudyCreationBody
+   * @class
+   * @param predictorVariableName {String} Name of predictor variable
+   * @param outcomeVariableName {String} Name of the outcome variable
+   */
+  var exports = function(predictorVariableName, outcomeVariableName) {
+    var _this = this;
+
+    _this['predictorVariableName'] = predictorVariableName;
+    _this['outcomeVariableName'] = outcomeVariableName;
+
+  };
+
+  /**
+   * Constructs a <code>StudyCreationBody</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/StudyCreationBody} obj Optional instance to populate.
+   * @return {module:model/StudyCreationBody} The populated <code>StudyCreationBody</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('predictorVariableName')) {
+        obj['predictorVariableName'] = ApiClient.convertToType(data['predictorVariableName'], 'String');
+      }
+      if (data.hasOwnProperty('outcomeVariableName')) {
+        obj['outcomeVariableName'] = ApiClient.convertToType(data['outcomeVariableName'], 'String');
+      }
+      if (data.hasOwnProperty('studyTitle')) {
+        obj['studyTitle'] = ApiClient.convertToType(data['studyTitle'], 'String');
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * Name of predictor variable
+   * @member {String} predictorVariableName
+   */
+  exports.prototype['predictorVariableName'] = undefined;
+  /**
+   * Name of the outcome variable
+   * @member {String} outcomeVariableName
+   */
+  exports.prototype['outcomeVariableName'] = undefined;
+  /**
+   * Title of your study (optional)
+   * @member {String} studyTitle
+   */
+  exports.prototype['studyTitle'] = undefined;
+
+
+
+  return exports;
+}));
+
+
+
+},{"../ApiClient":9}],66:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12890,7 +13313,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],65:[function(require,module,exports){
+},{"../ApiClient":9}],67:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12936,9 +13359,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>StudyImages</code>.
    * @alias module:model/StudyImages
    * @class
-   * @param gaugeImage {String} Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
-   * @param gaugeImageSquare {String} Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
-   * @param imageUrl {String} Example: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
+   * @param gaugeImage {String} Ex: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
+   * @param gaugeImageSquare {String} Ex: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
+   * @param imageUrl {String} Ex: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
    */
   var exports = function(gaugeImage, gaugeImageSquare, imageUrl) {
     var _this = this;
@@ -12997,32 +13420,32 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
+   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
    * @member {String} causeVariableImageUrl
    */
   exports.prototype['causeVariableImageUrl'] = undefined;
   /**
-   * Example: ion-ios-cloudy-night-outline
+   * Ex: ion-ios-cloudy-night-outline
    * @member {String} causeVariableIonIcon
    */
   exports.prototype['causeVariableIonIcon'] = undefined;
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
+   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
    * @member {String} effectVariableImageUrl
    */
   exports.prototype['effectVariableImageUrl'] = undefined;
   /**
-   * Example: ion-happy-outline
+   * Ex: ion-happy-outline
    * @member {String} effectVariableIonIcon
    */
   exports.prototype['effectVariableIonIcon'] = undefined;
   /**
-   * Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
+   * Ex: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship.png
    * @member {String} gaugeImage
    */
   exports.prototype['gaugeImage'] = undefined;
   /**
-   * Example: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
+   * Ex: https://s3.amazonaws.com/quantimodo-docs/images/gauge-moderately-positive-relationship-200-200.png
    * @member {String} gaugeImageSquare
    */
   exports.prototype['gaugeImageSquare'] = undefined;
@@ -13032,7 +13455,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['gaugeSharingImageUrl'] = undefined;
   /**
-   * Example: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
+   * Ex: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png
    * @member {String} imageUrl
    */
   exports.prototype['imageUrl'] = undefined;
@@ -13049,7 +13472,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],66:[function(require,module,exports){
+},{"../ApiClient":9}],68:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -13095,12 +13518,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>StudyLinks</code>.
    * @alias module:model/StudyLinks
    * @class
-   * @param studyLinkEmail {String} Example: mailto:?subject=N1%20Study%3A%20Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood&body=Check%20out%20my%20study%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%0A%0AHave%20a%20great%20day!
-   * @param studyLinkFacebook {String} Example: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
-   * @param studyLinkGoogle {String} Example: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
-   * @param studyLinkStatic {String} Example: https://local.quantimo.do/api/v2/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
-   * @param studyLinkDynamic {String} Example: https://local.quantimo.do/ionic/Modo/www/index.html#/app/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
-   * @param studyLinkTwitter {String} Example: https://twitter.com/home?status=Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%20%40quantimodo
+   * @param studyLinkEmail {String} Ex: mailto:?subject=N1%20Study%3A%20Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood&body=Check%20out%20my%20study%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%0A%0AHave%20a%20great%20day!
+   * @param studyLinkFacebook {String} Ex: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
+   * @param studyLinkGoogle {String} Ex: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
+   * @param studyLinkStatic {String} Ex: https://local.quantimo.do/api/v2/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
+   * @param studyLinkDynamic {String} Ex: https://local.quantimo.do/ionic/Modo/www/index.html#/app/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
+   * @param studyLinkTwitter {String} Ex: https://twitter.com/home?status=Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%20%40quantimodo
    */
   var exports = function(studyLinkEmail, studyLinkFacebook, studyLinkGoogle, studyLinkStatic, studyLinkDynamic, studyLinkTwitter) {
     var _this = this;
@@ -13147,32 +13570,32 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: mailto:?subject=N1%20Study%3A%20Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood&body=Check%20out%20my%20study%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%0A%0AHave%20a%20great%20day!
+   * Ex: mailto:?subject=N1%20Study%3A%20Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood&body=Check%20out%20my%20study%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%0A%0AHave%20a%20great%20day!
    * @member {String} studyLinkEmail
    */
   exports.prototype['studyLinkEmail'] = undefined;
   /**
-   * Example: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
+   * Ex: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
    * @member {String} studyLinkFacebook
    */
   exports.prototype['studyLinkFacebook'] = undefined;
   /**
-   * Example: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
+   * Ex: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230
    * @member {String} studyLinkGoogle
    */
   exports.prototype['studyLinkGoogle'] = undefined;
   /**
-   * Example: https://local.quantimo.do/api/v2/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
+   * Ex: https://local.quantimo.do/api/v2/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
    * @member {String} studyLinkStatic
    */
   exports.prototype['studyLinkStatic'] = undefined;
   /**
-   * Example: https://local.quantimo.do/ionic/Modo/www/index.html#/app/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
+   * Ex: https://local.quantimo.do/ionic/Modo/www/index.html#/app/study?causeVariableName=Sleep%20Quality&effectVariableName=Overall%20Mood&userId=230
    * @member {String} studyLinkDynamic
    */
   exports.prototype['studyLinkDynamic'] = undefined;
   /**
-   * Example: https://twitter.com/home?status=Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%20%40quantimodo
+   * Ex: https://twitter.com/home?status=Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%20%40quantimodo
    * @member {String} studyLinkTwitter
    */
   exports.prototype['studyLinkTwitter'] = undefined;
@@ -13184,7 +13607,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],67:[function(require,module,exports){
+},{"../ApiClient":9}],69:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -13230,12 +13653,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>StudyText</code>.
    * @alias module:model/StudyText
    * @class
-   * @param studyAbstract {String} Example: Aggregated data from 21 suggests with a low degree of confidence (p=0.097) that Very Distracting Time (Work) has a moderately positive predictive relationship (R=0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day.
-   * @param studyDesign {String} Example: This study is based on data donated by  21 QuantiModo users. Thus, the study design is equivalent to the aggregation of 21 separate n=1 observational natural experiments.
-   * @param studyLimitations {String} Example: As with any human experiment, it was impossible to control for all potentially confounding variables.             Correlation does not necessarily imply correlation.  We can never know for sure if one factor is definitely the cause of an outcome.             However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great             confidence rule out non-existent relationships. For instance, if we discover no relationship between mood             and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.             <br>             <br>             We can also take advantage of several characteristics of time series data from many subjects  to infer the likelihood of a causal relationship if we do find a correlational relationship.             The criteria for causation are a group of minimal conditions necessary to provide adequate evidence of a causal relationship between an incidence and a possible consequence.             The list of the criteria is as follows:             <br>             1. Strength (effect size): A small association does not mean that there is not a causal effect, though the larger the association, the more likely that it is causal.             <br>             2. Consistency (reproducibility): Consistent findings observed by different persons in different places with different samples strengthens the likelihood of an effect.             <br>             3. Specificity: Causation is likely if a very specific population at a specific site and disease with no other likely explanation. The more specific an association between a factor and an effect is, the bigger the probability of a causal relationship.             <br>             4. Temporality: The effect has to occur after the cause (and if there is an expected delay between the cause and expected effect, then the effect must occur after that delay).             <br>             5. Biological gradient: Greater exposure should generally lead to greater incidence of the effect. However, in some cases, the mere presence of the factor can trigger the effect. In other cases, an inverse proportion is observed: greater exposure leads to lower incidence.             <br>             6. Plausibility: A plausible mechanism between cause and effect is helpful.             <br>             7. Coherence: Coherence between epidemiological and laboratory findings increases the likelihood of an effect.             <br>             8. Experiment: \"Occasionally it is possible to appeal to experimental evidence\".             <br>             9. Analogy: The effect of similar factors may be considered.             <br>             <br>              The confidence in a causal relationship is bolstered by the fact that time-precedence was taken into account in all calculations. Furthermore, in accordance with the law of large numbers (LLN), the predictive power and accuracy of these results will continually grow over time.  146 paired data points were used in this analysis.   Assuming that the relationship is merely coincidental, as the participant independently modifies their Very Distracting Time values, the observed strength of the relationship will decline until it is below the threshold of significance.  To it another way, in the case that we do find a spurious correlation, suggesting that banana intake improves mood for instance,             one will likely increase their banana intake.  Due to the fact that this correlation is spurious, it is unlikely             that you will see a continued and persistent corresponding increase in mood.  So over time, the spurious correlation will             naturally dissipate.Furthermore, it will be very enlightening to aggregate this data with the data from other participants  with similar genetic, diseasomic, environmentomic, and demographic profiles.
-   * @param studyObjective {String} Example: The objective of this study is to determine the nature of the relationship (if any) between the Very Distracting Time and the Video Activities. Additionally, we attempt to determine the Very Distracting Time values most likely to produce optimal Video Activities values.
-   * @param studyResults {String} Example: This analysis suggests that higher Very Distracting Time (Work) generally predicts negative Video Activities (p = 0.097). Video Activities is, on average, 36%  higher after around 2.03 Very Distracting Time.  After an onset delay of 168 hours, Video Activities is, on average, 16%  lower than its average over the 168 hours following around 1.04 Very Distracting Time.  146 data points were used in this analysis.  The value for Very Distracting Time changed 2984 times, effectively running 1492 separate natural experiments. The top quartile outcome values are preceded by an average 2.03 h of Very Distracting Time.  The bottom quartile outcome values are preceded by an average 1.04 h of Very Distracting Time.  Forward Pearson Correlation Coefficient was 0.354 (p=0.097, 95% CI -0.437 to 1.144 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0.208 (P=0.097, 95% CI -0.583 to 0.998, onset delay = -0 hours, duration of action = -168 hours). When the Very Distracting Time value is closer to 2.03 h than 1.04 h, the Video Activities value which follows is, on average, 36% percent higher than its typical value.  When the Very Distracting Time value is closer to 1.04 h than 2.03 h, the Video Activities value which follows is 0% lower than its typical value.  Video Activities is 5 h (67% higher) on average after days with around 5 h Very Distracting Time
-   * @param studyTitle {String} Example: N1 Study: Very Distracting Time Predicts Negative Video Activities
+   * @param studyAbstract {String} Ex: Aggregated data from 21 suggests with a low degree of confidence (p=0.097) that Very Distracting Time (Work) has a moderately positive predictive relationship (R=0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day.
+   * @param studyDesign {String} Ex: This study is based on data donated by  21 QuantiModo users. Thus, the study design is equivalent to the aggregation of 21 separate n=1 observational natural experiments.
+   * @param studyLimitations {String} Ex: As with any human experiment, it was impossible to control for all potentially confounding variables.             Correlation does not necessarily imply correlation.  We can never know for sure if one factor is definitely the cause of an outcome.             However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great             confidence rule out non-existent relationships. For instance, if we discover no relationship between mood             and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.             <br>             <br>             We can also take advantage of several characteristics of time series data from many subjects  to infer the likelihood of a causal relationship if we do find a correlational relationship.             The criteria for causation are a group of minimal conditions necessary to provide adequate evidence of a causal relationship between an incidence and a possible consequence.             The list of the criteria is as follows:             <br>             1. Strength (effect size): A small association does not mean that there is not a causal effect, though the larger the association, the more likely that it is causal.             <br>             2. Consistency (reproducibility): Consistent findings observed by different persons in different places with different samples strengthens the likelihood of an effect.             <br>             3. Specificity: Causation is likely if a very specific population at a specific site and disease with no other likely explanation. The more specific an association between a factor and an effect is, the bigger the probability of a causal relationship.             <br>             4. Temporality: The effect has to occur after the cause (and if there is an expected delay between the cause and expected effect, then the effect must occur after that delay).             <br>             5. Biological gradient: Greater exposure should generally lead to greater incidence of the effect. However, in some cases, the mere presence of the factor can trigger the effect. In other cases, an inverse proportion is observed: greater exposure leads to lower incidence.             <br>             6. Plausibility: A plausible mechanism between cause and effect is helpful.             <br>             7. Coherence: Coherence between epidemiological and laboratory findings increases the likelihood of an effect.             <br>             8. Experiment: \"Occasionally it is possible to appeal to experimental evidence\".             <br>             9. Analogy: The effect of similar factors may be considered.             <br>             <br>              The confidence in a causal relationship is bolstered by the fact that time-precedence was taken into account in all calculations. Furthermore, in accordance with the law of large numbers (LLN), the predictive power and accuracy of these results will continually grow over time.  146 paired data points were used in this analysis.   Assuming that the relationship is merely coincidental, as the participant independently modifies their Very Distracting Time values, the observed strength of the relationship will decline until it is below the threshold of significance.  To it another way, in the case that we do find a spurious correlation, suggesting that banana intake improves mood for instance,             one will likely increase their banana intake.  Due to the fact that this correlation is spurious, it is unlikely             that you will see a continued and persistent corresponding increase in mood.  So over time, the spurious correlation will             naturally dissipate.Furthermore, it will be very enlightening to aggregate this data with the data from other participants  with similar genetic, diseasomic, environmentomic, and demographic profiles.
+   * @param studyObjective {String} Ex: The objective of this study is to determine the nature of the relationship (if any) between the Very Distracting Time and the Video Activities. Additionally, we attempt to determine the Very Distracting Time values most likely to produce optimal Video Activities values.
+   * @param studyResults {String} Ex: This analysis suggests that higher Very Distracting Time (Work) generally predicts negative Video Activities (p = 0.097). Video Activities is, on average, 36%  higher after around 2.03 Very Distracting Time.  After an onset delay of 168 hours, Video Activities is, on average, 16%  lower than its average over the 168 hours following around 1.04 Very Distracting Time.  146 data points were used in this analysis.  The value for Very Distracting Time changed 2984 times, effectively running 1492 separate natural experiments. The top quartile outcome values are preceded by an average 2.03 h of Very Distracting Time.  The bottom quartile outcome values are preceded by an average 1.04 h of Very Distracting Time.  Forward Pearson Correlation Coefficient was 0.354 (p=0.097, 95% CI -0.437 to 1.144 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0.208 (P=0.097, 95% CI -0.583 to 0.998, onset delay = -0 hours, duration of action = -168 hours). When the Very Distracting Time value is closer to 2.03 h than 1.04 h, the Video Activities value which follows is, on average, 36% percent higher than its typical value.  When the Very Distracting Time value is closer to 1.04 h than 2.03 h, the Video Activities value which follows is 0% lower than its typical value.  Video Activities is 5 h (67% higher) on average after days with around 5 h Very Distracting Time
+   * @param studyTitle {String} Ex: N1 Study: Very Distracting Time Predicts Negative Video Activities
    */
   var exports = function(studyAbstract, studyDesign, studyLimitations, studyObjective, studyResults, studyTitle) {
     var _this = this;
@@ -13350,102 +13773,102 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: Overall Mood is 3.55/5 (15% higher) on average after days with around 4.19/5 Sleep Quality
+   * Ex: Overall Mood is 3.55/5 (15% higher) on average after days with around 4.19/5 Sleep Quality
    * @member {String} averageEffectFollowingHighCauseExplanation
    */
   exports.prototype['averageEffectFollowingHighCauseExplanation'] = undefined;
   /**
-   * Example: Overall Mood is 2.65/5 (14% lower) on average after days with around 1.97/5 Sleep Quality
+   * Ex: Overall Mood is 2.65/5 (14% lower) on average after days with around 1.97/5 Sleep Quality
    * @member {String} averageEffectFollowingLowCauseExplanation
    */
   exports.prototype['averageEffectFollowingLowCauseExplanation'] = undefined;
   /**
-   * Example: Overall Mood, on average, 17% higher after around 4.14/5 Sleep Quality
+   * Ex: Overall Mood, on average, 17% higher after around 4.14/5 Sleep Quality
    * @member {String} valuePredictingHighOutcomeExplanation
    */
   exports.prototype['valuePredictingHighOutcomeExplanation'] = undefined;
   /**
-   * Example: Overall Mood, on average, 11% lower after around 3.03/5 Sleep Quality
+   * Ex: Overall Mood, on average, 11% lower after around 3.03/5 Sleep Quality
    * @member {String} valuePredictingLowOutcomeExplanation
    */
   exports.prototype['valuePredictingLowOutcomeExplanation'] = undefined;
   /**
-   * Example: It was assumed that 0 hours would pass before a change in Very Distracting Time would produce an observable change in Video Activities.  It was assumed that Very Distracting Time could produce an observable change in Video Activities for as much as 7 days after the stimulus event.
+   * Ex: It was assumed that 0 hours would pass before a change in Very Distracting Time would produce an observable change in Video Activities.  It was assumed that Very Distracting Time could produce an observable change in Video Activities for as much as 7 days after the stimulus event.
    * @member {String} dataAnalysis
    */
   exports.prototype['dataAnalysis'] = undefined;
   /**
-   * Example: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
+   * Ex: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
    * @member {String} dataSources
    */
   exports.prototype['dataSources'] = undefined;
   /**
-   * Example: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
+   * Ex: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
    * @member {String} dataSourcesParagraphForCause
    */
   exports.prototype['dataSourcesParagraphForCause'] = undefined;
   /**
-   * Example: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
+   * Ex: Very Distracting Time data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.<br>Video Activities data was primarily collected using <a href=\"https://www.rescuetime.com/rp/quantimodo/plans\">RescueTime</a>. Detailed reports show which applications and websites you spent time on. Activities are automatically grouped into pre-defined categories with built-in productivity scores covering thousands of websites and applications. You can customize categories and productivity scores to meet your needs.
    * @member {String} dataSourcesParagraphForEffect
    */
   exports.prototype['dataSourcesParagraphForEffect'] = undefined;
   /**
-   * Example: Sleep Quality Predicts Higher Overall Mood
+   * Ex: Sleep Quality Predicts Higher Overall Mood
    * @member {String} lastCauseDailyValueSentenceExtended
    */
   exports.prototype['lastCauseDailyValueSentenceExtended'] = undefined;
   /**
-   * Example: Sleep Quality Predicts Higher Overall Mood
+   * Ex: Sleep Quality Predicts Higher Overall Mood
    * @member {String} lastCauseAndOptimalValueSentence
    */
   exports.prototype['lastCauseAndOptimalValueSentence'] = undefined;
   /**
-   * Example: Sleep Quality Predicts Higher Overall Mood
+   * Ex: Sleep Quality Predicts Higher Overall Mood
    * @member {String} lastCauseDailyValueSentence
    */
   exports.prototype['lastCauseDailyValueSentence'] = undefined;
   /**
-   * Example: Sleep Quality Predicts Higher Overall Mood
+   * Ex: Sleep Quality Predicts Higher Overall Mood
    * @member {String} optimalDailyValueSentence
    */
   exports.prototype['optimalDailyValueSentence'] = undefined;
   /**
-   * Example: Sleep Quality Predicts Higher Overall Mood
+   * Ex: Sleep Quality Predicts Higher Overall Mood
    * @member {String} predictorExplanation
    */
   exports.prototype['predictorExplanation'] = undefined;
   /**
-   * Example: Using a two-tailed t-test with alpha = 0.05, it was determined that the change in Video Activities is statistically significant at 95% confidence interval.
+   * Ex: Using a two-tailed t-test with alpha = 0.05, it was determined that the change in Video Activities is statistically significant at 95% confidence interval.
    * @member {String} significanceExplanation
    */
   exports.prototype['significanceExplanation'] = undefined;
   /**
-   * Example: Aggregated data from 21 suggests with a low degree of confidence (p=0.097) that Very Distracting Time (Work) has a moderately positive predictive relationship (R=0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day.
+   * Ex: Aggregated data from 21 suggests with a low degree of confidence (p=0.097) that Very Distracting Time (Work) has a moderately positive predictive relationship (R=0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day.
    * @member {String} studyAbstract
    */
   exports.prototype['studyAbstract'] = undefined;
   /**
-   * Example: This study is based on data donated by  21 QuantiModo users. Thus, the study design is equivalent to the aggregation of 21 separate n=1 observational natural experiments.
+   * Ex: This study is based on data donated by  21 QuantiModo users. Thus, the study design is equivalent to the aggregation of 21 separate n=1 observational natural experiments.
    * @member {String} studyDesign
    */
   exports.prototype['studyDesign'] = undefined;
   /**
-   * Example: As with any human experiment, it was impossible to control for all potentially confounding variables.             Correlation does not necessarily imply correlation.  We can never know for sure if one factor is definitely the cause of an outcome.             However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great             confidence rule out non-existent relationships. For instance, if we discover no relationship between mood             and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.             <br>             <br>             We can also take advantage of several characteristics of time series data from many subjects  to infer the likelihood of a causal relationship if we do find a correlational relationship.             The criteria for causation are a group of minimal conditions necessary to provide adequate evidence of a causal relationship between an incidence and a possible consequence.             The list of the criteria is as follows:             <br>             1. Strength (effect size): A small association does not mean that there is not a causal effect, though the larger the association, the more likely that it is causal.             <br>             2. Consistency (reproducibility): Consistent findings observed by different persons in different places with different samples strengthens the likelihood of an effect.             <br>             3. Specificity: Causation is likely if a very specific population at a specific site and disease with no other likely explanation. The more specific an association between a factor and an effect is, the bigger the probability of a causal relationship.             <br>             4. Temporality: The effect has to occur after the cause (and if there is an expected delay between the cause and expected effect, then the effect must occur after that delay).             <br>             5. Biological gradient: Greater exposure should generally lead to greater incidence of the effect. However, in some cases, the mere presence of the factor can trigger the effect. In other cases, an inverse proportion is observed: greater exposure leads to lower incidence.             <br>             6. Plausibility: A plausible mechanism between cause and effect is helpful.             <br>             7. Coherence: Coherence between epidemiological and laboratory findings increases the likelihood of an effect.             <br>             8. Experiment: \"Occasionally it is possible to appeal to experimental evidence\".             <br>             9. Analogy: The effect of similar factors may be considered.             <br>             <br>              The confidence in a causal relationship is bolstered by the fact that time-precedence was taken into account in all calculations. Furthermore, in accordance with the law of large numbers (LLN), the predictive power and accuracy of these results will continually grow over time.  146 paired data points were used in this analysis.   Assuming that the relationship is merely coincidental, as the participant independently modifies their Very Distracting Time values, the observed strength of the relationship will decline until it is below the threshold of significance.  To it another way, in the case that we do find a spurious correlation, suggesting that banana intake improves mood for instance,             one will likely increase their banana intake.  Due to the fact that this correlation is spurious, it is unlikely             that you will see a continued and persistent corresponding increase in mood.  So over time, the spurious correlation will             naturally dissipate.Furthermore, it will be very enlightening to aggregate this data with the data from other participants  with similar genetic, diseasomic, environmentomic, and demographic profiles.
+   * Ex: As with any human experiment, it was impossible to control for all potentially confounding variables.             Correlation does not necessarily imply correlation.  We can never know for sure if one factor is definitely the cause of an outcome.             However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great             confidence rule out non-existent relationships. For instance, if we discover no relationship between mood             and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.             <br>             <br>             We can also take advantage of several characteristics of time series data from many subjects  to infer the likelihood of a causal relationship if we do find a correlational relationship.             The criteria for causation are a group of minimal conditions necessary to provide adequate evidence of a causal relationship between an incidence and a possible consequence.             The list of the criteria is as follows:             <br>             1. Strength (effect size): A small association does not mean that there is not a causal effect, though the larger the association, the more likely that it is causal.             <br>             2. Consistency (reproducibility): Consistent findings observed by different persons in different places with different samples strengthens the likelihood of an effect.             <br>             3. Specificity: Causation is likely if a very specific population at a specific site and disease with no other likely explanation. The more specific an association between a factor and an effect is, the bigger the probability of a causal relationship.             <br>             4. Temporality: The effect has to occur after the cause (and if there is an expected delay between the cause and expected effect, then the effect must occur after that delay).             <br>             5. Biological gradient: Greater exposure should generally lead to greater incidence of the effect. However, in some cases, the mere presence of the factor can trigger the effect. In other cases, an inverse proportion is observed: greater exposure leads to lower incidence.             <br>             6. Plausibility: A plausible mechanism between cause and effect is helpful.             <br>             7. Coherence: Coherence between epidemiological and laboratory findings increases the likelihood of an effect.             <br>             8. Experiment: \"Occasionally it is possible to appeal to experimental evidence\".             <br>             9. Analogy: The effect of similar factors may be considered.             <br>             <br>              The confidence in a causal relationship is bolstered by the fact that time-precedence was taken into account in all calculations. Furthermore, in accordance with the law of large numbers (LLN), the predictive power and accuracy of these results will continually grow over time.  146 paired data points were used in this analysis.   Assuming that the relationship is merely coincidental, as the participant independently modifies their Very Distracting Time values, the observed strength of the relationship will decline until it is below the threshold of significance.  To it another way, in the case that we do find a spurious correlation, suggesting that banana intake improves mood for instance,             one will likely increase their banana intake.  Due to the fact that this correlation is spurious, it is unlikely             that you will see a continued and persistent corresponding increase in mood.  So over time, the spurious correlation will             naturally dissipate.Furthermore, it will be very enlightening to aggregate this data with the data from other participants  with similar genetic, diseasomic, environmentomic, and demographic profiles.
    * @member {String} studyLimitations
    */
   exports.prototype['studyLimitations'] = undefined;
   /**
-   * Example: The objective of this study is to determine the nature of the relationship (if any) between the Very Distracting Time and the Video Activities. Additionally, we attempt to determine the Very Distracting Time values most likely to produce optimal Video Activities values.
+   * Ex: The objective of this study is to determine the nature of the relationship (if any) between the Very Distracting Time and the Video Activities. Additionally, we attempt to determine the Very Distracting Time values most likely to produce optimal Video Activities values.
    * @member {String} studyObjective
    */
   exports.prototype['studyObjective'] = undefined;
   /**
-   * Example: This analysis suggests that higher Very Distracting Time (Work) generally predicts negative Video Activities (p = 0.097). Video Activities is, on average, 36%  higher after around 2.03 Very Distracting Time.  After an onset delay of 168 hours, Video Activities is, on average, 16%  lower than its average over the 168 hours following around 1.04 Very Distracting Time.  146 data points were used in this analysis.  The value for Very Distracting Time changed 2984 times, effectively running 1492 separate natural experiments. The top quartile outcome values are preceded by an average 2.03 h of Very Distracting Time.  The bottom quartile outcome values are preceded by an average 1.04 h of Very Distracting Time.  Forward Pearson Correlation Coefficient was 0.354 (p=0.097, 95% CI -0.437 to 1.144 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0.208 (P=0.097, 95% CI -0.583 to 0.998, onset delay = -0 hours, duration of action = -168 hours). When the Very Distracting Time value is closer to 2.03 h than 1.04 h, the Video Activities value which follows is, on average, 36% percent higher than its typical value.  When the Very Distracting Time value is closer to 1.04 h than 2.03 h, the Video Activities value which follows is 0% lower than its typical value.  Video Activities is 5 h (67% higher) on average after days with around 5 h Very Distracting Time
+   * Ex: This analysis suggests that higher Very Distracting Time (Work) generally predicts negative Video Activities (p = 0.097). Video Activities is, on average, 36%  higher after around 2.03 Very Distracting Time.  After an onset delay of 168 hours, Video Activities is, on average, 16%  lower than its average over the 168 hours following around 1.04 Very Distracting Time.  146 data points were used in this analysis.  The value for Very Distracting Time changed 2984 times, effectively running 1492 separate natural experiments. The top quartile outcome values are preceded by an average 2.03 h of Very Distracting Time.  The bottom quartile outcome values are preceded by an average 1.04 h of Very Distracting Time.  Forward Pearson Correlation Coefficient was 0.354 (p=0.097, 95% CI -0.437 to 1.144 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0.208 (P=0.097, 95% CI -0.583 to 0.998, onset delay = -0 hours, duration of action = -168 hours). When the Very Distracting Time value is closer to 2.03 h than 1.04 h, the Video Activities value which follows is, on average, 36% percent higher than its typical value.  When the Very Distracting Time value is closer to 1.04 h than 2.03 h, the Video Activities value which follows is 0% lower than its typical value.  Video Activities is 5 h (67% higher) on average after days with around 5 h Very Distracting Time
    * @member {String} studyResults
    */
   exports.prototype['studyResults'] = undefined;
   /**
-   * Example: N1 Study: Very Distracting Time Predicts Negative Video Activities
+   * Ex: N1 Study: Very Distracting Time Predicts Negative Video Activities
    * @member {String} studyTitle
    */
   exports.prototype['studyTitle'] = undefined;
@@ -13472,7 +13895,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],68:[function(require,module,exports){
+},{"../ApiClient":9}],70:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -13518,7 +13941,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>TrackingReminder</code>.
    * @alias module:model/TrackingReminder
    * @class
-   * @param unitAbbreviatedName {String} Example: /5
+   * @param unitAbbreviatedName {String} Ex: /5
    * @param reminderFrequency {Number} Number of seconds between one reminder and the next
    * @param variableCategoryName {String} Name of the variable category to be used when sending measurements
    * @param variableName {String} Name of the variable to be used when sending measurements
@@ -13860,7 +14283,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['availableUnits'] = undefined;
   /**
-   * clientId
+   * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
@@ -13870,37 +14293,37 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
-   * Example: 2016-05-18 02:24:08 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2016-05-18 02:24:08 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Example: Trader Joe's Bedtime Tea
+   * Ex: Trader Joe's Bedtime Tea
    * @member {String} displayName
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} unitAbbreviatedName
    */
   exports.prototype['unitAbbreviatedName'] = undefined;
   /**
-   * Example: 5
+   * Ex: 5
    * @member {Number} unitCategoryId
    */
   exports.prototype['unitCategoryId'] = undefined;
   /**
-   * Example: Rating
+   * Ex: Rating
    * @member {String} unitCategoryName
    */
   exports.prototype['unitCategoryName'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} unitId
    */
   exports.prototype['unitId'] = undefined;
   /**
-   * Example: 1 to 5 Rating
+   * Ex: 1 to 5 Rating
    * @member {String} unitName
    */
   exports.prototype['unitName'] = undefined;
@@ -13915,27 +14338,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['email'] = undefined;
   /**
-   * Example: reminderStartTimeLocal is less than $user->earliestReminderTime or greater than  $user->latestReminderTime
+   * Ex: reminderStartTimeLocal is less than $user->earliestReminderTime or greater than  $user->latestReminderTime
    * @member {String} errorMessage
    */
   exports.prototype['errorMessage'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} fillingValue
    */
   exports.prototype['fillingValue'] = undefined;
   /**
-   * Example: 02:45:20 in UTC timezone
+   * Ex: 02:45:20 in UTC timezone
    * @member {String} firstDailyReminderTime
    */
   exports.prototype['firstDailyReminderTime'] = undefined;
   /**
-   * Example: Daily
+   * Ex: Daily
    * @member {String} frequencyTextDescription
    */
   exports.prototype['frequencyTextDescription'] = undefined;
   /**
-   * Example: Daily at 09:45 PM
+   * Ex: Daily at 09:45 PM
    * @member {String} frequencyTextDescriptionWithTime
    */
   exports.prototype['frequencyTextDescriptionWithTime'] = undefined;
@@ -13945,17 +14368,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: saddestFaceIsFive
+   * Ex: saddestFaceIsFive
    * @member {String} inputType
    */
   exports.prototype['inputType'] = undefined;
   /**
-   * Example: I am an instruction!
+   * Ex: I am an instruction!
    * @member {String} instructions
    */
   exports.prototype['instructions'] = undefined;
   /**
-   * Example: ion-sad-outline
+   * Ex: ion-sad-outline
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
@@ -13965,7 +14388,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['lastTracked'] = undefined;
   /**
-   * Example: 2
+   * Ex: 2
    * @member {Number} lastValue
    */
   exports.prototype['lastValue'] = undefined;
@@ -13983,22 +14406,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['localDailyReminderNotificationTimesForAllReminders'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * Example: 5
+   * Ex: 5
    * @member {Number} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
   /**
-   * Example: 1501555520
+   * Ex: 1501555520
    * @member {Number} nextReminderTimeEpochSeconds
    */
   exports.prototype['nextReminderTimeEpochSeconds'] = undefined;
@@ -14008,12 +14431,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['notificationBar'] = undefined;
   /**
-   * Example: 445
+   * Ex: 445
    * @member {Number} numberOfRawMeasurements
    */
   exports.prototype['numberOfRawMeasurements'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} numberOfUniqueValues
    */
   exports.prototype['numberOfUniqueValues'] = undefined;
@@ -14023,12 +14446,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['outcome'] = undefined;
   /**
-   * Example: img/variable_categories/symptoms.png
+   * Ex: img/variable_categories/symptoms.png
    * @member {String} pngPath
    */
   exports.prototype['pngPath'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/symptoms.png
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/symptoms.png
    * @member {String} pngUrl
    */
   exports.prototype['pngUrl'] = undefined;
@@ -14043,7 +14466,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['popUp'] = undefined;
   /**
-   * Example: How is your overall mood?
+   * Ex: How is your overall mood?
    * @member {String} question
    */
   exports.prototype['question'] = undefined;
@@ -14063,7 +14486,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['reminderSound'] = undefined;
   /**
-   * Example: 1469760320
+   * Ex: 1469760320
    * @member {Number} reminderStartEpochSeconds
    */
   exports.prototype['reminderStartEpochSeconds'] = undefined;
@@ -14073,27 +14496,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['reminderStartTime'] = undefined;
   /**
-   * Example: 21:45:20
+   * Ex: 21:45:20
    * @member {String} reminderStartTimeLocal
    */
   exports.prototype['reminderStartTimeLocal'] = undefined;
   /**
-   * Example: 09:45 PM
+   * Ex: 09:45 PM
    * @member {String} reminderStartTimeLocalHumanFormatted
    */
   exports.prototype['reminderStartTimeLocalHumanFormatted'] = undefined;
   /**
-   * Example: true
+   * Ex: true
    * @member {Boolean} repeating
    */
   exports.prototype['repeating'] = undefined;
   /**
-   * Example: 01:00:00
+   * Ex: 01:00:00
    * @member {String} secondDailyReminderTime
    */
   exports.prototype['secondDailyReminderTime'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} secondToLastValue
    */
   exports.prototype['secondToLastValue'] = undefined;
@@ -14113,27 +14536,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['stopTrackingDate'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/symptoms.svg
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/symptoms.svg
    * @member {String} svgUrl
    */
   exports.prototype['svgUrl'] = undefined;
   /**
-   * Example: 20:00:00
+   * Ex: 20:00:00
    * @member {String} thirdDailyReminderTime
    */
   exports.prototype['thirdDailyReminderTime'] = undefined;
   /**
-   * Example: 3
+   * Ex: 3
    * @member {Number} thirdToLastValue
    */
   exports.prototype['thirdToLastValue'] = undefined;
   /**
-   * Example: 11841
+   * Ex: 11841
    * @member {Number} trackingReminderId
    */
   exports.prototype['trackingReminderId'] = undefined;
   /**
-   * Example: Not Found
+   * Ex: Not Found
    * @member {String} trackingReminderImageUrl
    */
   exports.prototype['trackingReminderImageUrl'] = undefined;
@@ -14153,62 +14576,62 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userId'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} userVariableUnitAbbreviatedName
    */
   exports.prototype['userVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 5
+   * Ex: 5
    * @member {Number} userVariableUnitCategoryId
    */
   exports.prototype['userVariableUnitCategoryId'] = undefined;
   /**
-   * Example: Rating
+   * Ex: Rating
    * @member {String} userVariableUnitCategoryName
    */
   exports.prototype['userVariableUnitCategoryName'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} userVariableUnitId
    */
   exports.prototype['userVariableUnitId'] = undefined;
   /**
-   * Example: 1 to 5 Rating
+   * Ex: 1 to 5 Rating
    * @member {String} userVariableUnitName
    */
   exports.prototype['userVariableUnitName'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} userVariableVariableCategoryId
    */
   exports.prototype['userVariableVariableCategoryId'] = undefined;
   /**
-   * Example: Symptoms
+   * Ex: Symptoms
    * @member {String} userVariableVariableCategoryName
    */
   exports.prototype['userVariableVariableCategoryName'] = undefined;
   /**
-   * Example: negative
+   * Ex: negative
    * @member {String} valence
    */
   exports.prototype['valence'] = undefined;
   /**
-   * Example: Rate daily
+   * Ex: Rate daily
    * @member {String} valueAndFrequencyTextDescription
    */
   exports.prototype['valueAndFrequencyTextDescription'] = undefined;
   /**
-   * Example: Rate daily at 09:45 PM
+   * Ex: Rate daily at 09:45 PM
    * @member {String} valueAndFrequencyTextDescriptionWithTime
    */
   exports.prototype['valueAndFrequencyTextDescriptionWithTime'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} variableCategoryId
    */
   exports.prototype['variableCategoryId'] = undefined;
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Messaging/sad-96.png
+   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Messaging/sad-96.png
    * @member {String} variableCategoryImageUrl
    */
   exports.prototype['variableCategoryImageUrl'] = undefined;
@@ -14218,7 +14641,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
-   * Example: negative
+   * Ex: negative
    * @member {String} variableDescription
    */
   exports.prototype['variableDescription'] = undefined;
@@ -14257,7 +14680,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminderNotificationAction":71,"./Unit":74}],69:[function(require,module,exports){
+},{"../ApiClient":9,"./TrackingReminderNotificationAction":73,"./Unit":76}],71:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14342,7 +14765,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],70:[function(require,module,exports){
+},{"../ApiClient":9}],72:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14390,7 +14813,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @class
    * @param actionArray {Array.<module:model/TrackingReminderNotificationAction>} 
    * @param availableUnits {Array.<module:model/Unit>} 
-   * @param fillingValue {Number} Example: 0
+   * @param fillingValue {Number} Ex: 0
    * @param id {Number} id for the specific PENDING tracking remidner
    * @param trackAllActions {Array.<module:model/TrackingReminderNotificationTrackAllAction>} 
    */
@@ -14711,7 +15134,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['availableUnits'] = undefined;
   /**
-   * clientId
+   * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
@@ -14721,12 +15144,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
-   * Example: 2017-07-29 20:49:54 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-07-29 20:49:54 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Example: Trader Joe's Bedtime Tea
+   * Ex: Trader Joe's Bedtime Tea
    * @member {String} displayName
    */
   exports.prototype['displayName'] = undefined;
@@ -14736,27 +15159,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['modifiedValue'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} unitAbbreviatedName
    */
   exports.prototype['unitAbbreviatedName'] = undefined;
   /**
-   * Example: 5
+   * Ex: 5
    * @member {Number} unitCategoryId
    */
   exports.prototype['unitCategoryId'] = undefined;
   /**
-   * Example: Rating
+   * Ex: Rating
    * @member {String} unitCategoryName
    */
   exports.prototype['unitCategoryName'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} unitId
    */
   exports.prototype['unitId'] = undefined;
   /**
-   * Example: 1 to 5 Rating
+   * Ex: 1 to 5 Rating
    * @member {String} unitName
    */
   exports.prototype['unitName'] = undefined;
@@ -14766,7 +15189,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['defaultValue'] = undefined;
   /**
-   * Example: positive
+   * Ex: positive
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
@@ -14776,12 +15199,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['email'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} fillingValue
    */
   exports.prototype['fillingValue'] = undefined;
   /**
-   * Example: ion-sad-outline
+   * Ex: ion-sad-outline
    * @member {String} iconIcon
    */
   exports.prototype['iconIcon'] = undefined;
@@ -14791,42 +15214,42 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg
+   * Ex: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg
    * @member {String} imageUrl
    */
   exports.prototype['imageUrl'] = undefined;
   /**
-   * Example: happiestFaceIsFive
+   * Ex: happiestFaceIsFive
    * @member {String} inputType
    */
   exports.prototype['inputType'] = undefined;
   /**
-   * Example: ion-happy-outline
+   * Ex: ion-happy-outline
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * Example: 3
+   * Ex: 3
    * @member {Number} lastValue
    */
   exports.prototype['lastValue'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * Example: 5
+   * Ex: 5
    * @member {Number} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
   /**
-   * Example: 3
+   * Ex: 3
    * @member {Number} mostCommonValue
    */
   exports.prototype['mostCommonValue'] = undefined;
@@ -14836,12 +15259,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['notificationBar'] = undefined;
   /**
-   * Example: UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} notifiedAt
    */
   exports.prototype['notifiedAt'] = undefined;
   /**
-   * Example: 5
+   * Ex: 5
    * @member {Number} numberOfUniqueValues
    */
   exports.prototype['numberOfUniqueValues'] = undefined;
@@ -14851,12 +15274,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['outcome'] = undefined;
   /**
-   * Example: img/variable_categories/emotions.png
+   * Ex: img/variable_categories/emotions.png
    * @member {String} pngPath
    */
   exports.prototype['pngPath'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.png
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.png
    * @member {String} pngUrl
    */
   exports.prototype['pngUrl'] = undefined;
@@ -14871,17 +15294,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['productUrl'] = undefined;
   /**
-   * Example: How is your overall mood?
+   * Ex: How is your overall mood?
    * @member {String} question
    */
   exports.prototype['question'] = undefined;
   /**
-   * Example: 01-01-2018
+   * Ex: 01-01-2018
    * @member {String} reminderEndTime
    */
   exports.prototype['reminderEndTime'] = undefined;
   /**
-   * How often user should be reminded in seconds. Example: 86400
+   * How often user should be reminded in seconds. Ex: 86400
    * @member {Number} reminderFrequency
    */
   exports.prototype['reminderFrequency'] = undefined;
@@ -14901,12 +15324,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['reminderTime'] = undefined;
   /**
-   * Example: 4
+   * Ex: 4
    * @member {Number} secondMostCommonValue
    */
   exports.prototype['secondMostCommonValue'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} secondToLastValue
    */
   exports.prototype['secondToLastValue'] = undefined;
@@ -14916,27 +15339,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['sms'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.svg
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.svg
    * @member {String} svgUrl
    */
   exports.prototype['svgUrl'] = undefined;
   /**
-   * Example: 2
+   * Ex: 2
    * @member {Number} thirdMostCommonValue
    */
   exports.prototype['thirdMostCommonValue'] = undefined;
   /**
-   * Example: 2
+   * Ex: 2
    * @member {Number} thirdToLastValue
    */
   exports.prototype['thirdToLastValue'] = undefined;
   /**
-   * Example: Rate Overall Mood
+   * Ex: Rate Overall Mood
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
   /**
-   * Example: 3
+   * Ex: 3
    * @member {Number} total
    */
   exports.prototype['total'] = undefined;
@@ -14950,12 +15373,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['trackingReminderId'] = undefined;
   /**
-   * Example: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg
+   * Ex: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg
    * @member {String} trackingReminderImageUrl
    */
   exports.prototype['trackingReminderImageUrl'] = undefined;
   /**
-   * Example: 5072482
+   * Ex: 5072482
    * @member {Number} trackingReminderNotificationId
    */
   exports.prototype['trackingReminderNotificationId'] = undefined;
@@ -14965,17 +15388,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['trackingReminderNotificationTime'] = undefined;
   /**
-   * Example: 1501534124
+   * Ex: 1501534124
    * @member {Number} trackingReminderNotificationTimeEpoch
    */
   exports.prototype['trackingReminderNotificationTimeEpoch'] = undefined;
   /**
-   * Example: 15:48:44
+   * Ex: 15:48:44
    * @member {String} trackingReminderNotificationTimeLocal
    */
   exports.prototype['trackingReminderNotificationTimeLocal'] = undefined;
   /**
-   * Example: 8PM Sun, May 1
+   * Ex: 8PM Sun, May 1
    * @member {String} trackingReminderNotificationTimeLocalHumanString
    */
   exports.prototype['trackingReminderNotificationTimeLocalHumanString'] = undefined;
@@ -14990,52 +15413,52 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userId'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} userVariableUnitAbbreviatedName
    */
   exports.prototype['userVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 5
+   * Ex: 5
    * @member {Number} userVariableUnitCategoryId
    */
   exports.prototype['userVariableUnitCategoryId'] = undefined;
   /**
-   * Example: Rating
+   * Ex: Rating
    * @member {String} userVariableUnitCategoryName
    */
   exports.prototype['userVariableUnitCategoryName'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} userVariableUnitId
    */
   exports.prototype['userVariableUnitId'] = undefined;
   /**
-   * Example: 1 to 5 Rating
+   * Ex: 1 to 5 Rating
    * @member {String} userVariableUnitName
    */
   exports.prototype['userVariableUnitName'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} userVariableVariableCategoryId
    */
   exports.prototype['userVariableVariableCategoryId'] = undefined;
   /**
-   * Example: Emotions
+   * Ex: Emotions
    * @member {String} userVariableVariableCategoryName
    */
   exports.prototype['userVariableVariableCategoryName'] = undefined;
   /**
-   * Example: positive
+   * Ex: positive
    * @member {String} valence
    */
   exports.prototype['valence'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} variableCategoryId
    */
   exports.prototype['variableCategoryId'] = undefined;
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
+   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
    * @member {String} variableCategoryImageUrl
    */
   exports.prototype['variableCategoryImageUrl'] = undefined;
@@ -15050,7 +15473,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableId'] = undefined;
   /**
-   * Example: https://image.png
+   * Ex: https://image.png
    * @member {String} variableImageUrl
    */
   exports.prototype['variableImageUrl'] = undefined;
@@ -15084,7 +15507,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminderNotificationAction":71,"./TrackingReminderNotificationTrackAllAction":73,"./Unit":74}],71:[function(require,module,exports){
+},{"../ApiClient":9,"./TrackingReminderNotificationAction":73,"./TrackingReminderNotificationTrackAllAction":75,"./Unit":76}],73:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15130,10 +15553,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>TrackingReminderNotificationAction</code>.
    * @alias module:model/TrackingReminderNotificationAction
    * @class
-   * @param action {String} Example: track
-   * @param callback {String} Example: trackThreeRatingAction
-   * @param modifiedValue {Number} Example: 3
-   * @param title {String} Example: 3/5
+   * @param action {String} Ex: track
+   * @param callback {String} Ex: trackThreeRatingAction
+   * @param modifiedValue {Number} Ex: 3
+   * @param title {String} Ex: 3/5
    */
   var exports = function(action, callback, modifiedValue, title) {
     var _this = this;
@@ -15180,32 +15603,32 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: track
+   * Ex: track
    * @member {String} action
    */
   exports.prototype['action'] = undefined;
   /**
-   * Example: trackThreeRatingAction
+   * Ex: trackThreeRatingAction
    * @member {String} callback
    */
   exports.prototype['callback'] = undefined;
   /**
-   * Example: 3
+   * Ex: 3
    * @member {Number} modifiedValue
    */
   exports.prototype['modifiedValue'] = undefined;
   /**
-   * Example: 3/5
+   * Ex: 3/5
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
   /**
-   * Example: Rate 3/5
+   * Ex: Rate 3/5
    * @member {String} longTitle
    */
   exports.prototype['longTitle'] = undefined;
   /**
-   * Example: 3
+   * Ex: 3
    * @member {String} shortTitle
    */
   exports.prototype['shortTitle'] = undefined;
@@ -15217,7 +15640,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],72:[function(require,module,exports){
+},{"../ApiClient":9}],74:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15343,7 +15766,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],73:[function(require,module,exports){
+},{"../ApiClient":9}],75:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15389,10 +15812,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>TrackingReminderNotificationTrackAllAction</code>.
    * @alias module:model/TrackingReminderNotificationTrackAllAction
    * @class
-   * @param action {String} Example: trackAll
-   * @param callback {String} Example: trackThreeRatingAction
-   * @param modifiedValue {Number} Example: 3
-   * @param title {String} Example: Rate 3/5 for all
+   * @param action {String} Ex: trackAll
+   * @param callback {String} Ex: trackThreeRatingAction
+   * @param modifiedValue {Number} Ex: 3
+   * @param title {String} Ex: Rate 3/5 for all
    */
   var exports = function(action, callback, modifiedValue, title) {
     var _this = this;
@@ -15431,22 +15854,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: trackAll
+   * Ex: trackAll
    * @member {String} action
    */
   exports.prototype['action'] = undefined;
   /**
-   * Example: trackThreeRatingAction
+   * Ex: trackThreeRatingAction
    * @member {String} callback
    */
   exports.prototype['callback'] = undefined;
   /**
-   * Example: 3
+   * Ex: 3
    * @member {Number} modifiedValue
    */
   exports.prototype['modifiedValue'] = undefined;
   /**
-   * Example: Rate 3/5 for all
+   * Ex: Rate 3/5 for all
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
@@ -15458,7 +15881,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],74:[function(require,module,exports){
+},{"../ApiClient":9}],76:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15507,7 +15930,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @param abbreviatedName {String} Unit abbreviation
    * @param category {module:model/Unit.CategoryEnum} Unit category
    * @param conversionSteps {Array.<module:model/ConversionStep>} Conversion steps list
-   * @param maximumValue {Number} Example: 4
+   * @param maximumValue {Number} Ex: 4
    * @param name {String} Unit name
    * @param unitCategory {module:model/UnitCategory} 
    */
@@ -15593,7 +16016,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['abbreviatedName'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} advanced
    */
   exports.prototype['advanced'] = undefined;
@@ -15603,12 +16026,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['category'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} categoryId
    */
   exports.prototype['categoryId'] = undefined;
   /**
-   * Example: Miscellany
+   * Ex: Miscellany
    * @member {String} categoryName
    */
   exports.prototype['categoryName'] = undefined;
@@ -15618,12 +16041,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['conversionSteps'] = undefined;
   /**
-   * Example: 29
+   * Ex: 29
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
@@ -15633,7 +16056,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Example: 4
+   * Ex: 4
    * @member {Number} maximumValue
    */
   exports.prototype['maximumValue'] = undefined;
@@ -15643,7 +16066,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['minimumAllowedValue'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} minimumValue
    */
   exports.prototype['minimumValue'] = undefined;
@@ -15731,7 +16154,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./ConversionStep":31,"./UnitCategory":75}],75:[function(require,module,exports){
+},{"../ApiClient":9,"./ConversionStep":31,"./UnitCategory":77}],77:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15834,7 +16257,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],76:[function(require,module,exports){
+},{"../ApiClient":9}],78:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -16101,12 +16524,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['accessToken'] = undefined;
   /**
-   * Example: 2018-08-08 02:41:19
+   * Ex: 2018-08-08 02:41:19
    * @member {String} accessTokenExpires
    */
   exports.prototype['accessTokenExpires'] = undefined;
   /**
-   * Example: 1533696079000
+   * Ex: 1533696079000
    * @member {Number} accessTokenExpiresAtMilliseconds
    */
   exports.prototype['accessTokenExpiresAtMilliseconds'] = undefined;
@@ -16120,32 +16543,32 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['authorizedClients'] = undefined;
   /**
-   * Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
+   * Ex: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
    * @member {String} avatar
    */
   exports.prototype['avatar'] = undefined;
   /**
-   * Example: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
+   * Ex: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz=50
    * @member {String} avatarImage
    */
   exports.prototype['avatarImage'] = undefined;
   /**
-   * Example: a:1:{s:13:\"administrator\";b:1;}
+   * Ex: a:1:{s:13:\"administrator\";b:1;}
    * @member {String} capabilities
    */
   exports.prototype['capabilities'] = undefined;
   /**
-   * Example: quantimodo
+   * Ex: quantimodo
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
   /**
-   * Example: 118444693184829555362
+   * Ex: 118444693184829555362
    * @member {String} clientUserId
    */
   exports.prototype['clientUserId'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} combineNotifications
    */
   exports.prototype['combineNotifications'] = undefined;
@@ -16160,7 +16583,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * Earliest time user should get notifications. Example: 05:00:00
+   * Earliest time user should get notifications. Ex: 05:00:00
    * @member {String} earliestReminderTime
    */
   exports.prototype['earliestReminderTime'] = undefined;
@@ -16170,27 +16593,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['email'] = undefined;
   /**
-   * Example: Mike
+   * Ex: Mike
    * @member {String} firstName
    */
   exports.prototype['firstName'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} getPreviewBuilds
    */
   exports.prototype['getPreviewBuilds'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} hasAndroidApp
    */
   exports.prototype['hasAndroidApp'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} hasChromeExtension
    */
   exports.prototype['hasChromeExtension'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} hasIosApp
    */
   exports.prototype['hasIosApp'] = undefined;
@@ -16200,22 +16623,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: 2009
+   * Ex: 2009
    * @member {String} lastFour
    */
   exports.prototype['lastFour'] = undefined;
   /**
-   * Example: Sinn
+   * Ex: Sinn
    * @member {String} lastName
    */
   exports.prototype['lastName'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {String} lastSmsTrackingReminderNotificationId
    */
   exports.prototype['lastSmsTrackingReminderNotificationId'] = undefined;
   /**
-   * Latest time user should get notifications. Example: 23:00:00
+   * Latest time user should get notifications. Ex: 23:00:00
    * @member {String} latestReminderTime
    */
   exports.prototype['latestReminderTime'] = undefined;
@@ -16225,42 +16648,42 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['loginName'] = undefined;
   /**
-   * Example: PASSWORD
+   * Ex: PASSWORD
    * @member {String} password
    */
   exports.prototype['password'] = undefined;
   /**
-   * Example: 618-391-0002
+   * Ex: 618-391-0002
    * @member {String} phoneNumber
    */
   exports.prototype['phoneNumber'] = undefined;
   /**
-   * Example: 1234
+   * Ex: 1234
    * @member {String} phoneVerificationCode
    */
   exports.prototype['phoneVerificationCode'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} pushNotificationsEnabled
    */
   exports.prototype['pushNotificationsEnabled'] = undefined;
   /**
-   * Example: 6e99b113d85586de1f92468433f2df1e666647cb
+   * Ex: 6e99b113d85586de1f92468433f2df1e666647cb
    * @member {String} refreshToken
    */
   exports.prototype['refreshToken'] = undefined;
   /**
-   * Example: [\"admin\"]
+   * Ex: [\"admin\"]
    * @member {String} roles
    */
   exports.prototype['roles'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} sendPredictorEmails
    */
   exports.prototype['sendPredictorEmails'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} sendReminderNotificationEmails
    */
   exports.prototype['sendReminderNotificationEmails'] = undefined;
@@ -16270,27 +16693,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['shareAllData'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} smsNotificationsEnabled
    */
   exports.prototype['smsNotificationsEnabled'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} stripeActive
    */
   exports.prototype['stripeActive'] = undefined;
   /**
-   * Example: cus_A8CEmcvl8jwLhV
+   * Ex: cus_A8CEmcvl8jwLhV
    * @member {String} stripeId
    */
   exports.prototype['stripeId'] = undefined;
   /**
-   * Example: monthly7
+   * Ex: monthly7
    * @member {String} stripePlan
    */
   exports.prototype['stripePlan'] = undefined;
   /**
-   * Example: sub_ANTx3nOE7nzjQf
+   * Ex: sub_ANTx3nOE7nzjQf
    * @member {String} stripeSubscription
    */
   exports.prototype['stripeSubscription'] = undefined;
@@ -16300,17 +16723,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['subscriptionEndsAt'] = undefined;
   /**
-   * Example: google
+   * Ex: google
    * @member {String} subscriptionProvider
    */
   exports.prototype['subscriptionProvider'] = undefined;
   /**
-   * Example: 300
+   * Ex: 300
    * @member {Number} timeZoneOffset
    */
   exports.prototype['timeZoneOffset'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} trackLocation
    */
   exports.prototype['trackLocation'] = undefined;
@@ -16320,12 +16743,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['updatedAt'] = undefined;
   /**
-   * Example: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} userRegistered
    */
   exports.prototype['userRegistered'] = undefined;
   /**
-   * Example: https://plus.google.com/+MikeSinn
+   * Ex: https://plus.google.com/+MikeSinn
    * @member {String} userUrl
    */
   exports.prototype['userUrl'] = undefined;
@@ -16337,7 +16760,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./AuthorizedClients":25}],77:[function(require,module,exports){
+},{"../ApiClient":9,"./AuthorizedClients":25}],79:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -16442,7 +16865,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],78:[function(require,module,exports){
+},{"../ApiClient":9}],80:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -16527,7 +16950,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],79:[function(require,module,exports){
+},{"../ApiClient":9}],81:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -16573,10 +16996,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>Variable</code>.
    * @alias module:model/Variable
    * @class
-   * @param id {Number} Example: 95614
-   * @param name {String} Example: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)
+   * @param id {Number} Ex: 95614
+   * @param name {String} Ex: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)
    * @param userId {Number} User ID
-   * @param variableId {Number} Example: 96380
+   * @param variableId {Number} Ex: 96380
    */
   var exports = function(id, name, userId, variableId) {
     var _this = this;
@@ -17237,32 +17660,32 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['charts'] = undefined;
   /**
-   * Example: https://local.quantimo.do/ionic/Modo/www/#/app/charts/Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29?variableName=Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&userId=230&pngUrl=https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png
+   * Ex: https://local.quantimo.do/ionic/Modo/www/#/app/charts/Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29?variableName=Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&userId=230&pngUrl=https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png
    * @member {String} chartsLinkDynamic
    */
   exports.prototype['chartsLinkDynamic'] = undefined;
   /**
-   * Example: mailto:?subject=Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21&body=See%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20history%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%0A%0AHave%20a%20great%20day!
+   * Ex: mailto:?subject=Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21&body=See%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20history%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%0A%0AHave%20a%20great%20day!
    * @member {String} chartsLinkEmail
    */
   exports.prototype['chartsLinkEmail'] = undefined;
   /**
-   * Example: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png
+   * Ex: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png
    * @member {String} chartsLinkFacebook
    */
   exports.prototype['chartsLinkFacebook'] = undefined;
   /**
-   * Example: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png
+   * Ex: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png
    * @member {String} chartsLinkGoogle
    */
   exports.prototype['chartsLinkGoogle'] = undefined;
   /**
-   * Example: https://local.quantimo.do/api/v2/charts?variableName=Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&userId=230&pngUrl=https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png
+   * Ex: https://local.quantimo.do/api/v2/charts?variableName=Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&userId=230&pngUrl=https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png
    * @member {String} chartsLinkStatic
    */
   exports.prototype['chartsLinkStatic'] = undefined;
   /**
-   * Example: https://twitter.com/home?status=Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%20%40quantimodo
+   * Ex: https://twitter.com/home?status=Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%20%40quantimodo
    * @member {String} chartsLinkTwitter
    */
   exports.prototype['chartsLinkTwitter'] = undefined;
@@ -17277,17 +17700,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['childUserTagVariables'] = undefined;
   /**
-   * clientId
+   * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
   /**
-   * Example: MEAN
+   * Ex: MEAN
    * @member {String} combinationOperation
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
-   * Example: Anxiety / Nervousness
+   * Ex: Anxiety / Nervousness
    * @member {String} commonAlias
    */
   exports.prototype['commonAlias'] = undefined;
@@ -17300,12 +17723,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['commonTagVariables'] = undefined;
   /**
-   * Example: 51
+   * Ex: 51
    * @member {Number} commonVariableMostCommonConnectorId
    */
   exports.prototype['commonVariableMostCommonConnectorId'] = undefined;
   /**
-   * Example: 2017-02-07 23:43:39 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-02-07 23:43:39 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} commonVariableUpdatedAt
    */
   exports.prototype['commonVariableUpdatedAt'] = undefined;
@@ -17315,17 +17738,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Example: count
+   * Ex: count
    * @member {String} unitAbbreviatedName
    */
   exports.prototype['unitAbbreviatedName'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} unitCategoryId
    */
   exports.prototype['unitCategoryId'] = undefined;
   /**
-   * Example: Miscellany
+   * Ex: Miscellany
    * @member {String} unitCategoryName
    */
   exports.prototype['unitCategoryName'] = undefined;
@@ -17335,17 +17758,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['unitId'] = undefined;
   /**
-   * Example: Count
+   * Ex: Count
    * @member {String} unitName
    */
   exports.prototype['unitName'] = undefined;
   /**
-   * Example: negative
+   * Ex: negative
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
   /**
-   * Example: Trader Joe's Bedtime Tea
+   * Ex: Trader Joe's Bedtime Tea
    * @member {String} displayName
    */
   exports.prototype['displayName'] = undefined;
@@ -17355,7 +17778,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['durationOfAction'] = undefined;
   /**
-   * Example: 168
+   * Ex: 168
    * @member {Number} durationOfActionInHours
    */
   exports.prototype['durationOfActionInHours'] = undefined;
@@ -17385,12 +17808,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['experimentEndTime'] = undefined;
   /**
-   * Example: 1893477600
+   * Ex: 1893477600
    * @member {Number} experimentEndTimeSeconds
    */
   exports.prototype['experimentEndTimeSeconds'] = undefined;
   /**
-   * Example: 2030-01-01 06:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2030-01-01 06:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} experimentEndTimeString
    */
   exports.prototype['experimentEndTimeString'] = undefined;
@@ -17400,12 +17823,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['experimentStartTime'] = undefined;
   /**
-   * Example: 1269307902
+   * Ex: 1269307902
    * @member {Number} experimentStartTimeSeconds
    */
   exports.prototype['experimentStartTimeSeconds'] = undefined;
   /**
-   * Example: 2010-03-23 01:31:42 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2010-03-23 01:31:42 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} experimentStartTimeString
    */
   exports.prototype['experimentStartTimeString'] = undefined;
@@ -17420,12 +17843,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['fillingValue'] = undefined;
   /**
-   * Example: ion-sad-outline
+   * Ex: ion-sad-outline
    * @member {String} iconIcon
    */
   exports.prototype['iconIcon'] = undefined;
   /**
-   * Example: 95614
+   * Ex: 95614
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
@@ -17435,7 +17858,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['imageUrl'] = undefined;
   /**
-   * Example: https://google.com
+   * Ex: https://google.com
    * @member {String} informationalUrl
    */
   exports.prototype['informationalUrl'] = undefined;
@@ -17460,7 +17883,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['ingredientUserTagVariables'] = undefined;
   /**
-   * Example: value
+   * Ex: value
    * @member {String} inputType
    */
   exports.prototype['inputType'] = undefined;
@@ -17500,7 +17923,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['lastOriginalValue'] = undefined;
   /**
-   * Example: 500
+   * Ex: 500
    * @member {Number} lastProcessedDailyValue
    */
   exports.prototype['lastProcessedDailyValue'] = undefined;
@@ -17535,7 +17958,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['latestSourceTime'] = undefined;
   /**
-   * Example: 1501383600
+   * Ex: 1501383600
    * @member {Number} latestUserMeasurementTime
    */
   exports.prototype['latestUserMeasurementTime'] = undefined;
@@ -17555,7 +17978,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['longitude'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
@@ -17570,7 +17993,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['maximumRecordedDailyValue'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} maximumRecordedValue
    */
   exports.prototype['maximumRecordedValue'] = undefined;
@@ -17600,12 +18023,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['minimumRecordedValue'] = undefined;
   /**
-   * Example: 51
+   * Ex: 51
    * @member {Number} mostCommonConnectorId
    */
   exports.prototype['mostCommonConnectorId'] = undefined;
   /**
-   * Example: 23
+   * Ex: 23
    * @member {Number} mostCommonOriginalUnitId
    */
   exports.prototype['mostCommonOriginalUnitId'] = undefined;
@@ -17620,17 +18043,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['mostCommonValue'] = undefined;
   /**
-   * Example: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)
+   * Ex: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} numberOfAggregateCorrelationsAsCause
    */
   exports.prototype['numberOfAggregateCorrelationsAsCause'] = undefined;
   /**
-   * Example: 310
+   * Ex: 310
    * @member {Number} numberOfAggregateCorrelationsAsEffect
    */
   exports.prototype['numberOfAggregateCorrelationsAsEffect'] = undefined;
@@ -17650,12 +18073,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['numberOfProcessedDailyMeasurements'] = undefined;
   /**
-   * Example: 295
+   * Ex: 295
    * @member {Number} numberOfRawMeasurements
    */
   exports.prototype['numberOfRawMeasurements'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} numberOfTrackingReminders
    */
   exports.prototype['numberOfTrackingReminders'] = undefined;
@@ -17665,22 +18088,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['numberOfUniqueDailyValues'] = undefined;
   /**
-   * Example: 2
+   * Ex: 2
    * @member {Number} numberOfUniqueValues
    */
   exports.prototype['numberOfUniqueValues'] = undefined;
   /**
-   * Example: 115
+   * Ex: 115
    * @member {Number} numberOfUserCorrelationsAsCause
    */
   exports.prototype['numberOfUserCorrelationsAsCause'] = undefined;
   /**
-   * Example: 29014
+   * Ex: 29014
    * @member {Number} numberOfUserCorrelationsAsEffect
    */
   exports.prototype['numberOfUserCorrelationsAsEffect'] = undefined;
   /**
-   * Example: 2
+   * Ex: 2
    * @member {Number} numberOfUserVariables
    */
   exports.prototype['numberOfUserVariables'] = undefined;
@@ -17690,7 +18113,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['onsetDelay'] = undefined;
   /**
-   * Example: 0.5
+   * Ex: 0.5
    * @member {Number} onsetDelayInHours
    */
   exports.prototype['onsetDelayInHours'] = undefined;
@@ -17700,7 +18123,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['outcome'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} outcomeOfInterest
    */
   exports.prototype['outcomeOfInterest'] = undefined;
@@ -17715,22 +18138,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['parentUserTagVariables'] = undefined;
   /**
-   * Example: img/variable_categories/treatments.png
+   * Ex: img/variable_categories/treatments.png
    * @member {String} pngPath
    */
   exports.prototype['pngPath'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.png
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.png
    * @member {String} pngUrl
    */
   exports.prototype['pngUrl'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} predictorOfInterest
    */
   exports.prototype['predictorOfInterest'] = undefined;
   /**
-   * Example: 95.4
+   * Ex: 95.4
    * @member {Number} price
    */
   exports.prototype['price'] = undefined;
@@ -17745,22 +18168,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['public'] = undefined;
   /**
-   * Example: 131
+   * Ex: 131
    * @member {Number} rawMeasurementsAtLastAnalysis
    */
   exports.prototype['rawMeasurementsAtLastAnalysis'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} secondMostCommonValue
    */
   exports.prototype['secondMostCommonValue'] = undefined;
   /**
-   * Example: 250
+   * Ex: 250
    * @member {Number} secondToLastValue
    */
   exports.prototype['secondToLastValue'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} shareUserMeasurements
    */
   exports.prototype['shareUserMeasurements'] = undefined;
@@ -17775,7 +18198,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['sources'] = undefined;
   /**
-   * Standard deviation Example: 0.46483219855434
+   * Standard deviation Ex: 0.46483219855434
    * @member {Number} standardDeviation
    */
   exports.prototype['standardDeviation'] = undefined;
@@ -17790,17 +18213,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['subtitle'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.svg
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.svg
    * @member {String} svgUrl
    */
   exports.prototype['svgUrl'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} thirdMostCommonValue
    */
   exports.prototype['thirdMostCommonValue'] = undefined;
   /**
-   * Example: 250
+   * Ex: 250
    * @member {Number} thirdToLastValue
    */
   exports.prototype['thirdToLastValue'] = undefined;
@@ -17824,7 +18247,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['updatedAt'] = undefined;
   /**
-   * Example: 2017-07-30 14:58:26
+   * Ex: 2017-07-30 14:58:26
    * @member {String} updatedTime
    */
   exports.prototype['updatedTime'] = undefined;
@@ -17842,62 +18265,62 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userTagVariables'] = undefined;
   /**
-   * Example: count
+   * Ex: count
    * @member {String} userVariableUnitAbbreviatedName
    */
   exports.prototype['userVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} userVariableUnitCategoryId
    */
   exports.prototype['userVariableUnitCategoryId'] = undefined;
   /**
-   * Example: Miscellany
+   * Ex: Miscellany
    * @member {String} userVariableUnitCategoryName
    */
   exports.prototype['userVariableUnitCategoryName'] = undefined;
   /**
-   * Example: 23
+   * Ex: 23
    * @member {Number} userVariableUnitId
    */
   exports.prototype['userVariableUnitId'] = undefined;
   /**
-   * Example: Count
+   * Ex: Count
    * @member {String} userVariableUnitName
    */
   exports.prototype['userVariableUnitName'] = undefined;
   /**
-   * Example: -1
+   * Ex: -1
    * @member {Number} userVariableFillingValue
    */
   exports.prototype['userVariableFillingValue'] = undefined;
   /**
-   * Example: 51
+   * Ex: 51
    * @member {Number} userVariableMostCommonConnectorId
    */
   exports.prototype['userVariableMostCommonConnectorId'] = undefined;
   /**
-   * Example: 2017-07-30 14:58:26
+   * Ex: 2017-07-30 14:58:26
    * @member {String} userVariableUpdatedAt
    */
   exports.prototype['userVariableUpdatedAt'] = undefined;
   /**
-   * Example: positive or negative
+   * Ex: positive or negative
    * @member {String} userVariableValence
    */
   exports.prototype['userVariableValence'] = undefined;
   /**
-   * Example: 13
+   * Ex: 13
    * @member {Number} userVariableVariableCategoryId
    */
   exports.prototype['userVariableVariableCategoryId'] = undefined;
   /**
-   * Example: Treatments
+   * Ex: Treatments
    * @member {String} userVariableVariableCategoryName
    */
   exports.prototype['userVariableVariableCategoryName'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} userVariableWikipediaTitle
    */
   exports.prototype['userVariableWikipediaTitle'] = undefined;
@@ -17930,17 +18353,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['mostCommonUnit'] = undefined;
   /**
-   * Example: positive
+   * Ex: positive
    * @member {String} valence
    */
   exports.prototype['valence'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} variableCategoryId
    */
   exports.prototype['variableCategoryId'] = undefined;
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
+   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
    * @member {String} variableCategoryImageUrl
    */
   exports.prototype['variableCategoryImageUrl'] = undefined;
@@ -17950,27 +18373,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
-   * Example: -1
+   * Ex: -1
    * @member {Number} variableFillingValue
    */
   exports.prototype['variableFillingValue'] = undefined;
   /**
-   * Example: 96380
+   * Ex: 96380
    * @member {Number} variableId
    */
   exports.prototype['variableId'] = undefined;
   /**
-   * Example: Sleep Duration
+   * Ex: Sleep Duration
    * @member {String} variableName
    */
   exports.prototype['variableName'] = undefined;
   /**
-   * Example: 115947037.40816
+   * Ex: 115947037.40816
    * @member {Number} variance
    */
   exports.prototype['variance'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} wikipediaTitle
    */
   exports.prototype['wikipediaTitle'] = undefined;
@@ -17982,7 +18405,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./DataSource":33,"./TrackingReminderNotificationAction":71,"./Unit":74,"./Variable":79,"./VariableCategory":80,"./VariableCharts":81}],80:[function(require,module,exports){
+},{"../ApiClient":9,"./DataSource":33,"./TrackingReminderNotificationAction":73,"./Unit":76,"./Variable":81,"./VariableCategory":82,"./VariableCharts":83}],82:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -18167,17 +18590,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Example: mood
+   * Ex: mood
    * @member {String} appType
    */
   exports.prototype['appType'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} causeOnly
    */
   exports.prototype['causeOnly'] = undefined;
   /**
-   * Example: MEAN
+   * Ex: MEAN
    * @member {String} combinationOperation
    */
   exports.prototype['combinationOperation'] = undefined;
@@ -18187,67 +18610,67 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['createdTime'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} unitAbbreviatedName
    */
   exports.prototype['unitAbbreviatedName'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} unitId
    */
   exports.prototype['unitId'] = undefined;
   /**
-   * Example: 86400
+   * Ex: 86400
    * @member {Number} durationOfAction
    */
   exports.prototype['durationOfAction'] = undefined;
   /**
-   * Example: -1
+   * Ex: -1
    * @member {Number} fillingValue
    */
   exports.prototype['fillingValue'] = undefined;
   /**
-   * Example: What emotion do you want to rate?
+   * Ex: What emotion do you want to rate?
    * @member {String} helpText
    */
   exports.prototype['helpText'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Example: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
+   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
    * @member {String} imageUrl
    */
   exports.prototype['imageUrl'] = undefined;
   /**
-   * Example: ion-happy-outline
+   * Ex: ion-happy-outline
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * Example: true
+   * Ex: true
    * @member {Boolean} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Example: rating
+   * Ex: rating
    * @member {String} measurementSynonymSingularLowercase
    */
   exports.prototype['measurementSynonymSingularLowercase'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
   /**
-   * Example: Do you have any emotions that fluctuate regularly?  If so, add them so I can try to determine which factors are influencing them.
+   * Ex: Do you have any emotions that fluctuate regularly?  If so, add them so I can try to determine which factors are influencing them.
    * @member {String} moreInfo
    */
   exports.prototype['moreInfo'] = undefined;
@@ -18257,42 +18680,42 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['name'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} onsetDelay
    */
   exports.prototype['onsetDelay'] = undefined;
   /**
-   * Example: true
+   * Ex: true
    * @member {Boolean} outcome
    */
   exports.prototype['outcome'] = undefined;
   /**
-   * Example: img/variable_categories/emotions.png
+   * Ex: img/variable_categories/emotions.png
    * @member {String} pngPath
    */
   exports.prototype['pngPath'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.png
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.png
    * @member {String} pngUrl
    */
   exports.prototype['pngUrl'] = undefined;
   /**
-   * Example: true
+   * Ex: true
    * @member {Boolean} public
    */
   exports.prototype['public'] = undefined;
   /**
-   * Example: img/variable_categories/emotions.svg
+   * Ex: img/variable_categories/emotions.svg
    * @member {String} svgPath
    */
   exports.prototype['svgPath'] = undefined;
   /**
-   * Example: https://app.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.svg
+   * Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/emotions.svg
    * @member {String} svgUrl
    */
   exports.prototype['svgUrl'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} updated
    */
   exports.prototype['updated'] = undefined;
@@ -18302,12 +18725,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['updatedTime'] = undefined;
   /**
-   * Example: Emotions
+   * Ex: Emotions
    * @member {String} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
-   * Example: Emotion
+   * Ex: Emotion
    * @member {String} variableCategoryNameSingular
    */
   exports.prototype['variableCategoryNameSingular'] = undefined;
@@ -18319,7 +18742,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],81:[function(require,module,exports){
+},{"../ApiClient":9}],83:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -18443,7 +18866,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Chart":27}],82:[function(require,module,exports){
+},{"../ApiClient":9,"./Chart":27}],84:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -18490,7 +18913,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @alias module:model/Vote
    * @class
    * @param causeVariableId {Number} Cause variable id
-   * @param clientId {String} clientId
+   * @param clientId {String} Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @param effectVariableId {Number} Effect variable id
    * @param userId {Number} ID of User
    * @param value {Boolean} Vote: 0 (for implausible) or 1 (for plausible)
@@ -18553,7 +18976,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['causeVariableId'] = undefined;
   /**
-   * clientId
+   * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
@@ -18595,7 +19018,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],83:[function(require,module,exports){
+},{"../ApiClient":9}],85:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -18690,7 +19113,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],84:[function(require,module,exports){
+},{"../ApiClient":9}],86:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -18843,9 +19266,9 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],85:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 
-},{}],86:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -20583,7 +21006,7 @@ function numberIsNaN (obj) {
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":84,"ieee754":87}],87:[function(require,module,exports){
+},{"base64-js":86,"ieee754":89}],89:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -20669,7 +21092,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],88:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -20755,7 +21178,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],89:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -20842,11 +21265,11 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],90:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":88,"./encode":89}]},{},[22])(22)
+},{"./decode":90,"./encode":91}]},{},[22])(22)
 });

@@ -96,12 +96,12 @@
    */
   exports.prototype['name'] = undefined;
   /**
-   * Example: I would like to share my measurements with you!
+   * Ex: I would like to share my measurements with you!
    * @member {String} emailSubject
    */
   exports.prototype['emailSubject'] = undefined;
   /**
-   * Example: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness.
+   * Ex: I would like to share my data with you so you can help me identify find discover hidden causes of and new treatments for my illness.
    * @member {String} emailBody
    */
   exports.prototype['emailBody'] = undefined;

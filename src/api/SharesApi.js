@@ -60,8 +60,8 @@
      * Remove access to user data for a given client_id associated with a given individual, app, or study
      * @param {String} clientIdToRevoke Client id of the individual, study, or app that the user wishes to no longer have access to their data
      * @param {Object} opts Optional parameters
-     * @param {String} opts.reason Example: I hate you!
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.reason Ex: I hate you!
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/SharesApi~deleteShareCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -116,10 +116,9 @@
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
-     * @param {String} opts.clientId Example: oauth_test_client
-     * @param {String} opts.appName Example: MoodiModo
-     * @param {String} opts.appVersion Example: 2.1.1.0
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {String} opts.appVersion Ex: 2.1.1.0
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {String} opts.log Username or email
      * @param {String} opts.pwd User password
      * @param {module:api/SharesApi~getSharesCallback} callback The callback function, accepting three arguments: error, data, response
@@ -137,7 +136,6 @@
         'createdAt': opts['createdAt'],
         'updatedAt': opts['updatedAt'],
         'clientId': opts['clientId'],
-        'appName': opts['appName'],
         'appVersion': opts['appVersion'],
         'platform': opts['platform'],
         'log': opts['log'],
@@ -175,8 +173,8 @@
      * Invite someone to view your measurements
      * @param {module:model/ShareInvitationBody} body Details about person to share with
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.platform Example: chrome, android, ios, web
-     * @param {String} opts.clientId Example: oauth_test_client
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {module:api/SharesApi~inviteShareCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */

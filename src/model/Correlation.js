@@ -43,61 +43,61 @@
    * Constructs a new <code>Correlation</code>.
    * @alias module:model/Correlation
    * @class
-   * @param averageDailyHighCause {Number} Example: 4.19
-   * @param averageDailyLowCause {Number} Example: 1.97
-   * @param averageEffect {Number} Example: 3.0791054117396
-   * @param averageEffectFollowingHighCause {Number} Example: 3.55
-   * @param averageEffectFollowingLowCause {Number} Example: 2.65
-   * @param averageForwardPearsonCorrelationOverOnsetDelays {Number} Example: 0.396
-   * @param averageReversePearsonCorrelationOverOnsetDelays {Number} Example: 0.453667
-   * @param averageVote {Number} Example: 0.9855
-   * @param causeChanges {Number} Example: 164
-   * @param causeUserVariableShareUserMeasurements {Number} Example: 1
-   * @param causeVariableName {String} Example: Sleep Quality
-   * @param confidenceInterval {Number} Example: 0.14344467795996
-   * @param confidenceLevel {String} Example: high
-   * @param correlationCoefficient {Number} Example: 0.538
-   * @param createdAt {String} Example: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param criticalTValue {Number} Example: 1.646
-   * @param direction {String} Example: higher
-   * @param durationOfAction {Number} Example: 604800
-   * @param durationOfActionInHours {Number} Example: 168
-   * @param effectChanges {Number} Example: 193
-   * @param effectSize {String} Example: moderately positive
-   * @param effectUnit {String} Example: /5
-   * @param effectVariableName {String} Example: Overall Mood
-   * @param experimentEndTime {String} Example: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param experimentStartTime {String} Example: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param forwardSpearmanCorrelationCoefficient {Number} Example: 0.528359
-   * @param numberOfPairs {Number} Example: 298
-   * @param onsetDelay {Number} Example: 0
-   * @param onsetDelayInHours {Number} Example: 0
-   * @param onsetDelayWithStrongestPearsonCorrelation {Number} Example: -86400
-   * @param onsetDelayWithStrongestPearsonCorrelationInHours {Number} Example: -24
-   * @param optimalPearsonProduct {Number} Example: 0.68582816186982
-   * @param outcomeFillingValue {Number} Example: -1
-   * @param pearsonCorrelationWithNoOnsetDelay {Number} Example: 0.477
-   * @param predictivePearsonCorrelation {Number} Example: 0.538
-   * @param predictivePearsonCorrelationCoefficient {Number} Example: 0.538
-   * @param predictorDataSources {String} Example: RescueTime
-   * @param predictorFillingValue {Number} Example: -1
-   * @param predictorMaximumAllowedValue {Number} Example: 200
-   * @param predictorMinimumAllowedValue {Number} Example: 30
-   * @param predictsHighEffectChange {Number} Example: 17
-   * @param predictsLowEffectChange {Number} Example: -11
-   * @param qmScore {Number} Example: 0.528
-   * @param reversePearsonCorrelationCoefficient {Number} Example: 0.01377184270977
-   * @param shareUserMeasurements {Boolean} Example: 1
-   * @param significantDifference {Boolean} Example: 1
-   * @param statisticalSignificance {Number} Example: 0.9813
-   * @param strengthLevel {String} Example: moderate
-   * @param strongestPearsonCorrelationCoefficient {Number} Example: 0.613
-   * @param tValue {Number} Example: 9.6986079652717
-   * @param updatedAt {String} Example: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param userId {Number} Example: 230
-   * @param userVote {Number} Example: 1
-   * @param valuePredictingHighOutcome {Number} Example: 4.14
-   * @param valuePredictingLowOutcome {Number} Example: 3.03
+   * @param averageDailyHighCause {Number} Ex: 4.19
+   * @param averageDailyLowCause {Number} Ex: 1.97
+   * @param averageEffect {Number} Ex: 3.0791054117396
+   * @param averageEffectFollowingHighCause {Number} Ex: 3.55
+   * @param averageEffectFollowingLowCause {Number} Ex: 2.65
+   * @param averageForwardPearsonCorrelationOverOnsetDelays {Number} Ex: 0.396
+   * @param averageReversePearsonCorrelationOverOnsetDelays {Number} Ex: 0.453667
+   * @param averageVote {Number} Ex: 0.9855
+   * @param causeChanges {Number} Ex: 164
+   * @param causeUserVariableShareUserMeasurements {Number} Ex: 1
+   * @param causeVariableName {String} Ex: Sleep Quality
+   * @param confidenceInterval {Number} Ex: 0.14344467795996
+   * @param confidenceLevel {String} Ex: high
+   * @param correlationCoefficient {Number} Ex: 0.538
+   * @param createdAt {String} Ex: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param criticalTValue {Number} Ex: 1.646
+   * @param direction {String} Ex: higher
+   * @param durationOfAction {Number} Ex: 604800
+   * @param durationOfActionInHours {Number} Ex: 168
+   * @param effectChanges {Number} Ex: 193
+   * @param effectSize {String} Ex: moderately positive
+   * @param effectUnit {String} Ex: /5
+   * @param effectVariableName {String} Ex: Overall Mood
+   * @param experimentEndTime {String} Ex: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param experimentStartTime {String} Ex: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param forwardSpearmanCorrelationCoefficient {Number} Ex: 0.528359
+   * @param numberOfPairs {Number} Ex: 298
+   * @param onsetDelay {Number} Ex: 0
+   * @param onsetDelayInHours {Number} Ex: 0
+   * @param onsetDelayWithStrongestPearsonCorrelation {Number} Ex: -86400
+   * @param onsetDelayWithStrongestPearsonCorrelationInHours {Number} Ex: -24
+   * @param optimalPearsonProduct {Number} Ex: 0.68582816186982
+   * @param outcomeFillingValue {Number} Ex: -1
+   * @param pearsonCorrelationWithNoOnsetDelay {Number} Ex: 0.477
+   * @param predictivePearsonCorrelation {Number} Ex: 0.538
+   * @param predictivePearsonCorrelationCoefficient {Number} Ex: 0.538
+   * @param predictorDataSources {String} Ex: RescueTime
+   * @param predictorFillingValue {Number} Ex: -1
+   * @param predictorMaximumAllowedValue {Number} Ex: 200
+   * @param predictorMinimumAllowedValue {Number} Ex: 30
+   * @param predictsHighEffectChange {Number} Ex: 17
+   * @param predictsLowEffectChange {Number} Ex: -11
+   * @param qmScore {Number} Ex: 0.528
+   * @param reversePearsonCorrelationCoefficient {Number} Ex: 0.01377184270977
+   * @param shareUserMeasurements {Boolean} Ex: 1
+   * @param significantDifference {Boolean} Ex: 1
+   * @param statisticalSignificance {Number} Ex: 0.9813
+   * @param strengthLevel {String} Ex: moderate
+   * @param strongestPearsonCorrelationCoefficient {Number} Ex: 0.613
+   * @param tValue {Number} Ex: 9.6986079652717
+   * @param updatedAt {String} Ex: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param userId {Number} Ex: 230
+   * @param userVote {Number} Ex: 1
+   * @param valuePredictingHighOutcome {Number} Ex: 4.14
+   * @param valuePredictingLowOutcome {Number} Ex: 3.03
    */
   var exports = function(averageDailyHighCause, averageDailyLowCause, averageEffect, averageEffectFollowingHighCause, averageEffectFollowingLowCause, averageForwardPearsonCorrelationOverOnsetDelays, averageReversePearsonCorrelationOverOnsetDelays, averageVote, causeChanges, causeUserVariableShareUserMeasurements, causeVariableName, confidenceInterval, confidenceLevel, correlationCoefficient, createdAt, criticalTValue, direction, durationOfAction, durationOfActionInHours, effectChanges, effectSize, effectUnit, effectVariableName, experimentEndTime, experimentStartTime, forwardSpearmanCorrelationCoefficient, numberOfPairs, onsetDelay, onsetDelayInHours, onsetDelayWithStrongestPearsonCorrelation, onsetDelayWithStrongestPearsonCorrelationInHours, optimalPearsonProduct, outcomeFillingValue, pearsonCorrelationWithNoOnsetDelay, predictivePearsonCorrelation, predictivePearsonCorrelationCoefficient, predictorDataSources, predictorFillingValue, predictorMaximumAllowedValue, predictorMinimumAllowedValue, predictsHighEffectChange, predictsLowEffectChange, qmScore, reversePearsonCorrelationCoefficient, shareUserMeasurements, significantDifference, statisticalSignificance, strengthLevel, strongestPearsonCorrelationCoefficient, tValue, updatedAt, userId, userVote, valuePredictingHighOutcome, valuePredictingLowOutcome) {
     var _this = this;
@@ -532,47 +532,47 @@
   }
 
   /**
-   * Example: 4.19
+   * Ex: 4.19
    * @member {Number} averageDailyHighCause
    */
   exports.prototype['averageDailyHighCause'] = undefined;
   /**
-   * Example: 1.97
+   * Ex: 1.97
    * @member {Number} averageDailyLowCause
    */
   exports.prototype['averageDailyLowCause'] = undefined;
   /**
-   * Example: 3.0791054117396
+   * Ex: 3.0791054117396
    * @member {Number} averageEffect
    */
   exports.prototype['averageEffect'] = undefined;
   /**
-   * Example: 3.55
+   * Ex: 3.55
    * @member {Number} averageEffectFollowingHighCause
    */
   exports.prototype['averageEffectFollowingHighCause'] = undefined;
   /**
-   * Example: 2.65
+   * Ex: 2.65
    * @member {Number} averageEffectFollowingLowCause
    */
   exports.prototype['averageEffectFollowingLowCause'] = undefined;
   /**
-   * Example: 0.396
+   * Ex: 0.396
    * @member {Number} averageForwardPearsonCorrelationOverOnsetDelays
    */
   exports.prototype['averageForwardPearsonCorrelationOverOnsetDelays'] = undefined;
   /**
-   * Example: 0.453667
+   * Ex: 0.453667
    * @member {Number} averageReversePearsonCorrelationOverOnsetDelays
    */
   exports.prototype['averageReversePearsonCorrelationOverOnsetDelays'] = undefined;
   /**
-   * Example: 0.9855
+   * Ex: 0.9855
    * @member {Number} averageVote
    */
   exports.prototype['averageVote'] = undefined;
   /**
-   * Example: 164
+   * Ex: 164
    * @member {Number} causeChanges
    */
   exports.prototype['causeChanges'] = undefined;
@@ -581,107 +581,107 @@
    */
   exports.prototype['causeDataSource'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} causeUserVariableShareUserMeasurements
    */
   exports.prototype['causeUserVariableShareUserMeasurements'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} causeVariableCategoryId
    */
   exports.prototype['causeVariableCategoryId'] = undefined;
   /**
-   * Example: Sleep
+   * Ex: Sleep
    * @member {String} causeVariableCategoryName
    */
   exports.prototype['causeVariableCategoryName'] = undefined;
   /**
-   * Example: MEAN
+   * Ex: MEAN
    * @member {String} causeVariableCombinationOperation
    */
   exports.prototype['causeVariableCombinationOperation'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} causeVariableUnitAbbreviatedName
    */
   exports.prototype['causeVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 1448
+   * Ex: 1448
    * @member {Number} causeVariableId
    */
   exports.prototype['causeVariableId'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} causeVariableMostCommonConnectorId
    */
   exports.prototype['causeVariableMostCommonConnectorId'] = undefined;
   /**
-   * Example: Sleep Quality
+   * Ex: Sleep Quality
    * @member {String} causeVariableName
    */
   exports.prototype['causeVariableName'] = undefined;
   /**
-   * Example: 0.14344467795996
+   * Ex: 0.14344467795996
    * @member {Number} confidenceInterval
    */
   exports.prototype['confidenceInterval'] = undefined;
   /**
-   * Example: high
+   * Ex: high
    * @member {String} confidenceLevel
    */
   exports.prototype['confidenceLevel'] = undefined;
   /**
-   * Example: 0.538
+   * Ex: 0.538
    * @member {Number} correlationCoefficient
    */
   exports.prototype['correlationCoefficient'] = undefined;
   /**
-   * Example: false
+   * Ex: false
    * @member {Boolean} correlationIsContradictoryToOptimalValues
    */
   exports.prototype['correlationIsContradictoryToOptimalValues'] = undefined;
   /**
-   * Example: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Example: 1.646
+   * Ex: 1.646
    * @member {Number} criticalTValue
    */
   exports.prototype['criticalTValue'] = undefined;
   /**
-   * Example: higher
+   * Ex: higher
    * @member {String} direction
    */
   exports.prototype['direction'] = undefined;
   /**
-   * Example: 604800
+   * Ex: 604800
    * @member {Number} durationOfAction
    */
   exports.prototype['durationOfAction'] = undefined;
   /**
-   * Example: 168
+   * Ex: 168
    * @member {Number} durationOfActionInHours
    */
   exports.prototype['durationOfActionInHours'] = undefined;
   /**
-   * Example: 200
+   * Ex: 200
    * @member {Number} degreesOfFreedom
    */
   exports.prototype['degreesOfFreedom'] = undefined;
   /**
-   * Example: 145
+   * Ex: 145
    * @member {Number} effectNumberOfProcessedDailyMeasurements
    */
   exports.prototype['effectNumberOfProcessedDailyMeasurements'] = undefined;
   /**
-   * Example: optimalPearsonProduct is not defined
+   * Ex: optimalPearsonProduct is not defined
    * @member {String} error
    */
   exports.prototype['error'] = undefined;
   /**
-   * Example: 193
+   * Ex: 193
    * @member {Number} effectChanges
    */
   exports.prototype['effectChanges'] = undefined;
@@ -690,222 +690,222 @@
    */
   exports.prototype['effectDataSource'] = undefined;
   /**
-   * Example: moderately positive
+   * Ex: moderately positive
    * @member {String} effectSize
    */
   exports.prototype['effectSize'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} effectUnit
    */
   exports.prototype['effectUnit'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} effectUserVariableShareUserMeasurements
    */
   exports.prototype['effectUserVariableShareUserMeasurements'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} effectVariableCategoryId
    */
   exports.prototype['effectVariableCategoryId'] = undefined;
   /**
-   * Example: Emotions
+   * Ex: Emotions
    * @member {String} effectVariableCategoryName
    */
   exports.prototype['effectVariableCategoryName'] = undefined;
   /**
-   * Example: MEAN
+   * Ex: MEAN
    * @member {String} effectVariableCombinationOperation
    */
   exports.prototype['effectVariableCombinationOperation'] = undefined;
   /**
-   * Example: Mood_(psychology)
+   * Ex: Mood_(psychology)
    * @member {String} effectVariableCommonAlias
    */
   exports.prototype['effectVariableCommonAlias'] = undefined;
   /**
-   * Example: /5
+   * Ex: /5
    * @member {String} effectVariableUnitAbbreviatedName
    */
   exports.prototype['effectVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} effectVariableUnitId
    */
   exports.prototype['effectVariableUnitId'] = undefined;
   /**
-   * Example: 1 to 5 Rating
+   * Ex: 1 to 5 Rating
    * @member {String} effectVariableUnitName
    */
   exports.prototype['effectVariableUnitName'] = undefined;
   /**
-   * Example: 1398
+   * Ex: 1398
    * @member {Number} effectVariableId
    */
   exports.prototype['effectVariableId'] = undefined;
   /**
-   * Example: 10
+   * Ex: 10
    * @member {Number} effectVariableMostCommonConnectorId
    */
   exports.prototype['effectVariableMostCommonConnectorId'] = undefined;
   /**
-   * Example: Overall Mood
+   * Ex: Overall Mood
    * @member {String} effectVariableName
    */
   exports.prototype['effectVariableName'] = undefined;
   /**
-   * Example: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2014-07-30 12:50:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} experimentEndTime
    */
   exports.prototype['experimentEndTime'] = undefined;
   /**
-   * Example: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2012-05-06 21:15:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} experimentStartTime
    */
   exports.prototype['experimentStartTime'] = undefined;
   /**
-   * Example: 0.528359
+   * Ex: 0.528359
    * @member {Number} forwardSpearmanCorrelationCoefficient
    */
   exports.prototype['forwardSpearmanCorrelationCoefficient'] = undefined;
   /**
-   * Example: 298
+   * Ex: 298
    * @member {Number} numberOfPairs
    */
   exports.prototype['numberOfPairs'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} onsetDelay
    */
   exports.prototype['onsetDelay'] = undefined;
   /**
-   * Example: 0
+   * Ex: 0
    * @member {Number} onsetDelayInHours
    */
   exports.prototype['onsetDelayInHours'] = undefined;
   /**
-   * Example: -86400
+   * Ex: -86400
    * @member {Number} onsetDelayWithStrongestPearsonCorrelation
    */
   exports.prototype['onsetDelayWithStrongestPearsonCorrelation'] = undefined;
   /**
-   * Example: -24
+   * Ex: -24
    * @member {Number} onsetDelayWithStrongestPearsonCorrelationInHours
    */
   exports.prototype['onsetDelayWithStrongestPearsonCorrelationInHours'] = undefined;
   /**
-   * Example: 0.68582816186982
+   * Ex: 0.68582816186982
    * @member {Number} optimalPearsonProduct
    */
   exports.prototype['optimalPearsonProduct'] = undefined;
   /**
-   * Example: -1
+   * Ex: -1
    * @member {Number} outcomeFillingValue
    */
   exports.prototype['outcomeFillingValue'] = undefined;
   /**
-   * Example: 23
+   * Ex: 23
    * @member {Number} outcomeMaximumAllowedValue
    */
   exports.prototype['outcomeMaximumAllowedValue'] = undefined;
   /**
-   * Example: 0.1
+   * Ex: 0.1
    * @member {Number} outcomeMinimumAllowedValue
    */
   exports.prototype['outcomeMinimumAllowedValue'] = undefined;
   /**
-   * Example: 0.477
+   * Ex: 0.477
    * @member {Number} pearsonCorrelationWithNoOnsetDelay
    */
   exports.prototype['pearsonCorrelationWithNoOnsetDelay'] = undefined;
   /**
-   * Example: 0.538
+   * Ex: 0.538
    * @member {Number} predictivePearsonCorrelation
    */
   exports.prototype['predictivePearsonCorrelation'] = undefined;
   /**
-   * Example: 0.538
+   * Ex: 0.538
    * @member {Number} predictivePearsonCorrelationCoefficient
    */
   exports.prototype['predictivePearsonCorrelationCoefficient'] = undefined;
   /**
-   * Example: RescueTime
+   * Ex: RescueTime
    * @member {String} predictorDataSources
    */
   exports.prototype['predictorDataSources'] = undefined;
   /**
-   * Example: -1
+   * Ex: -1
    * @member {Number} predictorFillingValue
    */
   exports.prototype['predictorFillingValue'] = undefined;
   /**
-   * Example: 200
+   * Ex: 200
    * @member {Number} predictorMaximumAllowedValue
    */
   exports.prototype['predictorMaximumAllowedValue'] = undefined;
   /**
-   * Example: 30
+   * Ex: 30
    * @member {Number} predictorMinimumAllowedValue
    */
   exports.prototype['predictorMinimumAllowedValue'] = undefined;
   /**
-   * Example: 17
+   * Ex: 17
    * @member {Number} predictsHighEffectChange
    */
   exports.prototype['predictsHighEffectChange'] = undefined;
   /**
-   * Example: -11
+   * Ex: -11
    * @member {Number} predictsLowEffectChange
    */
   exports.prototype['predictsLowEffectChange'] = undefined;
   /**
-   * Example: 0.39628900511586
+   * Ex: 0.39628900511586
    * @member {Number} pValue
    */
   exports.prototype['pValue'] = undefined;
   /**
-   * Example: 0.528
+   * Ex: 0.528
    * @member {Number} qmScore
    */
   exports.prototype['qmScore'] = undefined;
   /**
-   * Example: 0.01377184270977
+   * Ex: 0.01377184270977
    * @member {Number} reversePearsonCorrelationCoefficient
    */
   exports.prototype['reversePearsonCorrelationCoefficient'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} shareUserMeasurements
    */
   exports.prototype['shareUserMeasurements'] = undefined;
   /**
-   * Example: N1 Study: Sleep Quality Predicts Higher Overall Mood
+   * Ex: N1 Study: Sleep Quality Predicts Higher Overall Mood
    * @member {String} sharingDescription
    */
   exports.prototype['sharingDescription'] = undefined;
   /**
-   * Example: N1 Study: Sleep Quality Predicts Higher Overall Mood
+   * Ex: N1 Study: Sleep Quality Predicts Higher Overall Mood
    * @member {String} sharingTitle
    */
   exports.prototype['sharingTitle'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Boolean} significantDifference
    */
   exports.prototype['significantDifference'] = undefined;
   /**
-   * Example: 0.9813
+   * Ex: 0.9813
    * @member {Number} statisticalSignificance
    */
   exports.prototype['statisticalSignificance'] = undefined;
   /**
-   * Example: moderate
+   * Ex: moderate
    * @member {String} strengthLevel
    */
   exports.prototype['strengthLevel'] = undefined;
   /**
-   * Example: 0.613
+   * Ex: 0.613
    * @member {Number} strongestPearsonCorrelationCoefficient
    */
   exports.prototype['strongestPearsonCorrelationCoefficient'] = undefined;
@@ -926,32 +926,32 @@
    */
   exports.prototype['studyText'] = undefined;
   /**
-   * Example: 9.6986079652717
+   * Ex: 9.6986079652717
    * @member {Number} tValue
    */
   exports.prototype['tValue'] = undefined;
   /**
-   * Example: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2017-05-06 15:40:38 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} updatedAt
    */
   exports.prototype['updatedAt'] = undefined;
   /**
-   * Example: 230
+   * Ex: 230
    * @member {Number} userId
    */
   exports.prototype['userId'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} userVote
    */
   exports.prototype['userVote'] = undefined;
   /**
-   * Example: 4.14
+   * Ex: 4.14
    * @member {Number} valuePredictingHighOutcome
    */
   exports.prototype['valuePredictingHighOutcome'] = undefined;
   /**
-   * Example: 3.03
+   * Ex: 3.03
    * @member {Number} valuePredictingLowOutcome
    */
   exports.prototype['valuePredictingLowOutcome'] = undefined;
@@ -971,72 +971,72 @@
    */
   exports.prototype['reverseCorrelation'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} averagePearsonCorrelationCoefficientOverOnsetDelays
    */
   exports.prototype['averagePearsonCorrelationCoefficientOverOnsetDelays'] = undefined;
   /**
-   * Example: 14764
+   * Ex: 14764
    * @member {Number} causeNumberOfRawMeasurements
    */
   exports.prototype['causeNumberOfRawMeasurements'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} correlationsOverDurationsOfAction
    */
   exports.prototype['correlationsOverDurationsOfAction'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} correlationsOverDurationsOfActionChartConfig
    */
   exports.prototype['correlationsOverDurationsOfActionChartConfig'] = undefined;
   /**
-   * Example: 
+   * Ex: 
    * @member {String} correlationsOverOnsetDelaysChartConfig
    */
   exports.prototype['correlationsOverOnsetDelaysChartConfig'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} numberOfUsers
    */
   exports.prototype['numberOfUsers'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} rawCauseMeasurementSignificance
    */
   exports.prototype['rawCauseMeasurementSignificance'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} rawEffectMeasurementSignificance
    */
   exports.prototype['rawEffectMeasurementSignificance'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {String} reversePairsCount
    */
   exports.prototype['reversePairsCount'] = undefined;
   /**
-   * Example: 1
+   * Ex: 1
    * @member {Number} voteStatisticalSignificance
    */
   exports.prototype['voteStatisticalSignificance'] = undefined;
   /**
-   * Example: 0.011598441286655
+   * Ex: 0.011598441286655
    * @member {Number} aggregateQMScore
    */
   exports.prototype['aggregateQMScore'] = undefined;
   /**
-   * Example: 0.0333
+   * Ex: 0.0333
    * @member {Number} forwardPearsonCorrelationCoefficient
    */
   exports.prototype['forwardPearsonCorrelationCoefficient'] = undefined;
   /**
-   * Example: 6
+   * Ex: 6
    * @member {Number} numberOfCorrelations
    */
   exports.prototype['numberOfCorrelations'] = undefined;
   /**
-   * Example: 1 or 0
+   * Ex: 1 or 0
    * @member {Number} vote
    */
   exports.prototype['vote'] = undefined;

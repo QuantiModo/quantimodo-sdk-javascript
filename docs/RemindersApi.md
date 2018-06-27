@@ -105,12 +105,11 @@ var opts = {
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
-  'reminderTime': "reminderTime_example", // String | Example: (lt)2017-07-31 21:43:26
-  'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'onlyPast': true, // Boolean | Example: 1
+  'reminderTime': "reminderTime_example", // String | Ex: (lt)2017-07-31 21:43:26
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+  'onlyPast': true, // Boolean | Ex: 1
   'includeDeleted': true, // Boolean | Include deleted variables
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -134,12 +133,11 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
- **reminderTime** | **String**| Example: (lt)2017-07-31 21:43:26 | [optional] 
- **appName** | **String**| Example: MoodiModo | [optional] 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **onlyPast** | **Boolean**| Example: 1 | [optional] 
+ **reminderTime** | **String**| Ex: (lt)2017-07-31 21:43:26 | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+ **onlyPast** | **Boolean**| Ex: 1 | [optional] 
  **includeDeleted** | **Boolean**| Include deleted variables | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -187,10 +185,9 @@ var opts = {
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
-  'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'appVersion': "appVersion_example", // String | Example: 2.1.1.0
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+  'appVersion': "appVersion_example", // String | Ex: 2.1.1.0
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -214,10 +211,9 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
- **appName** | **String**| Example: MoodiModo | [optional] 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **appVersion** | **String**| Example: 2.1.1.0 | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+ **appVersion** | **String**| Ex: 2.1.1.0 | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -261,9 +257,8 @@ var body = [new Quantimodo.TrackingReminderNotificationPost()]; // [TrackingRemi
 
 var opts = { 
   'userId': 8.14, // Number | User's id
-  'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -282,9 +277,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**[TrackingReminderNotificationPost]**](TrackingReminderNotificationPost.md)| Id of the tracking reminder notification to be snoozed | 
  **userId** | **Number**| User&#39;s id | [optional] 
- **appName** | **String**| Example: MoodiModo | [optional] 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type
 

@@ -44,8 +44,8 @@
    * @alias module:model/ExplanationStartTracking
    * @class
    * @param button {module:model/Button} 
-   * @param description {String} Example: The more data I have the more accurate your results will be so track regularly!
-   * @param title {String} Example: Improve Accuracy
+   * @param description {String} Ex: The more data I have the more accurate your results will be so track regularly!
+   * @param title {String} Ex: Improve Accuracy
    */
   var exports = function(button, description, title) {
     var _this = this;
@@ -84,12 +84,12 @@
    */
   exports.prototype['button'] = undefined;
   /**
-   * Example: The more data I have the more accurate your results will be so track regularly!
+   * Ex: The more data I have the more accurate your results will be so track regularly!
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
   /**
-   * Example: Improve Accuracy
+   * Ex: Improve Accuracy
    * @member {String} title
    */
   exports.prototype['title'] = undefined;

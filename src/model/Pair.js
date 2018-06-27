@@ -43,13 +43,13 @@
    * Constructs a new <code>Pair</code>.
    * @alias module:model/Pair
    * @class
-   * @param causeMeasurement {Number} Example: 101341.66666667
-   * @param causeMeasurementValue {Number} Example: 101341.66666667
-   * @param causeVariableUnitAbbreviatedName {String} Example: mg
-   * @param effectMeasurement {Number} Example: 7.98
-   * @param effectMeasurementValue {Number} Example: 7.98
-   * @param effectVariableUnitAbbreviatedName {String} Example: %
-   * @param timestamp {Number} Example: 1464937200
+   * @param causeMeasurement {Number} Ex: 101341.66666667
+   * @param causeMeasurementValue {Number} Ex: 101341.66666667
+   * @param causeVariableUnitAbbreviatedName {String} Ex: mg
+   * @param effectMeasurement {Number} Ex: 7.98
+   * @param effectMeasurementValue {Number} Ex: 7.98
+   * @param effectVariableUnitAbbreviatedName {String} Ex: %
+   * @param timestamp {Number} Ex: 1464937200
    */
   var exports = function(causeMeasurement, causeMeasurementValue, causeVariableUnitAbbreviatedName, effectMeasurement, effectMeasurementValue, effectVariableUnitAbbreviatedName, timestamp) {
     var _this = this;
@@ -112,52 +112,52 @@
   }
 
   /**
-   * Example: 101341.66666667
+   * Ex: 101341.66666667
    * @member {Number} causeMeasurement
    */
   exports.prototype['causeMeasurement'] = undefined;
   /**
-   * Example: 101341.66666667
+   * Ex: 101341.66666667
    * @member {Number} causeMeasurementValue
    */
   exports.prototype['causeMeasurementValue'] = undefined;
   /**
-   * Example: mg
+   * Ex: mg
    * @member {String} causeVariableUnitAbbreviatedName
    */
   exports.prototype['causeVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 7.98
+   * Ex: 7.98
    * @member {Number} effectMeasurement
    */
   exports.prototype['effectMeasurement'] = undefined;
   /**
-   * Example: 7.98
+   * Ex: 7.98
    * @member {Number} effectMeasurementValue
    */
   exports.prototype['effectMeasurementValue'] = undefined;
   /**
-   * Example: %
+   * Ex: %
    * @member {String} effectVariableUnitAbbreviatedName
    */
   exports.prototype['effectVariableUnitAbbreviatedName'] = undefined;
   /**
-   * Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} eventAt
    */
   exports.prototype['eventAt'] = undefined;
   /**
-   * Example: 1438876142
+   * Ex: 1438876142
    * @member {Number} eventAtUnixTime
    */
   exports.prototype['eventAtUnixTime'] = undefined;
   /**
-   * Example: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * Ex: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} startTimeString
    */
   exports.prototype['startTimeString'] = undefined;
   /**
-   * Example: 1464937200
+   * Ex: 1464937200
    * @member {Number} timestamp
    */
   exports.prototype['timestamp'] = undefined;

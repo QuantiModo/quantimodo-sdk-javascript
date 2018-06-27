@@ -156,9 +156,8 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
-  'appName': "appName_example", // String | Example: MoodiModo
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -175,9 +174,8 @@ apiInstance.getConnectors(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appName** | **String**| Example: MoodiModo | [optional] 
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type
 
@@ -207,8 +205,8 @@ var Quantimodo = require('quantimodo');
 var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
-  'clientId': "clientId_example", // String | Example: oauth_test_client
-  'platform': "platform_example", // String | Example: chrome, android, ios, web
+  'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+  'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -225,8 +223,8 @@ apiInstance.getIntegrationJs(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientId** | **String**| Example: oauth_test_client | [optional] 
- **platform** | **String**| Example: chrome, android, ios, web | [optional] 
+ **clientId** | **String**| Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+ **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type
 
