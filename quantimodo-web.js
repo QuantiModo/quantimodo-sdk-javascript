@@ -4715,6 +4715,87 @@ exports.cleanHeader = function(header, shouldStripCookie){
     }
 
     /**
+     * Callback function to receive the result of the getStudies operation.
+     * @callback module:api/StudiesApi~getStudiesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetStudiesResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Personal or Population Studies
+     * If you have enough data, this will be a list of your personal studies, otherwise it will consist of aggregated population studies.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.causeVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Name of the hypothetical outcome variable.  Ex: Overall Mood
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
+     * @param {String} opts.studyId Client id for the cohort study you want
+     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
+     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {String} opts.correlationCoefficient Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Boolean} opts.outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
+     * @param {Number} opts.principalInvestigatorUserId These are studies created by a specific principal investigator
+     * @param {Boolean} opts.open These are studies that anyone can join
+     * @param {Boolean} opts.joined These are studies that you have joined
+     * @param {Boolean} opts.created These are studies that you have created
+     * @param {Boolean} opts.population These are studies based on the entire population of users that have shared their data
+     * @param {module:api/StudiesApi~getStudiesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetStudiesResponse}
+     */
+    this.getStudies = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName'],
+        'userId': opts['userId'],
+        'clientId': opts['clientId'],
+        'includeCharts': opts['includeCharts'],
+        'platform': opts['platform'],
+        'recalculate': opts['recalculate'],
+        'studyId': opts['studyId'],
+        'sort': opts['sort'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'correlationCoefficient': opts['correlationCoefficient'],
+        'updatedAt': opts['updatedAt'],
+        'outcomesOfInterest': opts['outcomesOfInterest'],
+        'principalInvestigatorUserId': opts['principalInvestigatorUserId'],
+        'open': opts['open'],
+        'joined': opts['joined'],
+        'created': opts['created'],
+        'population': opts['population'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = GetStudiesResponse;
+
+      return this.apiClient.callApi(
+        '/v3/studies', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getStudiesCreated operation.
      * @callback module:api/StudiesApi~getStudiesCreatedCallback
      * @param {String} error Error message, if any.
@@ -13528,6 +13609,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   var exports = function(studyLinkEmail, studyLinkFacebook, studyLinkGoogle, studyLinkStatic, studyLinkDynamic, studyLinkTwitter) {
     var _this = this;
 
+
     _this['studyLinkEmail'] = studyLinkEmail;
     _this['studyLinkFacebook'] = studyLinkFacebook;
     _this['studyLinkGoogle'] = studyLinkGoogle;
@@ -13547,6 +13629,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('studyJoinLink')) {
+        obj['studyJoinLink'] = ApiClient.convertToType(data['studyJoinLink'], 'String');
+      }
       if (data.hasOwnProperty('studyLinkEmail')) {
         obj['studyLinkEmail'] = ApiClient.convertToType(data['studyLinkEmail'], 'String');
       }
@@ -13569,6 +13654,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
     return obj;
   }
 
+  /**
+   * Share this link with potential study participants
+   * @member {String} studyJoinLink
+   */
+  exports.prototype['studyJoinLink'] = undefined;
   /**
    * Ex: mailto:?subject=N1%20Study%3A%20Sleep%20Quality%20Predicts%20Higher%20Overall%20Mood&body=Check%20out%20my%20study%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fstudy%3FcauseVariableName%3DSleep%2520Quality%26effectVariableName%3DOverall%2520Mood%26userId%3D230%0A%0AHave%20a%20great%20day!
    * @member {String} studyLinkEmail

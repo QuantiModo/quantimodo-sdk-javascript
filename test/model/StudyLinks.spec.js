@@ -56,6 +56,12 @@
       //expect(instance).to.be.a(Quantimodo.StudyLinks);
     });
 
+    it('should have the property studyJoinLink (base name: "studyJoinLink")', function() {
+      // uncomment below and update the code to test the property studyJoinLink
+      //var instane = new Quantimodo.StudyLinks();
+      //expect(instance).to.be();
+    });
+
     it('should have the property studyLinkEmail (base name: "studyLinkEmail")', function() {
       // uncomment below and update the code to test the property studyLinkEmail
       //var instane = new Quantimodo.StudyLinks();

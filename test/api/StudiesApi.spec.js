@@ -80,6 +80,16 @@
         done();
       });
     });
+    describe('getStudies', function() {
+      it('should call getStudies successfully', function(done) {
+        //uncomment below and update the code to test getStudies
+        //instance.getStudies(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getStudiesCreated', function() {
       it('should call getStudiesCreated successfully', function(done) {
         //uncomment below and update the code to test getStudiesCreated
