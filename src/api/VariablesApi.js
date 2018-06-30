@@ -217,7 +217,7 @@
      * @param {Number} opts.variableCategoryId Ex: 13
      * @param {Boolean} opts.includePrivate Include user-specific variables in results
      * @param {String} opts.searchPhrase Ex: %Body Fat%
-     * @param {String} opts.synonyms Ex: %McDonalds hotcake%
+     * @param {String} opts.synonyms Ex: McDonalds hotcake
      * @param {Number} opts.taggedVariableId Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Number} opts.tagVariableId Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
      * @param {Number} opts.joinVariableId Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId.
@@ -372,7 +372,7 @@
      * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
      * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
      * @param {Number} opts.variableCategoryId Ex: 13
-     * @param {String} opts.synonyms Ex: %McDonalds hotcake%
+     * @param {String} opts.synonyms Ex: McDonalds hotcake
      * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/VariablesApi~postUserVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommonResponse}

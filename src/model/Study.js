@@ -60,6 +60,7 @@
 
 
 
+
   };
 
   /**
@@ -108,6 +109,9 @@
       }
       if (data.hasOwnProperty('studyText')) {
         obj['studyText'] = StudyText.constructFromObject(data['studyText']);
+      }
+      if (data.hasOwnProperty('joined')) {
+        obj['joined'] = ApiClient.convertToType(data['joined'], 'Boolean');
       }
     }
     return obj;
@@ -164,6 +168,11 @@
    * @member {module:model/StudyText} studyText
    */
   exports.prototype['studyText'] = undefined;
+  /**
+   * True if you are sharing your data with this study
+   * @member {Boolean} joined
+   */
+  exports.prototype['joined'] = undefined;
 
 
 

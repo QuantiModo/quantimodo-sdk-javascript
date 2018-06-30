@@ -182,32 +182,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property unitAbbreviatedName (base name: "unitAbbreviatedName")', function() {
-      // uncomment below and update the code to test the property unitAbbreviatedName
+    it('should have the property dataSourceNames (base name: "dataSourceNames")', function() {
+      // uncomment below and update the code to test the property dataSourceNames
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
-    it('should have the property unitCategoryId (base name: "unitCategoryId")', function() {
-      // uncomment below and update the code to test the property unitCategoryId
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property unitCategoryName (base name: "unitCategoryName")', function() {
-      // uncomment below and update the code to test the property unitCategoryName
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property unitId (base name: "unitId")', function() {
-      // uncomment below and update the code to test the property unitId
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property unitName (base name: "unitName")', function() {
-      // uncomment below and update the code to test the property unitName
+    it('should have the property dataSources (base name: "dataSources")', function() {
+      // uncomment below and update the code to test the property dataSources
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
@@ -728,12 +710,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property sources (base name: "sources")', function() {
-      // uncomment below and update the code to test the property sources
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property standardDeviation (base name: "standardDeviation")', function() {
       // uncomment below and update the code to test the property standardDeviation
       //var instane = new Quantimodo.Variable();
@@ -772,6 +748,36 @@
 
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unitAbbreviatedName (base name: "unitAbbreviatedName")', function() {
+      // uncomment below and update the code to test the property unitAbbreviatedName
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unitCategoryId (base name: "unitCategoryId")', function() {
+      // uncomment below and update the code to test the property unitCategoryId
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unitCategoryName (base name: "unitCategoryName")', function() {
+      // uncomment below and update the code to test the property unitCategoryName
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unitId (base name: "unitId")', function() {
+      // uncomment below and update the code to test the property unitId
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unitName (base name: "unitName")', function() {
+      // uncomment below and update the code to test the property unitName
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
@@ -892,12 +898,6 @@
 
     it('should have the property variableCategory (base name: "variableCategory")', function() {
       // uncomment below and update the code to test the property variableCategory
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property dataSource (base name: "dataSource")', function() {
-      // uncomment below and update the code to test the property dataSource
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });

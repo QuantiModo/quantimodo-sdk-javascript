@@ -128,6 +128,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property joined (base name: "joined")', function() {
+      // uncomment below and update the code to test the property joined
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

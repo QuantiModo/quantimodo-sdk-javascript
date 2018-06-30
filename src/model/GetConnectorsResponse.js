@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Connector'], factory);
+    define(['ApiClient', 'model/DataSource'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Connector'));
+    module.exports = factory(require('../ApiClient'), require('./DataSource'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GetConnectorsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Connector);
+    root.Quantimodo.GetConnectorsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource);
   }
-}(this, function(ApiClient, Connector) {
+}(this, function(ApiClient, DataSource) {
   'use strict';
 
 
@@ -66,7 +66,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('connectors')) {
-        obj['connectors'] = ApiClient.convertToType(data['connectors'], [Connector]);
+        obj['connectors'] = ApiClient.convertToType(data['connectors'], [DataSource]);
       }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
@@ -79,7 +79,7 @@
   }
 
   /**
-   * @member {Array.<module:model/Connector>} connectors
+   * @member {Array.<module:model/DataSource>} connectors
    */
   exports.prototype['connectors'] = undefined;
   /**

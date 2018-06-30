@@ -231,7 +231,7 @@ var opts = {
   'variableCategoryId': 56, // Number | Ex: 13
   'includePrivate': true, // Boolean | Include user-specific variables in results
   'searchPhrase': "searchPhrase_example", // String | Ex: %Body Fat%
-  'synonyms': "synonyms_example", // String | Ex: %McDonalds hotcake%
+  'synonyms': "synonyms_example", // String | Ex: McDonalds hotcake
   'taggedVariableId': 56, // Number | Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
   'tagVariableId': 56, // Number | Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
   'joinVariableId': 56, // Number | Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId.
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
  **variableCategoryId** | **Number**| Ex: 13 | [optional] 
  **includePrivate** | **Boolean**| Include user-specific variables in results | [optional] 
  **searchPhrase** | **String**| Ex: %Body Fat% | [optional] 
- **synonyms** | **String**| Ex: %McDonalds hotcake% | [optional] 
+ **synonyms** | **String**| Ex: McDonalds hotcake | [optional] 
  **taggedVariableId** | **Number**| Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | [optional] 
  **tagVariableId** | **Number**| Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). | [optional] 
  **joinVariableId** | **Number**| Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId. | [optional] 
@@ -410,7 +410,7 @@ var opts = {
   'manualTracking': true, // Boolean | Only include variables tracked manually by the user
   'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
   'variableCategoryId': 56, // Number | Ex: 13
-  'synonyms': "synonyms_example", // String | Ex: %McDonalds hotcake%
+  'synonyms': "synonyms_example", // String | Ex: McDonalds hotcake
   'platform': "platform_example", // String | Ex: chrome, android, ios, web
 };
 
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
  **manualTracking** | **Boolean**| Only include variables tracked manually by the user | [optional] 
  **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
  **variableCategoryId** | **Number**| Ex: 13 | [optional] 
- **synonyms** | **String**| Ex: %McDonalds hotcake% | [optional] 
+ **synonyms** | **String**| Ex: McDonalds hotcake | [optional] 
  **platform** | **String**| Ex: chrome, android, ios, web | [optional] 
 
 ### Return type

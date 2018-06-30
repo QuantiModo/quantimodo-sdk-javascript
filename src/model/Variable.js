@@ -91,9 +91,6 @@
 
 
 
-
-
-
     _this['id'] = id;
 
 
@@ -175,8 +172,11 @@
 
 
 
-    _this['userId'] = userId;
 
+
+
+
+    _this['userId'] = userId;
 
 
 
@@ -281,20 +281,11 @@
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
-      if (data.hasOwnProperty('unitAbbreviatedName')) {
-        obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
+      if (data.hasOwnProperty('dataSourceNames')) {
+        obj['dataSourceNames'] = ApiClient.convertToType(data['dataSourceNames'], 'String');
       }
-      if (data.hasOwnProperty('unitCategoryId')) {
-        obj['unitCategoryId'] = ApiClient.convertToType(data['unitCategoryId'], 'Number');
-      }
-      if (data.hasOwnProperty('unitCategoryName')) {
-        obj['unitCategoryName'] = ApiClient.convertToType(data['unitCategoryName'], 'String');
-      }
-      if (data.hasOwnProperty('unitId')) {
-        obj['unitId'] = ApiClient.convertToType(data['unitId'], 'Number');
-      }
-      if (data.hasOwnProperty('unitName')) {
-        obj['unitName'] = ApiClient.convertToType(data['unitName'], 'String');
+      if (data.hasOwnProperty('dataSources')) {
+        obj['dataSources'] = ApiClient.convertToType(data['dataSources'], [DataSource]);
       }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
@@ -554,9 +545,6 @@
       if (data.hasOwnProperty('skewness')) {
         obj['skewness'] = ApiClient.convertToType(data['skewness'], 'Number');
       }
-      if (data.hasOwnProperty('sources')) {
-        obj['sources'] = ApiClient.convertToType(data['sources'], 'String');
-      }
       if (data.hasOwnProperty('standardDeviation')) {
         obj['standardDeviation'] = ApiClient.convertToType(data['standardDeviation'], 'Number');
       }
@@ -577,6 +565,21 @@
       }
       if (data.hasOwnProperty('unit')) {
         obj['unit'] = Unit.constructFromObject(data['unit']);
+      }
+      if (data.hasOwnProperty('unitAbbreviatedName')) {
+        obj['unitAbbreviatedName'] = ApiClient.convertToType(data['unitAbbreviatedName'], 'String');
+      }
+      if (data.hasOwnProperty('unitCategoryId')) {
+        obj['unitCategoryId'] = ApiClient.convertToType(data['unitCategoryId'], 'Number');
+      }
+      if (data.hasOwnProperty('unitCategoryName')) {
+        obj['unitCategoryName'] = ApiClient.convertToType(data['unitCategoryName'], 'String');
+      }
+      if (data.hasOwnProperty('unitId')) {
+        obj['unitId'] = ApiClient.convertToType(data['unitId'], 'Number');
+      }
+      if (data.hasOwnProperty('unitName')) {
+        obj['unitName'] = ApiClient.convertToType(data['unitName'], 'String');
       }
       if (data.hasOwnProperty('upc')) {
         obj['upc'] = ApiClient.convertToType(data['upc'], 'String');
@@ -637,9 +640,6 @@
       }
       if (data.hasOwnProperty('variableCategory')) {
         obj['variableCategory'] = VariableCategory.constructFromObject(data['variableCategory']);
-      }
-      if (data.hasOwnProperty('dataSource')) {
-        obj['dataSource'] = DataSource.constructFromObject(data['dataSource']);
       }
       if (data.hasOwnProperty('joinedVariables')) {
         obj['joinedVariables'] = ApiClient.convertToType(data['joinedVariables'], [Variable]);
@@ -785,30 +785,15 @@
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Ex: count
-   * @member {String} unitAbbreviatedName
+   * Comma-separated list of source names to limit variables to those sources
+   * @member {String} dataSourceNames
    */
-  exports.prototype['unitAbbreviatedName'] = undefined;
+  exports.prototype['dataSourceNames'] = undefined;
   /**
-   * Ex: 6
-   * @member {Number} unitCategoryId
+   * These are sources of measurements for this variable
+   * @member {Array.<module:model/DataSource>} dataSources
    */
-  exports.prototype['unitCategoryId'] = undefined;
-  /**
-   * Ex: Miscellany
-   * @member {String} unitCategoryName
-   */
-  exports.prototype['unitCategoryName'] = undefined;
-  /**
-   * ID of unit to use for this variable
-   * @member {Number} unitId
-   */
-  exports.prototype['unitId'] = undefined;
-  /**
-   * Ex: Count
-   * @member {String} unitName
-   */
-  exports.prototype['unitName'] = undefined;
+  exports.prototype['dataSources'] = undefined;
   /**
    * Ex: negative
    * @member {String} description
@@ -1240,11 +1225,6 @@
    */
   exports.prototype['skewness'] = undefined;
   /**
-   * Comma-separated list of source names to limit variables to those sources
-   * @member {String} sources
-   */
-  exports.prototype['sources'] = undefined;
-  /**
    * Standard deviation Ex: 0.46483219855434
    * @member {Number} standardDeviation
    */
@@ -1278,6 +1258,31 @@
    * @member {module:model/Unit} unit
    */
   exports.prototype['unit'] = undefined;
+  /**
+   * Ex: count
+   * @member {String} unitAbbreviatedName
+   */
+  exports.prototype['unitAbbreviatedName'] = undefined;
+  /**
+   * Ex: 6
+   * @member {Number} unitCategoryId
+   */
+  exports.prototype['unitCategoryId'] = undefined;
+  /**
+   * Ex: Miscellany
+   * @member {String} unitCategoryName
+   */
+  exports.prototype['unitCategoryName'] = undefined;
+  /**
+   * ID of unit to use for this variable
+   * @member {Number} unitId
+   */
+  exports.prototype['unitId'] = undefined;
+  /**
+   * Ex: Count
+   * @member {String} unitName
+   */
+  exports.prototype['unitName'] = undefined;
   /**
    * Universal product code or similar
    * @member {String} upc
@@ -1375,10 +1380,6 @@
    * @member {module:model/VariableCategory} variableCategory
    */
   exports.prototype['variableCategory'] = undefined;
-  /**
-   * @member {module:model/DataSource} dataSource
-   */
-  exports.prototype['dataSource'] = undefined;
   /**
    * Array of Variables that are joined with this Variable
    * @member {Array.<module:model/Variable>} joinedVariables

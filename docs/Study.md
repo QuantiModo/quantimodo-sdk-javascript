@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **studyImages** | [**StudyImages**](StudyImages.md) |  | [optional] 
 **studyLinks** | [**StudyLinks**](StudyLinks.md) |  | [optional] 
 **studyText** | [**StudyText**](StudyText.md) |  | [optional] 
+**joined** | **Boolean** | True if you are sharing your data with this study | [optional] 
 
 
