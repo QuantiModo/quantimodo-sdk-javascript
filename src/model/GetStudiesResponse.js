@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Study'], factory);
+    define(['ApiClient', 'model/ExplanationStartTracking', 'model/Image', 'model/Study'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Study'));
+    module.exports = factory(require('../ApiClient'), require('./ExplanationStartTracking'), require('./Image'), require('./Study'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GetStudiesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Study);
+    root.Quantimodo.GetStudiesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.ExplanationStartTracking, root.Quantimodo.Image, root.Quantimodo.Study);
   }
-}(this, function(ApiClient, Study) {
+}(this, function(ApiClient, ExplanationStartTracking, Image, Study) {
   'use strict';
 
 
@@ -43,7 +43,7 @@
    * Constructs a new <code>GetStudiesResponse</code>.
    * @alias module:model/GetStudiesResponse
    * @class
-   * @param description {String} Can be used as body of help info popup
+   * @param description {String} Ex: These factors are most predictive of Overall Mood based on your own data.
    * @param summary {String} Can be used as title in help info popup
    */
   var exports = function(description, summary) {
@@ -52,6 +52,11 @@
 
     _this['description'] = description;
     _this['summary'] = summary;
+
+
+
+
+
   };
 
   /**
@@ -74,6 +79,21 @@
       if (data.hasOwnProperty('summary')) {
         obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
       }
+      if (data.hasOwnProperty('image')) {
+        obj['image'] = Image.constructFromObject(data['image']);
+      }
+      if (data.hasOwnProperty('ionIcon')) {
+        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
+      }
+      if (data.hasOwnProperty('startTracking')) {
+        obj['startTracking'] = ExplanationStartTracking.constructFromObject(data['startTracking']);
+      }
+      if (data.hasOwnProperty('title')) {
+        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      }
+      if (data.hasOwnProperty('html')) {
+        obj['html'] = ApiClient.convertToType(data['html'], 'String');
+      }
     }
     return obj;
   }
@@ -83,7 +103,7 @@
    */
   exports.prototype['studies'] = undefined;
   /**
-   * Can be used as body of help info popup
+   * Ex: These factors are most predictive of Overall Mood based on your own data.
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
@@ -92,6 +112,29 @@
    * @member {String} summary
    */
   exports.prototype['summary'] = undefined;
+  /**
+   * @member {module:model/Image} image
+   */
+  exports.prototype['image'] = undefined;
+  /**
+   * Ex: ion-ios-person
+   * @member {String} ionIcon
+   */
+  exports.prototype['ionIcon'] = undefined;
+  /**
+   * @member {module:model/ExplanationStartTracking} startTracking
+   */
+  exports.prototype['startTracking'] = undefined;
+  /**
+   * Ex: Top Predictors of Overall Mood
+   * @member {String} title
+   */
+  exports.prototype['title'] = undefined;
+  /**
+   * Embeddable list of study summaries with explanation at the top
+   * @member {String} html
+   */
+  exports.prototype['html'] = undefined;
 
 
 

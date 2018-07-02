@@ -110,6 +110,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property count (base name: "count")', function() {
+      // uncomment below and update the code to test the property count
+      //var instane = new Quantimodo.DataSource();
+      //expect(instance).to.be();
+    });
+
     it('should have the property createdAt (base name: "createdAt")', function() {
       // uncomment below and update the code to test the property createdAt
       //var instane = new Quantimodo.DataSource();

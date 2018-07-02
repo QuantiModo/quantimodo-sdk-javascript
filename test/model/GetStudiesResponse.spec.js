@@ -74,6 +74,36 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property image (base name: "image")', function() {
+      // uncomment below and update the code to test the property image
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ionIcon (base name: "ionIcon")', function() {
+      // uncomment below and update the code to test the property ionIcon
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property startTracking (base name: "startTracking")', function() {
+      // uncomment below and update the code to test the property startTracking
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property title (base name: "title")', function() {
+      // uncomment below and update the code to test the property title
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property html (base name: "html")', function() {
+      // uncomment below and update the code to test the property html
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

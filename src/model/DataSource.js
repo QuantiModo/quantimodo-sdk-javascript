@@ -70,6 +70,7 @@
 
 
 
+
     _this['connectorClientId'] = connectorClientId;
     _this['defaultVariableCategoryName'] = defaultVariableCategoryName;
     _this['displayName'] = displayName;
@@ -134,6 +135,9 @@
       }
       if (data.hasOwnProperty('connectStatus')) {
         obj['connectStatus'] = ApiClient.convertToType(data['connectStatus'], 'String');
+      }
+      if (data.hasOwnProperty('count')) {
+        obj['count'] = ApiClient.convertToType(data['count'], 'Number');
       }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
@@ -261,6 +265,11 @@
    * @member {String} connectStatus
    */
   exports.prototype['connectStatus'] = undefined;
+  /**
+   * Number of measurements from this source or number of users who have measurements from this source
+   * @member {Number} count
+   */
+  exports.prototype['count'] = undefined;
   /**
    * Ex: 2000-01-01 00:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @member {String} createdAt

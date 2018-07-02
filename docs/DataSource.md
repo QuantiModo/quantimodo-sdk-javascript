@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **connectInstructions** | [**ConnectInstructions**](ConnectInstructions.md) | URL and parameters used when connecting to a service | [optional] 
 **connectorId** | **Number** | Ex: 8 | [optional] 
 **connectStatus** | **String** | Ex: CONNECTED | [optional] 
+**count** | **Number** | Number of measurements from this source or number of users who have measurements from this source | [optional] 
 **createdAt** | **String** | Ex: 2000-01-01 00:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **connectorClientId** | **String** | Ex: ba7d0c12432650e23b3ce924ae2d21e2ff59e7e4e28650759633700af7ed0a30 | 
 **defaultVariableCategoryName** | **String** | Ex: Foods | 
