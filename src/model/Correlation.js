@@ -87,7 +87,7 @@
    * @param predictsLowEffectChange {Number} Ex: -11
    * @param qmScore {Number} Ex: 0.528
    * @param reversePearsonCorrelationCoefficient {Number} Ex: 0.01377184270977
-   * @param shareUserMeasurements {Boolean} Ex: 1
+   * @param shareUserMeasurements {Boolean} Would you like to make this study publicly visible?
    * @param significantDifference {Boolean} Ex: 1
    * @param statisticalSignificance {Number} Ex: 0.9813
    * @param strengthLevel {String} Ex: moderate
@@ -875,7 +875,7 @@
    */
   exports.prototype['reversePearsonCorrelationCoefficient'] = undefined;
   /**
-   * Ex: 1
+   * Would you like to make this study publicly visible?
    * @member {Boolean} shareUserMeasurements
    */
   exports.prototype['shareUserMeasurements'] = undefined;

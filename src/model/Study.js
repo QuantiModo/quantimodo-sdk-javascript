@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudyText', 'model/Variable'], factory);
+    define(['ApiClient', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudySharing', 'model/StudyText', 'model/StudyVotes', 'model/Variable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyCharts'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudyText'), require('./Variable'));
+    module.exports = factory(require('../ApiClient'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyCharts'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudySharing'), require('./StudyText'), require('./StudyVotes'), require('./Variable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyCharts, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudyText, root.Quantimodo.Variable);
+    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyCharts, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudySharing, root.Quantimodo.StudyText, root.Quantimodo.StudyVotes, root.Quantimodo.Variable);
   }
-}(this, function(ApiClient, Correlation, ParticipantInstruction, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudyText, Variable) {
+}(this, function(ApiClient, Correlation, ParticipantInstruction, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudySharing, StudyText, StudyVotes, Variable) {
   'use strict';
 
 
@@ -49,6 +49,10 @@
     var _this = this;
 
     _this['type'] = type;
+
+
+
+
 
 
 
@@ -86,11 +90,17 @@
       if (data.hasOwnProperty('causeVariable')) {
         obj['causeVariable'] = Variable.constructFromObject(data['causeVariable']);
       }
+      if (data.hasOwnProperty('causeVariableName')) {
+        obj['causeVariableName'] = ApiClient.convertToType(data['causeVariableName'], 'String');
+      }
       if (data.hasOwnProperty('studyCharts')) {
         obj['studyCharts'] = StudyCharts.constructFromObject(data['studyCharts']);
       }
       if (data.hasOwnProperty('effectVariable')) {
         obj['effectVariable'] = Variable.constructFromObject(data['effectVariable']);
+      }
+      if (data.hasOwnProperty('effectVariableName')) {
+        obj['effectVariableName'] = ApiClient.convertToType(data['effectVariableName'], 'String');
       }
       if (data.hasOwnProperty('participantInstructions')) {
         obj['participantInstructions'] = ParticipantInstruction.constructFromObject(data['participantInstructions']);
@@ -107,8 +117,14 @@
       if (data.hasOwnProperty('studyLinks')) {
         obj['studyLinks'] = StudyLinks.constructFromObject(data['studyLinks']);
       }
+      if (data.hasOwnProperty('studySharing')) {
+        obj['studySharing'] = StudySharing.constructFromObject(data['studySharing']);
+      }
       if (data.hasOwnProperty('studyText')) {
         obj['studyText'] = StudyText.constructFromObject(data['studyText']);
+      }
+      if (data.hasOwnProperty('studyVotes')) {
+        obj['studyVotes'] = StudyVotes.constructFromObject(data['studyVotes']);
       }
       if (data.hasOwnProperty('joined')) {
         obj['joined'] = ApiClient.convertToType(data['joined'], 'Boolean');
@@ -137,6 +153,11 @@
    */
   exports.prototype['causeVariable'] = undefined;
   /**
+   * Ex: Sleep Quality
+   * @member {String} causeVariableName
+   */
+  exports.prototype['causeVariableName'] = undefined;
+  /**
    * @member {module:model/StudyCharts} studyCharts
    */
   exports.prototype['studyCharts'] = undefined;
@@ -144,6 +165,11 @@
    * @member {module:model/Variable} effectVariable
    */
   exports.prototype['effectVariable'] = undefined;
+  /**
+   * Ex: Overall Mood
+   * @member {String} effectVariableName
+   */
+  exports.prototype['effectVariableName'] = undefined;
   /**
    * @member {module:model/ParticipantInstruction} participantInstructions
    */
@@ -165,9 +191,17 @@
    */
   exports.prototype['studyLinks'] = undefined;
   /**
+   * @member {module:model/StudySharing} studySharing
+   */
+  exports.prototype['studySharing'] = undefined;
+  /**
    * @member {module:model/StudyText} studyText
    */
   exports.prototype['studyText'] = undefined;
+  /**
+   * @member {module:model/StudyVotes} studyVotes
+   */
+  exports.prototype['studyVotes'] = undefined;
   /**
    * True if you are sharing your data with this study
    * @member {Boolean} joined

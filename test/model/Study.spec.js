@@ -80,6 +80,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property causeVariableName (base name: "causeVariableName")', function() {
+      // uncomment below and update the code to test the property causeVariableName
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
     it('should have the property studyCharts (base name: "studyCharts")', function() {
       // uncomment below and update the code to test the property studyCharts
       //var instane = new Quantimodo.Study();
@@ -88,6 +94,12 @@
 
     it('should have the property effectVariable (base name: "effectVariable")', function() {
       // uncomment below and update the code to test the property effectVariable
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property effectVariableName (base name: "effectVariableName")', function() {
+      // uncomment below and update the code to test the property effectVariableName
       //var instane = new Quantimodo.Study();
       //expect(instance).to.be();
     });
@@ -122,8 +134,20 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property studySharing (base name: "studySharing")', function() {
+      // uncomment below and update the code to test the property studySharing
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
     it('should have the property studyText (base name: "studyText")', function() {
       // uncomment below and update the code to test the property studyText
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property studyVotes (base name: "studyVotes")', function() {
+      // uncomment below and update the code to test the property studyVotes
       //var instane = new Quantimodo.Study();
       //expect(instance).to.be();
     });

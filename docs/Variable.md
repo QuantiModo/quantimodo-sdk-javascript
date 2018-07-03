@@ -110,7 +110,7 @@ Name | Type | Description | Notes
 **rawMeasurementsAtLastAnalysis** | **Number** | Ex: 131 | [optional] 
 **secondMostCommonValue** | **Number** | Ex: 1 | [optional] 
 **secondToLastValue** | **Number** | Ex: 250 | [optional] 
-**shareUserMeasurements** | **Boolean** | Ex: 1 | [optional] 
+**shareUserMeasurements** | **Boolean** | Would you like to make your measurements publicly visible? | [optional] 
 **skewness** | **Number** | Skewness | [optional] 
 **standardDeviation** | **Number** | Standard deviation Ex: 0.46483219855434 | [optional] 
 **status** | **String** | status | [optional] 

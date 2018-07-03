@@ -1215,7 +1215,7 @@
    */
   exports.prototype['secondToLastValue'] = undefined;
   /**
-   * Ex: 1
+   * Would you like to make your measurements publicly visible?
    * @member {Boolean} shareUserMeasurements
    */
   exports.prototype['shareUserMeasurements'] = undefined;

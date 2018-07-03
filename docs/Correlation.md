@@ -72,7 +72,7 @@ Name | Type | Description | Notes
 **pValue** | **Number** | Ex: 0.39628900511586 | [optional] 
 **qmScore** | **Number** | Ex: 0.528 | 
 **reversePearsonCorrelationCoefficient** | **Number** | Ex: 0.01377184270977 | 
-**shareUserMeasurements** | **Boolean** | Ex: 1 | 
+**shareUserMeasurements** | **Boolean** | Would you like to make this study publicly visible? | 
 **sharingDescription** | **String** | Ex: N1 Study: Sleep Quality Predicts Higher Overall Mood | [optional] 
 **sharingTitle** | **String** | Ex: N1 Study: Sleep Quality Predicts Higher Overall Mood | [optional] 
 **significantDifference** | **Boolean** | Ex: 1 | 
