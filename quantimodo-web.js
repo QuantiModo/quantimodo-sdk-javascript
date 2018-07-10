@@ -12961,6 +12961,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
   };
 
   /**
@@ -13012,6 +13013,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('studySummaryBoxHtml')) {
         obj['studySummaryBoxHtml'] = ApiClient.convertToType(data['studySummaryBoxHtml'], 'String');
+      }
+      if (data.hasOwnProperty('trackingInstructionsHtml')) {
+        obj['trackingInstructionsHtml'] = ApiClient.convertToType(data['trackingInstructionsHtml'], 'String');
       }
     }
     return obj;
@@ -13082,6 +13086,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} studySummaryBoxHtml
    */
   exports.prototype['studySummaryBoxHtml'] = undefined;
+  /**
+   * Instructions for study participation
+   * @member {String} trackingInstructionsHtml
+   */
+  exports.prototype['trackingInstructionsHtml'] = undefined;
 
 
 

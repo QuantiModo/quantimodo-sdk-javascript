@@ -134,6 +134,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property trackingInstructionsHtml (base name: "trackingInstructionsHtml")', function() {
+      // uncomment below and update the code to test the property trackingInstructionsHtml
+      //var instane = new Quantimodo.StudyHtml();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

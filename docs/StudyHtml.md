@@ -16,5 +16,6 @@ Name | Type | Description | Notes
 **studyTextHtml** | **String** | Formatted study text sections | [optional] 
 **socialSharingButtonHtml** | **String** |  | [optional] 
 **studySummaryBoxHtml** | **String** |  | [optional] 
+**trackingInstructionsHtml** | **String** | Instructions for study participation | [optional] 
 
 
