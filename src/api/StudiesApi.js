@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/GetStudiesResponse', 'model/JsonErrorResponse', 'model/PostStudyCreateResponse', 'model/PostStudyPublishResponse', 'model/Study', 'model/StudyCreationBody', 'model/Vote', 'model/VoteDelete'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/GetStudiesResponse', 'model/JsonErrorResponse', 'model/PostStudyCreateResponse', 'model/PostStudyPublishResponse', 'model/Study', 'model/StudyCreationBody', 'model/StudyJoinResponse', 'model/Vote', 'model/VoteDelete'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/GetStudiesResponse'), require('../model/JsonErrorResponse'), require('../model/PostStudyCreateResponse'), require('../model/PostStudyPublishResponse'), require('../model/Study'), require('../model/StudyCreationBody'), require('../model/Vote'), require('../model/VoteDelete'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/GetStudiesResponse'), require('../model/JsonErrorResponse'), require('../model/PostStudyCreateResponse'), require('../model/PostStudyPublishResponse'), require('../model/Study'), require('../model/StudyCreationBody'), require('../model/StudyJoinResponse'), require('../model/Vote'), require('../model/VoteDelete'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.StudiesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.GetStudiesResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostStudyCreateResponse, root.Quantimodo.PostStudyPublishResponse, root.Quantimodo.Study, root.Quantimodo.StudyCreationBody, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
+    root.Quantimodo.StudiesApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.GetStudiesResponse, root.Quantimodo.JsonErrorResponse, root.Quantimodo.PostStudyCreateResponse, root.Quantimodo.PostStudyPublishResponse, root.Quantimodo.Study, root.Quantimodo.StudyCreationBody, root.Quantimodo.StudyJoinResponse, root.Quantimodo.Vote, root.Quantimodo.VoteDelete);
   }
-}(this, function(ApiClient, CommonResponse, GetStudiesResponse, JsonErrorResponse, PostStudyCreateResponse, PostStudyPublishResponse, Study, StudyCreationBody, Vote, VoteDelete) {
+}(this, function(ApiClient, CommonResponse, GetStudiesResponse, JsonErrorResponse, PostStudyCreateResponse, PostStudyPublishResponse, Study, StudyCreationBody, StudyJoinResponse, Vote, VoteDelete) {
   'use strict';
 
   /**
@@ -480,7 +480,7 @@
      * Callback function to receive the result of the joinStudy operation.
      * @callback module:api/StudiesApi~joinStudyCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/PostStudyPublishResponse} data The data returned by the service call.
+     * @param {module:model/StudyJoinResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -495,7 +495,7 @@
      * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
      * @param {module:api/StudiesApi~joinStudyCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PostStudyPublishResponse}
+     * data is of type: {@link module:model/StudyJoinResponse}
      */
     this.joinStudy = function(opts, callback) {
       opts = opts || {};
@@ -522,7 +522,7 @@
       var authNames = ['access_token', 'quantimodo_oauth2'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = PostStudyPublishResponse;
+      var returnType = StudyJoinResponse;
 
       return this.apiClient.callApi(
         '/v3/study/join', 'POST',

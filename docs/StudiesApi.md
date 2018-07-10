@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 
 <a name="joinStudy"></a>
 # **joinStudy**
-> PostStudyPublishResponse joinStudy(opts)
+> StudyJoinResponse joinStudy(opts)
 
 Join a Study
 
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostStudyPublishResponse**](PostStudyPublishResponse.md)
+[**StudyJoinResponse**](StudyJoinResponse.md)
 
 ### Authorization
 
