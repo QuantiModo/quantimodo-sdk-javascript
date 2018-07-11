@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **lastCauseAndOptimalValueSentence** | **String** | Ex: Sleep Quality Predicts Higher Overall Mood | [optional] 
 **lastCauseDailyValueSentence** | **String** | Ex: Sleep Quality Predicts Higher Overall Mood | [optional] 
 **optimalDailyValueSentence** | **String** | Ex: Sleep Quality Predicts Higher Overall Mood | [optional] 
+**participantInstructions** | **String** | Instructions for study participation | [optional] 
 **predictorExplanation** | **String** | Ex: Sleep Quality Predicts Higher Overall Mood | [optional] 
 **significanceExplanation** | **String** | Ex: Using a two-tailed t-test with alpha &#x3D; 0.05, it was determined that the change in Video Activities is statistically significant at 95% confidence interval. | [optional] 
 **studyAbstract** | **String** | Ex: Aggregated data from 21 suggests with a low degree of confidence (p&#x3D;0.097) that Very Distracting Time (Work) has a moderately positive predictive relationship (R&#x3D;0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day. | 

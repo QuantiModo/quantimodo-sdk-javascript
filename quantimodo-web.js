@@ -12990,6 +12990,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('fullStudyHtmlWithCssStyles')) {
         obj['fullStudyHtmlWithCssStyles'] = ApiClient.convertToType(data['fullStudyHtmlWithCssStyles'], 'String');
       }
+      if (data.hasOwnProperty('participantInstructionsHtml')) {
+        obj['participantInstructionsHtml'] = ApiClient.convertToType(data['participantInstructionsHtml'], 'String');
+      }
       if (data.hasOwnProperty('statisticsTableHtml')) {
         obj['statisticsTableHtml'] = ApiClient.convertToType(data['statisticsTableHtml'], 'String');
       }
@@ -13013,9 +13016,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('studySummaryBoxHtml')) {
         obj['studySummaryBoxHtml'] = ApiClient.convertToType(data['studySummaryBoxHtml'], 'String');
-      }
-      if (data.hasOwnProperty('trackingInstructionsHtml')) {
-        obj['trackingInstructionsHtml'] = ApiClient.convertToType(data['trackingInstructionsHtml'], 'String');
       }
     }
     return obj;
@@ -13046,6 +13046,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} fullStudyHtmlWithCssStyles
    */
   exports.prototype['fullStudyHtmlWithCssStyles'] = undefined;
+  /**
+   * Instructions for study participation
+   * @member {String} participantInstructionsHtml
+   */
+  exports.prototype['participantInstructionsHtml'] = undefined;
   /**
    * Embeddable table with statistics
    * @member {String} statisticsTableHtml
@@ -13086,11 +13091,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} studySummaryBoxHtml
    */
   exports.prototype['studySummaryBoxHtml'] = undefined;
-  /**
-   * Instructions for study participation
-   * @member {String} trackingInstructionsHtml
-   */
-  exports.prototype['trackingInstructionsHtml'] = undefined;
 
 
 
@@ -13712,6 +13712,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['studyAbstract'] = studyAbstract;
     _this['studyDesign'] = studyDesign;
     _this['studyLimitations'] = studyLimitations;
@@ -13769,6 +13770,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('optimalDailyValueSentence')) {
         obj['optimalDailyValueSentence'] = ApiClient.convertToType(data['optimalDailyValueSentence'], 'String');
+      }
+      if (data.hasOwnProperty('participantInstructions')) {
+        obj['participantInstructions'] = ApiClient.convertToType(data['participantInstructions'], 'String');
       }
       if (data.hasOwnProperty('predictorExplanation')) {
         obj['predictorExplanation'] = ApiClient.convertToType(data['predictorExplanation'], 'String');
@@ -13867,6 +13871,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} optimalDailyValueSentence
    */
   exports.prototype['optimalDailyValueSentence'] = undefined;
+  /**
+   * Instructions for study participation
+   * @member {String} participantInstructions
+   */
+  exports.prototype['participantInstructions'] = undefined;
   /**
    * Ex: Sleep Quality Predicts Higher Overall Mood
    * @member {String} predictorExplanation

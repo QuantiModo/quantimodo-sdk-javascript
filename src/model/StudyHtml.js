@@ -91,6 +91,9 @@
       if (data.hasOwnProperty('fullStudyHtmlWithCssStyles')) {
         obj['fullStudyHtmlWithCssStyles'] = ApiClient.convertToType(data['fullStudyHtmlWithCssStyles'], 'String');
       }
+      if (data.hasOwnProperty('participantInstructionsHtml')) {
+        obj['participantInstructionsHtml'] = ApiClient.convertToType(data['participantInstructionsHtml'], 'String');
+      }
       if (data.hasOwnProperty('statisticsTableHtml')) {
         obj['statisticsTableHtml'] = ApiClient.convertToType(data['statisticsTableHtml'], 'String');
       }
@@ -114,9 +117,6 @@
       }
       if (data.hasOwnProperty('studySummaryBoxHtml')) {
         obj['studySummaryBoxHtml'] = ApiClient.convertToType(data['studySummaryBoxHtml'], 'String');
-      }
-      if (data.hasOwnProperty('trackingInstructionsHtml')) {
-        obj['trackingInstructionsHtml'] = ApiClient.convertToType(data['trackingInstructionsHtml'], 'String');
       }
     }
     return obj;
@@ -147,6 +147,11 @@
    * @member {String} fullStudyHtmlWithCssStyles
    */
   exports.prototype['fullStudyHtmlWithCssStyles'] = undefined;
+  /**
+   * Instructions for study participation
+   * @member {String} participantInstructionsHtml
+   */
+  exports.prototype['participantInstructionsHtml'] = undefined;
   /**
    * Embeddable table with statistics
    * @member {String} statisticsTableHtml
@@ -187,11 +192,6 @@
    * @member {String} studySummaryBoxHtml
    */
   exports.prototype['studySummaryBoxHtml'] = undefined;
-  /**
-   * Instructions for study participation
-   * @member {String} trackingInstructionsHtml
-   */
-  exports.prototype['trackingInstructionsHtml'] = undefined;
 
 
 

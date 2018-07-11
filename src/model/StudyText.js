@@ -67,6 +67,7 @@
 
 
 
+
     _this['studyAbstract'] = studyAbstract;
     _this['studyDesign'] = studyDesign;
     _this['studyLimitations'] = studyLimitations;
@@ -124,6 +125,9 @@
       }
       if (data.hasOwnProperty('optimalDailyValueSentence')) {
         obj['optimalDailyValueSentence'] = ApiClient.convertToType(data['optimalDailyValueSentence'], 'String');
+      }
+      if (data.hasOwnProperty('participantInstructions')) {
+        obj['participantInstructions'] = ApiClient.convertToType(data['participantInstructions'], 'String');
       }
       if (data.hasOwnProperty('predictorExplanation')) {
         obj['predictorExplanation'] = ApiClient.convertToType(data['predictorExplanation'], 'String');
@@ -222,6 +226,11 @@
    * @member {String} optimalDailyValueSentence
    */
   exports.prototype['optimalDailyValueSentence'] = undefined;
+  /**
+   * Instructions for study participation
+   * @member {String} participantInstructions
+   */
+  exports.prototype['participantInstructions'] = undefined;
   /**
    * Ex: Sleep Quality Predicts Higher Overall Mood
    * @member {String} predictorExplanation

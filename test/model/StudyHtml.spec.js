@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property participantInstructionsHtml (base name: "participantInstructionsHtml")', function() {
+      // uncomment below and update the code to test the property participantInstructionsHtml
+      //var instane = new Quantimodo.StudyHtml();
+      //expect(instance).to.be();
+    });
+
     it('should have the property statisticsTableHtml (base name: "statisticsTableHtml")', function() {
       // uncomment below and update the code to test the property statisticsTableHtml
       //var instane = new Quantimodo.StudyHtml();
@@ -130,12 +136,6 @@
 
     it('should have the property studySummaryBoxHtml (base name: "studySummaryBoxHtml")', function() {
       // uncomment below and update the code to test the property studySummaryBoxHtml
-      //var instane = new Quantimodo.StudyHtml();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property trackingInstructionsHtml (base name: "trackingInstructionsHtml")', function() {
-      // uncomment below and update the code to test the property trackingInstructionsHtml
       //var instane = new Quantimodo.StudyHtml();
       //expect(instance).to.be();
     });

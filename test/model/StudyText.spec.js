@@ -128,6 +128,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property participantInstructions (base name: "participantInstructions")', function() {
+      // uncomment below and update the code to test the property participantInstructions
+      //var instane = new Quantimodo.StudyText();
+      //expect(instance).to.be();
+    });
+
     it('should have the property predictorExplanation (base name: "predictorExplanation")', function() {
       // uncomment below and update the code to test the property predictorExplanation
       //var instane = new Quantimodo.StudyText();
