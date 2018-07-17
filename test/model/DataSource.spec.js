@@ -74,6 +74,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property card (base name: "card")', function() {
+      // uncomment below and update the code to test the property card
+      //var instane = new Quantimodo.DataSource();
+      //expect(instance).to.be();
+    });
+
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
       //var instane = new Quantimodo.DataSource();
@@ -236,8 +242,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property spreadsheetUpload (base name: "spreadsheetUpload")', function() {
-      // uncomment below and update the code to test the property spreadsheetUpload
+    it('should have the property spreadsheetUploadLink (base name: "spreadsheetUploadLink")', function() {
+      // uncomment below and update the code to test the property spreadsheetUploadLink
       //var instane = new Quantimodo.DataSource();
       //expect(instance).to.be();
     });

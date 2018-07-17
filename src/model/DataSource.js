@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button', 'model/ConnectInstructions'], factory);
+    define(['ApiClient', 'model/Button', 'model/Card', 'model/ConnectInstructions'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Button'), require('./ConnectInstructions'));
+    module.exports = factory(require('../ApiClient'), require('./Button'), require('./Card'), require('./ConnectInstructions'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.DataSource = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.ConnectInstructions);
+    root.Quantimodo.DataSource = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.Card, root.Quantimodo.ConnectInstructions);
   }
-}(this, function(ApiClient, Button, ConnectInstructions) {
+}(this, function(ApiClient, Button, Card, ConnectInstructions) {
   'use strict';
 
 
@@ -61,6 +61,7 @@
     var _this = this;
 
     _this['affiliate'] = affiliate;
+
 
 
 
@@ -117,6 +118,9 @@
       }
       if (data.hasOwnProperty('buttons')) {
         obj['buttons'] = ApiClient.convertToType(data['buttons'], [Button]);
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -199,8 +203,8 @@
       if (data.hasOwnProperty('shortDescription')) {
         obj['shortDescription'] = ApiClient.convertToType(data['shortDescription'], 'String');
       }
-      if (data.hasOwnProperty('spreadsheetUpload')) {
-        obj['spreadsheetUpload'] = ApiClient.convertToType(data['spreadsheetUpload'], 'Boolean');
+      if (data.hasOwnProperty('spreadsheetUploadLink')) {
+        obj['spreadsheetUploadLink'] = ApiClient.convertToType(data['spreadsheetUploadLink'], 'String');
       }
       if (data.hasOwnProperty('totalMeasurementsInLastUpdate')) {
         obj['totalMeasurementsInLastUpdate'] = ApiClient.convertToType(data['totalMeasurementsInLastUpdate'], 'Number');
@@ -235,6 +239,11 @@
    * @member {Array.<module:model/Button>} buttons
    */
   exports.prototype['buttons'] = undefined;
+  /**
+   * Card containing instructions, image, text, link and relevant import buttons
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
   /**
    * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
@@ -371,10 +380,10 @@
    */
   exports.prototype['shortDescription'] = undefined;
   /**
-   * True if the user must upload a spreadsheet.  Post the uploaded spreadsheet with your clientId and user accessToken to https://app.quantimo.do/api/v2/spreadsheetUpload
-   * @member {Boolean} spreadsheetUpload
+   * URL to POST a spreadsheet to (if available for this data source)
+   * @member {String} spreadsheetUploadLink
    */
-  exports.prototype['spreadsheetUpload'] = undefined;
+  exports.prototype['spreadsheetUploadLink'] = undefined;
   /**
    * Number of measurements obtained during latest update
    * @member {Number} totalMeasurementsInLastUpdate

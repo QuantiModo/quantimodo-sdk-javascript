@@ -118,6 +118,8 @@ Name | Type | Description | Notes
 **svgUrl** | **String** | Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.svg | [optional] 
 **thirdMostCommonValue** | **Number** | Ex: 6 | [optional] 
 **thirdToLastValue** | **Number** | Ex: 250 | [optional] 
+**trackingInstructions** | **String** | HTML instructions for tracking | [optional] 
+**trackingInstructionsCard** | [**Card**](Card.md) | Instructions for tracking with buttons and images | [optional] 
 **unit** | [**Unit**](Unit.md) |  | [optional] 
 **unitAbbreviatedName** | **String** | Ex: count | [optional] 
 **unitCategoryId** | **Number** | Ex: 6 | [optional] 

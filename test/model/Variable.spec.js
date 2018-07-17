@@ -746,6 +746,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property trackingInstructions (base name: "trackingInstructions")', function() {
+      // uncomment below and update the code to test the property trackingInstructions
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property trackingInstructionsCard (base name: "trackingInstructionsCard")', function() {
+      // uncomment below and update the code to test the property trackingInstructionsCard
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
       //var instane = new Quantimodo.Variable();

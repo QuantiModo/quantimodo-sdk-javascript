@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **affiliate** | **Boolean** | Ex: true | 
 **backgroundColor** | **String** | Background color HEX code that matches the icon | [optional] 
 **buttons** | [**[Button]**](Button.md) |  | [optional] 
+**card** | [**Card**](Card.md) | Card containing instructions, image, text, link and relevant import buttons | [optional] 
 **clientId** | **String** | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
 **connected** | **Boolean** | True if the authenticated user has this connector enabled | [optional] 
 **connectError** | **String** | Ex: Your token is expired. Please re-connect | [optional] 
@@ -33,7 +34,7 @@ Name | Type | Description | Notes
 **premium** | **Boolean** | True if connection requires upgrade | [optional] 
 **scopes** | **[String]** | Required connector scopes | [optional] 
 **shortDescription** | **String** | Ex: Tracks anything | 
-**spreadsheetUpload** | **Boolean** | True if the user must upload a spreadsheet.  Post the uploaded spreadsheet with your clientId and user accessToken to https://app.quantimo.do/api/v2/spreadsheetUpload | [optional] 
+**spreadsheetUploadLink** | **String** | URL to POST a spreadsheet to (if available for this data source) | [optional] 
 **totalMeasurementsInLastUpdate** | **Number** | Number of measurements obtained during latest update | [optional] 
 **updatedAt** | **String** | Ex: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **updateRequestedAt** | **String** | Ex: 2017-07-18 05:16:31 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataSource', 'model/TrackingReminderNotificationAction', 'model/Unit', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts'], factory);
+    define(['ApiClient', 'model/Card', 'model/DataSource', 'model/TrackingReminderNotificationAction', 'model/Unit', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./DataSource'), require('./TrackingReminderNotificationAction'), require('./Unit'), require('./Variable'), require('./VariableCategory'), require('./VariableCharts'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./DataSource'), require('./TrackingReminderNotificationAction'), require('./Unit'), require('./Variable'), require('./VariableCategory'), require('./VariableCharts'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Variable = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit, root.Quantimodo.Variable, root.Quantimodo.VariableCategory, root.Quantimodo.VariableCharts);
+    root.Quantimodo.Variable = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.DataSource, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit, root.Quantimodo.Variable, root.Quantimodo.VariableCategory, root.Quantimodo.VariableCharts);
   }
-}(this, function(ApiClient, DataSource, TrackingReminderNotificationAction, Unit, Variable, VariableCategory, VariableCharts) {
+}(this, function(ApiClient, Card, DataSource, TrackingReminderNotificationAction, Unit, Variable, VariableCategory, VariableCharts) {
   'use strict';
 
 
@@ -131,6 +131,8 @@
 
 
     _this['name'] = name;
+
+
 
 
 
@@ -562,6 +564,12 @@
       }
       if (data.hasOwnProperty('thirdToLastValue')) {
         obj['thirdToLastValue'] = ApiClient.convertToType(data['thirdToLastValue'], 'Number');
+      }
+      if (data.hasOwnProperty('trackingInstructions')) {
+        obj['trackingInstructions'] = ApiClient.convertToType(data['trackingInstructions'], 'String');
+      }
+      if (data.hasOwnProperty('trackingInstructionsCard')) {
+        obj['trackingInstructionsCard'] = Card.constructFromObject(data['trackingInstructionsCard']);
       }
       if (data.hasOwnProperty('unit')) {
         obj['unit'] = Unit.constructFromObject(data['unit']);
@@ -1254,6 +1262,16 @@
    * @member {Number} thirdToLastValue
    */
   exports.prototype['thirdToLastValue'] = undefined;
+  /**
+   * HTML instructions for tracking
+   * @member {String} trackingInstructions
+   */
+  exports.prototype['trackingInstructions'] = undefined;
+  /**
+   * Instructions for tracking with buttons and images
+   * @member {module:model/Card} trackingInstructionsCard
+   */
+  exports.prototype['trackingInstructionsCard'] = undefined;
   /**
    * @member {module:model/Unit} unit
    */
