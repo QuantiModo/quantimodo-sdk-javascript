@@ -57,6 +57,7 @@
 
 
 
+
   };
 
   /**
@@ -81,6 +82,9 @@
       }
       if (data.hasOwnProperty('image')) {
         obj['image'] = Image.constructFromObject(data['image']);
+      }
+      if (data.hasOwnProperty('avatar')) {
+        obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
       }
       if (data.hasOwnProperty('ionIcon')) {
         obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
@@ -116,6 +120,11 @@
    * @member {module:model/Image} image
    */
   exports.prototype['image'] = undefined;
+  /**
+   * Square icon png url
+   * @member {String} avatar
+   */
+  exports.prototype['avatar'] = undefined;
   /**
    * Ex: ion-ios-person
    * @member {String} ionIcon

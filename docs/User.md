@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **avatar** | **String** | Ex: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz&#x3D;50 | [optional] 
 **avatarImage** | **String** | Ex: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz&#x3D;50 | [optional] 
 **capabilities** | **String** | Ex: a:1:{s:13:\&quot;administrator\&quot;;b:1;} | [optional] 
+**card** | [**Card**](Card.md) | Avatar and info | [optional] 
 **clientId** | **String** | Ex: quantimodo | [optional] 
 **clientUserId** | **String** | Ex: 118444693184829555362 | [optional] 
 **combineNotifications** | **Boolean** | Ex: 1 | [optional] 

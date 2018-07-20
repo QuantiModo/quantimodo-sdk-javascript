@@ -43,8 +43,9 @@
    * Constructs a new <code>Card</code>.
    * @alias module:model/Card
    * @class
+   * @param link {String} A link to a web page or something. Not much more to say about that.
    */
-  var exports = function() {
+  var exports = function(link) {
     var _this = this;
 
 
@@ -54,6 +55,7 @@
 
 
 
+    _this['link'] = link;
   };
 
   /**
@@ -87,6 +89,9 @@
       }
       if (data.hasOwnProperty('avatar')) {
         obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
       }
     }
     return obj;
@@ -126,6 +131,11 @@
    * @member {String} avatar
    */
   exports.prototype['avatar'] = undefined;
+  /**
+   * A link to a web page or something. Not much more to say about that.
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
 
 
 

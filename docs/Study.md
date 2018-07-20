@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **effectVariableName** | **String** | Ex: Overall Mood | [optional] 
 **participantInstructions** | [**ParticipantInstruction**](ParticipantInstruction.md) |  | [optional] 
 **statistics** | [**Correlation**](Correlation.md) |  | [optional] 
+**studyCard** | [**Card**](Card.md) | Contains a summary, images, sharing buttons, and links | [optional] 
 **studyHtml** | [**StudyHtml**](StudyHtml.md) |  | [optional] 
 **studyImages** | [**StudyImages**](StudyImages.md) |  | [optional] 
 **studyLinks** | [**StudyLinks**](StudyLinks.md) |  | [optional] 

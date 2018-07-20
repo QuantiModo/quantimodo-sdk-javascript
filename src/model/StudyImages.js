@@ -59,6 +59,7 @@
 
     _this['imageUrl'] = imageUrl;
 
+
   };
 
   /**
@@ -98,6 +99,9 @@
       }
       if (data.hasOwnProperty('robotSharingImageUrl')) {
         obj['robotSharingImageUrl'] = ApiClient.convertToType(data['robotSharingImageUrl'], 'String');
+      }
+      if (data.hasOwnProperty('avatar')) {
+        obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
       }
     }
     return obj;
@@ -148,6 +152,11 @@
    * @member {String} robotSharingImageUrl
    */
   exports.prototype['robotSharingImageUrl'] = undefined;
+  /**
+   * Avatar of the principal investigator
+   * @member {String} avatar
+   */
+  exports.prototype['avatar'] = undefined;
 
 
 

@@ -98,6 +98,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property link (base name: "link")', function() {
+      // uncomment below and update the code to test the property link
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

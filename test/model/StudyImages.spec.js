@@ -110,6 +110,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property avatar (base name: "avatar")', function() {
+      // uncomment below and update the code to test the property avatar
+      //var instane = new Quantimodo.StudyImages();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

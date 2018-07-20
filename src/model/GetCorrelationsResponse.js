@@ -52,6 +52,7 @@
 
     _this['description'] = description;
     _this['summary'] = summary;
+
   };
 
   /**
@@ -74,6 +75,9 @@
       if (data.hasOwnProperty('summary')) {
         obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
       }
+      if (data.hasOwnProperty('avatar')) {
+        obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
+      }
     }
     return obj;
   }
@@ -92,6 +96,11 @@
    * @member {String} summary
    */
   exports.prototype['summary'] = undefined;
+  /**
+   * Square icon png url
+   * @member {String} avatar
+   */
+  exports.prototype['avatar'] = undefined;
 
 
 

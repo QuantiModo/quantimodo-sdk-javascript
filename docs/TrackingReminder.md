@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **unitId** | **Number** | Ex: 10 | [optional] 
 **unitName** | **String** | Ex: 1 to 5 Rating | [optional] 
 **defaultValue** | **Number** | Default value to use for the measurement when tracking | [optional] 
+**enabled** | **Boolean** | If a tracking reminder is enabled, tracking reminder notifications will be generated for this variable. | [optional] 
 **email** | **Boolean** | True if the reminders should be delivered via email | [optional] 
 **errorMessage** | **String** | Ex: reminderStartTimeLocal is less than $user-&gt;earliestReminderTime or greater than  $user-&gt;latestReminderTime | [optional] 
 **fillingValue** | **Number** | Ex: 0 | [optional] 

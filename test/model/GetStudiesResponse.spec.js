@@ -80,6 +80,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property avatar (base name: "avatar")', function() {
+      // uncomment below and update the code to test the property avatar
+      //var instane = new Quantimodo.GetStudiesResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property ionIcon (base name: "ionIcon")', function() {
       // uncomment below and update the code to test the property ionIcon
       //var instane = new Quantimodo.GetStudiesResponse();

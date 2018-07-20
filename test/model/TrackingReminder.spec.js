@@ -128,6 +128,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property enabled (base name: "enabled")', function() {
+      // uncomment below and update the code to test the property enabled
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
       //var instane = new Quantimodo.TrackingReminder();

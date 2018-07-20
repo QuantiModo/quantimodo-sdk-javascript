@@ -52,6 +52,7 @@
     _this['predictorVariableName'] = predictorVariableName;
     _this['outcomeVariableName'] = outcomeVariableName;
 
+
   };
 
   /**
@@ -74,6 +75,9 @@
       if (data.hasOwnProperty('studyTitle')) {
         obj['studyTitle'] = ApiClient.convertToType(data['studyTitle'], 'String');
       }
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      }
     }
     return obj;
   }
@@ -93,7 +97,34 @@
    * @member {String} studyTitle
    */
   exports.prototype['studyTitle'] = undefined;
+  /**
+   * Individual studies are based on data of a single user. Group studies are based on data from a specific group of individuals who have joined.  Global studies are based on aggregated and anonymously shared data from all users.
+   * @member {module:model/StudyCreationBody.TypeEnum} type
+   */
+  exports.prototype['type'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>type</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.TypeEnum = {
+    /**
+     * value: "individual"
+     * @const
+     */
+    "individual": "individual",
+    /**
+     * value: "group"
+     * @const
+     */
+    "group": "group",
+    /**
+     * value: "global"
+     * @const
+     */
+    "global": "global"  };
 
 
   return exports;

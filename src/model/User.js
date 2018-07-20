@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AuthorizedClients'], factory);
+    define(['ApiClient', 'model/AuthorizedClients', 'model/Card'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./AuthorizedClients'));
+    module.exports = factory(require('../ApiClient'), require('./AuthorizedClients'), require('./Card'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.User = factory(root.Quantimodo.ApiClient, root.Quantimodo.AuthorizedClients);
+    root.Quantimodo.User = factory(root.Quantimodo.ApiClient, root.Quantimodo.AuthorizedClients, root.Quantimodo.Card);
   }
-}(this, function(ApiClient, AuthorizedClients) {
+}(this, function(ApiClient, AuthorizedClients, Card) {
   'use strict';
 
 
@@ -57,6 +57,7 @@
 
 
     _this['administrator'] = administrator;
+
 
 
 
@@ -136,6 +137,9 @@
       }
       if (data.hasOwnProperty('capabilities')) {
         obj['capabilities'] = ApiClient.convertToType(data['capabilities'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -297,6 +301,11 @@
    * @member {String} capabilities
    */
   exports.prototype['capabilities'] = undefined;
+  /**
+   * Avatar and info
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
   /**
    * Ex: quantimodo
    * @member {String} clientId

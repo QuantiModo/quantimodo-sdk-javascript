@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **buttons** | [**[Button]**](Button.md) |  | [optional] 
 **image** | **String** | Larger image of variable dimensions | [optional] 
 **avatar** | **String** | Smaller square image | [optional] 
+**link** | **String** | A link to a web page or something. Not much more to say about that. | 
 
 

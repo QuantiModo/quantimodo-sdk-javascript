@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudySharing', 'model/StudyText', 'model/StudyVotes', 'model/Variable'], factory);
+    define(['ApiClient', 'model/Card', 'model/Correlation', 'model/ParticipantInstruction', 'model/StudyCharts', 'model/StudyHtml', 'model/StudyImages', 'model/StudyLinks', 'model/StudySharing', 'model/StudyText', 'model/StudyVotes', 'model/Variable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyCharts'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudySharing'), require('./StudyText'), require('./StudyVotes'), require('./Variable'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Correlation'), require('./ParticipantInstruction'), require('./StudyCharts'), require('./StudyHtml'), require('./StudyImages'), require('./StudyLinks'), require('./StudySharing'), require('./StudyText'), require('./StudyVotes'), require('./Variable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyCharts, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudySharing, root.Quantimodo.StudyText, root.Quantimodo.StudyVotes, root.Quantimodo.Variable);
+    root.Quantimodo.Study = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Correlation, root.Quantimodo.ParticipantInstruction, root.Quantimodo.StudyCharts, root.Quantimodo.StudyHtml, root.Quantimodo.StudyImages, root.Quantimodo.StudyLinks, root.Quantimodo.StudySharing, root.Quantimodo.StudyText, root.Quantimodo.StudyVotes, root.Quantimodo.Variable);
   }
-}(this, function(ApiClient, Correlation, ParticipantInstruction, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudySharing, StudyText, StudyVotes, Variable) {
+}(this, function(ApiClient, Card, Correlation, ParticipantInstruction, StudyCharts, StudyHtml, StudyImages, StudyLinks, StudySharing, StudyText, StudyVotes, Variable) {
   'use strict';
 
 
@@ -41,6 +41,7 @@
 
   /**
    * Constructs a new <code>Study</code>.
+   * A study analyzes the relationship between a predictor variable like gluten-intake and an outcome of interest such as overall mood.
    * @alias module:model/Study
    * @class
    * @param type {String} Ex: population, cohort, or individual
@@ -49,6 +50,7 @@
     var _this = this;
 
     _this['type'] = type;
+
 
 
 
@@ -107,6 +109,9 @@
       }
       if (data.hasOwnProperty('statistics')) {
         obj['statistics'] = Correlation.constructFromObject(data['statistics']);
+      }
+      if (data.hasOwnProperty('studyCard')) {
+        obj['studyCard'] = Card.constructFromObject(data['studyCard']);
       }
       if (data.hasOwnProperty('studyHtml')) {
         obj['studyHtml'] = StudyHtml.constructFromObject(data['studyHtml']);
@@ -178,6 +183,11 @@
    * @member {module:model/Correlation} statistics
    */
   exports.prototype['statistics'] = undefined;
+  /**
+   * Contains a summary, images, sharing buttons, and links
+   * @member {module:model/Card} studyCard
+   */
+  exports.prototype['studyCard'] = undefined;
   /**
    * @member {module:model/StudyHtml} studyHtml
    */

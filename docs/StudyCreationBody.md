@@ -6,5 +6,19 @@ Name | Type | Description | Notes
 **predictorVariableName** | **String** | Name of predictor variable | 
 **outcomeVariableName** | **String** | Name of the outcome variable | 
 **studyTitle** | **String** | Title of your study (optional) | [optional] 
+**type** | **String** | Individual studies are based on data of a single user. Group studies are based on data from a specific group of individuals who have joined.  Global studies are based on aggregated and anonymously shared data from all users. | [optional] 
+
+
+<a name="TypeEnum"></a>
+## Enum: TypeEnum
+
+
+* `individual` (value: `"individual"`)
+
+* `group` (value: `"group"`)
+
+* `global` (value: `"global"`)
+
+
 
 

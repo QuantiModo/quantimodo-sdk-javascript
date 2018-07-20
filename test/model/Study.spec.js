@@ -116,6 +116,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property studyCard (base name: "studyCard")', function() {
+      // uncomment below and update the code to test the property studyCard
+      //var instane = new Quantimodo.Study();
+      //expect(instance).to.be();
+    });
+
     it('should have the property studyHtml (base name: "studyHtml")', function() {
       // uncomment below and update the code to test the property studyHtml
       //var instane = new Quantimodo.Study();

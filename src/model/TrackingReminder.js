@@ -92,6 +92,7 @@
 
 
 
+
     _this['reminderFrequency'] = reminderFrequency;
 
 
@@ -176,6 +177,9 @@
       }
       if (data.hasOwnProperty('defaultValue')) {
         obj['defaultValue'] = ApiClient.convertToType(data['defaultValue'], 'Number');
+      }
+      if (data.hasOwnProperty('enabled')) {
+        obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Boolean');
       }
       if (data.hasOwnProperty('email')) {
         obj['email'] = ApiClient.convertToType(data['email'], 'Boolean');
@@ -434,6 +438,11 @@
    * @member {Number} defaultValue
    */
   exports.prototype['defaultValue'] = undefined;
+  /**
+   * If a tracking reminder is enabled, tracking reminder notifications will be generated for this variable.
+   * @member {Boolean} enabled
+   */
+  exports.prototype['enabled'] = undefined;
   /**
    * True if the reminders should be delivered via email
    * @member {Boolean} email

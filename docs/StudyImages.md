@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **gaugeSharingImageUrl** | **String** | Image with gauge and category images | [optional] 
 **imageUrl** | **String** | Ex: https://s3-us-west-1.amazonaws.com/qmimages/variable_categories_gauges_logo_background/gauge-moderately-positive-relationship_sleep_emotions_logo_background.png | 
 **robotSharingImageUrl** | **String** | Image with robot and category images | [optional] 
+**avatar** | **String** | Avatar of the principal investigator | [optional] 
 
 
