@@ -56,14 +56,14 @@
       //expect(instance).to.be.a(Quantimodo.StudyCreationBody);
     });
 
-    it('should have the property predictorVariableName (base name: "predictorVariableName")', function() {
-      // uncomment below and update the code to test the property predictorVariableName
+    it('should have the property causeVariableName (base name: "causeVariableName")', function() {
+      // uncomment below and update the code to test the property causeVariableName
       //var instane = new Quantimodo.StudyCreationBody();
       //expect(instance).to.be();
     });
 
-    it('should have the property outcomeVariableName (base name: "outcomeVariableName")', function() {
-      // uncomment below and update the code to test the property outcomeVariableName
+    it('should have the property effectVariableName (base name: "effectVariableName")', function() {
+      // uncomment below and update the code to test the property effectVariableName
       //var instane = new Quantimodo.StudyCreationBody();
       //expect(instance).to.be();
     });

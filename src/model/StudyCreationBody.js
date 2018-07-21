@@ -43,16 +43,17 @@
    * Constructs a new <code>StudyCreationBody</code>.
    * @alias module:model/StudyCreationBody
    * @class
-   * @param predictorVariableName {String} Name of predictor variable
-   * @param outcomeVariableName {String} Name of the outcome variable
+   * @param causeVariableName {String} Name of predictor variable
+   * @param effectVariableName {String} Name of the outcome variable
+   * @param type {module:model/StudyCreationBody.TypeEnum} Individual studies are based on data of a single user. Group studies are based on data from a specific group of individuals who have joined.  Global studies are based on aggregated and anonymously shared data from all users.
    */
-  var exports = function(predictorVariableName, outcomeVariableName) {
+  var exports = function(causeVariableName, effectVariableName, type) {
     var _this = this;
 
-    _this['predictorVariableName'] = predictorVariableName;
-    _this['outcomeVariableName'] = outcomeVariableName;
+    _this['causeVariableName'] = causeVariableName;
+    _this['effectVariableName'] = effectVariableName;
 
-
+    _this['type'] = type;
   };
 
   /**
@@ -66,11 +67,11 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('predictorVariableName')) {
-        obj['predictorVariableName'] = ApiClient.convertToType(data['predictorVariableName'], 'String');
+      if (data.hasOwnProperty('causeVariableName')) {
+        obj['causeVariableName'] = ApiClient.convertToType(data['causeVariableName'], 'String');
       }
-      if (data.hasOwnProperty('outcomeVariableName')) {
-        obj['outcomeVariableName'] = ApiClient.convertToType(data['outcomeVariableName'], 'String');
+      if (data.hasOwnProperty('effectVariableName')) {
+        obj['effectVariableName'] = ApiClient.convertToType(data['effectVariableName'], 'String');
       }
       if (data.hasOwnProperty('studyTitle')) {
         obj['studyTitle'] = ApiClient.convertToType(data['studyTitle'], 'String');
@@ -84,14 +85,14 @@
 
   /**
    * Name of predictor variable
-   * @member {String} predictorVariableName
+   * @member {String} causeVariableName
    */
-  exports.prototype['predictorVariableName'] = undefined;
+  exports.prototype['causeVariableName'] = undefined;
   /**
    * Name of the outcome variable
-   * @member {String} outcomeVariableName
+   * @member {String} effectVariableName
    */
-  exports.prototype['outcomeVariableName'] = undefined;
+  exports.prototype['effectVariableName'] = undefined;
   /**
    * Title of your study (optional)
    * @member {String} studyTitle
