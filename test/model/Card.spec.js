@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sharingButtons (base name: "sharingButtons")', function() {
+      // uncomment below and update the code to test the property sharingButtons
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
       //var instane = new Quantimodo.Card();

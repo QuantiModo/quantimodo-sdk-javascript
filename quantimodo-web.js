@@ -7081,6 +7081,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['link'] = link;
   };
 
@@ -7109,6 +7110,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('buttons')) {
         obj['buttons'] = ApiClient.convertToType(data['buttons'], [Button]);
+      }
+      if (data.hasOwnProperty('sharingButtons')) {
+        obj['sharingButtons'] = ApiClient.convertToType(data['sharingButtons'], [Button]);
       }
       if (data.hasOwnProperty('image')) {
         obj['image'] = ApiClient.convertToType(data['image'], 'String');
@@ -7147,6 +7151,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Array.<module:model/Button>} buttons
    */
   exports.prototype['buttons'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} sharingButtons
+   */
+  exports.prototype['sharingButtons'] = undefined;
   /**
    * Larger image of variable dimensions
    * @member {String} image
