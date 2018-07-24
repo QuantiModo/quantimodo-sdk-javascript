@@ -56,6 +56,48 @@
       //expect(instance).to.be.a(Quantimodo.Button);
     });
 
+    it('should have the property action (base name: "action")', function() {
+      // uncomment below and update the code to test the property action
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property additionalInformation (base name: "additionalInformation")', function() {
+      // uncomment below and update the code to test the property additionalInformation
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property color (base name: "color")', function() {
+      // uncomment below and update the code to test the property color
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property functionToCall (base name: "functionToCall")', function() {
+      // uncomment below and update the code to test the property functionToCall
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property image (base name: "image")', function() {
+      // uncomment below and update the code to test the property image
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ionIcon (base name: "ionIcon")', function() {
+      // uncomment below and update the code to test the property ionIcon
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
     it('should have the property link (base name: "link")', function() {
       // uncomment below and update the code to test the property link
       //var instane = new Quantimodo.Button();
@@ -68,20 +110,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property ionIcon (base name: "ionIcon")', function() {
-      // uncomment below and update the code to test the property ionIcon
-      //var instane = new Quantimodo.Button();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property color (base name: "color")', function() {
-      // uncomment below and update the code to test the property color
-      //var instane = new Quantimodo.Button();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property additionalInformation (base name: "additionalInformation")', function() {
-      // uncomment below and update the code to test the property additionalInformation
+    it('should have the property tooltip (base name: "tooltip")', function() {
+      // uncomment below and update the code to test the property tooltip
       //var instane = new Quantimodo.Button();
       //expect(instance).to.be();
     });

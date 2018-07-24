@@ -6953,10 +6953,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
   var exports = function(link, text) {
     var _this = this;
 
+
+
+
+
+
+
+
     _this['link'] = link;
     _this['text'] = text;
-
-
 
   };
 
@@ -6971,25 +6976,75 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('action')) {
+        obj['action'] = ApiClient.convertToType(data['action'], Object);
+      }
+      if (data.hasOwnProperty('additionalInformation')) {
+        obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], 'String');
+      }
+      if (data.hasOwnProperty('color')) {
+        obj['color'] = ApiClient.convertToType(data['color'], 'String');
+      }
+      if (data.hasOwnProperty('functionToCall')) {
+        obj['functionToCall'] = ApiClient.convertToType(data['functionToCall'], 'String');
+      }
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('image')) {
+        obj['image'] = ApiClient.convertToType(data['image'], 'String');
+      }
+      if (data.hasOwnProperty('ionIcon')) {
+        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
+      }
       if (data.hasOwnProperty('link')) {
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
       }
       if (data.hasOwnProperty('text')) {
         obj['text'] = ApiClient.convertToType(data['text'], 'String');
       }
-      if (data.hasOwnProperty('ionIcon')) {
-        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
-      }
-      if (data.hasOwnProperty('color')) {
-        obj['color'] = ApiClient.convertToType(data['color'], 'String');
-      }
-      if (data.hasOwnProperty('additionalInformation')) {
-        obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], 'String');
+      if (data.hasOwnProperty('tooltip')) {
+        obj['tooltip'] = ApiClient.convertToType(data['tooltip'], 'String');
       }
     }
     return obj;
   }
 
+  /**
+   * Action data
+   * @member {Object} action
+   */
+  exports.prototype['action'] = undefined;
+  /**
+   * Ex: connect
+   * @member {String} additionalInformation
+   */
+  exports.prototype['additionalInformation'] = undefined;
+  /**
+   * Ex: #f2f2f2
+   * @member {String} color
+   */
+  exports.prototype['color'] = undefined;
+  /**
+   * Name of function to call
+   * @member {String} functionToCall
+   */
+  exports.prototype['functionToCall'] = undefined;
+  /**
+   * HTML element id
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * Ex: https://image.jpg
+   * @member {String} image
+   */
+  exports.prototype['image'] = undefined;
+  /**
+   * Ex: ion-refresh
+   * @member {String} ionIcon
+   */
+  exports.prototype['ionIcon'] = undefined;
   /**
    * Ex: https://local.quantimo.do
    * @member {String} link
@@ -7001,20 +7056,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['text'] = undefined;
   /**
-   * Ex: ion-refresh
-   * @member {String} ionIcon
+   * Ex: This is a tooltip
+   * @member {String} tooltip
    */
-  exports.prototype['ionIcon'] = undefined;
-  /**
-   * Ex: #f2f2f2
-   * @member {String} color
-   */
-  exports.prototype['color'] = undefined;
-  /**
-   * Ex: connect
-   * @member {String} additionalInformation
-   */
-  exports.prototype['additionalInformation'] = undefined;
+  exports.prototype['tooltip'] = undefined;
 
 
 
@@ -7082,7 +7127,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['link'] = link;
+
+
+
+
+
   };
 
   /**
@@ -7096,80 +7147,128 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('title')) {
-        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      if (data.hasOwnProperty('avatar')) {
+        obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
       }
-      if (data.hasOwnProperty('subTitle')) {
-        obj['subTitle'] = ApiClient.convertToType(data['subTitle'], 'String');
-      }
-      if (data.hasOwnProperty('content')) {
-        obj['content'] = ApiClient.convertToType(data['content'], 'String');
-      }
-      if (data.hasOwnProperty('htmlContent')) {
-        obj['htmlContent'] = ApiClient.convertToType(data['htmlContent'], 'String');
+      if (data.hasOwnProperty('backgroundColor')) {
+        obj['backgroundColor'] = ApiClient.convertToType(data['backgroundColor'], 'String');
       }
       if (data.hasOwnProperty('buttons')) {
         obj['buttons'] = ApiClient.convertToType(data['buttons'], [Button]);
       }
-      if (data.hasOwnProperty('sharingButtons')) {
-        obj['sharingButtons'] = ApiClient.convertToType(data['sharingButtons'], [Button]);
+      if (data.hasOwnProperty('content')) {
+        obj['content'] = ApiClient.convertToType(data['content'], 'String');
+      }
+      if (data.hasOwnProperty('html')) {
+        obj['html'] = ApiClient.convertToType(data['html'], 'String');
+      }
+      if (data.hasOwnProperty('htmlContent')) {
+        obj['htmlContent'] = ApiClient.convertToType(data['htmlContent'], 'String');
+      }
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
       if (data.hasOwnProperty('image')) {
         obj['image'] = ApiClient.convertToType(data['image'], 'String');
       }
-      if (data.hasOwnProperty('avatar')) {
-        obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
+      if (data.hasOwnProperty('ionIcon')) {
+        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
       }
       if (data.hasOwnProperty('link')) {
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('sharingBody')) {
+        obj['sharingBody'] = ApiClient.convertToType(data['sharingBody'], 'String');
+      }
+      if (data.hasOwnProperty('sharingButtons')) {
+        obj['sharingButtons'] = ApiClient.convertToType(data['sharingButtons'], [Button]);
+      }
+      if (data.hasOwnProperty('sharingTitle')) {
+        obj['sharingTitle'] = ApiClient.convertToType(data['sharingTitle'], 'String');
+      }
+      if (data.hasOwnProperty('subTitle')) {
+        obj['subTitle'] = ApiClient.convertToType(data['subTitle'], 'String');
+      }
+      if (data.hasOwnProperty('title')) {
+        obj['title'] = ApiClient.convertToType(data['title'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Ex: Title
-   * @member {String} title
+   * Smaller square image
+   * @member {String} avatar
    */
-  exports.prototype['title'] = undefined;
+  exports.prototype['avatar'] = undefined;
   /**
-   * Ex: subTitle
-   * @member {String} subTitle
+   * Ex: #f2f2f2
+   * @member {String} backgroundColor
    */
-  exports.prototype['subTitle'] = undefined;
+  exports.prototype['backgroundColor'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} buttons
+   */
+  exports.prototype['buttons'] = undefined;
   /**
    * Ex: Content
    * @member {String} content
    */
   exports.prototype['content'] = undefined;
   /**
+   * HTML for the entire card.
+   * @member {String} html
+   */
+  exports.prototype['html'] = undefined;
+  /**
    * Ex: <div>Content</div>
    * @member {String} htmlContent
    */
   exports.prototype['htmlContent'] = undefined;
   /**
-   * @member {Array.<module:model/Button>} buttons
+   * HTML element id
+   * @member {String} id
    */
-  exports.prototype['buttons'] = undefined;
-  /**
-   * @member {Array.<module:model/Button>} sharingButtons
-   */
-  exports.prototype['sharingButtons'] = undefined;
+  exports.prototype['id'] = undefined;
   /**
    * Larger image of variable dimensions
    * @member {String} image
    */
   exports.prototype['image'] = undefined;
   /**
-   * Smaller square image
-   * @member {String} avatar
+   * Ex: ion-refresh
+   * @member {String} ionIcon
    */
-  exports.prototype['avatar'] = undefined;
+  exports.prototype['ionIcon'] = undefined;
   /**
    * A link to a web page or something. Not much more to say about that.
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
+  /**
+   * Ex: sharingBody
+   * @member {String} sharingBody
+   */
+  exports.prototype['sharingBody'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} sharingButtons
+   */
+  exports.prototype['sharingButtons'] = undefined;
+  /**
+   * Ex: sharingTitle
+   * @member {String} sharingTitle
+   */
+  exports.prototype['sharingTitle'] = undefined;
+  /**
+   * Ex: subTitle
+   * @member {String} subTitle
+   */
+  exports.prototype['subTitle'] = undefined;
+  /**
+   * Ex: Title
+   * @member {String} title
+   */
+  exports.prototype['title'] = undefined;
 
 
 
@@ -17526,6 +17625,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
     _this['userId'] = userId;
 
 
@@ -17819,6 +17920,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('numberOfCorrelations')) {
         obj['numberOfCorrelations'] = ApiClient.convertToType(data['numberOfCorrelations'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfCorrelationsAsCause')) {
+        obj['numberOfCorrelationsAsCause'] = ApiClient.convertToType(data['numberOfCorrelationsAsCause'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfCorrelationsAsEffect')) {
+        obj['numberOfCorrelationsAsEffect'] = ApiClient.convertToType(data['numberOfCorrelationsAsEffect'], 'Number');
       }
       if (data.hasOwnProperty('numberOfProcessedDailyMeasurements')) {
         obj['numberOfProcessedDailyMeasurements'] = ApiClient.convertToType(data['numberOfProcessedDailyMeasurements'], 'Number');
@@ -18455,6 +18562,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} numberOfCorrelations
    */
   exports.prototype['numberOfCorrelations'] = undefined;
+  /**
+   * numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause
+   * @member {Number} numberOfCorrelationsAsCause
+   */
+  exports.prototype['numberOfCorrelationsAsCause'] = undefined;
+  /**
+   * numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect
+   * @member {Number} numberOfCorrelationsAsEffect
+   */
+  exports.prototype['numberOfCorrelationsAsEffect'] = undefined;
   /**
    * Number of processed measurements
    * @member {Number} numberOfProcessedDailyMeasurements

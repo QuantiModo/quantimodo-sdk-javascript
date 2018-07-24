@@ -49,10 +49,15 @@
   var exports = function(link, text) {
     var _this = this;
 
+
+
+
+
+
+
+
     _this['link'] = link;
     _this['text'] = text;
-
-
 
   };
 
@@ -67,25 +72,75 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('action')) {
+        obj['action'] = ApiClient.convertToType(data['action'], Object);
+      }
+      if (data.hasOwnProperty('additionalInformation')) {
+        obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], 'String');
+      }
+      if (data.hasOwnProperty('color')) {
+        obj['color'] = ApiClient.convertToType(data['color'], 'String');
+      }
+      if (data.hasOwnProperty('functionToCall')) {
+        obj['functionToCall'] = ApiClient.convertToType(data['functionToCall'], 'String');
+      }
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('image')) {
+        obj['image'] = ApiClient.convertToType(data['image'], 'String');
+      }
+      if (data.hasOwnProperty('ionIcon')) {
+        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
+      }
       if (data.hasOwnProperty('link')) {
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
       }
       if (data.hasOwnProperty('text')) {
         obj['text'] = ApiClient.convertToType(data['text'], 'String');
       }
-      if (data.hasOwnProperty('ionIcon')) {
-        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
-      }
-      if (data.hasOwnProperty('color')) {
-        obj['color'] = ApiClient.convertToType(data['color'], 'String');
-      }
-      if (data.hasOwnProperty('additionalInformation')) {
-        obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], 'String');
+      if (data.hasOwnProperty('tooltip')) {
+        obj['tooltip'] = ApiClient.convertToType(data['tooltip'], 'String');
       }
     }
     return obj;
   }
 
+  /**
+   * Action data
+   * @member {Object} action
+   */
+  exports.prototype['action'] = undefined;
+  /**
+   * Ex: connect
+   * @member {String} additionalInformation
+   */
+  exports.prototype['additionalInformation'] = undefined;
+  /**
+   * Ex: #f2f2f2
+   * @member {String} color
+   */
+  exports.prototype['color'] = undefined;
+  /**
+   * Name of function to call
+   * @member {String} functionToCall
+   */
+  exports.prototype['functionToCall'] = undefined;
+  /**
+   * HTML element id
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * Ex: https://image.jpg
+   * @member {String} image
+   */
+  exports.prototype['image'] = undefined;
+  /**
+   * Ex: ion-refresh
+   * @member {String} ionIcon
+   */
+  exports.prototype['ionIcon'] = undefined;
   /**
    * Ex: https://local.quantimo.do
    * @member {String} link
@@ -97,20 +152,10 @@
    */
   exports.prototype['text'] = undefined;
   /**
-   * Ex: ion-refresh
-   * @member {String} ionIcon
+   * Ex: This is a tooltip
+   * @member {String} tooltip
    */
-  exports.prototype['ionIcon'] = undefined;
-  /**
-   * Ex: #f2f2f2
-   * @member {String} color
-   */
-  exports.prototype['color'] = undefined;
-  /**
-   * Ex: connect
-   * @member {String} additionalInformation
-   */
-  exports.prototype['additionalInformation'] = undefined;
+  exports.prototype['tooltip'] = undefined;
 
 
 

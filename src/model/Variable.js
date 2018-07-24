@@ -178,6 +178,8 @@
 
 
 
+
+
     _this['userId'] = userId;
 
 
@@ -471,6 +473,12 @@
       }
       if (data.hasOwnProperty('numberOfCorrelations')) {
         obj['numberOfCorrelations'] = ApiClient.convertToType(data['numberOfCorrelations'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfCorrelationsAsCause')) {
+        obj['numberOfCorrelationsAsCause'] = ApiClient.convertToType(data['numberOfCorrelationsAsCause'], 'Number');
+      }
+      if (data.hasOwnProperty('numberOfCorrelationsAsEffect')) {
+        obj['numberOfCorrelationsAsEffect'] = ApiClient.convertToType(data['numberOfCorrelationsAsEffect'], 'Number');
       }
       if (data.hasOwnProperty('numberOfProcessedDailyMeasurements')) {
         obj['numberOfProcessedDailyMeasurements'] = ApiClient.convertToType(data['numberOfProcessedDailyMeasurements'], 'Number');
@@ -1107,6 +1115,16 @@
    * @member {Number} numberOfCorrelations
    */
   exports.prototype['numberOfCorrelations'] = undefined;
+  /**
+   * numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause
+   * @member {Number} numberOfCorrelationsAsCause
+   */
+  exports.prototype['numberOfCorrelationsAsCause'] = undefined;
+  /**
+   * numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect
+   * @member {Number} numberOfCorrelationsAsEffect
+   */
+  exports.prototype['numberOfCorrelationsAsEffect'] = undefined;
   /**
    * Number of processed measurements
    * @member {Number} numberOfProcessedDailyMeasurements

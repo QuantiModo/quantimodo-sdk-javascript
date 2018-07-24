@@ -560,6 +560,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property numberOfCorrelationsAsCause (base name: "numberOfCorrelationsAsCause")', function() {
+      // uncomment below and update the code to test the property numberOfCorrelationsAsCause
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property numberOfCorrelationsAsEffect (base name: "numberOfCorrelationsAsEffect")', function() {
+      // uncomment below and update the code to test the property numberOfCorrelationsAsEffect
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property numberOfProcessedDailyMeasurements (base name: "numberOfProcessedDailyMeasurements")', function() {
       // uncomment below and update the code to test the property numberOfProcessedDailyMeasurements
       //var instane = new Quantimodo.Variable();

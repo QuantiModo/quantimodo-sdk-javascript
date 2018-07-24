@@ -87,6 +87,8 @@ Name | Type | Description | Notes
 **numberOfAggregateCorrelationsAsEffect** | **Number** | Ex: 310 | [optional] 
 **numberOfChanges** | **Number** | Number of changes | [optional] 
 **numberOfCorrelations** | **Number** | Number of correlations for this variable | [optional] 
+**numberOfCorrelationsAsCause** | **Number** | numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause | [optional] 
+**numberOfCorrelationsAsEffect** | **Number** | numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect | [optional] 
 **numberOfProcessedDailyMeasurements** | **Number** | Number of processed measurements | [optional] 
 **numberOfRawMeasurements** | **Number** | Ex: 295 | [optional] 
 **numberOfTrackingReminders** | **Number** | Ex: 1 | [optional] 

@@ -56,26 +56,14 @@
       //expect(instance).to.be.a(Quantimodo.Card);
     });
 
-    it('should have the property title (base name: "title")', function() {
-      // uncomment below and update the code to test the property title
+    it('should have the property avatar (base name: "avatar")', function() {
+      // uncomment below and update the code to test the property avatar
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });
 
-    it('should have the property subTitle (base name: "subTitle")', function() {
-      // uncomment below and update the code to test the property subTitle
-      //var instane = new Quantimodo.Card();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property content (base name: "content")', function() {
-      // uncomment below and update the code to test the property content
-      //var instane = new Quantimodo.Card();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property htmlContent (base name: "htmlContent")', function() {
-      // uncomment below and update the code to test the property htmlContent
+    it('should have the property backgroundColor (base name: "backgroundColor")', function() {
+      // uncomment below and update the code to test the property backgroundColor
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });
@@ -86,8 +74,26 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property sharingButtons (base name: "sharingButtons")', function() {
-      // uncomment below and update the code to test the property sharingButtons
+    it('should have the property content (base name: "content")', function() {
+      // uncomment below and update the code to test the property content
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property html (base name: "html")', function() {
+      // uncomment below and update the code to test the property html
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property htmlContent (base name: "htmlContent")', function() {
+      // uncomment below and update the code to test the property htmlContent
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });
@@ -98,14 +104,44 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property avatar (base name: "avatar")', function() {
-      // uncomment below and update the code to test the property avatar
+    it('should have the property ionIcon (base name: "ionIcon")', function() {
+      // uncomment below and update the code to test the property ionIcon
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });
 
     it('should have the property link (base name: "link")', function() {
       // uncomment below and update the code to test the property link
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sharingBody (base name: "sharingBody")', function() {
+      // uncomment below and update the code to test the property sharingBody
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sharingButtons (base name: "sharingButtons")', function() {
+      // uncomment below and update the code to test the property sharingButtons
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sharingTitle (base name: "sharingTitle")', function() {
+      // uncomment below and update the code to test the property sharingTitle
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property subTitle (base name: "subTitle")', function() {
+      // uncomment below and update the code to test the property subTitle
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property title (base name: "title")', function() {
+      // uncomment below and update the code to test the property title
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });

@@ -56,7 +56,13 @@
 
 
 
+
     _this['link'] = link;
+
+
+
+
+
   };
 
   /**
@@ -70,80 +76,128 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('title')) {
-        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      if (data.hasOwnProperty('avatar')) {
+        obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
       }
-      if (data.hasOwnProperty('subTitle')) {
-        obj['subTitle'] = ApiClient.convertToType(data['subTitle'], 'String');
-      }
-      if (data.hasOwnProperty('content')) {
-        obj['content'] = ApiClient.convertToType(data['content'], 'String');
-      }
-      if (data.hasOwnProperty('htmlContent')) {
-        obj['htmlContent'] = ApiClient.convertToType(data['htmlContent'], 'String');
+      if (data.hasOwnProperty('backgroundColor')) {
+        obj['backgroundColor'] = ApiClient.convertToType(data['backgroundColor'], 'String');
       }
       if (data.hasOwnProperty('buttons')) {
         obj['buttons'] = ApiClient.convertToType(data['buttons'], [Button]);
       }
-      if (data.hasOwnProperty('sharingButtons')) {
-        obj['sharingButtons'] = ApiClient.convertToType(data['sharingButtons'], [Button]);
+      if (data.hasOwnProperty('content')) {
+        obj['content'] = ApiClient.convertToType(data['content'], 'String');
+      }
+      if (data.hasOwnProperty('html')) {
+        obj['html'] = ApiClient.convertToType(data['html'], 'String');
+      }
+      if (data.hasOwnProperty('htmlContent')) {
+        obj['htmlContent'] = ApiClient.convertToType(data['htmlContent'], 'String');
+      }
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
       if (data.hasOwnProperty('image')) {
         obj['image'] = ApiClient.convertToType(data['image'], 'String');
       }
-      if (data.hasOwnProperty('avatar')) {
-        obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
+      if (data.hasOwnProperty('ionIcon')) {
+        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
       }
       if (data.hasOwnProperty('link')) {
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('sharingBody')) {
+        obj['sharingBody'] = ApiClient.convertToType(data['sharingBody'], 'String');
+      }
+      if (data.hasOwnProperty('sharingButtons')) {
+        obj['sharingButtons'] = ApiClient.convertToType(data['sharingButtons'], [Button]);
+      }
+      if (data.hasOwnProperty('sharingTitle')) {
+        obj['sharingTitle'] = ApiClient.convertToType(data['sharingTitle'], 'String');
+      }
+      if (data.hasOwnProperty('subTitle')) {
+        obj['subTitle'] = ApiClient.convertToType(data['subTitle'], 'String');
+      }
+      if (data.hasOwnProperty('title')) {
+        obj['title'] = ApiClient.convertToType(data['title'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Ex: Title
-   * @member {String} title
+   * Smaller square image
+   * @member {String} avatar
    */
-  exports.prototype['title'] = undefined;
+  exports.prototype['avatar'] = undefined;
   /**
-   * Ex: subTitle
-   * @member {String} subTitle
+   * Ex: #f2f2f2
+   * @member {String} backgroundColor
    */
-  exports.prototype['subTitle'] = undefined;
+  exports.prototype['backgroundColor'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} buttons
+   */
+  exports.prototype['buttons'] = undefined;
   /**
    * Ex: Content
    * @member {String} content
    */
   exports.prototype['content'] = undefined;
   /**
+   * HTML for the entire card.
+   * @member {String} html
+   */
+  exports.prototype['html'] = undefined;
+  /**
    * Ex: <div>Content</div>
    * @member {String} htmlContent
    */
   exports.prototype['htmlContent'] = undefined;
   /**
-   * @member {Array.<module:model/Button>} buttons
+   * HTML element id
+   * @member {String} id
    */
-  exports.prototype['buttons'] = undefined;
-  /**
-   * @member {Array.<module:model/Button>} sharingButtons
-   */
-  exports.prototype['sharingButtons'] = undefined;
+  exports.prototype['id'] = undefined;
   /**
    * Larger image of variable dimensions
    * @member {String} image
    */
   exports.prototype['image'] = undefined;
   /**
-   * Smaller square image
-   * @member {String} avatar
+   * Ex: ion-refresh
+   * @member {String} ionIcon
    */
-  exports.prototype['avatar'] = undefined;
+  exports.prototype['ionIcon'] = undefined;
   /**
    * A link to a web page or something. Not much more to say about that.
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
+  /**
+   * Ex: sharingBody
+   * @member {String} sharingBody
+   */
+  exports.prototype['sharingBody'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} sharingButtons
+   */
+  exports.prototype['sharingButtons'] = undefined;
+  /**
+   * Ex: sharingTitle
+   * @member {String} sharingTitle
+   */
+  exports.prototype['sharingTitle'] = undefined;
+  /**
+   * Ex: subTitle
+   * @member {String} subTitle
+   */
+  exports.prototype['subTitle'] = undefined;
+  /**
+   * Ex: Title
+   * @member {String} title
+   */
+  exports.prototype['title'] = undefined;
 
 
 
