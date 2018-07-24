@@ -80,8 +80,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property functionToCall (base name: "functionToCall")', function() {
-      // uncomment below and update the code to test the property functionToCall
+    it('should have the property functionName (base name: "functionName")', function() {
+      // uncomment below and update the code to test the property functionName
       //var instane = new Quantimodo.Button();
       //expect(instance).to.be();
     });

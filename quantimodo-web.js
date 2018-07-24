@@ -6992,8 +6992,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('confirmationText')) {
         obj['confirmationText'] = ApiClient.convertToType(data['confirmationText'], 'String');
       }
-      if (data.hasOwnProperty('functionToCall')) {
-        obj['functionToCall'] = ApiClient.convertToType(data['functionToCall'], 'String');
+      if (data.hasOwnProperty('functionName')) {
+        obj['functionName'] = ApiClient.convertToType(data['functionName'], 'String');
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -7042,15 +7042,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['color'] = undefined;
   /**
-   * Text to show user before executing functionToCall
+   * Text to show user before executing functionName
    * @member {String} confirmationText
    */
   exports.prototype['confirmationText'] = undefined;
   /**
    * Name of function to call
-   * @member {String} functionToCall
+   * @member {String} functionName
    */
-  exports.prototype['functionToCall'] = undefined;
+  exports.prototype['functionName'] = undefined;
   /**
    * HTML element id
    * @member {String} id
@@ -7072,17 +7072,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['link'] = undefined;
   /**
-   * Text to show user after executing functionToCall
+   * Text to show user after executing functionName
    * @member {String} successToastText
    */
   exports.prototype['successToastText'] = undefined;
   /**
-   * Text to show user after executing functionToCall
+   * Text to show user after executing functionName
    * @member {String} successAlertTitle
    */
   exports.prototype['successAlertTitle'] = undefined;
   /**
-   * Text to show user after executing functionToCall
+   * Text to show user after executing functionName
    * @member {String} successAlertBody
    */
   exports.prototype['successAlertBody'] = undefined;
