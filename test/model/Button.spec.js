@@ -74,6 +74,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property confirmationText (base name: "confirmationText")', function() {
+      // uncomment below and update the code to test the property confirmationText
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
     it('should have the property functionToCall (base name: "functionToCall")', function() {
       // uncomment below and update the code to test the property functionToCall
       //var instane = new Quantimodo.Button();
@@ -100,6 +106,24 @@
 
     it('should have the property link (base name: "link")', function() {
       // uncomment below and update the code to test the property link
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property successToastText (base name: "successToastText")', function() {
+      // uncomment below and update the code to test the property successToastText
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property successAlertTitle (base name: "successAlertTitle")', function() {
+      // uncomment below and update the code to test the property successAlertTitle
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property successAlertBody (base name: "successAlertBody")', function() {
+      // uncomment below and update the code to test the property successAlertBody
       //var instane = new Quantimodo.Button();
       //expect(instance).to.be();
     });
