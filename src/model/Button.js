@@ -57,6 +57,7 @@
 
 
 
+
     _this['link'] = link;
 
 
@@ -90,6 +91,9 @@
       }
       if (data.hasOwnProperty('functionName')) {
         obj['functionName'] = ApiClient.convertToType(data['functionName'], 'String');
+      }
+      if (data.hasOwnProperty('functionParameters')) {
+        obj['functionParameters'] = ApiClient.convertToType(data['functionParameters'], Object);
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -147,6 +151,11 @@
    * @member {String} functionName
    */
   exports.prototype['functionName'] = undefined;
+  /**
+   * Data to provide to functionName
+   * @member {Object} functionParameters
+   */
+  exports.prototype['functionParameters'] = undefined;
   /**
    * HTML element id
    * @member {String} id

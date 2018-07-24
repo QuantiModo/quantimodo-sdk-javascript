@@ -6961,6 +6961,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['link'] = link;
 
 
@@ -6994,6 +6995,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('functionName')) {
         obj['functionName'] = ApiClient.convertToType(data['functionName'], 'String');
+      }
+      if (data.hasOwnProperty('functionParameters')) {
+        obj['functionParameters'] = ApiClient.convertToType(data['functionParameters'], Object);
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -7051,6 +7055,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} functionName
    */
   exports.prototype['functionName'] = undefined;
+  /**
+   * Data to provide to functionName
+   * @member {Object} functionParameters
+   */
+  exports.prototype['functionParameters'] = undefined;
   /**
    * HTML element id
    * @member {String} id

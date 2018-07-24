@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property functionParameters (base name: "functionParameters")', function() {
+      // uncomment below and update the code to test the property functionParameters
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
       //var instane = new Quantimodo.Button();

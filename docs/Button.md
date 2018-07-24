@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **color** | **String** | Ex: #f2f2f2 | [optional] 
 **confirmationText** | **String** | Text to show user before executing functionName | [optional] 
 **functionName** | **String** | Name of function to call | [optional] 
+**functionParameters** | **Object** | Data to provide to functionName | [optional] 
 **id** | **String** | HTML element id | [optional] 
 **image** | **String** | Ex: https://image.jpg | [optional] 
 **ionIcon** | **String** | Ex: ion-refresh | [optional] 
