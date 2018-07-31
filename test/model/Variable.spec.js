@@ -74,6 +74,42 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property bestStudyLink (base name: "bestStudyLink")', function() {
+      // uncomment below and update the code to test the property bestStudyLink
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property bestUserStudyLink (base name: "bestUserStudyLink")', function() {
+      // uncomment below and update the code to test the property bestUserStudyLink
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property bestPopulationStudyLink (base name: "bestPopulationStudyLink")', function() {
+      // uncomment below and update the code to test the property bestPopulationStudyLink
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property optimalValueMessage (base name: "optimalValueMessage")', function() {
+      // uncomment below and update the code to test the property optimalValueMessage
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property commonOptimalValueMessage (base name: "commonOptimalValueMessage")', function() {
+      // uncomment below and update the code to test the property commonOptimalValueMessage
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userOptimalValueMessage (base name: "userOptimalValueMessage")', function() {
+      // uncomment below and update the code to test the property userOptimalValueMessage
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property causeOnly (base name: "causeOnly")', function() {
       // uncomment below and update the code to test the property causeOnly
       //var instane = new Quantimodo.Variable();

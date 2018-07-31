@@ -91,6 +91,12 @@
 
 
 
+
+
+
+
+
+
     _this['id'] = id;
 
 
@@ -230,6 +236,24 @@
       }
       if (data.hasOwnProperty('availableUnits')) {
         obj['availableUnits'] = ApiClient.convertToType(data['availableUnits'], [Unit]);
+      }
+      if (data.hasOwnProperty('bestStudyLink')) {
+        obj['bestStudyLink'] = ApiClient.convertToType(data['bestStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('bestUserStudyLink')) {
+        obj['bestUserStudyLink'] = ApiClient.convertToType(data['bestUserStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('bestPopulationStudyLink')) {
+        obj['bestPopulationStudyLink'] = ApiClient.convertToType(data['bestPopulationStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('optimalValueMessage')) {
+        obj['optimalValueMessage'] = ApiClient.convertToType(data['optimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('commonOptimalValueMessage')) {
+        obj['commonOptimalValueMessage'] = ApiClient.convertToType(data['commonOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('userOptimalValueMessage')) {
+        obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
       }
       if (data.hasOwnProperty('causeOnly')) {
         obj['causeOnly'] = ApiClient.convertToType(data['causeOnly'], 'Boolean');
@@ -713,6 +737,36 @@
    * @member {Array.<module:model/Unit>} availableUnits
    */
   exports.prototype['availableUnits'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for user or population
+   * @member {String} bestStudyLink
+   */
+  exports.prototype['bestStudyLink'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for user
+   * @member {String} bestUserStudyLink
+   */
+  exports.prototype['bestUserStudyLink'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for population
+   * @member {String} bestPopulationStudyLink
+   */
+  exports.prototype['bestPopulationStudyLink'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for user or population
+   * @member {String} optimalValueMessage
+   */
+  exports.prototype['optimalValueMessage'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for population
+   * @member {String} commonOptimalValueMessage
+   */
+  exports.prototype['commonOptimalValueMessage'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for user
+   * @member {String} userOptimalValueMessage
+   */
+  exports.prototype['userOptimalValueMessage'] = undefined;
   /**
    * A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user
    * @member {Boolean} causeOnly

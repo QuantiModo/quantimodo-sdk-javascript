@@ -14476,6 +14476,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
+
+
+
+
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
 
 
@@ -14566,6 +14572,24 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('availableUnits')) {
         obj['availableUnits'] = ApiClient.convertToType(data['availableUnits'], [Unit]);
+      }
+      if (data.hasOwnProperty('bestStudyLink')) {
+        obj['bestStudyLink'] = ApiClient.convertToType(data['bestStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('bestUserStudyLink')) {
+        obj['bestUserStudyLink'] = ApiClient.convertToType(data['bestUserStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('bestPopulationStudyLink')) {
+        obj['bestPopulationStudyLink'] = ApiClient.convertToType(data['bestPopulationStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('optimalValueMessage')) {
+        obj['optimalValueMessage'] = ApiClient.convertToType(data['optimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('commonOptimalValueMessage')) {
+        obj['commonOptimalValueMessage'] = ApiClient.convertToType(data['commonOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('userOptimalValueMessage')) {
+        obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -14807,6 +14831,36 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Array.<module:model/Unit>} availableUnits
    */
   exports.prototype['availableUnits'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for user or population
+   * @member {String} bestStudyLink
+   */
+  exports.prototype['bestStudyLink'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for user
+   * @member {String} bestUserStudyLink
+   */
+  exports.prototype['bestUserStudyLink'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for population
+   * @member {String} bestPopulationStudyLink
+   */
+  exports.prototype['bestPopulationStudyLink'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for user or population
+   * @member {String} optimalValueMessage
+   */
+  exports.prototype['optimalValueMessage'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for population
+   * @member {String} commonOptimalValueMessage
+   */
+  exports.prototype['commonOptimalValueMessage'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for user
+   * @member {String} userOptimalValueMessage
+   */
+  exports.prototype['userOptimalValueMessage'] = undefined;
   /**
    * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
@@ -15365,6 +15419,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
+
+
+
+
     _this['fillingValue'] = fillingValue;
 
     _this['id'] = id;
@@ -15440,6 +15500,24 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('availableUnits')) {
         obj['availableUnits'] = ApiClient.convertToType(data['availableUnits'], [Unit]);
+      }
+      if (data.hasOwnProperty('bestStudyLink')) {
+        obj['bestStudyLink'] = ApiClient.convertToType(data['bestStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('bestUserStudyLink')) {
+        obj['bestUserStudyLink'] = ApiClient.convertToType(data['bestUserStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('bestPopulationStudyLink')) {
+        obj['bestPopulationStudyLink'] = ApiClient.convertToType(data['bestPopulationStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('optimalValueMessage')) {
+        obj['optimalValueMessage'] = ApiClient.convertToType(data['optimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('commonOptimalValueMessage')) {
+        obj['commonOptimalValueMessage'] = ApiClient.convertToType(data['commonOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('userOptimalValueMessage')) {
+        obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -15663,6 +15741,36 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Array.<module:model/Unit>} availableUnits
    */
   exports.prototype['availableUnits'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for user or population
+   * @member {String} bestStudyLink
+   */
+  exports.prototype['bestStudyLink'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for user
+   * @member {String} bestUserStudyLink
+   */
+  exports.prototype['bestUserStudyLink'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for population
+   * @member {String} bestPopulationStudyLink
+   */
+  exports.prototype['bestPopulationStudyLink'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for user or population
+   * @member {String} optimalValueMessage
+   */
+  exports.prototype['optimalValueMessage'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for population
+   * @member {String} commonOptimalValueMessage
+   */
+  exports.prototype['commonOptimalValueMessage'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for user
+   * @member {String} userOptimalValueMessage
+   */
+  exports.prototype['userOptimalValueMessage'] = undefined;
   /**
    * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
@@ -17583,6 +17691,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
+
+
+
+
     _this['id'] = id;
 
 
@@ -17722,6 +17836,24 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('availableUnits')) {
         obj['availableUnits'] = ApiClient.convertToType(data['availableUnits'], [Unit]);
+      }
+      if (data.hasOwnProperty('bestStudyLink')) {
+        obj['bestStudyLink'] = ApiClient.convertToType(data['bestStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('bestUserStudyLink')) {
+        obj['bestUserStudyLink'] = ApiClient.convertToType(data['bestUserStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('bestPopulationStudyLink')) {
+        obj['bestPopulationStudyLink'] = ApiClient.convertToType(data['bestPopulationStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('optimalValueMessage')) {
+        obj['optimalValueMessage'] = ApiClient.convertToType(data['optimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('commonOptimalValueMessage')) {
+        obj['commonOptimalValueMessage'] = ApiClient.convertToType(data['commonOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('userOptimalValueMessage')) {
+        obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
       }
       if (data.hasOwnProperty('causeOnly')) {
         obj['causeOnly'] = ApiClient.convertToType(data['causeOnly'], 'Boolean');
@@ -18205,6 +18337,36 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Array.<module:model/Unit>} availableUnits
    */
   exports.prototype['availableUnits'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for user or population
+   * @member {String} bestStudyLink
+   */
+  exports.prototype['bestStudyLink'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for user
+   * @member {String} bestUserStudyLink
+   */
+  exports.prototype['bestUserStudyLink'] = undefined;
+  /**
+   * Link to study comparing variable with strongest relationship for population
+   * @member {String} bestPopulationStudyLink
+   */
+  exports.prototype['bestPopulationStudyLink'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for user or population
+   * @member {String} optimalValueMessage
+   */
+  exports.prototype['optimalValueMessage'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for population
+   * @member {String} commonOptimalValueMessage
+   */
+  exports.prototype['commonOptimalValueMessage'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for user
+   * @member {String} userOptimalValueMessage
+   */
+  exports.prototype['userOptimalValueMessage'] = undefined;
   /**
    * A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user
    * @member {Boolean} causeOnly
@@ -19901,26 +20063,24 @@ function typedArraySupport () {
 }
 
 Object.defineProperty(Buffer.prototype, 'parent', {
+  enumerable: true,
   get: function () {
-    if (!(this instanceof Buffer)) {
-      return undefined
-    }
+    if (!Buffer.isBuffer(this)) return undefined
     return this.buffer
   }
 })
 
 Object.defineProperty(Buffer.prototype, 'offset', {
+  enumerable: true,
   get: function () {
-    if (!(this instanceof Buffer)) {
-      return undefined
-    }
+    if (!Buffer.isBuffer(this)) return undefined
     return this.byteOffset
   }
 })
 
 function createBuffer (length) {
   if (length > K_MAX_LENGTH) {
-    throw new RangeError('Invalid typed array length')
+    throw new RangeError('The value "' + length + '" is invalid for option "size"')
   }
   // Return an augmented `Uint8Array` instance
   var buf = new Uint8Array(length)
@@ -19942,8 +20102,8 @@ function Buffer (arg, encodingOrOffset, length) {
   // Common case.
   if (typeof arg === 'number') {
     if (typeof encodingOrOffset === 'string') {
-      throw new Error(
-        'If encoding is specified then the first argument must be a string'
+      throw new TypeError(
+        'The "string" argument must be of type string. Received type number'
       )
     }
     return allocUnsafe(arg)
@@ -19952,7 +20112,7 @@ function Buffer (arg, encodingOrOffset, length) {
 }
 
 // Fix subarray() in ES2016. See: https://github.com/feross/buffer/pull/97
-if (typeof Symbol !== 'undefined' && Symbol.species &&
+if (typeof Symbol !== 'undefined' && Symbol.species != null &&
     Buffer[Symbol.species] === Buffer) {
   Object.defineProperty(Buffer, Symbol.species, {
     value: null,
@@ -19965,19 +20125,51 @@ if (typeof Symbol !== 'undefined' && Symbol.species &&
 Buffer.poolSize = 8192 // not used by this implementation
 
 function from (value, encodingOrOffset, length) {
-  if (typeof value === 'number') {
-    throw new TypeError('"value" argument must not be a number')
-  }
-
-  if (isArrayBuffer(value) || (value && isArrayBuffer(value.buffer))) {
-    return fromArrayBuffer(value, encodingOrOffset, length)
-  }
-
   if (typeof value === 'string') {
     return fromString(value, encodingOrOffset)
   }
 
-  return fromObject(value)
+  if (ArrayBuffer.isView(value)) {
+    return fromArrayLike(value)
+  }
+
+  if (value == null) {
+    throw TypeError(
+      'The first argument must be one of type string, Buffer, ArrayBuffer, Array, ' +
+      'or Array-like Object. Received type ' + (typeof value)
+    )
+  }
+
+  if (isInstance(value, ArrayBuffer) ||
+      (value && isInstance(value.buffer, ArrayBuffer))) {
+    return fromArrayBuffer(value, encodingOrOffset, length)
+  }
+
+  if (typeof value === 'number') {
+    throw new TypeError(
+      'The "value" argument must not be of type number. Received type number'
+    )
+  }
+
+  var valueOf = value.valueOf && value.valueOf()
+  if (valueOf != null && valueOf !== value) {
+    return Buffer.from(valueOf, encodingOrOffset, length)
+  }
+
+  var b = fromObject(value)
+  if (b) return b
+
+  if (typeof Symbol !== 'undefined' && Symbol.toPrimitive != null &&
+      typeof value[Symbol.toPrimitive] === 'function') {
+    return Buffer.from(
+      value[Symbol.toPrimitive]('string'), encodingOrOffset, length
+    )
+  }
+
+  throw new TypeError(
+    'The first argument must be one of type string, Buffer, ArrayBuffer, Array, ' +
+    'or Array-like Object. Received type ' + (typeof value)
+  )
 }
 
 /**
@@ -20001,7 +20193,7 @@ function assertSize (size) {
   if (typeof size !== 'number') {
     throw new TypeError('"size" argument must be of type number')
   } else if (size < 0) {
-    throw new RangeError('"size" argument must not be negative')
+    throw new RangeError('The value "' + size + '" is invalid for option "size"')
   }
 }
 
@@ -20116,20 +20308,16 @@ function fromObject (obj) {
     return buf
   }
 
-  if (obj) {
-    if (ArrayBuffer.isView(obj) || 'length' in obj) {
-      if (typeof obj.length !== 'number' || numberIsNaN(obj.length)) {
-        return createBuffer(0)
-      }
-      return fromArrayLike(obj)
+  if (obj.length !== undefined) {
+    if (typeof obj.length !== 'number' || numberIsNaN(obj.length)) {
+      return createBuffer(0)
     }
-
-    if (obj.type === 'Buffer' && Array.isArray(obj.data)) {
-      return fromArrayLike(obj.data)
-    }
+    return fromArrayLike(obj)
   }
 
-  throw new TypeError('The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object.')
+  if (obj.type === 'Buffer' && Array.isArray(obj.data)) {
+    return fromArrayLike(obj.data)
+  }
 }
 
 function checked (length) {
@@ -20150,12 +20338,17 @@ function SlowBuffer (length) {
 }
 
 Buffer.isBuffer = function isBuffer (b) {
-  return b != null && b._isBuffer === true
+  return b != null && b._isBuffer === true &&
+    b !== Buffer.prototype // so Buffer.isBuffer(Buffer.prototype) will be false
 }
 
 Buffer.compare = function compare (a, b) {
+  if (isInstance(a, Uint8Array)) a = Buffer.from(a, a.offset, a.byteLength)
+  if (isInstance(b, Uint8Array)) b = Buffer.from(b, b.offset, b.byteLength)
   if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
-    throw new TypeError('Arguments must be Buffers')
+    throw new TypeError(
+      'The "buf1", "buf2" arguments must be one of type Buffer or Uint8Array'
+    )
   }
 
   if (a === b) return 0
@@ -20216,7 +20409,7 @@ Buffer.concat = function concat (list, length) {
   var pos = 0
   for (i = 0; i < list.length; ++i) {
     var buf = list[i]
-    if (ArrayBuffer.isView(buf)) {
+    if (isInstance(buf, Uint8Array)) {
       buf = Buffer.from(buf)
     }
     if (!Buffer.isBuffer(buf)) {
@@ -20232,15 +20425,19 @@ function byteLength (string, encoding) {
   if (Buffer.isBuffer(string)) {
     return string.length
   }
-  if (ArrayBuffer.isView(string) || isArrayBuffer(string)) {
+  if (ArrayBuffer.isView(string) || isInstance(string, ArrayBuffer)) {
     return string.byteLength
   }
   if (typeof string !== 'string') {
-    string = '' + string
+    throw new TypeError(
+      'The "string" argument must be one of type string, Buffer, or ArrayBuffer. ' +
+      'Received type ' + typeof string
+    )
   }
 
   var len = string.length
-  if (len === 0) return 0
+  var mustMatch = (arguments.length > 2 && arguments[2] === true)
+  if (!mustMatch && len === 0) return 0
 
   // Use a for loop to avoid recursion
   var loweredCase = false
@@ -20252,7 +20449,6 @@ function byteLength (string, encoding) {
         return len
       case 'utf8':
       case 'utf-8':
-      case undefined:
         return utf8ToBytes(string).length
       case 'ucs2':
       case 'ucs-2':
@@ -20264,7 +20460,9 @@ function byteLength (string, encoding) {
       case 'base64':
         return base64ToBytes(string).length
       default:
-        if (loweredCase) return utf8ToBytes(string).length // assume utf8
+        if (loweredCase) {
+          return mustMatch ? -1 : utf8ToBytes(string).length // assume utf8
+        }
         encoding = ('' + encoding).toLowerCase()
         loweredCase = true
     }
@@ -20411,16 +20609,20 @@ Buffer.prototype.equals = function equals (b) {
 Buffer.prototype.inspect = function inspect () {
   var str = ''
   var max = exports.INSPECT_MAX_BYTES
-  if (this.length > 0) {
-    str = this.toString('hex', 0, max).match(/.{2}/g).join(' ')
-    if (this.length > max) str += ' ... '
-  }
+  str = this.toString('hex', 0, max).replace(/(.{2})/g, '$1 ').trim()
+  if (this.length > max) str += ' ... '
   return '<Buffer ' + str + '>'
 }
 
 Buffer.prototype.compare = function compare (target, start, end, thisStart, thisEnd) {
+  if (isInstance(target, Uint8Array)) {
+    target = Buffer.from(target, target.offset, target.byteLength)
+  }
   if (!Buffer.isBuffer(target)) {
-    throw new TypeError('Argument must be a Buffer')
+    throw new TypeError(
+      'The "target" argument must be one of type Buffer or Uint8Array. ' +
+      'Received type ' + (typeof target)
+    )
   }
 
   if (start === undefined) {
@@ -20499,7 +20701,7 @@ function bidirectionalIndexOf (buffer, val, byteOffset, encoding, dir) {
   } else if (byteOffset < -0x80000000) {
     byteOffset = -0x80000000
   }
-  byteOffset = +byteOffset  // Coerce to Number.
+  byteOffset = +byteOffset // Coerce to Number.
   if (numberIsNaN(byteOffset)) {
     // byteOffset: it it's undefined, null, NaN, "foo", etc, search whole buffer
     byteOffset = dir ? 0 : (buffer.length - 1)
@@ -20751,8 +20953,8 @@ function utf8Slice (buf, start, end) {
     var codePoint = null
     var bytesPerSequence = (firstByte > 0xEF) ? 4
       : (firstByte > 0xDF) ? 3
-      : (firstByte > 0xBF) ? 2
-      : 1
+        : (firstByte > 0xBF) ? 2
+          : 1
 
     if (i + bytesPerSequence <= end) {
       var secondByte, thirdByte, fourthByte, tempCodePoint
@@ -21415,7 +21617,7 @@ Buffer.prototype.fill = function fill (val, start, end, encoding) {
   } else {
     var bytes = Buffer.isBuffer(val)
       ? val
-      : new Buffer(val, encoding)
+      : Buffer.from(val, encoding)
     var len = bytes.length
     if (len === 0) {
       throw new TypeError('The value "' + val +
@@ -21570,15 +21772,16 @@ function blitBuffer (src, dst, offset, length) {
   return i
 }
 
-// ArrayBuffers from another context (i.e. an iframe) do not pass the `instanceof` check
-// but they should be treated as valid. See: https://github.com/feross/buffer/issues/166
-function isArrayBuffer (obj) {
-  return obj instanceof ArrayBuffer ||
-    (obj != null && obj.constructor != null && obj.constructor.name === 'ArrayBuffer' &&
-      typeof obj.byteLength === 'number')
+// ArrayBuffer or Uint8Array objects from other contexts (i.e. iframes) do not pass
+// the `instanceof` check but they should be treated as of that type.
+// See: https://github.com/feross/buffer/issues/166
+function isInstance (obj, type) {
+  return obj instanceof type ||
+    (obj != null && obj.constructor != null && obj.constructor.name != null &&
+      obj.constructor.name === type.name)
 }
-
 function numberIsNaN (obj) {
+  // For IE11 support
   return obj !== obj // eslint-disable-line no-self-compare
 }
 

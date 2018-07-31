@@ -5,6 +5,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actionArray** | [**[TrackingReminderNotificationAction]**](TrackingReminderNotificationAction.md) |  | [optional] 
 **availableUnits** | [**[Unit]**](Unit.md) |  | [optional] 
+**bestStudyLink** | **String** | Link to study comparing variable with strongest relationship for user or population | [optional] 
+**bestUserStudyLink** | **String** | Link to study comparing variable with strongest relationship for user | [optional] 
+**bestPopulationStudyLink** | **String** | Link to study comparing variable with strongest relationship for population | [optional] 
+**optimalValueMessage** | **String** | Description of relationship with variable with strongest relationship for user or population | [optional] 
+**commonOptimalValueMessage** | **String** | Description of relationship with variable with strongest relationship for population | [optional] 
+**userOptimalValueMessage** | **String** | Description of relationship with variable with strongest relationship for user | [optional] 
 **clientId** | **String** | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
 **combinationOperation** | **String** | The way multiple measurements are aggregated over time | [optional] 
 **createdAt** | **String** | Ex: 2016-05-18 02:24:08 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
