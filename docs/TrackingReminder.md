@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **optimalValueMessage** | **String** | Description of relationship with variable with strongest relationship for user or population | [optional] 
 **commonOptimalValueMessage** | **String** | Description of relationship with variable with strongest relationship for population | [optional] 
 **userOptimalValueMessage** | **String** | Description of relationship with variable with strongest relationship for user | [optional] 
+**card** | [**Card**](Card.md) | Card containing instructions, image, text, link and relevant import buttons | [optional] 
 **clientId** | **String** | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
 **combinationOperation** | **String** | The way multiple measurements are aggregated over time | [optional] 
 **createdAt** | **String** | Ex: 2016-05-18 02:24:08 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
@@ -50,6 +51,7 @@ Name | Type | Description | Notes
 **productUrl** | **String** | Link to associated product for purchase | [optional] 
 **popUp** | **Boolean** | True if the reminders should appear as a popup notification | [optional] 
 **question** | **String** | Ex: How is your overall mood? | [optional] 
+**longQuestion** | **String** | Ex: How is your overall mood on a scale of 1 to 5?? | [optional] 
 **reminderEndTime** | **String** | Latest time of day at which reminders should appear in UTC HH:MM:SS format | [optional] 
 **reminderFrequency** | **Number** | Number of seconds between one reminder and the next | 
 **reminderSound** | **String** | String identifier for the sound to accompany the reminder | [optional] 

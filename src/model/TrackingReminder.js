@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminderNotificationAction', 'model/Unit'], factory);
+    define(['ApiClient', 'model/Card', 'model/TrackingReminderNotificationAction', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationAction'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./TrackingReminderNotificationAction'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit);
+    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, TrackingReminderNotificationAction, Unit) {
+}(this, function(ApiClient, Card, TrackingReminderNotificationAction, Unit) {
   'use strict';
 
 
@@ -63,7 +63,9 @@
 
 
 
+
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
+
 
 
 
@@ -171,6 +173,9 @@
       }
       if (data.hasOwnProperty('userOptimalValueMessage')) {
         obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -288,6 +293,9 @@
       }
       if (data.hasOwnProperty('question')) {
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
+      }
+      if (data.hasOwnProperty('longQuestion')) {
+        obj['longQuestion'] = ApiClient.convertToType(data['longQuestion'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
         obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'String');
@@ -442,6 +450,11 @@
    * @member {String} userOptimalValueMessage
    */
   exports.prototype['userOptimalValueMessage'] = undefined;
+  /**
+   * Card containing instructions, image, text, link and relevant import buttons
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
   /**
    * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
@@ -635,6 +648,11 @@
    * @member {String} question
    */
   exports.prototype['question'] = undefined;
+  /**
+   * Ex: How is your overall mood on a scale of 1 to 5??
+   * @member {String} longQuestion
+   */
+  exports.prototype['longQuestion'] = undefined;
   /**
    * Latest time of day at which reminders should appear in UTC HH:MM:SS format
    * @member {String} reminderEndTime

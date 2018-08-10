@@ -56,6 +56,12 @@
       //expect(instance).to.be.a(Quantimodo.Measurement);
     });
 
+    it('should have the property card (base name: "card")', function() {
+      // uncomment below and update the code to test the property card
+      //var instane = new Quantimodo.Measurement();
+      //expect(instance).to.be();
+    });
+
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
       //var instane = new Quantimodo.Measurement();

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Card'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Card'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Measurement = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.Measurement = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Card) {
   'use strict';
 
 
@@ -51,6 +51,7 @@
    */
   var exports = function(sourceName, startTimeString, unitAbbreviatedName, value, variableName) {
     var _this = this;
+
 
 
 
@@ -112,6 +113,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
       }
@@ -257,6 +261,11 @@
     return obj;
   }
 
+  /**
+   * Card containing image, text, link and relevant buttons
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
   /**
    * Ex: quantimodo
    * @member {String} clientId

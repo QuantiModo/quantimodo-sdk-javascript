@@ -5749,6 +5749,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Boolean} opts.includeTags Return parent, child, duplicate, and ingredient variables
      * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
      * @param {Number} opts.variableId Ex: 13
+     * @param {Boolean} opts.concise Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests.
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -5798,6 +5799,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'includeTags': opts['includeTags'],
         'recalculate': opts['recalculate'],
         'variableId': opts['variableId'],
+        'concise': opts['concise'],
       };
       var collectionQueryParams = {
       };
@@ -10495,18 +10497,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Card'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Card'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Measurement = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.Measurement = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Card) {
   'use strict';
 
 
@@ -10530,6 +10532,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   var exports = function(sourceName, startTimeString, unitAbbreviatedName, value, variableName) {
     var _this = this;
+
 
 
 
@@ -10591,6 +10594,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
       }
@@ -10736,6 +10742,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
     return obj;
   }
 
+  /**
+   * Card containing image, text, link and relevant buttons
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
   /**
    * Ex: quantimodo
    * @member {String} clientId
@@ -10979,7 +10990,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],46:[function(require,module,exports){
+},{"../ApiClient":9,"./Card":27}],46:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14435,18 +14446,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminderNotificationAction', 'model/Unit'], factory);
+    define(['ApiClient', 'model/Card', 'model/TrackingReminderNotificationAction', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationAction'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./TrackingReminderNotificationAction'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit);
+    root.Quantimodo.TrackingReminder = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, TrackingReminderNotificationAction, Unit) {
+}(this, function(ApiClient, Card, TrackingReminderNotificationAction, Unit) {
   'use strict';
 
 
@@ -14482,7 +14493,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
+
 
 
 
@@ -14590,6 +14603,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('userOptimalValueMessage')) {
         obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -14707,6 +14723,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('question')) {
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
+      }
+      if (data.hasOwnProperty('longQuestion')) {
+        obj['longQuestion'] = ApiClient.convertToType(data['longQuestion'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
         obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'String');
@@ -14861,6 +14880,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} userOptimalValueMessage
    */
   exports.prototype['userOptimalValueMessage'] = undefined;
+  /**
+   * Card containing instructions, image, text, link and relevant import buttons
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
   /**
    * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
@@ -15054,6 +15078,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} question
    */
   exports.prototype['question'] = undefined;
+  /**
+   * Ex: How is your overall mood on a scale of 1 to 5??
+   * @member {String} longQuestion
+   */
+  exports.prototype['longQuestion'] = undefined;
   /**
    * Latest time of day at which reminders should appear in UTC HH:MM:SS format
    * @member {String} reminderEndTime
@@ -15264,7 +15293,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminderNotificationAction":74,"./Unit":77}],72:[function(require,module,exports){
+},{"../ApiClient":9,"./Card":27,"./TrackingReminderNotificationAction":74,"./Unit":77}],72:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15368,18 +15397,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit'], factory);
+    define(['ApiClient', 'model/Card', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationAction'), require('./TrackingReminderNotificationTrackAllAction'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./TrackingReminderNotificationAction'), require('./TrackingReminderNotificationTrackAllAction'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.TrackingReminderNotificationTrackAllAction, root.Quantimodo.Unit);
+    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.TrackingReminderNotificationTrackAllAction, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, TrackingReminderNotificationAction, TrackingReminderNotificationTrackAllAction, Unit) {
+}(this, function(ApiClient, Card, TrackingReminderNotificationAction, TrackingReminderNotificationTrackAllAction, Unit) {
   'use strict';
 
 
@@ -15425,9 +15454,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['fillingValue'] = fillingValue;
 
     _this['id'] = id;
+
 
 
 
@@ -15518,6 +15549,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('userOptimalValueMessage')) {
         obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -15617,6 +15651,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('question')) {
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
+      }
+      if (data.hasOwnProperty('longQuestion')) {
+        obj['longQuestion'] = ApiClient.convertToType(data['longQuestion'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
         obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'String');
@@ -15772,6 +15809,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userOptimalValueMessage'] = undefined;
   /**
+   * Card with options for tracking.
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
+  /**
    * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
    */
@@ -15872,7 +15914,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['lastValue'] = undefined;
   /**
-   * Ex: 1
+   * True if this variable is normally tracked via manual user input rather than automatic imports
    * @member {Boolean} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
@@ -15936,6 +15978,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} question
    */
   exports.prototype['question'] = undefined;
+  /**
+   * Ex: How is your overall mood on a scale of 1 to 5??
+   * @member {String} longQuestion
+   */
+  exports.prototype['longQuestion'] = undefined;
   /**
    * Ex: 01-01-2018
    * @member {String} reminderEndTime
@@ -16145,7 +16192,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./TrackingReminderNotificationAction":74,"./TrackingReminderNotificationTrackAllAction":76,"./Unit":77}],74:[function(require,module,exports){
+},{"../ApiClient":9,"./Card":27,"./TrackingReminderNotificationAction":74,"./TrackingReminderNotificationTrackAllAction":76,"./Unit":77}],74:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -17697,6 +17744,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['id'] = id;
 
 
@@ -17737,6 +17785,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     _this['name'] = name;
+
+
 
 
 
@@ -17854,6 +17904,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('userOptimalValueMessage')) {
         obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
       if (data.hasOwnProperty('causeOnly')) {
         obj['causeOnly'] = ApiClient.convertToType(data['causeOnly'], 'Boolean');
@@ -18164,6 +18217,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('public')) {
         obj['public'] = ApiClient.convertToType(data['public'], 'Number');
       }
+      if (data.hasOwnProperty('question')) {
+        obj['question'] = ApiClient.convertToType(data['question'], 'String');
+      }
+      if (data.hasOwnProperty('longQuestion')) {
+        obj['longQuestion'] = ApiClient.convertToType(data['longQuestion'], 'String');
+      }
       if (data.hasOwnProperty('rawMeasurementsAtLastAnalysis')) {
         obj['rawMeasurementsAtLastAnalysis'] = ApiClient.convertToType(data['rawMeasurementsAtLastAnalysis'], 'Number');
       }
@@ -18367,6 +18426,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} userOptimalValueMessage
    */
   exports.prototype['userOptimalValueMessage'] = undefined;
+  /**
+   * Card containing instructions, image, text, link and relevant import buttons
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
   /**
    * A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user
    * @member {Boolean} causeOnly
@@ -18879,6 +18943,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} public
    */
   exports.prototype['public'] = undefined;
+  /**
+   * Ex: How is your overall mood?
+   * @member {String} question
+   */
+  exports.prototype['question'] = undefined;
+  /**
+   * Ex: How is your overall mood on a scale of 1 to 5??
+   * @member {String} longQuestion
+   */
+  exports.prototype['longQuestion'] = undefined;
   /**
    * Ex: 131
    * @member {Number} rawMeasurementsAtLastAnalysis

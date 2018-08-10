@@ -231,6 +231,7 @@
      * @param {Boolean} opts.includeTags Return parent, child, duplicate, and ingredient variables
      * @param {Boolean} opts.recalculate Recalculate instead of using cached analysis
      * @param {Number} opts.variableId Ex: 13
+     * @param {Boolean} opts.concise Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests.
      * @param {module:api/VariablesApi~getVariablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Variable>}
      */
@@ -280,6 +281,7 @@
         'includeTags': opts['includeTags'],
         'recalculate': opts['recalculate'],
         'variableId': opts['variableId'],
+        'concise': opts['concise'],
       };
       var collectionQueryParams = {
       };

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**card** | [**Card**](Card.md) | Card containing image, text, link and relevant buttons | [optional] 
 **clientId** | **String** | Ex: quantimodo | [optional] 
 **connectorId** | **Number** | Ex: 13 | [optional] 
 **createdAt** | **String** | Ex: 2017-07-30 21:08:36 | [optional] 

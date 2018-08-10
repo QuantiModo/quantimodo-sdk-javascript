@@ -244,7 +244,8 @@ var opts = {
   'platform': "platform_example", // String | Ex: chrome, android, ios, web
   'includeTags': true, // Boolean | Return parent, child, duplicate, and ingredient variables
   'recalculate': true, // Boolean | Recalculate instead of using cached analysis
-  'variableId': 56 // Number | Ex: 13
+  'variableId': 56, // Number | Ex: 13
+  'concise': true // Boolean | Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests.
 };
 
 var callback = function(error, data, response) {
@@ -299,6 +300,7 @@ Name | Type | Description  | Notes
  **includeTags** | **Boolean**| Return parent, child, duplicate, and ingredient variables | [optional] 
  **recalculate** | **Boolean**| Recalculate instead of using cached analysis | [optional] 
  **variableId** | **Number**| Ex: 13 | [optional] 
+ **concise** | **Boolean**| Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests. | [optional] 
 
 ### Return type
 

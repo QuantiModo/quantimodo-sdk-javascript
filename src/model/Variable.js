@@ -97,6 +97,7 @@
 
 
 
+
     _this['id'] = id;
 
 
@@ -137,6 +138,8 @@
 
 
     _this['name'] = name;
+
+
 
 
 
@@ -254,6 +257,9 @@
       }
       if (data.hasOwnProperty('userOptimalValueMessage')) {
         obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
       if (data.hasOwnProperty('causeOnly')) {
         obj['causeOnly'] = ApiClient.convertToType(data['causeOnly'], 'Boolean');
@@ -564,6 +570,12 @@
       if (data.hasOwnProperty('public')) {
         obj['public'] = ApiClient.convertToType(data['public'], 'Number');
       }
+      if (data.hasOwnProperty('question')) {
+        obj['question'] = ApiClient.convertToType(data['question'], 'String');
+      }
+      if (data.hasOwnProperty('longQuestion')) {
+        obj['longQuestion'] = ApiClient.convertToType(data['longQuestion'], 'String');
+      }
       if (data.hasOwnProperty('rawMeasurementsAtLastAnalysis')) {
         obj['rawMeasurementsAtLastAnalysis'] = ApiClient.convertToType(data['rawMeasurementsAtLastAnalysis'], 'Number');
       }
@@ -767,6 +779,11 @@
    * @member {String} userOptimalValueMessage
    */
   exports.prototype['userOptimalValueMessage'] = undefined;
+  /**
+   * Card containing instructions, image, text, link and relevant import buttons
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
   /**
    * A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user
    * @member {Boolean} causeOnly
@@ -1279,6 +1296,16 @@
    * @member {Number} public
    */
   exports.prototype['public'] = undefined;
+  /**
+   * Ex: How is your overall mood?
+   * @member {String} question
+   */
+  exports.prototype['question'] = undefined;
+  /**
+   * Ex: How is your overall mood on a scale of 1 to 5??
+   * @member {String} longQuestion
+   */
+  exports.prototype['longQuestion'] = undefined;
   /**
    * Ex: 131
    * @member {Number} rawMeasurementsAtLastAnalysis

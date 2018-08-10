@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit'], factory);
+    define(['ApiClient', 'model/Card', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./TrackingReminderNotificationAction'), require('./TrackingReminderNotificationTrackAllAction'), require('./Unit'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./TrackingReminderNotificationAction'), require('./TrackingReminderNotificationTrackAllAction'), require('./Unit'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.TrackingReminderNotificationTrackAllAction, root.Quantimodo.Unit);
+    root.Quantimodo.TrackingReminderNotification = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.TrackingReminderNotificationAction, root.Quantimodo.TrackingReminderNotificationTrackAllAction, root.Quantimodo.Unit);
   }
-}(this, function(ApiClient, TrackingReminderNotificationAction, TrackingReminderNotificationTrackAllAction, Unit) {
+}(this, function(ApiClient, Card, TrackingReminderNotificationAction, TrackingReminderNotificationTrackAllAction, Unit) {
   'use strict';
 
 
@@ -73,9 +73,11 @@
 
 
 
+
     _this['fillingValue'] = fillingValue;
 
     _this['id'] = id;
+
 
 
 
@@ -166,6 +168,9 @@
       }
       if (data.hasOwnProperty('userOptimalValueMessage')) {
         obj['userOptimalValueMessage'] = ApiClient.convertToType(data['userOptimalValueMessage'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
       if (data.hasOwnProperty('clientId')) {
         obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
@@ -265,6 +270,9 @@
       }
       if (data.hasOwnProperty('question')) {
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
+      }
+      if (data.hasOwnProperty('longQuestion')) {
+        obj['longQuestion'] = ApiClient.convertToType(data['longQuestion'], 'String');
       }
       if (data.hasOwnProperty('reminderEndTime')) {
         obj['reminderEndTime'] = ApiClient.convertToType(data['reminderEndTime'], 'String');
@@ -420,6 +428,11 @@
    */
   exports.prototype['userOptimalValueMessage'] = undefined;
   /**
+   * Card with options for tracking.
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
+  /**
    * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @member {String} clientId
    */
@@ -520,7 +533,7 @@
    */
   exports.prototype['lastValue'] = undefined;
   /**
-   * Ex: 1
+   * True if this variable is normally tracked via manual user input rather than automatic imports
    * @member {Boolean} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
@@ -584,6 +597,11 @@
    * @member {String} question
    */
   exports.prototype['question'] = undefined;
+  /**
+   * Ex: How is your overall mood on a scale of 1 to 5??
+   * @member {String} longQuestion
+   */
+  exports.prototype['longQuestion'] = undefined;
   /**
    * Ex: 01-01-2018
    * @member {String} reminderEndTime

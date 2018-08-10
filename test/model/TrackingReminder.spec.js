@@ -104,6 +104,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property card (base name: "card")', function() {
+      // uncomment below and update the code to test the property card
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
     it('should have the property clientId (base name: "clientId")', function() {
       // uncomment below and update the code to test the property clientId
       //var instane = new Quantimodo.TrackingReminder();
@@ -334,6 +340,12 @@
 
     it('should have the property question (base name: "question")', function() {
       // uncomment below and update the code to test the property question
+      //var instane = new Quantimodo.TrackingReminder();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property longQuestion (base name: "longQuestion")', function() {
+      // uncomment below and update the code to test the property longQuestion
       //var instane = new Quantimodo.TrackingReminder();
       //expect(instance).to.be();
     });
