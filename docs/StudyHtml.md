@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **studyImageHtml** | **String** | PNG image | [optional] 
 **studyMetaHtml** | **String** | Facebook, Twitter, Google+ | [optional] 
 **studyTextHtml** | **String** | Formatted study text sections | [optional] 
-**socialSharingButtonHtml** | **String** |  | [optional] 
-**studySummaryBoxHtml** | **String** |  | [optional] 
+**socialSharingButtonHtml** | **String** | What do you expect? | [optional] 
+**studySummaryBoxHtml** | **String** | What do you expect? | [optional] 
 
 

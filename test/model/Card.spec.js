@@ -56,6 +56,12 @@
       //expect(instance).to.be.a(Quantimodo.Card);
     });
 
+    it('should have the property actionSheetButtons (base name: "actionSheetButtons")', function() {
+      // uncomment below and update the code to test the property actionSheetButtons
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
     it('should have the property avatar (base name: "avatar")', function() {
       // uncomment below and update the code to test the property avatar
       //var instane = new Quantimodo.Card();
@@ -80,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property headerTitle (base name: "headerTitle")', function() {
+      // uncomment below and update the code to test the property headerTitle
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
     it('should have the property html (base name: "html")', function() {
       // uncomment below and update the code to test the property html
       //var instane = new Quantimodo.Card();
@@ -88,6 +100,12 @@
 
     it('should have the property htmlContent (base name: "htmlContent")', function() {
       // uncomment below and update the code to test the property htmlContent
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property iconButtons (base name: "iconButtons")', function() {
+      // uncomment below and update the code to test the property iconButtons
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });
@@ -104,6 +122,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property inputFields (base name: "inputFields")', function() {
+      // uncomment below and update the code to test the property inputFields
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
     it('should have the property ionIcon (base name: "ionIcon")', function() {
       // uncomment below and update the code to test the property ionIcon
       //var instane = new Quantimodo.Card();
@@ -112,6 +136,12 @@
 
     it('should have the property link (base name: "link")', function() {
       // uncomment below and update the code to test the property link
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property parameters (base name: "parameters")', function() {
+      // uncomment below and update the code to test the property parameters
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });
@@ -130,6 +160,12 @@
 
     it('should have the property sharingTitle (base name: "sharingTitle")', function() {
       // uncomment below and update the code to test the property sharingTitle
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property subHeader (base name: "subHeader")', function() {
+      // uncomment below and update the code to test the property subHeader
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });

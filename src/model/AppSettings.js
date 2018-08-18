@@ -43,7 +43,7 @@
    * Constructs a new <code>AppSettings</code>.
    * @alias module:model/AppSettings
    * @class
-   * @param clientId {String} 
+   * @param clientId {String} What do you expect?
    */
   var exports = function(clientId) {
     var _this = this;
@@ -146,102 +146,102 @@
   }
 
   /**
-   * 
+   * What do you expect?
    * @member {Object} additionalSettings
    */
   exports.prototype['additionalSettings'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} appDescription
    */
   exports.prototype['appDescription'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {Object} appDesign
    */
   exports.prototype['appDesign'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} appDisplayName
    */
   exports.prototype['appDisplayName'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {Object} appStatus
    */
   exports.prototype['appStatus'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} appType
    */
   exports.prototype['appType'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} buildEnabled
    */
   exports.prototype['buildEnabled'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} clientId
    */
   exports.prototype['clientId'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} clientSecret
    */
   exports.prototype['clientSecret'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {Array.<module:model/User>} collaborators
    */
   exports.prototype['collaborators'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} createdAt
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} userId
    */
   exports.prototype['userId'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {Array.<module:model/User>} users
    */
   exports.prototype['users'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} redirectUri
    */
   exports.prototype['redirectUri'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} companyName
    */
   exports.prototype['companyName'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} homepageUrl
    */
   exports.prototype['homepageUrl'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} iconUrl
    */
   exports.prototype['iconUrl'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} longDescription
    */
   exports.prototype['longDescription'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} splashScreen
    */
   exports.prototype['splashScreen'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} textLogo
    */
   exports.prototype['textLogo'] = undefined;

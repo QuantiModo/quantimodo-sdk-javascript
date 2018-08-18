@@ -183,12 +183,12 @@
    */
   exports.prototype['studyTextHtml'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} socialSharingButtonHtml
    */
   exports.prototype['socialSharingButtonHtml'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} studySummaryBoxHtml
    */
   exports.prototype['studySummaryBoxHtml'] = undefined;

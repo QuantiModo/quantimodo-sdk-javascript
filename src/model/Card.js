@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button'], factory);
+    define(['ApiClient', 'model/Button', 'model/InputField'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Button'));
+    module.exports = factory(require('../ApiClient'), require('./Button'), require('./InputField'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Card = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button);
+    root.Quantimodo.Card = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.InputField);
   }
-}(this, function(ApiClient, Button) {
+}(this, function(ApiClient, Button, InputField) {
   'use strict';
 
 
@@ -43,9 +43,9 @@
    * Constructs a new <code>Card</code>.
    * @alias module:model/Card
    * @class
-   * @param link {String} A link to a web page or something. Not much more to say about that.
+   * @param id {String} HTML element id
    */
-  var exports = function(link) {
+  var exports = function(id) {
     var _this = this;
 
 
@@ -57,7 +57,13 @@
 
 
 
-    _this['link'] = link;
+    _this['id'] = id;
+
+
+
+
+
+
 
 
 
@@ -76,6 +82,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('actionSheetButtons')) {
+        obj['actionSheetButtons'] = ApiClient.convertToType(data['actionSheetButtons'], [Button]);
+      }
       if (data.hasOwnProperty('avatar')) {
         obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
       }
@@ -88,11 +97,17 @@
       if (data.hasOwnProperty('content')) {
         obj['content'] = ApiClient.convertToType(data['content'], 'String');
       }
+      if (data.hasOwnProperty('headerTitle')) {
+        obj['headerTitle'] = ApiClient.convertToType(data['headerTitle'], 'String');
+      }
       if (data.hasOwnProperty('html')) {
         obj['html'] = ApiClient.convertToType(data['html'], 'String');
       }
       if (data.hasOwnProperty('htmlContent')) {
         obj['htmlContent'] = ApiClient.convertToType(data['htmlContent'], 'String');
+      }
+      if (data.hasOwnProperty('iconButtons')) {
+        obj['iconButtons'] = ApiClient.convertToType(data['iconButtons'], [Button]);
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -100,11 +115,17 @@
       if (data.hasOwnProperty('image')) {
         obj['image'] = ApiClient.convertToType(data['image'], 'String');
       }
+      if (data.hasOwnProperty('inputFields')) {
+        obj['inputFields'] = ApiClient.convertToType(data['inputFields'], [InputField]);
+      }
       if (data.hasOwnProperty('ionIcon')) {
         obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
       }
       if (data.hasOwnProperty('link')) {
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('parameters')) {
+        obj['parameters'] = ApiClient.convertToType(data['parameters'], [InputField]);
       }
       if (data.hasOwnProperty('sharingBody')) {
         obj['sharingBody'] = ApiClient.convertToType(data['sharingBody'], 'String');
@@ -114,6 +135,9 @@
       }
       if (data.hasOwnProperty('sharingTitle')) {
         obj['sharingTitle'] = ApiClient.convertToType(data['sharingTitle'], 'String');
+      }
+      if (data.hasOwnProperty('subHeader')) {
+        obj['subHeader'] = ApiClient.convertToType(data['subHeader'], 'String');
       }
       if (data.hasOwnProperty('subTitle')) {
         obj['subTitle'] = ApiClient.convertToType(data['subTitle'], 'String');
@@ -125,6 +149,10 @@
     return obj;
   }
 
+  /**
+   * @member {Array.<module:model/Button>} actionSheetButtons
+   */
+  exports.prototype['actionSheetButtons'] = undefined;
   /**
    * Smaller square image
    * @member {String} avatar
@@ -145,6 +173,11 @@
    */
   exports.prototype['content'] = undefined;
   /**
+   * Ex: Title
+   * @member {String} headerTitle
+   */
+  exports.prototype['headerTitle'] = undefined;
+  /**
    * HTML for the entire card.
    * @member {String} html
    */
@@ -154,6 +187,10 @@
    * @member {String} htmlContent
    */
   exports.prototype['htmlContent'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} iconButtons
+   */
+  exports.prototype['iconButtons'] = undefined;
   /**
    * HTML element id
    * @member {String} id
@@ -165,6 +202,10 @@
    */
   exports.prototype['image'] = undefined;
   /**
+   * @member {Array.<module:model/InputField>} inputFields
+   */
+  exports.prototype['inputFields'] = undefined;
+  /**
    * Ex: ion-refresh
    * @member {String} ionIcon
    */
@@ -174,6 +215,10 @@
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
+  /**
+   * @member {Array.<module:model/InputField>} parameters
+   */
+  exports.prototype['parameters'] = undefined;
   /**
    * Ex: sharingBody
    * @member {String} sharingBody
@@ -188,6 +233,11 @@
    * @member {String} sharingTitle
    */
   exports.prototype['sharingTitle'] = undefined;
+  /**
+   * Ex: subTitle
+   * @member {String} subHeader
+   */
+  exports.prototype['subHeader'] = undefined;
   /**
    * Ex: subTitle
    * @member {String} subTitle

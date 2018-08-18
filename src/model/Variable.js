@@ -972,7 +972,7 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} imageUrl
    */
   exports.prototype['imageUrl'] = undefined;
@@ -1007,7 +1007,7 @@
    */
   exports.prototype['inputType'] = undefined;
   /**
-   * 
+   * What do you expect?
    * @member {String} ionIcon
    */
   exports.prototype['ionIcon'] = undefined;
