@@ -56,8 +56,8 @@
 
 
 
-
     _this['id'] = id;
+
 
 
 
@@ -90,9 +90,6 @@
       }
       if (data.hasOwnProperty('backgroundColor')) {
         obj['backgroundColor'] = ApiClient.convertToType(data['backgroundColor'], 'String');
-      }
-      if (data.hasOwnProperty('buttons')) {
-        obj['buttons'] = ApiClient.convertToType(data['buttons'], [Button]);
       }
       if (data.hasOwnProperty('content')) {
         obj['content'] = ApiClient.convertToType(data['content'], 'String');
@@ -142,6 +139,9 @@
       if (data.hasOwnProperty('subTitle')) {
         obj['subTitle'] = ApiClient.convertToType(data['subTitle'], 'String');
       }
+      if (data.hasOwnProperty('textButtons')) {
+        obj['textButtons'] = ApiClient.convertToType(data['textButtons'], [Button]);
+      }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
       }
@@ -163,10 +163,6 @@
    * @member {String} backgroundColor
    */
   exports.prototype['backgroundColor'] = undefined;
-  /**
-   * @member {Array.<module:model/Button>} buttons
-   */
-  exports.prototype['buttons'] = undefined;
   /**
    * Ex: Content
    * @member {String} content
@@ -243,6 +239,10 @@
    * @member {String} subTitle
    */
   exports.prototype['subTitle'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} textButtons
+   */
+  exports.prototype['textButtons'] = undefined;
   /**
    * Ex: Title
    * @member {String} title

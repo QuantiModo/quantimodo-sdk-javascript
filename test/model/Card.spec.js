@@ -74,12 +74,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property buttons (base name: "buttons")', function() {
-      // uncomment below and update the code to test the property buttons
-      //var instane = new Quantimodo.Card();
-      //expect(instance).to.be();
-    });
-
     it('should have the property content (base name: "content")', function() {
       // uncomment below and update the code to test the property content
       //var instane = new Quantimodo.Card();
@@ -172,6 +166,12 @@
 
     it('should have the property subTitle (base name: "subTitle")', function() {
       // uncomment below and update the code to test the property subTitle
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property textButtons (base name: "textButtons")', function() {
+      // uncomment below and update the code to test the property textButtons
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });

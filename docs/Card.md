@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **actionSheetButtons** | [**[Button]**](Button.md) |  | [optional] 
 **avatar** | **String** | Smaller square image | [optional] 
 **backgroundColor** | **String** | Ex: #f2f2f2 | [optional] 
-**buttons** | [**[Button]**](Button.md) |  | [optional] 
 **content** | **String** | Ex: Content | [optional] 
 **headerTitle** | **String** | Ex: Title | [optional] 
 **html** | **String** | HTML for the entire card. | [optional] 
@@ -23,6 +22,7 @@ Name | Type | Description | Notes
 **sharingTitle** | **String** | Ex: sharingTitle | [optional] 
 **subHeader** | **String** | Ex: subTitle | [optional] 
 **subTitle** | **String** | Ex: subTitle | [optional] 
+**textButtons** | [**[Button]**](Button.md) |  | [optional] 
 **title** | **String** | Ex: Title | [optional] 
 
 

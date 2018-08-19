@@ -74,6 +74,9 @@
 
 
 
+
+
+
     _this['fillingValue'] = fillingValue;
 
     _this['id'] = id;
@@ -154,11 +157,20 @@
       if (data.hasOwnProperty('bestStudyLink')) {
         obj['bestStudyLink'] = ApiClient.convertToType(data['bestStudyLink'], 'String');
       }
+      if (data.hasOwnProperty('bestStudyCard')) {
+        obj['bestStudyCard'] = Card.constructFromObject(data['bestStudyCard']);
+      }
       if (data.hasOwnProperty('bestUserStudyLink')) {
         obj['bestUserStudyLink'] = ApiClient.convertToType(data['bestUserStudyLink'], 'String');
       }
+      if (data.hasOwnProperty('bestUserStudyCard')) {
+        obj['bestUserStudyCard'] = Card.constructFromObject(data['bestUserStudyCard']);
+      }
       if (data.hasOwnProperty('bestPopulationStudyLink')) {
         obj['bestPopulationStudyLink'] = ApiClient.convertToType(data['bestPopulationStudyLink'], 'String');
+      }
+      if (data.hasOwnProperty('bestPopulationStudyCard')) {
+        obj['bestPopulationStudyCard'] = Card.constructFromObject(data['bestPopulationStudyCard']);
       }
       if (data.hasOwnProperty('optimalValueMessage')) {
         obj['optimalValueMessage'] = ApiClient.convertToType(data['optimalValueMessage'], 'String');
@@ -403,15 +415,30 @@
    */
   exports.prototype['bestStudyLink'] = undefined;
   /**
+   * Description of relationship with variable with strongest relationship for user or population
+   * @member {module:model/Card} bestStudyCard
+   */
+  exports.prototype['bestStudyCard'] = undefined;
+  /**
    * Link to study comparing variable with strongest relationship for user
    * @member {String} bestUserStudyLink
    */
   exports.prototype['bestUserStudyLink'] = undefined;
   /**
+   * Description of relationship with variable with strongest relationship for user
+   * @member {module:model/Card} bestUserStudyCard
+   */
+  exports.prototype['bestUserStudyCard'] = undefined;
+  /**
    * Link to study comparing variable with strongest relationship for population
    * @member {String} bestPopulationStudyLink
    */
   exports.prototype['bestPopulationStudyLink'] = undefined;
+  /**
+   * Description of relationship with variable with strongest relationship for population
+   * @member {module:model/Card} bestPopulationStudyCard
+   */
+  exports.prototype['bestPopulationStudyCard'] = undefined;
   /**
    * Description of relationship with variable with strongest relationship for user or population
    * @member {String} optimalValueMessage

@@ -80,14 +80,32 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property bestStudyCard (base name: "bestStudyCard")', function() {
+      // uncomment below and update the code to test the property bestStudyCard
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property bestUserStudyLink (base name: "bestUserStudyLink")', function() {
       // uncomment below and update the code to test the property bestUserStudyLink
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
 
+    it('should have the property bestUserStudyCard (base name: "bestUserStudyCard")', function() {
+      // uncomment below and update the code to test the property bestUserStudyCard
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property bestPopulationStudyLink (base name: "bestPopulationStudyLink")', function() {
       // uncomment below and update the code to test the property bestPopulationStudyLink
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property bestPopulationStudyCard (base name: "bestPopulationStudyCard")', function() {
+      // uncomment below and update the code to test the property bestPopulationStudyCard
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
