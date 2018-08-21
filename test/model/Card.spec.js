@@ -68,8 +68,20 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property avatarCircular (base name: "avatarCircular")', function() {
+      // uncomment below and update the code to test the property avatarCircular
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
     it('should have the property backgroundColor (base name: "backgroundColor")', function() {
       // uncomment below and update the code to test the property backgroundColor
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property buttons (base name: "buttons")', function() {
+      // uncomment below and update the code to test the property buttons
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });
@@ -94,12 +106,6 @@
 
     it('should have the property htmlContent (base name: "htmlContent")', function() {
       // uncomment below and update the code to test the property htmlContent
-      //var instane = new Quantimodo.Card();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property iconButtons (base name: "iconButtons")', function() {
-      // uncomment below and update the code to test the property iconButtons
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });
@@ -140,6 +146,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property selectedButton (base name: "selectedButton")', function() {
+      // uncomment below and update the code to test the property selectedButton
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
     it('should have the property sharingBody (base name: "sharingBody")', function() {
       // uncomment below and update the code to test the property sharingBody
       //var instane = new Quantimodo.Card();
@@ -166,12 +178,6 @@
 
     it('should have the property subTitle (base name: "subTitle")', function() {
       // uncomment below and update the code to test the property subTitle
-      //var instane = new Quantimodo.Card();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property textButtons (base name: "textButtons")', function() {
-      // uncomment below and update the code to test the property textButtons
       //var instane = new Quantimodo.Card();
       //expect(instance).to.be();
     });

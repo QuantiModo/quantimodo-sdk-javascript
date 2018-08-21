@@ -58,7 +58,11 @@
 
 
 
+
+
     _this['link'] = link;
+
+
 
 
 
@@ -77,6 +81,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('accessibilityText')) {
+        obj['accessibilityText'] = ApiClient.convertToType(data['accessibilityText'], 'String');
+      }
       if (data.hasOwnProperty('action')) {
         obj['action'] = ApiClient.convertToType(data['action'], Object);
       }
@@ -92,8 +99,11 @@
       if (data.hasOwnProperty('functionName')) {
         obj['functionName'] = ApiClient.convertToType(data['functionName'], 'String');
       }
-      if (data.hasOwnProperty('functionParameters')) {
-        obj['functionParameters'] = ApiClient.convertToType(data['functionParameters'], Object);
+      if (data.hasOwnProperty('parameters')) {
+        obj['parameters'] = ApiClient.convertToType(data['parameters'], Object);
+      }
+      if (data.hasOwnProperty('html')) {
+        obj['html'] = ApiClient.convertToType(data['html'], 'String');
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -106,6 +116,12 @@
       }
       if (data.hasOwnProperty('link')) {
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('stateName')) {
+        obj['stateName'] = ApiClient.convertToType(data['stateName'], 'String');
+      }
+      if (data.hasOwnProperty('stateParams')) {
+        obj['stateParams'] = ApiClient.convertToType(data['stateParams'], Object);
       }
       if (data.hasOwnProperty('successToastText')) {
         obj['successToastText'] = ApiClient.convertToType(data['successToastText'], 'String');
@@ -126,6 +142,11 @@
     return obj;
   }
 
+  /**
+   * Ex: connect
+   * @member {String} accessibilityText
+   */
+  exports.prototype['accessibilityText'] = undefined;
   /**
    * Action data
    * @member {Object} action
@@ -152,10 +173,15 @@
    */
   exports.prototype['functionName'] = undefined;
   /**
-   * Data to provide to functionName
-   * @member {Object} functionParameters
+   * Data to provide to functionName or be copied to the card parameters when button is clicked and card is posted to the API
+   * @member {Object} parameters
    */
-  exports.prototype['functionParameters'] = undefined;
+  exports.prototype['parameters'] = undefined;
+  /**
+   * Ex: connect
+   * @member {String} html
+   */
+  exports.prototype['html'] = undefined;
   /**
    * HTML element id
    * @member {String} id
@@ -176,6 +202,16 @@
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
+  /**
+   * State to go to
+   * @member {String} stateName
+   */
+  exports.prototype['stateName'] = undefined;
+  /**
+   * Data to provide to the state
+   * @member {Object} stateParams
+   */
+  exports.prototype['stateParams'] = undefined;
   /**
    * Text to show user after executing functionName
    * @member {String} successToastText

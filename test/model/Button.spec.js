@@ -56,6 +56,12 @@
       //expect(instance).to.be.a(Quantimodo.Button);
     });
 
+    it('should have the property accessibilityText (base name: "accessibilityText")', function() {
+      // uncomment below and update the code to test the property accessibilityText
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
     it('should have the property action (base name: "action")', function() {
       // uncomment below and update the code to test the property action
       //var instane = new Quantimodo.Button();
@@ -86,8 +92,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property functionParameters (base name: "functionParameters")', function() {
-      // uncomment below and update the code to test the property functionParameters
+    it('should have the property parameters (base name: "parameters")', function() {
+      // uncomment below and update the code to test the property parameters
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property html (base name: "html")', function() {
+      // uncomment below and update the code to test the property html
       //var instane = new Quantimodo.Button();
       //expect(instance).to.be();
     });
@@ -112,6 +124,18 @@
 
     it('should have the property link (base name: "link")', function() {
       // uncomment below and update the code to test the property link
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property stateName (base name: "stateName")', function() {
+      // uncomment below and update the code to test the property stateName
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property stateParams (base name: "stateParams")', function() {
+      // uncomment below and update the code to test the property stateParams
       //var instane = new Quantimodo.Button();
       //expect(instance).to.be();
     });

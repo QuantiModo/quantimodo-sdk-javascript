@@ -56,6 +56,7 @@
 
 
 
+
     _this['id'] = id;
 
 
@@ -88,8 +89,14 @@
       if (data.hasOwnProperty('avatar')) {
         obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
       }
+      if (data.hasOwnProperty('avatarCircular')) {
+        obj['avatarCircular'] = ApiClient.convertToType(data['avatarCircular'], 'String');
+      }
       if (data.hasOwnProperty('backgroundColor')) {
         obj['backgroundColor'] = ApiClient.convertToType(data['backgroundColor'], 'String');
+      }
+      if (data.hasOwnProperty('buttons')) {
+        obj['buttons'] = ApiClient.convertToType(data['buttons'], [Button]);
       }
       if (data.hasOwnProperty('content')) {
         obj['content'] = ApiClient.convertToType(data['content'], 'String');
@@ -102,9 +109,6 @@
       }
       if (data.hasOwnProperty('htmlContent')) {
         obj['htmlContent'] = ApiClient.convertToType(data['htmlContent'], 'String');
-      }
-      if (data.hasOwnProperty('iconButtons')) {
-        obj['iconButtons'] = ApiClient.convertToType(data['iconButtons'], [Button]);
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -122,7 +126,10 @@
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
       }
       if (data.hasOwnProperty('parameters')) {
-        obj['parameters'] = ApiClient.convertToType(data['parameters'], [InputField]);
+        obj['parameters'] = ApiClient.convertToType(data['parameters'], Object);
+      }
+      if (data.hasOwnProperty('selectedButton')) {
+        obj['selectedButton'] = Button.constructFromObject(data['selectedButton']);
       }
       if (data.hasOwnProperty('sharingBody')) {
         obj['sharingBody'] = ApiClient.convertToType(data['sharingBody'], 'String');
@@ -138,9 +145,6 @@
       }
       if (data.hasOwnProperty('subTitle')) {
         obj['subTitle'] = ApiClient.convertToType(data['subTitle'], 'String');
-      }
-      if (data.hasOwnProperty('textButtons')) {
-        obj['textButtons'] = ApiClient.convertToType(data['textButtons'], [Button]);
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -159,10 +163,19 @@
    */
   exports.prototype['avatar'] = undefined;
   /**
+   * Smaller circular image
+   * @member {String} avatarCircular
+   */
+  exports.prototype['avatarCircular'] = undefined;
+  /**
    * Ex: #f2f2f2
    * @member {String} backgroundColor
    */
   exports.prototype['backgroundColor'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} buttons
+   */
+  exports.prototype['buttons'] = undefined;
   /**
    * Ex: Content
    * @member {String} content
@@ -183,10 +196,6 @@
    * @member {String} htmlContent
    */
   exports.prototype['htmlContent'] = undefined;
-  /**
-   * @member {Array.<module:model/Button>} iconButtons
-   */
-  exports.prototype['iconButtons'] = undefined;
   /**
    * HTML element id
    * @member {String} id
@@ -212,9 +221,15 @@
    */
   exports.prototype['link'] = undefined;
   /**
-   * @member {Array.<module:model/InputField>} parameters
+   * Key value pairs derived from user input fields, button clicks, or preset defaults
+   * @member {Object} parameters
    */
   exports.prototype['parameters'] = undefined;
+  /**
+   * Button that the user clicked and the provided function parameters
+   * @member {module:model/Button} selectedButton
+   */
+  exports.prototype['selectedButton'] = undefined;
   /**
    * Ex: sharingBody
    * @member {String} sharingBody
@@ -239,10 +254,6 @@
    * @member {String} subTitle
    */
   exports.prototype['subTitle'] = undefined;
-  /**
-   * @member {Array.<module:model/Button>} textButtons
-   */
-  exports.prototype['textButtons'] = undefined;
   /**
    * Ex: Title
    * @member {String} title
