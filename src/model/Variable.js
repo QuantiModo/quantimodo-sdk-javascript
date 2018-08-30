@@ -95,12 +95,6 @@
 
 
 
-
-
-
-
-
-
     _this['id'] = id;
 
 
@@ -193,18 +187,6 @@
 
 
     _this['userId'] = userId;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -318,12 +300,6 @@
       if (data.hasOwnProperty('commonTagVariables')) {
         obj['commonTagVariables'] = ApiClient.convertToType(data['commonTagVariables'], [Variable]);
       }
-      if (data.hasOwnProperty('commonVariableMostCommonConnectorId')) {
-        obj['commonVariableMostCommonConnectorId'] = ApiClient.convertToType(data['commonVariableMostCommonConnectorId'], 'Number');
-      }
-      if (data.hasOwnProperty('commonVariableUpdatedAt')) {
-        obj['commonVariableUpdatedAt'] = ApiClient.convertToType(data['commonVariableUpdatedAt'], 'String');
-      }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
@@ -360,20 +336,8 @@
       if (data.hasOwnProperty('experimentEndTime')) {
         obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'String');
       }
-      if (data.hasOwnProperty('experimentEndTimeSeconds')) {
-        obj['experimentEndTimeSeconds'] = ApiClient.convertToType(data['experimentEndTimeSeconds'], 'Number');
-      }
-      if (data.hasOwnProperty('experimentEndTimeString')) {
-        obj['experimentEndTimeString'] = ApiClient.convertToType(data['experimentEndTimeString'], 'String');
-      }
       if (data.hasOwnProperty('experimentStartTime')) {
         obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'String');
-      }
-      if (data.hasOwnProperty('experimentStartTimeSeconds')) {
-        obj['experimentStartTimeSeconds'] = ApiClient.convertToType(data['experimentStartTimeSeconds'], 'Number');
-      }
-      if (data.hasOwnProperty('experimentStartTimeString')) {
-        obj['experimentStartTimeString'] = ApiClient.convertToType(data['experimentStartTimeString'], 'String');
       }
       if (data.hasOwnProperty('fillingType')) {
         obj['fillingType'] = ApiClient.convertToType(data['fillingType'], 'String');
@@ -423,20 +387,11 @@
       if (data.hasOwnProperty('kurtosis')) {
         obj['kurtosis'] = ApiClient.convertToType(data['kurtosis'], 'Number');
       }
-      if (data.hasOwnProperty('lastOriginalUnitId')) {
-        obj['lastOriginalUnitId'] = ApiClient.convertToType(data['lastOriginalUnitId'], 'Number');
-      }
-      if (data.hasOwnProperty('lastOriginalValue')) {
-        obj['lastOriginalValue'] = ApiClient.convertToType(data['lastOriginalValue'], 'Number');
-      }
       if (data.hasOwnProperty('lastProcessedDailyValue')) {
         obj['lastProcessedDailyValue'] = ApiClient.convertToType(data['lastProcessedDailyValue'], 'Number');
       }
       if (data.hasOwnProperty('lastSuccessfulUpdateTime')) {
         obj['lastSuccessfulUpdateTime'] = ApiClient.convertToType(data['lastSuccessfulUpdateTime'], 'String');
-      }
-      if (data.hasOwnProperty('lastUnitId')) {
-        obj['lastUnitId'] = ApiClient.convertToType(data['lastUnitId'], 'Number');
       }
       if (data.hasOwnProperty('lastValue')) {
         obj['lastValue'] = ApiClient.convertToType(data['lastValue'], 'Number');
@@ -465,6 +420,9 @@
       if (data.hasOwnProperty('manualTracking')) {
         obj['manualTracking'] = ApiClient.convertToType(data['manualTracking'], 'Boolean');
       }
+      if (data.hasOwnProperty('maximumAllowedDailyValue')) {
+        obj['maximumAllowedDailyValue'] = ApiClient.convertToType(data['maximumAllowedDailyValue'], 'Number');
+      }
       if (data.hasOwnProperty('maximumAllowedValue')) {
         obj['maximumAllowedValue'] = ApiClient.convertToType(data['maximumAllowedValue'], 'Number');
       }
@@ -485,6 +443,12 @@
       }
       if (data.hasOwnProperty('minimumAllowedValue')) {
         obj['minimumAllowedValue'] = ApiClient.convertToType(data['minimumAllowedValue'], 'Number');
+      }
+      if (data.hasOwnProperty('minimumAllowedDailyValue')) {
+        obj['minimumAllowedDailyValue'] = ApiClient.convertToType(data['minimumAllowedDailyValue'], 'Number');
+      }
+      if (data.hasOwnProperty('minimumNonZeroValue')) {
+        obj['minimumNonZeroValue'] = ApiClient.convertToType(data['minimumNonZeroValue'], 'Number');
       }
       if (data.hasOwnProperty('minimumRecordedValue')) {
         obj['minimumRecordedValue'] = ApiClient.convertToType(data['minimumRecordedValue'], 'Number');
@@ -556,7 +520,7 @@
         obj['outcome'] = ApiClient.convertToType(data['outcome'], 'Boolean');
       }
       if (data.hasOwnProperty('outcomeOfInterest')) {
-        obj['outcomeOfInterest'] = ApiClient.convertToType(data['outcomeOfInterest'], 'Number');
+        obj['outcomeOfInterest'] = ApiClient.convertToType(data['outcomeOfInterest'], 'Boolean');
       }
       if (data.hasOwnProperty('parentCommonTagVariables')) {
         obj['parentCommonTagVariables'] = ApiClient.convertToType(data['parentCommonTagVariables'], [Variable]);
@@ -580,7 +544,7 @@
         obj['productUrl'] = ApiClient.convertToType(data['productUrl'], 'String');
       }
       if (data.hasOwnProperty('public')) {
-        obj['public'] = ApiClient.convertToType(data['public'], 'Number');
+        obj['public'] = ApiClient.convertToType(data['public'], 'Boolean');
       }
       if (data.hasOwnProperty('question')) {
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
@@ -681,41 +645,11 @@
       if (data.hasOwnProperty('userVariableUnitName')) {
         obj['userVariableUnitName'] = ApiClient.convertToType(data['userVariableUnitName'], 'String');
       }
-      if (data.hasOwnProperty('userVariableFillingValue')) {
-        obj['userVariableFillingValue'] = ApiClient.convertToType(data['userVariableFillingValue'], 'Number');
-      }
-      if (data.hasOwnProperty('userVariableMostCommonConnectorId')) {
-        obj['userVariableMostCommonConnectorId'] = ApiClient.convertToType(data['userVariableMostCommonConnectorId'], 'Number');
-      }
-      if (data.hasOwnProperty('userVariableUpdatedAt')) {
-        obj['userVariableUpdatedAt'] = ApiClient.convertToType(data['userVariableUpdatedAt'], 'String');
-      }
-      if (data.hasOwnProperty('userVariableValence')) {
-        obj['userVariableValence'] = ApiClient.convertToType(data['userVariableValence'], 'String');
-      }
-      if (data.hasOwnProperty('userVariableVariableCategoryId')) {
-        obj['userVariableVariableCategoryId'] = ApiClient.convertToType(data['userVariableVariableCategoryId'], 'Number');
-      }
-      if (data.hasOwnProperty('userVariableVariableCategoryName')) {
-        obj['userVariableVariableCategoryName'] = ApiClient.convertToType(data['userVariableVariableCategoryName'], 'String');
-      }
-      if (data.hasOwnProperty('userVariableWikipediaTitle')) {
-        obj['userVariableWikipediaTitle'] = ApiClient.convertToType(data['userVariableWikipediaTitle'], 'String');
-      }
       if (data.hasOwnProperty('variableCategory')) {
         obj['variableCategory'] = VariableCategory.constructFromObject(data['variableCategory']);
       }
       if (data.hasOwnProperty('joinedVariables')) {
         obj['joinedVariables'] = ApiClient.convertToType(data['joinedVariables'], [Variable]);
-      }
-      if (data.hasOwnProperty('lastSource')) {
-        obj['lastSource'] = ApiClient.convertToType(data['lastSource'], 'Number');
-      }
-      if (data.hasOwnProperty('lastUnit')) {
-        obj['lastUnit'] = ApiClient.convertToType(data['lastUnit'], 'String');
-      }
-      if (data.hasOwnProperty('mostCommonUnit')) {
-        obj['mostCommonUnit'] = ApiClient.convertToType(data['mostCommonUnit'], 'String');
       }
       if (data.hasOwnProperty('valence')) {
         obj['valence'] = ApiClient.convertToType(data['valence'], 'String');
@@ -723,14 +657,8 @@
       if (data.hasOwnProperty('variableCategoryId')) {
         obj['variableCategoryId'] = ApiClient.convertToType(data['variableCategoryId'], 'Number');
       }
-      if (data.hasOwnProperty('variableCategoryImageUrl')) {
-        obj['variableCategoryImageUrl'] = ApiClient.convertToType(data['variableCategoryImageUrl'], 'String');
-      }
       if (data.hasOwnProperty('variableCategoryName')) {
         obj['variableCategoryName'] = ApiClient.convertToType(data['variableCategoryName'], 'String');
-      }
-      if (data.hasOwnProperty('variableFillingValue')) {
-        obj['variableFillingValue'] = ApiClient.convertToType(data['variableFillingValue'], 'Number');
       }
       if (data.hasOwnProperty('variableId')) {
         obj['variableId'] = ApiClient.convertToType(data['variableId'], 'Number');
@@ -753,7 +681,7 @@
    */
   exports.prototype['actionArray'] = undefined;
   /**
-   * Alternative name
+   * User-Defined Variable Setting:  Alternative display name
    * @member {String} alias
    */
   exports.prototype['alias'] = undefined;
@@ -812,7 +740,7 @@
    */
   exports.prototype['card'] = undefined;
   /**
-   * A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user
+   * User-Defined Variable Setting: True indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user
    * @member {Boolean} causeOnly
    */
   exports.prototype['causeOnly'] = undefined;
@@ -856,7 +784,7 @@
    */
   exports.prototype['childCommonTagVariables'] = undefined;
   /**
-   * User-defined. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
+   * User-Defined Variable Setting: An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
    * @member {Array.<module:model/Variable>} childUserTagVariables
    */
   exports.prototype['childUserTagVariables'] = undefined;
@@ -866,8 +794,8 @@
    */
   exports.prototype['clientId'] = undefined;
   /**
-   * Ex: MEAN
-   * @member {String} combinationOperation
+   * User-Defined Variable Setting: How to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.
+   * @member {module:model/Variable.CombinationOperationEnum} combinationOperation
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
@@ -884,16 +812,6 @@
    */
   exports.prototype['commonTagVariables'] = undefined;
   /**
-   * Ex: 51
-   * @member {Number} commonVariableMostCommonConnectorId
-   */
-  exports.prototype['commonVariableMostCommonConnectorId'] = undefined;
-  /**
-   * Ex: 2017-02-07 23:43:39 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @member {String} commonVariableUpdatedAt
-   */
-  exports.prototype['commonVariableUpdatedAt'] = undefined;
-  /**
    * When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
    * @member {String} createdAt
    */
@@ -909,7 +827,7 @@
    */
   exports.prototype['dataSources'] = undefined;
   /**
-   * Ex: negative
+   * User-Defined Variable Setting: Ex: Summary to be used in studies.
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
@@ -919,12 +837,12 @@
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
+   * The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay. Unit: Seconds
    * @member {Number} durationOfAction
    */
   exports.prototype['durationOfAction'] = undefined;
   /**
-   * Ex: 168
+   * User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Hours
    * @member {Number} durationOfActionInHours
    */
   exports.prototype['durationOfActionInHours'] = undefined;
@@ -944,47 +862,27 @@
    */
   exports.prototype['earliestSourceTime'] = undefined;
   /**
-   * error_message
+   * Error message from last analysis
    * @member {String} errorMessage
    */
   exports.prototype['errorMessage'] = undefined;
   /**
-   * Latest measurement start_time to be used in analysis. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * User-Defined Variable Setting: Latest measurement time to be used in analysis. Format: UTC ISO 8601 YYYY-MM-DDThh:mm:ss.
    * @member {String} experimentEndTime
    */
   exports.prototype['experimentEndTime'] = undefined;
   /**
-   * Ex: 1893477600
-   * @member {Number} experimentEndTimeSeconds
-   */
-  exports.prototype['experimentEndTimeSeconds'] = undefined;
-  /**
-   * Ex: 2030-01-01 06:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @member {String} experimentEndTimeString
-   */
-  exports.prototype['experimentEndTimeString'] = undefined;
-  /**
-   * Earliest measurement start_time to be used in analysis. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * User-Defined Variable Setting: Earliest measurement time to be used in analysis. Format: UTC ISO 8601 YYYY-MM-DDThh:mm:ss.
    * @member {String} experimentStartTime
    */
   exports.prototype['experimentStartTime'] = undefined;
   /**
-   * Ex: 1269307902
-   * @member {Number} experimentStartTimeSeconds
-   */
-  exports.prototype['experimentStartTimeSeconds'] = undefined;
-  /**
-   * Ex: 2010-03-23 01:31:42 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @member {String} experimentStartTimeString
-   */
-  exports.prototype['experimentStartTimeString'] = undefined;
-  /**
-   * 0 -> No filling, 1 -> Use filling-value
-   * @member {String} fillingType
+   * User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.
+   * @member {module:model/Variable.FillingTypeEnum} fillingType
    */
   exports.prototype['fillingType'] = undefined;
   /**
-   * When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.
+   * User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.  Unit: User-specified or common.
    * @member {Number} fillingValue
    */
   exports.prototype['fillingValue'] = undefined;
@@ -1019,17 +917,17 @@
    */
   exports.prototype['ingredientCommonTagVariables'] = undefined;
   /**
-   * User-specific IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
+   * User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
    * @member {Array.<module:model/Variable>} ingredientOfUserTagVariables
    */
   exports.prototype['ingredientOfUserTagVariables'] = undefined;
   /**
-   * User-specific IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
+   * User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
    * @member {Array.<module:model/Variable>} ingredientUserTagVariables
    */
   exports.prototype['ingredientUserTagVariables'] = undefined;
   /**
-   * Ex: value
+   * Type of input field to show for recording measurements
    * @member {String} inputType
    */
   exports.prototype['inputType'] = undefined;
@@ -1044,12 +942,12 @@
    */
   exports.prototype['joinedCommonTagVariables'] = undefined;
   /**
-   * User-defined. Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.
+   * User-Defined Variable Setting: Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.
    * @member {Array.<module:model/Variable>} joinedUserTagVariables
    */
   exports.prototype['joinedUserTagVariables'] = undefined;
   /**
-   * The Variable this Variable should be joined with. If the variable is joined with some other variable then it is not shown to user in the list of variables
+   * Duplicate variables. If the variable is joined with some other variable then it is not shown to user in the list of variables
    * @member {Number} joinWith
    */
   exports.prototype['joinWith'] = undefined;
@@ -1059,17 +957,7 @@
    */
   exports.prototype['kurtosis'] = undefined;
   /**
-   * ID of last original Unit
-   * @member {Number} lastOriginalUnitId
-   */
-  exports.prototype['lastOriginalUnitId'] = undefined;
-  /**
-   * Last original value which is stored
-   * @member {Number} lastOriginalValue
-   */
-  exports.prototype['lastOriginalValue'] = undefined;
-  /**
-   * Ex: 500
+   * Calculated Statistic: Ex: 500. Unit: User-specified or common.
    * @member {Number} lastProcessedDailyValue
    */
   exports.prototype['lastProcessedDailyValue'] = undefined;
@@ -1079,12 +967,7 @@
    */
   exports.prototype['lastSuccessfulUpdateTime'] = undefined;
   /**
-   * ID of last Unit
-   * @member {Number} lastUnitId
-   */
-  exports.prototype['lastUnitId'] = undefined;
-  /**
-   * Last Value
+   * Calculated Statistic: Last measurement value in the common unit or user unit if different. Unit: User-specified or common.
    * @member {Number} lastValue
    */
   exports.prototype['lastValue'] = undefined;
@@ -1094,22 +977,22 @@
    */
   exports.prototype['latestFillingTime'] = undefined;
   /**
-   * Latest measurement time
+   * Latest measurement time. Format: Unix-time epoch seconds.
    * @member {Number} latestMeasurementTime
    */
   exports.prototype['latestMeasurementTime'] = undefined;
   /**
-   * Latest source time
+   * Latest source time. Format: Unix-time epoch seconds.
    * @member {Number} latestSourceTime
    */
   exports.prototype['latestSourceTime'] = undefined;
   /**
-   * Ex: 1501383600
+   * Ex: 1501383600. Format: Unix-time epoch seconds.
    * @member {Number} latestUserMeasurementTime
    */
   exports.prototype['latestUserMeasurementTime'] = undefined;
   /**
-   * Latitude
+   * Latitude. Unit: User-specified or common.
    * @member {Number} latitude
    */
   exports.prototype['latitude'] = undefined;
@@ -1124,27 +1007,32 @@
    */
   exports.prototype['longitude'] = undefined;
   /**
-   * Ex: 1
+   * True if the variable is an emotion or symptom rating that is not typically automatically collected by a device or app.
    * @member {Boolean} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * The maximum allowed value for measurements. While you can record a value above this maximum, it will be excluded from the correlation analysis.
+   * User-Defined Variable Setting: The maximum allowed value a daily aggregated measurement. Unit: User-specified or common.
+   * @member {Number} maximumAllowedDailyValue
+   */
+  exports.prototype['maximumAllowedDailyValue'] = undefined;
+  /**
+   * User-Defined Variable Setting: The maximum allowed value a single measurement. While you can record a value above this maximum, it will be excluded from the correlation analysis.  Unit: User-specified or common.
    * @member {Number} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Maximum recorded daily value of this variable
+   * Calculated Statistic: Maximum recorded daily value of this variable. Unit: User-specified or common.
    * @member {Number} maximumRecordedDailyValue
    */
   exports.prototype['maximumRecordedDailyValue'] = undefined;
   /**
-   * Ex: 1
+   * Calculated Statistic: Ex: 1. Unit: User-specified or common.
    * @member {Number} maximumRecordedValue
    */
   exports.prototype['maximumRecordedValue'] = undefined;
   /**
-   * Mean
+   * Mean. Unit: User-specified or common.
    * @member {Number} mean
    */
   exports.prototype['mean'] = undefined;
@@ -1159,12 +1047,22 @@
    */
   exports.prototype['median'] = undefined;
   /**
-   * The minimum allowed value for measurements. While you can record a value below this minimum, it will be excluded from the correlation analysis.
+   * User-Defined Variable Setting: The minimum allowed value a single measurement. While you can record a value below this minimum, it will be excluded from the correlation analysis. Unit: User-specified or common
    * @member {Number} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
   /**
-   * Minimum recorded value of this variable
+   * User-Defined Variable Setting: The minimum allowed value a daily aggregated measurement.  For instance, you might set to 100 for steps to keep erroneous 0 daily steps out of the analysis. Unit: User-specified or common.
+   * @member {Number} minimumAllowedDailyValue
+   */
+  exports.prototype['minimumAllowedDailyValue'] = undefined;
+  /**
+   * User-Defined Variable Setting: The minimum allowed non-zero value a single measurement.  For instance, you might set to 100 mL for steps to keep erroneous 0 daily steps out of the analysis. Unit: User-specified or common.
+   * @member {Number} minimumNonZeroValue
+   */
+  exports.prototype['minimumNonZeroValue'] = undefined;
+  /**
+   * Minimum recorded value of this variable. Unit: User-specified or common.
    * @member {Number} minimumRecordedValue
    */
   exports.prototype['minimumRecordedValue'] = undefined;
@@ -1184,7 +1082,7 @@
    */
   exports.prototype['mostCommonUnitId'] = undefined;
   /**
-   * Most common value
+   * Calculated Statistic: Most common value. Unit: User-specified or common.
    * @member {Number} mostCommonValue
    */
   exports.prototype['mostCommonValue'] = undefined;
@@ -1269,18 +1167,18 @@
    */
   exports.prototype['onsetDelay'] = undefined;
   /**
-   * Ex: 0.5
+   * User-Defined Variable Setting: The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
    * @member {Number} onsetDelayInHours
    */
   exports.prototype['onsetDelayInHours'] = undefined;
   /**
-   * Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors. These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables
+   * User-Defined Variable Setting: True for variables for which a human would generally want to identify the influencing factors. These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables
    * @member {Boolean} outcome
    */
   exports.prototype['outcome'] = undefined;
   /**
-   * Ex: 1
-   * @member {Number} outcomeOfInterest
+   * Do you want to receive updates on newly discovered factors influencing this variable?
+   * @member {Boolean} outcomeOfInterest
    */
   exports.prototype['outcomeOfInterest'] = undefined;
   /**
@@ -1319,8 +1217,8 @@
    */
   exports.prototype['productUrl'] = undefined;
   /**
-   * Is variable public
-   * @member {Number} public
+   * Should this variable show up in automcomplete searches for users who do not already have measurements for it?
+   * @member {Boolean} public
    */
   exports.prototype['public'] = undefined;
   /**
@@ -1339,12 +1237,12 @@
    */
   exports.prototype['rawMeasurementsAtLastAnalysis'] = undefined;
   /**
-   * Ex: 1
+   * Calculated Statistic: Ex: 1. Unit: User-specified or common.
    * @member {Number} secondMostCommonValue
    */
   exports.prototype['secondMostCommonValue'] = undefined;
   /**
-   * Ex: 250
+   * Calculated Statistic: Ex: 250. Unit: User-specified or common.
    * @member {Number} secondToLastValue
    */
   exports.prototype['secondToLastValue'] = undefined;
@@ -1379,12 +1277,12 @@
    */
   exports.prototype['svgUrl'] = undefined;
   /**
-   * Ex: 6
+   * Calculated Statistic: Ex: 6. Unit: User-specified or common.
    * @member {Number} thirdMostCommonValue
    */
   exports.prototype['thirdMostCommonValue'] = undefined;
   /**
-   * Ex: 250
+   * Calculated Statistic: Ex: 250. Unit: User-specified or common.
    * @member {Number} thirdToLastValue
    */
   exports.prototype['thirdToLastValue'] = undefined;
@@ -1423,7 +1321,7 @@
    */
   exports.prototype['unitId'] = undefined;
   /**
-   * Ex: Count
+   * User-Defined Variable Setting: Count
    * @member {String} unitName
    */
   exports.prototype['unitName'] = undefined;
@@ -1486,41 +1384,6 @@
    */
   exports.prototype['userVariableUnitName'] = undefined;
   /**
-   * Ex: -1
-   * @member {Number} userVariableFillingValue
-   */
-  exports.prototype['userVariableFillingValue'] = undefined;
-  /**
-   * Ex: 51
-   * @member {Number} userVariableMostCommonConnectorId
-   */
-  exports.prototype['userVariableMostCommonConnectorId'] = undefined;
-  /**
-   * Ex: 2017-07-30 14:58:26
-   * @member {String} userVariableUpdatedAt
-   */
-  exports.prototype['userVariableUpdatedAt'] = undefined;
-  /**
-   * Ex: positive or negative
-   * @member {String} userVariableValence
-   */
-  exports.prototype['userVariableValence'] = undefined;
-  /**
-   * Ex: 13
-   * @member {Number} userVariableVariableCategoryId
-   */
-  exports.prototype['userVariableVariableCategoryId'] = undefined;
-  /**
-   * Ex: Treatments
-   * @member {String} userVariableVariableCategoryName
-   */
-  exports.prototype['userVariableVariableCategoryName'] = undefined;
-  /**
-   * Ex: 
-   * @member {String} userVariableWikipediaTitle
-   */
-  exports.prototype['userVariableWikipediaTitle'] = undefined;
-  /**
    * @member {module:model/VariableCategory} variableCategory
    */
   exports.prototype['variableCategory'] = undefined;
@@ -1529,21 +1392,6 @@
    * @member {Array.<module:model/Variable>} joinedVariables
    */
   exports.prototype['joinedVariables'] = undefined;
-  /**
-   * Last source
-   * @member {Number} lastSource
-   */
-  exports.prototype['lastSource'] = undefined;
-  /**
-   * Last unit
-   * @member {String} lastUnit
-   */
-  exports.prototype['lastUnit'] = undefined;
-  /**
-   * Most common unit
-   * @member {String} mostCommonUnit
-   */
-  exports.prototype['mostCommonUnit'] = undefined;
   /**
    * Ex: positive
    * @member {String} valence
@@ -1555,20 +1403,10 @@
    */
   exports.prototype['variableCategoryId'] = undefined;
   /**
-   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
-   * @member {String} variableCategoryImageUrl
-   */
-  exports.prototype['variableCategoryImageUrl'] = undefined;
-  /**
-   * Variable category like Mood, Sleep, Physical Activity, Treatment, Symptom, etc.
-   * @member {String} variableCategoryName
+   * User-Defined Variable Setting: Variable category like Emotions, Sleep, Physical Activities, Treatments, Symptoms, etc.
+   * @member {module:model/Variable.VariableCategoryNameEnum} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
-  /**
-   * Ex: -1
-   * @member {Number} variableFillingValue
-   */
-  exports.prototype['variableFillingValue'] = undefined;
   /**
    * Ex: 96380
    * @member {Number} variableId
@@ -1580,16 +1418,177 @@
    */
   exports.prototype['variableName'] = undefined;
   /**
-   * Ex: 115947037.40816
+   * Statistic: Ex: 115947037.40816
    * @member {Number} variance
    */
   exports.prototype['variance'] = undefined;
   /**
-   * Ex: 
+   * User-Defined Variable Setting: You can help to improve the studies by pasting the title of the most appropriate Wikipedia article for this variable
    * @member {String} wikipediaTitle
    */
   exports.prototype['wikipediaTitle'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>combinationOperation</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.CombinationOperationEnum = {
+    /**
+     * value: "MEAN"
+     * @const
+     */
+    "MEAN": "MEAN",
+    /**
+     * value: "SUM"
+     * @const
+     */
+    "SUM": "SUM"  };
+
+  /**
+   * Allowed values for the <code>fillingType</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.FillingTypeEnum = {
+    /**
+     * value: "none"
+     * @const
+     */
+    "none": "none",
+    /**
+     * value: "zero-filling"
+     * @const
+     */
+    "zero-filling": "zero-filling",
+    /**
+     * value: "value-filling"
+     * @const
+     */
+    "value-filling": "value-filling"  };
+
+  /**
+   * Allowed values for the <code>variableCategoryName</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.VariableCategoryNameEnum = {
+    /**
+     * value: "Activity"
+     * @const
+     */
+    "Activity": "Activity",
+    /**
+     * value: "Books"
+     * @const
+     */
+    "Books": "Books",
+    /**
+     * value: "Causes of Illness"
+     * @const
+     */
+    "Causes of Illness": "Causes of Illness",
+    /**
+     * value: "Cognitive Performance"
+     * @const
+     */
+    "Cognitive Performance": "Cognitive Performance",
+    /**
+     * value: "Conditions"
+     * @const
+     */
+    "Conditions": "Conditions",
+    /**
+     * value: "Emotions"
+     * @const
+     */
+    "Emotions": "Emotions",
+    /**
+     * value: "Environment"
+     * @const
+     */
+    "Environment": "Environment",
+    /**
+     * value: "Foods"
+     * @const
+     */
+    "Foods": "Foods",
+    /**
+     * value: "Goals"
+     * @const
+     */
+    "Goals": "Goals",
+    /**
+     * value: "Locations"
+     * @const
+     */
+    "Locations": "Locations",
+    /**
+     * value: "Miscellaneous"
+     * @const
+     */
+    "Miscellaneous": "Miscellaneous",
+    /**
+     * value: "Movies and TV"
+     * @const
+     */
+    "Movies and TV": "Movies and TV",
+    /**
+     * value: "Music"
+     * @const
+     */
+    "Music": "Music",
+    /**
+     * value: "Nutrients"
+     * @const
+     */
+    "Nutrients": "Nutrients",
+    /**
+     * value: "Payments"
+     * @const
+     */
+    "Payments": "Payments",
+    /**
+     * value: "Physical Activities"
+     * @const
+     */
+    "Physical Activities": "Physical Activities",
+    /**
+     * value: "Physique"
+     * @const
+     */
+    "Physique": "Physique",
+    /**
+     * value: "Sleep"
+     * @const
+     */
+    "Sleep": "Sleep",
+    /**
+     * value: "Social Interactions"
+     * @const
+     */
+    "Social Interactions": "Social Interactions",
+    /**
+     * value: "Software"
+     * @const
+     */
+    "Software": "Software",
+    /**
+     * value: "Symptoms"
+     * @const
+     */
+    "Symptoms": "Symptoms",
+    /**
+     * value: "Treatments"
+     * @const
+     */
+    "Treatments": "Treatments",
+    /**
+     * value: "Vital Signs"
+     * @const
+     */
+    "Vital Signs": "Vital Signs"  };
 
 
   return exports;

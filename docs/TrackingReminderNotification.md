@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **combinationOperation** | **String** | The way multiple measurements are aggregated over time | [optional] 
 **createdAt** | **String** | Ex: 2017-07-29 20:49:54 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
 **displayName** | **String** | Ex: Trader Joe&#39;s Bedtime Tea | [optional] 
-**modifiedValue** | **Number** | Is the user specified default value or falls back to the last value in user unit. Good for initializing input fields | [optional] 
+**modifiedValue** | **Number** | Is the user specified default value or falls back to the last value in user unit. Good for initializing input fields. Unit: User-specified or common. | [optional] 
 **unitAbbreviatedName** | **String** | Ex: /5 | [optional] 
 **unitCategoryId** | **Number** | Ex: 5 | [optional] 
 **unitCategoryName** | **String** | Ex: Rating | [optional] 
@@ -82,7 +82,7 @@ Name | Type | Description | Notes
 **valence** | **String** | Ex: positive | [optional] 
 **variableCategoryId** | **Number** | Ex: 1 | [optional] 
 **variableCategoryImageUrl** | **String** | Ex: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png | [optional] 
-**variableCategoryName** | **String** | Name of the variable category to be used when sending measurements | [optional] 
+**variableCategoryName** | **String** | Ex: Emotions, Treatments, Symptoms... | [optional] 
 **variableId** | **Number** | Id for the variable to be tracked | [optional] 
 **variableImageUrl** | **String** | Ex: https://image.png | [optional] 
 **variableName** | **String** | Name of the variable to be used when sending measurements | [optional] 
@@ -95,6 +95,59 @@ Name | Type | Description | Notes
 * `MEAN` (value: `"MEAN"`)
 
 * `SUM` (value: `"SUM"`)
+
+
+
+
+<a name="VariableCategoryNameEnum"></a>
+## Enum: VariableCategoryNameEnum
+
+
+* `Activity` (value: `"Activity"`)
+
+* `Books` (value: `"Books"`)
+
+* `Causes of Illness` (value: `"Causes of Illness"`)
+
+* `Cognitive Performance` (value: `"Cognitive Performance"`)
+
+* `Conditions` (value: `"Conditions"`)
+
+* `Emotions` (value: `"Emotions"`)
+
+* `Environment` (value: `"Environment"`)
+
+* `Foods` (value: `"Foods"`)
+
+* `Goals` (value: `"Goals"`)
+
+* `Locations` (value: `"Locations"`)
+
+* `Miscellaneous` (value: `"Miscellaneous"`)
+
+* `Movies and TV` (value: `"Movies and TV"`)
+
+* `Music` (value: `"Music"`)
+
+* `Nutrients` (value: `"Nutrients"`)
+
+* `Payments` (value: `"Payments"`)
+
+* `Physical Activities` (value: `"Physical Activities"`)
+
+* `Physique` (value: `"Physique"`)
+
+* `Sleep` (value: `"Sleep"`)
+
+* `Social Interactions` (value: `"Social Interactions"`)
+
+* `Software` (value: `"Software"`)
+
+* `Symptoms` (value: `"Symptoms"`)
+
+* `Treatments` (value: `"Treatments"`)
+
+* `Vital Signs` (value: `"Vital Signs"`)
 
 
 

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **ionIcon** | **String** | Ex: ion-refresh | [optional] 
 **link** | **String** | A link to a web page or something. Not much more to say about that. | [optional] 
 **parameters** | **Object** | Key value pairs derived from user input fields, button clicks, or preset defaults | [optional] 
+**relatedCards** | [**[Card]**](Card.md) |  | [optional] 
 **selectedButton** | [**Button**](Button.md) | Button that the user clicked and the provided function parameters | [optional] 
 **sharingBody** | **String** | Ex: sharingBody | [optional] 
 **sharingButtons** | [**[Button]**](Button.md) |  | [optional] 

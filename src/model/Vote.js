@@ -47,7 +47,7 @@
    * @param clientId {String} Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @param effectVariableId {Number} Effect variable id
    * @param userId {Number} ID of User
-   * @param value {Boolean} Vote: 0 (for implausible) or 1 (for plausible)
+   * @param value {module:model/Vote.ValueEnum} Vote down for implausible/not-useful or up for plausible/useful. Vote none to delete a previous vote.
    */
   var exports = function(causeVariableId, clientId, effectVariableId, userId, value) {
     var _this = this;
@@ -60,6 +60,7 @@
 
     _this['userId'] = userId;
     _this['value'] = value;
+
   };
 
   /**
@@ -95,7 +96,10 @@
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
       }
       if (data.hasOwnProperty('value')) {
-        obj['value'] = ApiClient.convertToType(data['value'], 'Boolean');
+        obj['value'] = ApiClient.convertToType(data['value'], 'String');
+      }
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
     }
     return obj;
@@ -137,11 +141,55 @@
    */
   exports.prototype['userId'] = undefined;
   /**
-   * Vote: 0 (for implausible) or 1 (for plausible)
-   * @member {Boolean} value
+   * Vote down for implausible/not-useful or up for plausible/useful. Vote none to delete a previous vote.
+   * @member {module:model/Vote.ValueEnum} value
    */
   exports.prototype['value'] = undefined;
+  /**
+   * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+   * @member {module:model/Vote.TypeEnum} type
+   */
+  exports.prototype['type'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>value</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.ValueEnum = {
+    /**
+     * value: "up"
+     * @const
+     */
+    "up": "up",
+    /**
+     * value: "down"
+     * @const
+     */
+    "down": "down",
+    /**
+     * value: "none"
+     * @const
+     */
+    "none": "none"  };
+
+  /**
+   * Allowed values for the <code>type</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.TypeEnum = {
+    /**
+     * value: "causality"
+     * @const
+     */
+    "causality": "causality",
+    /**
+     * value: "usefulness"
+     * @const
+     */
+    "usefulness": "usefulness"  };
 
 
   return exports;

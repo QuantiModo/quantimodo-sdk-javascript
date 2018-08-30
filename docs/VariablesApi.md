@@ -136,7 +136,7 @@ null (empty response body)
 
 Variable categories
 
-The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Work.
+The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Goals.
 
 ### Example
 ```javascript
@@ -210,7 +210,7 @@ var opts = {
   'includeCharts': true, // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
   'numberOfRawMeasurements': "numberOfRawMeasurements_example", // String | Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
   'userId': 8.14, // Number | User's id
-  'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
+  'variableCategoryName': "variableCategoryName_example", // String | Ex: Emotions, Treatments, Symptoms...
   'name': "name_example", // String | Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain `Mood`, the following query should be used: ?variableName=%Mood%
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
   'sourceName': "sourceName_example", // String | ID of the source you want measurements for (supports exact name match only)
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
  **includeCharts** | **Boolean**| Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided. | [optional] 
  **numberOfRawMeasurements** | **String**| Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
- **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
+ **variableCategoryName** | **String**| Ex: Emotions, Treatments, Symptoms... | [optional] 
  **name** | **String**| Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood% | [optional] 
  **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local. | [optional] 
  **sourceName** | **String**| ID of the source you want measurements for (supports exact name match only) | [optional] 
@@ -410,7 +410,7 @@ var opts = {
   'searchPhrase': "searchPhrase_example", // String | Ex: %Body Fat%
   'exactMatch': true, // Boolean | Require exact match
   'manualTracking': true, // Boolean | Only include variables tracked manually by the user
-  'variableCategoryName': "variableCategoryName_example", // String | Limit results to a specific variable category
+  'variableCategoryName': "variableCategoryName_example", // String | Ex: Emotions, Treatments, Symptoms...
   'variableCategoryId': 56, // Number | Ex: 13
   'synonyms': "synonyms_example", // String | Ex: McDonalds hotcake
   'platform': "platform_example", // String | Ex: chrome, android, ios, web
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
  **searchPhrase** | **String**| Ex: %Body Fat% | [optional] 
  **exactMatch** | **Boolean**| Require exact match | [optional] 
  **manualTracking** | **Boolean**| Only include variables tracked manually by the user | [optional] 
- **variableCategoryName** | **String**| Limit results to a specific variable category | [optional] 
+ **variableCategoryName** | **String**| Ex: Emotions, Treatments, Symptoms... | [optional] 
  **variableCategoryId** | **Number**| Ex: 13 | [optional] 
  **synonyms** | **String**| Ex: McDonalds hotcake | [optional] 
  **platform** | **String**| Ex: chrome, android, ios, web | [optional] 

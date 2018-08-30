@@ -45,7 +45,7 @@
    * @class
    * @param unitAbbreviatedName {String} Ex: /5
    * @param reminderFrequency {Number} Number of seconds between one reminder and the next
-   * @param variableCategoryName {String} Name of the variable category to be used when sending measurements
+   * @param variableCategoryName {module:model/TrackingReminder.VariableCategoryNameEnum} Ex: Emotions, Treatments, Symptoms...
    * @param variableName {String} Name of the variable to be used when sending measurements
    */
   var exports = function(unitAbbreviatedName, reminderFrequency, variableCategoryName, variableName) {
@@ -528,7 +528,7 @@
    */
   exports.prototype['unitName'] = undefined;
   /**
-   * Default value to use for the measurement when tracking
+   * Default value to use for the measurement when tracking. Unit: User-specified or common.
    * @member {Number} defaultValue
    */
   exports.prototype['defaultValue'] = undefined;
@@ -548,7 +548,7 @@
    */
   exports.prototype['errorMessage'] = undefined;
   /**
-   * Ex: 0
+   * Ex: 0. Unit: User-specified or common.
    * @member {Number} fillingValue
    */
   exports.prototype['fillingValue'] = undefined;
@@ -616,12 +616,12 @@
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * Ex: 5
+   * Ex: 5. Unit: User-specified or common.
    * @member {Number} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Ex: 1
+   * Ex: 1. Unit: User-specified or common.
    * @member {Number} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
@@ -726,7 +726,7 @@
    */
   exports.prototype['secondDailyReminderTime'] = undefined;
   /**
-   * Ex: 1
+   * Ex: 1. Unit: User-specified or common.
    * @member {Number} secondToLastValue
    */
   exports.prototype['secondToLastValue'] = undefined;
@@ -846,8 +846,8 @@
    */
   exports.prototype['variableCategoryImageUrl'] = undefined;
   /**
-   * Name of the variable category to be used when sending measurements
-   * @member {String} variableCategoryName
+   * Ex: Emotions, Treatments, Symptoms...
+   * @member {module:model/TrackingReminder.VariableCategoryNameEnum} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
@@ -883,6 +883,128 @@
      * @const
      */
     "SUM": "SUM"  };
+
+  /**
+   * Allowed values for the <code>variableCategoryName</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.VariableCategoryNameEnum = {
+    /**
+     * value: "Activity"
+     * @const
+     */
+    "Activity": "Activity",
+    /**
+     * value: "Books"
+     * @const
+     */
+    "Books": "Books",
+    /**
+     * value: "Causes of Illness"
+     * @const
+     */
+    "Causes of Illness": "Causes of Illness",
+    /**
+     * value: "Cognitive Performance"
+     * @const
+     */
+    "Cognitive Performance": "Cognitive Performance",
+    /**
+     * value: "Conditions"
+     * @const
+     */
+    "Conditions": "Conditions",
+    /**
+     * value: "Emotions"
+     * @const
+     */
+    "Emotions": "Emotions",
+    /**
+     * value: "Environment"
+     * @const
+     */
+    "Environment": "Environment",
+    /**
+     * value: "Foods"
+     * @const
+     */
+    "Foods": "Foods",
+    /**
+     * value: "Goals"
+     * @const
+     */
+    "Goals": "Goals",
+    /**
+     * value: "Locations"
+     * @const
+     */
+    "Locations": "Locations",
+    /**
+     * value: "Miscellaneous"
+     * @const
+     */
+    "Miscellaneous": "Miscellaneous",
+    /**
+     * value: "Movies and TV"
+     * @const
+     */
+    "Movies and TV": "Movies and TV",
+    /**
+     * value: "Music"
+     * @const
+     */
+    "Music": "Music",
+    /**
+     * value: "Nutrients"
+     * @const
+     */
+    "Nutrients": "Nutrients",
+    /**
+     * value: "Payments"
+     * @const
+     */
+    "Payments": "Payments",
+    /**
+     * value: "Physical Activities"
+     * @const
+     */
+    "Physical Activities": "Physical Activities",
+    /**
+     * value: "Physique"
+     * @const
+     */
+    "Physique": "Physique",
+    /**
+     * value: "Sleep"
+     * @const
+     */
+    "Sleep": "Sleep",
+    /**
+     * value: "Social Interactions"
+     * @const
+     */
+    "Social Interactions": "Social Interactions",
+    /**
+     * value: "Software"
+     * @const
+     */
+    "Software": "Software",
+    /**
+     * value: "Symptoms"
+     * @const
+     */
+    "Symptoms": "Symptoms",
+    /**
+     * value: "Treatments"
+     * @const
+     */
+    "Treatments": "Treatments",
+    /**
+     * value: "Vital Signs"
+     * @const
+     */
+    "Vital Signs": "Vital Signs"  };
 
 
   return exports;

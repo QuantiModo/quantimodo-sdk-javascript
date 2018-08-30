@@ -146,6 +146,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property relatedCards (base name: "relatedCards")', function() {
+      // uncomment below and update the code to test the property relatedCards
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
     it('should have the property selectedButton (base name: "selectedButton")', function() {
       // uncomment below and update the code to test the property selectedButton
       //var instane = new Quantimodo.Card();

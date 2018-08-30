@@ -24,11 +24,11 @@ Name | Type | Description | Notes
 **unitCategoryName** | **String** | Ex: Rating | [optional] 
 **unitId** | **Number** | Ex: 10 | [optional] 
 **unitName** | **String** | Ex: 1 to 5 Rating | [optional] 
-**defaultValue** | **Number** | Default value to use for the measurement when tracking | [optional] 
+**defaultValue** | **Number** | Default value to use for the measurement when tracking. Unit: User-specified or common. | [optional] 
 **enabled** | **Boolean** | If a tracking reminder is enabled, tracking reminder notifications will be generated for this variable. | [optional] 
 **email** | **Boolean** | True if the reminders should be delivered via email | [optional] 
 **errorMessage** | **String** | Ex: reminderStartTimeLocal is less than $user-&gt;earliestReminderTime or greater than  $user-&gt;latestReminderTime | [optional] 
-**fillingValue** | **Number** | Ex: 0 | [optional] 
+**fillingValue** | **Number** | Ex: 0. Unit: User-specified or common. | [optional] 
 **firstDailyReminderTime** | **String** | Ex: 02:45:20 in UTC timezone | [optional] 
 **frequencyTextDescription** | **String** | Ex: Daily | [optional] 
 **frequencyTextDescriptionWithTime** | **String** | Ex: Daily at 09:45 PM | [optional] 
@@ -42,8 +42,8 @@ Name | Type | Description | Notes
 **localDailyReminderNotificationTimes** | **[String]** |  | [optional] 
 **localDailyReminderNotificationTimesForAllReminders** | **[String]** |  | [optional] 
 **manualTracking** | **Boolean** | Ex: 1 | [optional] 
-**maximumAllowedValue** | **Number** | Ex: 5 | [optional] 
-**minimumAllowedValue** | **Number** | Ex: 1 | [optional] 
+**maximumAllowedValue** | **Number** | Ex: 5. Unit: User-specified or common. | [optional] 
+**minimumAllowedValue** | **Number** | Ex: 1. Unit: User-specified or common. | [optional] 
 **nextReminderTimeEpochSeconds** | **Number** | Ex: 1501555520 | [optional] 
 **notificationBar** | **Boolean** | True if the reminders should appear in the notification bar | [optional] 
 **numberOfRawMeasurements** | **Number** | Ex: 445 | [optional] 
@@ -64,7 +64,7 @@ Name | Type | Description | Notes
 **reminderStartTimeLocalHumanFormatted** | **String** | Ex: 09:45 PM | [optional] 
 **repeating** | **Boolean** | Ex: true | [optional] 
 **secondDailyReminderTime** | **String** | Ex: 01:00:00 | [optional] 
-**secondToLastValue** | **Number** | Ex: 1 | [optional] 
+**secondToLastValue** | **Number** | Ex: 1. Unit: User-specified or common. | [optional] 
 **sms** | **Boolean** | True if the reminders should be delivered via SMS | [optional] 
 **startTrackingDate** | **String** | Earliest date on which the user should be reminded to track in YYYY-MM-DD format | [optional] 
 **stopTrackingDate** | **String** | Latest date on which the user should be reminded to track in YYYY-MM-DD format | [optional] 
@@ -88,7 +88,7 @@ Name | Type | Description | Notes
 **valueAndFrequencyTextDescriptionWithTime** | **String** | Ex: Rate daily at 09:45 PM | [optional] 
 **variableCategoryId** | **Number** | Ex: 10 | [optional] 
 **variableCategoryImageUrl** | **String** | Ex: https://maxcdn.icons8.com/Color/PNG/96/Messaging/sad-96.png | [optional] 
-**variableCategoryName** | **String** | Name of the variable category to be used when sending measurements | 
+**variableCategoryName** | **String** | Ex: Emotions, Treatments, Symptoms... | 
 **variableDescription** | **String** | Ex: negative | [optional] 
 **variableId** | **Number** | Id for the variable to be tracked | [optional] 
 **variableName** | **String** | Name of the variable to be used when sending measurements | 
@@ -101,6 +101,59 @@ Name | Type | Description | Notes
 * `MEAN` (value: `"MEAN"`)
 
 * `SUM` (value: `"SUM"`)
+
+
+
+
+<a name="VariableCategoryNameEnum"></a>
+## Enum: VariableCategoryNameEnum
+
+
+* `Activity` (value: `"Activity"`)
+
+* `Books` (value: `"Books"`)
+
+* `Causes of Illness` (value: `"Causes of Illness"`)
+
+* `Cognitive Performance` (value: `"Cognitive Performance"`)
+
+* `Conditions` (value: `"Conditions"`)
+
+* `Emotions` (value: `"Emotions"`)
+
+* `Environment` (value: `"Environment"`)
+
+* `Foods` (value: `"Foods"`)
+
+* `Goals` (value: `"Goals"`)
+
+* `Locations` (value: `"Locations"`)
+
+* `Miscellaneous` (value: `"Miscellaneous"`)
+
+* `Movies and TV` (value: `"Movies and TV"`)
+
+* `Music` (value: `"Music"`)
+
+* `Nutrients` (value: `"Nutrients"`)
+
+* `Payments` (value: `"Payments"`)
+
+* `Physical Activities` (value: `"Physical Activities"`)
+
+* `Physique` (value: `"Physique"`)
+
+* `Sleep` (value: `"Sleep"`)
+
+* `Social Interactions` (value: `"Social Interactions"`)
+
+* `Software` (value: `"Software"`)
+
+* `Symptoms` (value: `"Symptoms"`)
+
+* `Treatments` (value: `"Treatments"`)
+
+* `Vital Signs` (value: `"Vital Signs"`)
 
 
 

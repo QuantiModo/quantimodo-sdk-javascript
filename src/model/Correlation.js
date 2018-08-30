@@ -58,10 +58,10 @@
    * @param confidenceLevel {String} Ex: high
    * @param correlationCoefficient {Number} Ex: 0.538
    * @param createdAt {String} Ex: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param criticalTValue {Number} Ex: 1.646
+   * @param criticalTValue {Number} Calculated Statistic: Ex: 1.646
    * @param direction {String} Ex: higher
-   * @param durationOfAction {Number} Ex: 604800
-   * @param durationOfActionInHours {Number} Ex: 168
+   * @param durationOfAction {Number} User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Seconds
+   * @param durationOfActionInHours {Number} User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Hours
    * @param effectChanges {Number} Ex: 193
    * @param effectSize {String} Ex: moderately positive
    * @param effectUnit {String} Ex: /5
@@ -75,16 +75,16 @@
    * @param onsetDelayWithStrongestPearsonCorrelation {Number} Ex: -86400
    * @param onsetDelayWithStrongestPearsonCorrelationInHours {Number} Ex: -24
    * @param optimalPearsonProduct {Number} Ex: 0.68582816186982
-   * @param outcomeFillingValue {Number} Ex: -1
+   * @param outcomeFillingValue {Number} User-Defined Variable Setting: Ex: -1. Unit: User-specified or common.
    * @param pearsonCorrelationWithNoOnsetDelay {Number} Ex: 0.477
    * @param predictivePearsonCorrelation {Number} Ex: 0.538
    * @param predictivePearsonCorrelationCoefficient {Number} Ex: 0.538
    * @param predictorDataSources {String} Ex: RescueTime
-   * @param predictorFillingValue {Number} Ex: -1
-   * @param predictorMaximumAllowedValue {Number} Ex: 200
-   * @param predictorMinimumAllowedValue {Number} Ex: 30
-   * @param predictsHighEffectChange {Number} Ex: 17
-   * @param predictsLowEffectChange {Number} Ex: -11
+   * @param predictorFillingValue {Number} Ex: -1. Unit: User-specified or common.
+   * @param predictorMaximumAllowedValue {Number} Ex: 200. Unit: User-specified or common.
+   * @param predictorMinimumAllowedValue {Number} Ex: 30. Unit: User-specified or common.
+   * @param predictsHighEffectChange {Number} Ex: 17. Unit: User-specified or common.
+   * @param predictsLowEffectChange {Number} Ex: -11. Unit: User-specified or common.
    * @param qmScore {Number} Ex: 0.528
    * @param reversePearsonCorrelationCoefficient {Number} Ex: 0.01377184270977
    * @param shareUserMeasurements {Boolean} Would you like to make this study publicly visible?
@@ -646,7 +646,7 @@
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Ex: 1.646
+   * Calculated Statistic: Ex: 1.646
    * @member {Number} criticalTValue
    */
   exports.prototype['criticalTValue'] = undefined;
@@ -656,12 +656,12 @@
    */
   exports.prototype['direction'] = undefined;
   /**
-   * Ex: 604800
+   * User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Seconds
    * @member {Number} durationOfAction
    */
   exports.prototype['durationOfAction'] = undefined;
   /**
-   * Ex: 168
+   * User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Hours
    * @member {Number} durationOfActionInHours
    */
   exports.prototype['durationOfActionInHours'] = undefined;
@@ -800,17 +800,17 @@
    */
   exports.prototype['optimalPearsonProduct'] = undefined;
   /**
-   * Ex: -1
+   * User-Defined Variable Setting: Ex: -1. Unit: User-specified or common.
    * @member {Number} outcomeFillingValue
    */
   exports.prototype['outcomeFillingValue'] = undefined;
   /**
-   * Ex: 23
+   * User-Defined Variable Setting: Ex: 23. Unit: User-specified or common.
    * @member {Number} outcomeMaximumAllowedValue
    */
   exports.prototype['outcomeMaximumAllowedValue'] = undefined;
   /**
-   * Ex: 0.1
+   * User-Defined Variable Setting: Ex: 0.1. Unit: User-specified or common.
    * @member {Number} outcomeMinimumAllowedValue
    */
   exports.prototype['outcomeMinimumAllowedValue'] = undefined;
@@ -835,27 +835,27 @@
    */
   exports.prototype['predictorDataSources'] = undefined;
   /**
-   * Ex: -1
+   * Ex: -1. Unit: User-specified or common.
    * @member {Number} predictorFillingValue
    */
   exports.prototype['predictorFillingValue'] = undefined;
   /**
-   * Ex: 200
+   * Ex: 200. Unit: User-specified or common.
    * @member {Number} predictorMaximumAllowedValue
    */
   exports.prototype['predictorMaximumAllowedValue'] = undefined;
   /**
-   * Ex: 30
+   * Ex: 30. Unit: User-specified or common.
    * @member {Number} predictorMinimumAllowedValue
    */
   exports.prototype['predictorMinimumAllowedValue'] = undefined;
   /**
-   * Ex: 17
+   * Ex: 17. Unit: User-specified or common.
    * @member {Number} predictsHighEffectChange
    */
   exports.prototype['predictsHighEffectChange'] = undefined;
   /**
-   * Ex: -11
+   * Ex: -11. Unit: User-specified or common.
    * @member {Number} predictsLowEffectChange
    */
   exports.prototype['predictsLowEffectChange'] = undefined;

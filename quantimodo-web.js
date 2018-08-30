@@ -3687,7 +3687,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
@@ -3776,7 +3776,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.causeUnitName Name for the unit cause measurements to be returned in
      * @param {String} opts.onsetDelay The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
-     * @param {String} opts.durationOfAction The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
+     * @param {String} opts.durationOfAction The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay. Unit: Seconds
      * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {String} opts.latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
@@ -4231,7 +4231,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {String} opts.reminderTime Ex: (lt)2017-07-31 21:43:26
      * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {Boolean} opts.onlyPast Ex: 1
@@ -4293,7 +4293,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Users can be reminded to track certain variables at a specified frequency with a default value.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
@@ -5836,7 +5836,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     /**
      * Variable categories
-     * The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Work.
+     * The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Goals.
      * @param {module:api/VariablesApi~getVariableCategoriesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/VariableCategory>}
      */
@@ -5882,7 +5882,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {String} opts.numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
      * @param {Number} opts.userId User&#39;s id
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {String} opts.name Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
@@ -6058,7 +6058,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.searchPhrase Ex: %Body Fat%
      * @param {Boolean} opts.exactMatch Require exact match
      * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {Number} opts.variableCategoryId Ex: 13
      * @param {String} opts.synonyms Ex: McDonalds hotcake
      * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
@@ -7157,6 +7157,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['text'] = text;
 
+
   };
 
   /**
@@ -7226,6 +7227,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('tooltip')) {
         obj['tooltip'] = ApiClient.convertToType(data['tooltip'], 'String');
+      }
+      if (data.hasOwnProperty('webhookUrl')) {
+        obj['webhookUrl'] = ApiClient.convertToType(data['webhookUrl'], 'String');
       }
     }
     return obj;
@@ -7326,6 +7330,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} tooltip
    */
   exports.prototype['tooltip'] = undefined;
+  /**
+   * Post here on button click
+   * @member {String} webhookUrl
+   */
+  exports.prototype['webhookUrl'] = undefined;
 
 
 
@@ -7353,18 +7362,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button', 'model/InputField'], factory);
+    define(['ApiClient', 'model/Button', 'model/Card', 'model/InputField'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Button'), require('./InputField'));
+    module.exports = factory(require('../ApiClient'), require('./Button'), require('./Card'), require('./InputField'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Card = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.InputField);
+    root.Quantimodo.Card = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.Card, root.Quantimodo.InputField);
   }
-}(this, function(ApiClient, Button, InputField) {
+}(this, function(ApiClient, Button, Card, InputField) {
   'use strict';
 
 
@@ -7395,6 +7404,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     _this['id'] = id;
+
 
 
 
@@ -7464,6 +7474,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('parameters')) {
         obj['parameters'] = ApiClient.convertToType(data['parameters'], Object);
+      }
+      if (data.hasOwnProperty('relatedCards')) {
+        obj['relatedCards'] = ApiClient.convertToType(data['relatedCards'], [Card]);
       }
       if (data.hasOwnProperty('selectedButton')) {
         obj['selectedButton'] = Button.constructFromObject(data['selectedButton']);
@@ -7563,6 +7576,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['parameters'] = undefined;
   /**
+   * @member {Array.<module:model/Card>} relatedCards
+   */
+  exports.prototype['relatedCards'] = undefined;
+  /**
    * Button that the user clicked and the provided function parameters
    * @member {module:model/Button} selectedButton
    */
@@ -7604,7 +7621,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Button":27,"./InputField":46}],29:[function(require,module,exports){
+},{"../ApiClient":9,"./Button":27,"./Card":28,"./InputField":46}],29:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8104,10 +8121,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @param confidenceLevel {String} Ex: high
    * @param correlationCoefficient {Number} Ex: 0.538
    * @param createdAt {String} Ex: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @param criticalTValue {Number} Ex: 1.646
+   * @param criticalTValue {Number} Calculated Statistic: Ex: 1.646
    * @param direction {String} Ex: higher
-   * @param durationOfAction {Number} Ex: 604800
-   * @param durationOfActionInHours {Number} Ex: 168
+   * @param durationOfAction {Number} User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Seconds
+   * @param durationOfActionInHours {Number} User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Hours
    * @param effectChanges {Number} Ex: 193
    * @param effectSize {String} Ex: moderately positive
    * @param effectUnit {String} Ex: /5
@@ -8121,16 +8138,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @param onsetDelayWithStrongestPearsonCorrelation {Number} Ex: -86400
    * @param onsetDelayWithStrongestPearsonCorrelationInHours {Number} Ex: -24
    * @param optimalPearsonProduct {Number} Ex: 0.68582816186982
-   * @param outcomeFillingValue {Number} Ex: -1
+   * @param outcomeFillingValue {Number} User-Defined Variable Setting: Ex: -1. Unit: User-specified or common.
    * @param pearsonCorrelationWithNoOnsetDelay {Number} Ex: 0.477
    * @param predictivePearsonCorrelation {Number} Ex: 0.538
    * @param predictivePearsonCorrelationCoefficient {Number} Ex: 0.538
    * @param predictorDataSources {String} Ex: RescueTime
-   * @param predictorFillingValue {Number} Ex: -1
-   * @param predictorMaximumAllowedValue {Number} Ex: 200
-   * @param predictorMinimumAllowedValue {Number} Ex: 30
-   * @param predictsHighEffectChange {Number} Ex: 17
-   * @param predictsLowEffectChange {Number} Ex: -11
+   * @param predictorFillingValue {Number} Ex: -1. Unit: User-specified or common.
+   * @param predictorMaximumAllowedValue {Number} Ex: 200. Unit: User-specified or common.
+   * @param predictorMinimumAllowedValue {Number} Ex: 30. Unit: User-specified or common.
+   * @param predictsHighEffectChange {Number} Ex: 17. Unit: User-specified or common.
+   * @param predictsLowEffectChange {Number} Ex: -11. Unit: User-specified or common.
    * @param qmScore {Number} Ex: 0.528
    * @param reversePearsonCorrelationCoefficient {Number} Ex: 0.01377184270977
    * @param shareUserMeasurements {Boolean} Would you like to make this study publicly visible?
@@ -8692,7 +8709,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * Ex: 1.646
+   * Calculated Statistic: Ex: 1.646
    * @member {Number} criticalTValue
    */
   exports.prototype['criticalTValue'] = undefined;
@@ -8702,12 +8719,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['direction'] = undefined;
   /**
-   * Ex: 604800
+   * User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Seconds
    * @member {Number} durationOfAction
    */
   exports.prototype['durationOfAction'] = undefined;
   /**
-   * Ex: 168
+   * User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Hours
    * @member {Number} durationOfActionInHours
    */
   exports.prototype['durationOfActionInHours'] = undefined;
@@ -8846,17 +8863,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['optimalPearsonProduct'] = undefined;
   /**
-   * Ex: -1
+   * User-Defined Variable Setting: Ex: -1. Unit: User-specified or common.
    * @member {Number} outcomeFillingValue
    */
   exports.prototype['outcomeFillingValue'] = undefined;
   /**
-   * Ex: 23
+   * User-Defined Variable Setting: Ex: 23. Unit: User-specified or common.
    * @member {Number} outcomeMaximumAllowedValue
    */
   exports.prototype['outcomeMaximumAllowedValue'] = undefined;
   /**
-   * Ex: 0.1
+   * User-Defined Variable Setting: Ex: 0.1. Unit: User-specified or common.
    * @member {Number} outcomeMinimumAllowedValue
    */
   exports.prototype['outcomeMinimumAllowedValue'] = undefined;
@@ -8881,27 +8898,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['predictorDataSources'] = undefined;
   /**
-   * Ex: -1
+   * Ex: -1. Unit: User-specified or common.
    * @member {Number} predictorFillingValue
    */
   exports.prototype['predictorFillingValue'] = undefined;
   /**
-   * Ex: 200
+   * Ex: 200. Unit: User-specified or common.
    * @member {Number} predictorMaximumAllowedValue
    */
   exports.prototype['predictorMaximumAllowedValue'] = undefined;
   /**
-   * Ex: 30
+   * Ex: 30. Unit: User-specified or common.
    * @member {Number} predictorMinimumAllowedValue
    */
   exports.prototype['predictorMinimumAllowedValue'] = undefined;
   /**
-   * Ex: 17
+   * Ex: 17. Unit: User-specified or common.
    * @member {Number} predictsHighEffectChange
    */
   exports.prototype['predictsHighEffectChange'] = undefined;
   /**
-   * Ex: -11
+   * Ex: -11. Unit: User-specified or common.
    * @member {Number} predictsLowEffectChange
    */
   exports.prototype['predictsLowEffectChange'] = undefined;
@@ -11522,12 +11539,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * Ex: 5
+   * Ex: 5. Unit: User-specified or common.
    * @member {Number} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Ex: 1
+   * Ex: 1. Unit: User-specified or common.
    * @member {Number} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
@@ -11552,7 +11569,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['originalUnitId'] = undefined;
   /**
-   * Original value as originally submitted
+   * Original value submitted. Unit: Originally submitted.
    * @member {Number} originalValue
    */
   exports.prototype['originalValue'] = undefined;
@@ -11687,8 +11704,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableCategoryImageUrl'] = undefined;
   /**
-   * Ex: Treatments
-   * @member {String} variableCategoryName
+   * Ex: Emotions, Treatments, Symptoms...
+   * @member {module:model/Measurement.VariableCategoryNameEnum} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
@@ -11712,6 +11729,128 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['displayName'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>variableCategoryName</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.VariableCategoryNameEnum = {
+    /**
+     * value: "Activity"
+     * @const
+     */
+    "Activity": "Activity",
+    /**
+     * value: "Books"
+     * @const
+     */
+    "Books": "Books",
+    /**
+     * value: "Causes of Illness"
+     * @const
+     */
+    "Causes of Illness": "Causes of Illness",
+    /**
+     * value: "Cognitive Performance"
+     * @const
+     */
+    "Cognitive Performance": "Cognitive Performance",
+    /**
+     * value: "Conditions"
+     * @const
+     */
+    "Conditions": "Conditions",
+    /**
+     * value: "Emotions"
+     * @const
+     */
+    "Emotions": "Emotions",
+    /**
+     * value: "Environment"
+     * @const
+     */
+    "Environment": "Environment",
+    /**
+     * value: "Foods"
+     * @const
+     */
+    "Foods": "Foods",
+    /**
+     * value: "Goals"
+     * @const
+     */
+    "Goals": "Goals",
+    /**
+     * value: "Locations"
+     * @const
+     */
+    "Locations": "Locations",
+    /**
+     * value: "Miscellaneous"
+     * @const
+     */
+    "Miscellaneous": "Miscellaneous",
+    /**
+     * value: "Movies and TV"
+     * @const
+     */
+    "Movies and TV": "Movies and TV",
+    /**
+     * value: "Music"
+     * @const
+     */
+    "Music": "Music",
+    /**
+     * value: "Nutrients"
+     * @const
+     */
+    "Nutrients": "Nutrients",
+    /**
+     * value: "Payments"
+     * @const
+     */
+    "Payments": "Payments",
+    /**
+     * value: "Physical Activities"
+     * @const
+     */
+    "Physical Activities": "Physical Activities",
+    /**
+     * value: "Physique"
+     * @const
+     */
+    "Physique": "Physique",
+    /**
+     * value: "Sleep"
+     * @const
+     */
+    "Sleep": "Sleep",
+    /**
+     * value: "Social Interactions"
+     * @const
+     */
+    "Social Interactions": "Social Interactions",
+    /**
+     * value: "Software"
+     * @const
+     */
+    "Software": "Software",
+    /**
+     * value: "Symptoms"
+     * @const
+     */
+    "Symptoms": "Symptoms",
+    /**
+     * value: "Treatments"
+     * @const
+     */
+    "Treatments": "Treatments",
+    /**
+     * value: "Vital Signs"
+     * @const
+     */
+    "Vital Signs": "Vital Signs"  };
 
 
   return exports;
@@ -12035,7 +12174,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   }
 
   /**
-   * Way to aggregate measurements over time. Options are \"MEAN\" or \"SUM\". SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.
+   * Way to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.
    * @member {module:model/MeasurementSet.CombinationOperationEnum} combinationOperation
    */
   exports.prototype['combinationOperation'] = undefined;
@@ -12055,8 +12194,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['unitAbbreviatedName'] = undefined;
   /**
-   * Variable category name
-   * @member {String} variableCategoryName
+   * Ex: Emotions, Treatments, Symptoms...
+   * @member {module:model/MeasurementSet.VariableCategoryNameEnum} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
@@ -12087,6 +12226,128 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @const
      */
     "SUM": "SUM"  };
+
+  /**
+   * Allowed values for the <code>variableCategoryName</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.VariableCategoryNameEnum = {
+    /**
+     * value: "Activity"
+     * @const
+     */
+    "Activity": "Activity",
+    /**
+     * value: "Books"
+     * @const
+     */
+    "Books": "Books",
+    /**
+     * value: "Causes of Illness"
+     * @const
+     */
+    "Causes of Illness": "Causes of Illness",
+    /**
+     * value: "Cognitive Performance"
+     * @const
+     */
+    "Cognitive Performance": "Cognitive Performance",
+    /**
+     * value: "Conditions"
+     * @const
+     */
+    "Conditions": "Conditions",
+    /**
+     * value: "Emotions"
+     * @const
+     */
+    "Emotions": "Emotions",
+    /**
+     * value: "Environment"
+     * @const
+     */
+    "Environment": "Environment",
+    /**
+     * value: "Foods"
+     * @const
+     */
+    "Foods": "Foods",
+    /**
+     * value: "Goals"
+     * @const
+     */
+    "Goals": "Goals",
+    /**
+     * value: "Locations"
+     * @const
+     */
+    "Locations": "Locations",
+    /**
+     * value: "Miscellaneous"
+     * @const
+     */
+    "Miscellaneous": "Miscellaneous",
+    /**
+     * value: "Movies and TV"
+     * @const
+     */
+    "Movies and TV": "Movies and TV",
+    /**
+     * value: "Music"
+     * @const
+     */
+    "Music": "Music",
+    /**
+     * value: "Nutrients"
+     * @const
+     */
+    "Nutrients": "Nutrients",
+    /**
+     * value: "Payments"
+     * @const
+     */
+    "Payments": "Payments",
+    /**
+     * value: "Physical Activities"
+     * @const
+     */
+    "Physical Activities": "Physical Activities",
+    /**
+     * value: "Physique"
+     * @const
+     */
+    "Physique": "Physique",
+    /**
+     * value: "Sleep"
+     * @const
+     */
+    "Sleep": "Sleep",
+    /**
+     * value: "Social Interactions"
+     * @const
+     */
+    "Social Interactions": "Social Interactions",
+    /**
+     * value: "Software"
+     * @const
+     */
+    "Software": "Software",
+    /**
+     * value: "Symptoms"
+     * @const
+     */
+    "Symptoms": "Symptoms",
+    /**
+     * value: "Treatments"
+     * @const
+     */
+    "Treatments": "Treatments",
+    /**
+     * value: "Vital Signs"
+     * @const
+     */
+    "Vital Signs": "Vital Signs"  };
 
 
   return exports;
@@ -14810,11 +15071,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>StudyText</code>.
    * @alias module:model/StudyText
    * @class
-   * @param studyAbstract {String} Ex: Aggregated data from 21 suggests with a low degree of confidence (p=0.097) that Very Distracting Time (Work) has a moderately positive predictive relationship (R=0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day.
+   * @param studyAbstract {String} Ex: Aggregated data from 21 suggests with a low degree of confidence (p=0.097) that Very Distracting Time has a moderately positive predictive relationship (R=0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day.
    * @param studyDesign {String} Ex: This study is based on data donated by  21 QuantiModo users. Thus, the study design is equivalent to the aggregation of 21 separate n=1 observational natural experiments.
    * @param studyLimitations {String} Ex: As with any human experiment, it was impossible to control for all potentially confounding variables.             Correlation does not necessarily imply correlation.  We can never know for sure if one factor is definitely the cause of an outcome.             However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great             confidence rule out non-existent relationships. For instance, if we discover no relationship between mood             and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.             <br>             <br>             We can also take advantage of several characteristics of time series data from many subjects  to infer the likelihood of a causal relationship if we do find a correlational relationship.             The criteria for causation are a group of minimal conditions necessary to provide adequate evidence of a causal relationship between an incidence and a possible consequence.             The list of the criteria is as follows:             <br>             1. Strength (effect size): A small association does not mean that there is not a causal effect, though the larger the association, the more likely that it is causal.             <br>             2. Consistency (reproducibility): Consistent findings observed by different persons in different places with different samples strengthens the likelihood of an effect.             <br>             3. Specificity: Causation is likely if a very specific population at a specific site and disease with no other likely explanation. The more specific an association between a factor and an effect is, the bigger the probability of a causal relationship.             <br>             4. Temporality: The effect has to occur after the cause (and if there is an expected delay between the cause and expected effect, then the effect must occur after that delay).             <br>             5. Biological gradient: Greater exposure should generally lead to greater incidence of the effect. However, in some cases, the mere presence of the factor can trigger the effect. In other cases, an inverse proportion is observed: greater exposure leads to lower incidence.             <br>             6. Plausibility: A plausible mechanism between cause and effect is helpful.             <br>             7. Coherence: Coherence between epidemiological and laboratory findings increases the likelihood of an effect.             <br>             8. Experiment: \"Occasionally it is possible to appeal to experimental evidence\".             <br>             9. Analogy: The effect of similar factors may be considered.             <br>             <br>              The confidence in a causal relationship is bolstered by the fact that time-precedence was taken into account in all calculations. Furthermore, in accordance with the law of large numbers (LLN), the predictive power and accuracy of these results will continually grow over time.  146 paired data points were used in this analysis.   Assuming that the relationship is merely coincidental, as the participant independently modifies their Very Distracting Time values, the observed strength of the relationship will decline until it is below the threshold of significance.  To it another way, in the case that we do find a spurious correlation, suggesting that banana intake improves mood for instance,             one will likely increase their banana intake.  Due to the fact that this correlation is spurious, it is unlikely             that you will see a continued and persistent corresponding increase in mood.  So over time, the spurious correlation will             naturally dissipate.Furthermore, it will be very enlightening to aggregate this data with the data from other participants  with similar genetic, diseasomic, environmentomic, and demographic profiles.
    * @param studyObjective {String} Ex: The objective of this study is to determine the nature of the relationship (if any) between the Very Distracting Time and the Video Activities. Additionally, we attempt to determine the Very Distracting Time values most likely to produce optimal Video Activities values.
-   * @param studyResults {String} Ex: This analysis suggests that higher Very Distracting Time (Work) generally predicts negative Video Activities (p = 0.097). Video Activities is, on average, 36%  higher after around 2.03 Very Distracting Time.  After an onset delay of 168 hours, Video Activities is, on average, 16%  lower than its average over the 168 hours following around 1.04 Very Distracting Time.  146 data points were used in this analysis.  The value for Very Distracting Time changed 2984 times, effectively running 1492 separate natural experiments. The top quartile outcome values are preceded by an average 2.03 h of Very Distracting Time.  The bottom quartile outcome values are preceded by an average 1.04 h of Very Distracting Time.  Forward Pearson Correlation Coefficient was 0.354 (p=0.097, 95% CI -0.437 to 1.144 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0.208 (P=0.097, 95% CI -0.583 to 0.998, onset delay = -0 hours, duration of action = -168 hours). When the Very Distracting Time value is closer to 2.03 h than 1.04 h, the Video Activities value which follows is, on average, 36% percent higher than its typical value.  When the Very Distracting Time value is closer to 1.04 h than 2.03 h, the Video Activities value which follows is 0% lower than its typical value.  Video Activities is 5 h (67% higher) on average after days with around 5 h Very Distracting Time
+   * @param studyResults {String} Ex: This analysis suggests that higher Very Distracting Time generally predicts negative Video Activities (p = 0.097). Video Activities is, on average, 36%  higher after around 2.03 Very Distracting Time.  After an onset delay of 168 hours, Video Activities is, on average, 16%  lower than its average over the 168 hours following around 1.04 Very Distracting Time.  146 data points were used in this analysis.  The value for Very Distracting Time changed 2984 times, effectively running 1492 separate natural experiments. The top quartile outcome values are preceded by an average 2.03 h of Very Distracting Time.  The bottom quartile outcome values are preceded by an average 1.04 h of Very Distracting Time.  Forward Pearson Correlation Coefficient was 0.354 (p=0.097, 95% CI -0.437 to 1.144 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0.208 (P=0.097, 95% CI -0.583 to 0.998, onset delay = -0 hours, duration of action = -168 hours). When the Very Distracting Time value is closer to 2.03 h than 1.04 h, the Video Activities value which follows is, on average, 36% percent higher than its typical value.  When the Very Distracting Time value is closer to 1.04 h than 2.03 h, the Video Activities value which follows is 0% lower than its typical value.  Video Activities is 5 h (67% higher) on average after days with around 5 h Very Distracting Time
    * @param studyTitle {String} Ex: N1 Study: Very Distracting Time Predicts Negative Video Activities
    */
   var exports = function(studyAbstract, studyDesign, studyLimitations, studyObjective, studyResults, studyTitle) {
@@ -15009,7 +15270,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['significanceExplanation'] = undefined;
   /**
-   * Ex: Aggregated data from 21 suggests with a low degree of confidence (p=0.097) that Very Distracting Time (Work) has a moderately positive predictive relationship (R=0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day.
+   * Ex: Aggregated data from 21 suggests with a low degree of confidence (p=0.097) that Very Distracting Time has a moderately positive predictive relationship (R=0.354) with Video Activities  (Activity).  The highest quartile of Video Activities measurements were observed following an average 2.03h Very Distracting Timeper day.  The lowest quartile of Video Activities  measurements were observed following an average 1.04h Very Distracting Timeper day.
    * @member {String} studyAbstract
    */
   exports.prototype['studyAbstract'] = undefined;
@@ -15029,7 +15290,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['studyObjective'] = undefined;
   /**
-   * Ex: This analysis suggests that higher Very Distracting Time (Work) generally predicts negative Video Activities (p = 0.097). Video Activities is, on average, 36%  higher after around 2.03 Very Distracting Time.  After an onset delay of 168 hours, Video Activities is, on average, 16%  lower than its average over the 168 hours following around 1.04 Very Distracting Time.  146 data points were used in this analysis.  The value for Very Distracting Time changed 2984 times, effectively running 1492 separate natural experiments. The top quartile outcome values are preceded by an average 2.03 h of Very Distracting Time.  The bottom quartile outcome values are preceded by an average 1.04 h of Very Distracting Time.  Forward Pearson Correlation Coefficient was 0.354 (p=0.097, 95% CI -0.437 to 1.144 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0.208 (P=0.097, 95% CI -0.583 to 0.998, onset delay = -0 hours, duration of action = -168 hours). When the Very Distracting Time value is closer to 2.03 h than 1.04 h, the Video Activities value which follows is, on average, 36% percent higher than its typical value.  When the Very Distracting Time value is closer to 1.04 h than 2.03 h, the Video Activities value which follows is 0% lower than its typical value.  Video Activities is 5 h (67% higher) on average after days with around 5 h Very Distracting Time
+   * Ex: This analysis suggests that higher Very Distracting Time generally predicts negative Video Activities (p = 0.097). Video Activities is, on average, 36%  higher after around 2.03 Very Distracting Time.  After an onset delay of 168 hours, Video Activities is, on average, 16%  lower than its average over the 168 hours following around 1.04 Very Distracting Time.  146 data points were used in this analysis.  The value for Very Distracting Time changed 2984 times, effectively running 1492 separate natural experiments. The top quartile outcome values are preceded by an average 2.03 h of Very Distracting Time.  The bottom quartile outcome values are preceded by an average 1.04 h of Very Distracting Time.  Forward Pearson Correlation Coefficient was 0.354 (p=0.097, 95% CI -0.437 to 1.144 onset delay = 0 hours, duration of action = 168 hours) .  The Reverse Pearson Correlation Coefficient was 0.208 (P=0.097, 95% CI -0.583 to 0.998, onset delay = -0 hours, duration of action = -168 hours). When the Very Distracting Time value is closer to 2.03 h than 1.04 h, the Video Activities value which follows is, on average, 36% percent higher than its typical value.  When the Very Distracting Time value is closer to 1.04 h than 2.03 h, the Video Activities value which follows is 0% lower than its typical value.  Video Activities is 5 h (67% higher) on average after days with around 5 h Very Distracting Time
    * @member {String} studyResults
    */
   exports.prototype['studyResults'] = undefined;
@@ -15204,7 +15465,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @class
    * @param unitAbbreviatedName {String} Ex: /5
    * @param reminderFrequency {Number} Number of seconds between one reminder and the next
-   * @param variableCategoryName {String} Name of the variable category to be used when sending measurements
+   * @param variableCategoryName {module:model/TrackingReminder.VariableCategoryNameEnum} Ex: Emotions, Treatments, Symptoms...
    * @param variableName {String} Name of the variable to be used when sending measurements
    */
   var exports = function(unitAbbreviatedName, reminderFrequency, variableCategoryName, variableName) {
@@ -15687,7 +15948,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['unitName'] = undefined;
   /**
-   * Default value to use for the measurement when tracking
+   * Default value to use for the measurement when tracking. Unit: User-specified or common.
    * @member {Number} defaultValue
    */
   exports.prototype['defaultValue'] = undefined;
@@ -15707,7 +15968,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['errorMessage'] = undefined;
   /**
-   * Ex: 0
+   * Ex: 0. Unit: User-specified or common.
    * @member {Number} fillingValue
    */
   exports.prototype['fillingValue'] = undefined;
@@ -15775,12 +16036,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * Ex: 5
+   * Ex: 5. Unit: User-specified or common.
    * @member {Number} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Ex: 1
+   * Ex: 1. Unit: User-specified or common.
    * @member {Number} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
@@ -15885,7 +16146,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['secondDailyReminderTime'] = undefined;
   /**
-   * Ex: 1
+   * Ex: 1. Unit: User-specified or common.
    * @member {Number} secondToLastValue
    */
   exports.prototype['secondToLastValue'] = undefined;
@@ -16005,8 +16266,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableCategoryImageUrl'] = undefined;
   /**
-   * Name of the variable category to be used when sending measurements
-   * @member {String} variableCategoryName
+   * Ex: Emotions, Treatments, Symptoms...
+   * @member {module:model/TrackingReminder.VariableCategoryNameEnum} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
@@ -16042,6 +16303,128 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @const
      */
     "SUM": "SUM"  };
+
+  /**
+   * Allowed values for the <code>variableCategoryName</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.VariableCategoryNameEnum = {
+    /**
+     * value: "Activity"
+     * @const
+     */
+    "Activity": "Activity",
+    /**
+     * value: "Books"
+     * @const
+     */
+    "Books": "Books",
+    /**
+     * value: "Causes of Illness"
+     * @const
+     */
+    "Causes of Illness": "Causes of Illness",
+    /**
+     * value: "Cognitive Performance"
+     * @const
+     */
+    "Cognitive Performance": "Cognitive Performance",
+    /**
+     * value: "Conditions"
+     * @const
+     */
+    "Conditions": "Conditions",
+    /**
+     * value: "Emotions"
+     * @const
+     */
+    "Emotions": "Emotions",
+    /**
+     * value: "Environment"
+     * @const
+     */
+    "Environment": "Environment",
+    /**
+     * value: "Foods"
+     * @const
+     */
+    "Foods": "Foods",
+    /**
+     * value: "Goals"
+     * @const
+     */
+    "Goals": "Goals",
+    /**
+     * value: "Locations"
+     * @const
+     */
+    "Locations": "Locations",
+    /**
+     * value: "Miscellaneous"
+     * @const
+     */
+    "Miscellaneous": "Miscellaneous",
+    /**
+     * value: "Movies and TV"
+     * @const
+     */
+    "Movies and TV": "Movies and TV",
+    /**
+     * value: "Music"
+     * @const
+     */
+    "Music": "Music",
+    /**
+     * value: "Nutrients"
+     * @const
+     */
+    "Nutrients": "Nutrients",
+    /**
+     * value: "Payments"
+     * @const
+     */
+    "Payments": "Payments",
+    /**
+     * value: "Physical Activities"
+     * @const
+     */
+    "Physical Activities": "Physical Activities",
+    /**
+     * value: "Physique"
+     * @const
+     */
+    "Physique": "Physique",
+    /**
+     * value: "Sleep"
+     * @const
+     */
+    "Sleep": "Sleep",
+    /**
+     * value: "Social Interactions"
+     * @const
+     */
+    "Social Interactions": "Social Interactions",
+    /**
+     * value: "Software"
+     * @const
+     */
+    "Software": "Software",
+    /**
+     * value: "Symptoms"
+     * @const
+     */
+    "Symptoms": "Symptoms",
+    /**
+     * value: "Treatments"
+     * @const
+     */
+    "Treatments": "Treatments",
+    /**
+     * value: "Vital Signs"
+     * @const
+     */
+    "Vital Signs": "Vital Signs"  };
 
 
   return exports;
@@ -16617,7 +17000,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * Is the user specified default value or falls back to the last value in user unit. Good for initializing input fields
+   * Is the user specified default value or falls back to the last value in user unit. Good for initializing input fields. Unit: User-specified or common.
    * @member {Number} modifiedValue
    */
   exports.prototype['modifiedValue'] = undefined;
@@ -16931,8 +17314,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableCategoryImageUrl'] = undefined;
   /**
-   * Name of the variable category to be used when sending measurements
-   * @member {String} variableCategoryName
+   * Ex: Emotions, Treatments, Symptoms...
+   * @member {module:model/TrackingReminderNotification.VariableCategoryNameEnum} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
@@ -16968,6 +17351,128 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @const
      */
     "SUM": "SUM"  };
+
+  /**
+   * Allowed values for the <code>variableCategoryName</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.VariableCategoryNameEnum = {
+    /**
+     * value: "Activity"
+     * @const
+     */
+    "Activity": "Activity",
+    /**
+     * value: "Books"
+     * @const
+     */
+    "Books": "Books",
+    /**
+     * value: "Causes of Illness"
+     * @const
+     */
+    "Causes of Illness": "Causes of Illness",
+    /**
+     * value: "Cognitive Performance"
+     * @const
+     */
+    "Cognitive Performance": "Cognitive Performance",
+    /**
+     * value: "Conditions"
+     * @const
+     */
+    "Conditions": "Conditions",
+    /**
+     * value: "Emotions"
+     * @const
+     */
+    "Emotions": "Emotions",
+    /**
+     * value: "Environment"
+     * @const
+     */
+    "Environment": "Environment",
+    /**
+     * value: "Foods"
+     * @const
+     */
+    "Foods": "Foods",
+    /**
+     * value: "Goals"
+     * @const
+     */
+    "Goals": "Goals",
+    /**
+     * value: "Locations"
+     * @const
+     */
+    "Locations": "Locations",
+    /**
+     * value: "Miscellaneous"
+     * @const
+     */
+    "Miscellaneous": "Miscellaneous",
+    /**
+     * value: "Movies and TV"
+     * @const
+     */
+    "Movies and TV": "Movies and TV",
+    /**
+     * value: "Music"
+     * @const
+     */
+    "Music": "Music",
+    /**
+     * value: "Nutrients"
+     * @const
+     */
+    "Nutrients": "Nutrients",
+    /**
+     * value: "Payments"
+     * @const
+     */
+    "Payments": "Payments",
+    /**
+     * value: "Physical Activities"
+     * @const
+     */
+    "Physical Activities": "Physical Activities",
+    /**
+     * value: "Physique"
+     * @const
+     */
+    "Physique": "Physique",
+    /**
+     * value: "Sleep"
+     * @const
+     */
+    "Sleep": "Sleep",
+    /**
+     * value: "Social Interactions"
+     * @const
+     */
+    "Social Interactions": "Social Interactions",
+    /**
+     * value: "Software"
+     * @const
+     */
+    "Software": "Software",
+    /**
+     * value: "Symptoms"
+     * @const
+     */
+    "Symptoms": "Symptoms",
+    /**
+     * value: "Treatments"
+     * @const
+     */
+    "Treatments": "Treatments",
+    /**
+     * value: "Vital Signs"
+     * @const
+     */
+    "Vital Signs": "Vital Signs"  };
 
 
   return exports;
@@ -18525,12 +19030,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-
-
-
-
-
-
     _this['id'] = id;
 
 
@@ -18623,18 +19122,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     _this['userId'] = userId;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -18748,12 +19235,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('commonTagVariables')) {
         obj['commonTagVariables'] = ApiClient.convertToType(data['commonTagVariables'], [Variable]);
       }
-      if (data.hasOwnProperty('commonVariableMostCommonConnectorId')) {
-        obj['commonVariableMostCommonConnectorId'] = ApiClient.convertToType(data['commonVariableMostCommonConnectorId'], 'Number');
-      }
-      if (data.hasOwnProperty('commonVariableUpdatedAt')) {
-        obj['commonVariableUpdatedAt'] = ApiClient.convertToType(data['commonVariableUpdatedAt'], 'String');
-      }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
@@ -18790,20 +19271,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('experimentEndTime')) {
         obj['experimentEndTime'] = ApiClient.convertToType(data['experimentEndTime'], 'String');
       }
-      if (data.hasOwnProperty('experimentEndTimeSeconds')) {
-        obj['experimentEndTimeSeconds'] = ApiClient.convertToType(data['experimentEndTimeSeconds'], 'Number');
-      }
-      if (data.hasOwnProperty('experimentEndTimeString')) {
-        obj['experimentEndTimeString'] = ApiClient.convertToType(data['experimentEndTimeString'], 'String');
-      }
       if (data.hasOwnProperty('experimentStartTime')) {
         obj['experimentStartTime'] = ApiClient.convertToType(data['experimentStartTime'], 'String');
-      }
-      if (data.hasOwnProperty('experimentStartTimeSeconds')) {
-        obj['experimentStartTimeSeconds'] = ApiClient.convertToType(data['experimentStartTimeSeconds'], 'Number');
-      }
-      if (data.hasOwnProperty('experimentStartTimeString')) {
-        obj['experimentStartTimeString'] = ApiClient.convertToType(data['experimentStartTimeString'], 'String');
       }
       if (data.hasOwnProperty('fillingType')) {
         obj['fillingType'] = ApiClient.convertToType(data['fillingType'], 'String');
@@ -18853,20 +19322,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('kurtosis')) {
         obj['kurtosis'] = ApiClient.convertToType(data['kurtosis'], 'Number');
       }
-      if (data.hasOwnProperty('lastOriginalUnitId')) {
-        obj['lastOriginalUnitId'] = ApiClient.convertToType(data['lastOriginalUnitId'], 'Number');
-      }
-      if (data.hasOwnProperty('lastOriginalValue')) {
-        obj['lastOriginalValue'] = ApiClient.convertToType(data['lastOriginalValue'], 'Number');
-      }
       if (data.hasOwnProperty('lastProcessedDailyValue')) {
         obj['lastProcessedDailyValue'] = ApiClient.convertToType(data['lastProcessedDailyValue'], 'Number');
       }
       if (data.hasOwnProperty('lastSuccessfulUpdateTime')) {
         obj['lastSuccessfulUpdateTime'] = ApiClient.convertToType(data['lastSuccessfulUpdateTime'], 'String');
-      }
-      if (data.hasOwnProperty('lastUnitId')) {
-        obj['lastUnitId'] = ApiClient.convertToType(data['lastUnitId'], 'Number');
       }
       if (data.hasOwnProperty('lastValue')) {
         obj['lastValue'] = ApiClient.convertToType(data['lastValue'], 'Number');
@@ -18895,6 +19355,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('manualTracking')) {
         obj['manualTracking'] = ApiClient.convertToType(data['manualTracking'], 'Boolean');
       }
+      if (data.hasOwnProperty('maximumAllowedDailyValue')) {
+        obj['maximumAllowedDailyValue'] = ApiClient.convertToType(data['maximumAllowedDailyValue'], 'Number');
+      }
       if (data.hasOwnProperty('maximumAllowedValue')) {
         obj['maximumAllowedValue'] = ApiClient.convertToType(data['maximumAllowedValue'], 'Number');
       }
@@ -18915,6 +19378,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('minimumAllowedValue')) {
         obj['minimumAllowedValue'] = ApiClient.convertToType(data['minimumAllowedValue'], 'Number');
+      }
+      if (data.hasOwnProperty('minimumAllowedDailyValue')) {
+        obj['minimumAllowedDailyValue'] = ApiClient.convertToType(data['minimumAllowedDailyValue'], 'Number');
+      }
+      if (data.hasOwnProperty('minimumNonZeroValue')) {
+        obj['minimumNonZeroValue'] = ApiClient.convertToType(data['minimumNonZeroValue'], 'Number');
       }
       if (data.hasOwnProperty('minimumRecordedValue')) {
         obj['minimumRecordedValue'] = ApiClient.convertToType(data['minimumRecordedValue'], 'Number');
@@ -18986,7 +19455,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['outcome'] = ApiClient.convertToType(data['outcome'], 'Boolean');
       }
       if (data.hasOwnProperty('outcomeOfInterest')) {
-        obj['outcomeOfInterest'] = ApiClient.convertToType(data['outcomeOfInterest'], 'Number');
+        obj['outcomeOfInterest'] = ApiClient.convertToType(data['outcomeOfInterest'], 'Boolean');
       }
       if (data.hasOwnProperty('parentCommonTagVariables')) {
         obj['parentCommonTagVariables'] = ApiClient.convertToType(data['parentCommonTagVariables'], [Variable]);
@@ -19010,7 +19479,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['productUrl'] = ApiClient.convertToType(data['productUrl'], 'String');
       }
       if (data.hasOwnProperty('public')) {
-        obj['public'] = ApiClient.convertToType(data['public'], 'Number');
+        obj['public'] = ApiClient.convertToType(data['public'], 'Boolean');
       }
       if (data.hasOwnProperty('question')) {
         obj['question'] = ApiClient.convertToType(data['question'], 'String');
@@ -19111,41 +19580,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('userVariableUnitName')) {
         obj['userVariableUnitName'] = ApiClient.convertToType(data['userVariableUnitName'], 'String');
       }
-      if (data.hasOwnProperty('userVariableFillingValue')) {
-        obj['userVariableFillingValue'] = ApiClient.convertToType(data['userVariableFillingValue'], 'Number');
-      }
-      if (data.hasOwnProperty('userVariableMostCommonConnectorId')) {
-        obj['userVariableMostCommonConnectorId'] = ApiClient.convertToType(data['userVariableMostCommonConnectorId'], 'Number');
-      }
-      if (data.hasOwnProperty('userVariableUpdatedAt')) {
-        obj['userVariableUpdatedAt'] = ApiClient.convertToType(data['userVariableUpdatedAt'], 'String');
-      }
-      if (data.hasOwnProperty('userVariableValence')) {
-        obj['userVariableValence'] = ApiClient.convertToType(data['userVariableValence'], 'String');
-      }
-      if (data.hasOwnProperty('userVariableVariableCategoryId')) {
-        obj['userVariableVariableCategoryId'] = ApiClient.convertToType(data['userVariableVariableCategoryId'], 'Number');
-      }
-      if (data.hasOwnProperty('userVariableVariableCategoryName')) {
-        obj['userVariableVariableCategoryName'] = ApiClient.convertToType(data['userVariableVariableCategoryName'], 'String');
-      }
-      if (data.hasOwnProperty('userVariableWikipediaTitle')) {
-        obj['userVariableWikipediaTitle'] = ApiClient.convertToType(data['userVariableWikipediaTitle'], 'String');
-      }
       if (data.hasOwnProperty('variableCategory')) {
         obj['variableCategory'] = VariableCategory.constructFromObject(data['variableCategory']);
       }
       if (data.hasOwnProperty('joinedVariables')) {
         obj['joinedVariables'] = ApiClient.convertToType(data['joinedVariables'], [Variable]);
-      }
-      if (data.hasOwnProperty('lastSource')) {
-        obj['lastSource'] = ApiClient.convertToType(data['lastSource'], 'Number');
-      }
-      if (data.hasOwnProperty('lastUnit')) {
-        obj['lastUnit'] = ApiClient.convertToType(data['lastUnit'], 'String');
-      }
-      if (data.hasOwnProperty('mostCommonUnit')) {
-        obj['mostCommonUnit'] = ApiClient.convertToType(data['mostCommonUnit'], 'String');
       }
       if (data.hasOwnProperty('valence')) {
         obj['valence'] = ApiClient.convertToType(data['valence'], 'String');
@@ -19153,14 +19592,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('variableCategoryId')) {
         obj['variableCategoryId'] = ApiClient.convertToType(data['variableCategoryId'], 'Number');
       }
-      if (data.hasOwnProperty('variableCategoryImageUrl')) {
-        obj['variableCategoryImageUrl'] = ApiClient.convertToType(data['variableCategoryImageUrl'], 'String');
-      }
       if (data.hasOwnProperty('variableCategoryName')) {
         obj['variableCategoryName'] = ApiClient.convertToType(data['variableCategoryName'], 'String');
-      }
-      if (data.hasOwnProperty('variableFillingValue')) {
-        obj['variableFillingValue'] = ApiClient.convertToType(data['variableFillingValue'], 'Number');
       }
       if (data.hasOwnProperty('variableId')) {
         obj['variableId'] = ApiClient.convertToType(data['variableId'], 'Number');
@@ -19183,7 +19616,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['actionArray'] = undefined;
   /**
-   * Alternative name
+   * User-Defined Variable Setting:  Alternative display name
    * @member {String} alias
    */
   exports.prototype['alias'] = undefined;
@@ -19242,7 +19675,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['card'] = undefined;
   /**
-   * A value of 1 indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user
+   * User-Defined Variable Setting: True indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user
    * @member {Boolean} causeOnly
    */
   exports.prototype['causeOnly'] = undefined;
@@ -19286,7 +19719,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['childCommonTagVariables'] = undefined;
   /**
-   * User-defined. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
+   * User-Defined Variable Setting: An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
    * @member {Array.<module:model/Variable>} childUserTagVariables
    */
   exports.prototype['childUserTagVariables'] = undefined;
@@ -19296,8 +19729,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['clientId'] = undefined;
   /**
-   * Ex: MEAN
-   * @member {String} combinationOperation
+   * User-Defined Variable Setting: How to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.
+   * @member {module:model/Variable.CombinationOperationEnum} combinationOperation
    */
   exports.prototype['combinationOperation'] = undefined;
   /**
@@ -19314,16 +19747,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['commonTagVariables'] = undefined;
   /**
-   * Ex: 51
-   * @member {Number} commonVariableMostCommonConnectorId
-   */
-  exports.prototype['commonVariableMostCommonConnectorId'] = undefined;
-  /**
-   * Ex: 2017-02-07 23:43:39 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @member {String} commonVariableUpdatedAt
-   */
-  exports.prototype['commonVariableUpdatedAt'] = undefined;
-  /**
    * When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
    * @member {String} createdAt
    */
@@ -19339,7 +19762,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['dataSources'] = undefined;
   /**
-   * Ex: negative
+   * User-Defined Variable Setting: Ex: Summary to be used in studies.
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
@@ -19349,12 +19772,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['displayName'] = undefined;
   /**
-   * The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.
+   * The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay. Unit: Seconds
    * @member {Number} durationOfAction
    */
   exports.prototype['durationOfAction'] = undefined;
   /**
-   * Ex: 168
+   * User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Hours
    * @member {Number} durationOfActionInHours
    */
   exports.prototype['durationOfActionInHours'] = undefined;
@@ -19374,47 +19797,27 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['earliestSourceTime'] = undefined;
   /**
-   * error_message
+   * Error message from last analysis
    * @member {String} errorMessage
    */
   exports.prototype['errorMessage'] = undefined;
   /**
-   * Latest measurement start_time to be used in analysis. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * User-Defined Variable Setting: Latest measurement time to be used in analysis. Format: UTC ISO 8601 YYYY-MM-DDThh:mm:ss.
    * @member {String} experimentEndTime
    */
   exports.prototype['experimentEndTime'] = undefined;
   /**
-   * Ex: 1893477600
-   * @member {Number} experimentEndTimeSeconds
-   */
-  exports.prototype['experimentEndTimeSeconds'] = undefined;
-  /**
-   * Ex: 2030-01-01 06:00:00 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @member {String} experimentEndTimeString
-   */
-  exports.prototype['experimentEndTimeString'] = undefined;
-  /**
-   * Earliest measurement start_time to be used in analysis. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+   * User-Defined Variable Setting: Earliest measurement time to be used in analysis. Format: UTC ISO 8601 YYYY-MM-DDThh:mm:ss.
    * @member {String} experimentStartTime
    */
   exports.prototype['experimentStartTime'] = undefined;
   /**
-   * Ex: 1269307902
-   * @member {Number} experimentStartTimeSeconds
-   */
-  exports.prototype['experimentStartTimeSeconds'] = undefined;
-  /**
-   * Ex: 2010-03-23 01:31:42 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @member {String} experimentStartTimeString
-   */
-  exports.prototype['experimentStartTimeString'] = undefined;
-  /**
-   * 0 -> No filling, 1 -> Use filling-value
-   * @member {String} fillingType
+   * User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.
+   * @member {module:model/Variable.FillingTypeEnum} fillingType
    */
   exports.prototype['fillingType'] = undefined;
   /**
-   * When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.
+   * User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.  Unit: User-specified or common.
    * @member {Number} fillingValue
    */
   exports.prototype['fillingValue'] = undefined;
@@ -19449,17 +19852,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['ingredientCommonTagVariables'] = undefined;
   /**
-   * User-specific IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
+   * User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
    * @member {Array.<module:model/Variable>} ingredientOfUserTagVariables
    */
   exports.prototype['ingredientOfUserTagVariables'] = undefined;
   /**
-   * User-specific IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
+   * User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollypop could be Sugar.  This way you only have to record Lollypop consumption and we can use this data to see how sugar might be affecting you.
    * @member {Array.<module:model/Variable>} ingredientUserTagVariables
    */
   exports.prototype['ingredientUserTagVariables'] = undefined;
   /**
-   * Ex: value
+   * Type of input field to show for recording measurements
    * @member {String} inputType
    */
   exports.prototype['inputType'] = undefined;
@@ -19474,12 +19877,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['joinedCommonTagVariables'] = undefined;
   /**
-   * User-defined. Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.
+   * User-Defined Variable Setting: Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.
    * @member {Array.<module:model/Variable>} joinedUserTagVariables
    */
   exports.prototype['joinedUserTagVariables'] = undefined;
   /**
-   * The Variable this Variable should be joined with. If the variable is joined with some other variable then it is not shown to user in the list of variables
+   * Duplicate variables. If the variable is joined with some other variable then it is not shown to user in the list of variables
    * @member {Number} joinWith
    */
   exports.prototype['joinWith'] = undefined;
@@ -19489,17 +19892,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['kurtosis'] = undefined;
   /**
-   * ID of last original Unit
-   * @member {Number} lastOriginalUnitId
-   */
-  exports.prototype['lastOriginalUnitId'] = undefined;
-  /**
-   * Last original value which is stored
-   * @member {Number} lastOriginalValue
-   */
-  exports.prototype['lastOriginalValue'] = undefined;
-  /**
-   * Ex: 500
+   * Calculated Statistic: Ex: 500. Unit: User-specified or common.
    * @member {Number} lastProcessedDailyValue
    */
   exports.prototype['lastProcessedDailyValue'] = undefined;
@@ -19509,12 +19902,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['lastSuccessfulUpdateTime'] = undefined;
   /**
-   * ID of last Unit
-   * @member {Number} lastUnitId
-   */
-  exports.prototype['lastUnitId'] = undefined;
-  /**
-   * Last Value
+   * Calculated Statistic: Last measurement value in the common unit or user unit if different. Unit: User-specified or common.
    * @member {Number} lastValue
    */
   exports.prototype['lastValue'] = undefined;
@@ -19524,22 +19912,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['latestFillingTime'] = undefined;
   /**
-   * Latest measurement time
+   * Latest measurement time. Format: Unix-time epoch seconds.
    * @member {Number} latestMeasurementTime
    */
   exports.prototype['latestMeasurementTime'] = undefined;
   /**
-   * Latest source time
+   * Latest source time. Format: Unix-time epoch seconds.
    * @member {Number} latestSourceTime
    */
   exports.prototype['latestSourceTime'] = undefined;
   /**
-   * Ex: 1501383600
+   * Ex: 1501383600. Format: Unix-time epoch seconds.
    * @member {Number} latestUserMeasurementTime
    */
   exports.prototype['latestUserMeasurementTime'] = undefined;
   /**
-   * Latitude
+   * Latitude. Unit: User-specified or common.
    * @member {Number} latitude
    */
   exports.prototype['latitude'] = undefined;
@@ -19554,27 +19942,32 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['longitude'] = undefined;
   /**
-   * Ex: 1
+   * True if the variable is an emotion or symptom rating that is not typically automatically collected by a device or app.
    * @member {Boolean} manualTracking
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * The maximum allowed value for measurements. While you can record a value above this maximum, it will be excluded from the correlation analysis.
+   * User-Defined Variable Setting: The maximum allowed value a daily aggregated measurement. Unit: User-specified or common.
+   * @member {Number} maximumAllowedDailyValue
+   */
+  exports.prototype['maximumAllowedDailyValue'] = undefined;
+  /**
+   * User-Defined Variable Setting: The maximum allowed value a single measurement. While you can record a value above this maximum, it will be excluded from the correlation analysis.  Unit: User-specified or common.
    * @member {Number} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
   /**
-   * Maximum recorded daily value of this variable
+   * Calculated Statistic: Maximum recorded daily value of this variable. Unit: User-specified or common.
    * @member {Number} maximumRecordedDailyValue
    */
   exports.prototype['maximumRecordedDailyValue'] = undefined;
   /**
-   * Ex: 1
+   * Calculated Statistic: Ex: 1. Unit: User-specified or common.
    * @member {Number} maximumRecordedValue
    */
   exports.prototype['maximumRecordedValue'] = undefined;
   /**
-   * Mean
+   * Mean. Unit: User-specified or common.
    * @member {Number} mean
    */
   exports.prototype['mean'] = undefined;
@@ -19589,12 +19982,22 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['median'] = undefined;
   /**
-   * The minimum allowed value for measurements. While you can record a value below this minimum, it will be excluded from the correlation analysis.
+   * User-Defined Variable Setting: The minimum allowed value a single measurement. While you can record a value below this minimum, it will be excluded from the correlation analysis. Unit: User-specified or common
    * @member {Number} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
   /**
-   * Minimum recorded value of this variable
+   * User-Defined Variable Setting: The minimum allowed value a daily aggregated measurement.  For instance, you might set to 100 for steps to keep erroneous 0 daily steps out of the analysis. Unit: User-specified or common.
+   * @member {Number} minimumAllowedDailyValue
+   */
+  exports.prototype['minimumAllowedDailyValue'] = undefined;
+  /**
+   * User-Defined Variable Setting: The minimum allowed non-zero value a single measurement.  For instance, you might set to 100 mL for steps to keep erroneous 0 daily steps out of the analysis. Unit: User-specified or common.
+   * @member {Number} minimumNonZeroValue
+   */
+  exports.prototype['minimumNonZeroValue'] = undefined;
+  /**
+   * Minimum recorded value of this variable. Unit: User-specified or common.
    * @member {Number} minimumRecordedValue
    */
   exports.prototype['minimumRecordedValue'] = undefined;
@@ -19614,7 +20017,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['mostCommonUnitId'] = undefined;
   /**
-   * Most common value
+   * Calculated Statistic: Most common value. Unit: User-specified or common.
    * @member {Number} mostCommonValue
    */
   exports.prototype['mostCommonValue'] = undefined;
@@ -19699,18 +20102,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['onsetDelay'] = undefined;
   /**
-   * Ex: 0.5
+   * User-Defined Variable Setting: The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
    * @member {Number} onsetDelayInHours
    */
   exports.prototype['onsetDelayInHours'] = undefined;
   /**
-   * Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors. These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables
+   * User-Defined Variable Setting: True for variables for which a human would generally want to identify the influencing factors. These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables
    * @member {Boolean} outcome
    */
   exports.prototype['outcome'] = undefined;
   /**
-   * Ex: 1
-   * @member {Number} outcomeOfInterest
+   * Do you want to receive updates on newly discovered factors influencing this variable?
+   * @member {Boolean} outcomeOfInterest
    */
   exports.prototype['outcomeOfInterest'] = undefined;
   /**
@@ -19749,8 +20152,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['productUrl'] = undefined;
   /**
-   * Is variable public
-   * @member {Number} public
+   * Should this variable show up in automcomplete searches for users who do not already have measurements for it?
+   * @member {Boolean} public
    */
   exports.prototype['public'] = undefined;
   /**
@@ -19769,12 +20172,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['rawMeasurementsAtLastAnalysis'] = undefined;
   /**
-   * Ex: 1
+   * Calculated Statistic: Ex: 1. Unit: User-specified or common.
    * @member {Number} secondMostCommonValue
    */
   exports.prototype['secondMostCommonValue'] = undefined;
   /**
-   * Ex: 250
+   * Calculated Statistic: Ex: 250. Unit: User-specified or common.
    * @member {Number} secondToLastValue
    */
   exports.prototype['secondToLastValue'] = undefined;
@@ -19809,12 +20212,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['svgUrl'] = undefined;
   /**
-   * Ex: 6
+   * Calculated Statistic: Ex: 6. Unit: User-specified or common.
    * @member {Number} thirdMostCommonValue
    */
   exports.prototype['thirdMostCommonValue'] = undefined;
   /**
-   * Ex: 250
+   * Calculated Statistic: Ex: 250. Unit: User-specified or common.
    * @member {Number} thirdToLastValue
    */
   exports.prototype['thirdToLastValue'] = undefined;
@@ -19853,7 +20256,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['unitId'] = undefined;
   /**
-   * Ex: Count
+   * User-Defined Variable Setting: Count
    * @member {String} unitName
    */
   exports.prototype['unitName'] = undefined;
@@ -19916,41 +20319,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userVariableUnitName'] = undefined;
   /**
-   * Ex: -1
-   * @member {Number} userVariableFillingValue
-   */
-  exports.prototype['userVariableFillingValue'] = undefined;
-  /**
-   * Ex: 51
-   * @member {Number} userVariableMostCommonConnectorId
-   */
-  exports.prototype['userVariableMostCommonConnectorId'] = undefined;
-  /**
-   * Ex: 2017-07-30 14:58:26
-   * @member {String} userVariableUpdatedAt
-   */
-  exports.prototype['userVariableUpdatedAt'] = undefined;
-  /**
-   * Ex: positive or negative
-   * @member {String} userVariableValence
-   */
-  exports.prototype['userVariableValence'] = undefined;
-  /**
-   * Ex: 13
-   * @member {Number} userVariableVariableCategoryId
-   */
-  exports.prototype['userVariableVariableCategoryId'] = undefined;
-  /**
-   * Ex: Treatments
-   * @member {String} userVariableVariableCategoryName
-   */
-  exports.prototype['userVariableVariableCategoryName'] = undefined;
-  /**
-   * Ex: 
-   * @member {String} userVariableWikipediaTitle
-   */
-  exports.prototype['userVariableWikipediaTitle'] = undefined;
-  /**
    * @member {module:model/VariableCategory} variableCategory
    */
   exports.prototype['variableCategory'] = undefined;
@@ -19959,21 +20327,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Array.<module:model/Variable>} joinedVariables
    */
   exports.prototype['joinedVariables'] = undefined;
-  /**
-   * Last source
-   * @member {Number} lastSource
-   */
-  exports.prototype['lastSource'] = undefined;
-  /**
-   * Last unit
-   * @member {String} lastUnit
-   */
-  exports.prototype['lastUnit'] = undefined;
-  /**
-   * Most common unit
-   * @member {String} mostCommonUnit
-   */
-  exports.prototype['mostCommonUnit'] = undefined;
   /**
    * Ex: positive
    * @member {String} valence
@@ -19985,20 +20338,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableCategoryId'] = undefined;
   /**
-   * Ex: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
-   * @member {String} variableCategoryImageUrl
-   */
-  exports.prototype['variableCategoryImageUrl'] = undefined;
-  /**
-   * Variable category like Mood, Sleep, Physical Activity, Treatment, Symptom, etc.
-   * @member {String} variableCategoryName
+   * User-Defined Variable Setting: Variable category like Emotions, Sleep, Physical Activities, Treatments, Symptoms, etc.
+   * @member {module:model/Variable.VariableCategoryNameEnum} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
-  /**
-   * Ex: -1
-   * @member {Number} variableFillingValue
-   */
-  exports.prototype['variableFillingValue'] = undefined;
   /**
    * Ex: 96380
    * @member {Number} variableId
@@ -20010,16 +20353,177 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableName'] = undefined;
   /**
-   * Ex: 115947037.40816
+   * Statistic: Ex: 115947037.40816
    * @member {Number} variance
    */
   exports.prototype['variance'] = undefined;
   /**
-   * Ex: 
+   * User-Defined Variable Setting: You can help to improve the studies by pasting the title of the most appropriate Wikipedia article for this variable
    * @member {String} wikipediaTitle
    */
   exports.prototype['wikipediaTitle'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>combinationOperation</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.CombinationOperationEnum = {
+    /**
+     * value: "MEAN"
+     * @const
+     */
+    "MEAN": "MEAN",
+    /**
+     * value: "SUM"
+     * @const
+     */
+    "SUM": "SUM"  };
+
+  /**
+   * Allowed values for the <code>fillingType</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.FillingTypeEnum = {
+    /**
+     * value: "none"
+     * @const
+     */
+    "none": "none",
+    /**
+     * value: "zero-filling"
+     * @const
+     */
+    "zero-filling": "zero-filling",
+    /**
+     * value: "value-filling"
+     * @const
+     */
+    "value-filling": "value-filling"  };
+
+  /**
+   * Allowed values for the <code>variableCategoryName</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.VariableCategoryNameEnum = {
+    /**
+     * value: "Activity"
+     * @const
+     */
+    "Activity": "Activity",
+    /**
+     * value: "Books"
+     * @const
+     */
+    "Books": "Books",
+    /**
+     * value: "Causes of Illness"
+     * @const
+     */
+    "Causes of Illness": "Causes of Illness",
+    /**
+     * value: "Cognitive Performance"
+     * @const
+     */
+    "Cognitive Performance": "Cognitive Performance",
+    /**
+     * value: "Conditions"
+     * @const
+     */
+    "Conditions": "Conditions",
+    /**
+     * value: "Emotions"
+     * @const
+     */
+    "Emotions": "Emotions",
+    /**
+     * value: "Environment"
+     * @const
+     */
+    "Environment": "Environment",
+    /**
+     * value: "Foods"
+     * @const
+     */
+    "Foods": "Foods",
+    /**
+     * value: "Goals"
+     * @const
+     */
+    "Goals": "Goals",
+    /**
+     * value: "Locations"
+     * @const
+     */
+    "Locations": "Locations",
+    /**
+     * value: "Miscellaneous"
+     * @const
+     */
+    "Miscellaneous": "Miscellaneous",
+    /**
+     * value: "Movies and TV"
+     * @const
+     */
+    "Movies and TV": "Movies and TV",
+    /**
+     * value: "Music"
+     * @const
+     */
+    "Music": "Music",
+    /**
+     * value: "Nutrients"
+     * @const
+     */
+    "Nutrients": "Nutrients",
+    /**
+     * value: "Payments"
+     * @const
+     */
+    "Payments": "Payments",
+    /**
+     * value: "Physical Activities"
+     * @const
+     */
+    "Physical Activities": "Physical Activities",
+    /**
+     * value: "Physique"
+     * @const
+     */
+    "Physique": "Physique",
+    /**
+     * value: "Sleep"
+     * @const
+     */
+    "Sleep": "Sleep",
+    /**
+     * value: "Social Interactions"
+     * @const
+     */
+    "Social Interactions": "Social Interactions",
+    /**
+     * value: "Software"
+     * @const
+     */
+    "Software": "Software",
+    /**
+     * value: "Symptoms"
+     * @const
+     */
+    "Symptoms": "Symptoms",
+    /**
+     * value: "Treatments"
+     * @const
+     */
+    "Treatments": "Treatments",
+    /**
+     * value: "Vital Signs"
+     * @const
+     */
+    "Vital Signs": "Vital Signs"  };
 
 
   return exports;
@@ -20242,12 +20746,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['unitId'] = undefined;
   /**
-   * Ex: 86400
+   * User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Seconds
    * @member {Number} durationOfAction
    */
   exports.prototype['durationOfAction'] = undefined;
   /**
-   * Ex: -1
+   * Ex: -1. Unit: Variable category default unit.
    * @member {Number} fillingValue
    */
   exports.prototype['fillingValue'] = undefined;
@@ -20277,7 +20781,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['manualTracking'] = undefined;
   /**
-   * Ex: 
+   * Unit: Variable category default unit.
    * @member {String} maximumAllowedValue
    */
   exports.prototype['maximumAllowedValue'] = undefined;
@@ -20287,7 +20791,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['measurementSynonymSingularLowercase'] = undefined;
   /**
-   * Ex: 
+   * Unit: Variable category default unit.
    * @member {String} minimumAllowedValue
    */
   exports.prototype['minimumAllowedValue'] = undefined;
@@ -20347,8 +20851,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['updatedTime'] = undefined;
   /**
-   * Ex: Emotions
-   * @member {String} variableCategoryName
+   * Ex: Emotions, Treatments, Symptoms...
+   * @member {module:model/VariableCategory.VariableCategoryNameEnum} variableCategoryName
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
@@ -20357,6 +20861,128 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableCategoryNameSingular'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>variableCategoryName</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.VariableCategoryNameEnum = {
+    /**
+     * value: "Activity"
+     * @const
+     */
+    "Activity": "Activity",
+    /**
+     * value: "Books"
+     * @const
+     */
+    "Books": "Books",
+    /**
+     * value: "Causes of Illness"
+     * @const
+     */
+    "Causes of Illness": "Causes of Illness",
+    /**
+     * value: "Cognitive Performance"
+     * @const
+     */
+    "Cognitive Performance": "Cognitive Performance",
+    /**
+     * value: "Conditions"
+     * @const
+     */
+    "Conditions": "Conditions",
+    /**
+     * value: "Emotions"
+     * @const
+     */
+    "Emotions": "Emotions",
+    /**
+     * value: "Environment"
+     * @const
+     */
+    "Environment": "Environment",
+    /**
+     * value: "Foods"
+     * @const
+     */
+    "Foods": "Foods",
+    /**
+     * value: "Goals"
+     * @const
+     */
+    "Goals": "Goals",
+    /**
+     * value: "Locations"
+     * @const
+     */
+    "Locations": "Locations",
+    /**
+     * value: "Miscellaneous"
+     * @const
+     */
+    "Miscellaneous": "Miscellaneous",
+    /**
+     * value: "Movies and TV"
+     * @const
+     */
+    "Movies and TV": "Movies and TV",
+    /**
+     * value: "Music"
+     * @const
+     */
+    "Music": "Music",
+    /**
+     * value: "Nutrients"
+     * @const
+     */
+    "Nutrients": "Nutrients",
+    /**
+     * value: "Payments"
+     * @const
+     */
+    "Payments": "Payments",
+    /**
+     * value: "Physical Activities"
+     * @const
+     */
+    "Physical Activities": "Physical Activities",
+    /**
+     * value: "Physique"
+     * @const
+     */
+    "Physique": "Physique",
+    /**
+     * value: "Sleep"
+     * @const
+     */
+    "Sleep": "Sleep",
+    /**
+     * value: "Social Interactions"
+     * @const
+     */
+    "Social Interactions": "Social Interactions",
+    /**
+     * value: "Software"
+     * @const
+     */
+    "Software": "Software",
+    /**
+     * value: "Symptoms"
+     * @const
+     */
+    "Symptoms": "Symptoms",
+    /**
+     * value: "Treatments"
+     * @const
+     */
+    "Treatments": "Treatments",
+    /**
+     * value: "Vital Signs"
+     * @const
+     */
+    "Vital Signs": "Vital Signs"  };
 
 
   return exports;
@@ -20538,7 +21164,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @param clientId {String} Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
    * @param effectVariableId {Number} Effect variable id
    * @param userId {Number} ID of User
-   * @param value {Boolean} Vote: 0 (for implausible) or 1 (for plausible)
+   * @param value {module:model/Vote.ValueEnum} Vote down for implausible/not-useful or up for plausible/useful. Vote none to delete a previous vote.
    */
   var exports = function(causeVariableId, clientId, effectVariableId, userId, value) {
     var _this = this;
@@ -20551,6 +21177,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['userId'] = userId;
     _this['value'] = value;
+
   };
 
   /**
@@ -20586,7 +21213,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
       }
       if (data.hasOwnProperty('value')) {
-        obj['value'] = ApiClient.convertToType(data['value'], 'Boolean');
+        obj['value'] = ApiClient.convertToType(data['value'], 'String');
+      }
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
     }
     return obj;
@@ -20628,11 +21258,55 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userId'] = undefined;
   /**
-   * Vote: 0 (for implausible) or 1 (for plausible)
-   * @member {Boolean} value
+   * Vote down for implausible/not-useful or up for plausible/useful. Vote none to delete a previous vote.
+   * @member {module:model/Vote.ValueEnum} value
    */
   exports.prototype['value'] = undefined;
+  /**
+   * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+   * @member {module:model/Vote.TypeEnum} type
+   */
+  exports.prototype['type'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>value</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.ValueEnum = {
+    /**
+     * value: "up"
+     * @const
+     */
+    "up": "up",
+    /**
+     * value: "down"
+     * @const
+     */
+    "down": "down",
+    /**
+     * value: "none"
+     * @const
+     */
+    "none": "none"  };
+
+  /**
+   * Allowed values for the <code>type</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.TypeEnum = {
+    /**
+     * value: "causality"
+     * @const
+     */
+    "causality": "causality",
+    /**
+     * value: "usefulness"
+     * @const
+     */
+    "usefulness": "usefulness"  };
 
 
   return exports;
@@ -20939,7 +21613,7 @@ function typedArraySupport () {
   // Can typed array instances can be augmented?
   try {
     var arr = new Uint8Array(1)
-    arr.__proto__ = {__proto__: Uint8Array.prototype, foo: function () { return 42 }}
+    arr.__proto__ = { __proto__: Uint8Array.prototype, foo: function () { return 42 } }
     return arr.foo() === 42
   } catch (e) {
     return false

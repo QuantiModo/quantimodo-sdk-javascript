@@ -104,6 +104,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instane = new Quantimodo.Vote();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

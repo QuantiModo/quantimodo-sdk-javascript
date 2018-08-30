@@ -116,7 +116,7 @@
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {String} opts.reminderTime Ex: (lt)2017-07-31 21:43:26
      * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {Boolean} opts.onlyPast Ex: 1
@@ -178,7 +178,7 @@
      * Users can be reminded to track certain variables at a specified frequency with a default value.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId User&#39;s id
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)

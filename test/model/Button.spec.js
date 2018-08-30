@@ -170,6 +170,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property webhookUrl (base name: "webhookUrl")', function() {
+      // uncomment below and update the code to test the property webhookUrl
+      //var instane = new Quantimodo.Button();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

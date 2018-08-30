@@ -10,6 +10,31 @@ Name | Type | Description | Notes
 **id** | **Number** | id | [optional] 
 **updatedAt** | **String** | When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format | [optional] 
 **userId** | **Number** | ID of User | 
-**value** | **Boolean** | Vote: 0 (for implausible) or 1 (for plausible) | 
+**value** | **String** | Vote down for implausible/not-useful or up for plausible/useful. Vote none to delete a previous vote. | 
+**type** | **String** | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do | [optional] 
+
+
+<a name="ValueEnum"></a>
+## Enum: ValueEnum
+
+
+* `up` (value: `"up"`)
+
+* `down` (value: `"down"`)
+
+* `none` (value: `"none"`)
+
+
+
+
+<a name="TypeEnum"></a>
+## Enum: TypeEnum
+
+
+* `causality` (value: `"causality"`)
+
+* `usefulness` (value: `"usefulness"`)
+
+
 
 

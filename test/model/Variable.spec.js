@@ -224,18 +224,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property commonVariableMostCommonConnectorId (base name: "commonVariableMostCommonConnectorId")', function() {
-      // uncomment below and update the code to test the property commonVariableMostCommonConnectorId
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property commonVariableUpdatedAt (base name: "commonVariableUpdatedAt")', function() {
-      // uncomment below and update the code to test the property commonVariableUpdatedAt
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property createdAt (base name: "createdAt")', function() {
       // uncomment below and update the code to test the property createdAt
       //var instane = new Quantimodo.Variable();
@@ -308,32 +296,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property experimentEndTimeSeconds (base name: "experimentEndTimeSeconds")', function() {
-      // uncomment below and update the code to test the property experimentEndTimeSeconds
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property experimentEndTimeString (base name: "experimentEndTimeString")', function() {
-      // uncomment below and update the code to test the property experimentEndTimeString
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property experimentStartTime (base name: "experimentStartTime")', function() {
       // uncomment below and update the code to test the property experimentStartTime
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property experimentStartTimeSeconds (base name: "experimentStartTimeSeconds")', function() {
-      // uncomment below and update the code to test the property experimentStartTimeSeconds
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property experimentStartTimeString (base name: "experimentStartTimeString")', function() {
-      // uncomment below and update the code to test the property experimentStartTimeString
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
@@ -434,18 +398,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property lastOriginalUnitId (base name: "lastOriginalUnitId")', function() {
-      // uncomment below and update the code to test the property lastOriginalUnitId
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property lastOriginalValue (base name: "lastOriginalValue")', function() {
-      // uncomment below and update the code to test the property lastOriginalValue
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property lastProcessedDailyValue (base name: "lastProcessedDailyValue")', function() {
       // uncomment below and update the code to test the property lastProcessedDailyValue
       //var instane = new Quantimodo.Variable();
@@ -454,12 +406,6 @@
 
     it('should have the property lastSuccessfulUpdateTime (base name: "lastSuccessfulUpdateTime")', function() {
       // uncomment below and update the code to test the property lastSuccessfulUpdateTime
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property lastUnitId (base name: "lastUnitId")', function() {
-      // uncomment below and update the code to test the property lastUnitId
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
@@ -518,6 +464,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property maximumAllowedDailyValue (base name: "maximumAllowedDailyValue")', function() {
+      // uncomment below and update the code to test the property maximumAllowedDailyValue
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
     it('should have the property maximumAllowedValue (base name: "maximumAllowedValue")', function() {
       // uncomment below and update the code to test the property maximumAllowedValue
       //var instane = new Quantimodo.Variable();
@@ -556,6 +508,18 @@
 
     it('should have the property minimumAllowedValue (base name: "minimumAllowedValue")', function() {
       // uncomment below and update the code to test the property minimumAllowedValue
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property minimumAllowedDailyValue (base name: "minimumAllowedDailyValue")', function() {
+      // uncomment below and update the code to test the property minimumAllowedDailyValue
+      //var instane = new Quantimodo.Variable();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property minimumNonZeroValue (base name: "minimumNonZeroValue")', function() {
+      // uncomment below and update the code to test the property minimumNonZeroValue
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
@@ -950,48 +914,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property userVariableFillingValue (base name: "userVariableFillingValue")', function() {
-      // uncomment below and update the code to test the property userVariableFillingValue
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property userVariableMostCommonConnectorId (base name: "userVariableMostCommonConnectorId")', function() {
-      // uncomment below and update the code to test the property userVariableMostCommonConnectorId
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property userVariableUpdatedAt (base name: "userVariableUpdatedAt")', function() {
-      // uncomment below and update the code to test the property userVariableUpdatedAt
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property userVariableValence (base name: "userVariableValence")', function() {
-      // uncomment below and update the code to test the property userVariableValence
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property userVariableVariableCategoryId (base name: "userVariableVariableCategoryId")', function() {
-      // uncomment below and update the code to test the property userVariableVariableCategoryId
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property userVariableVariableCategoryName (base name: "userVariableVariableCategoryName")', function() {
-      // uncomment below and update the code to test the property userVariableVariableCategoryName
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property userVariableWikipediaTitle (base name: "userVariableWikipediaTitle")', function() {
-      // uncomment below and update the code to test the property userVariableWikipediaTitle
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property variableCategory (base name: "variableCategory")', function() {
       // uncomment below and update the code to test the property variableCategory
       //var instane = new Quantimodo.Variable();
@@ -1000,24 +922,6 @@
 
     it('should have the property joinedVariables (base name: "joinedVariables")', function() {
       // uncomment below and update the code to test the property joinedVariables
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property lastSource (base name: "lastSource")', function() {
-      // uncomment below and update the code to test the property lastSource
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property lastUnit (base name: "lastUnit")', function() {
-      // uncomment below and update the code to test the property lastUnit
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property mostCommonUnit (base name: "mostCommonUnit")', function() {
-      // uncomment below and update the code to test the property mostCommonUnit
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });
@@ -1034,20 +938,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property variableCategoryImageUrl (base name: "variableCategoryImageUrl")', function() {
-      // uncomment below and update the code to test the property variableCategoryImageUrl
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
     it('should have the property variableCategoryName (base name: "variableCategoryName")', function() {
       // uncomment below and update the code to test the property variableCategoryName
-      //var instane = new Quantimodo.Variable();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property variableFillingValue (base name: "variableFillingValue")', function() {
-      // uncomment below and update the code to test the property variableFillingValue
       //var instane = new Quantimodo.Variable();
       //expect(instance).to.be();
     });

@@ -68,6 +68,7 @@
 
     _this['text'] = text;
 
+
   };
 
   /**
@@ -137,6 +138,9 @@
       }
       if (data.hasOwnProperty('tooltip')) {
         obj['tooltip'] = ApiClient.convertToType(data['tooltip'], 'String');
+      }
+      if (data.hasOwnProperty('webhookUrl')) {
+        obj['webhookUrl'] = ApiClient.convertToType(data['webhookUrl'], 'String');
       }
     }
     return obj;
@@ -237,6 +241,11 @@
    * @member {String} tooltip
    */
   exports.prototype['tooltip'] = undefined;
+  /**
+   * Post here on button click
+   * @member {String} webhookUrl
+   */
+  exports.prototype['webhookUrl'] = undefined;
 
 
 

@@ -13,13 +13,13 @@ Name | Type | Description | Notes
 **inputType** | **String** | Ex: value | [optional] 
 **ionIcon** | **String** | Ex: ion-ios-medkit-outline | [optional] 
 **manualTracking** | **Boolean** | Ex: 1 | [optional] 
-**maximumAllowedValue** | **Number** | Ex: 5 | [optional] 
-**minimumAllowedValue** | **Number** | Ex: 1 | [optional] 
+**maximumAllowedValue** | **Number** | Ex: 5. Unit: User-specified or common. | [optional] 
+**minimumAllowedValue** | **Number** | Ex: 1. Unit: User-specified or common. | [optional] 
 **note** | **String** | Note of measurement | [optional] 
 **noteObject** | **Object** | Additional meta data for the measurement | [optional] 
 **noteHtml** | **Object** | Embeddable HTML with message hyperlinked with associated url | [optional] 
 **originalUnitId** | **Number** | Ex: 23 | [optional] 
-**originalValue** | **Number** | Original value as originally submitted | [optional] 
+**originalValue** | **Number** | Original value submitted. Unit: Originally submitted. | [optional] 
 **pngPath** | **String** | Ex: img/variable_categories/treatments.png | [optional] 
 **pngUrl** | **String** | Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.png | [optional] 
 **productUrl** | **String** | Link to associated product for purchase | [optional] 
@@ -46,10 +46,63 @@ Name | Type | Description | Notes
 **value** | **Number** | Converted measurement value in requested unit | 
 **variableCategoryId** | **Number** | Ex: 13 | [optional] 
 **variableCategoryImageUrl** | **String** | Ex: https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png | [optional] 
-**variableCategoryName** | **String** | Ex: Treatments | [optional] 
+**variableCategoryName** | **String** | Ex: Emotions, Treatments, Symptoms... | [optional] 
 **variableDescription** | **String** | Ex: negative | [optional] 
 **variableId** | **Number** | Ex: 5956846 | [optional] 
 **variableName** | **String** | Name of the variable for which we are creating the measurement records | 
 **displayName** | **String** | Ex: Trader Joe&#39;s Bedtime Tea | [optional] 
+
+
+<a name="VariableCategoryNameEnum"></a>
+## Enum: VariableCategoryNameEnum
+
+
+* `Activity` (value: `"Activity"`)
+
+* `Books` (value: `"Books"`)
+
+* `Causes of Illness` (value: `"Causes of Illness"`)
+
+* `Cognitive Performance` (value: `"Cognitive Performance"`)
+
+* `Conditions` (value: `"Conditions"`)
+
+* `Emotions` (value: `"Emotions"`)
+
+* `Environment` (value: `"Environment"`)
+
+* `Foods` (value: `"Foods"`)
+
+* `Goals` (value: `"Goals"`)
+
+* `Locations` (value: `"Locations"`)
+
+* `Miscellaneous` (value: `"Miscellaneous"`)
+
+* `Movies and TV` (value: `"Movies and TV"`)
+
+* `Music` (value: `"Music"`)
+
+* `Nutrients` (value: `"Nutrients"`)
+
+* `Payments` (value: `"Payments"`)
+
+* `Physical Activities` (value: `"Physical Activities"`)
+
+* `Physique` (value: `"Physique"`)
+
+* `Sleep` (value: `"Sleep"`)
+
+* `Social Interactions` (value: `"Social Interactions"`)
+
+* `Software` (value: `"Software"`)
+
+* `Symptoms` (value: `"Symptoms"`)
+
+* `Treatments` (value: `"Treatments"`)
+
+* `Vital Signs` (value: `"Vital Signs"`)
+
+
 
 

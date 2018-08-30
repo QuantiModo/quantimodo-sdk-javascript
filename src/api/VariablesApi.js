@@ -150,7 +150,7 @@
 
     /**
      * Variable categories
-     * The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Work.
+     * The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Goals.
      * @param {module:api/VariablesApi~getVariableCategoriesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/VariableCategory>}
      */
@@ -196,7 +196,7 @@
      * @param {Boolean} opts.includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {String} opts.numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
      * @param {Number} opts.userId User&#39;s id
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {String} opts.name Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
@@ -372,7 +372,7 @@
      * @param {String} opts.searchPhrase Ex: %Body Fat%
      * @param {Boolean} opts.exactMatch Require exact match
      * @param {Boolean} opts.manualTracking Only include variables tracked manually by the user
-     * @param {module:model/String} opts.variableCategoryName Limit results to a specific variable category
+     * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {Number} opts.variableCategoryId Ex: 13
      * @param {String} opts.synonyms Ex: McDonalds hotcake
      * @param {module:model/String} opts.platform Ex: chrome, android, ios, web

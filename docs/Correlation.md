@@ -26,10 +26,10 @@ Name | Type | Description | Notes
 **correlationCoefficient** | **Number** | Ex: 0.538 | 
 **correlationIsContradictoryToOptimalValues** | **Boolean** | Ex: false | [optional] 
 **createdAt** | **String** | Ex: 2016-12-28 20:47:30 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | 
-**criticalTValue** | **Number** | Ex: 1.646 | 
+**criticalTValue** | **Number** | Calculated Statistic: Ex: 1.646 | 
 **direction** | **String** | Ex: higher | 
-**durationOfAction** | **Number** | Ex: 604800 | 
-**durationOfActionInHours** | **Number** | Ex: 168 | 
+**durationOfAction** | **Number** | User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Seconds | 
+**durationOfActionInHours** | **Number** | User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Hours | 
 **degreesOfFreedom** | **Number** | Ex: 200 | [optional] 
 **effectNumberOfProcessedDailyMeasurements** | **Number** | Ex: 145 | [optional] 
 **error** | **String** | Ex: optimalPearsonProduct is not defined | [optional] 
@@ -57,18 +57,18 @@ Name | Type | Description | Notes
 **onsetDelayWithStrongestPearsonCorrelation** | **Number** | Ex: -86400 | 
 **onsetDelayWithStrongestPearsonCorrelationInHours** | **Number** | Ex: -24 | 
 **optimalPearsonProduct** | **Number** | Ex: 0.68582816186982 | 
-**outcomeFillingValue** | **Number** | Ex: -1 | 
-**outcomeMaximumAllowedValue** | **Number** | Ex: 23 | [optional] 
-**outcomeMinimumAllowedValue** | **Number** | Ex: 0.1 | [optional] 
+**outcomeFillingValue** | **Number** | User-Defined Variable Setting: Ex: -1. Unit: User-specified or common. | 
+**outcomeMaximumAllowedValue** | **Number** | User-Defined Variable Setting: Ex: 23. Unit: User-specified or common. | [optional] 
+**outcomeMinimumAllowedValue** | **Number** | User-Defined Variable Setting: Ex: 0.1. Unit: User-specified or common. | [optional] 
 **pearsonCorrelationWithNoOnsetDelay** | **Number** | Ex: 0.477 | 
 **predictivePearsonCorrelation** | **Number** | Ex: 0.538 | 
 **predictivePearsonCorrelationCoefficient** | **Number** | Ex: 0.538 | 
 **predictorDataSources** | **String** | Ex: RescueTime | 
-**predictorFillingValue** | **Number** | Ex: -1 | 
-**predictorMaximumAllowedValue** | **Number** | Ex: 200 | 
-**predictorMinimumAllowedValue** | **Number** | Ex: 30 | 
-**predictsHighEffectChange** | **Number** | Ex: 17 | 
-**predictsLowEffectChange** | **Number** | Ex: -11 | 
+**predictorFillingValue** | **Number** | Ex: -1. Unit: User-specified or common. | 
+**predictorMaximumAllowedValue** | **Number** | Ex: 200. Unit: User-specified or common. | 
+**predictorMinimumAllowedValue** | **Number** | Ex: 30. Unit: User-specified or common. | 
+**predictsHighEffectChange** | **Number** | Ex: 17. Unit: User-specified or common. | 
+**predictsLowEffectChange** | **Number** | Ex: -11. Unit: User-specified or common. | 
 **pValue** | **Number** | Ex: 0.39628900511586 | [optional] 
 **qmScore** | **Number** | Ex: 0.528 | 
 **reversePearsonCorrelationCoefficient** | **Number** | Ex: 0.01377184270977 | 

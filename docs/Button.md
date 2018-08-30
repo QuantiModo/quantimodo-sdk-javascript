@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 **successAlertBody** | **String** | Text to show user after executing functionName | [optional] 
 **text** | **String** | Ex: Connect | 
 **tooltip** | **String** | Ex: This is a tooltip | [optional] 
+**webhookUrl** | **String** | Post here on button click | [optional] 
 
 

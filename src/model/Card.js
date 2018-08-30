@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Button', 'model/InputField'], factory);
+    define(['ApiClient', 'model/Button', 'model/Card', 'model/InputField'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Button'), require('./InputField'));
+    module.exports = factory(require('../ApiClient'), require('./Button'), require('./Card'), require('./InputField'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.Card = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.InputField);
+    root.Quantimodo.Card = factory(root.Quantimodo.ApiClient, root.Quantimodo.Button, root.Quantimodo.Card, root.Quantimodo.InputField);
   }
-}(this, function(ApiClient, Button, InputField) {
+}(this, function(ApiClient, Button, Card, InputField) {
   'use strict';
 
 
@@ -58,6 +58,7 @@
 
 
     _this['id'] = id;
+
 
 
 
@@ -127,6 +128,9 @@
       }
       if (data.hasOwnProperty('parameters')) {
         obj['parameters'] = ApiClient.convertToType(data['parameters'], Object);
+      }
+      if (data.hasOwnProperty('relatedCards')) {
+        obj['relatedCards'] = ApiClient.convertToType(data['relatedCards'], [Card]);
       }
       if (data.hasOwnProperty('selectedButton')) {
         obj['selectedButton'] = Button.constructFromObject(data['selectedButton']);
@@ -225,6 +229,10 @@
    * @member {Object} parameters
    */
   exports.prototype['parameters'] = undefined;
+  /**
+   * @member {Array.<module:model/Card>} relatedCards
+   */
+  exports.prototype['relatedCards'] = undefined;
   /**
    * Button that the user clicked and the provided function parameters
    * @member {module:model/Button} selectedButton
