@@ -60,10 +60,30 @@
         done();
       });
     });
+    describe('getNotifications', function() {
+      it('should call getNotifications successfully', function(done) {
+        //uncomment below and update the code to test getNotifications
+        //instance.getNotifications(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('postDeviceToken', function() {
       it('should call postDeviceToken successfully', function(done) {
         //uncomment below and update the code to test postDeviceToken
         //instance.postDeviceToken(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('postNotifications', function() {
+      it('should call postNotifications successfully', function(done) {
+        //uncomment below and update the code to test postNotifications
+        //instance.postNotifications(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

@@ -41,7 +41,7 @@ var opts = {
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -110,7 +110,7 @@ var body = [new Quantimodo.Card()]; // [Card] | Id of the tracking reminder noti
 var opts = { 
   'userId': 8.14, // Number | User's id
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {

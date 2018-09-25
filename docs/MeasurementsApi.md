@@ -116,7 +116,7 @@ var opts = {
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
   'doNotConvert': true, // Boolean | Ex: 1
   'minMaxFilter': true, // Boolean | Ex: 1
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {

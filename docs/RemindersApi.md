@@ -109,7 +109,7 @@ var opts = {
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
   'onlyPast': true, // Boolean | Ex: 1
   'includeDeleted': true, // Boolean | Include deleted variables
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -187,7 +187,7 @@ var opts = {
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
   'appVersion': "appVersion_example", // String | Ex: 2.1.1.0
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -258,7 +258,7 @@ var body = [new Quantimodo.TrackingReminderNotificationPost()]; // [TrackingRemi
 var opts = { 
   'userId': 8.14, // Number | User's id
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {

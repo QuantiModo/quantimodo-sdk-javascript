@@ -57,6 +57,7 @@
 
 
 
+
     _this['id'] = id;
 
 
@@ -98,6 +99,9 @@
       }
       if (data.hasOwnProperty('buttons')) {
         obj['buttons'] = ApiClient.convertToType(data['buttons'], [Button]);
+      }
+      if (data.hasOwnProperty('buttonsSecondary')) {
+        obj['buttonsSecondary'] = ApiClient.convertToType(data['buttonsSecondary'], [Button]);
       }
       if (data.hasOwnProperty('content')) {
         obj['content'] = ApiClient.convertToType(data['content'], 'String');
@@ -180,6 +184,10 @@
    * @member {Array.<module:model/Button>} buttons
    */
   exports.prototype['buttons'] = undefined;
+  /**
+   * @member {Array.<module:model/Button>} buttonsSecondary
+   */
+  exports.prototype['buttonsSecondary'] = undefined;
   /**
    * Ex: Content
    * @member {String} content

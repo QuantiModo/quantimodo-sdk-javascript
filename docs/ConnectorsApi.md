@@ -157,7 +157,7 @@ var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -206,7 +206,7 @@ var apiInstance = new Quantimodo.ConnectorsApi();
 
 var opts = { 
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {

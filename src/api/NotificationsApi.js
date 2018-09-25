@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DeviceToken'], factory);
+    define(['ApiClient', 'model/DeviceToken', 'model/NotificationsResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/DeviceToken'));
+    module.exports = factory(require('../ApiClient'), require('../model/DeviceToken'), require('../model/NotificationsResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.NotificationsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.DeviceToken);
+    root.Quantimodo.NotificationsApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.DeviceToken, root.Quantimodo.NotificationsResponse);
   }
-}(this, function(ApiClient, DeviceToken) {
+}(this, function(ApiClient, DeviceToken, NotificationsResponse) {
   'use strict';
 
   /**
@@ -88,6 +88,67 @@
     }
 
     /**
+     * Callback function to receive the result of the getNotifications operation.
+     * @callback module:api/NotificationsApi~getNotificationsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/NotificationsResponse>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Notifications
+     * Get Notifications
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
+     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.id Id
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {module:api/NotificationsApi~getNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/NotificationsResponse>}
+     */
+    this.getNotifications = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'sort': opts['sort'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'updatedAt': opts['updatedAt'],
+        'userId': opts['userId'],
+        'createdAt': opts['createdAt'],
+        'id': opts['id'],
+        'clientId': opts['clientId'],
+        'platform': opts['platform'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [NotificationsResponse];
+
+      return this.apiClient.callApi(
+        '/v3/notifications', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the postDeviceToken operation.
      * @callback module:api/NotificationsApi~postDeviceTokenCallback
      * @param {String} error Error message, if any.
@@ -128,6 +189,67 @@
 
       return this.apiClient.callApi(
         '/v3/deviceTokens', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postNotifications operation.
+     * @callback module:api/NotificationsApi~postNotificationsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/NotificationsResponse>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Post Notifications
+     * Post Notifications
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
+     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.id Id
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {module:api/NotificationsApi~postNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/NotificationsResponse>}
+     */
+    this.postNotifications = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'sort': opts['sort'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'updatedAt': opts['updatedAt'],
+        'userId': opts['userId'],
+        'createdAt': opts['createdAt'],
+        'id': opts['id'],
+        'clientId': opts['clientId'],
+        'platform': opts['platform'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [NotificationsResponse];
+
+      return this.apiClient.callApi(
+        '/v3/notifications', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

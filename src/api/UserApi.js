@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/PostUserSettingsResponse', 'model/User'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/PostUserSettingsResponse', 'model/User', 'model/UserBlogsResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/PostUserSettingsResponse'), require('../model/User'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/PostUserSettingsResponse'), require('../model/User'), require('../model/UserBlogsResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User);
+    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User, root.Quantimodo.UserBlogsResponse);
   }
-}(this, function(ApiClient, CommonResponse, PostUserSettingsResponse, User) {
+}(this, function(ApiClient, CommonResponse, PostUserSettingsResponse, User, UserBlogsResponse) {
   'use strict';
 
   /**
@@ -165,6 +165,128 @@
 
       return this.apiClient.callApi(
         '/v3/user', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUserBlogs operation.
+     * @callback module:api/UserApi~getUserBlogsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/UserBlogsResponse>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get UserBlogs
+     * Get UserBlogs
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
+     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.id Id
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {module:api/UserApi~getUserBlogsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/UserBlogsResponse>}
+     */
+    this.getUserBlogs = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'sort': opts['sort'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'updatedAt': opts['updatedAt'],
+        'userId': opts['userId'],
+        'createdAt': opts['createdAt'],
+        'id': opts['id'],
+        'clientId': opts['clientId'],
+        'platform': opts['platform'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [UserBlogsResponse];
+
+      return this.apiClient.callApi(
+        '/v3/userBlogs', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postUserBlogs operation.
+     * @callback module:api/UserApi~postUserBlogsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/UserBlogsResponse>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Post UserBlogs
+     * Post UserBlogs
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
+     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.id Id
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {module:api/UserApi~postUserBlogsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/UserBlogsResponse>}
+     */
+    this.postUserBlogs = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'sort': opts['sort'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'updatedAt': opts['updatedAt'],
+        'userId': opts['userId'],
+        'createdAt': opts['createdAt'],
+        'id': opts['id'],
+        'clientId': opts['clientId'],
+        'platform': opts['platform'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [UserBlogsResponse];
+
+      return this.apiClient.callApi(
+        '/v3/userBlogs', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

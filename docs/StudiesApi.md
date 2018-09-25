@@ -45,7 +45,7 @@ var body = new Quantimodo.StudyCreationBody(); // StudyCreationBody | Details ab
 
 var opts = { 
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -171,7 +171,7 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
   'includeCharts': true, // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
   'recalculate': true, // Boolean | Recalculate instead of using cached analysis
   'studyId': "studyId_example" // String | Client id for the study you want
 };
@@ -243,7 +243,7 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
   'includeCharts': true, // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
   'recalculate': true, // Boolean | Recalculate instead of using cached analysis
   'studyId': "studyId_example" // String | Client id for the study you want
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
@@ -340,7 +340,7 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -416,7 +416,7 @@ var opts = {
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
   'outcomesOfInterest': true, // Boolean | Only include correlations for which the effect is an outcome of interest for the user
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -489,7 +489,7 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
   'includeCharts': true, // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
   'recalculate': true, // Boolean | Recalculate instead of using cached analysis
   'studyId': "studyId_example" // String | Client id for the study you want
 };
@@ -561,7 +561,7 @@ var opts = {
   'effectVariableName': "effectVariableName_example", // String | Name of the hypothetical outcome variable.  Ex: Overall Mood
   'userId': 8.14, // Number | User's id
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {
@@ -690,7 +690,7 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
   'includeCharts': true, // Boolean | Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
   'recalculate': true, // Boolean | Recalculate instead of using cached analysis
   'studyId': "studyId_example" // String | Client id for the study you want
 };

@@ -241,7 +241,7 @@ var opts = {
   'ingredientOfUserTagVariableId': 56, // Number | Id of the ingredientOf variable (i.e. Apple) you would like to get eligible ingredient variables (i.e. Fructose) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.
   'commonOnly': true, // Boolean | Return only public and aggregated common variable data instead of user-specific variables
   'userOnly': true, // Boolean | Return only user-specific variables and data, excluding common aggregated variable data
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
   'includeTags': true, // Boolean | Return parent, child, duplicate, and ingredient variables
   'recalculate': true, // Boolean | Recalculate instead of using cached analysis
   'variableId': 56, // Number | Ex: 13
@@ -413,7 +413,7 @@ var opts = {
   'variableCategoryName': "variableCategoryName_example", // String | Ex: Emotions, Treatments, Symptoms...
   'variableCategoryId': 56, // Number | Ex: 13
   'synonyms': "synonyms_example", // String | Ex: McDonalds hotcake
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {

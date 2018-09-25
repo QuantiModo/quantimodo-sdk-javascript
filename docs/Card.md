@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **avatarCircular** | **String** | Smaller circular image | [optional] 
 **backgroundColor** | **String** | Ex: #f2f2f2 | [optional] 
 **buttons** | [**[Button]**](Button.md) |  | [optional] 
+**buttonsSecondary** | [**[Button]**](Button.md) |  | [optional] 
 **content** | **String** | Ex: Content | [optional] 
 **headerTitle** | **String** | Ex: Title | [optional] 
 **html** | **String** | HTML for the entire card. | [optional] 

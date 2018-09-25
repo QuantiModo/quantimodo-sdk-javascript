@@ -105,7 +105,7 @@ var opts = {
   'outcomesOfInterest': true, // Boolean | Only include correlations for which the effect is an outcome of interest for the user
   'clientId': "clientId_example", // String | Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
   'commonOnly': true, // Boolean | Return only public, anonymized and aggregated population data instead of user-specific variables
-  'platform': "platform_example", // String | Ex: chrome, android, ios, web
+  'platform': "platform_example" // String | Ex: chrome, android, ios, web
 };
 
 var callback = function(error, data, response) {

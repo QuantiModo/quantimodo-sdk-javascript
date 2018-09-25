@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property buttonsSecondary (base name: "buttonsSecondary")', function() {
+      // uncomment below and update the code to test the property buttonsSecondary
+      //var instane = new Quantimodo.Card();
+      //expect(instance).to.be();
+    });
+
     it('should have the property content (base name: "content")', function() {
       // uncomment below and update the code to test the property content
       //var instane = new Quantimodo.Card();

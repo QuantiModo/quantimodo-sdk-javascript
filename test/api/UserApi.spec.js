@@ -70,6 +70,26 @@
         done();
       });
     });
+    describe('getUserBlogs', function() {
+      it('should call getUserBlogs successfully', function(done) {
+        //uncomment below and update the code to test getUserBlogs
+        //instance.getUserBlogs(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('postUserBlogs', function() {
+      it('should call postUserBlogs successfully', function(done) {
+        //uncomment below and update the code to test postUserBlogs
+        //instance.postUserBlogs(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('postUserSettings', function() {
       it('should call postUserSettings successfully', function(done) {
         //uncomment below and update the code to test postUserSettings

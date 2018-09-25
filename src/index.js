@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AppSettings', 'model/AppSettingsResponse', 'model/AuthorizedClients', 'model/Button', 'model/Card', 'model/Chart', 'model/CommonResponse', 'model/ConnectInstructions', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/DeviceToken', 'model/Explanation', 'model/ExplanationStartTracking', 'model/FeedResponse', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetSharesResponse', 'model/GetStudiesResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Image', 'model/InputField', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/Pair', 'model/ParticipantInstruction', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyCreateResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/ShareInvitationBody', 'model/Study', 'model/StudyCharts', 'model/StudyCreationBody', 'model/StudyHtml', 'model/StudyImages', 'model/StudyJoinResponse', 'model/StudyLinks', 'model/StudySharing', 'model/StudyText', 'model/StudyVotes', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts', 'model/Vote', 'model/VoteDelete', 'api/AnalyticsApi', 'api/AppSettingsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/FeedApi', 'api/MeasurementsApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/SharesApi', 'api/StudiesApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi'], factory);
+    define(['ApiClient', 'model/ActivitiesResponse', 'model/Activity', 'model/AppSettings', 'model/AppSettingsResponse', 'model/AuthorizedClients', 'model/Button', 'model/Card', 'model/Chart', 'model/CommonResponse', 'model/ConnectInstructions', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/DeviceToken', 'model/Explanation', 'model/ExplanationStartTracking', 'model/FeedResponse', 'model/Friend', 'model/FriendsResponse', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetSharesResponse', 'model/GetStudiesResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Group', 'model/GroupsMember', 'model/GroupsMembersResponse', 'model/GroupsResponse', 'model/Image', 'model/InputField', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/MessagesMessage', 'model/MessagesMessagesResponse', 'model/MessagesNotice', 'model/MessagesNoticesResponse', 'model/MessagesRecipient', 'model/MessagesRecipientsResponse', 'model/Notification', 'model/NotificationsResponse', 'model/Pair', 'model/ParticipantInstruction', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyCreateResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/ShareInvitationBody', 'model/Study', 'model/StudyCharts', 'model/StudyCreationBody', 'model/StudyHtml', 'model/StudyImages', 'model/StudyJoinResponse', 'model/StudyLinks', 'model/StudySharing', 'model/StudyText', 'model/StudyVotes', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserBlog', 'model/UserBlogsResponse', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts', 'model/Vote', 'model/VoteDelete', 'model/XprofileDataResponse', 'model/XprofileDatum', 'model/XprofileField', 'model/XprofileFieldsResponse', 'model/XprofileGroup', 'model/XprofileGroupsResponse', 'api/ActivitiesApi', 'api/AnalyticsApi', 'api/AppSettingsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/FeedApi', 'api/FriendsApi', 'api/GroupsApi', 'api/MeasurementsApi', 'api/MessagesApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/SharesApi', 'api/StudiesApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi', 'api/XprofileApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AppSettings'), require('./model/AppSettingsResponse'), require('./model/AuthorizedClients'), require('./model/Button'), require('./model/Card'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/ConnectInstructions'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/DeviceToken'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/FeedResponse'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetSharesResponse'), require('./model/GetStudiesResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Image'), require('./model/InputField'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyCreateResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/ShareInvitationBody'), require('./model/Study'), require('./model/StudyCharts'), require('./model/StudyCreationBody'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyJoinResponse'), require('./model/StudyLinks'), require('./model/StudySharing'), require('./model/StudyText'), require('./model/StudyVotes'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationAction'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/VariableCharts'), require('./model/Vote'), require('./model/VoteDelete'), require('./api/AnalyticsApi'), require('./api/AppSettingsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/FeedApi'), require('./api/MeasurementsApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/SharesApi'), require('./api/StudiesApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/ActivitiesResponse'), require('./model/Activity'), require('./model/AppSettings'), require('./model/AppSettingsResponse'), require('./model/AuthorizedClients'), require('./model/Button'), require('./model/Card'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/ConnectInstructions'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/DeviceToken'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/FeedResponse'), require('./model/Friend'), require('./model/FriendsResponse'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetSharesResponse'), require('./model/GetStudiesResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Group'), require('./model/GroupsMember'), require('./model/GroupsMembersResponse'), require('./model/GroupsResponse'), require('./model/Image'), require('./model/InputField'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/MessagesMessage'), require('./model/MessagesMessagesResponse'), require('./model/MessagesNotice'), require('./model/MessagesNoticesResponse'), require('./model/MessagesRecipient'), require('./model/MessagesRecipientsResponse'), require('./model/Notification'), require('./model/NotificationsResponse'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyCreateResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/ShareInvitationBody'), require('./model/Study'), require('./model/StudyCharts'), require('./model/StudyCreationBody'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyJoinResponse'), require('./model/StudyLinks'), require('./model/StudySharing'), require('./model/StudyText'), require('./model/StudyVotes'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationAction'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserBlog'), require('./model/UserBlogsResponse'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/VariableCharts'), require('./model/Vote'), require('./model/VoteDelete'), require('./model/XprofileDataResponse'), require('./model/XprofileDatum'), require('./model/XprofileField'), require('./model/XprofileFieldsResponse'), require('./model/XprofileGroup'), require('./model/XprofileGroupsResponse'), require('./api/ActivitiesApi'), require('./api/AnalyticsApi'), require('./api/AppSettingsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/FeedApi'), require('./api/FriendsApi'), require('./api/GroupsApi'), require('./api/MeasurementsApi'), require('./api/MessagesApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/SharesApi'), require('./api/StudiesApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'), require('./api/XprofileApi'));
   }
-}(function(ApiClient, AppSettings, AppSettingsResponse, AuthorizedClients, Button, Card, Chart, CommonResponse, ConnectInstructions, ConversionStep, Correlation, DataSource, DeviceToken, Explanation, ExplanationStartTracking, FeedResponse, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetSharesResponse, GetStudiesResponse, GetTrackingReminderNotificationsResponse, Image, InputField, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, Pair, ParticipantInstruction, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyCreateResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, ShareInvitationBody, Study, StudyCharts, StudyCreationBody, StudyHtml, StudyImages, StudyJoinResponse, StudyLinks, StudySharing, StudyText, StudyVotes, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationAction, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserTag, UserVariableDelete, Variable, VariableCategory, VariableCharts, Vote, VoteDelete, AnalyticsApi, AppSettingsApi, AuthenticationApi, ConnectorsApi, FeedApi, MeasurementsApi, NotificationsApi, RemindersApi, SharesApi, StudiesApi, UnitsApi, UserApi, VariablesApi) {
+}(function(ApiClient, ActivitiesResponse, Activity, AppSettings, AppSettingsResponse, AuthorizedClients, Button, Card, Chart, CommonResponse, ConnectInstructions, ConversionStep, Correlation, DataSource, DeviceToken, Explanation, ExplanationStartTracking, FeedResponse, Friend, FriendsResponse, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetSharesResponse, GetStudiesResponse, GetTrackingReminderNotificationsResponse, Group, GroupsMember, GroupsMembersResponse, GroupsResponse, Image, InputField, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, MessagesMessage, MessagesMessagesResponse, MessagesNotice, MessagesNoticesResponse, MessagesRecipient, MessagesRecipientsResponse, Notification, NotificationsResponse, Pair, ParticipantInstruction, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyCreateResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, ShareInvitationBody, Study, StudyCharts, StudyCreationBody, StudyHtml, StudyImages, StudyJoinResponse, StudyLinks, StudySharing, StudyText, StudyVotes, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationAction, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserBlog, UserBlogsResponse, UserTag, UserVariableDelete, Variable, VariableCategory, VariableCharts, Vote, VoteDelete, XprofileDataResponse, XprofileDatum, XprofileField, XprofileFieldsResponse, XprofileGroup, XprofileGroupsResponse, ActivitiesApi, AnalyticsApi, AppSettingsApi, AuthenticationApi, ConnectorsApi, FeedApi, FriendsApi, GroupsApi, MeasurementsApi, MessagesApi, NotificationsApi, RemindersApi, SharesApi, StudiesApi, UnitsApi, UserApi, VariablesApi, XprofileApi) {
   'use strict';
 
   /**
@@ -61,6 +61,16 @@
      * @property {module:ApiClient}
      */
     ApiClient: ApiClient,
+    /**
+     * The ActivitiesResponse model constructor.
+     * @property {module:model/ActivitiesResponse}
+     */
+    ActivitiesResponse: ActivitiesResponse,
+    /**
+     * The Activity model constructor.
+     * @property {module:model/Activity}
+     */
+    Activity: Activity,
     /**
      * The AppSettings model constructor.
      * @property {module:model/AppSettings}
@@ -137,6 +147,16 @@
      */
     FeedResponse: FeedResponse,
     /**
+     * The Friend model constructor.
+     * @property {module:model/Friend}
+     */
+    Friend: Friend,
+    /**
+     * The FriendsResponse model constructor.
+     * @property {module:model/FriendsResponse}
+     */
+    FriendsResponse: FriendsResponse,
+    /**
      * The GetConnectorsResponse model constructor.
      * @property {module:model/GetConnectorsResponse}
      */
@@ -166,6 +186,26 @@
      * @property {module:model/GetTrackingReminderNotificationsResponse}
      */
     GetTrackingReminderNotificationsResponse: GetTrackingReminderNotificationsResponse,
+    /**
+     * The Group model constructor.
+     * @property {module:model/Group}
+     */
+    Group: Group,
+    /**
+     * The GroupsMember model constructor.
+     * @property {module:model/GroupsMember}
+     */
+    GroupsMember: GroupsMember,
+    /**
+     * The GroupsMembersResponse model constructor.
+     * @property {module:model/GroupsMembersResponse}
+     */
+    GroupsMembersResponse: GroupsMembersResponse,
+    /**
+     * The GroupsResponse model constructor.
+     * @property {module:model/GroupsResponse}
+     */
+    GroupsResponse: GroupsResponse,
     /**
      * The Image model constructor.
      * @property {module:model/Image}
@@ -206,6 +246,46 @@
      * @property {module:model/MeasurementUpdate}
      */
     MeasurementUpdate: MeasurementUpdate,
+    /**
+     * The MessagesMessage model constructor.
+     * @property {module:model/MessagesMessage}
+     */
+    MessagesMessage: MessagesMessage,
+    /**
+     * The MessagesMessagesResponse model constructor.
+     * @property {module:model/MessagesMessagesResponse}
+     */
+    MessagesMessagesResponse: MessagesMessagesResponse,
+    /**
+     * The MessagesNotice model constructor.
+     * @property {module:model/MessagesNotice}
+     */
+    MessagesNotice: MessagesNotice,
+    /**
+     * The MessagesNoticesResponse model constructor.
+     * @property {module:model/MessagesNoticesResponse}
+     */
+    MessagesNoticesResponse: MessagesNoticesResponse,
+    /**
+     * The MessagesRecipient model constructor.
+     * @property {module:model/MessagesRecipient}
+     */
+    MessagesRecipient: MessagesRecipient,
+    /**
+     * The MessagesRecipientsResponse model constructor.
+     * @property {module:model/MessagesRecipientsResponse}
+     */
+    MessagesRecipientsResponse: MessagesRecipientsResponse,
+    /**
+     * The Notification model constructor.
+     * @property {module:model/Notification}
+     */
+    Notification: Notification,
+    /**
+     * The NotificationsResponse model constructor.
+     * @property {module:model/NotificationsResponse}
+     */
+    NotificationsResponse: NotificationsResponse,
     /**
      * The Pair model constructor.
      * @property {module:model/Pair}
@@ -357,6 +437,16 @@
      */
     User: User,
     /**
+     * The UserBlog model constructor.
+     * @property {module:model/UserBlog}
+     */
+    UserBlog: UserBlog,
+    /**
+     * The UserBlogsResponse model constructor.
+     * @property {module:model/UserBlogsResponse}
+     */
+    UserBlogsResponse: UserBlogsResponse,
+    /**
      * The UserTag model constructor.
      * @property {module:model/UserTag}
      */
@@ -392,6 +482,41 @@
      */
     VoteDelete: VoteDelete,
     /**
+     * The XprofileDataResponse model constructor.
+     * @property {module:model/XprofileDataResponse}
+     */
+    XprofileDataResponse: XprofileDataResponse,
+    /**
+     * The XprofileDatum model constructor.
+     * @property {module:model/XprofileDatum}
+     */
+    XprofileDatum: XprofileDatum,
+    /**
+     * The XprofileField model constructor.
+     * @property {module:model/XprofileField}
+     */
+    XprofileField: XprofileField,
+    /**
+     * The XprofileFieldsResponse model constructor.
+     * @property {module:model/XprofileFieldsResponse}
+     */
+    XprofileFieldsResponse: XprofileFieldsResponse,
+    /**
+     * The XprofileGroup model constructor.
+     * @property {module:model/XprofileGroup}
+     */
+    XprofileGroup: XprofileGroup,
+    /**
+     * The XprofileGroupsResponse model constructor.
+     * @property {module:model/XprofileGroupsResponse}
+     */
+    XprofileGroupsResponse: XprofileGroupsResponse,
+    /**
+     * The ActivitiesApi service constructor.
+     * @property {module:api/ActivitiesApi}
+     */
+    ActivitiesApi: ActivitiesApi,
+    /**
      * The AnalyticsApi service constructor.
      * @property {module:api/AnalyticsApi}
      */
@@ -417,10 +542,25 @@
      */
     FeedApi: FeedApi,
     /**
+     * The FriendsApi service constructor.
+     * @property {module:api/FriendsApi}
+     */
+    FriendsApi: FriendsApi,
+    /**
+     * The GroupsApi service constructor.
+     * @property {module:api/GroupsApi}
+     */
+    GroupsApi: GroupsApi,
+    /**
      * The MeasurementsApi service constructor.
      * @property {module:api/MeasurementsApi}
      */
     MeasurementsApi: MeasurementsApi,
+    /**
+     * The MessagesApi service constructor.
+     * @property {module:api/MessagesApi}
+     */
+    MessagesApi: MessagesApi,
     /**
      * The NotificationsApi service constructor.
      * @property {module:api/NotificationsApi}
@@ -455,7 +595,12 @@
      * The VariablesApi service constructor.
      * @property {module:api/VariablesApi}
      */
-    VariablesApi: VariablesApi
+    VariablesApi: VariablesApi,
+    /**
+     * The XprofileApi service constructor.
+     * @property {module:api/XprofileApi}
+     */
+    XprofileApi: XprofileApi
   };
 
   return exports;
