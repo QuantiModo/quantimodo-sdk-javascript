@@ -68,8 +68,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property studyId (base name: "studyId")', function() {
-      // uncomment below and update the code to test the property studyId
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
       //var instane = new Quantimodo.Study();
       //expect(instance).to.be();
     });

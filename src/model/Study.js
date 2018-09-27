@@ -86,8 +86,8 @@
       if (data.hasOwnProperty('userId')) {
         obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
       }
-      if (data.hasOwnProperty('studyId')) {
-        obj['studyId'] = ApiClient.convertToType(data['studyId'], 'String');
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
       if (data.hasOwnProperty('causeVariable')) {
         obj['causeVariable'] = Variable.constructFromObject(data['causeVariable']);
@@ -150,9 +150,9 @@
   exports.prototype['userId'] = undefined;
   /**
    * ID of the cohort study which is necessary to allow participants to join
-   * @member {String} studyId
+   * @member {String} id
    */
-  exports.prototype['studyId'] = undefined;
+  exports.prototype['id'] = undefined;
   /**
    * @member {module:model/Variable} causeVariable
    */

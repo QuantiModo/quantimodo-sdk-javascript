@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** | Ex: population, cohort, or individual | 
 **userId** | **String** | The user id of the principal investigator or subject if an individual studies | [optional] 
-**studyId** | **String** | ID of the cohort study which is necessary to allow participants to join | [optional] 
+**id** | **String** | ID of the cohort study which is necessary to allow participants to join | [optional] 
 **causeVariable** | [**Variable**](Variable.md) |  | [optional] 
 **causeVariableName** | **String** | Ex: Sleep Quality | [optional] 
 **studyCharts** | [**StudyCharts**](StudyCharts.md) |  | [optional] 
