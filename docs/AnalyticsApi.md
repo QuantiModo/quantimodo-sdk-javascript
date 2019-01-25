@@ -34,8 +34,9 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.AnalyticsApi();
 
 var opts = { 
-  'causeVariableName': "causeVariableName_example", // String | Name of the hypothetical predictor variable.  Ex: Sleep Duration
-  'effectVariableName': "effectVariableName_example", // String | Name of the hypothetical outcome variable.  Ex: Overall Mood
+  'causeVariableName': "causeVariableName_example", // String | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+  'effectVariableName': "effectVariableName_example", // String | Name of the outcome variable of interest.  Ex: Overall Mood
+  'predictorVariableName': "predictorVariableName_example", // String | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 };
 
 var callback = function(error, data, response) {
@@ -52,8 +53,9 @@ apiInstance.getCorrelationExplanations(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **causeVariableName** | **String**| Name of the hypothetical predictor variable.  Ex: Sleep Duration | [optional] 
- **effectVariableName** | **String**| Name of the hypothetical outcome variable.  Ex: Overall Mood | [optional] 
+ **causeVariableName** | **String**| Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration | [optional] 
+ **effectVariableName** | **String**| Name of the outcome variable of interest.  Ex: Overall Mood | [optional] 
+ **predictorVariableName** | **String**| Name of the hypothetical predictor variable.  Ex: Sleep Duration | [optional] 
 
 ### Return type
 
@@ -94,8 +96,11 @@ quantimodo_oauth2.accessToken = 'YOUR ACCESS TOKEN';
 var apiInstance = new Quantimodo.AnalyticsApi();
 
 var opts = { 
-  'causeVariableName': "causeVariableName_example", // String | Name of the hypothetical predictor variable.  Ex: Sleep Duration
-  'effectVariableName': "effectVariableName_example", // String | Name of the hypothetical outcome variable.  Ex: Overall Mood
+  'causeVariableName': "causeVariableName_example", // String | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+  'effectVariableName': "effectVariableName_example", // String | Name of the outcome variable of interest.  Ex: Overall Mood
+  'causeVariableId': 56, // Number | Variable id of the hypothetical predictor variable.  Ex: 1398
+  'effectVariableId': 56, // Number | Variable id of the outcome variable of interest.  Ex: 1398
+  'predictorVariableName': "predictorVariableName_example", // String | Name of the hypothetical predictor variable.  Ex: Sleep Duration
   'sort': "sort_example", // String | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
   'limit': 100, // Number | The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
   'offset': 56, // Number | OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
@@ -122,8 +127,11 @@ apiInstance.getCorrelations(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **causeVariableName** | **String**| Name of the hypothetical predictor variable.  Ex: Sleep Duration | [optional] 
- **effectVariableName** | **String**| Name of the hypothetical outcome variable.  Ex: Overall Mood | [optional] 
+ **causeVariableName** | **String**| Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration | [optional] 
+ **effectVariableName** | **String**| Name of the outcome variable of interest.  Ex: Overall Mood | [optional] 
+ **causeVariableId** | **Number**| Variable id of the hypothetical predictor variable.  Ex: 1398 | [optional] 
+ **effectVariableId** | **Number**| Variable id of the outcome variable of interest.  Ex: 1398 | [optional] 
+ **predictorVariableName** | **String**| Name of the hypothetical predictor variable.  Ex: Sleep Duration | [optional] 
  **sort** | **String**| Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order. | [optional] 
  **limit** | **Number**| The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. | [optional] [default to 100]
  **offset** | **Number**| OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned. | [optional] 

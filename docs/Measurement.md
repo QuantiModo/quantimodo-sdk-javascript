@@ -21,13 +21,13 @@ Name | Type | Description | Notes
 **originalUnitId** | **Number** | Ex: 23 | [optional] 
 **originalValue** | **Number** | Original value submitted. Unit: Originally submitted. | [optional] 
 **pngPath** | **String** | Ex: img/variable_categories/treatments.png | [optional] 
-**pngUrl** | **String** | Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.png | [optional] 
+**pngUrl** | **String** | Ex: https://web.quantimo.do/img/variable_categories/treatments.png | [optional] 
 **productUrl** | **String** | Link to associated product for purchase | [optional] 
 **sourceName** | **String** | Application or device used to record the measurement values | 
 **startDate** | **String** | Ex: 2014-08-27 | [optional] 
 **startTimeEpoch** | **Number** | Seconds between the start of the event measured and 1970 (Unix timestamp) | [optional] 
 **startTimeString** | **String** | Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss | 
-**svgUrl** | **String** | Ex: https://quantimodo.quantimo.do/ionic/Modo/www/img/variable_categories/treatments.svg | [optional] 
+**svgUrl** | **String** | Ex: https://web.quantimo.do/img/variable_categories/treatments.svg | [optional] 
 **unitAbbreviatedName** | **String** | Abbreviated name for the unit of measurement | 
 **unitCategoryId** | **Number** | Ex: 6 | [optional] 
 **unitCategoryName** | **String** | Ex: Miscellany | [optional] 
