@@ -230,6 +230,10 @@
      * Get Personal or Population Studies
      * If you have enough data, this will be a list of your personal studies, otherwise it will consist of aggregated population studies.
      * @param {Object} opts Optional parameters
+     * @param {String} opts.causeVariableName Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {Number} opts.causeVariableId Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {Number} opts.effectVariableId Variable id of the outcome variable of interest.  Ex: 1398
      * @param {String} opts.predictorVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
      * @param {String} opts.outcomeVariableName Name of the outcome variable of interest.  Ex: Overall Mood
      * @param {Number} opts.userId User&#39;s id
@@ -260,6 +264,10 @@
       var pathParams = {
       };
       var queryParams = {
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName'],
+        'causeVariableId': opts['causeVariableId'],
+        'effectVariableId': opts['effectVariableId'],
         'predictorVariableName': opts['predictorVariableName'],
         'outcomeVariableName': opts['outcomeVariableName'],
         'userId': opts['userId'],
@@ -521,6 +529,10 @@
      * Anonymously share measurements for specified variables
      * @param {Object} opts Optional parameters
      * @param {String} opts.studyId Client id for the study you want
+     * @param {String} opts.causeVariableName Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.effectVariableName Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {Number} opts.causeVariableId Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {Number} opts.effectVariableId Variable id of the outcome variable of interest.  Ex: 1398
      * @param {String} opts.predictorVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
      * @param {String} opts.outcomeVariableName Name of the outcome variable of interest.  Ex: Overall Mood
      * @param {Number} opts.userId User&#39;s id
@@ -538,6 +550,10 @@
       };
       var queryParams = {
         'studyId': opts['studyId'],
+        'causeVariableName': opts['causeVariableName'],
+        'effectVariableName': opts['effectVariableName'],
+        'causeVariableId': opts['causeVariableId'],
+        'effectVariableId': opts['effectVariableId'],
         'predictorVariableName': opts['predictorVariableName'],
         'outcomeVariableName': opts['outcomeVariableName'],
         'userId': opts['userId'],
