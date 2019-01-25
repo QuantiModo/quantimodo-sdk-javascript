@@ -25,7 +25,7 @@
   'use strict';
 
   /**
-   * We_make_it_easy_to_retrieve_and_analyze_normalized_user_data_from_a_wide_array_of_devices_and_applications__Check_out_our__docs_and_sdks_httpsgithub_comQuantiMododocs_or__contact_us_httpshelp_quantimo_do_.<br>
+   * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk&#39;s](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do)..<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:

@@ -194,10 +194,11 @@
      * Pairs cause measurements with effect measurements grouped over the duration of action after the onset delay.
      * @param {Object} opts Optional parameters
      * @param {String} opts.causeVariableName Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-     * @param {String} opts.effectVariableName Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {String} opts.effectVariableName Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
      * @param {Number} opts.causeVariableId Variable id of the hypothetical predictor variable.  Ex: 1398
      * @param {Number} opts.effectVariableId Variable id of the outcome variable of interest.  Ex: 1398
      * @param {String} opts.predictorVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.outcomeVariableName Name of the outcome variable of interest.  Ex: Overall Mood
      * @param {String} opts.effectUnitName Name for the unit effect measurements to be returned in
      * @param {Number} opts.userId User&#39;s id
      * @param {String} opts.causeUnitName Name for the unit cause measurements to be returned in
@@ -224,6 +225,7 @@
         'causeVariableId': opts['causeVariableId'],
         'effectVariableId': opts['effectVariableId'],
         'predictorVariableName': opts['predictorVariableName'],
+        'outcomeVariableName': opts['outcomeVariableName'],
         'effectUnitName': opts['effectUnitName'],
         'userId': opts['userId'],
         'causeUnitName': opts['causeUnitName'],

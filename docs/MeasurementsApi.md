@@ -196,10 +196,11 @@ var apiInstance = new Quantimodo.MeasurementsApi();
 
 var opts = { 
   'causeVariableName': "causeVariableName_example", // String | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-  'effectVariableName': "effectVariableName_example", // String | Name of the outcome variable of interest.  Ex: Overall Mood
+  'effectVariableName': "effectVariableName_example", // String | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
   'causeVariableId': 56, // Number | Variable id of the hypothetical predictor variable.  Ex: 1398
   'effectVariableId': 56, // Number | Variable id of the outcome variable of interest.  Ex: 1398
   'predictorVariableName': "predictorVariableName_example", // String | Name of the hypothetical predictor variable.  Ex: Sleep Duration
+  'outcomeVariableName': "outcomeVariableName_example", // String | Name of the outcome variable of interest.  Ex: Overall Mood
   'effectUnitName': "effectUnitName_example", // String | Name for the unit effect measurements to be returned in
   'userId': 8.14, // Number | User's id
   'causeUnitName': "causeUnitName_example", // String | Name for the unit cause measurements to be returned in
@@ -227,10 +228,11 @@ apiInstance.getPairs(opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **causeVariableName** | **String**| Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration | [optional] 
- **effectVariableName** | **String**| Name of the outcome variable of interest.  Ex: Overall Mood | [optional] 
+ **effectVariableName** | **String**| Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood | [optional] 
  **causeVariableId** | **Number**| Variable id of the hypothetical predictor variable.  Ex: 1398 | [optional] 
  **effectVariableId** | **Number**| Variable id of the outcome variable of interest.  Ex: 1398 | [optional] 
  **predictorVariableName** | **String**| Name of the hypothetical predictor variable.  Ex: Sleep Duration | [optional] 
+ **outcomeVariableName** | **String**| Name of the outcome variable of interest.  Ex: Overall Mood | [optional] 
  **effectUnitName** | **String**| Name for the unit effect measurements to be returned in | [optional] 
  **userId** | **Number**| User&#39;s id | [optional] 
  **causeUnitName** | **String**| Name for the unit cause measurements to be returned in | [optional] 

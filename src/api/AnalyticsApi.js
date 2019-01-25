@@ -60,8 +60,11 @@
      * Get explanations of  correlations based on data from a single user.
      * @param {Object} opts Optional parameters
      * @param {String} opts.causeVariableName Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-     * @param {String} opts.effectVariableName Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {String} opts.effectVariableName Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {Number} opts.causeVariableId Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {Number} opts.effectVariableId Variable id of the outcome variable of interest.  Ex: 1398
      * @param {String} opts.predictorVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.outcomeVariableName Name of the outcome variable of interest.  Ex: Overall Mood
      * @param {module:api/AnalyticsApi~getCorrelationExplanationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Correlation>}
      */
@@ -75,7 +78,10 @@
       var queryParams = {
         'causeVariableName': opts['causeVariableName'],
         'effectVariableName': opts['effectVariableName'],
+        'causeVariableId': opts['causeVariableId'],
+        'effectVariableId': opts['effectVariableId'],
         'predictorVariableName': opts['predictorVariableName'],
+        'outcomeVariableName': opts['outcomeVariableName'],
       };
       var collectionQueryParams = {
       };
@@ -109,10 +115,11 @@
      * Get a list of correlations that can be used to display top predictors of a given outcome like mood, for instance.
      * @param {Object} opts Optional parameters
      * @param {String} opts.causeVariableName Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-     * @param {String} opts.effectVariableName Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {String} opts.effectVariableName Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
      * @param {Number} opts.causeVariableId Variable id of the hypothetical predictor variable.  Ex: 1398
      * @param {Number} opts.effectVariableId Variable id of the outcome variable of interest.  Ex: 1398
      * @param {String} opts.predictorVariableName Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {String} opts.outcomeVariableName Name of the outcome variable of interest.  Ex: Overall Mood
      * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
      * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
@@ -139,6 +146,7 @@
         'causeVariableId': opts['causeVariableId'],
         'effectVariableId': opts['effectVariableId'],
         'predictorVariableName': opts['predictorVariableName'],
+        'outcomeVariableName': opts['outcomeVariableName'],
         'sort': opts['sort'],
         'limit': opts['limit'],
         'offset': opts['offset'],
