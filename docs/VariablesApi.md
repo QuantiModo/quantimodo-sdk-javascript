@@ -212,6 +212,7 @@ var opts = {
   'userId': 8.14, // Number | User's id
   'variableCategoryName': "variableCategoryName_example", // String | Ex: Emotions, Treatments, Symptoms...
   'name': "name_example", // String | Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain `Mood`, the following query should be used: ?variableName=%Mood%
+  'variableName': "variableName_example", // String | Name of the variable you want measurements for
   'updatedAt': "updatedAt_example", // String | When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
   'sourceName': "sourceName_example", // String | ID of the source you want measurements for (supports exact name match only)
   'earliestMeasurementTime': "earliestMeasurementTime_example", // String | Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
@@ -267,6 +268,7 @@ Name | Type | Description  | Notes
  **userId** | **Number**| User&#39;s id | [optional] 
  **variableCategoryName** | **String**| Ex: Emotions, Treatments, Symptoms... | [optional] 
  **name** | **String**| Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood% | [optional] 
+ **variableName** | **String**| Name of the variable you want measurements for | [optional] 
  **updatedAt** | **String**| When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local. | [optional] 
  **sourceName** | **String**| ID of the source you want measurements for (supports exact name match only) | [optional] 
  **earliestMeasurementTime** | **String**| Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local. | [optional] 

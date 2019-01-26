@@ -9477,6 +9477,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.userId User&#39;s id
      * @param {module:model/String} opts.variableCategoryName Ex: Emotions, Treatments, Symptoms...
      * @param {String} opts.name Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
+     * @param {String} opts.variableName Name of the variable you want measurements for
      * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {String} opts.sourceName ID of the source you want measurements for (supports exact name match only)
      * @param {String} opts.earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
@@ -9527,6 +9528,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'userId': opts['userId'],
         'variableCategoryName': opts['variableCategoryName'],
         'name': opts['name'],
+        'variableName': opts['variableName'],
         'updatedAt': opts['updatedAt'],
         'sourceName': opts['sourceName'],
         'earliestMeasurementTime': opts['earliestMeasurementTime'],
