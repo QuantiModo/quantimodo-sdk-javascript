@@ -268,7 +268,8 @@ var opts = {
   'open': true, // Boolean | These are studies that anyone can join
   'joined': true, // Boolean | These are studies that you have joined
   'created': true, // Boolean | These are studies that you have created
-  'population': true // Boolean | These are studies based on the entire population of users that have shared their data
+  'population': true, // Boolean | These are studies based on the entire population of users that have shared their data
+  'downvoted': true // Boolean | These are studies that you have down-voted
 };
 
 var callback = function(error, data, response) {
@@ -308,6 +309,7 @@ Name | Type | Description  | Notes
  **joined** | **Boolean**| These are studies that you have joined | [optional] 
  **created** | **Boolean**| These are studies that you have created | [optional] 
  **population** | **Boolean**| These are studies based on the entire population of users that have shared their data | [optional] 
+ **downvoted** | **Boolean**| These are studies that you have down-voted | [optional] 
 
 ### Return type
 

@@ -8340,6 +8340,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Boolean} opts.joined These are studies that you have joined
      * @param {Boolean} opts.created These are studies that you have created
      * @param {Boolean} opts.population These are studies based on the entire population of users that have shared their data
+     * @param {Boolean} opts.downvoted These are studies that you have down-voted
      * @param {module:api/StudiesApi~getStudiesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetStudiesResponse}
      */
@@ -8374,6 +8375,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'joined': opts['joined'],
         'created': opts['created'],
         'population': opts['population'],
+        'downvoted': opts['downvoted'],
       };
       var collectionQueryParams = {
       };
