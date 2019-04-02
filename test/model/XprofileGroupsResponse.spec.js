@@ -98,6 +98,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property errors (base name: "errors")', function() {
+      // uncomment below and update the code to test the property errors
+      //var instance = new Quantimodo.XprofileGroupsResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instance = new Quantimodo.XprofileGroupsResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property success (base name: "success")', function() {
+      // uncomment below and update the code to test the property success
+      //var instance = new Quantimodo.XprofileGroupsResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property code (base name: "code")', function() {
+      // uncomment below and update the code to test the property code
+      //var instance = new Quantimodo.XprofileGroupsResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

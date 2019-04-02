@@ -10,5 +10,9 @@ Name | Type | Description | Notes
 **avatar** | **String** | Square icon png url | [optional] 
 **ionIcon** | **String** | Ex: ion-ios-person | [optional] 
 **html** | **String** | Embeddable list of study summaries with explanation at the top | [optional] 
+**errors** | [**[Error]**](Error.md) | Array of error objects with message property | [optional] 
+**status** | **String** | ex. OK or ERROR | [optional] 
+**success** | **Boolean** | true or false | [optional] 
+**code** | **Number** | Response code such as 200 | [optional] 
 
 

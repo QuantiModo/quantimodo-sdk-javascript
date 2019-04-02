@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Error'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Error'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.JsonErrorResponse = factory(root.Quantimodo.ApiClient);
+    root.Quantimodo.JsonErrorResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Error) {
   'use strict';
 
 
@@ -43,10 +43,13 @@
    * Constructs a new <code>JsonErrorResponse</code>.
    * @alias module:model/JsonErrorResponse
    * @class
-   * @param status {String} Status: \"ok\" or \"error\"
+   * @param status {String} ex. OK or ERROR
    */
   var exports = function(status) {
     var _this = this;
+
+
+
 
 
     _this['status'] = status;
@@ -68,14 +71,23 @@
       if (data.hasOwnProperty('message')) {
         obj['message'] = ApiClient.convertToType(data['message'], 'String');
       }
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = ApiClient.convertToType(data['status'], 'String');
-      }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
       if (data.hasOwnProperty('summary')) {
         obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
+      if (data.hasOwnProperty('errors')) {
+        obj['errors'] = ApiClient.convertToType(data['errors'], [Error]);
+      }
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = ApiClient.convertToType(data['status'], 'String');
+      }
+      if (data.hasOwnProperty('success')) {
+        obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+      }
+      if (data.hasOwnProperty('code')) {
+        obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
     }
     return obj;
@@ -87,11 +99,6 @@
    */
   exports.prototype['message'] = undefined;
   /**
-   * Status: \"ok\" or \"error\"
-   * @member {String} status
-   */
-  exports.prototype['status'] = undefined;
-  /**
    * Can be used as body of help info popup
    * @member {String} description
    */
@@ -101,6 +108,26 @@
    * @member {String} summary
    */
   exports.prototype['summary'] = undefined;
+  /**
+   * Array of error objects with message property
+   * @member {Array.<module:model/Error>} errors
+   */
+  exports.prototype['errors'] = undefined;
+  /**
+   * ex. OK or ERROR
+   * @member {String} status
+   */
+  exports.prototype['status'] = undefined;
+  /**
+   * true or false
+   * @member {Boolean} success
+   */
+  exports.prototype['success'] = undefined;
+  /**
+   * Response code such as 200
+   * @member {Number} code
+   */
+  exports.prototype['code'] = undefined;
 
 
 

@@ -4,8 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **String** | Error message | [optional] 
-**status** | **String** | Status: \&quot;ok\&quot; or \&quot;error\&quot; | 
 **description** | **String** | Can be used as body of help info popup | [optional] 
 **summary** | **String** | Can be used as title in help info popup | [optional] 
+**errors** | [**[Error]**](Error.md) | Array of error objects with message property | [optional] 
+**status** | **String** | ex. OK or ERROR | 
+**success** | **Boolean** | true or false | [optional] 
+**code** | **Number** | Response code such as 200 | [optional] 
 
 
