@@ -105,7 +105,7 @@ var opts = {
   'appVersion': "appVersion_example", // String | Ex: 2.1.1.0
   'platform': "platform_example" // String | Ex: chrome, android, ios, web
   'log': "log_example", // String | Username or email
-  'pwd': "pwd_example", // String | User password
+  'pwd': "pwd_example" // String | User password
 };
 
 var callback = function(error, data, response) {

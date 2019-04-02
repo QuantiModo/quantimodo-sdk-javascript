@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/PostUserSettingsResponse', 'model/User', 'model/UserBlogsResponse'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/PostUserSettingsResponse', 'model/User', 'model/UserBlogsResponse', 'model/UsersResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/PostUserSettingsResponse'), require('../model/User'), require('../model/UserBlogsResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/PostUserSettingsResponse'), require('../model/User'), require('../model/UserBlogsResponse'), require('../model/UsersResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User, root.Quantimodo.UserBlogsResponse);
+    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User, root.Quantimodo.UserBlogsResponse, root.Quantimodo.UsersResponse);
   }
-}(this, function(ApiClient, CommonResponse, PostUserSettingsResponse, User, UserBlogsResponse) {
+}(this, function(ApiClient, CommonResponse, PostUserSettingsResponse, User, UserBlogsResponse, UsersResponse) {
   'use strict';
 
   /**
@@ -226,6 +226,73 @@
 
       return this.apiClient.callApi(
         '/v3/userBlogs', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUsers operation.
+     * @callback module:api/UserApi~getUsersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UsersResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get users who shared data
+     * Returns users who have granted access to their data
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
+     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {String} opts.appVersion Ex: 2.1.1.0
+     * @param {Number} opts.clientUserId Ex: 74802
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {String} opts.log Username or email
+     * @param {String} opts.pwd User password
+     * @param {module:api/UserApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UsersResponse}
+     */
+    this.getUsers = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'userId': opts['userId'],
+        'createdAt': opts['createdAt'],
+        'updatedAt': opts['updatedAt'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'sort': opts['sort'],
+        'clientId': opts['clientId'],
+        'appVersion': opts['appVersion'],
+        'clientUserId': opts['clientUserId'],
+        'platform': opts['platform'],
+        'log': opts['log'],
+        'pwd': opts['pwd'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = UsersResponse;
+
+      return this.apiClient.callApi(
+        '/v3/users', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

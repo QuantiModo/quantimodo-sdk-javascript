@@ -80,6 +80,16 @@
         done();
       });
     });
+    describe('getUsers', function() {
+      it('should call getUsers successfully', function(done) {
+        //uncomment below and update the code to test getUsers
+        //instance.getUsers(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('postUserBlogs', function() {
       it('should call postUserBlogs successfully', function(done) {
         //uncomment below and update the code to test postUserBlogs

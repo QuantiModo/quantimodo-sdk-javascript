@@ -8792,7 +8792,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":16,"../model/CommonResponse":44,"../model/GetStudiesResponse":59,"../model/JsonErrorResponse":67,"../model/PostStudyCreateResponse":85,"../model/PostStudyPublishResponse":86,"../model/Study":92,"../model/StudyCreationBody":94,"../model/StudyJoinResponse":97,"../model/Vote":118,"../model/VoteDelete":119}],31:[function(require,module,exports){
+},{"../ApiClient":16,"../model/CommonResponse":44,"../model/GetStudiesResponse":59,"../model/JsonErrorResponse":67,"../model/PostStudyCreateResponse":85,"../model/PostStudyPublishResponse":86,"../model/Study":92,"../model/StudyCreationBody":94,"../model/StudyJoinResponse":97,"../model/Vote":119,"../model/VoteDelete":120}],31:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -8947,18 +8947,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CommonResponse', 'model/PostUserSettingsResponse', 'model/User', 'model/UserBlogsResponse'], factory);
+    define(['ApiClient', 'model/CommonResponse', 'model/PostUserSettingsResponse', 'model/User', 'model/UserBlogsResponse', 'model/UsersResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/PostUserSettingsResponse'), require('../model/User'), require('../model/UserBlogsResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CommonResponse'), require('../model/PostUserSettingsResponse'), require('../model/User'), require('../model/UserBlogsResponse'), require('../model/UsersResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User, root.Quantimodo.UserBlogsResponse);
+    root.Quantimodo.UserApi = factory(root.Quantimodo.ApiClient, root.Quantimodo.CommonResponse, root.Quantimodo.PostUserSettingsResponse, root.Quantimodo.User, root.Quantimodo.UserBlogsResponse, root.Quantimodo.UsersResponse);
   }
-}(this, function(ApiClient, CommonResponse, PostUserSettingsResponse, User, UserBlogsResponse) {
+}(this, function(ApiClient, CommonResponse, PostUserSettingsResponse, User, UserBlogsResponse, UsersResponse) {
   'use strict';
 
   /**
@@ -9163,6 +9163,73 @@ exports.cleanHeader = function(header, shouldStripCookie){
     }
 
     /**
+     * Callback function to receive the result of the getUsers operation.
+     * @callback module:api/UserApi~getUsersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UsersResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get users who shared data
+     * Returns users who have granted access to their data
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.userId User&#39;s id
+     * @param {String} opts.createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {String} opts.updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {Number} opts.limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records. (default to 100)
+     * @param {Number} opts.offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {String} opts.sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {String} opts.appVersion Ex: 2.1.1.0
+     * @param {Number} opts.clientUserId Ex: 74802
+     * @param {module:model/String} opts.platform Ex: chrome, android, ios, web
+     * @param {String} opts.log Username or email
+     * @param {String} opts.pwd User password
+     * @param {module:api/UserApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UsersResponse}
+     */
+    this.getUsers = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'userId': opts['userId'],
+        'createdAt': opts['createdAt'],
+        'updatedAt': opts['updatedAt'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'sort': opts['sort'],
+        'clientId': opts['clientId'],
+        'appVersion': opts['appVersion'],
+        'clientUserId': opts['clientUserId'],
+        'platform': opts['platform'],
+        'log': opts['log'],
+        'pwd': opts['pwd'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['access_token', 'quantimodo_oauth2'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = UsersResponse;
+
+      return this.apiClient.callApi(
+        '/v3/users', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the postUserBlogs operation.
      * @callback module:api/UserApi~postUserBlogsCallback
      * @param {String} error Error message, if any.
@@ -9280,7 +9347,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":16,"../model/CommonResponse":44,"../model/PostUserSettingsResponse":90,"../model/User":110,"../model/UserBlogsResponse":112}],33:[function(require,module,exports){
+},{"../ApiClient":16,"../model/CommonResponse":44,"../model/PostUserSettingsResponse":90,"../model/User":110,"../model/UserBlogsResponse":112,"../model/UsersResponse":115}],33:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -9757,7 +9824,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":16,"../model/CommonResponse":44,"../model/UserTag":113,"../model/UserVariableDelete":114,"../model/Variable":115,"../model/VariableCategory":116}],34:[function(require,module,exports){
+},{"../ApiClient":16,"../model/CommonResponse":44,"../model/UserTag":113,"../model/UserVariableDelete":114,"../model/Variable":116,"../model/VariableCategory":117}],34:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10177,7 +10244,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":16,"../model/XprofileDataResponse":120,"../model/XprofileFieldsResponse":123,"../model/XprofileGroupsResponse":125}],35:[function(require,module,exports){
+},{"../ApiClient":16,"../model/XprofileDataResponse":121,"../model/XprofileFieldsResponse":124,"../model/XprofileGroupsResponse":126}],35:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -10196,12 +10263,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ActivitiesResponse', 'model/Activity', 'model/AppSettings', 'model/AppSettingsResponse', 'model/AuthorizedClients', 'model/Button', 'model/Card', 'model/Chart', 'model/CommonResponse', 'model/ConnectInstructions', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/DeviceToken', 'model/Explanation', 'model/ExplanationStartTracking', 'model/FeedResponse', 'model/Friend', 'model/FriendsResponse', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetSharesResponse', 'model/GetStudiesResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Group', 'model/GroupsMember', 'model/GroupsMembersResponse', 'model/GroupsResponse', 'model/Image', 'model/InputField', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/MessagesMessage', 'model/MessagesMessagesResponse', 'model/MessagesNotice', 'model/MessagesNoticesResponse', 'model/MessagesRecipient', 'model/MessagesRecipientsResponse', 'model/Notification', 'model/NotificationsResponse', 'model/Pair', 'model/ParticipantInstruction', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyCreateResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/ShareInvitationBody', 'model/Study', 'model/StudyCharts', 'model/StudyCreationBody', 'model/StudyHtml', 'model/StudyImages', 'model/StudyJoinResponse', 'model/StudyLinks', 'model/StudySharing', 'model/StudyText', 'model/StudyVotes', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserBlog', 'model/UserBlogsResponse', 'model/UserTag', 'model/UserVariableDelete', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts', 'model/Vote', 'model/VoteDelete', 'model/XprofileDataResponse', 'model/XprofileDatum', 'model/XprofileField', 'model/XprofileFieldsResponse', 'model/XprofileGroup', 'model/XprofileGroupsResponse', 'api/ActivitiesApi', 'api/AnalyticsApi', 'api/AppSettingsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/FeedApi', 'api/FriendsApi', 'api/GroupsApi', 'api/MeasurementsApi', 'api/MessagesApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/SharesApi', 'api/StudiesApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi', 'api/XprofileApi'], factory);
+    define(['ApiClient', 'model/ActivitiesResponse', 'model/Activity', 'model/AppSettings', 'model/AppSettingsResponse', 'model/AuthorizedClients', 'model/Button', 'model/Card', 'model/Chart', 'model/CommonResponse', 'model/ConnectInstructions', 'model/ConversionStep', 'model/Correlation', 'model/DataSource', 'model/DeviceToken', 'model/Explanation', 'model/ExplanationStartTracking', 'model/FeedResponse', 'model/Friend', 'model/FriendsResponse', 'model/GetConnectorsResponse', 'model/GetCorrelationsDataResponse', 'model/GetCorrelationsResponse', 'model/GetSharesResponse', 'model/GetStudiesResponse', 'model/GetTrackingReminderNotificationsResponse', 'model/Group', 'model/GroupsMember', 'model/GroupsMembersResponse', 'model/GroupsResponse', 'model/Image', 'model/InputField', 'model/JsonErrorResponse', 'model/Measurement', 'model/MeasurementDelete', 'model/MeasurementItem', 'model/MeasurementSet', 'model/MeasurementUpdate', 'model/MessagesMessage', 'model/MessagesMessagesResponse', 'model/MessagesNotice', 'model/MessagesNoticesResponse', 'model/MessagesRecipient', 'model/MessagesRecipientsResponse', 'model/Notification', 'model/NotificationsResponse', 'model/Pair', 'model/ParticipantInstruction', 'model/PostMeasurementsDataResponse', 'model/PostMeasurementsResponse', 'model/PostStudyCreateResponse', 'model/PostStudyPublishResponse', 'model/PostTrackingRemindersDataResponse', 'model/PostTrackingRemindersResponse', 'model/PostUserSettingsDataResponse', 'model/PostUserSettingsResponse', 'model/ShareInvitationBody', 'model/Study', 'model/StudyCharts', 'model/StudyCreationBody', 'model/StudyHtml', 'model/StudyImages', 'model/StudyJoinResponse', 'model/StudyLinks', 'model/StudySharing', 'model/StudyText', 'model/StudyVotes', 'model/TrackingReminder', 'model/TrackingReminderDelete', 'model/TrackingReminderNotification', 'model/TrackingReminderNotificationAction', 'model/TrackingReminderNotificationPost', 'model/TrackingReminderNotificationTrackAllAction', 'model/Unit', 'model/UnitCategory', 'model/User', 'model/UserBlog', 'model/UserBlogsResponse', 'model/UserTag', 'model/UserVariableDelete', 'model/UsersResponse', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts', 'model/Vote', 'model/VoteDelete', 'model/XprofileDataResponse', 'model/XprofileDatum', 'model/XprofileField', 'model/XprofileFieldsResponse', 'model/XprofileGroup', 'model/XprofileGroupsResponse', 'api/ActivitiesApi', 'api/AnalyticsApi', 'api/AppSettingsApi', 'api/AuthenticationApi', 'api/ConnectorsApi', 'api/FeedApi', 'api/FriendsApi', 'api/GroupsApi', 'api/MeasurementsApi', 'api/MessagesApi', 'api/NotificationsApi', 'api/RemindersApi', 'api/SharesApi', 'api/StudiesApi', 'api/UnitsApi', 'api/UserApi', 'api/VariablesApi', 'api/XprofileApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/ActivitiesResponse'), require('./model/Activity'), require('./model/AppSettings'), require('./model/AppSettingsResponse'), require('./model/AuthorizedClients'), require('./model/Button'), require('./model/Card'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/ConnectInstructions'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/DeviceToken'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/FeedResponse'), require('./model/Friend'), require('./model/FriendsResponse'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetSharesResponse'), require('./model/GetStudiesResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Group'), require('./model/GroupsMember'), require('./model/GroupsMembersResponse'), require('./model/GroupsResponse'), require('./model/Image'), require('./model/InputField'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/MessagesMessage'), require('./model/MessagesMessagesResponse'), require('./model/MessagesNotice'), require('./model/MessagesNoticesResponse'), require('./model/MessagesRecipient'), require('./model/MessagesRecipientsResponse'), require('./model/Notification'), require('./model/NotificationsResponse'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyCreateResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/ShareInvitationBody'), require('./model/Study'), require('./model/StudyCharts'), require('./model/StudyCreationBody'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyJoinResponse'), require('./model/StudyLinks'), require('./model/StudySharing'), require('./model/StudyText'), require('./model/StudyVotes'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationAction'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserBlog'), require('./model/UserBlogsResponse'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/VariableCharts'), require('./model/Vote'), require('./model/VoteDelete'), require('./model/XprofileDataResponse'), require('./model/XprofileDatum'), require('./model/XprofileField'), require('./model/XprofileFieldsResponse'), require('./model/XprofileGroup'), require('./model/XprofileGroupsResponse'), require('./api/ActivitiesApi'), require('./api/AnalyticsApi'), require('./api/AppSettingsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/FeedApi'), require('./api/FriendsApi'), require('./api/GroupsApi'), require('./api/MeasurementsApi'), require('./api/MessagesApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/SharesApi'), require('./api/StudiesApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'), require('./api/XprofileApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/ActivitiesResponse'), require('./model/Activity'), require('./model/AppSettings'), require('./model/AppSettingsResponse'), require('./model/AuthorizedClients'), require('./model/Button'), require('./model/Card'), require('./model/Chart'), require('./model/CommonResponse'), require('./model/ConnectInstructions'), require('./model/ConversionStep'), require('./model/Correlation'), require('./model/DataSource'), require('./model/DeviceToken'), require('./model/Explanation'), require('./model/ExplanationStartTracking'), require('./model/FeedResponse'), require('./model/Friend'), require('./model/FriendsResponse'), require('./model/GetConnectorsResponse'), require('./model/GetCorrelationsDataResponse'), require('./model/GetCorrelationsResponse'), require('./model/GetSharesResponse'), require('./model/GetStudiesResponse'), require('./model/GetTrackingReminderNotificationsResponse'), require('./model/Group'), require('./model/GroupsMember'), require('./model/GroupsMembersResponse'), require('./model/GroupsResponse'), require('./model/Image'), require('./model/InputField'), require('./model/JsonErrorResponse'), require('./model/Measurement'), require('./model/MeasurementDelete'), require('./model/MeasurementItem'), require('./model/MeasurementSet'), require('./model/MeasurementUpdate'), require('./model/MessagesMessage'), require('./model/MessagesMessagesResponse'), require('./model/MessagesNotice'), require('./model/MessagesNoticesResponse'), require('./model/MessagesRecipient'), require('./model/MessagesRecipientsResponse'), require('./model/Notification'), require('./model/NotificationsResponse'), require('./model/Pair'), require('./model/ParticipantInstruction'), require('./model/PostMeasurementsDataResponse'), require('./model/PostMeasurementsResponse'), require('./model/PostStudyCreateResponse'), require('./model/PostStudyPublishResponse'), require('./model/PostTrackingRemindersDataResponse'), require('./model/PostTrackingRemindersResponse'), require('./model/PostUserSettingsDataResponse'), require('./model/PostUserSettingsResponse'), require('./model/ShareInvitationBody'), require('./model/Study'), require('./model/StudyCharts'), require('./model/StudyCreationBody'), require('./model/StudyHtml'), require('./model/StudyImages'), require('./model/StudyJoinResponse'), require('./model/StudyLinks'), require('./model/StudySharing'), require('./model/StudyText'), require('./model/StudyVotes'), require('./model/TrackingReminder'), require('./model/TrackingReminderDelete'), require('./model/TrackingReminderNotification'), require('./model/TrackingReminderNotificationAction'), require('./model/TrackingReminderNotificationPost'), require('./model/TrackingReminderNotificationTrackAllAction'), require('./model/Unit'), require('./model/UnitCategory'), require('./model/User'), require('./model/UserBlog'), require('./model/UserBlogsResponse'), require('./model/UserTag'), require('./model/UserVariableDelete'), require('./model/UsersResponse'), require('./model/Variable'), require('./model/VariableCategory'), require('./model/VariableCharts'), require('./model/Vote'), require('./model/VoteDelete'), require('./model/XprofileDataResponse'), require('./model/XprofileDatum'), require('./model/XprofileField'), require('./model/XprofileFieldsResponse'), require('./model/XprofileGroup'), require('./model/XprofileGroupsResponse'), require('./api/ActivitiesApi'), require('./api/AnalyticsApi'), require('./api/AppSettingsApi'), require('./api/AuthenticationApi'), require('./api/ConnectorsApi'), require('./api/FeedApi'), require('./api/FriendsApi'), require('./api/GroupsApi'), require('./api/MeasurementsApi'), require('./api/MessagesApi'), require('./api/NotificationsApi'), require('./api/RemindersApi'), require('./api/SharesApi'), require('./api/StudiesApi'), require('./api/UnitsApi'), require('./api/UserApi'), require('./api/VariablesApi'), require('./api/XprofileApi'));
   }
-}(function(ApiClient, ActivitiesResponse, Activity, AppSettings, AppSettingsResponse, AuthorizedClients, Button, Card, Chart, CommonResponse, ConnectInstructions, ConversionStep, Correlation, DataSource, DeviceToken, Explanation, ExplanationStartTracking, FeedResponse, Friend, FriendsResponse, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetSharesResponse, GetStudiesResponse, GetTrackingReminderNotificationsResponse, Group, GroupsMember, GroupsMembersResponse, GroupsResponse, Image, InputField, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, MessagesMessage, MessagesMessagesResponse, MessagesNotice, MessagesNoticesResponse, MessagesRecipient, MessagesRecipientsResponse, Notification, NotificationsResponse, Pair, ParticipantInstruction, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyCreateResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, ShareInvitationBody, Study, StudyCharts, StudyCreationBody, StudyHtml, StudyImages, StudyJoinResponse, StudyLinks, StudySharing, StudyText, StudyVotes, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationAction, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserBlog, UserBlogsResponse, UserTag, UserVariableDelete, Variable, VariableCategory, VariableCharts, Vote, VoteDelete, XprofileDataResponse, XprofileDatum, XprofileField, XprofileFieldsResponse, XprofileGroup, XprofileGroupsResponse, ActivitiesApi, AnalyticsApi, AppSettingsApi, AuthenticationApi, ConnectorsApi, FeedApi, FriendsApi, GroupsApi, MeasurementsApi, MessagesApi, NotificationsApi, RemindersApi, SharesApi, StudiesApi, UnitsApi, UserApi, VariablesApi, XprofileApi) {
+}(function(ApiClient, ActivitiesResponse, Activity, AppSettings, AppSettingsResponse, AuthorizedClients, Button, Card, Chart, CommonResponse, ConnectInstructions, ConversionStep, Correlation, DataSource, DeviceToken, Explanation, ExplanationStartTracking, FeedResponse, Friend, FriendsResponse, GetConnectorsResponse, GetCorrelationsDataResponse, GetCorrelationsResponse, GetSharesResponse, GetStudiesResponse, GetTrackingReminderNotificationsResponse, Group, GroupsMember, GroupsMembersResponse, GroupsResponse, Image, InputField, JsonErrorResponse, Measurement, MeasurementDelete, MeasurementItem, MeasurementSet, MeasurementUpdate, MessagesMessage, MessagesMessagesResponse, MessagesNotice, MessagesNoticesResponse, MessagesRecipient, MessagesRecipientsResponse, Notification, NotificationsResponse, Pair, ParticipantInstruction, PostMeasurementsDataResponse, PostMeasurementsResponse, PostStudyCreateResponse, PostStudyPublishResponse, PostTrackingRemindersDataResponse, PostTrackingRemindersResponse, PostUserSettingsDataResponse, PostUserSettingsResponse, ShareInvitationBody, Study, StudyCharts, StudyCreationBody, StudyHtml, StudyImages, StudyJoinResponse, StudyLinks, StudySharing, StudyText, StudyVotes, TrackingReminder, TrackingReminderDelete, TrackingReminderNotification, TrackingReminderNotificationAction, TrackingReminderNotificationPost, TrackingReminderNotificationTrackAllAction, Unit, UnitCategory, User, UserBlog, UserBlogsResponse, UserTag, UserVariableDelete, UsersResponse, Variable, VariableCategory, VariableCharts, Vote, VoteDelete, XprofileDataResponse, XprofileDatum, XprofileField, XprofileFieldsResponse, XprofileGroup, XprofileGroupsResponse, ActivitiesApi, AnalyticsApi, AppSettingsApi, AuthenticationApi, ConnectorsApi, FeedApi, FriendsApi, GroupsApi, MeasurementsApi, MessagesApi, NotificationsApi, RemindersApi, SharesApi, StudiesApi, UnitsApi, UserApi, VariablesApi, XprofileApi) {
   'use strict';
 
   /**
@@ -10637,6 +10704,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
     UserVariableDelete: UserVariableDelete,
     /**
+     * The UsersResponse model constructor.
+     * @property {module:model/UsersResponse}
+     */
+    UsersResponse: UsersResponse,
+    /**
      * The Variable model constructor.
      * @property {module:model/Variable}
      */
@@ -10786,7 +10858,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"./ApiClient":16,"./api/ActivitiesApi":17,"./api/AnalyticsApi":18,"./api/AppSettingsApi":19,"./api/AuthenticationApi":20,"./api/ConnectorsApi":21,"./api/FeedApi":22,"./api/FriendsApi":23,"./api/GroupsApi":24,"./api/MeasurementsApi":25,"./api/MessagesApi":26,"./api/NotificationsApi":27,"./api/RemindersApi":28,"./api/SharesApi":29,"./api/StudiesApi":30,"./api/UnitsApi":31,"./api/UserApi":32,"./api/VariablesApi":33,"./api/XprofileApi":34,"./model/ActivitiesResponse":36,"./model/Activity":37,"./model/AppSettings":38,"./model/AppSettingsResponse":39,"./model/AuthorizedClients":40,"./model/Button":41,"./model/Card":42,"./model/Chart":43,"./model/CommonResponse":44,"./model/ConnectInstructions":45,"./model/ConversionStep":46,"./model/Correlation":47,"./model/DataSource":48,"./model/DeviceToken":49,"./model/Explanation":50,"./model/ExplanationStartTracking":51,"./model/FeedResponse":52,"./model/Friend":53,"./model/FriendsResponse":54,"./model/GetConnectorsResponse":55,"./model/GetCorrelationsDataResponse":56,"./model/GetCorrelationsResponse":57,"./model/GetSharesResponse":58,"./model/GetStudiesResponse":59,"./model/GetTrackingReminderNotificationsResponse":60,"./model/Group":61,"./model/GroupsMember":62,"./model/GroupsMembersResponse":63,"./model/GroupsResponse":64,"./model/Image":65,"./model/InputField":66,"./model/JsonErrorResponse":67,"./model/Measurement":68,"./model/MeasurementDelete":69,"./model/MeasurementItem":70,"./model/MeasurementSet":71,"./model/MeasurementUpdate":72,"./model/MessagesMessage":73,"./model/MessagesMessagesResponse":74,"./model/MessagesNotice":75,"./model/MessagesNoticesResponse":76,"./model/MessagesRecipient":77,"./model/MessagesRecipientsResponse":78,"./model/Notification":79,"./model/NotificationsResponse":80,"./model/Pair":81,"./model/ParticipantInstruction":82,"./model/PostMeasurementsDataResponse":83,"./model/PostMeasurementsResponse":84,"./model/PostStudyCreateResponse":85,"./model/PostStudyPublishResponse":86,"./model/PostTrackingRemindersDataResponse":87,"./model/PostTrackingRemindersResponse":88,"./model/PostUserSettingsDataResponse":89,"./model/PostUserSettingsResponse":90,"./model/ShareInvitationBody":91,"./model/Study":92,"./model/StudyCharts":93,"./model/StudyCreationBody":94,"./model/StudyHtml":95,"./model/StudyImages":96,"./model/StudyJoinResponse":97,"./model/StudyLinks":98,"./model/StudySharing":99,"./model/StudyText":100,"./model/StudyVotes":101,"./model/TrackingReminder":102,"./model/TrackingReminderDelete":103,"./model/TrackingReminderNotification":104,"./model/TrackingReminderNotificationAction":105,"./model/TrackingReminderNotificationPost":106,"./model/TrackingReminderNotificationTrackAllAction":107,"./model/Unit":108,"./model/UnitCategory":109,"./model/User":110,"./model/UserBlog":111,"./model/UserBlogsResponse":112,"./model/UserTag":113,"./model/UserVariableDelete":114,"./model/Variable":115,"./model/VariableCategory":116,"./model/VariableCharts":117,"./model/Vote":118,"./model/VoteDelete":119,"./model/XprofileDataResponse":120,"./model/XprofileDatum":121,"./model/XprofileField":122,"./model/XprofileFieldsResponse":123,"./model/XprofileGroup":124,"./model/XprofileGroupsResponse":125}],36:[function(require,module,exports){
+},{"./ApiClient":16,"./api/ActivitiesApi":17,"./api/AnalyticsApi":18,"./api/AppSettingsApi":19,"./api/AuthenticationApi":20,"./api/ConnectorsApi":21,"./api/FeedApi":22,"./api/FriendsApi":23,"./api/GroupsApi":24,"./api/MeasurementsApi":25,"./api/MessagesApi":26,"./api/NotificationsApi":27,"./api/RemindersApi":28,"./api/SharesApi":29,"./api/StudiesApi":30,"./api/UnitsApi":31,"./api/UserApi":32,"./api/VariablesApi":33,"./api/XprofileApi":34,"./model/ActivitiesResponse":36,"./model/Activity":37,"./model/AppSettings":38,"./model/AppSettingsResponse":39,"./model/AuthorizedClients":40,"./model/Button":41,"./model/Card":42,"./model/Chart":43,"./model/CommonResponse":44,"./model/ConnectInstructions":45,"./model/ConversionStep":46,"./model/Correlation":47,"./model/DataSource":48,"./model/DeviceToken":49,"./model/Explanation":50,"./model/ExplanationStartTracking":51,"./model/FeedResponse":52,"./model/Friend":53,"./model/FriendsResponse":54,"./model/GetConnectorsResponse":55,"./model/GetCorrelationsDataResponse":56,"./model/GetCorrelationsResponse":57,"./model/GetSharesResponse":58,"./model/GetStudiesResponse":59,"./model/GetTrackingReminderNotificationsResponse":60,"./model/Group":61,"./model/GroupsMember":62,"./model/GroupsMembersResponse":63,"./model/GroupsResponse":64,"./model/Image":65,"./model/InputField":66,"./model/JsonErrorResponse":67,"./model/Measurement":68,"./model/MeasurementDelete":69,"./model/MeasurementItem":70,"./model/MeasurementSet":71,"./model/MeasurementUpdate":72,"./model/MessagesMessage":73,"./model/MessagesMessagesResponse":74,"./model/MessagesNotice":75,"./model/MessagesNoticesResponse":76,"./model/MessagesRecipient":77,"./model/MessagesRecipientsResponse":78,"./model/Notification":79,"./model/NotificationsResponse":80,"./model/Pair":81,"./model/ParticipantInstruction":82,"./model/PostMeasurementsDataResponse":83,"./model/PostMeasurementsResponse":84,"./model/PostStudyCreateResponse":85,"./model/PostStudyPublishResponse":86,"./model/PostTrackingRemindersDataResponse":87,"./model/PostTrackingRemindersResponse":88,"./model/PostUserSettingsDataResponse":89,"./model/PostUserSettingsResponse":90,"./model/ShareInvitationBody":91,"./model/Study":92,"./model/StudyCharts":93,"./model/StudyCreationBody":94,"./model/StudyHtml":95,"./model/StudyImages":96,"./model/StudyJoinResponse":97,"./model/StudyLinks":98,"./model/StudySharing":99,"./model/StudyText":100,"./model/StudyVotes":101,"./model/TrackingReminder":102,"./model/TrackingReminderDelete":103,"./model/TrackingReminderNotification":104,"./model/TrackingReminderNotificationAction":105,"./model/TrackingReminderNotificationPost":106,"./model/TrackingReminderNotificationTrackAllAction":107,"./model/Unit":108,"./model/UnitCategory":109,"./model/User":110,"./model/UserBlog":111,"./model/UserBlogsResponse":112,"./model/UserTag":113,"./model/UserVariableDelete":114,"./model/UsersResponse":115,"./model/Variable":116,"./model/VariableCategory":117,"./model/VariableCharts":118,"./model/Vote":119,"./model/VoteDelete":120,"./model/XprofileDataResponse":121,"./model/XprofileDatum":122,"./model/XprofileField":123,"./model/XprofileFieldsResponse":124,"./model/XprofileGroup":125,"./model/XprofileGroupsResponse":126}],36:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -19433,7 +19505,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Variable":115}],84:[function(require,module,exports){
+},{"../ApiClient":16,"./Variable":116}],84:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -19909,7 +19981,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./TrackingReminder":102,"./TrackingReminderNotification":104,"./Variable":115}],88:[function(require,module,exports){
+},{"../ApiClient":16,"./TrackingReminder":102,"./TrackingReminderNotification":104,"./Variable":116}],88:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20618,7 +20690,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Card":42,"./Correlation":47,"./ParticipantInstruction":82,"./StudyCharts":93,"./StudyHtml":95,"./StudyImages":96,"./StudyLinks":98,"./StudySharing":99,"./StudyText":100,"./StudyVotes":101,"./Variable":115}],93:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Correlation":47,"./ParticipantInstruction":82,"./StudyCharts":93,"./StudyHtml":95,"./StudyImages":96,"./StudyLinks":98,"./StudySharing":99,"./StudyText":100,"./StudyVotes":101,"./Variable":116}],93:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -25811,6 +25883,143 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
+    define(['ApiClient', 'model/Image', 'model/User'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'), require('./Image'), require('./User'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.Quantimodo) {
+      root.Quantimodo = {};
+    }
+    root.Quantimodo.UsersResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Image, root.Quantimodo.User);
+  }
+}(this, function(ApiClient, Image, User) {
+  'use strict';
+
+
+
+
+  /**
+   * The UsersResponse model module.
+   * @module model/UsersResponse
+   * @version 5.8.112511
+   */
+
+  /**
+   * Constructs a new <code>UsersResponse</code>.
+   * @alias module:model/UsersResponse
+   * @class
+   * @param users {Array.<module:model/User>} 
+   */
+  var exports = function(users) {
+    var _this = this;
+
+    _this['users'] = users;
+
+
+
+
+
+
+  };
+
+  /**
+   * Constructs a <code>UsersResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/UsersResponse} obj Optional instance to populate.
+   * @return {module:model/UsersResponse} The populated <code>UsersResponse</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('users')) {
+        obj['users'] = ApiClient.convertToType(data['users'], [User]);
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('summary')) {
+        obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+      }
+      if (data.hasOwnProperty('image')) {
+        obj['image'] = Image.constructFromObject(data['image']);
+      }
+      if (data.hasOwnProperty('avatar')) {
+        obj['avatar'] = ApiClient.convertToType(data['avatar'], 'String');
+      }
+      if (data.hasOwnProperty('ionIcon')) {
+        obj['ionIcon'] = ApiClient.convertToType(data['ionIcon'], 'String');
+      }
+      if (data.hasOwnProperty('html')) {
+        obj['html'] = ApiClient.convertToType(data['html'], 'String');
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * @member {Array.<module:model/User>} users
+   */
+  exports.prototype['users'] = undefined;
+  /**
+   * Users who granted access to their data
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * Users who granted access to their data
+   * @member {String} summary
+   */
+  exports.prototype['summary'] = undefined;
+  /**
+   * @member {module:model/Image} image
+   */
+  exports.prototype['image'] = undefined;
+  /**
+   * Square icon png url
+   * @member {String} avatar
+   */
+  exports.prototype['avatar'] = undefined;
+  /**
+   * Ex: ion-ios-person
+   * @member {String} ionIcon
+   */
+  exports.prototype['ionIcon'] = undefined;
+  /**
+   * Users who granted access to their data
+   * @member {String} html
+   */
+  exports.prototype['html'] = undefined;
+
+
+
+  return exports;
+}));
+
+
+
+},{"../ApiClient":16,"./Image":65,"./User":110}],116:[function(require,module,exports){
+/**
+ * quantimodo
+ * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
+ *
+ * OpenAPI spec version: 5.8.112511
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.4.4
+ *
+ * Do not edit the class manually.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
     define(['ApiClient', 'model/Card', 'model/DataSource', 'model/TrackingReminderNotificationAction', 'model/Unit', 'model/Variable', 'model/VariableCategory', 'model/VariableCharts'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
@@ -27391,7 +27600,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Card":42,"./DataSource":48,"./TrackingReminderNotificationAction":105,"./Unit":108,"./Variable":115,"./VariableCategory":116,"./VariableCharts":117}],116:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./DataSource":48,"./TrackingReminderNotificationAction":105,"./Unit":108,"./Variable":116,"./VariableCategory":117,"./VariableCharts":118}],117:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -27850,7 +28059,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16}],117:[function(require,module,exports){
+},{"../ApiClient":16}],118:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -27974,7 +28183,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Chart":43}],118:[function(require,module,exports){
+},{"../ApiClient":16,"./Chart":43}],119:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -28174,7 +28383,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16}],119:[function(require,module,exports){
+},{"../ApiClient":16}],120:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -28269,7 +28478,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16}],120:[function(require,module,exports){
+},{"../ApiClient":16}],121:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -28406,7 +28615,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Image":65,"./XprofileDatum":121}],121:[function(require,module,exports){
+},{"../ApiClient":16,"./Image":65,"./XprofileDatum":122}],122:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -28540,7 +28749,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16}],122:[function(require,module,exports){
+},{"../ApiClient":16}],123:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -28744,7 +28953,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16}],123:[function(require,module,exports){
+},{"../ApiClient":16}],124:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -28881,7 +29090,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Image":65,"./XprofileField":122}],124:[function(require,module,exports){
+},{"../ApiClient":16,"./Image":65,"./XprofileField":123}],125:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -29015,7 +29224,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16}],125:[function(require,module,exports){
+},{"../ApiClient":16}],126:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -29152,5 +29361,5 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Image":65,"./XprofileGroup":124}]},{},[35])(35)
+},{"../ApiClient":16,"./Image":65,"./XprofileGroup":125}]},{},[35])(35)
 });
