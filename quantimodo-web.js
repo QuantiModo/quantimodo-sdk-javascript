@@ -10882,18 +10882,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Activity', 'model/Error', 'model/Image'], factory);
+    define(['ApiClient', 'model/Activity', 'model/Card', 'model/Error', 'model/Image'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Activity'), require('./Error'), require('./Image'));
+    module.exports = factory(require('../ApiClient'), require('./Activity'), require('./Card'), require('./Error'), require('./Image'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.ActivitiesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Activity, root.Quantimodo.Error, root.Quantimodo.Image);
+    root.Quantimodo.ActivitiesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Activity, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image);
   }
-}(this, function(ApiClient, Activity, Error, Image) {
+}(this, function(ApiClient, Activity, Card, Error, Image) {
   'use strict';
 
 
@@ -10915,6 +10915,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['activities'] = activities;
+
+
 
 
 
@@ -10970,6 +10972,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -11028,6 +11036,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -11036,7 +11054,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Activity":37,"./Error":50,"./Image":66}],37:[function(require,module,exports){
+},{"../ApiClient":16,"./Activity":37,"./Card":42,"./Error":50,"./Image":66}],37:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -11535,18 +11553,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AppSettings', 'model/Error'], factory);
+    define(['ApiClient', 'model/AppSettings', 'model/Card', 'model/Error'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./AppSettings'), require('./Error'));
+    module.exports = factory(require('../ApiClient'), require('./AppSettings'), require('./Card'), require('./Error'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.AppSettingsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.AppSettings, root.Quantimodo.Error);
+    root.Quantimodo.AppSettingsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.AppSettings, root.Quantimodo.Card, root.Quantimodo.Error);
   }
-}(this, function(ApiClient, AppSettings, Error) {
+}(this, function(ApiClient, AppSettings, Card, Error) {
   'use strict';
 
 
@@ -11571,6 +11589,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['description'] = description;
     _this['summary'] = summary;
+
+
 
 
 
@@ -11608,6 +11628,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -11647,6 +11673,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -11655,7 +11691,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./AppSettings":38,"./Error":50}],40:[function(require,module,exports){
+},{"../ApiClient":16,"./AppSettings":38,"./Card":42,"./Error":50}],40:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -12451,18 +12487,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.CommonResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error);
+    root.Quantimodo.CommonResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error);
   }
-}(this, function(ApiClient, Error) {
+}(this, function(ApiClient, Card, Error) {
   'use strict';
 
 
@@ -12486,6 +12522,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['description'] = description;
     _this['summary'] = summary;
+
+
 
 
 
@@ -12521,6 +12559,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
     }
     return obj;
   }
@@ -12555,6 +12599,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -12563,7 +12617,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50}],45:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50}],45:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -14734,6 +14788,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
   };
 
   /**
@@ -14767,6 +14823,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -14806,6 +14868,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -14977,18 +15049,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Friend', 'model/Image'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Friend', 'model/Image'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Friend'), require('./Image'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Friend'), require('./Image'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.FriendsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Friend, root.Quantimodo.Image);
+    root.Quantimodo.FriendsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Friend, root.Quantimodo.Image);
   }
-}(this, function(ApiClient, Error, Friend, Image) {
+}(this, function(ApiClient, Card, Error, Friend, Image) {
   'use strict';
 
 
@@ -15010,6 +15082,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['friends'] = friends;
+
+
 
 
 
@@ -15065,6 +15139,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -15123,6 +15203,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -15131,7 +15221,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Friend":54,"./Image":66}],56:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Friend":54,"./Image":66}],56:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15150,18 +15240,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataSource', 'model/Error'], factory);
+    define(['ApiClient', 'model/Card', 'model/DataSource', 'model/Error'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./DataSource'), require('./Error'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./DataSource'), require('./Error'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GetConnectorsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.DataSource, root.Quantimodo.Error);
+    root.Quantimodo.GetConnectorsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.DataSource, root.Quantimodo.Error);
   }
-}(this, function(ApiClient, DataSource, Error) {
+}(this, function(ApiClient, Card, DataSource, Error) {
   'use strict';
 
 
@@ -15186,6 +15276,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['description'] = description;
     _this['summary'] = summary;
+
+
 
 
 
@@ -15223,6 +15315,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -15262,6 +15360,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -15270,7 +15378,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./DataSource":48,"./Error":50}],57:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./DataSource":48,"./Error":50}],57:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15289,18 +15397,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Correlation', 'model/Error', 'model/Explanation'], factory);
+    define(['ApiClient', 'model/Card', 'model/Correlation', 'model/Error', 'model/Explanation'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Correlation'), require('./Error'), require('./Explanation'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Correlation'), require('./Error'), require('./Explanation'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GetCorrelationsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Correlation, root.Quantimodo.Error, root.Quantimodo.Explanation);
+    root.Quantimodo.GetCorrelationsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Correlation, root.Quantimodo.Error, root.Quantimodo.Explanation);
   }
-}(this, function(ApiClient, Correlation, Error, Explanation) {
+}(this, function(ApiClient, Card, Correlation, Error, Explanation) {
   'use strict';
 
 
@@ -15324,6 +15432,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['correlations'] = correlations;
     _this['explanation'] = explanation;
+
+
 
 
 
@@ -15367,6 +15477,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
     }
     return obj;
   }
@@ -15409,6 +15525,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -15417,7 +15543,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Correlation":47,"./Error":50,"./Explanation":51}],58:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Correlation":47,"./Error":50,"./Explanation":51}],58:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15436,18 +15562,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/GetCorrelationsDataResponse'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/GetCorrelationsDataResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./GetCorrelationsDataResponse'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./GetCorrelationsDataResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GetCorrelationsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.GetCorrelationsDataResponse);
+    root.Quantimodo.GetCorrelationsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.GetCorrelationsDataResponse);
   }
-}(this, function(ApiClient, Error, GetCorrelationsDataResponse) {
+}(this, function(ApiClient, Card, Error, GetCorrelationsDataResponse) {
   'use strict';
 
 
@@ -15472,6 +15598,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['description'] = description;
     _this['summary'] = summary;
+
+
 
 
 
@@ -15513,6 +15641,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -15557,6 +15691,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -15565,7 +15709,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./GetCorrelationsDataResponse":57}],59:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./GetCorrelationsDataResponse":57}],59:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15584,18 +15728,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AuthorizedClients', 'model/Error'], factory);
+    define(['ApiClient', 'model/AuthorizedClients', 'model/Card', 'model/Error'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./AuthorizedClients'), require('./Error'));
+    module.exports = factory(require('../ApiClient'), require('./AuthorizedClients'), require('./Card'), require('./Error'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GetSharesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.AuthorizedClients, root.Quantimodo.Error);
+    root.Quantimodo.GetSharesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.AuthorizedClients, root.Quantimodo.Card, root.Quantimodo.Error);
   }
-}(this, function(ApiClient, AuthorizedClients, Error) {
+}(this, function(ApiClient, AuthorizedClients, Card, Error) {
   'use strict';
 
 
@@ -15620,6 +15764,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['description'] = description;
     _this['summary'] = summary;
+
+
 
 
 
@@ -15657,6 +15803,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -15696,6 +15848,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -15704,7 +15866,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./AuthorizedClients":40,"./Error":50}],60:[function(require,module,exports){
+},{"../ApiClient":16,"./AuthorizedClients":40,"./Card":42,"./Error":50}],60:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -15878,18 +16040,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/TrackingReminderNotification'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/TrackingReminderNotification'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./TrackingReminderNotification'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./TrackingReminderNotification'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GetTrackingReminderNotificationsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.TrackingReminderNotification);
+    root.Quantimodo.GetTrackingReminderNotificationsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.TrackingReminderNotification);
   }
-}(this, function(ApiClient, Error, TrackingReminderNotification) {
+}(this, function(ApiClient, Card, Error, TrackingReminderNotification) {
   'use strict';
 
 
@@ -15914,6 +16076,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['description'] = description;
     _this['summary'] = summary;
+
+
 
 
 
@@ -15951,6 +16115,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -15990,6 +16160,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -15998,7 +16178,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./TrackingReminderNotification":105}],62:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./TrackingReminderNotification":105}],62:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -16395,18 +16575,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/GroupsMember', 'model/Image'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/GroupsMember', 'model/Image'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./GroupsMember'), require('./Image'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./GroupsMember'), require('./Image'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GroupsMembersResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.GroupsMember, root.Quantimodo.Image);
+    root.Quantimodo.GroupsMembersResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.GroupsMember, root.Quantimodo.Image);
   }
-}(this, function(ApiClient, Error, GroupsMember, Image) {
+}(this, function(ApiClient, Card, Error, GroupsMember, Image) {
   'use strict';
 
 
@@ -16428,6 +16608,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['groupsMembers'] = groupsMembers;
+
+
 
 
 
@@ -16483,6 +16665,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -16541,6 +16729,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -16549,7 +16747,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./GroupsMember":63,"./Image":66}],65:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./GroupsMember":63,"./Image":66}],65:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -16568,18 +16766,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Group', 'model/Image'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Group', 'model/Image'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Group'), require('./Image'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Group'), require('./Image'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.GroupsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Group, root.Quantimodo.Image);
+    root.Quantimodo.GroupsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Group, root.Quantimodo.Image);
   }
-}(this, function(ApiClient, Error, Group, Image) {
+}(this, function(ApiClient, Card, Error, Group, Image) {
   'use strict';
 
 
@@ -16601,6 +16799,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['groups'] = groups;
+
+
 
 
 
@@ -16656,6 +16856,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -16714,6 +16920,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -16722,7 +16938,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Group":62,"./Image":66}],66:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Group":62,"./Image":66}],66:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -17191,18 +17407,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.JsonErrorResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error);
+    root.Quantimodo.JsonErrorResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error);
   }
-}(this, function(ApiClient, Error) {
+}(this, function(ApiClient, Card, Error) {
   'use strict';
 
 
@@ -17228,6 +17444,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     _this['status'] = status;
+
+
 
 
   };
@@ -17263,6 +17481,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -17303,6 +17527,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -17311,7 +17545,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50}],69:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50}],69:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -18717,18 +18951,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Image', 'model/MessagesMessage'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Image', 'model/MessagesMessage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Image'), require('./MessagesMessage'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Image'), require('./MessagesMessage'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.MessagesMessagesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.MessagesMessage);
+    root.Quantimodo.MessagesMessagesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.MessagesMessage);
   }
-}(this, function(ApiClient, Error, Image, MessagesMessage) {
+}(this, function(ApiClient, Card, Error, Image, MessagesMessage) {
   'use strict';
 
 
@@ -18750,6 +18984,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['messagesMessages'] = messagesMessages;
+
+
 
 
 
@@ -18805,6 +19041,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -18863,6 +19105,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -18871,7 +19123,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Image":66,"./MessagesMessage":74}],76:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Image":66,"./MessagesMessage":74}],76:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -19024,18 +19276,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Image', 'model/MessagesNotice'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Image', 'model/MessagesNotice'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Image'), require('./MessagesNotice'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Image'), require('./MessagesNotice'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.MessagesNoticesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.MessagesNotice);
+    root.Quantimodo.MessagesNoticesResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.MessagesNotice);
   }
-}(this, function(ApiClient, Error, Image, MessagesNotice) {
+}(this, function(ApiClient, Card, Error, Image, MessagesNotice) {
   'use strict';
 
 
@@ -19057,6 +19309,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['messagesNotices'] = messagesNotices;
+
+
 
 
 
@@ -19120,6 +19374,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -19188,6 +19448,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -19196,7 +19466,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Image":66,"./MessagesNotice":76}],78:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Image":66,"./MessagesNotice":76}],78:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -19359,18 +19629,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Image', 'model/MessagesRecipient'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Image', 'model/MessagesRecipient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Image'), require('./MessagesRecipient'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Image'), require('./MessagesRecipient'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.MessagesRecipientsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.MessagesRecipient);
+    root.Quantimodo.MessagesRecipientsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.MessagesRecipient);
   }
-}(this, function(ApiClient, Error, Image, MessagesRecipient) {
+}(this, function(ApiClient, Card, Error, Image, MessagesRecipient) {
   'use strict';
 
 
@@ -19392,6 +19662,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['messagesRecipients'] = messagesRecipients;
+
+
 
 
 
@@ -19447,6 +19719,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -19505,6 +19783,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -19513,7 +19801,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Image":66,"./MessagesRecipient":78}],80:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Image":66,"./MessagesRecipient":78}],80:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -19696,18 +19984,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Image', 'model/Notification'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Image', 'model/Notification'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Image'), require('./Notification'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Image'), require('./Notification'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.NotificationsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.Notification);
+    root.Quantimodo.NotificationsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.Notification);
   }
-}(this, function(ApiClient, Error, Image, Notification) {
+}(this, function(ApiClient, Card, Error, Image, Notification) {
   'use strict';
 
 
@@ -19729,6 +20017,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['notifications'] = notifications;
+
+
 
 
 
@@ -19784,6 +20074,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -19842,6 +20138,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -19850,7 +20156,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Image":66,"./Notification":80}],82:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Image":66,"./Notification":80}],82:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20134,18 +20440,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Variable'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Variable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Variable'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Variable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostMeasurementsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Variable);
+    root.Quantimodo.PostMeasurementsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Variable);
   }
-}(this, function(ApiClient, Error, Variable) {
+}(this, function(ApiClient, Card, Error, Variable) {
   'use strict';
 
 
@@ -20164,6 +20470,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -20206,6 +20514,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
     }
     return obj;
   }
@@ -20244,6 +20558,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -20252,7 +20576,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Variable":117}],85:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Variable":117}],85:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20271,18 +20595,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/PostMeasurementsDataResponse'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/PostMeasurementsDataResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./PostMeasurementsDataResponse'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./PostMeasurementsDataResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostMeasurementsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.PostMeasurementsDataResponse);
+    root.Quantimodo.PostMeasurementsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.PostMeasurementsDataResponse);
   }
-}(this, function(ApiClient, Error, PostMeasurementsDataResponse) {
+}(this, function(ApiClient, Card, Error, PostMeasurementsDataResponse) {
   'use strict';
 
 
@@ -20311,6 +20635,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['status'] = status;
     _this['success'] = success;
+
+
 
   };
 
@@ -20348,6 +20674,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -20392,6 +20724,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -20400,7 +20742,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./PostMeasurementsDataResponse":84}],86:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./PostMeasurementsDataResponse":84}],86:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20419,18 +20761,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Study'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Study'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Study'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Study'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostStudyCreateResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Study);
+    root.Quantimodo.PostStudyCreateResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Study);
   }
-}(this, function(ApiClient, Error, Study) {
+}(this, function(ApiClient, Card, Error, Study) {
   'use strict';
 
 
@@ -20449,6 +20791,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -20491,6 +20835,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
     }
     return obj;
   }
@@ -20529,6 +20879,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -20537,7 +20897,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Study":93}],87:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Study":93}],87:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20556,18 +20916,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostStudyPublishResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error);
+    root.Quantimodo.PostStudyPublishResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error);
   }
-}(this, function(ApiClient, Error) {
+}(this, function(ApiClient, Card, Error) {
   'use strict';
 
 
@@ -20586,6 +20946,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -20624,6 +20986,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
     }
     return obj;
   }
@@ -20658,6 +21026,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -20666,7 +21044,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50}],88:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50}],88:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20685,18 +21063,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/TrackingReminder', 'model/TrackingReminderNotification', 'model/Variable'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/TrackingReminder', 'model/TrackingReminderNotification', 'model/Variable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./TrackingReminder'), require('./TrackingReminderNotification'), require('./Variable'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./TrackingReminder'), require('./TrackingReminderNotification'), require('./Variable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostTrackingRemindersDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.TrackingReminder, root.Quantimodo.TrackingReminderNotification, root.Quantimodo.Variable);
+    root.Quantimodo.PostTrackingRemindersDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.TrackingReminder, root.Quantimodo.TrackingReminderNotification, root.Quantimodo.Variable);
   }
-}(this, function(ApiClient, Error, TrackingReminder, TrackingReminderNotification, Variable) {
+}(this, function(ApiClient, Card, Error, TrackingReminder, TrackingReminderNotification, Variable) {
   'use strict';
 
 
@@ -20715,6 +21093,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -20765,6 +21145,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
     }
     return obj;
   }
@@ -20811,6 +21197,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -20819,7 +21215,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./TrackingReminder":103,"./TrackingReminderNotification":105,"./Variable":117}],89:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./TrackingReminder":103,"./TrackingReminderNotification":105,"./Variable":117}],89:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20838,18 +21234,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/PostTrackingRemindersDataResponse'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/PostTrackingRemindersDataResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./PostTrackingRemindersDataResponse'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./PostTrackingRemindersDataResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostTrackingRemindersResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.PostTrackingRemindersDataResponse);
+    root.Quantimodo.PostTrackingRemindersResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.PostTrackingRemindersDataResponse);
   }
-}(this, function(ApiClient, Error, PostTrackingRemindersDataResponse) {
+}(this, function(ApiClient, Card, Error, PostTrackingRemindersDataResponse) {
   'use strict';
 
 
@@ -20878,6 +21274,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['status'] = status;
     _this['success'] = success;
+
+
 
   };
 
@@ -20915,6 +21313,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -20959,6 +21363,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -20967,7 +21381,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./PostTrackingRemindersDataResponse":88}],90:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./PostTrackingRemindersDataResponse":88}],90:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -20986,18 +21400,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostUserSettingsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error);
+    root.Quantimodo.PostUserSettingsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error);
   }
-}(this, function(ApiClient, Error) {
+}(this, function(ApiClient, Card, Error) {
   'use strict';
 
 
@@ -21016,6 +21430,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -21058,6 +21474,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
     }
     return obj;
   }
@@ -21097,6 +21519,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -21105,7 +21537,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50}],91:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50}],91:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -21124,18 +21556,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/PostUserSettingsDataResponse'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/PostUserSettingsDataResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./PostUserSettingsDataResponse'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./PostUserSettingsDataResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostUserSettingsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.PostUserSettingsDataResponse);
+    root.Quantimodo.PostUserSettingsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.PostUserSettingsDataResponse);
   }
-}(this, function(ApiClient, Error, PostUserSettingsDataResponse) {
+}(this, function(ApiClient, Card, Error, PostUserSettingsDataResponse) {
   'use strict';
 
 
@@ -21164,6 +21596,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['status'] = status;
     _this['success'] = success;
+
+
 
   };
 
@@ -21201,6 +21635,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -21245,6 +21685,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -21253,7 +21703,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./PostUserSettingsDataResponse":90}],92:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./PostUserSettingsDataResponse":90}],92:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -22244,18 +22694,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Study', 'model/TrackingReminder', 'model/TrackingReminderNotification'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Study', 'model/TrackingReminder', 'model/TrackingReminderNotification'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Study'), require('./TrackingReminder'), require('./TrackingReminderNotification'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Study'), require('./TrackingReminder'), require('./TrackingReminderNotification'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.StudyJoinResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Study, root.Quantimodo.TrackingReminder, root.Quantimodo.TrackingReminderNotification);
+    root.Quantimodo.StudyJoinResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Study, root.Quantimodo.TrackingReminder, root.Quantimodo.TrackingReminderNotification);
   }
-}(this, function(ApiClient, Error, Study, TrackingReminder, TrackingReminderNotification) {
+}(this, function(ApiClient, Card, Error, Study, TrackingReminder, TrackingReminderNotification) {
   'use strict';
 
 
@@ -22274,6 +22724,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -22324,6 +22776,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
     }
     return obj;
   }
@@ -22370,6 +22828,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -22378,7 +22846,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Study":93,"./TrackingReminder":103,"./TrackingReminderNotification":105}],99:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Study":93,"./TrackingReminder":103,"./TrackingReminderNotification":105}],99:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -26486,18 +26954,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Image', 'model/UserBlog'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Image', 'model/UserBlog'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Image'), require('./UserBlog'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Image'), require('./UserBlog'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UserBlogsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.UserBlog);
+    root.Quantimodo.UserBlogsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.UserBlog);
   }
-}(this, function(ApiClient, Error, Image, UserBlog) {
+}(this, function(ApiClient, Card, Error, Image, UserBlog) {
   'use strict';
 
 
@@ -26519,6 +26987,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['userBlogs'] = userBlogs;
+
+
 
 
 
@@ -26574,6 +27044,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -26632,6 +27108,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -26640,7 +27126,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Image":66,"./UserBlog":112}],114:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Image":66,"./UserBlog":112}],114:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -26849,18 +27335,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Image', 'model/User'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Image', 'model/User'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Image'), require('./User'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Image'), require('./User'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.UsersResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.User);
+    root.Quantimodo.UsersResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.User);
   }
-}(this, function(ApiClient, Error, Image, User) {
+}(this, function(ApiClient, Card, Error, Image, User) {
   'use strict';
 
 
@@ -26882,6 +27368,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['users'] = users;
+
+
 
 
 
@@ -26937,6 +27425,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('html')) {
         obj['html'] = ApiClient.convertToType(data['html'], 'String');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -26995,6 +27489,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {String} html
    */
   exports.prototype['html'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -27003,7 +27507,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Image":66,"./User":111}],117:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Image":66,"./User":111}],117:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -29499,18 +30003,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Image', 'model/XprofileDatum'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Image', 'model/XprofileDatum'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Image'), require('./XprofileDatum'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Image'), require('./XprofileDatum'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.XprofileDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.XprofileDatum);
+    root.Quantimodo.XprofileDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.XprofileDatum);
   }
-}(this, function(ApiClient, Error, Image, XprofileDatum) {
+}(this, function(ApiClient, Card, Error, Image, XprofileDatum) {
   'use strict';
 
 
@@ -29532,6 +30036,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['xprofileData'] = xprofileData;
+
+
 
 
 
@@ -29587,6 +30093,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -29645,6 +30157,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -29653,7 +30175,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Image":66,"./XprofileDatum":123}],123:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Image":66,"./XprofileDatum":123}],123:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -30010,18 +30532,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Image', 'model/XprofileField'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Image', 'model/XprofileField'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Image'), require('./XprofileField'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Image'), require('./XprofileField'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.XprofileFieldsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.XprofileField);
+    root.Quantimodo.XprofileFieldsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.XprofileField);
   }
-}(this, function(ApiClient, Error, Image, XprofileField) {
+}(this, function(ApiClient, Card, Error, Image, XprofileField) {
   'use strict';
 
 
@@ -30043,6 +30565,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['xprofileFields'] = xprofileFields;
+
+
 
 
 
@@ -30098,6 +30622,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -30156,6 +30686,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -30164,7 +30704,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Image":66,"./XprofileField":124}],126:[function(require,module,exports){
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Image":66,"./XprofileField":124}],126:[function(require,module,exports){
 /**
  * quantimodo
  * We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).
@@ -30317,18 +30857,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Image', 'model/XprofileGroup'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Image', 'model/XprofileGroup'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Image'), require('./XprofileGroup'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Image'), require('./XprofileGroup'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.XprofileGroupsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.XprofileGroup);
+    root.Quantimodo.XprofileGroupsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Image, root.Quantimodo.XprofileGroup);
   }
-}(this, function(ApiClient, Error, Image, XprofileGroup) {
+}(this, function(ApiClient, Card, Error, Image, XprofileGroup) {
   'use strict';
 
 
@@ -30350,6 +30890,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
     var _this = this;
 
     _this['xprofileGroups'] = xprofileGroups;
+
+
 
 
 
@@ -30405,6 +30947,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -30463,6 +31011,16 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
@@ -30471,5 +31029,5 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":16,"./Error":50,"./Image":66,"./XprofileGroup":126}]},{},[35])(35)
+},{"../ApiClient":16,"./Card":42,"./Error":50,"./Image":66,"./XprofileGroup":126}]},{},[35])(35)
 });

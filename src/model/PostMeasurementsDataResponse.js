@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Variable'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Variable'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Variable'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Variable'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.PostMeasurementsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Variable);
+    root.Quantimodo.PostMeasurementsDataResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Variable);
   }
-}(this, function(ApiClient, Error, Variable) {
+}(this, function(ApiClient, Card, Error, Variable) {
   'use strict';
 
 
@@ -46,6 +46,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -88,6 +90,12 @@
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
       }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
+      }
     }
     return obj;
   }
@@ -126,6 +134,16 @@
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 

@@ -110,6 +110,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property link (base name: "link")', function() {
+      // uncomment below and update the code to test the property link
+      //var instance = new Quantimodo.StudyJoinResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property card (base name: "card")', function() {
+      // uncomment below and update the code to test the property card
+      //var instance = new Quantimodo.StudyJoinResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

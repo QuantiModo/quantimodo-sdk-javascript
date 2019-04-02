@@ -11,5 +11,7 @@ Name | Type | Description | Notes
 **status** | **String** | ex. OK or ERROR | [optional] 
 **success** | **Boolean** | true or false | [optional] 
 **code** | **Number** | Response code such as 200 | [optional] 
+**link** | **String** | A super neat url! | [optional] 
+**card** | [**Card**](Card.md) | A super neat card! | [optional] 
 
 

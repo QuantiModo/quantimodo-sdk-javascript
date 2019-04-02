@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Error', 'model/Friend', 'model/Image'], factory);
+    define(['ApiClient', 'model/Card', 'model/Error', 'model/Friend', 'model/Image'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Error'), require('./Friend'), require('./Image'));
+    module.exports = factory(require('../ApiClient'), require('./Card'), require('./Error'), require('./Friend'), require('./Image'));
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
       root.Quantimodo = {};
     }
-    root.Quantimodo.FriendsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Error, root.Quantimodo.Friend, root.Quantimodo.Image);
+    root.Quantimodo.FriendsResponse = factory(root.Quantimodo.ApiClient, root.Quantimodo.Card, root.Quantimodo.Error, root.Quantimodo.Friend, root.Quantimodo.Image);
   }
-}(this, function(ApiClient, Error, Friend, Image) {
+}(this, function(ApiClient, Card, Error, Friend, Image) {
   'use strict';
 
 
@@ -49,6 +49,8 @@
     var _this = this;
 
     _this['friends'] = friends;
+
+
 
 
 
@@ -104,6 +106,12 @@
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -162,6 +170,16 @@
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 

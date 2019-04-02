@@ -57,6 +57,8 @@
 
 
 
+
+
   };
 
   /**
@@ -90,6 +92,12 @@
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      }
+      if (data.hasOwnProperty('link')) {
+        obj['link'] = ApiClient.convertToType(data['link'], 'String');
+      }
+      if (data.hasOwnProperty('card')) {
+        obj['card'] = Card.constructFromObject(data['card']);
       }
     }
     return obj;
@@ -129,6 +137,16 @@
    * @member {Number} code
    */
   exports.prototype['code'] = undefined;
+  /**
+   * A super neat url!
+   * @member {String} link
+   */
+  exports.prototype['link'] = undefined;
+  /**
+   * A super neat card!
+   * @member {module:model/Card} card
+   */
+  exports.prototype['card'] = undefined;
 
 
 
