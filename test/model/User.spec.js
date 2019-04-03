@@ -194,6 +194,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property lastActive (base name: "lastActive")', function() {
+      // uncomment below and update the code to test the property lastActive
+      //var instance = new Quantimodo.User();
+      //expect(instance).to.be();
+    });
+
     it('should have the property lastFour (base name: "lastFour")', function() {
       // uncomment below and update the code to test the property lastFour
       //var instance = new Quantimodo.User();

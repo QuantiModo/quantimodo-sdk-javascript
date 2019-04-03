@@ -11037,12 +11037,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -11674,12 +11674,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -12600,12 +12600,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -14869,12 +14869,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -15204,12 +15204,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -15361,12 +15361,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -15526,12 +15526,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -15692,12 +15692,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -15849,12 +15849,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -16161,12 +16161,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -16730,12 +16730,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -16921,12 +16921,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -17528,12 +17528,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -19106,12 +19106,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -19449,12 +19449,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -19784,12 +19784,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -20139,12 +20139,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -20559,12 +20559,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -20725,12 +20725,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -20880,12 +20880,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -21027,12 +21027,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -21198,12 +21198,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -21364,12 +21364,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -21520,12 +21520,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -21686,12 +21686,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -22829,12 +22829,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -26383,6 +26383,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['loginName'] = loginName;
 
 
@@ -26486,6 +26487,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+      }
+      if (data.hasOwnProperty('lastActive')) {
+        obj['lastActive'] = ApiClient.convertToType(data['lastActive'], 'String');
       }
       if (data.hasOwnProperty('lastFour')) {
         obj['lastFour'] = ApiClient.convertToType(data['lastFour'], 'String');
@@ -26683,6 +26687,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * Ex: Date the user last logged in
+   * @member {String} lastActive
+   */
+  exports.prototype['lastActive'] = undefined;
   /**
    * Ex: 2009
    * @member {String} lastFour
@@ -27109,12 +27118,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -27490,12 +27499,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['html'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -30158,12 +30167,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -30687,12 +30696,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;
@@ -31012,12 +31021,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;

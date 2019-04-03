@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **hasChromeExtension** | **Boolean** | Ex: false | [optional] 
 **hasIosApp** | **Boolean** | Ex: false | [optional] 
 **id** | **Number** | User id | 
+**lastActive** | **String** | Ex: Date the user last logged in | [optional] 
 **lastFour** | **String** | Ex: 2009 | [optional] 
 **lastName** | **String** | Ex: Sinn | [optional] 
 **lastSmsTrackingReminderNotificationId** | **String** | Ex: 1 | [optional] 

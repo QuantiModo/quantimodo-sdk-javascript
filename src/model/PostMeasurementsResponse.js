@@ -146,12 +146,12 @@
    */
   exports.prototype['code'] = undefined;
   /**
-   * A super neat url!
+   * A super neat url you might want to share with your users!
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
   /**
-   * A super neat card!
+   * A super neat card with buttons and HTML that you can use in your app!
    * @member {module:model/Card} card
    */
   exports.prototype['card'] = undefined;

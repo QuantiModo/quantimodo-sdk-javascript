@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **avatar** | **String** | Square icon png url | [optional] 
 **ionIcon** | **String** | Ex: ion-ios-person | [optional] 
 **html** | **String** | Users who granted access to their data | [optional] 
-**link** | **String** | A super neat url! | [optional] 
-**card** | [**Card**](Card.md) | A super neat card! | [optional] 
+**link** | **String** | A super neat url you might want to share with your users! | [optional] 
+**card** | [**Card**](Card.md) | A super neat card with buttons and HTML that you can use in your app! | [optional] 
 
 
