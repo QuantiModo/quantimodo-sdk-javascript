@@ -14,7 +14,7 @@
     "superagent": "3.8.3"
   },
   "devDependencies": {
-    "mocha": "6.1.2",
+    "mocha": "6.1.3",
     "sinon": "5.0.10",
     "expect.js": "0.3.1"
   }
