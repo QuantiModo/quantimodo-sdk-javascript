@@ -11396,7 +11396,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
-        obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
       }
       if (data.hasOwnProperty('users')) {
         obj['users'] = ApiClient.convertToType(data['users'], [User]);
@@ -11482,8 +11482,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['createdAt'] = undefined;
   /**
-   * What do you expect?
-   * @member {String} userId
+   * User id of the owner of the application
+   * @member {Number} userId
    */
   exports.prototype['userId'] = undefined;
   /**
@@ -21911,7 +21911,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
       if (data.hasOwnProperty('userId')) {
-        obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'Number');
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -21972,7 +21972,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   exports.prototype['type'] = undefined;
   /**
    * The user id of the principal investigator or subject if an individual studies
-   * @member {String} userId
+   * @member {Number} userId
    */
   exports.prototype['userId'] = undefined;
   /**

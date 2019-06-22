@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **clientSecret** | **String** | What do you expect? | [optional] 
 **collaborators** | [**[User]**](User.md) | What do you expect? | [optional] 
 **createdAt** | **String** | What do you expect? | [optional] 
-**userId** | **String** | What do you expect? | [optional] 
+**userId** | **Number** | User id of the owner of the application | [optional] 
 **users** | [**[User]**](User.md) | What do you expect? | [optional] 
 **redirectUri** | **String** | What do you expect? | [optional] 
 **companyName** | **String** | What do you expect? | [optional] 
