@@ -246,7 +246,8 @@ var opts = {
   'includeTags': true, // Boolean | Return parent, child, duplicate, and ingredient variables
   'recalculate': true, // Boolean | Recalculate instead of using cached analysis
   'variableId': 56, // Number | Ex: 13
-  'concise': true // Boolean | Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests.
+  'concise': true, // Boolean | Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests.
+  'refresh': true // Boolean | Regenerate charts instead of getting from the cache
 };
 
 var callback = function(error, data, response) {
@@ -303,6 +304,7 @@ Name | Type | Description  | Notes
  **recalculate** | **Boolean**| Recalculate instead of using cached analysis | [optional] 
  **variableId** | **Number**| Ex: 13 | [optional] 
  **concise** | **Boolean**| Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests. | [optional] 
+ **refresh** | **Boolean**| Regenerate charts instead of getting from the cache | [optional] 
 
 ### Return type
 

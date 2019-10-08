@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *Quantimodo.UserApi* | [**deleteUser**](docs/UserApi.md#deleteUser) | **DELETE** /v3/user/delete | Delete user
 *Quantimodo.UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /v3/user | Get user info
 *Quantimodo.UserApi* | [**getUserBlogs**](docs/UserApi.md#getUserBlogs) | **GET** /v3/userBlogs | Get UserBlogs
+*Quantimodo.UserApi* | [**getUsers**](docs/UserApi.md#getUsers) | **GET** /v3/users | Get users who shared data
 *Quantimodo.UserApi* | [**postUserBlogs**](docs/UserApi.md#postUserBlogs) | **POST** /v3/userBlogs | Post UserBlogs
 *Quantimodo.UserApi* | [**postUserSettings**](docs/UserApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
 *Quantimodo.VariablesApi* | [**deleteUserTag**](docs/VariablesApi.md#deleteUserTag) | **DELETE** /v3/userTags/delete | Delete user tag or ingredient
@@ -166,6 +167,7 @@ Class | Method | HTTP request | Description
  - [Quantimodo.Correlation](docs/Correlation.md)
  - [Quantimodo.DataSource](docs/DataSource.md)
  - [Quantimodo.DeviceToken](docs/DeviceToken.md)
+ - [Quantimodo.Error](docs/Error.md)
  - [Quantimodo.Explanation](docs/Explanation.md)
  - [Quantimodo.ExplanationStartTracking](docs/ExplanationStartTracking.md)
  - [Quantimodo.FeedResponse](docs/FeedResponse.md)
@@ -231,6 +233,7 @@ Class | Method | HTTP request | Description
  - [Quantimodo.UserBlogsResponse](docs/UserBlogsResponse.md)
  - [Quantimodo.UserTag](docs/UserTag.md)
  - [Quantimodo.UserVariableDelete](docs/UserVariableDelete.md)
+ - [Quantimodo.UsersResponse](docs/UsersResponse.md)
  - [Quantimodo.Variable](docs/Variable.md)
  - [Quantimodo.VariableCategory](docs/VariableCategory.md)
  - [Quantimodo.VariableCharts](docs/VariableCharts.md)
@@ -263,7 +266,7 @@ Class | Method | HTTP request | Description
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://app.quantimo.do/api/v2/oauth/authorize
+- **Authorization URL**: https://app.quantimo.do/api/v1/oauth/authorize
 - **Scopes**: 
   - basic: Allows you to read user info (display name, email, etc)
   - readmeasurements: Allows one to read a user&#39;s measurements

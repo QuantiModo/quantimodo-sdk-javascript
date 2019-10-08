@@ -148,7 +148,7 @@ Name | Type | Description | Notes
 **userVariableUnitName** | **String** | Ex: Count | [optional] 
 **variableCategory** | [**VariableCategory**](VariableCategory.md) |  | [optional] 
 **joinedVariables** | [**[Variable]**](Variable.md) | Array of Variables that are joined with this Variable | [optional] 
-**valence** | **String** | Ex: positive | [optional] 
+**valence** | **String** | Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.  | [optional] 
 **variableCategoryId** | **Number** | Ex: 6 | [optional] 
 **variableCategoryName** | **String** | User-Defined Variable Setting: Variable category like Emotions, Sleep, Physical Activities, Treatments, Symptoms, etc. | [optional] 
 **variableId** | **Number** | Ex: 96380 | 

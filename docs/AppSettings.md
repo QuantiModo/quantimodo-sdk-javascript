@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **appStatus** | **Object** | What do you expect? | [optional] 
 **appType** | **String** | What do you expect? | [optional] 
 **buildEnabled** | **String** | What do you expect? | [optional] 
-**clientId** | **String** | What do you expect? | 
-**clientSecret** | **String** | What do you expect? | [optional] 
+**clientId** | **String** | Get yours at https:://builder.quantimo.do | 
+**clientSecret** | **String** | Get yours at https:://builder.quantimo.do | [optional] 
 **collaborators** | [**[User]**](User.md) | What do you expect? | [optional] 
 **createdAt** | **String** | What do you expect? | [optional] 
 **userId** | **Number** | User id of the owner of the application | [optional] 

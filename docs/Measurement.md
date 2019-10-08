@@ -42,12 +42,12 @@ Name | Type | Description | Notes
 **userVariableUnitName** | **String** | Ex: Count | [optional] 
 **userVariableVariableCategoryId** | **Number** | Ex: 13 | [optional] 
 **userVariableVariableCategoryName** | **String** | Ex: Treatments | [optional] 
-**valence** | **String** | Ex: negative | [optional] 
+**valence** | **String** | Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.  | [optional] 
 **value** | **Number** | Converted measurement value in requested unit | 
 **variableCategoryId** | **Number** | Ex: 13 | [optional] 
 **variableCategoryImageUrl** | **String** | Ex: https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png | [optional] 
 **variableCategoryName** | **String** | Ex: Emotions, Treatments, Symptoms... | [optional] 
-**variableDescription** | **String** | Ex: negative | [optional] 
+**variableDescription** | **String** | Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.  | [optional] 
 **variableId** | **Number** | Ex: 5956846 | [optional] 
 **variableName** | **String** | Name of the variable for which we are creating the measurement records | 
 **displayName** | **String** | Ex: Trader Joe&#39;s Bedtime Tea | [optional] 
