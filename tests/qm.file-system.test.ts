@@ -4,7 +4,7 @@ import * as qmFileSystem from "../src/helpers/qm.file-system";
 import * as url from "url";
 const isWin = process.platform === "win32";
 describe("s3 uploader", () => {
-  it("uploads a file", () => {
+  it("uploads a file", (done) => {
     qmFileSystem.uploadToS3("ionIcons.js", "tests", function(uploadResponse) {
       const myURL = url.parse(uploadResponse.Location);
       const options = {
@@ -16,10 +16,14 @@ describe("s3 uploader", () => {
       const req = https.request(options, res => {
         console.log(`statusCode: ${res.statusCode}`);
         expect(res.statusCode).to.eq(200);
-        res.on("data", d => {
-          var buffer = Buffer.concat(d);
-          d = buffer.toString('base64');
-          expect(d).to.contain("iosArrowUp");
+        let str = '';
+        res.on("data", chunk => {
+          str += chunk;
+        });
+        res.on('end', function () {
+          console.log(str);
+          expect(str).to.contain("iosArrowUp");
+          done();
         });
       });
       req.on("error", error => {
