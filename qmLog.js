@@ -2,7 +2,7 @@
 // A separate logger file allows us to use "black-boxing" in the Chrome dev console to preserve actual file line numbers
 // BLACK BOX THESE
 // \.min\.js$ — for all minified sources
-// qmLogger.js
+// qmLog.js
 // qmLogService.js
 // bugsnag.js
 // node_modules and bower_components — for dependencies
