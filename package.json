@@ -25,16 +25,20 @@
     "lint-fix": "tslint --project . --fix",
     "release": "standard-version",
     "ship-it": "npm run pre-publish && npm publish",
-    "test": "mocha --recursive",
-    "test:jest": "jest --coverage",
-    "test:jest:ci": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "test:jest:jenkins": "cross-env CI_PROVIDER_TO_TEST=jenkins jest --coverage"
+    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test"
   },
   "browser": {
     "fs": false
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/chai": "^4.2.0",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "nyc": "^14.1.1",
+    "@slack/types": "^1.0.0",
+    "@slack/webhook": "^5.0.0",
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "@cypress/webpack-preprocessor": "4.1.0",
@@ -73,35 +77,6 @@
     "typescript": "3.7.2",
     "webpack": "4.41.2",
     "winston": "2.4.4"
-  },
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": false
-  },
-  "lint-staged": {
-    "src/**/*.ts": [
-      "prettier --write",
-      "tslint --fix",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "jest-stare": {
-    "coverageLink": "../lcov-report/index.html",
-    "resultDir": "coverage/html"
-  },
-  "jest-junit": {
-    "outputDirectory": "./testReports/",
-    "reportDir": "testReports/unit"
   },
   "resolutions": {
     "set-value": "2.0.1",
