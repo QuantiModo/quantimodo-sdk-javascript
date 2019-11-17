@@ -15,22 +15,97 @@
     "url": "git+https://github.com/QuantiModo/quantimodo-sdk-javascript.git"
   },
   "scripts": {
+    "build": "tsc",
+    "ci": "npm run test:ci && rimraf ./bin && npm run compile",
+    "circle": "npm run lint && npm run test:ci && make test && npm run pre-publish",
+    "cli": "rimraf cypress/reports && ts-node src/cli/spec.ts",
+    "compile": "tsc",
+    "deploy:prepare": "./scripts/create_npmrc_file.sh",
+    "lint": "tslint --project .",
+    "lint-fix": "tslint --project . --fix",
+    "release": "standard-version",
+    "ship-it": "npm run pre-publish && npm publish",
     "test": "mocha --recursive",
-    "build": "tsc"
+    "test:jest": "jest --coverage",
+    "test:jest:ci": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test:jest:jenkins": "cross-env CI_PROVIDER_TO_TEST=jenkins jest --coverage"
   },
   "browser": {
     "fs": false
   },
-  "dependencies": {
-    "aws-sdk": "^2.573.0",
-    "gulp-s3-upload": "^1.7.3",
-    "superagent": "3.8.3"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@cypress/webpack-preprocessor": "4.1.0",
+    "@types/dotenv": "6.1.1",
+    "@types/jest": "24.0.23",
+    "@types/node": "10.17.5",
+    "aws-sdk": "^2.573.0",
+    "cypress-cucumber-preprocessor": "1.12.0",
+    "cypress-multi-reporters": "1.2.3",
+    "dotenv": "8.2.0",
     "expect.js": "0.3.1",
     "gulp": "^4.0.2",
-    "mocha": "^6.2.2",
+    "gulp-s3-upload": "^1.7.3",
+    "husky": "3.0.9",
+    "jest": "24.9.0",
+    "jest-junit": "9.0.0",
+    "jest-stare": "1.25.0",
+    "lint-staged": "9.4.3",
+    "mocha": "6.2.2",
+    "mocha-junit-reporter": "1.23.1",
+    "mochawesome": "4.1.0",
+    "mochawesome-merge": "2.1.0",
+    "mochawesome-report-generator": "4.0.1",
+    "prettier": "1.19.1",
+    "rimraf": "3.0.0",
     "sinon": "5.0.10",
-    "typescript": "^3.7.2"
+    "slack-mock-typed": "2.2.2",
+    "standard-version": "7.0.0",
+    "superagent": "3.8.3",
+    "ts-jest": "24.1.0",
+    "ts-loader": "6.2.1",
+    "ts-node": "8.5.2",
+    "tslint": "5.20.1",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-no-focused-test": "0.5.0",
+    "typescript": "3.7.2",
+    "webpack": "4.41.2",
+    "winston": "2.4.4"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --write",
+      "tslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest-stare": {
+    "coverageLink": "../lcov-report/index.html",
+    "resultDir": "coverage/html"
+  },
+  "jest-junit": {
+    "outputDirectory": "./testReports/",
+    "reportDir": "testReports/unit"
+  },
+  "resolutions": {
+    "set-value": "2.0.1",
+    "braces": "2.3.1",
+    "handlebars": "4.3.0"
   }
 }

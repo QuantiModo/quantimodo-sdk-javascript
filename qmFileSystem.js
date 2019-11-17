@@ -1,4 +1,5 @@
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
+const qmLog = require('./qmLog.js');
 const qmFileSystem = {
     uploadToDigitalOcean: function(filePath, cb) {
         const fs = require('fs');
