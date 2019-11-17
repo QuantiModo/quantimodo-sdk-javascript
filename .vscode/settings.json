@@ -1,0 +1,21 @@
+{
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true,
+        ".git": true,
+        "node_modules": true,
+        "out": true,
+        ".rpt2_cache": true
+    },
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+    "[json]": {
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2
+    },
+    "mochaExplorer.optsFile": "src/test/mocha.opts",
+    "mochaExplorer.files": "tests/**/*.ts",
+    "mochaExplorer.require": "ts-node/register"
+}
