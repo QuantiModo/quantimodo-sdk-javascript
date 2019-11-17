@@ -1,8 +1,8 @@
 // tslint:disable-next-line: no-reference
-/// <reference path='../../../node_modules/@jest/types/build/index.d.ts'/>
-const https = require('https');
-const qmFileSystem = require("../../src/helpers/qm.file-system.ts");
+import * as https from "https";
+import * as qmFileSystem from "../src/helpers/qm.file-system";
 const isWin = process.platform === "win32";
+jest.setTimeout(10000);
 describe("s3 uploader", () => {
   test("uploads a file", () => {
     qmFileSystem.uploadToS3("ionIcons.js", "tests", function(uploadResponse) {
