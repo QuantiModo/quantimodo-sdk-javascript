@@ -14,10 +14,7 @@
     "esModuleInterop": true
   },
   "include": [
-    "src/main.ts",
-    "src/worker/mocha-private.d.ts",
-    "src/worker/loadConfig.ts",
-    "src/worker/main.ts",
-    "src/test/*.test.ts"
+    "test/*.test.ts",
+    "src/helpers/*.ts"
   ]
 }
