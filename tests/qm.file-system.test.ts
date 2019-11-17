@@ -1,12 +1,11 @@
-// tslint:disable-next-line: no-reference
+import { expect } from 'chai';
 import * as https from "https";
 import * as qmFileSystem from "../src/helpers/qm.file-system";
+import * as url from "url";
 const isWin = process.platform === "win32";
-jest.setTimeout(10000);
 describe("s3 uploader", () => {
-  test("uploads a file", () => {
+  it("uploads a file", () => {
     qmFileSystem.uploadToS3("ionIcons.js", "tests", function(uploadResponse) {
-      const url = require("url");
       const myURL = url.parse(uploadResponse.Location);
       const options = {
         hostname: myURL.hostname,
@@ -16,9 +15,11 @@ describe("s3 uploader", () => {
       };
       const req = https.request(options, res => {
         console.log(`statusCode: ${res.statusCode}`);
-        expect(res.statusCode).toEqual(200);
+        expect(res.statusCode).to.eq(200);
         res.on("data", d => {
-          expect(d).toContain("iosArrowUp");
+          var buffer = Buffer.concat(d);
+          d = buffer.toString('base64');
+          expect(d).to.contain("iosArrowUp");
         });
       });
       req.on("error", error => {
