@@ -14,6 +14,9 @@ var fs = __importStar(require("fs"));
 var cypress = __importStar(require("cypress"));
 var sdkRepo = require('app-root-path');
 var rimraf = require("rimraf");
+var marge = require('mochawesome-report-generator');
+var merge = require('mochawesome-merge').merge;
+var slackRunner = require("cypress-slack-reporter/bin/slack/slack-alert.js").slackRunner;
 var ciProvider = getCiProvider();
 var isWin = process.platform === "win32";
 var outputReportDir = sdkRepo + "/mochawesome-report";
@@ -25,14 +28,11 @@ var videoDirectory = sdkRepo + "/cypress/videos";
 var mergedJsonPath = outputReportDir + "/mochawesome.json";
 function getReportUrl(reportPath) {
     if (process.env.JOB_URL) {
-        return process.env.JOB_URL + 'ws/tmp/quantimodo-sdk-javascript/mochawesome-report/';
+        return process.env.JOB_URL + 'ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html';
     }
     return getBuildLink();
 }
-function mochawesome(failed, cb) {
-    var marge = require('mochawesome-report-generator');
-    var merge = require('mochawesome-merge').merge;
-    var slackRunner = require("cypress-slack-reporter/bin/slack/slack-alert.js").slackRunner;
+function mochawesome(failedTests, cb) {
     console.log("Merging reports...");
     merge({
         reportDir: unmerged,
@@ -65,16 +65,13 @@ function mochawesome(failed, cb) {
         // @ts-ignore
         // noinspection JSUnusedLocalSymbols
         var slack = slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose);
-        for (var j = 0; j < failed.length; j++) {
-            var test_1 = failed[j];
+        for (var j = 0; j < failedTests.length; j++) {
+            var test_1 = failedTests[j];
             var testName = test_1.title[1];
             var errorMessage = test_1.error;
             console.error(testName + " FAILED!");
             console.error(errorMessage);
-            var url = getBuildLink();
-            if (process.env.JOB_URL) {
-                url = process.env.JOB_URL + "/ws/report";
-            }
+            console.log(getReportUrl());
         }
         // tslint:disable-next-line: no-console
         console.log("Finished slack upload");
@@ -125,8 +122,10 @@ function runCypressTests(cb, specificSpec) {
                                     });
                                 });
                             }
-                            console.info(results.totalPassed + " tests PASSED!");
-                            qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed");
+                            else {
+                                console.info(results.totalPassed + " tests PASSED!");
+                                qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed");
+                            }
                         }
                         resolve();
                         if (i === specFileNames.length - 1) {

@@ -5,6 +5,9 @@ import * as fs from "fs";
 import * as cypress from "cypress";
 const sdkRepo = require('app-root-path');
 const rimraf = require("rimraf");
+const marge = require('mochawesome-report-generator')
+const {merge} = require('mochawesome-merge')
+const {slackRunner} = require("cypress-slack-reporter/bin/slack/slack-alert.js");
 
 const ciProvider = getCiProvider();
 const isWin = process.platform === "win32";
@@ -18,15 +21,13 @@ const mergedJsonPath = outputReportDir + "/mochawesome.json";
 
 function getReportUrl(reportPath?: string) {
     if(process.env.JOB_URL){
-        return process.env.JOB_URL+'ws/tmp/quantimodo-sdk-javascript/mochawesome-report/';
+        return process.env.JOB_URL+'ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html';
     }
     return getBuildLink();
 }
 
-export function mochawesome(failed: string | any[], cb: (any: any) => void){
-    const marge = require('mochawesome-report-generator')
-    const {merge} = require('mochawesome-merge')
-    const {slackRunner} = require("cypress-slack-reporter/bin/slack/slack-alert.js");
+export function mochawesome(failedTests: any[], cb: (any: any) => void){
+
     console.log("Merging reports...")
     merge({
         reportDir: unmerged,
@@ -66,16 +67,13 @@ export function mochawesome(failed: string | any[], cb: (any: any) => void){
             screenshotDirectory,
             verbose
         );
-        for(let j = 0; j < failed.length; j++){
-            let test = failed[j];
+        for(let j = 0; j < failedTests.length; j++){
+            let test = failedTests[j];
             let testName = test.title[1];
             let errorMessage = test.error
             console.error(testName + " FAILED!")
             console.error(errorMessage)
-            let url = getBuildLink();
-            if(process.env.JOB_URL){
-                url = process.env.JOB_URL+"/ws/report"
-            }
+            console.log(getReportUrl());
         }
         // tslint:disable-next-line: no-console
         console.log("Finished slack upload")
@@ -123,9 +121,10 @@ export function runCypressTests(cb: () => void, specificSpec?: string) {
                                         //throw "Stopping because "+description
                                     })
                                 });
+                            } else {
+                                console.info(results.totalPassed + " tests PASSED!")
+                                qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed")
                             }
-                            console.info(results.totalPassed + " tests PASSED!")
-                            qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed")
                         }
                         resolve();
                         if(i === specFileNames.length - 1){
