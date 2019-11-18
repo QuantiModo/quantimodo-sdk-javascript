@@ -18,7 +18,7 @@ const mergedJsonPath = outputReportDir + "/mochawesome.json";
 
 function getReportUrl() {
     if(process.env.JOB_URL){
-        return process.env.JOB_URL+'/ws/tmp/quantimodo-sdk-javascript/mochawesome-report/';
+        return process.env.JOB_URL+'ws/tmp/quantimodo-sdk-javascript/mochawesome-report/';
     }
     return getBuildLink();
 }
