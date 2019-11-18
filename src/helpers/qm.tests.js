@@ -92,11 +92,13 @@ function runCypressTests(cb) {
             }
             var _loop_1 = function (i, p) {
                 p = p.then(function (_) { return new Promise(function (resolve) {
-                    var spec = path + '/' + specFileNames[i];
-                    qmGit.setGithubStatus("pending", specFileNames[i], "Running " + spec + "...");
+                    var specName = specFileNames[i];
+                    var specPath = path + '/' + specName;
+                    var context = specName.replace('_spec.js', '');
+                    qmGit.setGithubStatus("pending", context, "Running " + context + " Cypress tests...");
                     // noinspection JSUnresolvedFunction
                     cypress.run({
-                        spec: spec,
+                        spec: specPath,
                         browser: browser,
                     }).then(function (results) {
                         if (!results.runs || !results.runs[0]) {
@@ -157,7 +159,9 @@ function createSuccessFile() {
 exports.createSuccessFile = createSuccessFile;
 function deleteSuccessFile() {
     qmLog.info("Deleting success file so we know if build completed...");
-    return fileHelper.cleanFiles(['success']);
+    rimraf('success', function (res) {
+        qmLog.info("Deleted success file!");
+    });
 }
 exports.deleteSuccessFile = deleteSuccessFile;
 function getCiProvider() {

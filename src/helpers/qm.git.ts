@@ -1,4 +1,5 @@
 import * as path from "path";
+import * as qmTests from "./qm.tests";
 const Octokit = require("@octokit/rest");
 const appRoot = require('app-root-path');
 const _str = require("underscore.string");
@@ -74,9 +75,6 @@ export function getRepoUserName() {
         console.info(error);
     }
 }
-export function getBuildUrl() {
-    return process.env.CIRCLE_BUILD_URL || process.env.BUILD_URL
-}
 export function setGithubStatus(state: any, context: any, description: any, url?: any, cb?: ((arg0: any) => void) | undefined){
     console.log(`${context} - ${description} - ${state}`);
     const params = {
@@ -84,7 +82,7 @@ export function setGithubStatus(state: any, context: any, description: any, url?
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
         state: state,
-        target_url: url || getBuildUrl(),
+        target_url: url || qmTests.getBuildLink(),
         description: description,
         context: context
     };

@@ -11,6 +11,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var path = __importStar(require("path"));
+var qmTests = __importStar(require("./qm.tests"));
 var Octokit = require("@octokit/rest");
 var appRoot = require('app-root-path');
 var _str = require("underscore.string");
@@ -95,10 +96,6 @@ function getRepoUserName() {
     }
 }
 exports.getRepoUserName = getRepoUserName;
-function getBuildUrl() {
-    return process.env.CIRCLE_BUILD_URL || process.env.BUILD_URL;
-}
-exports.getBuildUrl = getBuildUrl;
 function setGithubStatus(state, context, description, url, cb) {
     console.log(context + " - " + description + " - " + state);
     var params = {
@@ -106,7 +103,7 @@ function setGithubStatus(state, context, description, url, cb) {
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
         state: state,
-        target_url: url || getBuildUrl(),
+        target_url: url || qmTests.getBuildLink(),
         description: description,
         context: context
     };
