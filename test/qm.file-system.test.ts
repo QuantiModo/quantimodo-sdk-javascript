@@ -1,11 +1,10 @@
 import { expect } from 'chai';
 import * as https from "https";
-import * as qmFileSystem from "../src/helpers/qm.file-system";
+import * as fileHelper from "../src/helpers/qm.file-helper";
 import * as url from "url";
-const isWin = process.platform === "win32";
 describe("s3 uploader", () => {
   it("uploads a file", (done) => {
-    qmFileSystem.uploadToS3("ionIcons.js", "tests", function(uploadResponse) {
+    fileHelper.uploadToS3("ionIcons.js", "tests", function(uploadResponse) {
       const myURL = url.parse(uploadResponse.Location);
       const options = {
         hostname: myURL.hostname,

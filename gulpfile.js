@@ -1,29 +1,37 @@
-const qmLog = require('./src/helpers/qmLog.js'),
-    gulp = require('gulp'),
-    https = require('https'),
-    expect = require('expect.js'),
-    qmFileSystem = require('./src/helpers/qm.file-system');
-gulp.task('uploadToS3', function(cb){
-    qmFileSystem.uploadToS3('ionIcons.js', 'tests', function(uploadResponse){
-        const url = require('url');
-        const myURL =
-            url.parse(uploadResponse.Location);
-        const options = {
-            hostname: myURL.hostname,
-            port: 443,
-            path: myURL.path,
-            method: 'GET'
-        };
-        const req = https.request(options, res => {
-            console.log(`statusCode: ${res.statusCode}`);
-            expect(res.statusCode).to.equal(200);
-            res.on('data', d => {
-                expect(d).to.contain("iosArrowUp")
-            })
-        });
-        req.on('error', error => {
-            console.error(error)
-        });
-        req.end()
-    })
+const dotenv = require('dotenv');
+dotenv.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
+const gulp = require('gulp'),
+    rimraf = require('rimraf');
+const qmGit = require('./src/helpers/qm.git')
+const qmTests = require('./src/helpers/qm.tests')
+const s2c = require('./src/helpers/selenium-2-cypress')
+gulp.task('selenium-to-cypress-ionic', function(){
+    s2c.convertSeleniumToCypress("cypress/integration/ionic",
+        'ghost_inspector/ionic-test-components-side-format.json');
+});
+gulp.task('selenium-to-cypress-api', function(){
+    s2c.convertSeleniumToCypress("cypress/integration/api",
+        'ghost_inspector/api-test-components-side-format.json');
+});
+// noinspection JSUnusedLocalSymbols
+function executeSynchronously(cmd, catchExceptions, cb){
+    const execSync = require('child_process').execSync;
+    console.info(cmd);
+    try{
+        execSync(cmd);
+        if(cb){
+            cb();
+        }
+    }catch (error){
+        if(catchExceptions){
+            console.error(error);
+        }else{
+            throw error;
+        }
+    }
+}
+gulp.task('cypress', function(cb){
+    console.log("");
+    let t = qmTests;
+    qmTests.runCypressTests(cb)
 });

@@ -1,9 +1,7 @@
 import * as path from "path";
-import * as qmTests from "./qm.tests";
-// @ts-ignore
-import * as github from 'github';
 const Octokit = require("@octokit/rest");
-
+const appRoot = require('app-root-path');
+const _str = require("underscore.string");
 import origin from "remote-origin-url";
 export function getOctoKit(){
     return new Octokit({auth: getAccessToken()});
@@ -34,23 +32,23 @@ export function getRepoUrl() {
     if (process.env.GIT_URL) {
         return process.env.GIT_URL;
     }
-    let cwd = process.cwd();
-    let configPath = path.resolve(cwd, '.git/config');
+    let configPath = path.resolve(appRoot, '.git/config');
     // @ts-ignore
-    let gitUrl = origin.sync({path: configPath, cwd: cwd});
+    let gitUrl = origin.sync({path: configPath, cwd: appRoot});
     if (!gitUrl) {
         throw new Error('cannot find ".git/config"');
     }
     return gitUrl;
 }
-export function getRepoParts()
-{
+export function getRepoParts() {
     let gitUrl = getRepoUrl();
-    gitUrl = gitUrl.replace(
-        "https://github.com/",
-        ""
-    ).replace(".git", "");
-    return gitUrl.split("/");
+    gitUrl = _str.strRight(gitUrl, "github.com/");
+    gitUrl = gitUrl.replace(".git", "");
+    let parts = gitUrl.split("/");
+    if(!parts || parts.length > 2){
+        throw "Could not parse repo name!"
+    }
+    return parts;
 }
 export function getRepoName() {
     if (process.env.CIRCLE_PROJECT_REPONAME) {
@@ -79,21 +77,20 @@ export function getRepoUserName() {
 export function getBuildUrl() {
     return process.env.CIRCLE_BUILD_URL || process.env.BUILD_URL
 }
-export function setGithubStatus(state: any, context: any, description: any, url: any, cb: ((arg0: any) => void) | undefined){
+export function setGithubStatus(state: any, context: any, description: any, url?: any, cb?: ((arg0: any) => void) | undefined){
     console.log(`${context} - ${description} - ${state}`);
     // @ts-ignore
     // @ts-ignore
-    getOctoKit().repos.createStatus(
-        {
-            owner: getRepoUserName(),
-            repo: getRepoName(),
-            sha: getCurrentGitCommitSha(),
-            state: state,
-            target_url: url || getBuildUrl(),
-            description: description,
-            context: context
-        },
-        function (err: any, res: any) {
+    const params = {
+        owner: getRepoUserName(),
+        repo: getRepoName(),
+        sha: getCurrentGitCommitSha(),
+        state: state,
+        target_url: url || getBuildUrl(),
+        description: description,
+        context: context
+    };
+    getOctoKit().repos.createStatus(params, function (err: any, res: any) {
             if (err) {
                 throw err
             }
@@ -103,5 +100,4 @@ export function setGithubStatus(state: any, context: any, description: any, url:
             cb(data);
         }
     });
-
 }

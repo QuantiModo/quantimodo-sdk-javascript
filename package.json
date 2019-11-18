@@ -32,9 +32,11 @@
     "fs": false
   },
   "dependencies": {
-    "@octokit/rest": "^16.35.0"
+    "underscore.string": "3.3.5"
   },
   "devDependencies": {
+    "@octokit/rest": "^16.35.0",
+    "app-root-path": "3.0.0",
     "@bahmutov/print-env": "1.2.0",
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
@@ -47,8 +49,10 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "10.17.5",
     "@types/remote-origin-url": "^2.0.0",
+    "@types/rimraf": "2.0.3",
     "aws-sdk": "^2.573.0",
     "aws-sdk-mock": "4.5.0",
+    "beautify": "0.0.8",
     "chai": "^4.2.0",
     "coveralls": "3.0.7",
     "cypress": "3.6.1",

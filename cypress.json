@@ -3,6 +3,9 @@
   "projectId": "ee8wan",
   "pageLoadTimeout": 60000,
   "reporter": "cypress-multi-reporters",
+  "videoCompression": false,
+  "videoUploadOnPasses": false,
+  "video": false,
   "reporterOptions": {
     "configFile": "reporterOpts.json"
   },

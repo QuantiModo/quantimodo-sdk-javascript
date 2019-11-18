@@ -1,6 +1,7 @@
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
 
 import * as path from "path";
+import * as fs from "fs";
 export function getS3Client() {
   const AWS_ACCESS_KEY_ID =
     process.env.QM_AWS_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID; // Netlify has their own
@@ -38,6 +39,25 @@ export function uploadToS3(
     console.log(`File uploaded successfully. ${data.Location}`);
     if (cb) {
       cb(data);
+    }
+  });
+}
+
+export  function writeToFile(filePath: string, contents: any, cb?: () => void){
+  function ensureDirectoryExistence(filePath: string){
+    let dirname = path.dirname(filePath);
+    if(fs.existsSync(dirname)){
+      return true;
+    }
+    ensureDirectoryExistence(dirname);
+    fs.mkdirSync(dirname);
+  }
+  ensureDirectoryExistence(filePath);
+  fs.writeFile(filePath, contents, (err) => {
+    if(err) throw err;
+    console.log(filePath + ' saved!');
+    if(cb){
+      cb();
     }
   });
 }
