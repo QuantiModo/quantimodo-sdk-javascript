@@ -14,15 +14,20 @@ else
     docker-compose build
 fi
 set +x
-if [[ -z ${PACKAGE_JSON_MODIFIED+x} ]]; then
-    echo "PACKAGE_JSON_MODIFIED is unset so not doing npm install";
-else
-    set -x
+if [[ -z ${USE_DOCKER_FOR_NPM_INSTALL+x} ]]; then
+    echo "Running npm install without docker because USE_DOCKER_FOR_NPM_INSTALL is not set";
     npm install
-    #docker-compose up -d || true
-    #docker-compose exec -T e2e bash -c "npm install"
+else
+    docker-compose up -d || true
+    docker-compose exec -T e2e bash -c "npm install"
 fi
 set -x
 echo "Saving host environment variables to host.env to access within docker"
 printenv > ${REPO_DIR}/.env
 docker-compose up --abort-on-container-exit --exit-code-from e2e
+if [[ -f success-file ]]; then
+    echo "success-file exists so I guess the cypress tests PASSED!"
+else
+    echo "success-file does not exist so I guess the cypress tests FAILED!"
+    exit 1
+fi

@@ -3,30 +3,30 @@ import * as fileHelper from "./qm.file-helper";
 import * as qmLog from "./qm.log";
 import * as fs from "fs";
 import * as cypress from "cypress";
-const appRoot = require('app-root-path');
+const sdkRepo = require('app-root-path');
 const rimraf = require("rimraf");
-let isWin = process.platform === "win32";
-export function slackReport(cb: () => void, failed: string | any[]){
+
+const ciProvider = getCiProvider();
+const isWin = process.platform === "win32";
+const outputReportDir = sdkRepo + "/mochawesome-report"
+const screenshotDirectory = `${sdkRepo}/cypress/screenshots`;
+const unmerged = sdkRepo + "/cypress/reports/mocha"
+const vcsProvider = "github";
+const verbose = true;
+const videoDirectory = `${sdkRepo}/cypress/videos`;
+const mergedJsonPath = outputReportDir + "/mochawesome.json";
+
+export function mochawesome(cb: () => void, failed: string | any[]){
     const marge = require('mochawesome-report-generator')
     const {merge} = require('mochawesome-merge')
     const {slackRunner} = require("cypress-slack-reporter/bin/slack/slack-alert.js");
     console.log("Merging reports...")
-    const repoDir = __dirname
-    let unmerged = repoDir + "/cypress/reports/mocha"
-    let outputReportDir = repoDir + "/mochawesome-report"
-    //const ciProvider = "circleci";
-    process.env.GIT_URL= "https://github.com/mikepsinn/qm-api/pull/3427"
-    const ciProvider = "jenkins";
-    const vcsProvider = "github";
-    const videoDirectory = `${repoDir}/cypress/videos`;
-    const screenshotDirectory = `${repoDir}/cypress/screenshots`;
-    const verbose = true;
     merge({
         reportDir: unmerged,
         inline: true,
         saveJson: true,
     }).then((mergedJson: any) => {
-        fs.writeFileSync(outputReportDir + "/mochawesome.json", JSON.stringify(mergedJson, null, 2));
+        fs.writeFileSync(mergedJsonPath, JSON.stringify(mergedJson, null, 2));
         console.log("Generating report from " + unmerged + " and outputting at " + outputReportDir)
         return marge.create(mergedJson, {
             reportDir: outputReportDir,
@@ -39,49 +39,49 @@ export function slackReport(cb: () => void, failed: string | any[]){
             overwrite: true
         })
     }).then((_generatedReport: any[]) => {
-        const qmfs = require('./node_modules/quantimodo/qmFileSystem.js')
         console.log("Merged report available here:-", _generatedReport[0]);
-        qmfs.uploadToS3(_generatedReport[0])
-        // tslint:disable-next-line: no-console
-        console.log("Constructing Slack message with the following options", {
-            ciProvider,
-            vcsProvider,
-            outputReportDir,
-            videoDirectory,
-            screenshotDirectory,
-            verbose
-        });
-        // @ts-ignore
-        // noinspection JSUnusedLocalSymbols
-        const slack = slackRunner(
-            ciProvider,
-            vcsProvider,
-            outputReportDir,
-            videoDirectory,
-            screenshotDirectory,
-            verbose
-        );
-        for(let j = 0; j < failed.length; j++){
-            let test = failed[j];
-            let testName = test.title[1];
-            let errorMessage = test.error
-            console.error(testName + " FAILED!")
-            console.error(errorMessage)
-            let url = getBuildLink();
-            if(process.env.JOB_URL){
-                url = process.env.JOB_URL+"/ws/report"
+        fileHelper.uploadToS3(_generatedReport[0], 'tests', function (res) {
+            // tslint:disable-next-line: no-console
+            console.log("Constructing Slack message with the following options", {
+                ciProvider,
+                vcsProvider,
+                outputReportDir,
+                videoDirectory,
+                screenshotDirectory,
+                verbose
+            });
+            // @ts-ignore
+            // noinspection JSUnusedLocalSymbols
+            const slack = slackRunner(
+                ciProvider,
+                vcsProvider,
+                outputReportDir,
+                videoDirectory,
+                screenshotDirectory,
+                verbose
+            );
+            for(let j = 0; j < failed.length; j++){
+                let test = failed[j];
+                let testName = test.title[1];
+                let errorMessage = test.error
+                console.error(testName + " FAILED!")
+                console.error(errorMessage)
+                let url = getBuildLink();
+                if(process.env.JOB_URL){
+                    url = process.env.JOB_URL+"/ws/report"
+                }
+                qmGit.setGithubStatus("failure", testName, errorMessage, process.env.JOB_URL+"/ws/report")
             }
-            qmGit.setGithubStatus("failure", testName, errorMessage, process.env.JOB_URL+"/ws/report")
-        }
-        // tslint:disable-next-line: no-console
-        console.log("Finished slack upload")
-        cb();
+            // tslint:disable-next-line: no-console
+            console.log("Finished slack upload")
+            cb();
+        })
     })
 }
 export function runCypressTests(cb: () => void) {
     deleteSuccessFile();
     rimraf('./cypress/reports/mocha/*.json', function(){
-        const path = appRoot + "/cypress/integration";
+        const path = sdkRepo + "/cypress/integration";
         let browser = process.env.CYPRESS_BROWSER || "electron";
         fs.readdir(path, function(err: any, specFileNames: string[]){
             if(!specFileNames){
@@ -106,7 +106,7 @@ export function runCypressTests(cb: () => void) {
                                 return test.state === "failed";
                             })
                             if(failed && failed.length){
-                                slackReport(resolve, failed);
+                                mochawesome(resolve, failed);
                                 throw "Stopping due to failures"
                             }
                             console.info(results.totalPassed + " tests PASSED!")
@@ -115,6 +115,7 @@ export function runCypressTests(cb: () => void) {
                         resolve();
                         if(i === specFileNames.length - 1){
                             createSuccessFile();
+                            deleteEnvFile()
                             cb();
                         }
                     }).catch((err: any) => {
@@ -140,14 +141,20 @@ export function getBuildLink() {
         return "https://travis-ci.org/" + process.env.TRAVIS_REPO_SLUG + "/builds/" + process.env.TRAVIS_BUILD_ID;
     }
 }
+const successFilename = 'success-file'
 export function createSuccessFile() {
     fileHelper.writeToFile('lastCommitBuilt', qmGit.getCurrentGitCommitSha());
-    return fs.writeFileSync('success', "");
+    return fs.writeFileSync(successFilename, qmGit.getCurrentGitCommitSha());
 }
 export function deleteSuccessFile () {
     qmLog.info("Deleting success file so we know if build completed...");
-    rimraf('success', function (res: any) {
+    rimraf(successFilename, function (res: any) {
         qmLog.info("Deleted success file!");
+    })
+}
+export function deleteEnvFile () {
+    rimraf('.env', function (res: any) {
+        qmLog.info("Deleted env file!");
     })
 }
 export function getCiProvider() {
