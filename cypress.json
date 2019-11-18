@@ -1,9 +1,14 @@
 {
-  "supportFile": "cypress/support/index.ts",
-  "baseUrl": "https://the-internet.herokuapp.com",
+  "chromeWebSecurity": false,
+  "projectId": "ee8wan",
+  "pageLoadTimeout": 60000,
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "configFile": "reporterOpts.json"
   },
-  "projectId": "9f1jyc"
+  "env": {
+    "API_HOST": "app.quantimo.do",
+    "OAUTH_APP_HOST": "medimodo.herokuapp.com",
+    "abort_strategy": true
+  }
 }
