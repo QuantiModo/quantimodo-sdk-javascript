@@ -67,14 +67,6 @@ export function mochawesome(failedTests: any[], cb: (any: any) => void){
             screenshotDirectory,
             verbose
         );
-        for(let j = 0; j < failedTests.length; j++){
-            let test = failedTests[j];
-            let testName = test.title[1];
-            let errorMessage = test.error
-            console.error(testName + " FAILED!")
-            console.error(errorMessage)
-            console.log(getReportUrl());
-        }
         // tslint:disable-next-line: no-console
         console.log("Finished slack upload")
         cb(_generatedReport[0]);
@@ -112,13 +104,18 @@ export function runCypressTests(cb: () => void, specificSpec?: string) {
                                 return test.state === "failed";
                             })
                             if(failedTests && failedTests.length){
+                                for(let j = 0; j < failedTests.length; j++){
+                                    let test = failedTests[j];
+                                    let testName = test.title[1];
+                                    let errorMessage = test.error
+                                    console.error(testName + " FAILED because "+errorMessage)
+                                }
                                 mochawesome(failedTests, function (reportPath) {
                                     let failedTestTitle = failedTests[0].title[1];
-                                    let description = failedTestTitle+" failed!"
-                                    qmGit.setGithubStatus("failure", context, description, getReportUrl(reportPath), function () {
+                                    let errorMessage = failedTests[0].error
+                                    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +errorMessage, getReportUrl(reportPath), function () {
                                         resolve();
                                         process.exit(1);
-                                        //throw "Stopping because "+description
                                     })
                                 });
                             } else {

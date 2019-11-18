@@ -65,14 +65,6 @@ function mochawesome(failedTests, cb) {
         // @ts-ignore
         // noinspection JSUnusedLocalSymbols
         var slack = slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose);
-        for (var j = 0; j < failedTests.length; j++) {
-            var test_1 = failedTests[j];
-            var testName = test_1.title[1];
-            var errorMessage = test_1.error;
-            console.error(testName + " FAILED!");
-            console.error(errorMessage);
-            console.log(getReportUrl());
-        }
         // tslint:disable-next-line: no-console
         console.log("Finished slack upload");
         cb(_generatedReport[0]);
@@ -112,13 +104,18 @@ function runCypressTests(cb, specificSpec) {
                                 return test.state === "failed";
                             });
                             if (failedTests_1 && failedTests_1.length) {
+                                for (var j = 0; j < failedTests_1.length; j++) {
+                                    var test_1 = failedTests_1[j];
+                                    var testName = test_1.title[1];
+                                    var errorMessage = test_1.error;
+                                    console.error(testName + " FAILED because " + errorMessage);
+                                }
                                 mochawesome(failedTests_1, function (reportPath) {
                                     var failedTestTitle = failedTests_1[0].title[1];
-                                    var description = failedTestTitle + " failed!";
-                                    qmGit.setGithubStatus("failure", context, description, getReportUrl(reportPath), function () {
+                                    var errorMessage = failedTests_1[0].error;
+                                    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " + errorMessage, getReportUrl(reportPath), function () {
                                         resolve();
                                         process.exit(1);
-                                        //throw "Stopping because "+description
                                     });
                                 });
                             }
