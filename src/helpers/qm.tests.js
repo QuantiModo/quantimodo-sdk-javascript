@@ -114,7 +114,7 @@ function runCypressTests(cb) {
                                 throw "Stopping due to failures";
                             }
                             console.info(results.totalPassed + " tests PASSED!");
-                            qmGit.setGithubStatus("success", specFileNames[i], results.totalPassed + " tests passed");
+                            qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed");
                         }
                         resolve();
                         if (i === specFileNames.length - 1) {
