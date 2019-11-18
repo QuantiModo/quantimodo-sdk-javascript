@@ -116,8 +116,10 @@ function runCypressTests(cb, specificSpec) {
                             });
                             if (failed && failed.length) {
                                 mochawesome(resolve, failed);
-                                qmGit.setGithubStatus("failure", context, failed[0].title + " failed!", getReportUrl());
-                                throw "Stopping due to failures";
+                                var failedTestTitle = failed[0].title[1];
+                                var description = failedTestTitle + " failed!";
+                                qmGit.setGithubStatus("failure", context, failedTestTitle + " failed!", getReportUrl());
+                                throw "Stopping because " + description;
                             }
                             console.info(results.totalPassed + " tests PASSED!");
                             qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed");
@@ -129,7 +131,7 @@ function runCypressTests(cb, specificSpec) {
                             cb();
                         }
                     }).catch(function (err) {
-                        qmGit.setGithubStatus("error", context, context + " failed!", getReportUrl());
+                        qmGit.setGithubStatus("error", context, err, getReportUrl());
                         console.error(err);
                         throw err;
                     });
