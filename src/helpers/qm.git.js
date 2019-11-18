@@ -48,7 +48,6 @@ function getRepoUrl() {
     if (process.env.GIT_URL) {
         return process.env.GIT_URL;
     }
-    var cwd = process.cwd();
     var configPath = path.resolve(appRoot, '.git/config');
     // @ts-ignore
     var gitUrl = remote_origin_url_1.default.sync({ path: configPath, cwd: appRoot });
@@ -62,7 +61,11 @@ function getRepoParts() {
     var gitUrl = getRepoUrl();
     gitUrl = _str.strRight(gitUrl, "github.com/");
     gitUrl = gitUrl.replace(".git", "");
-    return gitUrl.split("/");
+    var parts = gitUrl.split("/");
+    if (!parts || parts.length > 2) {
+        throw "Could not parse repo name!";
+    }
+    return parts;
 }
 exports.getRepoParts = getRepoParts;
 function getRepoName() {
@@ -98,8 +101,6 @@ function getBuildUrl() {
 exports.getBuildUrl = getBuildUrl;
 function setGithubStatus(state, context, description, url, cb) {
     console.log(context + " - " + description + " - " + state);
-    // @ts-ignore
-    // @ts-ignore
     var params = {
         owner: getRepoUserName(),
         repo: getRepoName(),
@@ -120,4 +121,11 @@ function setGithubStatus(state, context, description, url, cb) {
     });
 }
 exports.setGithubStatus = setGithubStatus;
+function getBranchName() {
+    var name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;
+    if (!name) {
+        throw 'Branch name not set!';
+    }
+}
+exports.getBranchName = getBranchName;
 //# sourceMappingURL=qm.git.js.map

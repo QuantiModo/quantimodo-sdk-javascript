@@ -79,8 +79,6 @@ export function getBuildUrl() {
 }
 export function setGithubStatus(state: any, context: any, description: any, url?: any, cb?: ((arg0: any) => void) | undefined){
     console.log(`${context} - ${description} - ${state}`);
-    // @ts-ignore
-    // @ts-ignore
     const params = {
         owner: getRepoUserName(),
         repo: getRepoName(),
@@ -100,4 +98,10 @@ export function setGithubStatus(state: any, context: any, description: any, url?
             cb(data);
         }
     });
+}
+export function getBranchName () {
+    let name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;
+    if(!name){
+        throw 'Branch name not set!';
+    }
 }

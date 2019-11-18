@@ -8,6 +8,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var qmGit = __importStar(require("./qm.git"));
+var fileHelper = __importStar(require("./qm.file-helper"));
+var qmLog = __importStar(require("./qm.log"));
 var fs = __importStar(require("fs"));
 var cypress = __importStar(require("cypress"));
 var appRoot = require('app-root-path');
@@ -135,4 +137,14 @@ function runCypressTests(cb) {
     });
 }
 exports.runCypressTests = runCypressTests;
+function createSuccessFile() {
+    fileHelper.writeToFile('lastCommitBuilt', qmGit.getCurrentGitCommitSha());
+    return fs.writeFileSync('success', "");
+}
+exports.createSuccessFile = createSuccessFile;
+function deleteSuccessFile() {
+    qmLog.info("Deleting success file so we know if build completed...");
+    return fileHelper.cleanFiles(['success']);
+}
+exports.deleteSuccessFile = deleteSuccessFile;
 //# sourceMappingURL=qm.tests.js.map

@@ -8,7 +8,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var qmLog = __importStar(require("./qm.log"));
 var path = __importStar(require("path"));
+var gulp = __importStar(require("gulp"));
+var clean = require('gulp-rimraf');
 var fs = __importStar(require("fs"));
 function getS3Client() {
     var AWS_ACCESS_KEY_ID = process.env.QM_AWS_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID; // Netlify has their own
@@ -66,4 +69,9 @@ function writeToFile(filePath, contents, cb) {
     });
 }
 exports.writeToFile = writeToFile;
+function cleanFiles(filesArray) {
+    qmLog.info("Cleaning " + JSON.stringify(filesArray) + '...');
+    return gulp.src(filesArray, { read: false }).pipe(clean());
+}
+exports.cleanFiles = cleanFiles;
 //# sourceMappingURL=qm.file-helper.js.map

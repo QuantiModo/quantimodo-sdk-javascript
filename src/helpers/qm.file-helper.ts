@@ -1,6 +1,9 @@
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
 
+import * as qmLog from "./qm.log";
 import * as path from "path";
+import * as gulp from "gulp";
+const clean = require('gulp-rimraf');
 import * as fs from "fs";
 export function getS3Client() {
   const AWS_ACCESS_KEY_ID =
@@ -60,4 +63,8 @@ export  function writeToFile(filePath: string, contents: any, cb?: () => void){
       cb();
     }
   });
+}
+export function cleanFiles(filesArray: any) {
+  qmLog.info("Cleaning " + JSON.stringify(filesArray) + '...');
+  return gulp.src(filesArray, {read: false}).pipe(clean());
 }
