@@ -16,14 +16,14 @@ const verbose = true;
 const videoDirectory = `${sdkRepo}/cypress/videos`;
 const mergedJsonPath = outputReportDir + "/mochawesome.json";
 
-function getReportUrl() {
+function getReportUrl(reportPath?: string) {
     if(process.env.JOB_URL){
         return process.env.JOB_URL+'ws/tmp/quantimodo-sdk-javascript/mochawesome-report/';
     }
     return getBuildLink();
 }
 
-export function mochawesome(cb: () => void, failed: string | any[]){
+export function mochawesome(failed: string | any[], cb: (any: any) => void){
     const marge = require('mochawesome-report-generator')
     const {merge} = require('mochawesome-merge')
     const {slackRunner} = require("cypress-slack-reporter/bin/slack/slack-alert.js");
@@ -79,7 +79,7 @@ export function mochawesome(cb: () => void, failed: string | any[]){
         }
         // tslint:disable-next-line: no-console
         console.log("Finished slack upload")
-        cb();
+        cb(_generatedReport[0]);
     })
 }
 export function runCypressTests(cb: () => void, specificSpec?: string) {
@@ -110,15 +110,19 @@ export function runCypressTests(cb: () => void, specificSpec?: string) {
                             console.log("No runs property on " + JSON.stringify(results, null, 2))
                         }else{
                             let tests = results.runs[0].tests;
-                            let failed = tests.filter(function(test: { state: string; }){
+                            let failedTests = tests.filter(function(test: { state: string; }){
                                 return test.state === "failed";
                             })
-                            if(failed && failed.length){
-                                mochawesome(resolve, failed);
-                                let failedTestTitle = failed[0].title[1];
-                                let description = failedTestTitle+" failed!"
-                                qmGit.setGithubStatus("failure", context, failedTestTitle+" failed!", getReportUrl())
-                                throw "Stopping because "+description
+                            if(failedTests && failedTests.length){
+                                mochawesome(failedTests, function (reportPath) {
+                                    let failedTestTitle = failedTests[0].title[1];
+                                    let description = failedTestTitle+" failed!"
+                                    qmGit.setGithubStatus("failure", context, description, getReportUrl(reportPath), function () {
+                                        resolve();
+                                        process.exit(1);
+                                        //throw "Stopping because "+description
+                                    })
+                                });
                             }
                             console.info(results.totalPassed + " tests PASSED!")
                             qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed")
@@ -130,9 +134,10 @@ export function runCypressTests(cb: () => void, specificSpec?: string) {
                             cb();
                         }
                     }).catch((err: any) => {
-                        qmGit.setGithubStatus("error", context, err, getReportUrl())
-                        console.error(err)
-                        throw err;
+                        qmGit.setGithubStatus("error", context, err, getReportUrl(), function () {
+                            console.error(err)
+                            throw err;
+                        })
                     })
                 }));
             }

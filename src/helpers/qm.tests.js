@@ -23,13 +23,13 @@ var vcsProvider = "github";
 var verbose = true;
 var videoDirectory = sdkRepo + "/cypress/videos";
 var mergedJsonPath = outputReportDir + "/mochawesome.json";
-function getReportUrl() {
+function getReportUrl(reportPath) {
     if (process.env.JOB_URL) {
         return process.env.JOB_URL + 'ws/tmp/quantimodo-sdk-javascript/mochawesome-report/';
     }
     return getBuildLink();
 }
-function mochawesome(cb, failed) {
+function mochawesome(failed, cb) {
     var marge = require('mochawesome-report-generator');
     var merge = require('mochawesome-merge').merge;
     var slackRunner = require("cypress-slack-reporter/bin/slack/slack-alert.js").slackRunner;
@@ -78,7 +78,7 @@ function mochawesome(cb, failed) {
         }
         // tslint:disable-next-line: no-console
         console.log("Finished slack upload");
-        cb();
+        cb(_generatedReport[0]);
     });
 }
 exports.mochawesome = mochawesome;
@@ -111,15 +111,19 @@ function runCypressTests(cb, specificSpec) {
                         }
                         else {
                             var tests = results.runs[0].tests;
-                            var failed = tests.filter(function (test) {
+                            var failedTests_1 = tests.filter(function (test) {
                                 return test.state === "failed";
                             });
-                            if (failed && failed.length) {
-                                mochawesome(resolve, failed);
-                                var failedTestTitle = failed[0].title[1];
-                                var description = failedTestTitle + " failed!";
-                                qmGit.setGithubStatus("failure", context, failedTestTitle + " failed!", getReportUrl());
-                                throw "Stopping because " + description;
+                            if (failedTests_1 && failedTests_1.length) {
+                                mochawesome(failedTests_1, function (reportPath) {
+                                    var failedTestTitle = failedTests_1[0].title[1];
+                                    var description = failedTestTitle + " failed!";
+                                    qmGit.setGithubStatus("failure", context, description, getReportUrl(reportPath), function () {
+                                        resolve();
+                                        process.exit(1);
+                                        //throw "Stopping because "+description
+                                    });
+                                });
                             }
                             console.info(results.totalPassed + " tests PASSED!");
                             qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed");
@@ -131,9 +135,10 @@ function runCypressTests(cb, specificSpec) {
                             cb();
                         }
                     }).catch(function (err) {
-                        qmGit.setGithubStatus("error", context, err, getReportUrl());
-                        console.error(err);
-                        throw err;
+                        qmGit.setGithubStatus("error", context, err, getReportUrl(), function () {
+                            console.error(err);
+                            throw err;
+                        });
                     });
                 }); });
                 out_p_1 = p;
