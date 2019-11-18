@@ -1,5 +1,13 @@
 import * as path from "path";
 import * as qmTests from "./qm.tests";
+// @ts-ignore
+import * as github from 'github';
+const Octokit = require("@octokit/rest");
+
+import origin from "remote-origin-url";
+export function getOctoKit(){
+    return new Octokit({auth: getAccessToken()});
+}
 export function getCurrentGitCommitSha() {
     if (process.env.SOURCE_VERSION) {
         return process.env.SOURCE_VERSION;
@@ -26,9 +34,9 @@ export function getRepoUrl() {
     if (process.env.GIT_URL) {
         return process.env.GIT_URL;
     }
-    const origin = require('remote-origin-url');
     let cwd = process.cwd();
     let configPath = path.resolve(cwd, '.git/config');
+    // @ts-ignore
     let gitUrl = origin.sync({path: configPath, cwd: cwd});
     if (!gitUrl) {
         throw new Error('cannot find ".git/config"');
@@ -52,6 +60,7 @@ export function getRepoName() {
     if (arr) {
         return arr[1];
     }
+    throw "Could not determine repo name!"
 }
 export function getRepoUserName() {
     if (process.env.CIRCLE_PROJECT_USERNAME) {
@@ -70,23 +79,29 @@ export function getRepoUserName() {
 export function getBuildUrl() {
     return process.env.CIRCLE_BUILD_URL || process.env.BUILD_URL
 }
-export function setGithubStatus(state: any, context: any, description: any, url: any){
+export function setGithubStatus(state: any, context: any, description: any, url: any, cb: ((arg0: any) => void) | undefined){
     console.log(`${context} - ${description} - ${state}`);
-    const github = require('gulp-github');
-    let result = {
-        "state": state, // Commit state. Possible values are pending, success, error or failure
-        "context": context, // Status label. Could be the name of a CI environment (e.g. my-ci)
-        "description": description, // Short high level summary of the status
-        "url": url || qmTests.getBuildUrl(), // 	URL of the page representing the status
-    };
-    // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols,JSUnusedLocalSymbols,JSUnusedLocalSymbols
-    let opt = {
-        git_token: getAccessToken(),
-        git_repo: getRepoUserName() + '/' + getRepoName(),
-        //git_prid: '1',
-        git_sha: getCurrentGitCommitSha(),      // create status to this commit, optional
-    };
-    github.createStatusToCommit(result, opt, function(res: any){
-        console.debug("done!")
+    // @ts-ignore
+    // @ts-ignore
+    getOctoKit().repos.createStatus(
+        {
+            owner: getRepoUserName(),
+            repo: getRepoName(),
+            sha: getCurrentGitCommitSha(),
+            state: state,
+            target_url: url || getBuildUrl(),
+            description: description,
+            context: context
+        },
+        function (err: any, res: any) {
+            if (err) {
+                throw err
+            }
+        }
+    ).then((data: any) => {
+        if (cb) {
+            cb(data);
+        }
     });
+
 }
