@@ -12,30 +12,34 @@ var fileHelper = __importStar(require("./qm.file-helper"));
 var qmLog = __importStar(require("./qm.log"));
 var fs = __importStar(require("fs"));
 var cypress = __importStar(require("cypress"));
-var appRoot = require('app-root-path');
+var sdkRepo = require('app-root-path');
 var rimraf = require("rimraf");
+var ciProvider = getCiProvider();
 var isWin = process.platform === "win32";
-function slackReport(cb, failed) {
+var outputReportDir = sdkRepo + "/mochawesome-report";
+var screenshotDirectory = sdkRepo + "/cypress/screenshots";
+var unmerged = sdkRepo + "/cypress/reports/mocha";
+var vcsProvider = "github";
+var verbose = true;
+var videoDirectory = sdkRepo + "/cypress/videos";
+var mergedJsonPath = outputReportDir + "/mochawesome.json";
+function getReportUrl() {
+    if (process.env.JOB_URL) {
+        return process.env.JOB_URL + '/ws/tmp/quantimodo-sdk-javascript/mochawesome-report/';
+    }
+    return getBuildLink();
+}
+function mochawesome(cb, failed) {
     var marge = require('mochawesome-report-generator');
     var merge = require('mochawesome-merge').merge;
     var slackRunner = require("cypress-slack-reporter/bin/slack/slack-alert.js").slackRunner;
     console.log("Merging reports...");
-    var repoDir = __dirname;
-    var unmerged = repoDir + "/cypress/reports/mocha";
-    var outputReportDir = repoDir + "/mochawesome-report";
-    //const ciProvider = "circleci";
-    process.env.GIT_URL = "https://github.com/mikepsinn/qm-api/pull/3427";
-    var ciProvider = "jenkins";
-    var vcsProvider = "github";
-    var videoDirectory = repoDir + "/cypress/videos";
-    var screenshotDirectory = repoDir + "/cypress/screenshots";
-    var verbose = true;
     merge({
         reportDir: unmerged,
         inline: true,
         saveJson: true,
     }).then(function (mergedJson) {
-        fs.writeFileSync(outputReportDir + "/mochawesome.json", JSON.stringify(mergedJson, null, 2));
+        fs.writeFileSync(mergedJsonPath, JSON.stringify(mergedJson, null, 2));
         console.log("Generating report from " + unmerged + " and outputting at " + outputReportDir);
         return marge.create(mergedJson, {
             reportDir: outputReportDir,
@@ -48,9 +52,7 @@ function slackReport(cb, failed) {
             overwrite: true
         });
     }).then(function (_generatedReport) {
-        var qmfs = require('./node_modules/quantimodo/qmFileSystem.js');
         console.log("Merged report available here:-", _generatedReport[0]);
-        qmfs.uploadToS3(_generatedReport[0]);
         // tslint:disable-next-line: no-console
         console.log("Constructing Slack message with the following options", {
             ciProvider: ciProvider,
@@ -73,26 +75,29 @@ function slackReport(cb, failed) {
             if (process.env.JOB_URL) {
                 url = process.env.JOB_URL + "/ws/report";
             }
-            qmGit.setGithubStatus("failure", testName, errorMessage, process.env.JOB_URL + "/ws/report");
         }
         // tslint:disable-next-line: no-console
         console.log("Finished slack upload");
         cb();
     });
 }
-exports.slackReport = slackReport;
-function runCypressTests(cb) {
+exports.mochawesome = mochawesome;
+function runCypressTests(cb, specificSpec) {
     deleteSuccessFile();
     rimraf('./cypress/reports/mocha/*.json', function () {
-        var path = appRoot + "/cypress/integration";
+        var path = sdkRepo + "/cypress/integration";
         var browser = process.env.CYPRESS_BROWSER || "electron";
         fs.readdir(path, function (err, specFileNames) {
             if (!specFileNames) {
                 throw "No specFileNames in " + path;
             }
             var _loop_1 = function (i, p) {
+                var specName = specFileNames[i];
+                if (specificSpec && specName.indexOf(specificSpec) === -1) {
+                    console.debug("skipping " + specName);
+                    return out_p_1 = p, "continue";
+                }
                 p = p.then(function (_) { return new Promise(function (resolve) {
-                    var specName = specFileNames[i];
                     var specPath = path + '/' + specName;
                     var context = specName.replace('_spec.js', '');
                     qmGit.setGithubStatus("pending", context, "Running " + context + " Cypress tests...");
@@ -110,7 +115,8 @@ function runCypressTests(cb) {
                                 return test.state === "failed";
                             });
                             if (failed && failed.length) {
-                                slackReport(resolve, failed);
+                                mochawesome(resolve, failed);
+                                qmGit.setGithubStatus("failure", context, failed[0].title + " failed!", getReportUrl());
                                 throw "Stopping due to failures";
                             }
                             console.info(results.totalPassed + " tests PASSED!");
@@ -119,9 +125,11 @@ function runCypressTests(cb) {
                         resolve();
                         if (i === specFileNames.length - 1) {
                             createSuccessFile();
+                            deleteEnvFile();
                             cb();
                         }
                     }).catch(function (err) {
+                        qmGit.setGithubStatus("error", context, context + " failed!", getReportUrl());
                         console.error(err);
                         throw err;
                     });
@@ -152,18 +160,25 @@ function getBuildLink() {
     }
 }
 exports.getBuildLink = getBuildLink;
+var successFilename = 'success-file';
 function createSuccessFile() {
     fileHelper.writeToFile('lastCommitBuilt', qmGit.getCurrentGitCommitSha());
-    return fs.writeFileSync('success', "");
+    return fs.writeFileSync(successFilename, qmGit.getCurrentGitCommitSha());
 }
 exports.createSuccessFile = createSuccessFile;
 function deleteSuccessFile() {
     qmLog.info("Deleting success file so we know if build completed...");
-    rimraf('success', function (res) {
+    rimraf(successFilename, function (res) {
         qmLog.info("Deleted success file!");
     });
 }
 exports.deleteSuccessFile = deleteSuccessFile;
+function deleteEnvFile() {
+    rimraf('.env', function (res) {
+        qmLog.info("Deleted env file!");
+    });
+}
+exports.deleteEnvFile = deleteEnvFile;
 function getCiProvider() {
     if (process.env.CIRCLE_BRANCH) {
         return "circleci";

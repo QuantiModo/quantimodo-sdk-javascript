@@ -96,6 +96,9 @@ function getRepoUserName() {
     }
 }
 exports.getRepoUserName = getRepoUserName;
+/**
+ * state can be one of `error`, `failure`, `pending`, or `success`.
+ */
 function setGithubStatus(state, context, description, url, cb) {
     console.log(context + " - " + description + " - " + state);
     var params = {

@@ -16,6 +16,13 @@ const verbose = true;
 const videoDirectory = `${sdkRepo}/cypress/videos`;
 const mergedJsonPath = outputReportDir + "/mochawesome.json";
 
+function getReportUrl() {
+    if(process.env.JOB_URL){
+        return process.env.JOB_URL+'/ws/tmp/quantimodo-sdk-javascript/mochawesome-report/';
+    }
+    return getBuildLink();
+}
+
 export function mochawesome(cb: () => void, failed: string | any[]){
     const marge = require('mochawesome-report-generator')
     const {merge} = require('mochawesome-merge')
@@ -40,45 +47,42 @@ export function mochawesome(cb: () => void, failed: string | any[]){
         })
     }).then((_generatedReport: any[]) => {
         console.log("Merged report available here:-", _generatedReport[0]);
-        fileHelper.uploadToS3(_generatedReport[0], 'tests', function (res) {
-            // tslint:disable-next-line: no-console
-            console.log("Constructing Slack message with the following options", {
-                ciProvider,
-                vcsProvider,
-                outputReportDir,
-                videoDirectory,
-                screenshotDirectory,
-                verbose
-            });
-            // @ts-ignore
-            // noinspection JSUnusedLocalSymbols
-            const slack = slackRunner(
-                ciProvider,
-                vcsProvider,
-                outputReportDir,
-                videoDirectory,
-                screenshotDirectory,
-                verbose
-            );
-            for(let j = 0; j < failed.length; j++){
-                let test = failed[j];
-                let testName = test.title[1];
-                let errorMessage = test.error
-                console.error(testName + " FAILED!")
-                console.error(errorMessage)
-                let url = getBuildLink();
-                if(process.env.JOB_URL){
-                    url = process.env.JOB_URL+"/ws/report"
-                }
-                qmGit.setGithubStatus("failure", testName, errorMessage, process.env.JOB_URL+"/ws/report")
+        // tslint:disable-next-line: no-console
+        console.log("Constructing Slack message with the following options", {
+            ciProvider,
+            vcsProvider,
+            outputReportDir,
+            videoDirectory,
+            screenshotDirectory,
+            verbose
+        });
+        // @ts-ignore
+        // noinspection JSUnusedLocalSymbols
+        const slack = slackRunner(
+            ciProvider,
+            vcsProvider,
+            outputReportDir,
+            videoDirectory,
+            screenshotDirectory,
+            verbose
+        );
+        for(let j = 0; j < failed.length; j++){
+            let test = failed[j];
+            let testName = test.title[1];
+            let errorMessage = test.error
+            console.error(testName + " FAILED!")
+            console.error(errorMessage)
+            let url = getBuildLink();
+            if(process.env.JOB_URL){
+                url = process.env.JOB_URL+"/ws/report"
             }
-            // tslint:disable-next-line: no-console
-            console.log("Finished slack upload")
-            cb();
-        })
+        }
+        // tslint:disable-next-line: no-console
+        console.log("Finished slack upload")
+        cb();
     })
 }
-export function runCypressTests(cb: () => void) {
+export function runCypressTests(cb: () => void, specificSpec?: string) {
     deleteSuccessFile();
     rimraf('./cypress/reports/mocha/*.json', function(){
         const path = sdkRepo + "/cypress/integration";
@@ -88,8 +92,12 @@ export function runCypressTests(cb: () => void) {
                 throw "No specFileNames in "+path
             }
             for(let i = 0, p = Promise.resolve(); i < specFileNames.length; i++){
+                let specName = specFileNames[i]
+                if(specificSpec && specName.indexOf(specificSpec) === -1){
+                    console.debug("skipping "+specName)
+                    continue;
+                }
                 p = p.then(_ => new Promise(resolve => {
-                    let specName = specFileNames[i]
                     let specPath = path + '/' + specName
                     let context = specName.replace('_spec.js', '');
                     qmGit.setGithubStatus("pending", context, `Running ${context} Cypress tests...`)
@@ -107,6 +115,7 @@ export function runCypressTests(cb: () => void) {
                             })
                             if(failed && failed.length){
                                 mochawesome(resolve, failed);
+                                qmGit.setGithubStatus("failure", context, failed[0].title+" failed!", getReportUrl())
                                 throw "Stopping due to failures"
                             }
                             console.info(results.totalPassed + " tests PASSED!")
@@ -119,6 +128,7 @@ export function runCypressTests(cb: () => void) {
                             cb();
                         }
                     }).catch((err: any) => {
+                        qmGit.setGithubStatus("error", context, context+" failed!", getReportUrl())
                         console.error(err)
                         throw err;
                     })
