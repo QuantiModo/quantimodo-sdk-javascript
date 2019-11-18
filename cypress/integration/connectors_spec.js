@@ -103,7 +103,7 @@ describe('Mobile Connectors', function () {
         verifyConnection(connectorName)
         clickDisconnect(connectorName)
     }
-  it('Connects and disconnects Fitbit', function () {
+  it.skip('Connects and disconnects Fitbit', function () {
     checkOAuthConnector('fitbit')
   })
   it('Connects and disconnects WhatPulse', function () {
