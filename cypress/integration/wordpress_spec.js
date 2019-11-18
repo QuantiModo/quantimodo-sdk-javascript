@@ -1,6 +1,12 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
 describe('WordPress', function(){
+    function htmlAtUrlContains(urlWithoutSlashAtEnd, expected){
+        cy.visit(url)
+        cy.get('html').should('contain', expected)
+        cy.visit(urlWithoutSlashAtEnd+'/')
+        cy.get('html').should('contain', expected)
+    }
     it('Clicks pricing page link', function(){
         cy.visit('https://quantimo.do')
         cy.get('a').contains("Pricing").click({force: true})
@@ -28,15 +34,21 @@ describe('WordPress', function(){
         cy.visit('https://quantimo.do')
         cy.get('a[href*="/privacy-policy/"]').click({force: true})
         cy.getWithinIframe('html').should('contain', 'committed to protecting')
+
+        htmlAtUrlContains('https://quantimo.do/privacy-policy', 'committed to protecting')
     })
     it('Checks the end user terms of service', function(){
         cy.visit('https://quantimo.do')
         cy.get('a[href*="/end-user-terms-of-service/"]').click({force: true})
         cy.get('html').should('contain', 'End Users authorize')
+
+        htmlAtUrlContains('https://quantimo.do/tos', 'End Users authorize')
     })
     it('Checks the data security page', function(){
         cy.visit('https://quantimo.do')
         cy.get('a[href*="/developer-platform/security/"]').click({force: true})
         cy.get('html').should('contain', 'Data Encryption')
+
+        htmlAtUrlContains('https://quantimo.do/developer-platform/security', 'Data Encryption')
     })
 })
