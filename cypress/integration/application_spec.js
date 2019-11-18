@@ -1,0 +1,35 @@
+// load type definitions that come with Cypress module
+function createNewApplication(){
+    cy.get(
+        'body > div.wrapper.row-offcanvas.row-offcanvas-left > aside.right-side.right-padding > section > div > div > div > div.panel-heading.clearfix > div > a')
+        .click({force: true})
+    cy.checkForBrokenImages()
+    const d = new Date()
+    let testAppName = `test_app${d.getTime()}`
+    cy.get('#app_display_name').type(testAppName, {force: true})
+    cy.get('#app_display_name').type(testAppName, {force: true})
+    cy.get('#client_id').type(testAppName, {force: true})
+    cy.get('#app_description').type(testAppName, {force: true})
+    cy.get('#homepage_url').type(testAppName, {force: true})
+    cy.get('.btn-success').click({force: true})
+    cy.log('Need to start redirecting to builder.quantimo.do...')
+    cy.checkForBrokenImages()
+    // cy.get('iframe#iframe md-tabs-canvas.md-paginated > md-pagination-wrapper >
+    // md-tab-item.md-tab.md-ink-ripple:nth-of-type(2) > span',
+    //     {timeout: 120000})
+    //     .click({ force: true });
+    // cy.get('iframe#iframe .md-bar').click({ force: true });
+}
+/// <reference types="cypress" />
+describe('Applications', function(){
+    Cypress.env('RETRIES', 2)
+    it('Creates a client app as new user', function(){
+        cy.visitApi(`/api/v2/apps#`)
+        cy.enterNewUserCredentials()
+        createNewApplication()
+    })
+    it('Creates an client app as an existing user', function(){
+        cy.visitApi(`/api/v2/apps?access_token=test-token`)
+        createNewApplication()
+    })
+})

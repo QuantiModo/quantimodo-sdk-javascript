@@ -1,0 +1,15 @@
+{
+  "chromeWebSecurity": false,
+  "baseUrl": "https://web.quantimo.do",
+  "projectId": "ee8wan",
+  "pageLoadTimeout": 60000,
+  "env": {
+    "API_HOST": "staging.quantimo.do",
+    "OAUTH_APP_HOST": "medimodo.herokuapp.com",
+    "abort_strategy": true
+  },
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "configFile": "reporterOpts.json"
+  }
+}
