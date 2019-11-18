@@ -64,6 +64,9 @@ function mochawesome(failedTests, cb) {
         });
         // @ts-ignore
         // noinspection JSUnusedLocalSymbols
+        if (!process.env.SLACK_WEBHOOK_URL) {
+            throw "env SLACK_WEBHOOK_URL not set!";
+        }
         var slack = slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose);
         // tslint:disable-next-line: no-console
         console.log("Finished slack upload");

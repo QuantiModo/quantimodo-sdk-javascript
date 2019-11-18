@@ -59,6 +59,9 @@ export function mochawesome(failedTests: any[], cb: (any: any) => void){
         });
         // @ts-ignore
         // noinspection JSUnusedLocalSymbols
+        if(!process.env.SLACK_WEBHOOK_URL){
+            throw "env SLACK_WEBHOOK_URL not set!"
+        }
         const slack = slackRunner(
             ciProvider,
             vcsProvider,
