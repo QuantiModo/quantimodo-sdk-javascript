@@ -10,7 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var QUANTIMODO_CLIENT_ID = process.env.QUANTIMODO_CLIENT_ID || process.env.CLIENT_ID;
 var AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY; // Netlify has their own
 function isTruthy(value) { return (value && value !== "false"); }
-var buildInfoHelper = __importStar(require("./qm.ci"));
+var qmTests = __importStar(require("./qm.tests"));
 function error(message, metaData, maxCharacters) {
     metaData = addMetaData(metaData);
     console.error(obfuscateStringify(message, metaData, maxCharacters));
@@ -30,9 +30,9 @@ exports.debug = debug;
 function addMetaData(metaData) {
     metaData = metaData || {};
     metaData.environment = obfuscateSecrets(process.env);
-    metaData.subsystem = { name: getCurrentServerContext() };
+    metaData.subsystem = { name: qmTests.getCiProvider() };
     metaData.client_id = QUANTIMODO_CLIENT_ID;
-    metaData.build_link = buildInfoHelper.getBuildLink();
+    metaData.build_link = qmTests.getBuildLink();
     return metaData;
 }
 exports.addMetaData = addMetaData;
@@ -103,16 +103,6 @@ function obfuscateSecrets(object) {
     return object;
 }
 exports.obfuscateSecrets = obfuscateSecrets;
-function getCurrentServerContext() {
-    if (process.env.CIRCLE_BRANCH) {
-        return "circleci";
-    }
-    if (process.env.BUDDYBUILD_BRANCH) {
-        return "buddybuild";
-    }
-    return process.env.HOSTNAME;
-}
-exports.getCurrentServerContext = getCurrentServerContext;
 function prettyJSONStringify(object) {
     return JSON.stringify(object, null, '\t');
 }

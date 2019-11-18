@@ -15,10 +15,6 @@ var cypress = __importStar(require("cypress"));
 var appRoot = require('app-root-path');
 var rimraf = require("rimraf");
 var isWin = process.platform === "win32";
-function getBuildUrl() {
-    return process.env.BUILD_URL || process.env.CIRCLE_BUILD_URL;
-}
-exports.getBuildUrl = getBuildUrl;
 function slackReport(cb, failed) {
     var marge = require('mochawesome-report-generator');
     var merge = require('mochawesome-merge').merge;
@@ -73,7 +69,7 @@ function slackReport(cb, failed) {
             var errorMessage = test_1.error;
             console.error(testName + " FAILED!");
             console.error(errorMessage);
-            var url = getBuildUrl();
+            var url = getBuildLink();
             if (process.env.JOB_URL) {
                 url = process.env.JOB_URL + "/ws/report";
             }
@@ -86,6 +82,7 @@ function slackReport(cb, failed) {
 }
 exports.slackReport = slackReport;
 function runCypressTests(cb) {
+    deleteSuccessFile();
     rimraf('./cypress/reports/mocha/*.json', function () {
         var path = appRoot + "/cypress/integration";
         var browser = process.env.CYPRESS_BROWSER || "electron";
@@ -119,6 +116,7 @@ function runCypressTests(cb) {
                         }
                         resolve();
                         if (i === specFileNames.length - 1) {
+                            createSuccessFile();
                             cb();
                         }
                     }).catch(function (err) {
@@ -137,6 +135,21 @@ function runCypressTests(cb) {
     });
 }
 exports.runCypressTests = runCypressTests;
+function getBuildLink() {
+    if (process.env.BUILD_URL) {
+        return process.env.BUILD_URL + "/console";
+    }
+    if (process.env.BUDDYBUILD_APP_ID) {
+        return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" + process.env.BUDDYBUILD_APP_ID;
+    }
+    if (process.env.CIRCLE_BUILD_NUM) {
+        return "https://circleci.com/gh/QuantiModo/quantimodo-android-chrome-ios-web-app/" + process.env.CIRCLE_BUILD_NUM;
+    }
+    if (process.env.TRAVIS_BUILD_ID) {
+        return "https://travis-ci.org/" + process.env.TRAVIS_REPO_SLUG + "/builds/" + process.env.TRAVIS_BUILD_ID;
+    }
+}
+exports.getBuildLink = getBuildLink;
 function createSuccessFile() {
     fileHelper.writeToFile('lastCommitBuilt', qmGit.getCurrentGitCommitSha());
     return fs.writeFileSync('success', "");
@@ -147,4 +160,17 @@ function deleteSuccessFile() {
     return fileHelper.cleanFiles(['success']);
 }
 exports.deleteSuccessFile = deleteSuccessFile;
+function getCiProvider() {
+    if (process.env.CIRCLE_BRANCH) {
+        return "circleci";
+    }
+    if (process.env.BUDDYBUILD_BRANCH) {
+        return "buddybuild";
+    }
+    if (process.env.JENKINS_URL) {
+        return "jenkins";
+    }
+    return process.env.HOSTNAME;
+}
+exports.getCiProvider = getCiProvider;
 //# sourceMappingURL=qm.tests.js.map
