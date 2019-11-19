@@ -1,39 +1,39 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+"use strict"
+Object.defineProperty(exports, "__esModule", { value: true })
 function getUnixTimestampInSeconds(dateTimeString) {
     if (!dateTimeString) {
-        dateTimeString = new Date().getTime();
+        dateTimeString = new Date().getTime()
     }
-    return Math.round(getUnixTimestampInMilliseconds(dateTimeString) / 1000);
+    return Math.round(getUnixTimestampInMilliseconds(dateTimeString) / 1000)
 }
-exports.getUnixTimestampInSeconds = getUnixTimestampInSeconds;
+exports.getUnixTimestampInSeconds = getUnixTimestampInSeconds
 function getUnixTimestampInMilliseconds(dateTimeString) {
     if (!dateTimeString) {
-        return new Date().getTime();
+        return new Date().getTime()
     }
-    return new Date(dateTimeString).getTime();
+    return new Date(dateTimeString).getTime()
 }
-exports.getUnixTimestampInMilliseconds = getUnixTimestampInMilliseconds;
+exports.getUnixTimestampInMilliseconds = getUnixTimestampInMilliseconds
 function getTimeSinceString(unixTimestamp) {
     if (!unixTimestamp) {
-        return "never";
+        return "never"
     }
     // @ts-ignore
-    var secondsAgo = secondsAgo(unixTimestamp);
+    var secondsAgo = secondsAgo(unixTimestamp)
     if (secondsAgo > 2 * 24 * 60 * 60) {
-        return Math.round(secondsAgo / (24 * 60 * 60)) + " days ago";
+        return Math.round(secondsAgo / (24 * 60 * 60)) + " days ago"
     }
     if (secondsAgo > 2 * 60 * 60) {
-        return Math.round(secondsAgo / (60 * 60)) + " hours ago";
+        return Math.round(secondsAgo / (60 * 60)) + " hours ago"
     }
     if (secondsAgo > 2 * 60) {
-        return Math.round(secondsAgo / (60)) + " minutes ago";
+        return Math.round(secondsAgo / (60)) + " minutes ago"
     }
-    return secondsAgo + " seconds ago";
+    return secondsAgo + " seconds ago"
 }
-exports.getTimeSinceString = getTimeSinceString;
+exports.getTimeSinceString = getTimeSinceString
 function secondsAgo(unixTimestamp) {
-    return Math.round((getUnixTimestampInSeconds() - unixTimestamp));
+    return Math.round((getUnixTimestampInSeconds() - unixTimestamp))
 }
-exports.secondsAgo = secondsAgo;
+exports.secondsAgo = secondsAgo
 //# sourceMappingURL=qm.time-helper.js.map

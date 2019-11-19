@@ -16,19 +16,19 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['superagent', 'querystring'], factory);
+    define(['superagent', 'querystring'], factory)
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('superagent'), require('querystring'));
+    module.exports = factory(require('superagent'), require('querystring'))
   } else {
     // Browser globals (root is window)
     if (!root.Quantimodo) {
-      root.Quantimodo = {};
+      root.Quantimodo = {}
     }
-    root.Quantimodo.ApiClient = factory(root.superagent, root.querystring);
+    root.Quantimodo.ApiClient = factory(root.superagent, root.querystring)
   }
 }(this, function(superagent, querystring) {
-  'use strict';
+  'use strict'
 
   /**
    * @module ApiClient
@@ -42,13 +42,13 @@
    * @alias module:ApiClient
    * @class
    */
-  var exports = function() {
+  let exports = function() {
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
      * @default https://app.quantimo.do/api
      */
-    this.basePath = 'https://app.quantimo.do/api'.replace(/\/+$/, '');
+    this.basePath = 'https://app.quantimo.do/api'.replace(/\/+$/, '')
 
     /**
      * The authentication methods to be included for all API calls.
@@ -57,21 +57,21 @@
     this.authentications = {
       'access_token': {type: 'apiKey', 'in': 'query', name: 'access_token'},
       'client_id': {type: 'apiKey', 'in': 'query', name: 'clientId'},
-      'quantimodo_oauth2': {type: 'oauth2'}
-    };
+      'quantimodo_oauth2': {type: 'oauth2'},
+    }
     /**
      * The default HTTP headers to be included for all API calls.
      * @type {Array.<String>}
      * @default {}
      */
-    this.defaultHeaders = {};
+    this.defaultHeaders = {}
 
     /**
      * The default HTTP timeout for all API calls.
      * @type {Number}
      * @default 60000
      */
-    this.timeout = 60000;
+    this.timeout = 60000
 
     /**
      * If set to false an additional timestamp parameter is added to all API GET calls to
@@ -79,28 +79,28 @@
      * @type {Boolean}
      * @default true
      */
-    this.cache = true;
+    this.cache = true
 
     /**
      * If set to true, the client will save the cookies from each server
      * response, and return them in the next request.
      * @default false
      */
-    this.enableCookies = false;
+    this.enableCookies = false
 
     /*
      * Used to save and return cookies in a node.js (non-browser) setting,
      * if this.enableCookies is set to true.
      */
     if (typeof window === 'undefined') {
-      this.agent = new superagent.agent();
+      this.agent = new superagent.agent()
     }
 
     /*
      * Allow user to override superagent agent
      */
-    this.requestAgent = null;
-  };
+    this.requestAgent = null
+  }
 
   /**
    * Returns a string representation for an actual parameter.
@@ -109,13 +109,13 @@
    */
   exports.prototype.paramToString = function(param) {
     if (param == undefined || param == null) {
-      return '';
+      return ''
     }
     if (param instanceof Date) {
-      return param.toJSON();
+      return param.toJSON()
     }
-    return param.toString();
-  };
+    return param.toString()
+  }
 
   /**
    * Builds full URL by appending the given path to the base URL and replacing path parameter place-holders with parameter values.
@@ -126,21 +126,21 @@
    */
   exports.prototype.buildUrl = function(path, pathParams) {
     if (!path.match(/^\//)) {
-      path = '/' + path;
+      path = '/' + path
     }
-    var url = this.basePath + path;
-    var _this = this;
+    let url = this.basePath + path
+    let _this = this
     url = url.replace(/\{([\w-]+)\}/g, function(fullMatch, key) {
-      var value;
+      let value
       if (pathParams.hasOwnProperty(key)) {
-        value = _this.paramToString(pathParams[key]);
+        value = _this.paramToString(pathParams[key])
       } else {
-        value = fullMatch;
+        value = fullMatch
       }
-      return encodeURIComponent(value);
-    });
-    return url;
-  };
+      return encodeURIComponent(value)
+    })
+    return url
+  }
 
   /**
    * Checks whether the given content type represents JSON.<br>
@@ -154,8 +154,8 @@
    * @returns {Boolean} <code>true</code> if <code>contentType</code> represents JSON, otherwise <code>false</code>.
    */
   exports.prototype.isJsonMime = function(contentType) {
-    return Boolean(contentType != null && contentType.match(/^application\/json(;.*)?$/i));
-  };
+    return Boolean(contentType != null && contentType.match(/^application\/json(;.*)?$/i))
+  }
 
   /**
    * Chooses a content type from the given array, with JSON preferred; i.e. return JSON if included, otherwise return the first.
@@ -163,13 +163,13 @@
    * @returns {String} The chosen content type, preferring JSON.
    */
   exports.prototype.jsonPreferredMime = function(contentTypes) {
-    for (var i = 0; i < contentTypes.length; i++) {
+    for (let i = 0; i < contentTypes.length; i++) {
       if (this.isJsonMime(contentTypes[i])) {
-        return contentTypes[i];
+        return contentTypes[i]
       }
     }
-    return contentTypes[0];
-  };
+    return contentTypes[0]
+  }
 
   /**
    * Checks whether the given parameter value represents file-like content.
@@ -179,28 +179,28 @@
   exports.prototype.isFileParam = function(param) {
     // fs.ReadStream in Node.js and Electron (but not in runtime like browserify)
     if (typeof require === 'function') {
-      var fs;
+      let fs
       try {
-        fs = require('fs');
+        fs = require('fs')
       } catch (err) {}
       if (fs && fs.ReadStream && param instanceof fs.ReadStream) {
-        return true;
+        return true
       }
     }
     // Buffer in Node.js
     if (typeof Buffer === 'function' && param instanceof Buffer) {
-      return true;
+      return true
     }
     // Blob in browser
     if (typeof Blob === 'function' && param instanceof Blob) {
-      return true;
+      return true
     }
     // File in browser (it seems File object is also instance of Blob, but keep this for safe)
     if (typeof File === 'function' && param instanceof File) {
-      return true;
+      return true
     }
-    return false;
-  };
+    return false
+  }
 
   /**
    * Normalizes parameter values:
@@ -213,19 +213,19 @@
    * @returns {Object.<String, Object>} normalized parameters.
    */
   exports.prototype.normalizeParams = function(params) {
-    var newParams = {};
-    for (var key in params) {
+    let newParams = {}
+    for (let key in params) {
       if (params.hasOwnProperty(key) && params[key] != undefined && params[key] != null) {
-        var value = params[key];
+        let value = params[key]
         if (this.isFileParam(value) || Array.isArray(value)) {
-          newParams[key] = value;
+          newParams[key] = value
         } else {
-          newParams[key] = this.paramToString(value);
+          newParams[key] = this.paramToString(value)
         }
       }
     }
-    return newParams;
-  };
+    return newParams
+  }
 
   /**
    * Enumeration of collection format separator strategies.
@@ -257,8 +257,8 @@
      * Native array. Value: <code>multi</code>
      * @const
      */
-    MULTI: 'multi'
-  };
+    MULTI: 'multi',
+  }
 
   /**
    * Builds a string representation of an array-type actual parameter, according to the given collection format.
@@ -269,24 +269,24 @@
    */
   exports.prototype.buildCollectionParam = function buildCollectionParam(param, collectionFormat) {
     if (param == null) {
-      return null;
+      return null
     }
     switch (collectionFormat) {
       case 'csv':
-        return param.map(this.paramToString).join(',');
+        return param.map(this.paramToString).join(',')
       case 'ssv':
-        return param.map(this.paramToString).join(' ');
+        return param.map(this.paramToString).join(' ')
       case 'tsv':
-        return param.map(this.paramToString).join('\t');
+        return param.map(this.paramToString).join('\t')
       case 'pipes':
-        return param.map(this.paramToString).join('|');
+        return param.map(this.paramToString).join('|')
       case 'multi':
         // return the array directly as SuperAgent will handle it as expected
-        return param.map(this.paramToString);
+        return param.map(this.paramToString)
       default:
-        throw new Error('Unknown collection format: ' + collectionFormat);
+        throw new Error('Unknown collection format: ' + collectionFormat)
     }
-  };
+  }
 
   /**
    * Applies authentication headers to the request.
@@ -294,40 +294,40 @@
    * @param {Array.<String>} authNames An array of authentication method names.
    */
   exports.prototype.applyAuthToRequest = function(request, authNames) {
-    var _this = this;
+    let _this = this
     authNames.forEach(function(authName) {
-      var auth = _this.authentications[authName];
+      let auth = _this.authentications[authName]
       switch (auth.type) {
         case 'basic':
           if (auth.username || auth.password) {
-            request.auth(auth.username || '', auth.password || '');
+            request.auth(auth.username || '', auth.password || '')
           }
-          break;
+          break
         case 'apiKey':
           if (auth.apiKey) {
-            var data = {};
+            let data = {}
             if (auth.apiKeyPrefix) {
-              data[auth.name] = auth.apiKeyPrefix + ' ' + auth.apiKey;
+              data[auth.name] = auth.apiKeyPrefix + ' ' + auth.apiKey
             } else {
-              data[auth.name] = auth.apiKey;
+              data[auth.name] = auth.apiKey
             }
             if (auth['in'] === 'header') {
-              request.set(data);
+              request.set(data)
             } else {
-              request.query(data);
+              request.query(data)
             }
           }
-          break;
+          break
         case 'oauth2':
           if (auth.accessToken) {
-            request.set({'Authorization': 'Bearer ' + auth.accessToken});
+            request.set({'Authorization': 'Bearer ' + auth.accessToken})
           }
-          break;
+          break
         default:
-          throw new Error('Unknown authentication type: ' + auth.type);
+          throw new Error('Unknown authentication type: ' + auth.type)
       }
-    });
-  };
+    })
+  }
 
   /**
    * Deserializes an HTTP response body into a value of the specified type.
@@ -340,17 +340,17 @@
    */
   exports.prototype.deserialize = function deserialize(response, returnType) {
     if (response == null || returnType == null || response.status == 204) {
-      return null;
+      return null
     }
     // Rely on SuperAgent for parsing response body.
     // See http://visionmedia.github.io/superagent/#parsing-response-bodies
-    var data = response.body;
+    let data = response.body
     if (data == null || (typeof data === 'object' && typeof data.length === 'undefined' && !Object.keys(data).length)) {
       // SuperAgent does not always produce a body; use the unparsed response as a fallback
-      data = response.text;
+      data = response.text
     }
-    return exports.convertToType(data, returnType);
-  };
+    return exports.convertToType(data, returnType)
+  }
 
   /**
    * Callback function to receive the result of the operation.
@@ -382,119 +382,118 @@
       queryParams, collectionQueryParams, headerParams, formParams, bodyParam, authNames, contentTypes, accepts,
       returnType, callback) {
 
-    var _this = this;
-    var url = this.buildUrl(path, pathParams);
-    var request = superagent(httpMethod, url);
+    let _this = this
+    let url = this.buildUrl(path, pathParams)
+    let request = superagent(httpMethod, url)
 
     // apply authentications
-    this.applyAuthToRequest(request, authNames);
+    this.applyAuthToRequest(request, authNames)
 
     // set collection query parameters
     for (var key in collectionQueryParams) {
       if (collectionQueryParams.hasOwnProperty(key)) {
-        var param = collectionQueryParams[key];
+        let param = collectionQueryParams[key]
         if (param.collectionFormat === 'csv') {
           // SuperAgent normally percent-encodes all reserved characters in a query parameter. However,
           // commas are used as delimiters for the 'csv' collectionFormat so they must not be encoded. We
           // must therefore construct and encode 'csv' collection query parameters manually.
           if (param.value != null) {
-            var value = param.value.map(this.paramToString).map(encodeURIComponent).join(',');
-            request.query(encodeURIComponent(key) + "=" + value);
+            let value = param.value.map(this.paramToString).map(encodeURIComponent).join(',')
+            request.query(encodeURIComponent(key) + "=" + value)
           }
         } else {
           // All other collection query parameters should be treated as ordinary query parameters.
-          queryParams[key] = this.buildCollectionParam(param.value, param.collectionFormat);
+          queryParams[key] = this.buildCollectionParam(param.value, param.collectionFormat)
         }
       }
     }
 
     // set query parameters
     if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
-        queryParams['_'] = new Date().getTime();
+        queryParams['_'] = new Date().getTime()
     }
-    request.query(this.normalizeParams(queryParams));
+    request.query(this.normalizeParams(queryParams))
 
     // set header parameters
-    request.set(this.defaultHeaders).set(this.normalizeParams(headerParams));
+    request.set(this.defaultHeaders).set(this.normalizeParams(headerParams))
 
 
     // set requestAgent if it is set by user
     if (this.requestAgent) {
-      request.agent(this.requestAgent);
+      request.agent(this.requestAgent)
     }
 
     // set request timeout
-    request.timeout(this.timeout);
+    request.timeout(this.timeout)
 
-    var contentType = this.jsonPreferredMime(contentTypes);
+    let contentType = this.jsonPreferredMime(contentTypes)
     if (contentType) {
       // Issue with superagent and multipart/form-data (https://github.com/visionmedia/superagent/issues/746)
       if(contentType != 'multipart/form-data') {
-        request.type(contentType);
+        request.type(contentType)
       }
     } else if (!request.header['Content-Type']) {
-      request.type('application/json');
+      request.type('application/json')
     }
 
     if (contentType === 'application/x-www-form-urlencoded') {
-      request.send(querystring.stringify(this.normalizeParams(formParams)));
+      request.send(querystring.stringify(this.normalizeParams(formParams)))
     } else if (contentType == 'multipart/form-data') {
-      var _formParams = this.normalizeParams(formParams);
+      let _formParams = this.normalizeParams(formParams)
       for (var key in _formParams) {
         if (_formParams.hasOwnProperty(key)) {
           if (this.isFileParam(_formParams[key])) {
             // file field
-            request.attach(key, _formParams[key]);
+            request.attach(key, _formParams[key])
           } else {
-            request.field(key, _formParams[key]);
+            request.field(key, _formParams[key])
           }
         }
       }
     } else if (bodyParam) {
-      request.send(bodyParam);
+      request.send(bodyParam)
     }
 
-    var accept = this.jsonPreferredMime(accepts);
+    let accept = this.jsonPreferredMime(accepts)
     if (accept) {
-      request.accept(accept);
+      request.accept(accept)
     }
 
     if (returnType === 'Blob') {
-      request.responseType('blob');
+      request.responseType('blob')
     } else if (returnType === 'String') {
-      request.responseType('string');
+      request.responseType('string')
     }
 
     // Attach previously saved cookies, if enabled
     if (this.enableCookies){
       if (typeof window === 'undefined') {
-        this.agent.attachCookies(request);
-      }
-      else {
-        request.withCredentials();
+        this.agent.attachCookies(request)
+      } else {
+        request.withCredentials()
       }
     }
 
 
     request.end(function(error, response) {
       if (callback) {
-        var data = null;
+        let data = null
         if (!error) {
           try {
-            data = _this.deserialize(response, returnType);
+            data = _this.deserialize(response, returnType)
             if (_this.enableCookies && typeof window === 'undefined'){
-              _this.agent.saveCookies(response);
+              _this.agent.saveCookies(response)
             }
           } catch (err) {
-            error = err;
+            error = err
           }
         }
-        callback(error, data, response);
+        callback(error, data, response)
       }
-    });
+    })
 
-    return request;
-  };
+    return request
+  }
 
   /**
    * Parses an ISO-8601 string representation of a date value.
@@ -502,8 +501,8 @@
    * @returns {Date} The parsed date object.
    */
   exports.parseDate = function(str) {
-    return new Date(str.replace(/T/i, ' '));
-  };
+    return new Date(str.replace(/T/i, ' '))
+  }
 
   /**
    * Converts a value to the specified type.
@@ -515,60 +514,59 @@
    * @returns An instance of the specified type or null or undefined if data is null or undefined.
    */
   exports.convertToType = function(data, type) {
-    if (data === null || data === undefined)
-      return data
+    if (data === null || data === undefined) { return data }
 
     switch (type) {
       case 'Boolean':
-        return Boolean(data);
+        return Boolean(data)
       case 'Integer':
-        return parseInt(data, 10);
+        return parseInt(data, 10)
       case 'Number':
-        return parseFloat(data);
+        return parseFloat(data)
       case 'String':
-        return String(data);
+        return String(data)
       case 'Date':
-        return this.parseDate(String(data));
+        return this.parseDate(String(data))
       case 'Blob':
-      	return data;
+      	return data
       default:
         if (type === Object) {
           // generic object, return directly
-          return data;
-        } else if (typeof type === 'function') {
+          return data
+        } if (typeof type === 'function') {
           // for model type like: User
-          return type.constructFromObject(data);
-        } else if (Array.isArray(type)) {
+          return type.constructFromObject(data)
+        } if (Array.isArray(type)) {
           // for array type like: ['String']
-          var itemType = type[0];
+          let itemType = type[0]
           return data.map(function(item) {
-            return exports.convertToType(item, itemType);
-          });
-        } else if (typeof type === 'object') {
+            return exports.convertToType(item, itemType)
+          })
+        } if (typeof type === 'object') {
           // for plain object type like: {'String': 'Integer'}
-          var keyType, valueType;
+          let keyType; let valueType
           for (var k in type) {
             if (type.hasOwnProperty(k)) {
-              keyType = k;
-              valueType = type[k];
-              break;
+              keyType = k
+              valueType = type[k]
+              break
             }
           }
-          var result = {};
+          let result = {}
           for (var k in data) {
             if (data.hasOwnProperty(k)) {
-              var key = exports.convertToType(k, keyType);
-              var value = exports.convertToType(data[k], valueType);
-              result[key] = value;
+              let key = exports.convertToType(k, keyType)
+              let value = exports.convertToType(data[k], valueType)
+              result[key] = value
             }
           }
-          return result;
-        } else {
-          // for unknown type, return the data directly
-          return data;
+          return result
         }
+          // for unknown type, return the data directly
+          return data
+
     }
-  };
+  }
 
   /**
    * Constructs a new map or array model from REST data.
@@ -577,23 +575,21 @@
    */
   exports.constructFromObject = function(data, obj, itemType) {
     if (Array.isArray(data)) {
-      for (var i = 0; i < data.length; i++) {
-        if (data.hasOwnProperty(i))
-          obj[i] = exports.convertToType(data[i], itemType);
+      for (let i = 0; i < data.length; i++) {
+        if (data.hasOwnProperty(i)) { obj[i] = exports.convertToType(data[i], itemType) }
       }
     } else {
-      for (var k in data) {
-        if (data.hasOwnProperty(k))
-          obj[k] = exports.convertToType(data[k], itemType);
+      for (let k in data) {
+        if (data.hasOwnProperty(k)) { obj[k] = exports.convertToType(data[k], itemType) }
       }
     }
-  };
+  }
 
   /**
    * The default API client implementation.
    * @type {module:ApiClient}
    */
-  exports.instance = new exports();
+  exports.instance = new exports()
 
-  return exports;
-}));
+  return exports
+}))

@@ -26,7 +26,6 @@
 let logLevel = Cypress.env('LOG_LEVEL') || 'info'
 let accessToken = Cypress.env('ACCESS_TOKEN') || 'test-token'
 let API_HOST = Cypress.env('API_HOST')
-let apiUrl = `https://${API_HOST}`
 let baseUrl = Cypress.config('baseUrl')
 let testUserName = 'testuser'
 let testUserPassword = 'testing123'
@@ -73,9 +72,9 @@ Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminder
 })
 Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
     if(!options.qs){
-        options.qs = {};
+        options.qs = {}
     }
-    options.qs.apiUrl = API_HOST;
+    options.qs.apiUrl = API_HOST
     cy.visit(url, options)
 })
 Cypress.Commands.add('visitApi', (url, options = {}) => {
@@ -83,9 +82,9 @@ Cypress.Commands.add('visitApi', (url, options = {}) => {
         throw 'Please set API_HOST env!'
     }
     if(!options.qs){
-        options.qs = {};
+        options.qs = {}
     }
-    options.qs.XDEBUG_SESSION_START = 'PHPSTORM';
+    options.qs.XDEBUG_SESSION_START = 'PHPSTORM'
     cy.visit("https://" + API_HOST + url, options)
 })
 Cypress.Commands.add('clickActionSheetButton', (index) => {
@@ -199,6 +198,7 @@ Cypress.Commands.add('allowUncaughtException', (expectedErrorMessage) => {
 Cypress.Commands.add('checkForBrokenImages', () => {
     cy.log('Checking for broken images...')
     cy.get('img', {timeout: 30000})
+    // eslint-disable-next-line no-unused-vars
         .each(($el, index, $list) => {
             if(!$el){
                 cy.log(`No $element at index: ${index}`)
@@ -231,65 +231,6 @@ Cypress.Commands.add('iframeLoaded', {prevSubject: 'element'}, ($iframe) => {
 Cypress.Commands.add('getInDocument', {prevSubject: 'document'}, (document, selector) => Cypress.$(selector, document))
 Cypress.Commands.add('getWithinIframe',
     (targetElement) => cy.get('iframe').iframeLoaded().its('document').getInDocument(targetElement))
-Cypress.Commands.add('sendSlackNotification', (messageBody) => {
-    const reportStats = {};
-    let totalTests = reportStats.tests;
-    let totalPasses = reportStats.passes;
-    let totalFailures = reportStats.failures;
-    if(totalTests === undefined || totalTests === 0){
-        status = "error";
-    }else if(totalFailures > 0 || totalPasses === 0){
-        status = "failed";
-    }else if(totalFailures === 0){
-        status = "passed";
-    }
-    const _a = process.env, CI_BRANCH = _a.CI_BRANCH, CI_BUILD_URL = _a.CI_BUILD_URL, CI_CIRCLE_JOB = _a.CI_CIRCLE_JOB;
-    let branchText;
-    if(!CI_BRANCH){
-        branchText = "";
-    }else{
-        branchText = "Branch: " + CI_BRANCH + "\n";
-    }
-    let jobText;
-    if(!CI_CIRCLE_JOB){
-        jobText = "";
-    }else{
-        jobText = "Job: " + CI_CIRCLE_JOB + "\n";
-    }
-    let
-        envSut = "";
-    let reportHTMLUrl = '';
-    cy.request('POST', 'https://hooks.slack.com/services/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', {
-        color: "#ff0000",
-        fallback: "Report available at " + reportHTMLUrl,
-        title: "Total Failed: " + totalFailures,
-        text: "" + branchText + jobText + envSut + "Total Tests: " + totalTests + "\nTotal Passed:  " + totalPasses + " ",
-        actions: [
-            {
-                type: "button",
-                text: "CircleCI Logs",
-                url: "" + CI_BUILD_URL,
-                style: "primary"
-            }
-        ]
-    });
-})
-function sendSlackNotification(error, runnable){
-    cy.request('POST', 'https://hooks.slack.com/services/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', {
-        color: "#ff0000",
-        fallback: runnable.ctx.test.title + " FAILED",
-        title: runnable.ctx.test.title + " FAILED",
-        text: error.message + `\n baseUrl is ${Cypress.config('baseUrl')} \n API_HOST is ${Cypress.env('API_HOST')}`,
-        actions: [
-            {
-                type: "button",
-                text: "CircleCI Logs",
-                url: Cypress.env('CI_BUILD_URL'),
-                style: "primary"
-            }
-        ]
-    });
-}
 /**
  * @param {string} variableName
  * @param {boolean} topResultShouldContainSearchTerm
@@ -311,11 +252,11 @@ Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldCo
         cy.get(firstResultSelector, { timeout: 20000 })
             .click({ force: true })
     }
-});
+})
 /**
  * @param {string} str
  */
-Cypress.Commands.add('clickActionSheetButtonContaining',  (str) => {
+Cypress.Commands.add('clickActionSheetButtonContaining', (str) => {
     cy.log(`Clicking action button containing ${str}`)
     cy.wait(2000)
     let button = '.action-sheet-option'

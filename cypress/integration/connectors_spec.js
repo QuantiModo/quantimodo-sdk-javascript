@@ -72,14 +72,14 @@ describe('Mobile Connectors', function () {
      * @param {string} connectorName
      */
     function enterCredentials (connectorName) {
-        let user = Cypress.env(connectorName.toUpperCase()+'_TEST_USER');
+        let user = Cypress.env(connectorName.toUpperCase() + '_TEST_USER')
         if(!user){
-            throw "Please set env "+connectorName.toUpperCase()+'_TEST_USER';
+            throw "Please set env " + connectorName.toUpperCase() + '_TEST_USER'
         }
         cy.enterCredentials(selectors[connectorName].username,
-            Cypress.env(connectorName.toUpperCase()+'_TEST_USER'),
+            Cypress.env(connectorName.toUpperCase() + '_TEST_USER'),
             selectors[connectorName].password,
-            Cypress.env(connectorName.toUpperCase()+'_TEST_PASSWORD'),
+            Cypress.env(connectorName.toUpperCase() + '_TEST_PASSWORD'),
             selectors[connectorName].submitButton)
     }
     /**

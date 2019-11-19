@@ -5,7 +5,7 @@
 // configuration option. You can read more here: https://on.cypress.io/configuration
 // ***********************************************************
 require('cypress-plugin-retries')
-import './commands'  // Import commands.js using ES2015 syntax:
+import './commands' // Import commands.js using ES2015 syntax:
 Cypress.on('uncaught:exception', (err, runnable) => {
     if(err.message.indexOf('runnable must have an id') !== false){
         cy.log(err.message)
@@ -20,8 +20,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.log(`Uncaught exception: ${err.message}`)
 })
 beforeEach(function(){ // runs before each test in the block
-    let url = Cypress.config('baseUrl');
-    if(!url){throw "baseUrl not set!"}
+    let url = Cypress.config('baseUrl')
+    if(!url){ throw "baseUrl not set!" }
     cy.log(`baseUrl is ${url}`)
     cy.log(`API_HOST is ${Cypress.env('API_HOST')}`)
 })
@@ -29,15 +29,15 @@ import addContext from 'mochawesome/addContext'
 Cypress.on('test:after:run', (test, runnable) => {
     // https://medium.com/@nottyo/generate-a-beautiful-test-report-from-running-tests-on-cypress-io-371c00d7865a
     if(test.state === 'failed'){
-        let specName = Cypress.spec.name;
+        let specName = Cypress.spec.name
         let runnableTitle = runnable.parent.title
         let testTitle = test.title
         const screenshotFileName = `${runnableTitle} -- ${testTitle} (failed).png`
-        const folder = Cypress.config('screenshotsFolder')+`/${specName}/`;
-        const screenshotPath = folder+screenshotFileName;
+        const folder = Cypress.config('screenshotsFolder') + `/${specName}/`
+        const screenshotPath = folder + screenshotFileName
         //const screenshotFileName =  `./${specName}/${runnableTitle.replace(':', '')} -- ${testTitle} (failed).png`
         console.error(`screenshotPath ${screenshotPath}`)
         debugger
-        addContext({test}, screenshotPath);
+        addContext({test}, screenshotPath)
     }
 })
