@@ -2,3 +2,7 @@ cypress/extensions/*
 /typescript*
 quantimodo-api.js
 quantimodo-web.js
+src/model/*
+test/model/*
+test/api/*
+test/api/*
