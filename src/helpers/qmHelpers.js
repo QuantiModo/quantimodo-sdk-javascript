@@ -821,6 +821,7 @@ var qm = {
                 }
             }
             return function(){
+                // eslint-disable-next-line prefer-rest-params
                 let args = _.map(arguments, function(e){
                     return e
                 }) // get arguments into an array
@@ -1468,10 +1469,10 @@ var qm = {
             return results
         },
         getUnique(array, propertyName){
+            function onlyUnique(value, index, self){
+                return self.indexOf(value) === index
+            }
             if(!propertyName){
-                function onlyUnique(value, index, self){
-                    return self.indexOf(value) === index
-                }
                 return array.filter(onlyUnique)
             }
             let flags = []; let output = []; let l = array.length; let i
@@ -1552,7 +1553,7 @@ var qm = {
             }
         },
         doesNotHaveProperty(array, propertyName){
-            if(typeof array !== "Array"){
+            if(!Array.isArray(array)){
                 array = [array]
             }
             for(let i = 0; i < array.length; i++){
@@ -2127,7 +2128,7 @@ var qm = {
         getCookie(name){
             let value = "; " + document.cookie
             let parts = value.split("; " + name + "=")
-            if(parts.length == 2) return parts.pop().split(";").shift()
+            if(parts.length === 2) return parts.pop().split(";").shift()
         },
         getGACookie(){
             return qm.cookieHelper.getCookie('_gid')
@@ -2168,7 +2169,7 @@ var qm = {
         apiAi: null,
         apiAiPrepare(){
             qm.qmLog.info("apiAiPrepare...")
-            apiai = new Bravey.ApiAiAdapter("data/apiai", {language: "EN"})
+            let apiai = new Bravey.ApiAiAdapter("data/apiai", {language: "EN"})
             let entities = qm.staticData.dialogAgent.entities
             qm.objectHelper.loopThroughProperties(entities, function(entityName, entity){
                 apiai.loadEntity(entityName)
@@ -2767,6 +2768,7 @@ var qm = {
             return matchedIntent
         },
         getIntent(userInput){
+            // eslint-disable-next-line prefer-rest-params
             qm.functionHelper.checkTypes(arguments, ['string'])
             if(!userInput){
                 qm.qmLog.error("No userInput given to userInput")
@@ -3212,7 +3214,7 @@ var qm = {
             args = [].slice.call(args)
             for (let i = 0; i < types.length; ++i) {
                 let type = typeOf(args[i])
-                if (types[i] && type != types[i]) {
+                if (types[i] && type !== types[i]) {
                     let message = 'param ' + i + ' must be of type ' + types[i] + " but is " + type
                     if(qm.appMode.isProduction()){
                         qm.qmLog.error(message)
@@ -4083,7 +4085,7 @@ var qm = {
                 qm.localForage.setItem(localStorageItemName, toStore, function(){
                     qm.qmLog.info("addToArray in LocalForage " + localStorageItemName + " completed!")
                     if(successHandler){
-                        successHandler(localStorageItemArray)
+                        successHandler(toStore)
                     }
                 }, function(error){
                     qm.qmLog.error(error)
@@ -4976,7 +4978,7 @@ var qm = {
                 let spawn = require('child_process').spawn // For commands with lots of output resulting in stdout maxBuffer exceeded error
                 let ps = spawn(program, args)
                 ps.on('exit', function(code, signal){
-                    qm.qmLog.info(command + ' exited with ' + 'code ' + code + ' and signal ' + signal)
+                    qm.qmLog.info(command + ' exited with code ' + code + ' and signal ' + signal)
                     if(callback){
                         callback()
                     }
@@ -5416,18 +5418,18 @@ var qm = {
                     return result
                 }
                 let numberOfWaitingNotifications = objectLength(trackingReminderNotifications)
-                if(uniqueNotification){
-                    function getChromeRatingNotificationParams(trackingReminderNotification){
-                        return {
-                            url: qm.notifications.getRatingNotificationPath(trackingReminderNotification),
-                            type: 'panel',
-                            top: screen.height - 150,
-                            left: screen.width - 380,
-                            width: 390,
-                            height: 110,
-                            focused: true,
-                        }
+                function getChromeRatingNotificationParams(trackingReminderNotification){
+                    return {
+                        url: qm.notifications.getRatingNotificationPath(trackingReminderNotification),
+                        type: 'panel',
+                        top: screen.height - 150,
+                        left: screen.width - 380,
+                        width: 390,
+                        height: 110,
+                        focused: true,
                     }
+                }
+                if(uniqueNotification){
                     qm.chrome.openOrFocusChromePopupWindow(getChromeRatingNotificationParams(uniqueNotification))
                     qm.chrome.updateChromeBadge(0)
                 }else if(numberOfWaitingNotifications > 0){
@@ -5692,7 +5694,7 @@ var qm = {
                 pushData = pushData.data
             }
             qm.appsManager.getAppSettingsLocallyOrFromApi(function (appSettings) {
-                notificationOptions = qm.notifications.convertPushDataToWebNotificationOptions(pushData, appSettings)
+                let notificationOptions = qm.notifications.convertPushDataToWebNotificationOptions(pushData, appSettings)
                 self.registration.showNotification(notificationOptions.title, notificationOptions)
             })
         },
@@ -5718,7 +5720,7 @@ var qm = {
             let bProps = Object.getOwnPropertyNames(b)
             // If number of properties is different,
             // objects are not equivalent
-            if(aProps.length != bProps.length){
+            if(aProps.length !== bProps.length){
                 return false
             }
             for(let i = 0; i < aProps.length; i++){
@@ -6084,7 +6086,7 @@ var qm = {
                 if(!qm.platform.getWindow()){
                     return false
                 }
-                return (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0
+                return (!!window.opr && !!window.opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0
             },
             isBlink(){
                 if(!qm.platform.getWindow()){
@@ -6769,6 +6771,9 @@ var qm = {
             if(!qm.arrayHelper.variableIsArray(possiblePhrases)){
                 possiblePhrases = [possiblePhrases]
             }
+            function isNumeric(n){
+                return !isNaN(parseFloat(n)) && isFinite(n)
+            }
             for(let i = 0; i < possiblePhrases.length; i++){
                 let tag = possiblePhrases[i]
                 tag = nlp(tag).normalize().out()
@@ -6779,9 +6784,6 @@ var qm = {
                     if(tag === "no"){
                         tag = 0
                     }
-                }
-                function isNumeric(n){
-                    return !isNaN(parseFloat(n)) && isFinite(n)
                 }
                 if(inputField.type === "number" && !isNumeric(tag)){
                     continue
@@ -7337,6 +7339,13 @@ var qm = {
                 summaryValue = value.substring(0, 18)
             }
             qm.qmLog.debug('Setting localStorage.' + key + ' to ' + summaryValue + '...')
+            function deleteLargeLocalStorageItems(localStorageItemsArray){
+                for(let i = 0; i < localStorageItemsArray.length; i++){
+                    if(localStorageItemsArray[i].kB > 2000){
+                        qm.storage.removeItem(localStorageItemsArray[i].name)
+                    }
+                }
+            }
             try{
                 if(typeof localStorage === "undefined"){
                     qm.qmLog.debug("localStorage not defined")
@@ -7344,13 +7353,6 @@ var qm = {
                 }
                 localStorage.setItem(key, value)
             }catch (error){
-                function deleteLargeLocalStorageItems(localStorageItemsArray){
-                    for(let i = 0; i < localStorageItemsArray.length; i++){
-                        if(localStorageItemsArray[i].kB > 2000){
-                            qm.storage.removeItem(localStorageItemsArray[i].name)
-                        }
-                    }
-                }
                 let metaData = {localStorageItems: qm.storage.getAllLocalStorageDataWithSizes(true)}
                 metaData['size_of_' + key + "_in_kb"] = sizeInKb
                 let name = 'Error saving ' + key + ' to local storage: ' + error.message
@@ -7577,7 +7579,7 @@ var qm = {
                         printedObjIndex = index
                     }
                 })
-                if(key == ''){ //root element
+                if(key === ''){ //root element
                     printedObjects.push(obj)
                     printedObjectKeys.push("root")
                     return value
@@ -7667,12 +7669,6 @@ var qm = {
         },
         removeLastCharacter(string){
             return string.substring(0, string.length - 1)
-        },
-        getFirstCharacter(string){
-            while(string.charAt(0) === '0'){
-                string = string.substr(1)
-            }
-            return string
         },
         slugify(str){
             str = str.replace(/^\s+|\s+$/g, '') // trim
@@ -8426,7 +8422,7 @@ var qm = {
                 url.indexOf('2Findex.html') === -1 &&
                 url.indexOf('/index.html') === -1){
                 console.trace()
-                e = new Error()
+                let e = new Error()
                 qm.qmLog.errorAndExceptionTestingOrDevelopment("url should not be " + url, e.stack)
             }
         },
@@ -9434,7 +9430,7 @@ var qm = {
                 frequencyData = new Uint8Array(bufferLength)
                 waveData = new Uint8Array(bufferLength)
                 window.source = audioCtx.createMediaStreamSource(mediaStream)
-                source.connect(analyser)
+                window.source.connect(analyser)
                 animate()
             }
             // Not used
@@ -9939,6 +9935,7 @@ if(typeof window !== "undefined"){
     }
 
     if (typeof window !== "undefined" && !isSupported()) {
+        // eslint-disable-next-line no-inner-declarations
         function init(undef) {
             var store = {
                 setItem (id, val) {

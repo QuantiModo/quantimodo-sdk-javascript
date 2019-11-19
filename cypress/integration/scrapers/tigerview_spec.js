@@ -182,6 +182,7 @@ describe('tigerview', function () {
              * @param {any} data
              * @param {any} _response
              */
+          // eslint-disable-next-line no-unused-vars
             function (error, data, _response) {
               if (error) {
                 console.error(error)
@@ -191,7 +192,6 @@ describe('tigerview', function () {
             }
       let api = new Quantimodo.MeasurementsApi()
 
-      debugger
       api.postMeasurements(body, { userId: 1 }, callback)
     })
   })

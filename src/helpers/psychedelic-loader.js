@@ -4,9 +4,9 @@ let w = canvas.width = window.innerWidth
     let h = canvas.height = window.innerHeight
 c.fillStyle = "rgb(0,0,0)"
 c.fillRect(0, 0, w, h)
-particles = {},
-    particleIndex = 0,
-    particleNum = 1
+let particles = {}
+    let particleIndex = 0
+    let particleNum = 1
 function particle() {
     this.x = Math.random() * w
     this.y = Math.random() * h
@@ -33,7 +33,7 @@ particle.prototype.draw = function() {
     c.beginPath()
     c.lineWidth = this.size
     c.lineTo(this.x, this.y)
-    for(k = 0; k < 10; k++){
+    for(var k = 0; k < 10; k++){
         this.x += this.a1 * Math.sin(this.a2 * this.vx) + this.a3 * this.vx * Math.sin(this.a4 * this.vx)
         this.y += this.a1 * Math.cos(this.a2 * this.vx) + this.a3 * this.vx * Math.cos(this.a4 * this.vx)
         this.vy += this.gravity / 1
@@ -75,6 +75,7 @@ var psychedelicLoader = {
         for (var i = 0; i < particleNum; i++) {
             new particle()
         }
+        // eslint-disable-next-line no-redeclare
         for (var i in particles) {
             particles[i].draw()
         }
@@ -83,6 +84,7 @@ var psychedelicLoader = {
         if(!psychedelicLoader.showing){ return }
         if(!psychedelicLoader.appended){
             document.body.appendChild(canvas)
+            // eslint-disable-next-line no-undef
             appended = true
         }
         window.requestAnimFrame(psychedelicLoader.showLoader)

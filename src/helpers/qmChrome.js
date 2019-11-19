@@ -50,6 +50,7 @@ window.qm.chrome = {
     },
     createSmallInboxNotification(){
         let notificationId = "inbox"
+        // eslint-disable-next-line no-unused-vars
         chrome.notifications.create(notificationId, qm.chrome.windowParams.inboxNotificationParams, function(id){
         })
     },
@@ -196,6 +197,7 @@ window.qm.chrome = {
             qm.chrome.handleNotificationClick(notificationId)
         })
         /** @namespace chrome.extension.onMessage */
+        // eslint-disable-next-line no-unused-vars
         chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
             // Handles extension-specific requests that come in, such as a request to upload a new measurement
             window.qmLog.debug('Received request: ' + request.message, null)
@@ -360,6 +362,7 @@ window.qm.chrome = {
             window.trackingReminderNotification = qm.notifications.getMostRecentRatingNotificationNotInSyncQueue()
         }
         if(window.trackingReminderNotification){
+            // eslint-disable-next-line no-unused-vars
             qm.getClientId(function(clientId){
                 qm.chrome.openOrFocusChromePopupWindow(getChromeRatingNotificationParams(window.trackingReminderNotification))
             })
@@ -371,6 +374,7 @@ window.qm.chrome = {
             return
         }
         let notificationId = 'signin'
+        // eslint-disable-next-line no-unused-vars
         chrome.notifications.create(notificationId, qm.chrome.windowParams.signInNotificationParams, function(id){
         })
     },

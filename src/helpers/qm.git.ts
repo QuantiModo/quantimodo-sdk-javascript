@@ -91,7 +91,7 @@ export function setGithubStatus(state: any, context: any, description: any, url?
         description,
         context,
     };
-    getOctoKit().repos.createStatus(params, function(err: any, res: any) {
+    getOctoKit().repos.createStatus(params, function(err: any, _res: any) {
             if (err) {
                 console.error(err);
                 process.exit(1);

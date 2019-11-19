@@ -27,13 +27,6 @@ function setLastValueButtonListeners(){
     document.getElementById('skipButton').onclick = onLastValueButtonClicked
     document.getElementById('buttonInbox').onclick = inboxButtonClicked
 }
-function getVariableName(){
-    let variableName = qm.urlHelper.getParam('variableName')
-    if(variableName){
-        qmLog.debug("Got variableName " + variableName + " from url")
-        return variableName
-    }
-}
 function valenceNegative(){
     if(!qmPopup.trackingReminderNotification){
         qmLog.error("qmPopup.trackingReminderNotification not set!")
@@ -158,11 +151,6 @@ var onLastValueButtonClicked = function(){
 function hidePopup(){
     window.qmLog.info('hidePopup: resizing to ' + ratingPopupWidth + " x 0 ")
     window.resizeTo(ratingPopupWidth, 0)
-}
-function showLoader(){
-    let loader = document.getElementById("loader")
-    loader.style.display = "block"
-    numericRatingButtons().style.display = faceRatingButtons().style.display = question().style.display = "none"
 }
 function unHidePopup(){
     window.qmLog.info('unHidePopup: resizing to ' + ratingPopupWidth + " x " + ratingPopupHeight)

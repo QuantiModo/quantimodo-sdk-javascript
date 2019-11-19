@@ -74,17 +74,17 @@
     "qmStates": false,
     "chcp": false,
     "jQuery": false,
-    "apiai": false,
     "Bravey": false,
     "drift": false,
     "annyang": false,
     "nlp": false,
-    "notificationOptions": false,
     "SpeechKITT": false,
     "speechUtteranceChunker": false,
     "dat": false,
     "bugsnagClient": false,
-    "bugsnag": false
+    "bugsnag": false,
+    "safari": false,
+    "PouchDB": false
   },
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -102,6 +102,8 @@
     "prefer-template": "off",
     "keyword-spacing": "off",
     "no-var": "off",
-    "no-useless-escape": "off"
+    "no-useless-escape": "off",
+    "prefer-rest-params": "off",
+    "eqeqeq": "off"
   }
 }
