@@ -55,7 +55,7 @@
     "ship-it": "npm run pre-publish && npm publish",
     "start:ci": "serve --no-clipboard --listen ${PORT:-8080}",
     "stop-only": "stop-only -f cypress/integration",
-    "test": "npm run test:mocha && gulp cypress",
+    "test": "npm run lint && npm run test:mocha && gulp cypress",
     "test:mocha": "mocha -r ts-node/register test/**/*.test.ts",
     "test:junit:staging": "cypress run --config-file cypress/config/cypress.staging.json --reporter junit --reporter-options 'mochaFile=junit-results/my-test-output.xml'",
     "types": "tsc --noEmit",

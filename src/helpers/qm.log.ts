@@ -1,11 +1,11 @@
 const QUANTIMODO_CLIENT_ID = process.env.QUANTIMODO_CLIENT_ID || process.env.CLIENT_ID;
 const AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY; // Netlify has their own
-function isTruthy(value: any) {return (value && value !== "false");}
+function isTruthy(value: any) {return (value && value !== "false"); }
 import * as qmTests from "./qm.tests";
 export function error(message: string, metaData?: any, maxCharacters?: number) {
     metaData = addMetaData(metaData);
     console.error(obfuscateStringify(message, metaData, maxCharacters));
-    //bugsnag.notify(new Error(obfuscateStringify(message)));
+    // bugsnag.notify(new Error(obfuscateStringify(message)));
 }
 export function info(message: string, object?: any, maxCharacters?: any) {
     console.info(obfuscateStringify(message, object, maxCharacters));
@@ -25,56 +25,56 @@ export function addMetaData(metaData: { environment?: any; subsystem?: any; clie
 }
 export function obfuscateStringify(message: string, object: undefined, maxCharacters?: number) {
     maxCharacters = maxCharacters || 140;
-    let objectString = '';
+    let objectString = "";
     if (object) {
         object = obfuscateSecrets(object);
-        objectString = ':  ' + prettyJSONStringify(object);
+        objectString = ":  " + prettyJSONStringify(object);
     }
     if (maxCharacters && objectString.length > maxCharacters) {
-        objectString = objectString.substring(0, maxCharacters) + '...';
+        objectString = objectString.substring(0, maxCharacters) + "...";
     }
     message += objectString;
     if (process.env.QUANTIMODO_CLIENT_SECRET) {
-        message = message.replace(process.env.QUANTIMODO_CLIENT_SECRET, 'HIDDEN');
+        message = message.replace(process.env.QUANTIMODO_CLIENT_SECRET, "HIDDEN");
     }
     if (AWS_SECRET_ACCESS_KEY) {
-        message = message.replace(AWS_SECRET_ACCESS_KEY, 'HIDDEN');
+        message = message.replace(AWS_SECRET_ACCESS_KEY, "HIDDEN");
     }
     if (process.env.ENCRYPTION_SECRET) {
-        message = message.replace(process.env.ENCRYPTION_SECRET, 'HIDDEN');
+        message = message.replace(process.env.ENCRYPTION_SECRET, "HIDDEN");
     }
     if (process.env.QUANTIMODO_ACCESS_TOKEN) {
-        message = message.replace(process.env.QUANTIMODO_ACCESS_TOKEN, 'HIDDEN');
+        message = message.replace(process.env.QUANTIMODO_ACCESS_TOKEN, "HIDDEN");
     }
     message = obfuscateString(message);
     return message;
 }
 export function isSecretWord(propertyName: string) {
     const lowerCaseProperty = propertyName.toLowerCase();
-    return lowerCaseProperty.indexOf('secret') !== -1 ||
-        lowerCaseProperty.indexOf('password') !== -1 ||
-        lowerCaseProperty.indexOf('key') !== -1 ||
-        lowerCaseProperty.indexOf('database') !== -1 ||
-        lowerCaseProperty.indexOf('token') !== -1;
+    return lowerCaseProperty.indexOf("secret") !== -1 ||
+        lowerCaseProperty.indexOf("password") !== -1 ||
+        lowerCaseProperty.indexOf("key") !== -1 ||
+        lowerCaseProperty.indexOf("database") !== -1 ||
+        lowerCaseProperty.indexOf("token") !== -1;
 }
 export function obfuscateString(string: string) {
     const env = process.env;
-    for (let propertyName in env) {
+    for (const propertyName in env) {
         if (env.hasOwnProperty(propertyName)) {
             if (isSecretWord(propertyName)) {
                 // @ts-ignore
-                string = string.replace(env[propertyName], '[SECURE]');
+                string = string.replace(env[propertyName], "[SECURE]");
             }
         }
     }
     return string;
 }
 export function obfuscateSecrets(object: any) {
-    if (typeof object !== 'object') {
+    if (typeof object !== "object") {
         return object;
     }
     object = JSON.parse(JSON.stringify(object)); // Decouple so we don't screw up original object
-    for (let propertyName in object) {
+    for (const propertyName in object) {
         if (object.hasOwnProperty(propertyName)) {
             if (isSecretWord(propertyName)) {
                 object[propertyName] = "[SECURE]";
@@ -87,5 +87,5 @@ export function obfuscateSecrets(object: any) {
 }
 
 export function prettyJSONStringify(object: any) {
-    return JSON.stringify(object, null, '\t');
+    return JSON.stringify(object, null, "\t");
 }
