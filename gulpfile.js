@@ -36,10 +36,14 @@ gulp.task('cypress', function(cb){
 gulp.task('cypress-connectors', function(cb){
     qmTests.runCypressTests(cb, 'connectors')
 });
-gulp.task('test', function(cb){
+gulp.task('cypress-failed', function(cb){
+    qmTests.runLastFailedCypressTest(cb)
+});
+gulp.task('test-typescript-node', function(cb){
     const qm = require('./typescript-node-client/api')
     let api = new qm.AppSettingsApi()
     api.getAppSettings("medimodo").then(function(res){
         console.log(res)
+        cb()
     });
 });

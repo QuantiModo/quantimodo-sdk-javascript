@@ -28,6 +28,7 @@ var vcsProvider = "github";
 var verbose = true;
 var videoDirectory = sdkRepo + "/cypress/videos";
 var mergedJsonPath = outputReportDir + "/mochawesome.json";
+var lastFailedCypressTestPath = 'last-failed-cypress-test';
 function getReportUrl(reportPath) {
     if (process.env.JOB_URL) {
         return process.env.JOB_URL + 'ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html';
@@ -109,6 +110,7 @@ function runCypressTests(cb, specificSpec) {
                                 return test.state === "failed";
                             });
                             if (failedTests_1 && failedTests_1.length) {
+                                fs.writeFileSync(lastFailedCypressTestPath, specName);
                                 for (var j = 0; j < failedTests_1.length; j++) {
                                     var test_1 = failedTests_1[j];
                                     var testName = test_1.title[1];
@@ -125,6 +127,7 @@ function runCypressTests(cb, specificSpec) {
                                 });
                             }
                             else {
+                                deleteLastFailedCypressTest();
                                 console.info(results.totalPassed + " tests PASSED!");
                                 qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed");
                             }
@@ -200,4 +203,25 @@ function getCiProvider() {
     return process.env.HOSTNAME;
 }
 exports.getCiProvider = getCiProvider;
+function getLastFailedCypressTest() {
+    return fs.readFileSync(lastFailedCypressTestPath, "utf8");
+}
+function deleteLastFailedCypressTest() {
+    try {
+        fs.unlinkSync(lastFailedCypressTestPath);
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
+function runLastFailedCypressTest(cb) {
+    var name = getLastFailedCypressTest();
+    if (!name) {
+        console.info("No previously failed test!");
+        cb();
+        return;
+    }
+    runCypressTests(cb, name);
+}
+exports.runLastFailedCypressTest = runLastFailedCypressTest;
 //# sourceMappingURL=qm.tests.js.map

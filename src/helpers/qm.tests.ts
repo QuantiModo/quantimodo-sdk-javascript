@@ -19,6 +19,7 @@ const vcsProvider = "github";
 const verbose = true;
 const videoDirectory = `${sdkRepo}/cypress/videos`;
 const mergedJsonPath = outputReportDir + "/mochawesome.json";
+const lastFailedCypressTestPath = 'last-failed-cypress-test'
 
 function getReportUrl(reportPath?: string) {
     if(process.env.JOB_URL){
@@ -108,6 +109,7 @@ export function runCypressTests(cb: () => void, specificSpec?: string) {
                                 return test.state === "failed";
                             })
                             if(failedTests && failedTests.length){
+                                fs.writeFileSync(lastFailedCypressTestPath, specName);
                                 for(let j = 0; j < failedTests.length; j++){
                                     let test = failedTests[j];
                                     let testName = test.title[1];
@@ -123,6 +125,7 @@ export function runCypressTests(cb: () => void, specificSpec?: string) {
                                     })
                                 });
                             } else {
+                                deleteLastFailedCypressTest()
                                 console.info(results.totalPassed + " tests PASSED!")
                                 qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed")
                             }
@@ -185,4 +188,23 @@ export function getCiProvider() {
         return "jenkins";
     }
     return process.env.HOSTNAME;
+}
+function getLastFailedCypressTest() {
+    return fs.readFileSync(lastFailedCypressTestPath, "utf8");
+}
+function deleteLastFailedCypressTest() {
+    try {
+        fs.unlinkSync(lastFailedCypressTestPath)
+    } catch(err) {
+        console.error(err)
+    }
+}
+export function runLastFailedCypressTest(cb: { (): void; (): void; }) {
+    let name = getLastFailedCypressTest();
+    if(!name){
+        console.info("No previously failed test!");
+        cb();
+        return;
+    }
+    runCypressTests(cb, name)
 }
