@@ -22,7 +22,7 @@ dotenv.config(); // https://github.com/motdotla/dotenv#what-happens-to-environme
 var ciProvider = getCiProvider();
 var isWin = process.platform === "win32";
 var outputReportDir = sdkRepo + "/mochawesome-report";
-var screenshotDirectory = sdkRepo + "/cypress/screenshots";
+var screenshotDirectory = sdkRepo + "/mochawesome-report/assets";
 var unmerged = sdkRepo + "/cypress/reports/mocha";
 var vcsProvider = "github";
 var verbose = true;
@@ -72,7 +72,9 @@ function mochawesome(failedTests, cb) {
                 console.error("env SLACK_WEBHOOK_URL not set!");
             }
             else {
-                var slack = slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose);
+                var slack = slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose).catch(function (err) {
+                    throw err;
+                });
                 // tslint:disable-next-line: no-console
                 console.log("Finished slack upload");
             }

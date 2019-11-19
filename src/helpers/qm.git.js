@@ -118,6 +118,8 @@ function setGithubStatus(state, context, description, url, cb) {
         if (cb) {
             cb(data);
         }
+    }).catch(function (err) {
+        throw err;
     });
 }
 exports.setGithubStatus = setGithubStatus;

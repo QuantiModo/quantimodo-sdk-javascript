@@ -13,7 +13,7 @@ dotenv.config(); // https://github.com/motdotla/dotenv#what-happens-to-environme
 const ciProvider = getCiProvider();
 const isWin = process.platform === "win32";
 const outputReportDir = sdkRepo + "/mochawesome-report"
-const screenshotDirectory = `${sdkRepo}/cypress/screenshots`;
+const screenshotDirectory = `${sdkRepo}/mochawesome-report/assets`;
 const unmerged = sdkRepo + "/cypress/reports/mocha"
 const vcsProvider = "github";
 const verbose = true;
@@ -69,7 +69,9 @@ export function mochawesome(failedTests: any[], cb: (err: any) => void){
                     videoDirectory,
                     screenshotDirectory,
                     verbose
-                );
+                ).catch((err: any) => {
+                    throw err
+                });
                 // tslint:disable-next-line: no-console
                 console.log("Finished slack upload")
             }

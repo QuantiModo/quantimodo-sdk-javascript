@@ -19,13 +19,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     }
     cy.log(`Uncaught exception: ${err.message}`)
 })
-let failed = false;
-Cypress.on('fail', (error, runnable) => {
-    failed = true;
-    //debugger
-    //sendSlackNotification(error, runnable)
-    throw error
-})
 beforeEach(function(){ // runs before each test in the block
     cy.log(`baseUrl is ${Cypress.config('baseUrl')}`)
     cy.log(`API_HOST is ${Cypress.env('API_HOST')}`)
@@ -38,7 +31,11 @@ Cypress.on('test:after:run', (test, runnable) => {
         let runnableTitle = runnable.parent.title
         let testTitle = test.title
         const screenshotFileName = `${runnableTitle} -- ${testTitle} (failed).png`
+        const folder = Cypress.config('screenshotsFolder')+`/${specName}/`;
+        const screenshotPath = folder+screenshotFileName;
         //const screenshotFileName =  `./${specName}/${runnableTitle.replace(':', '')} -- ${testTitle} (failed).png`
-        addContext({test}, screenshotFileName)
+        console.error(`screenshotPath ${screenshotPath}`)
+        debugger
+        addContext({test}, screenshotPath);
     }
 })

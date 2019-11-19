@@ -98,7 +98,9 @@ export function setGithubStatus(state: any, context: any, description: any, url?
         if (cb) {
             cb(data);
         }
-    });
+    }).catch((err: any) => {
+        throw err
+    })
 }
 export function getBranchName () {
     let name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;
