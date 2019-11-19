@@ -24,6 +24,7 @@
   },
   "rules": {
     "no-console": "off",
-    "indent": "warn"
+    "indent": "off",
+    "padding-line-between-statements": "off"
   }
 }
