@@ -49,7 +49,8 @@ function getRepoUrl() {
     if (process.env.GIT_URL) {
         return process.env.GIT_URL;
     }
-    var configPath = path.resolve(appRoot, '.git/config');
+    var appRootString = appRoot.toString();
+    var configPath = path.resolve(appRootString, '.git/config');
     // @ts-ignore
     var gitUrl = remote_origin_url_1.default.sync({ path: configPath, cwd: appRoot });
     if (!gitUrl) {

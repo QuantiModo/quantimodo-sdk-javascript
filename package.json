@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "ci": "npm run test:ci && rimraf ./bin && npm run compile",
+    "ci": "npm run test",
     "circle": "npm run lint && npm run test:ci && make test && npm run pre-publish",
     "cli": "rimraf cypress/reports && ts-node src/cli/spec.ts",
     "compile": "tsc",
@@ -55,7 +55,8 @@
     "ship-it": "npm run pre-publish && npm publish",
     "start:ci": "serve --no-clipboard --listen ${PORT:-8080}",
     "stop-only": "stop-only -f cypress/integration",
-    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test": "npm run test:mocha && gulp cypress",
+    "test:mocha": "mocha -r ts-node/register test/**/*.test.ts",
     "test:junit:staging": "cypress run --config-file cypress/config/cypress.staging.json --reporter junit --reporter-options 'mochaFile=junit-results/my-test-output.xml'",
     "types": "tsc --noEmit",
     "up": "docker-compose up --abort-on-container-exit --exit-code-from e2e",
@@ -66,6 +67,8 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/chai": "4.2.5",
+    "@types/mocha": "5.2.7",
     "@angular/core": "latest",
     "@bahmutov/print-env": "1.2.0",
     "@commitlint/cli": "8.2.0",

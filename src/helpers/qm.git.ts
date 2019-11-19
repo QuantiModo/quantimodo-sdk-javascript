@@ -33,7 +33,8 @@ export function getRepoUrl() {
     if (process.env.GIT_URL) {
         return process.env.GIT_URL;
     }
-    let configPath = path.resolve(appRoot, '.git/config');
+    let appRootString = appRoot.toString();
+    let configPath = path.resolve(appRootString, '.git/config');
     // @ts-ignore
     let gitUrl = origin.sync({path: configPath, cwd: appRoot});
     if (!gitUrl) {
