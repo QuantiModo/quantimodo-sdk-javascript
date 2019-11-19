@@ -56,21 +56,26 @@ export function mochawesome(failedTests: any[], cb: (err: any) => void){
             screenshotDirectory,
             verbose
         });
-        // @ts-ignore
-        // noinspection JSUnusedLocalSymbols
-        if(!process.env.SLACK_WEBHOOK_URL){
-            throw "env SLACK_WEBHOOK_URL not set!"
+        try {
+            // @ts-ignore
+            // noinspection JSUnusedLocalSymbols
+            if(!process.env.SLACK_WEBHOOK_URL){
+                console.error("env SLACK_WEBHOOK_URL not set!")
+            } else {
+                const slack = slackRunner(
+                    ciProvider,
+                    vcsProvider,
+                    outputReportDir,
+                    videoDirectory,
+                    screenshotDirectory,
+                    verbose
+                );
+                // tslint:disable-next-line: no-console
+                console.log("Finished slack upload")
+            }
+        } catch (error) {
+            console.error(error);
         }
-        const slack = slackRunner(
-            ciProvider,
-            vcsProvider,
-            outputReportDir,
-            videoDirectory,
-            screenshotDirectory,
-            verbose
-        );
-        // tslint:disable-next-line: no-console
-        console.log("Finished slack upload")
         cb(_generatedReport[0]);
     })
 }

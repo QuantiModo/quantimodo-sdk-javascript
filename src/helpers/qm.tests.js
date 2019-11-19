@@ -65,14 +65,21 @@ function mochawesome(failedTests, cb) {
             screenshotDirectory: screenshotDirectory,
             verbose: verbose
         });
-        // @ts-ignore
-        // noinspection JSUnusedLocalSymbols
-        if (!process.env.SLACK_WEBHOOK_URL) {
-            throw "env SLACK_WEBHOOK_URL not set!";
+        try {
+            // @ts-ignore
+            // noinspection JSUnusedLocalSymbols
+            if (!process.env.SLACK_WEBHOOK_URL) {
+                console.error("env SLACK_WEBHOOK_URL not set!");
+            }
+            else {
+                var slack = slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose);
+                // tslint:disable-next-line: no-console
+                console.log("Finished slack upload");
+            }
         }
-        var slack = slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose);
-        // tslint:disable-next-line: no-console
-        console.log("Finished slack upload");
+        catch (error) {
+            console.error(error);
+        }
         cb(_generatedReport[0]);
     });
 }
