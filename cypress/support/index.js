@@ -32,8 +32,13 @@ beforeEach(function(){ // runs before each test in the block
 })
 import addContext from 'mochawesome/addContext'
 Cypress.on('test:after:run', (test, runnable) => {
+    // https://medium.com/@nottyo/generate-a-beautiful-test-report-from-running-tests-on-cypress-io-371c00d7865a
     if(test.state === 'failed'){
-        addContext({test},
-            `./${Cypress.spec.name}/${runnable.parent.title.replace(':', '')} -- ${test.title} (failed).png`)
+        let specName = Cypress.spec.name;
+        let runnableTitle = runnable.parent.title
+        let testTitle = test.title
+        const screenshotFileName = `${runnableTitle} -- ${testTitle} (failed).png`
+        //const screenshotFileName =  `./${specName}/${runnableTitle.replace(':', '')} -- ${testTitle} (failed).png`
+        addContext({test}, screenshotFileName)
     }
 })

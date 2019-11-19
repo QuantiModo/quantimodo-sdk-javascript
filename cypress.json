@@ -9,6 +9,7 @@
   "reporterOptions": {
     "configFile": "reporterOpts.json"
   },
+  "screenshotsFolder": "mochawesome-report/assets",
   "env": {
     "API_HOST": "app.quantimo.do",
     "OAUTH_APP_HOST": "medimodo.herokuapp.com",
