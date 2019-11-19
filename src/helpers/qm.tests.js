@@ -17,6 +17,8 @@ var rimraf = require("rimraf");
 var marge = require('mochawesome-report-generator');
 var merge = require('mochawesome-merge').merge;
 var slackRunner = require("cypress-slack-reporter/bin/slack/slack-alert.js").slackRunner;
+var dotenv = require('dotenv');
+dotenv.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
 var ciProvider = getCiProvider();
 var isWin = process.platform === "win32";
 var outputReportDir = sdkRepo + "/mochawesome-report";

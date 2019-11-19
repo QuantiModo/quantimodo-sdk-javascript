@@ -56,6 +56,8 @@
   },
   "include": [
     "test/*.test.ts",
-    "src/helpers/*.ts"
+    "src/helpers/*.ts",
+    "src/typescript-fetch/*.ts",
+    "src/typescript-node-client-generated/*.ts"
   ]
 }
