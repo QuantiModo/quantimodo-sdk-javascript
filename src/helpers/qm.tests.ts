@@ -28,7 +28,7 @@ function getReportUrl(reportPath?: string) {
     return getBuildLink();
 }
 
-export function mochawesome(failedTests: any[], cb: (any: any) => void){
+export function mochawesome(failedTests: any[], cb: (err: any) => void){
 
     console.log("Merging reports...")
     merge({
@@ -77,7 +77,7 @@ export function mochawesome(failedTests: any[], cb: (any: any) => void){
         cb(_generatedReport[0]);
     })
 }
-export function runCypressTests(cb: () => void, specificSpec?: string) {
+export function runCypressTests(cb: (err: any) => void, specificSpec?: string) {
     deleteSuccessFile();
     rimraf('./cypress/reports/mocha/*.json', function(){
         const path = sdkRepo + "/cypress/integration";
@@ -119,8 +119,10 @@ export function runCypressTests(cb: () => void, specificSpec?: string) {
                                 mochawesome(failedTests, function (reportPath) {
                                     let failedTestTitle = failedTests[0].title[1];
                                     let errorMessage = failedTests[0].error
-                                    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +errorMessage, getReportUrl(reportPath), function () {
+                                    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
+                                        errorMessage, getReportUrl(reportPath), function () {
                                         resolve();
+                                        cb(errorMessage);
                                         process.exit(1);
                                     })
                                 });
@@ -134,7 +136,7 @@ export function runCypressTests(cb: () => void, specificSpec?: string) {
                         if(i === specFileNames.length - 1){
                             createSuccessFile();
                             deleteEnvFile()
-                            cb();
+                            cb(false);
                         }
                     }).catch((err: any) => {
                         qmGit.setGithubStatus("error", context, err, getReportUrl(), function () {
@@ -193,17 +195,13 @@ function getLastFailedCypressTest() {
     return fs.readFileSync(lastFailedCypressTestPath, "utf8");
 }
 function deleteLastFailedCypressTest() {
-    try {
-        fs.unlinkSync(lastFailedCypressTestPath)
-    } catch(err) {
-        console.error(err)
-    }
+    try {fs.unlinkSync(lastFailedCypressTestPath)} catch(err) {}
 }
-export function runLastFailedCypressTest(cb: { (): void; (): void; }) {
+export function runLastFailedCypressTest(cb: { (err: any): void; (): void; }) {
     let name = getLastFailedCypressTest();
     if(!name){
         console.info("No previously failed test!");
-        cb();
+        cb(false);
         return;
     }
     runCypressTests(cb, name)

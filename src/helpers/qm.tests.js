@@ -120,8 +120,10 @@ function runCypressTests(cb, specificSpec) {
                                 mochawesome(failedTests_1, function (reportPath) {
                                     var failedTestTitle = failedTests_1[0].title[1];
                                     var errorMessage = failedTests_1[0].error;
-                                    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " + errorMessage, getReportUrl(reportPath), function () {
+                                    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
+                                        errorMessage, getReportUrl(reportPath), function () {
                                         resolve();
+                                        cb(errorMessage);
                                         process.exit(1);
                                     });
                                 });
@@ -136,7 +138,7 @@ function runCypressTests(cb, specificSpec) {
                         if (i === specFileNames.length - 1) {
                             createSuccessFile();
                             deleteEnvFile();
-                            cb();
+                            cb(false);
                         }
                     }).catch(function (err) {
                         qmGit.setGithubStatus("error", context, err, getReportUrl(), function () {
@@ -218,7 +220,7 @@ function runLastFailedCypressTest(cb) {
     var name = getLastFailedCypressTest();
     if (!name) {
         console.info("No previously failed test!");
-        cb();
+        cb(false);
         return;
     }
     runCypressTests(cb, name);
