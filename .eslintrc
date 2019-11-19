@@ -25,6 +25,10 @@
   "rules": {
     "no-console": "off",
     "indent": "off",
-    "padding-line-between-statements": "off"
+    "padding-line-between-statements": "off",
+    "quotes": "off",
+    "object-curly-spacing": "off",
+    "space-before-function-paren": "off",
+    "space-before-blocks": "off"
   }
 }
