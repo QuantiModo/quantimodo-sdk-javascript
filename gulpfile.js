@@ -33,8 +33,8 @@ function executeSynchronously(cmd, catchExceptions, cb){
 gulp.task('cypress', function(cb){
     qmTests.runCypressTests(cb)
 });
-gulp.task('cypress-connectors', function(cb){
-    qmTests.runCypressTests(cb, 'connectors')
+gulp.task('cypress-one', function(cb){
+    qmTests.runCypressTests(cb, 'physician')
 });
 gulp.task('cypress-failed', function(cb){
     qmTests.runLastFailedCypressTest(cb)
