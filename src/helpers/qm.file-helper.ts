@@ -21,7 +21,6 @@ export function uploadToS3(
   ACL = "public-read",
 ) {
   const s3 = getS3Client();
-  const fs = require("fs");
   const fileContent = fs.readFileSync(filePath);
   const fileName = path.basename(filePath);
   const s3Key = s3BasePath + "/" + fileName;
