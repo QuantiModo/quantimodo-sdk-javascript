@@ -86,7 +86,7 @@
     "@types/rimraf": "2.0.3",
     "angular": "latest",
     "app-root-path": "3.0.0",
-    "aws-sdk": "2.574.0",
+    "aws-sdk": "2.575.0",
     "aws-sdk-mock": "4.5.0",
     "beautify": "0.0.8",
     "bluebird": "latest",
