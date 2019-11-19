@@ -34,6 +34,8 @@
     "cy:version": "cypress version",
     "deploy:prepare": "./scripts/create_npmrc_file.sh",
     "effective:config": "circleci config process circle.yml | sed /^#/d",
+    "lint": "tslint --project .",
+    "lint-fix": "tslint --project . --fix",
     "lint:yaml": "yamllint '*.yml' 'basic/*.yml' .buildkite/pipeline.yml .semaphore/semaphore.yml '.github/workflows/*.yml'",
     "print-env": "print-env",
     "release": "standard-version",
