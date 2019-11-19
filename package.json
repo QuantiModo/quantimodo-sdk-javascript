@@ -140,7 +140,8 @@
     "typescript": "3.7.2",
     "underscore.string": "3.3.5",
     "yaml-lint": "1.2.4",
-    "angular": "latest"
+    "angular": "latest",
+    "@angular/core": "latest"
   },
   "resolutions": {
     "set-value": "2.0.1",
