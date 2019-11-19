@@ -1,45 +1,6 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
 let variableName = 'Aaa Test Treatment'
-/**
- * @param {string} variableName
- * @param {boolean} topResultShouldContainSearchTerm
- */
-function searchAndClickTopResult (variableName, topResultShouldContainSearchTerm) {
-  cy.log(`Type ${variableName} into search box`)
-  cy.wait(2000)
-  cy.get('#variableSearchBox')
-        .type(variableName, { force: true })
-  let firstResultSelector = '#variable-search-result > div > p'
-
-  cy.log('Wait for search results to load')
-  cy.wait(2000)
-  cy.log(`Click on ${variableName} in dropdown search results`)
-  if (topResultShouldContainSearchTerm) {
-    cy.get(firstResultSelector, { timeout: 20000 })
-            .contains(variableName)
-            .click({ force: true })
-  } else {
-    cy.get(firstResultSelector, { timeout: 20000 })
-            .click({ force: true })
-  }
-}
-/**
- * @param {string} str
- */
-function clickActionSheetButtonContaining (str) {
-  cy.log(`Clicking action button containing ${str}`)
-  cy.wait(2000)
-  let button = '.action-sheet-option'
-
-  if (str.indexOf('Delete') !== -1) {
-    button = '.destructive'
-  }
-
-  cy.get(button, { timeout: 5000 })
-        .contains(str)
-        .click({ force: true })
-}
 describe('Favorites', function () {
   it.skip('Adds a favorite and records a measurement with it', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/favorites')
@@ -47,7 +8,7 @@ describe('Favorites', function () {
 
     cy.log('Click add a favorite variable')
     cy.get('#addFavoriteBtn').click({ force: true })
-    searchAndClickTopResult('Aaa Test Treatment', true)
+    cy.searchAndClickTopResult('Aaa Test Treatment', true)
     cy.get('#moreOptions').click({ force: true })
     cy.log('Assign default value to 100mg')
     cy.get('#defaultValue').type('100', { force: true })
@@ -74,7 +35,7 @@ describe('Favorites', function () {
             .each(($el, _index, _$list) => {
               cy.log(`Deleting ${$el.text()} reminder`)
               cy.wrap($el).click()
-              clickActionSheetButtonContaining('Delete')
+              cy.clickActionSheetButtonContaining('Delete')
             })
     cy.log('Since there are no favorites, the explanation card is showing')
     //cy.get("#noFavoritesExplanation").should('exist');

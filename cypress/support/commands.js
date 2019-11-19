@@ -290,3 +290,39 @@ function sendSlackNotification(error, runnable){
         ]
     });
 }
+/**
+ * @param {string} variableName
+ * @param {boolean} topResultShouldContainSearchTerm
+ */
+Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldContainSearchTerm) => {
+    cy.log(`Type ${variableName} into search box`)
+    cy.wait(2000)
+    cy.get('#variableSearchBox')
+        .type(variableName, { force: true })
+    let firstResultSelector = '#variable-search-result > div > p'
+    cy.log('Wait for search results to load')
+    cy.wait(2000)
+    cy.log(`Click on ${variableName} in dropdown search results`)
+    if (topResultShouldContainSearchTerm) {
+        cy.get(firstResultSelector, { timeout: 20000 })
+            .contains(variableName)
+            .click({ force: true })
+    } else {
+        cy.get(firstResultSelector, { timeout: 20000 })
+            .click({ force: true })
+    }
+});
+/**
+ * @param {string} str
+ */
+Cypress.Commands.add('clickActionSheetButtonContaining',  (str) => {
+    cy.log(`Clicking action button containing ${str}`)
+    cy.wait(2000)
+    let button = '.action-sheet-option'
+    if (str.indexOf('Delete') !== -1) {
+        button = '.destructive'
+    }
+    cy.get(button, { timeout: 5000 })
+        .contains(str)
+        .click({ force: true })
+})

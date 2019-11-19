@@ -2,58 +2,6 @@
 /// <reference types="cypress" />
 let variableName = 'Aaa Test Treatment'
 /**
- * @param {string} variableName
- */
-function checkChartsPage (variableName) {
-  cy.url().should('contain', 'charts')
-  cy.log('Chart is present and titled')
-  cy.get('#app-container > ion-side-menu-content > ion-nav-view > ion-view > ion-content > div.scroll > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > h2',
-    { timeout: 30000 })
-        .should('contain', `${variableName} Over Time`)
-  cy.get('.scroll > div:nth-of-type(2) > div:nth-of-type(2) > .card:nth-of-type(2) > .item.item-text-wrap > h2',
-    { timeout: 60000 })
-        .should('contain', variableName)
-}
-/**
- * @param {string} variableName
- * @param {boolean} topResultShouldContainSearchTerm
- */
-function searchAndClickTopResult (variableName, topResultShouldContainSearchTerm) {
-  cy.log(`Type ${variableName} into search box`)
-  cy.wait(2000)
-  cy.get('#variableSearchBox')
-        .type(variableName, { force: true })
-  let firstResultSelector = '#variable-search-result > div > p'
-
-  cy.log('Wait for search results to load')
-  cy.wait(2000)
-  cy.log(`Click on ${variableName} in dropdown search results`)
-  if (topResultShouldContainSearchTerm) {
-    cy.get(firstResultSelector, { timeout: 20000 })
-            .contains(variableName)
-            .click({ force: true })
-  } else {
-    cy.get(firstResultSelector, { timeout: 20000 })
-            .click({ force: true })
-  }
-}
-/**
- * @param {string} str
- */
-function clickActionSheetButtonContaining (str) {
-  cy.log(`Clicking action button containing ${str}`)
-  cy.wait(2000)
-  let button = '.action-sheet-option'
-
-  if (str.indexOf('Delete') !== -1) {
-    button = '.destructive'
-  }
-
-  cy.get(button, { timeout: 5000 })
-        .contains(str)
-        .click({ force: true })
-}
-/**
  * @param {string} path
  */
 function visitAndCheckUrl (path) {
@@ -109,7 +57,7 @@ describe('Reminders', function () {
               if (html.indexOf('showActionSheet') !== -1) {
                 cy.log(`Deleting ${$el.text()} reminder`)
                 cy.wrap($el).click()
-                clickActionSheetButtonContaining('Delete')
+                cy.clickActionSheetButtonContaining('Delete')
                 deleted = true
               } else {
                 // It's a header
@@ -135,7 +83,7 @@ describe('Reminders', function () {
   function addReminder (variableName, frequency) {
     cy.log(`Click Add new reminder for ${variableName}`)
     cy.get('#addReminderButton').click({ force: true })
-    searchAndClickTopResult(variableName, true)
+    cy.searchAndClickTopResult(variableName, true)
     cy.get('#reminder-header').should('contain', variableName)
     if (frequency) {
       setFrequency(frequency)
@@ -246,17 +194,17 @@ describe('Reminders', function () {
     cy.get('#negativeRatingOptions4').click({ force: true })
     cy.visit(`/#/app/charts/${variableName}`)
     cy.get('#menu-more-button').click({ force: true })
-    clickActionSheetButtonContaining('History')
+    cy.clickActionSheetButtonContaining('History')
     cy.get('#historyItemTitle', { timeout: 30000 })
             .should('contain', `4/5 ${variableName}`)
     cy.get('#historyItemTitle').click({ force: true })
     cy.get('#menu-more-button').click({ force: true })
-    clickActionSheetButtonContaining('Analysis Settings')
+    cy.clickActionSheetButtonContaining('Analysis Settings')
     cy.get('#variableName', { timeout: 30000 }).should('contain', variableName)
     cy.log('Waiting for action sheet button to update...')
     cy.wait(5000)
     cy.get('#menu-more-button').click({ force: true })
-    clickActionSheetButtonContaining('Delete All')
+    cy.clickActionSheetButtonContaining('Delete All')
     cy.get('#yesButton').click({ force: true })
     cy.visit(manageUrl)
     cy.wait(15000)

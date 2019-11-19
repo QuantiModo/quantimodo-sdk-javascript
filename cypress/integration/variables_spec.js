@@ -3,7 +3,6 @@
 let variableName = 'Aaa Test Treatment'
 let settingsPath = `/#/app/variable-settings/${encodeURIComponent(variableName)}`
 let chartsPath = `/#/app/charts/${encodeURIComponent(variableName)}`
-
 /**
  * @param {string} variableString
  */
@@ -15,6 +14,7 @@ function verifyAndDeleteMeasurement (variableString) {
 }
 /**
  * @param {string} variableName
+ * @param timeout
  */
 function searchForMoodFromMagnifyingGlassIcon (variableName, timeout = 1000) {
   cy.wait(1000)
@@ -53,45 +53,6 @@ function recordRatingMeasurement (value) {
   cy.get(`.primary-outcome-variable-history > img:nth-of-type(${value})`).click({ force: true })
   cy.get('#saveButton').click({ force: true })
 }
-/**
- * @param {string} variableName
- * @param {boolean} topResultShouldContainSearchTerm
- */
-function searchAndClickTopResult (variableName, topResultShouldContainSearchTerm) {
-  cy.log(`Type ${variableName} into search box`)
-  cy.wait(2000)
-  cy.get('#variableSearchBox')
-        .type(variableName, { force: true })
-  let firstResultSelector = '#variable-search-result > div > p'
-
-  cy.log('Wait for search results to load')
-  cy.wait(2000)
-  cy.log(`Click on ${variableName} in dropdown search results`)
-  if (topResultShouldContainSearchTerm) {
-    cy.get(firstResultSelector, { timeout: 20000 })
-            .contains(variableName)
-            .click({ force: true })
-  } else {
-    cy.get(firstResultSelector, { timeout: 20000 })
-            .click({ force: true })
-  }
-}
-/**
- * @param {string} str
- */
-function clickActionSheetButtonContaining (str) {
-  cy.log(`Clicking action button containing ${str}`)
-  cy.wait(2000)
-  let button = '.action-sheet-option'
-
-  if (str.indexOf('Delete') !== -1) {
-    button = '.destructive'
-  }
-
-  cy.get(button, { timeout: 5000 })
-        .contains(str)
-        .click({ force: true })
-}
 describe('Variables', function () {
   /**
    * @param {string} variableCategoryName
@@ -101,7 +62,6 @@ describe('Variables', function () {
       true)
     let d = new Date()
     let variableString = `Unique Test Variable ${d.toString()}`
-
     //let variableString = Math.round(d.getTime() / 1000) + " Unique Test Variable";
     cy.get('#variableSearchBox').type(variableString, { force: true })
     cy.get('#new-variable-button', { timeout: 30000 }).click({ force: true })
@@ -111,15 +71,13 @@ describe('Variables', function () {
     cy.wait(10000)
     cy.visit(`/#/app/history-all?variableCategoryName=${variableCategoryName}`)
     verifyAndDeleteMeasurement(variableString)
-
     return variableString
   }
   it('Goes to predictors page from the variable action sheet', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/reminders-inbox', true)
     let variableName = 'Overall Mood'
-
     searchForMoodFromMagnifyingGlassIcon(variableName, 20000)
-    clickActionSheetButtonContaining('Predictors')
+    cy.clickActionSheetButtonContaining('Predictors')
     cy.get('.item.item-avatar > p', { timeout: 90000 }).should('contain', variableName)
   })
   it('Changes and resets variable settings', function () {
@@ -128,7 +86,6 @@ describe('Variables', function () {
     let delay = '2'
     let duration = '5'
     let filling = '0'
-
     cy.loginWithAccessTokenIfNecessary(settingsPath)
     cy.wait(10000)
     cy.get('#resetButton')
@@ -160,10 +117,9 @@ describe('Variables', function () {
   })
   it('Goes to variable settings from chart page', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/chart-search')
-    searchAndClickTopResult(variableName, true)
+    cy.searchAndClickTopResult(variableName, true)
     cy.url().should('contain', chartsPath)
     let chartTitleSelector = '#app-container > ion-side-menu-content > ion-nav-view > ion-view > ion-content > div.scroll > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > h2'
-
     cy.get(chartTitleSelector, { timeout: 30000 }).then(() => { // Need to wait for variable for action sheet to work
       cy.containsCaseInsensitive(chartTitleSelector, variableName)
       cy.clickActionSheetButton(6)
@@ -173,31 +129,27 @@ describe('Variables', function () {
   })
   it('Creates a new emotion variable by measurement', function () {
     let variableCategoryName = 'Emotions'
-
     recordMeasurementForNewVariableAndDeleteIt(variableCategoryName)
   })
   it('Creates a new symptom rating variable by measurement', function () {
     let variableCategoryName = 'Symptoms'
-
     recordMeasurementForNewVariableAndDeleteIt(variableCategoryName)
   })
   it('Tries all the buttons in the variable action sheet', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/reminders-inbox', true)
     let variableName = 'Overall Mood'
-
     searchForMoodFromMagnifyingGlassIcon(variableName, 15000)
-    clickActionSheetButtonContaining('Charts')
+    cy.clickActionSheetButtonContaining('Charts')
     checkChartsPage(variableName)
     searchForMoodFromMagnifyingGlassIcon(variableName)
-    clickActionSheetButtonContaining('Record Measurement')
+    cy.clickActionSheetButtonContaining('Record Measurement')
     recordRatingMeasurement(3)
     searchForMoodFromMagnifyingGlassIcon(variableName)
-    clickActionSheetButtonContaining('Add Reminder')
+    cy.clickActionSheetButtonContaining('Add Reminder')
     toastContains(variableName)
     searchForMoodFromMagnifyingGlassIcon(variableName)
-    clickActionSheetButtonContaining('Create Study')
+    cy.clickActionSheetButtonContaining('Create Study')
     cy.get('#effectVariableName').should('contain', variableName)
     searchForMoodFromMagnifyingGlassIcon(variableName)
   })
 })
-

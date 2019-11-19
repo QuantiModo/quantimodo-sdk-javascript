@@ -27,5 +27,7 @@ declare namespace Cypress {
         getWithinIframe(targetElement: any): Chainable<Element>
         getInDocument(document: any, selector: any): Chainable<Element>
         sendSlackNotification(messageBody?: any): Chainable<Element>
+        clickActionSheetButtonContaining(str?: string): Chainable<Element>
+        searchAndClickTopResult(variableName: string, topResultShouldContainSearchTerm?: boolean): Chainable<Element>
     }
 }

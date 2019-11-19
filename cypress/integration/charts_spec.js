@@ -7,7 +7,7 @@ let variableName = 'Aaa Test Treatment'
 function goToChartPage (variableName) {
   cy.loginWithAccessTokenIfNecessary('/#/app/chart-search', true)
   cy.wait(2000)
-  searchAndClickTopResult(variableName, true)
+  cy.searchAndClickTopResult(variableName, true)
   cy.wait(2000)
   checkChartsPage(variableName)
 }
@@ -23,45 +23,6 @@ function checkChartsPage (variableName) {
   cy.get('.scroll > div:nth-of-type(2) > div:nth-of-type(2) > .card:nth-of-type(2) > .item.item-text-wrap > h2',
     { timeout: 60000 })
         .should('contain', variableName)
-}
-/**
- * @param {string} variableName
- * @param {boolean} topResultShouldContainSearchTerm
- */
-function searchAndClickTopResult (variableName, topResultShouldContainSearchTerm) {
-  cy.log(`Type ${variableName} into search box`)
-  cy.wait(2000)
-  cy.get('#variableSearchBox')
-        .type(variableName, { force: true })
-  let firstResultSelector = '#variable-search-result > div > p'
-
-  cy.log('Wait for search results to load')
-  cy.wait(2000)
-  cy.log(`Click on ${variableName} in dropdown search results`)
-  if (topResultShouldContainSearchTerm) {
-    cy.get(firstResultSelector, { timeout: 20000 })
-            .contains(variableName)
-            .click({ force: true })
-  } else {
-    cy.get(firstResultSelector, { timeout: 20000 })
-            .click({ force: true })
-  }
-}
-/**
- * @param {string} str
- */
-function clickActionSheetButtonContaining (str) {
-  cy.log(`Clicking action button containing ${str}`)
-  cy.wait(2000)
-  let button = '.action-sheet-option'
-
-  if (str.indexOf('Delete') !== -1) {
-    button = '.destructive'
-  }
-
-  cy.get(button, { timeout: 5000 })
-        .contains(str)
-        .click({ force: true })
 }
 describe('Charts', function () {
   it('Looks at primary outcome charts', function () {
@@ -79,7 +40,7 @@ describe('Charts', function () {
     goToChartPage('Aaa Test Treatment')
     cy.get('ion-view.pane > ion-content.scroll-content.ionic-scroll.has-header').click({ force: true })
     cy.get('#menu-more-button').click({ force: true })
-    clickActionSheetButtonContaining('Settings')
+    cy.clickActionSheetButtonContaining('Settings')
   })
   it('Records a measurement and sees it in a chart', function () {
     //cy.loginWithAccessTokenIfNecessary(`/#/app/measurement-add-search?variableCategoryName=Treatments`, true);
