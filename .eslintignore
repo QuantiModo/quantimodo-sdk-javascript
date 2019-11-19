@@ -7,3 +7,4 @@ src/api/*
 test/model/*
 test/api/*
 test/api/*
+src/ApiClient.js

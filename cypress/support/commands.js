@@ -94,6 +94,7 @@ Cypress.Commands.add('clickActionSheetButton', (index) => {
 Cypress.Commands.add('containsCaseInsensitive', (selector, content) => {
     function caseInsensitive(str){
         // escape special characters
+        // eslint-disable-next-line no-useless-escape
         let input = str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
         return new RegExp(`${input}`, 'i')
     }
@@ -205,7 +206,6 @@ Cypress.Commands.add('checkForBrokenImages', () => {
                 return
             }
             if(!$el[0].naturalWidth){
-                debugger
                 let src = $el[0].getAttribute('src')
                 let message = `The image with src ${src} is broken!  outerHTML is: ${$el[0].outerHTML}`
                 cy.log(message)

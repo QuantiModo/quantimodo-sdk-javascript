@@ -6,12 +6,12 @@
 // ***********************************************************
 require('cypress-plugin-retries')
 import './commands' // Import commands.js using ES2015 syntax:
+// eslint-disable-next-line no-unused-vars
 Cypress.on('uncaught:exception', (err, runnable) => {
     if(err.message.indexOf('runnable must have an id') !== false){
         cy.log(err.message)
         return false
     }
-    debugger
     let expectedErrorMessage = Cypress.env('expectedErrorMessage')
     if(expectedErrorMessage){
         expect(err.message).to.include(expectedErrorMessage)
@@ -37,7 +37,6 @@ Cypress.on('test:after:run', (test, runnable) => {
         const screenshotPath = folder + screenshotFileName
         //const screenshotFileName =  `./${specName}/${runnableTitle.replace(':', '')} -- ${testTitle} (failed).png`
         console.error(`screenshotPath ${screenshotPath}`)
-        debugger
         addContext({test}, screenshotPath)
     }
 })

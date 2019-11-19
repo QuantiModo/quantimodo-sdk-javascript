@@ -16,7 +16,10 @@
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
-    "Cypress": true
+    "Cypress": true,
+    "qmLog": true,
+    "qm": true,
+    "OverApps": true
   },
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -32,6 +35,7 @@
     "space-before-blocks": "off",
     "key-spacing": "off",
     "prefer-template": "off",
-    "keyword-spacing": "off"
+    "keyword-spacing": "off",
+    "no-var": "off"
   }
 }

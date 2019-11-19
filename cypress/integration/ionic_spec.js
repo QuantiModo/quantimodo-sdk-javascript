@@ -1,6 +1,5 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
-let variableName = 'Aaa Test Treatment'
 describe('Favorites', function () {
   it.skip('Adds a favorite and records a measurement with it', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/favorites')
@@ -32,6 +31,7 @@ describe('Favorites', function () {
     cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
     cy.log('Click ... settings button')
     cy.get('#favoriteItemSettings', { timeout: 30000 })
+    // eslint-disable-next-line no-unused-vars
             .each(($el, _index, _$list) => {
               cy.log(`Deleting ${$el.text()} reminder`)
               cy.wrap($el).click()

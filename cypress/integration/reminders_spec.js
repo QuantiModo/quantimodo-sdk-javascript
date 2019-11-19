@@ -1,6 +1,6 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
-let variableName = 'Aaa Test Treatment'
+
 /**
  * @param {string} path
  */
@@ -51,6 +51,7 @@ describe('Reminders', function () {
     let deleted = false
 
     cy.get(reminderListSelector, { timeout: 30000 })
+    // eslint-disable-next-line no-unused-vars
             .each(($el, _index, _$list) => {
               let html = $el.html() // $el is a wrapped jQuery element
 

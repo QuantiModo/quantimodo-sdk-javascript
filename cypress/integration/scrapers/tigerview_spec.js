@@ -133,7 +133,6 @@ describe('tigerview', function () {
       let rows = table.rows
       let body = []
 
-      debugger
       let columnIndexToHeaderMap = getCellIndexToHeaderMap(rows)
 
       for (let i = 1; i < rows.length; i++) {
