@@ -8,14 +8,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
-var path = __importStar(require("path"));
 var fs = __importStar(require("fs"));
+var path = __importStar(require("path"));
 function getS3Client() {
     var AWS_ACCESS_KEY_ID = process.env.QM_AWS_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID; // Netlify has their own
     var AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY; // Netlify has their own
     var s3Options = {
         accessKeyId: AWS_ACCESS_KEY_ID,
-        secretAccessKey: AWS_SECRET_ACCESS_KEY
+        secretAccessKey: AWS_SECRET_ACCESS_KEY,
     };
     var AWS = require("aws-sdk");
     return new AWS.S3(s3Options);
@@ -25,7 +25,6 @@ function uploadToS3(filePath, s3BasePath, cb, s3Bucket, ACL) {
     if (s3Bucket === void 0) { s3Bucket = "quantimodo"; }
     if (ACL === void 0) { ACL = "public-read"; }
     var s3 = getS3Client();
-    var fs = require("fs");
     var fileContent = fs.readFileSync(filePath);
     var fileName = path.basename(filePath);
     var s3Key = s3BasePath + "/" + fileName;
@@ -33,7 +32,7 @@ function uploadToS3(filePath, s3BasePath, cb, s3Bucket, ACL) {
         ACL: ACL,
         Bucket: s3Bucket,
         Key: s3Key,
-        Body: fileContent
+        Body: fileContent,
     };
     s3.upload(params, function (err, data) {
         if (err) {
@@ -57,9 +56,10 @@ function writeToFile(filePath, contents, cb) {
     }
     ensureDirectoryExistence(filePath);
     fs.writeFile(filePath, contents, function (err) {
-        if (err)
+        if (err) {
             throw err;
-        console.log(filePath + ' saved!');
+        }
+        console.log(filePath + " saved!");
         if (cb) {
             cb();
         }

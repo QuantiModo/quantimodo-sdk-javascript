@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var path = __importStar(require("path"));
 var qmTests = __importStar(require("./qm.tests"));
 var Octokit = require("@octokit/rest");
-var appRoot = require('app-root-path');
+var appRoot = require("app-root-path");
 var _str = require("underscore.string");
 var remote_origin_url_1 = __importDefault(require("remote-origin-url"));
 function getOctoKit() {
@@ -31,7 +31,7 @@ function getCurrentGitCommitSha() {
         return process.env.CIRCLE_SHA1;
     }
     try {
-        return require('child_process').execSync('git rev-parse HEAD').toString().trim();
+        return require("child_process").execSync("git rev-parse HEAD").toString().trim();
     }
     catch (error) {
         console.info(error);
@@ -42,7 +42,7 @@ function getAccessToken() {
     if (process.env.GITHUB_ACCESS_TOKEN) {
         return process.env.GITHUB_ACCESS_TOKEN;
     }
-    throw "Please set GITHUB_ACCESS_TOKEN env";
+    throw new Error("Please set GITHUB_ACCESS_TOKEN env");
 }
 exports.getAccessToken = getAccessToken;
 function getRepoUrl() {
@@ -50,7 +50,7 @@ function getRepoUrl() {
         return process.env.GIT_URL;
     }
     var appRootString = appRoot.toString();
-    var configPath = path.resolve(appRootString, '.git/config');
+    var configPath = path.resolve(appRootString, ".git/config");
     // @ts-ignore
     var gitUrl = remote_origin_url_1.default.sync({ path: configPath, cwd: appRoot });
     if (!gitUrl) {
@@ -65,7 +65,7 @@ function getRepoParts() {
     gitUrl = gitUrl.replace(".git", "");
     var parts = gitUrl.split("/");
     if (!parts || parts.length > 2) {
-        throw "Could not parse repo name!";
+        throw new Error("Could not parse repo name!");
     }
     return parts;
 }
@@ -78,7 +78,7 @@ function getRepoName() {
     if (arr) {
         return arr[1];
     }
-    throw "Could not determine repo name!";
+    throw new Error("Could not determine repo name!");
 }
 exports.getRepoName = getRepoName;
 function getRepoUserName() {
@@ -90,7 +90,7 @@ function getRepoUserName() {
         return arr[0];
     }
     try {
-        return require('child_process').execSync('git rev-parse HEAD').toString().trim();
+        return require("child_process").execSync("git rev-parse HEAD").toString().trim();
     }
     catch (error) {
         console.info(error);
@@ -102,6 +102,7 @@ exports.getRepoUserName = getRepoUserName;
  */
 function setGithubStatus(state, context, description, url, cb) {
     console.log(context + " - " + description + " - " + state);
+    description = _str.truncate(description, 135);
     var params = {
         owner: getRepoUserName(),
         repo: getRepoName(),
@@ -109,10 +110,12 @@ function setGithubStatus(state, context, description, url, cb) {
         state: state,
         target_url: url || qmTests.getBuildLink(),
         description: description,
-        context: context
+        context: context,
     };
     getOctoKit().repos.createStatus(params, function (err, res) {
         if (err) {
+            console.error(err);
+            process.exit(1);
             throw err;
         }
     }).then(function (data) {
@@ -120,6 +123,8 @@ function setGithubStatus(state, context, description, url, cb) {
             cb(data);
         }
     }).catch(function (err) {
+        console.error(err);
+        process.exit(1);
         throw err;
     });
 }
@@ -127,7 +132,7 @@ exports.setGithubStatus = setGithubStatus;
 function getBranchName() {
     var name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;
     if (!name) {
-        throw 'Branch name not set!';
+        throw new Error("Branch name not set!");
     }
 }
 exports.getBranchName = getBranchName;

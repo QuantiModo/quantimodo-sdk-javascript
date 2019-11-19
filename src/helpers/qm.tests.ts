@@ -20,7 +20,7 @@ const verbose = true;
 const videoDirectory = `${sdkRepo}/cypress/videos`;
 const mergedJsonPath = outputReportDir + "/mochawesome.json";
 const lastFailedCypressTestPath = "last-failed-cypress-test";
-function getReportUrl(reportPath?: string) {
+function getReportUrl() {
     if (process.env.JOB_URL) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html";
     }
@@ -62,7 +62,7 @@ export function mochawesome(failedTests: any[], cb: (err: any) => void) {
             if (!process.env.SLACK_WEBHOOK_URL) {
                 console.error("env SLACK_WEBHOOK_URL not set!");
             } else {
-                const slack = slackRunner(
+                slackRunner(
                     ciProvider,
                     vcsProvider,
                     outputReportDir,
@@ -120,14 +120,15 @@ export function runCypressTests(cb: (err: any) => void, specificSpec?: string) {
                                     const errorMessage = test.error;
                                     console.error(testName + " FAILED because " + errorMessage);
                                 }
-                                mochawesome(failedTests, function(reportPath) {
+                                mochawesome(failedTests, function() {
                                     const failedTestTitle = failedTests[0].title[1];
                                     const errorMessage = failedTests[0].error;
                                     qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
-                                        errorMessage, getReportUrl(reportPath), function() {
-                                        resolve();
-                                        cb(errorMessage);
+                                        errorMessage, getReportUrl(), function() {
+                                        console.error(errorMessage)
+                                        //cb(errorMessage);
                                         process.exit(1);
+                                        //resolve();
                                     });
                                 });
                             } else {
@@ -174,12 +175,12 @@ export function createSuccessFile() {
 }
 export function deleteSuccessFile() {
     qmLog.info("Deleting success file so we know if build completed...");
-    rimraf(successFilename, function(res: any) {
+    rimraf(successFilename, function() {
         qmLog.info("Deleted success file!");
     });
 }
 export function deleteEnvFile() {
-    rimraf(".env", function(res: any) {
+    rimraf(".env", function() {
         qmLog.info("Deleted env file!");
     });
 }

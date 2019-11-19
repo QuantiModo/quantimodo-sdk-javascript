@@ -81,6 +81,7 @@ export function getRepoUserName() {
  */
 export function setGithubStatus(state: any, context: any, description: any, url?: any, cb?: ((arg0: any) => void) | undefined) {
     console.log(`${context} - ${description} - ${state}`);
+    description = _str.truncate(description, 135)
     const params = {
         owner: getRepoUserName(),
         repo: getRepoName(),
@@ -92,6 +93,8 @@ export function setGithubStatus(state: any, context: any, description: any, url?
     };
     getOctoKit().repos.createStatus(params, function(err: any, res: any) {
             if (err) {
+                console.error(err);
+                process.exit(1);
                 throw err;
             }
         },
@@ -100,6 +103,8 @@ export function setGithubStatus(state: any, context: any, description: any, url?
             cb(data);
         }
     }).catch((err: any) => {
+        console.error(err);
+        process.exit(1);
         throw err;
     });
 }

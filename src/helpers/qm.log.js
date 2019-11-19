@@ -14,7 +14,7 @@ var qmTests = __importStar(require("./qm.tests"));
 function error(message, metaData, maxCharacters) {
     metaData = addMetaData(metaData);
     console.error(obfuscateStringify(message, metaData, maxCharacters));
-    //bugsnag.notify(new Error(obfuscateStringify(message)));
+    // bugsnag.notify(new Error(obfuscateStringify(message)));
 }
 exports.error = error;
 function info(message, object, maxCharacters) {
@@ -38,26 +38,26 @@ function addMetaData(metaData) {
 exports.addMetaData = addMetaData;
 function obfuscateStringify(message, object, maxCharacters) {
     maxCharacters = maxCharacters || 140;
-    var objectString = '';
+    var objectString = "";
     if (object) {
         object = obfuscateSecrets(object);
-        objectString = ':  ' + prettyJSONStringify(object);
+        objectString = ":  " + prettyJSONStringify(object);
     }
     if (maxCharacters && objectString.length > maxCharacters) {
-        objectString = objectString.substring(0, maxCharacters) + '...';
+        objectString = objectString.substring(0, maxCharacters) + "...";
     }
     message += objectString;
     if (process.env.QUANTIMODO_CLIENT_SECRET) {
-        message = message.replace(process.env.QUANTIMODO_CLIENT_SECRET, 'HIDDEN');
+        message = message.replace(process.env.QUANTIMODO_CLIENT_SECRET, "HIDDEN");
     }
     if (AWS_SECRET_ACCESS_KEY) {
-        message = message.replace(AWS_SECRET_ACCESS_KEY, 'HIDDEN');
+        message = message.replace(AWS_SECRET_ACCESS_KEY, "HIDDEN");
     }
     if (process.env.ENCRYPTION_SECRET) {
-        message = message.replace(process.env.ENCRYPTION_SECRET, 'HIDDEN');
+        message = message.replace(process.env.ENCRYPTION_SECRET, "HIDDEN");
     }
     if (process.env.QUANTIMODO_ACCESS_TOKEN) {
-        message = message.replace(process.env.QUANTIMODO_ACCESS_TOKEN, 'HIDDEN');
+        message = message.replace(process.env.QUANTIMODO_ACCESS_TOKEN, "HIDDEN");
     }
     message = obfuscateString(message);
     return message;
@@ -65,11 +65,11 @@ function obfuscateStringify(message, object, maxCharacters) {
 exports.obfuscateStringify = obfuscateStringify;
 function isSecretWord(propertyName) {
     var lowerCaseProperty = propertyName.toLowerCase();
-    return lowerCaseProperty.indexOf('secret') !== -1 ||
-        lowerCaseProperty.indexOf('password') !== -1 ||
-        lowerCaseProperty.indexOf('key') !== -1 ||
-        lowerCaseProperty.indexOf('database') !== -1 ||
-        lowerCaseProperty.indexOf('token') !== -1;
+    return lowerCaseProperty.indexOf("secret") !== -1 ||
+        lowerCaseProperty.indexOf("password") !== -1 ||
+        lowerCaseProperty.indexOf("key") !== -1 ||
+        lowerCaseProperty.indexOf("database") !== -1 ||
+        lowerCaseProperty.indexOf("token") !== -1;
 }
 exports.isSecretWord = isSecretWord;
 function obfuscateString(string) {
@@ -78,7 +78,7 @@ function obfuscateString(string) {
         if (env.hasOwnProperty(propertyName)) {
             if (isSecretWord(propertyName)) {
                 // @ts-ignore
-                string = string.replace(env[propertyName], '[SECURE]');
+                string = string.replace(env[propertyName], "[SECURE]");
             }
         }
     }
@@ -86,7 +86,7 @@ function obfuscateString(string) {
 }
 exports.obfuscateString = obfuscateString;
 function obfuscateSecrets(object) {
-    if (typeof object !== 'object') {
+    if (typeof object !== "object") {
         return object;
     }
     object = JSON.parse(JSON.stringify(object)); // Decouple so we don't screw up original object
@@ -104,7 +104,7 @@ function obfuscateSecrets(object) {
 }
 exports.obfuscateSecrets = obfuscateSecrets;
 function prettyJSONStringify(object) {
-    return JSON.stringify(object, null, '\t');
+    return JSON.stringify(object, null, "\t");
 }
 exports.prettyJSONStringify = prettyJSONStringify;
 //# sourceMappingURL=qm.log.js.map

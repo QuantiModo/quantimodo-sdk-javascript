@@ -9,8 +9,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var chai_1 = require("chai");
 var https = __importStar(require("https"));
-var fileHelper = __importStar(require("../src/helpers/qm.file-helper"));
 var url = __importStar(require("url"));
+var fileHelper = __importStar(require("../src/helpers/qm.file-helper"));
 describe("s3 uploader", function () {
     it("uploads a file", function (done) {
         fileHelper.uploadToS3("ionIcons.js", "tests", function (uploadResponse) {
@@ -19,16 +19,16 @@ describe("s3 uploader", function () {
                 hostname: myURL.hostname,
                 port: 443,
                 path: myURL.path,
-                method: "GET"
+                method: "GET",
             };
             var req = https.request(options, function (res) {
                 console.log("statusCode: " + res.statusCode);
                 chai_1.expect(res.statusCode).to.eq(200);
-                var str = '';
+                var str = "";
                 res.on("data", function (chunk) {
                     str += chunk;
                 });
-                res.on('end', function () {
+                res.on("end", function () {
                     console.log(str);
                     chai_1.expect(str).to.contain("iosArrowUp");
                     done();
