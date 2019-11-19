@@ -3,6 +3,7 @@ import * as fs from "fs";
 import * as fileHelper from "./qm.file-helper";
 import * as qmGit from "./qm.git";
 import * as qmLog from "./qm.log";
+import * as path from "path";
 const sdkRepo = require("app-root-path");
 const rimraf = require("rimraf");
 const marge = require("mochawesome-report-generator");
@@ -20,6 +21,9 @@ const verbose = true;
 const videoDirectory = `${sdkRepo}/cypress/videos`;
 const mergedJsonPath = outputReportDir + "/mochawesome.json";
 const lastFailedCypressTestPath = "last-failed-cypress-test";
+const cypressEnvPath = fileHelper.getAbsolutePath("cypress.env.json")
+const releaseStage = process.env.RELEASE_STAGE || "development";
+const cypressConfigPath = fileHelper.getAbsolutePath(`cypress/config/cypress.${releaseStage}.json`)
 function getReportUrl() {
     if (process.env.JOB_URL) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html";
@@ -81,8 +85,17 @@ export function mochawesome(failedTests: any[], cb: (err: any) => void) {
         cb(_generatedReport[0]);
     });
 }
+
+function copyCypressEnvConfigIfNecessary() {
+    if (!fs.existsSync(cypressEnvPath)) {
+        console.info(`No ${cypressEnvPath} present so copying ${cypressConfigPath}`)
+        fs.copyFileSync(cypressConfigPath, cypressEnvPath)
+    }
+}
+
 export function runCypressTests(cb: (err: any) => void, specificSpec?: string) {
     deleteSuccessFile();
+    copyCypressEnvConfigIfNecessary();
     rimraf("./cypress/reports/mocha/*.json", function() {
         const path = sdkRepo + "/cypress/integration";
         const browser = process.env.CYPRESS_BROWSER || "electron";

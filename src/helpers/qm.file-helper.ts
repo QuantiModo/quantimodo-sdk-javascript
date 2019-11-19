@@ -1,6 +1,7 @@
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
 import * as fs from "fs";
 import * as path from "path";
+const appRoot = require("app-root-path");
 export function getS3Client() {
   const AWS_ACCESS_KEY_ID =
     process.env.QM_AWS_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID; // Netlify has their own
@@ -58,4 +59,8 @@ export  function writeToFile(filePath: string, contents: any, cb?: () => void) {
       cb();
     }
   });
+}
+
+export function getAbsolutePath(relativePath: string) {
+  return path.resolve(appRoot.toString(), relativePath)
 }

@@ -29,6 +29,9 @@ var verbose = true;
 var videoDirectory = sdkRepo + "/cypress/videos";
 var mergedJsonPath = outputReportDir + "/mochawesome.json";
 var lastFailedCypressTestPath = "last-failed-cypress-test";
+var cypressEnvPath = fileHelper.getAbsolutePath("cypress.env.json");
+var releaseStage = process.env.RELEASE_STAGE || "development";
+var cypressConfigPath = fileHelper.getAbsolutePath("cypress/config/cypress." + releaseStage + ".json");
 function getReportUrl() {
     if (process.env.JOB_URL) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html";
@@ -88,6 +91,10 @@ function mochawesome(failedTests, cb) {
 exports.mochawesome = mochawesome;
 function runCypressTests(cb, specificSpec) {
     deleteSuccessFile();
+    if (!fs.existsSync(cypressEnvPath)) {
+        console.info("No cypress.env.json present so copying " + cypressConfigPath);
+        fs.copyFileSync(cypressConfigPath, cypressEnvPath);
+    }
     rimraf("./cypress/reports/mocha/*.json", function () {
         var path = sdkRepo + "/cypress/integration";
         var browser = process.env.CYPRESS_BROWSER || "electron";

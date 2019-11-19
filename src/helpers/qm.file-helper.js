@@ -10,6 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
 var fs = __importStar(require("fs"));
 var path = __importStar(require("path"));
+var appRoot = require("app-root-path");
 function getS3Client() {
     var AWS_ACCESS_KEY_ID = process.env.QM_AWS_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID; // Netlify has their own
     var AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY; // Netlify has their own
@@ -66,4 +67,8 @@ function writeToFile(filePath, contents, cb) {
     });
 }
 exports.writeToFile = writeToFile;
+function getAbsolutePath(relativePath) {
+    return path.resolve(appRoot.toString(), relativePath);
+}
+exports.getAbsolutePath = getAbsolutePath;
 //# sourceMappingURL=qm.file-helper.js.map

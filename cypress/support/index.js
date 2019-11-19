@@ -20,7 +20,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.log(`Uncaught exception: ${err.message}`)
 })
 beforeEach(function(){ // runs before each test in the block
-    cy.log(`baseUrl is ${Cypress.config('baseUrl')}`)
+    let url = Cypress.config('baseUrl');
+    if(!url){throw "baseUrl not set!"}
+    cy.log(`baseUrl is ${url}`)
     cy.log(`API_HOST is ${Cypress.env('API_HOST')}`)
 })
 import addContext from 'mochawesome/addContext'
