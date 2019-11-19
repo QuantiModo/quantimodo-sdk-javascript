@@ -875,7 +875,7 @@ var ConversionStep = /** @class */ (function () {
         {
             "name": "operation",
             "baseName": "operation",
-            "type": "ConversionStep.OperationEnum"
+            "type": "string"
         },
         {
             "name": "value",
@@ -885,14 +885,6 @@ var ConversionStep = /** @class */ (function () {
     ];
     return ConversionStep;
 }());
-exports.ConversionStep = ConversionStep;
-(function (ConversionStep) {
-    var OperationEnum;
-    (function (OperationEnum) {
-        OperationEnum[OperationEnum["ADD"] = 'ADD'] = "ADD";
-        OperationEnum[OperationEnum["MULTIPLY"] = 'MULTIPLY'] = "MULTIPLY";
-    })(OperationEnum = ConversionStep.OperationEnum || (ConversionStep.OperationEnum = {}));
-})(ConversionStep = exports.ConversionStep || (exports.ConversionStep = {}));
 exports.ConversionStep = ConversionStep;
 var Correlation = /** @class */ (function () {
     function Correlation() {
@@ -2683,7 +2675,7 @@ var InputField = /** @class */ (function () {
         {
             "name": "type",
             "baseName": "type",
-            "type": "InputField.TypeEnum"
+            "type": "string"
         },
         {
             "name": "validationPattern",
@@ -2698,23 +2690,6 @@ var InputField = /** @class */ (function () {
     ];
     return InputField;
 }());
-exports.InputField = InputField;
-(function (InputField) {
-    var TypeEnum;
-    (function (TypeEnum) {
-        TypeEnum[TypeEnum["CheckBox"] = 'check_box'] = "CheckBox";
-        TypeEnum[TypeEnum["Date"] = 'date'] = "Date";
-        TypeEnum[TypeEnum["Email"] = 'email'] = "Email";
-        TypeEnum[TypeEnum["Number"] = 'number'] = "Number";
-        TypeEnum[TypeEnum["PostalCode"] = 'postal_code'] = "PostalCode";
-        TypeEnum[TypeEnum["SelectOption"] = 'select_option'] = "SelectOption";
-        TypeEnum[TypeEnum["String"] = 'string'] = "String";
-        TypeEnum[TypeEnum["Switch"] = 'switch'] = "Switch";
-        TypeEnum[TypeEnum["TextArea"] = 'text_area'] = "TextArea";
-        TypeEnum[TypeEnum["Unit"] = 'unit'] = "Unit";
-        TypeEnum[TypeEnum["VariableCategory"] = 'variable_category'] = "VariableCategory";
-    })(TypeEnum = InputField.TypeEnum || (InputField.TypeEnum = {}));
-})(InputField = exports.InputField || (exports.InputField = {}));
 exports.InputField = InputField;
 var JsonErrorResponse = /** @class */ (function () {
     function JsonErrorResponse() {
@@ -2999,7 +2974,7 @@ var Measurement = /** @class */ (function () {
         {
             "name": "variableCategoryName",
             "baseName": "variableCategoryName",
-            "type": "Measurement.VariableCategoryNameEnum"
+            "type": "string"
         },
         {
             "name": "variableDescription",
@@ -3024,35 +2999,6 @@ var Measurement = /** @class */ (function () {
     ];
     return Measurement;
 }());
-exports.Measurement = Measurement;
-(function (Measurement) {
-    var VariableCategoryNameEnum;
-    (function (VariableCategoryNameEnum) {
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
-    })(VariableCategoryNameEnum = Measurement.VariableCategoryNameEnum || (Measurement.VariableCategoryNameEnum = {}));
-})(Measurement = exports.Measurement || (exports.Measurement = {}));
 exports.Measurement = Measurement;
 var MeasurementDelete = /** @class */ (function () {
     function MeasurementDelete() {
@@ -3124,7 +3070,7 @@ var MeasurementSet = /** @class */ (function () {
         {
             "name": "combinationOperation",
             "baseName": "combinationOperation",
-            "type": "MeasurementSet.CombinationOperationEnum"
+            "type": "string"
         },
         {
             "name": "measurementItems",
@@ -3144,7 +3090,7 @@ var MeasurementSet = /** @class */ (function () {
         {
             "name": "variableCategoryName",
             "baseName": "variableCategoryName",
-            "type": "MeasurementSet.VariableCategoryNameEnum"
+            "type": "string"
         },
         {
             "name": "variableName",
@@ -3159,40 +3105,6 @@ var MeasurementSet = /** @class */ (function () {
     ];
     return MeasurementSet;
 }());
-exports.MeasurementSet = MeasurementSet;
-(function (MeasurementSet) {
-    var CombinationOperationEnum;
-    (function (CombinationOperationEnum) {
-        CombinationOperationEnum[CombinationOperationEnum["MEAN"] = 'MEAN'] = "MEAN";
-        CombinationOperationEnum[CombinationOperationEnum["SUM"] = 'SUM'] = "SUM";
-    })(CombinationOperationEnum = MeasurementSet.CombinationOperationEnum || (MeasurementSet.CombinationOperationEnum = {}));
-    var VariableCategoryNameEnum;
-    (function (VariableCategoryNameEnum) {
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
-    })(VariableCategoryNameEnum = MeasurementSet.VariableCategoryNameEnum || (MeasurementSet.VariableCategoryNameEnum = {}));
-})(MeasurementSet = exports.MeasurementSet || (exports.MeasurementSet = {}));
 exports.MeasurementSet = MeasurementSet;
 var MeasurementUpdate = /** @class */ (function () {
     function MeasurementUpdate() {
@@ -4522,20 +4434,11 @@ var StudyCreationBody = /** @class */ (function () {
         {
             "name": "type",
             "baseName": "type",
-            "type": "StudyCreationBody.TypeEnum"
+            "type": "string"
         }
     ];
     return StudyCreationBody;
 }());
-exports.StudyCreationBody = StudyCreationBody;
-(function (StudyCreationBody) {
-    var TypeEnum;
-    (function (TypeEnum) {
-        TypeEnum[TypeEnum["Individual"] = 'individual'] = "Individual";
-        TypeEnum[TypeEnum["Group"] = 'group'] = "Group";
-        TypeEnum[TypeEnum["Global"] = 'global'] = "Global";
-    })(TypeEnum = StudyCreationBody.TypeEnum || (StudyCreationBody.TypeEnum = {}));
-})(StudyCreationBody = exports.StudyCreationBody || (exports.StudyCreationBody = {}));
 exports.StudyCreationBody = StudyCreationBody;
 var StudyHtml = /** @class */ (function () {
     function StudyHtml() {
@@ -5052,7 +4955,7 @@ var TrackingReminder = /** @class */ (function () {
         {
             "name": "combinationOperation",
             "baseName": "combinationOperation",
-            "type": "TrackingReminder.CombinationOperationEnum"
+            "type": "string"
         },
         {
             "name": "createdAt",
@@ -5412,7 +5315,7 @@ var TrackingReminder = /** @class */ (function () {
         {
             "name": "variableCategoryName",
             "baseName": "variableCategoryName",
-            "type": "TrackingReminder.VariableCategoryNameEnum"
+            "type": "string"
         },
         {
             "name": "variableDescription",
@@ -5432,40 +5335,6 @@ var TrackingReminder = /** @class */ (function () {
     ];
     return TrackingReminder;
 }());
-exports.TrackingReminder = TrackingReminder;
-(function (TrackingReminder) {
-    var CombinationOperationEnum;
-    (function (CombinationOperationEnum) {
-        CombinationOperationEnum[CombinationOperationEnum["MEAN"] = 'MEAN'] = "MEAN";
-        CombinationOperationEnum[CombinationOperationEnum["SUM"] = 'SUM'] = "SUM";
-    })(CombinationOperationEnum = TrackingReminder.CombinationOperationEnum || (TrackingReminder.CombinationOperationEnum = {}));
-    var VariableCategoryNameEnum;
-    (function (VariableCategoryNameEnum) {
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
-    })(VariableCategoryNameEnum = TrackingReminder.VariableCategoryNameEnum || (TrackingReminder.VariableCategoryNameEnum = {}));
-})(TrackingReminder = exports.TrackingReminder || (exports.TrackingReminder = {}));
 exports.TrackingReminder = TrackingReminder;
 var TrackingReminderDelete = /** @class */ (function () {
     function TrackingReminderDelete() {
@@ -5560,7 +5429,7 @@ var TrackingReminderNotification = /** @class */ (function () {
         {
             "name": "combinationOperation",
             "baseName": "combinationOperation",
-            "type": "TrackingReminderNotification.CombinationOperationEnum"
+            "type": "string"
         },
         {
             "name": "createdAt",
@@ -5890,7 +5759,7 @@ var TrackingReminderNotification = /** @class */ (function () {
         {
             "name": "variableCategoryName",
             "baseName": "variableCategoryName",
-            "type": "TrackingReminderNotification.VariableCategoryNameEnum"
+            "type": "string"
         },
         {
             "name": "variableId",
@@ -5910,40 +5779,6 @@ var TrackingReminderNotification = /** @class */ (function () {
     ];
     return TrackingReminderNotification;
 }());
-exports.TrackingReminderNotification = TrackingReminderNotification;
-(function (TrackingReminderNotification) {
-    var CombinationOperationEnum;
-    (function (CombinationOperationEnum) {
-        CombinationOperationEnum[CombinationOperationEnum["MEAN"] = 'MEAN'] = "MEAN";
-        CombinationOperationEnum[CombinationOperationEnum["SUM"] = 'SUM'] = "SUM";
-    })(CombinationOperationEnum = TrackingReminderNotification.CombinationOperationEnum || (TrackingReminderNotification.CombinationOperationEnum = {}));
-    var VariableCategoryNameEnum;
-    (function (VariableCategoryNameEnum) {
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
-    })(VariableCategoryNameEnum = TrackingReminderNotification.VariableCategoryNameEnum || (TrackingReminderNotification.VariableCategoryNameEnum = {}));
-})(TrackingReminderNotification = exports.TrackingReminderNotification || (exports.TrackingReminderNotification = {}));
 exports.TrackingReminderNotification = TrackingReminderNotification;
 var TrackingReminderNotificationAction = /** @class */ (function () {
     function TrackingReminderNotificationAction() {
@@ -5998,7 +5833,7 @@ var TrackingReminderNotificationPost = /** @class */ (function () {
         {
             "name": "action",
             "baseName": "action",
-            "type": "TrackingReminderNotificationPost.ActionEnum"
+            "type": "string"
         },
         {
             "name": "id",
@@ -6013,15 +5848,6 @@ var TrackingReminderNotificationPost = /** @class */ (function () {
     ];
     return TrackingReminderNotificationPost;
 }());
-exports.TrackingReminderNotificationPost = TrackingReminderNotificationPost;
-(function (TrackingReminderNotificationPost) {
-    var ActionEnum;
-    (function (ActionEnum) {
-        ActionEnum[ActionEnum["Skip"] = 'skip'] = "Skip";
-        ActionEnum[ActionEnum["Snooze"] = 'snooze'] = "Snooze";
-        ActionEnum[ActionEnum["Track"] = 'track'] = "Track";
-    })(ActionEnum = TrackingReminderNotificationPost.ActionEnum || (TrackingReminderNotificationPost.ActionEnum = {}));
-})(TrackingReminderNotificationPost = exports.TrackingReminderNotificationPost || (exports.TrackingReminderNotificationPost = {}));
 exports.TrackingReminderNotificationPost = TrackingReminderNotificationPost;
 var TrackingReminderNotificationTrackAllAction = /** @class */ (function () {
     function TrackingReminderNotificationTrackAllAction() {
@@ -6076,7 +5902,7 @@ var Unit = /** @class */ (function () {
         {
             "name": "category",
             "baseName": "category",
-            "type": "Unit.CategoryEnum"
+            "type": "string"
         },
         {
             "name": "categoryId",
@@ -6136,24 +5962,6 @@ var Unit = /** @class */ (function () {
     ];
     return Unit;
 }());
-exports.Unit = Unit;
-(function (Unit) {
-    var CategoryEnum;
-    (function (CategoryEnum) {
-        CategoryEnum[CategoryEnum["Distance"] = 'Distance'] = "Distance";
-        CategoryEnum[CategoryEnum["Duration"] = 'Duration'] = "Duration";
-        CategoryEnum[CategoryEnum["Energy"] = 'Energy'] = "Energy";
-        CategoryEnum[CategoryEnum["Frequency"] = 'Frequency'] = "Frequency";
-        CategoryEnum[CategoryEnum["Miscellany"] = 'Miscellany'] = "Miscellany";
-        CategoryEnum[CategoryEnum["Pressure"] = 'Pressure'] = "Pressure";
-        CategoryEnum[CategoryEnum["Proportion"] = 'Proportion'] = "Proportion";
-        CategoryEnum[CategoryEnum["Rating"] = 'Rating'] = "Rating";
-        CategoryEnum[CategoryEnum["Temperature"] = 'Temperature'] = "Temperature";
-        CategoryEnum[CategoryEnum["Volume"] = 'Volume'] = "Volume";
-        CategoryEnum[CategoryEnum["Weight"] = 'Weight'] = "Weight";
-        CategoryEnum[CategoryEnum["Count"] = 'Count'] = "Count";
-    })(CategoryEnum = Unit.CategoryEnum || (Unit.CategoryEnum = {}));
-})(Unit = exports.Unit || (exports.Unit = {}));
 exports.Unit = Unit;
 var UnitCategory = /** @class */ (function () {
     function UnitCategory() {
@@ -6815,7 +6623,7 @@ var Variable = /** @class */ (function () {
         {
             "name": "combinationOperation",
             "baseName": "combinationOperation",
-            "type": "Variable.CombinationOperationEnum"
+            "type": "string"
         },
         {
             "name": "commonAlias",
@@ -6900,7 +6708,7 @@ var Variable = /** @class */ (function () {
         {
             "name": "fillingType",
             "baseName": "fillingType",
-            "type": "Variable.FillingTypeEnum"
+            "type": "string"
         },
         {
             "name": "fillingValue",
@@ -7430,7 +7238,7 @@ var Variable = /** @class */ (function () {
         {
             "name": "variableCategoryName",
             "baseName": "variableCategoryName",
-            "type": "Variable.VariableCategoryNameEnum"
+            "type": "string"
         },
         {
             "name": "variableId",
@@ -7455,46 +7263,6 @@ var Variable = /** @class */ (function () {
     ];
     return Variable;
 }());
-exports.Variable = Variable;
-(function (Variable) {
-    var CombinationOperationEnum;
-    (function (CombinationOperationEnum) {
-        CombinationOperationEnum[CombinationOperationEnum["MEAN"] = 'MEAN'] = "MEAN";
-        CombinationOperationEnum[CombinationOperationEnum["SUM"] = 'SUM'] = "SUM";
-    })(CombinationOperationEnum = Variable.CombinationOperationEnum || (Variable.CombinationOperationEnum = {}));
-    var FillingTypeEnum;
-    (function (FillingTypeEnum) {
-        FillingTypeEnum[FillingTypeEnum["None"] = 'none'] = "None";
-        FillingTypeEnum[FillingTypeEnum["ZeroFilling"] = 'zero-filling'] = "ZeroFilling";
-        FillingTypeEnum[FillingTypeEnum["ValueFilling"] = 'value-filling'] = "ValueFilling";
-    })(FillingTypeEnum = Variable.FillingTypeEnum || (Variable.FillingTypeEnum = {}));
-    var VariableCategoryNameEnum;
-    (function (VariableCategoryNameEnum) {
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
-    })(VariableCategoryNameEnum = Variable.VariableCategoryNameEnum || (Variable.VariableCategoryNameEnum = {}));
-})(Variable = exports.Variable || (exports.Variable = {}));
 exports.Variable = Variable;
 var VariableCategory = /** @class */ (function () {
     function VariableCategory() {
@@ -7642,7 +7410,7 @@ var VariableCategory = /** @class */ (function () {
         {
             "name": "variableCategoryName",
             "baseName": "variableCategoryName",
-            "type": "VariableCategory.VariableCategoryNameEnum"
+            "type": "string"
         },
         {
             "name": "variableCategoryNameSingular",
@@ -7652,35 +7420,6 @@ var VariableCategory = /** @class */ (function () {
     ];
     return VariableCategory;
 }());
-exports.VariableCategory = VariableCategory;
-(function (VariableCategory) {
-    var VariableCategoryNameEnum;
-    (function (VariableCategoryNameEnum) {
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
-    })(VariableCategoryNameEnum = VariableCategory.VariableCategoryNameEnum || (VariableCategory.VariableCategoryNameEnum = {}));
-})(VariableCategory = exports.VariableCategory || (exports.VariableCategory = {}));
 exports.VariableCategory = VariableCategory;
 /**
 * An object with various chart properties each property contain and svg and Highcharts configuration
@@ -7773,30 +7512,16 @@ var Vote = /** @class */ (function () {
         {
             "name": "value",
             "baseName": "value",
-            "type": "Vote.ValueEnum"
+            "type": "string"
         },
         {
             "name": "type",
             "baseName": "type",
-            "type": "Vote.TypeEnum"
+            "type": "string"
         }
     ];
     return Vote;
 }());
-exports.Vote = Vote;
-(function (Vote) {
-    var ValueEnum;
-    (function (ValueEnum) {
-        ValueEnum[ValueEnum["Up"] = 'up'] = "Up";
-        ValueEnum[ValueEnum["Down"] = 'down'] = "Down";
-        ValueEnum[ValueEnum["None"] = 'none'] = "None";
-    })(ValueEnum = Vote.ValueEnum || (Vote.ValueEnum = {}));
-    var TypeEnum;
-    (function (TypeEnum) {
-        TypeEnum[TypeEnum["Causality"] = 'causality'] = "Causality";
-        TypeEnum[TypeEnum["Usefulness"] = 'usefulness'] = "Usefulness";
-    })(TypeEnum = Vote.TypeEnum || (Vote.TypeEnum = {}));
-})(Vote = exports.Vote || (exports.Vote = {}));
 exports.Vote = Vote;
 var VoteDelete = /** @class */ (function () {
     function VoteDelete() {
@@ -8212,26 +7937,7 @@ var XprofileGroupsResponse = /** @class */ (function () {
     return XprofileGroupsResponse;
 }());
 exports.XprofileGroupsResponse = XprofileGroupsResponse;
-var enumsMap = {
-    "ConversionStep.OperationEnum": ConversionStep.OperationEnum,
-    "InputField.TypeEnum": InputField.TypeEnum,
-    "Measurement.VariableCategoryNameEnum": Measurement.VariableCategoryNameEnum,
-    "MeasurementSet.CombinationOperationEnum": MeasurementSet.CombinationOperationEnum,
-    "MeasurementSet.VariableCategoryNameEnum": MeasurementSet.VariableCategoryNameEnum,
-    "StudyCreationBody.TypeEnum": StudyCreationBody.TypeEnum,
-    "TrackingReminder.CombinationOperationEnum": TrackingReminder.CombinationOperationEnum,
-    "TrackingReminder.VariableCategoryNameEnum": TrackingReminder.VariableCategoryNameEnum,
-    "TrackingReminderNotification.CombinationOperationEnum": TrackingReminderNotification.CombinationOperationEnum,
-    "TrackingReminderNotification.VariableCategoryNameEnum": TrackingReminderNotification.VariableCategoryNameEnum,
-    "TrackingReminderNotificationPost.ActionEnum": TrackingReminderNotificationPost.ActionEnum,
-    "Unit.CategoryEnum": Unit.CategoryEnum,
-    "Variable.CombinationOperationEnum": Variable.CombinationOperationEnum,
-    "Variable.FillingTypeEnum": Variable.FillingTypeEnum,
-    "Variable.VariableCategoryNameEnum": Variable.VariableCategoryNameEnum,
-    "VariableCategory.VariableCategoryNameEnum": VariableCategory.VariableCategoryNameEnum,
-    "Vote.ValueEnum": Vote.ValueEnum,
-    "Vote.TypeEnum": Vote.TypeEnum,
-};
+var enumsMap = {};
 var typeMap = {
     "ActivitiesResponse": ActivitiesResponse,
     "Activity": Activity,
@@ -8447,10 +8153,9 @@ var ActivitiesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    ActivitiesApi.prototype.getActivities = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    ActivitiesApi.prototype.getActivities = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/activities';
         var localVarQueryParameters = {};
@@ -8479,9 +8184,6 @@ var ActivitiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -8532,10 +8234,9 @@ var ActivitiesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    ActivitiesApi.prototype.postActivities = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    ActivitiesApi.prototype.postActivities = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/activities';
         var localVarQueryParameters = {};
@@ -8564,9 +8265,6 @@ var ActivitiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -8757,10 +8455,9 @@ var AnalyticsApi = /** @class */ (function () {
      * @param outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param commonOnly Return only public, anonymized and aggregated population data instead of user-specific variables
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    AnalyticsApi.prototype.getCorrelations = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, correlationCoefficient, updatedAt, outcomesOfInterest, clientId, commonOnly, platform, options) {
+    AnalyticsApi.prototype.getCorrelations = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, correlationCoefficient, updatedAt, outcomesOfInterest, clientId, commonOnly, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/correlations';
         var localVarQueryParameters = {};
@@ -8810,9 +8507,6 @@ var AnalyticsApi = /** @class */ (function () {
         }
         if (commonOnly !== undefined) {
             localVarQueryParameters['commonOnly'] = ObjectSerializer.serialize(commonOnly, "boolean");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -8917,10 +8611,9 @@ var AppSettingsApi = /** @class */ (function () {
      * @summary Get client app settings
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    AppSettingsApi.prototype.getAppSettings = function (clientId, clientSecret, platform, options) {
+    AppSettingsApi.prototype.getAppSettings = function (clientId, clientSecret, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/appSettings';
         var localVarQueryParameters = {};
@@ -8931,9 +8624,6 @@ var AppSettingsApi = /** @class */ (function () {
         }
         if (clientSecret !== undefined) {
             localVarQueryParameters['client_secret'] = ObjectSerializer.serialize(clientSecret, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -9042,10 +8732,9 @@ var AuthenticationApi = /** @class */ (function () {
      * @param clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
      * @param redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    AuthenticationApi.prototype.getAccessToken = function (grantType, code, responseType, scope, clientId, clientSecret, redirectUri, state, platform, options) {
+    AuthenticationApi.prototype.getAccessToken = function (grantType, code, responseType, scope, clientId, clientSecret, redirectUri, state, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/oauth2/token';
         var localVarQueryParameters = {};
@@ -9090,9 +8779,6 @@ var AuthenticationApi = /** @class */ (function () {
         }
         if (state !== undefined) {
             localVarQueryParameters['state'] = ObjectSerializer.serialize(state, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -9140,10 +8826,9 @@ var AuthenticationApi = /** @class */ (function () {
      * @param clientSecret This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
      * @param redirectUri The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
      * @param state An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    AuthenticationApi.prototype.getOauthAuthorizationCode = function (responseType, scope, clientId, clientSecret, redirectUri, state, platform, options) {
+    AuthenticationApi.prototype.getOauthAuthorizationCode = function (responseType, scope, clientId, clientSecret, redirectUri, state, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/oauth2/authorize';
         var localVarQueryParameters = {};
@@ -9174,9 +8859,6 @@ var AuthenticationApi = /** @class */ (function () {
         }
         if (state !== undefined) {
             localVarQueryParameters['state'] = ObjectSerializer.serialize(state, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -9324,7 +9006,7 @@ var ConnectorsApi = /** @class */ (function () {
     /**
      * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
      * @summary Obtain a token from 3rd party data source
-     * @param connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
+     * @param connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
      * @param userId User&#39;s id
      * @param {*} [options] Override http request options.
      */
@@ -9382,7 +9064,7 @@ var ConnectorsApi = /** @class */ (function () {
     /**
      * The disconnect method deletes any stored tokens or connection information from the connectors database.
      * @summary Delete stored connection info
-     * @param connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
+     * @param connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
      * @param {*} [options] Override http request options.
      */
     ConnectorsApi.prototype.disconnectConnector = function (connectorName, options) {
@@ -9437,10 +9119,9 @@ var ConnectorsApi = /** @class */ (function () {
      * A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.
      * @summary List of Connectors
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    ConnectorsApi.prototype.getConnectors = function (clientId, platform, options) {
+    ConnectorsApi.prototype.getConnectors = function (clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/connectors/list';
         var localVarQueryParameters = {};
@@ -9448,9 +9129,6 @@ var ConnectorsApi = /** @class */ (function () {
         var localVarFormParams = {};
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -9494,10 +9172,9 @@ var ConnectorsApi = /** @class */ (function () {
      * Get embeddable connect javascript. Usage:   - Embedding in applications with popups for 3rd-party authentication windows.     Use `qmSetupInPopup` function after connecting `connect.js`.   - Embedding in applications with popups for 3rd-party authentication windows.     Requires a selector to block. It will be embedded in this block.     Use `qmSetupOnPage` function after connecting `connect.js`.   - Embedding in mobile applications without popups for 3rd-party authentication.     Use `qmSetupOnMobile` function after connecting `connect.js`.     If using in a Cordova application call  `qmSetupOnIonic` function after connecting `connect.js`.
      * @summary Get embeddable connect javascript
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    ConnectorsApi.prototype.getIntegrationJs = function (clientId, platform, options) {
+    ConnectorsApi.prototype.getIntegrationJs = function (clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/integration.js';
         var localVarQueryParameters = {};
@@ -9505,9 +9182,6 @@ var ConnectorsApi = /** @class */ (function () {
         var localVarFormParams = {};
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -9597,7 +9271,7 @@ var ConnectorsApi = /** @class */ (function () {
     /**
      * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
      * @summary Sync with data source
-     * @param connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
+     * @param connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
      * @param userId User&#39;s id
      * @param {*} [options] Override http request options.
      */
@@ -9722,10 +9396,9 @@ var FeedApi = /** @class */ (function () {
      * @param limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    FeedApi.prototype.getFeed = function (sort, userId, createdAt, updatedAt, limit, offset, clientId, platform, options) {
+    FeedApi.prototype.getFeed = function (sort, userId, createdAt, updatedAt, limit, offset, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/feed';
         var localVarQueryParameters = {};
@@ -9751,9 +9424,6 @@ var FeedApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -9799,10 +9469,9 @@ var FeedApi = /** @class */ (function () {
      * @param body Id of the tracking reminder notification to be snoozed
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    FeedApi.prototype.postFeed = function (body, userId, clientId, platform, options) {
+    FeedApi.prototype.postFeed = function (body, userId, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/feed';
         var localVarQueryParameters = {};
@@ -9817,9 +9486,6 @@ var FeedApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -9931,10 +9597,9 @@ var FriendsApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    FriendsApi.prototype.getFriends = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    FriendsApi.prototype.getFriends = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/friends';
         var localVarQueryParameters = {};
@@ -9963,9 +9628,6 @@ var FriendsApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -10016,10 +9678,9 @@ var FriendsApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    FriendsApi.prototype.postFriends = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    FriendsApi.prototype.postFriends = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/friends';
         var localVarQueryParameters = {};
@@ -10048,9 +9709,6 @@ var FriendsApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -10161,10 +9819,9 @@ var GroupsApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    GroupsApi.prototype.getGroups = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    GroupsApi.prototype.getGroups = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/groups';
         var localVarQueryParameters = {};
@@ -10193,9 +9850,6 @@ var GroupsApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -10246,10 +9900,9 @@ var GroupsApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    GroupsApi.prototype.getGroupsMembers = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    GroupsApi.prototype.getGroupsMembers = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/groupsMembers';
         var localVarQueryParameters = {};
@@ -10278,9 +9931,6 @@ var GroupsApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -10331,10 +9981,9 @@ var GroupsApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    GroupsApi.prototype.postGroups = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    GroupsApi.prototype.postGroups = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/groups';
         var localVarQueryParameters = {};
@@ -10363,9 +10012,6 @@ var GroupsApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -10416,10 +10062,9 @@ var GroupsApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    GroupsApi.prototype.postGroupsMembers = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    GroupsApi.prototype.postGroupsMembers = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/groupsMembers';
         var localVarQueryParameters = {};
@@ -10448,9 +10093,6 @@ var GroupsApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -10612,13 +10254,13 @@ var MeasurementsApi = /** @class */ (function () {
      * @param sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param variableCategoryName Ex: Emotions, Treatments, Symptoms...
+     * @param variableCategoryName Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param userId User&#39;s id
      * @param sourceName ID of the source you want measurements for (supports exact name match only)
      * @param connectorName Ex: facebook
      * @param value Value of measurement
-     * @param unitName Ex: Milligrams
+     * @param unitName Options: % Recommended Daily Allowance, -4 to 4 Rating, 0 to 1 Rating, 0 to 5 Rating, 1 to 10 Rating, 1 to 5 Rating, Applications, Beats per Minute, Calories, Capsules, Centimeters, Count, Degrees Celsius, Degrees East, Degrees Fahrenheit, Degrees North, Dollars, Drops, Event, Feet, Grams, Hours, Inches, Index, Kilocalories, Kilograms, Kilometers, Liters, Meters, Micrograms, Micrograms per decilitre, Miles, Milligrams, Milliliters, Millimeters, Millimeters Merc, Milliseconds, Minutes, Pascal, Percent, Pieces, Pills, Pounds, Puffs, Seconds, Serving, Sprays, Tablets, Torr, Units, Yes/No, per Minute, Doses, Quarts, Ounces, International Units, Meters per Second
      * @param earliestMeasurementTime Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param latestMeasurementTime Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -10629,10 +10271,9 @@ var MeasurementsApi = /** @class */ (function () {
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param doNotConvert Ex: 1
      * @param minMaxFilter Ex: 1
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    MeasurementsApi.prototype.getMeasurements = function (variableName, sort, limit, offset, variableCategoryName, updatedAt, userId, sourceName, connectorName, value, unitName, earliestMeasurementTime, latestMeasurementTime, createdAt, id, groupingWidth, groupingTimezone, doNotProcess, clientId, doNotConvert, minMaxFilter, platform, options) {
+    MeasurementsApi.prototype.getMeasurements = function (variableName, sort, limit, offset, variableCategoryName, updatedAt, userId, sourceName, connectorName, value, unitName, earliestMeasurementTime, latestMeasurementTime, createdAt, id, groupingWidth, groupingTimezone, doNotProcess, clientId, doNotConvert, minMaxFilter, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/measurements';
         var localVarQueryParameters = {};
@@ -10651,7 +10292,7 @@ var MeasurementsApi = /** @class */ (function () {
             localVarQueryParameters['offset'] = ObjectSerializer.serialize(offset, "number");
         }
         if (variableCategoryName !== undefined) {
-            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'");
+            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "string");
         }
         if (updatedAt !== undefined) {
             localVarQueryParameters['updatedAt'] = ObjectSerializer.serialize(updatedAt, "string");
@@ -10669,7 +10310,7 @@ var MeasurementsApi = /** @class */ (function () {
             localVarQueryParameters['value'] = ObjectSerializer.serialize(value, "string");
         }
         if (unitName !== undefined) {
-            localVarQueryParameters['unitName'] = ObjectSerializer.serialize(unitName, "'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'");
+            localVarQueryParameters['unitName'] = ObjectSerializer.serialize(unitName, "string");
         }
         if (earliestMeasurementTime !== undefined) {
             localVarQueryParameters['earliestMeasurementTime'] = ObjectSerializer.serialize(earliestMeasurementTime, "string");
@@ -10700,9 +10341,6 @@ var MeasurementsApi = /** @class */ (function () {
         }
         if (minMaxFilter !== undefined) {
             localVarQueryParameters['minMaxFilter'] = ObjectSerializer.serialize(minMaxFilter, "boolean");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -11093,10 +10731,9 @@ var MessagesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    MessagesApi.prototype.getMessagesMessages = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    MessagesApi.prototype.getMessagesMessages = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/messagesMessages';
         var localVarQueryParameters = {};
@@ -11125,9 +10762,6 @@ var MessagesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -11178,10 +10812,9 @@ var MessagesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    MessagesApi.prototype.getMessagesNotices = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    MessagesApi.prototype.getMessagesNotices = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/messagesNotices';
         var localVarQueryParameters = {};
@@ -11210,9 +10843,6 @@ var MessagesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -11263,10 +10893,9 @@ var MessagesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    MessagesApi.prototype.getMessagesRecipients = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    MessagesApi.prototype.getMessagesRecipients = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/messagesRecipients';
         var localVarQueryParameters = {};
@@ -11295,9 +10924,6 @@ var MessagesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -11348,10 +10974,9 @@ var MessagesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    MessagesApi.prototype.postMessagesMessages = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    MessagesApi.prototype.postMessagesMessages = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/messagesMessages';
         var localVarQueryParameters = {};
@@ -11380,9 +11005,6 @@ var MessagesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -11433,10 +11055,9 @@ var MessagesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    MessagesApi.prototype.postMessagesNotices = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    MessagesApi.prototype.postMessagesNotices = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/messagesNotices';
         var localVarQueryParameters = {};
@@ -11465,9 +11086,6 @@ var MessagesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -11518,10 +11136,9 @@ var MessagesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    MessagesApi.prototype.postMessagesRecipients = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    MessagesApi.prototype.postMessagesRecipients = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/messagesRecipients';
         var localVarQueryParameters = {};
@@ -11550,9 +11167,6 @@ var MessagesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -11709,10 +11323,9 @@ var NotificationsApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    NotificationsApi.prototype.getNotifications = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    NotificationsApi.prototype.getNotifications = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/notifications';
         var localVarQueryParameters = {};
@@ -11741,9 +11354,6 @@ var NotificationsApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -11846,10 +11456,9 @@ var NotificationsApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    NotificationsApi.prototype.postNotifications = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    NotificationsApi.prototype.postNotifications = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/notifications';
         var localVarQueryParameters = {};
@@ -11878,9 +11487,6 @@ var NotificationsApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -12048,15 +11654,14 @@ var RemindersApi = /** @class */ (function () {
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param offset OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param variableCategoryName Ex: Emotions, Treatments, Symptoms...
+     * @param variableCategoryName Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
      * @param reminderTime Ex: (lt)2017-07-31 21:43:26
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param onlyPast Ex: 1
      * @param includeDeleted Include deleted variables
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    RemindersApi.prototype.getTrackingReminderNotifications = function (sort, userId, createdAt, updatedAt, limit, offset, variableCategoryName, reminderTime, clientId, onlyPast, includeDeleted, platform, options) {
+    RemindersApi.prototype.getTrackingReminderNotifications = function (sort, userId, createdAt, updatedAt, limit, offset, variableCategoryName, reminderTime, clientId, onlyPast, includeDeleted, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/trackingReminderNotifications';
         var localVarQueryParameters = {};
@@ -12081,7 +11686,7 @@ var RemindersApi = /** @class */ (function () {
             localVarQueryParameters['offset'] = ObjectSerializer.serialize(offset, "number");
         }
         if (variableCategoryName !== undefined) {
-            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'");
+            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "string");
         }
         if (reminderTime !== undefined) {
             localVarQueryParameters['reminderTime'] = ObjectSerializer.serialize(reminderTime, "string");
@@ -12094,9 +11699,6 @@ var RemindersApi = /** @class */ (function () {
         }
         if (includeDeleted !== undefined) {
             localVarQueryParameters['includeDeleted'] = ObjectSerializer.serialize(includeDeleted, "boolean");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -12140,7 +11742,7 @@ var RemindersApi = /** @class */ (function () {
      * Users can be reminded to track certain variables at a specified frequency with a default value.
      * @summary Get repeating tracking reminder settings
      * @param userId User&#39;s id
-     * @param variableCategoryName Ex: Emotions, Treatments, Symptoms...
+     * @param variableCategoryName Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param limit The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -12148,10 +11750,9 @@ var RemindersApi = /** @class */ (function () {
      * @param sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param appVersion Ex: 2.1.1.0
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    RemindersApi.prototype.getTrackingReminders = function (userId, variableCategoryName, createdAt, updatedAt, limit, offset, sort, clientId, appVersion, platform, options) {
+    RemindersApi.prototype.getTrackingReminders = function (userId, variableCategoryName, createdAt, updatedAt, limit, offset, sort, clientId, appVersion, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/trackingReminders';
         var localVarQueryParameters = {};
@@ -12161,7 +11762,7 @@ var RemindersApi = /** @class */ (function () {
             localVarQueryParameters['userId'] = ObjectSerializer.serialize(userId, "number");
         }
         if (variableCategoryName !== undefined) {
-            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'");
+            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "string");
         }
         if (createdAt !== undefined) {
             localVarQueryParameters['createdAt'] = ObjectSerializer.serialize(createdAt, "string");
@@ -12183,9 +11784,6 @@ var RemindersApi = /** @class */ (function () {
         }
         if (appVersion !== undefined) {
             localVarQueryParameters['appVersion'] = ObjectSerializer.serialize(appVersion, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -12231,10 +11829,9 @@ var RemindersApi = /** @class */ (function () {
      * @param body Id of the tracking reminder notification to be snoozed
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    RemindersApi.prototype.postTrackingReminderNotifications = function (body, userId, clientId, platform, options) {
+    RemindersApi.prototype.postTrackingReminderNotifications = function (body, userId, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/trackingReminderNotifications';
         var localVarQueryParameters = {};
@@ -12249,9 +11846,6 @@ var RemindersApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -12412,10 +12006,9 @@ var SharesApi = /** @class */ (function () {
      * @summary Delete share
      * @param clientIdToRevoke Client id of the individual, study, or app that the user wishes to no longer have access to their data
      * @param reason Ex: I hate you!
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    SharesApi.prototype.deleteShare = function (clientIdToRevoke, reason, platform, options) {
+    SharesApi.prototype.deleteShare = function (clientIdToRevoke, reason, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/shares/delete';
         var localVarQueryParameters = {};
@@ -12430,9 +12023,6 @@ var SharesApi = /** @class */ (function () {
         }
         if (reason !== undefined) {
             localVarQueryParameters['reason'] = ObjectSerializer.serialize(reason, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -12480,12 +12070,11 @@ var SharesApi = /** @class */ (function () {
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param appVersion Ex: 2.1.1.0
-     * @param platform Ex: chrome, android, ios, web
      * @param log Username or email
      * @param pwd User password
      * @param {*} [options] Override http request options.
      */
-    SharesApi.prototype.getShares = function (userId, createdAt, updatedAt, clientId, appVersion, platform, log, pwd, options) {
+    SharesApi.prototype.getShares = function (userId, createdAt, updatedAt, clientId, appVersion, log, pwd, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/shares';
         var localVarQueryParameters = {};
@@ -12505,9 +12094,6 @@ var SharesApi = /** @class */ (function () {
         }
         if (appVersion !== undefined) {
             localVarQueryParameters['appVersion'] = ObjectSerializer.serialize(appVersion, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         if (log !== undefined) {
             localVarQueryParameters['log'] = ObjectSerializer.serialize(log, "string");
@@ -12557,11 +12143,10 @@ var SharesApi = /** @class */ (function () {
      * Invite someone to view your measurements
      * @summary Delete share
      * @param body Details about person to share with
-     * @param platform Ex: chrome, android, ios, web
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {*} [options] Override http request options.
      */
-    SharesApi.prototype.inviteShare = function (body, platform, clientId, options) {
+    SharesApi.prototype.inviteShare = function (body, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/shares/invite';
         var localVarQueryParameters = {};
@@ -12570,9 +12155,6 @@ var SharesApi = /** @class */ (function () {
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling inviteShare.');
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
@@ -12681,10 +12263,9 @@ var StudiesApi = /** @class */ (function () {
      * @summary Create a Study
      * @param body Details about the study you want to create
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    StudiesApi.prototype.createStudy = function (body, clientId, platform, options) {
+    StudiesApi.prototype.createStudy = function (body, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/study/create';
         var localVarQueryParameters = {};
@@ -12696,9 +12277,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -12810,12 +12388,11 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param platform Ex: chrome, android, ios, web
      * @param recalculate Recalculate instead of using cached analysis
      * @param studyId Client id for the study you want
      * @param {*} [options] Override http request options.
      */
-    StudiesApi.prototype.getOpenStudies = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, platform, recalculate, studyId, options) {
+    StudiesApi.prototype.getOpenStudies = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, recalculate, studyId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/studies/open';
         var localVarQueryParameters = {};
@@ -12847,9 +12424,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (includeCharts !== undefined) {
             localVarQueryParameters['includeCharts'] = ObjectSerializer.serialize(includeCharts, "boolean");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         if (recalculate !== undefined) {
             localVarQueryParameters['recalculate'] = ObjectSerializer.serialize(recalculate, "boolean");
@@ -12907,7 +12481,6 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param platform Ex: chrome, android, ios, web
      * @param recalculate Recalculate instead of using cached analysis
      * @param studyId Client id for the study you want
      * @param sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
@@ -12924,7 +12497,7 @@ var StudiesApi = /** @class */ (function () {
      * @param downvoted These are studies that you have down-voted
      * @param {*} [options] Override http request options.
      */
-    StudiesApi.prototype.getStudies = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, platform, recalculate, studyId, sort, limit, offset, correlationCoefficient, updatedAt, outcomesOfInterest, principalInvestigatorUserId, open, joined, created, population, downvoted, options) {
+    StudiesApi.prototype.getStudies = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, recalculate, studyId, sort, limit, offset, correlationCoefficient, updatedAt, outcomesOfInterest, principalInvestigatorUserId, open, joined, created, population, downvoted, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/studies';
         var localVarQueryParameters = {};
@@ -12956,9 +12529,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (includeCharts !== undefined) {
             localVarQueryParameters['includeCharts'] = ObjectSerializer.serialize(includeCharts, "boolean");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         if (recalculate !== undefined) {
             localVarQueryParameters['recalculate'] = ObjectSerializer.serialize(recalculate, "boolean");
@@ -13055,10 +12625,9 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    StudiesApi.prototype.getStudiesCreated = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, updatedAt, clientId, platform, options) {
+    StudiesApi.prototype.getStudiesCreated = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, updatedAt, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/studies/created';
         var localVarQueryParameters = {};
@@ -13099,9 +12668,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -13158,10 +12724,9 @@ var StudiesApi = /** @class */ (function () {
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    StudiesApi.prototype.getStudiesJoined = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, correlationCoefficient, updatedAt, outcomesOfInterest, clientId, platform, options) {
+    StudiesApi.prototype.getStudiesJoined = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, correlationCoefficient, updatedAt, outcomesOfInterest, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/studies/joined';
         var localVarQueryParameters = {};
@@ -13208,9 +12773,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -13262,12 +12824,11 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param platform Ex: chrome, android, ios, web
      * @param recalculate Recalculate instead of using cached analysis
      * @param studyId Client id for the study you want
      * @param {*} [options] Override http request options.
      */
-    StudiesApi.prototype.getStudy = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, platform, recalculate, studyId, options) {
+    StudiesApi.prototype.getStudy = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, recalculate, studyId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v4/study';
         var localVarQueryParameters = {};
@@ -13299,9 +12860,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (includeCharts !== undefined) {
             localVarQueryParameters['includeCharts'] = ObjectSerializer.serialize(includeCharts, "boolean");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         if (recalculate !== undefined) {
             localVarQueryParameters['recalculate'] = ObjectSerializer.serialize(recalculate, "boolean");
@@ -13359,10 +12917,9 @@ var StudiesApi = /** @class */ (function () {
      * @param outcomeVariableName Name of the outcome variable of interest.  Ex: Overall Mood
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    StudiesApi.prototype.joinStudy = function (studyId, causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, platform, options) {
+    StudiesApi.prototype.joinStudy = function (studyId, causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/study/join';
         var localVarQueryParameters = {};
@@ -13394,9 +12951,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -13507,12 +13061,11 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param platform Ex: chrome, android, ios, web
      * @param recalculate Recalculate instead of using cached analysis
      * @param studyId Client id for the study you want
      * @param {*} [options] Override http request options.
      */
-    StudiesApi.prototype.publishStudy = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, platform, recalculate, studyId, options) {
+    StudiesApi.prototype.publishStudy = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, recalculate, studyId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/study/publish';
         var localVarQueryParameters = {};
@@ -13544,9 +13097,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (includeCharts !== undefined) {
             localVarQueryParameters['includeCharts'] = ObjectSerializer.serialize(includeCharts, "boolean");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         if (recalculate !== undefined) {
             localVarQueryParameters['recalculate'] = ObjectSerializer.serialize(recalculate, "boolean");
@@ -13815,10 +13365,9 @@ var UserApi = /** @class */ (function () {
      * @summary Delete user
      * @param reason Ex: I hate you!
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    UserApi.prototype.deleteUser = function (reason, clientId, platform, options) {
+    UserApi.prototype.deleteUser = function (reason, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/user/delete';
         var localVarQueryParameters = {};
@@ -13833,9 +13382,6 @@ var UserApi = /** @class */ (function () {
         }
         if (reason !== undefined) {
             localVarQueryParameters['reason'] = ObjectSerializer.serialize(reason, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -13887,13 +13433,12 @@ var UserApi = /** @class */ (function () {
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param appVersion Ex: 2.1.1.0
      * @param clientUserId Ex: 74802
-     * @param platform Ex: chrome, android, ios, web
      * @param log Username or email
      * @param pwd User password
      * @param includeAuthorizedClients Return list of apps, studies, and individuals with access to user data
      * @param {*} [options] Override http request options.
      */
-    UserApi.prototype.getUser = function (userId, createdAt, updatedAt, limit, offset, sort, clientId, appVersion, clientUserId, platform, log, pwd, includeAuthorizedClients, options) {
+    UserApi.prototype.getUser = function (userId, createdAt, updatedAt, limit, offset, sort, clientId, appVersion, clientUserId, log, pwd, includeAuthorizedClients, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/user';
         var localVarQueryParameters = {};
@@ -13925,9 +13470,6 @@ var UserApi = /** @class */ (function () {
         }
         if (clientUserId !== undefined) {
             localVarQueryParameters['clientUserId'] = ObjectSerializer.serialize(clientUserId, "number");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         if (log !== undefined) {
             localVarQueryParameters['log'] = ObjectSerializer.serialize(log, "string");
@@ -13987,10 +13529,9 @@ var UserApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    UserApi.prototype.getUserBlogs = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    UserApi.prototype.getUserBlogs = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/userBlogs';
         var localVarQueryParameters = {};
@@ -14019,9 +13560,6 @@ var UserApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -14073,12 +13611,11 @@ var UserApi = /** @class */ (function () {
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param appVersion Ex: 2.1.1.0
      * @param clientUserId Ex: 74802
-     * @param platform Ex: chrome, android, ios, web
      * @param log Username or email
      * @param pwd User password
      * @param {*} [options] Override http request options.
      */
-    UserApi.prototype.getUsers = function (userId, createdAt, updatedAt, limit, offset, sort, clientId, appVersion, clientUserId, platform, log, pwd, options) {
+    UserApi.prototype.getUsers = function (userId, createdAt, updatedAt, limit, offset, sort, clientId, appVersion, clientUserId, log, pwd, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/users';
         var localVarQueryParameters = {};
@@ -14110,9 +13647,6 @@ var UserApi = /** @class */ (function () {
         }
         if (clientUserId !== undefined) {
             localVarQueryParameters['clientUserId'] = ObjectSerializer.serialize(clientUserId, "number");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         if (log !== undefined) {
             localVarQueryParameters['log'] = ObjectSerializer.serialize(log, "string");
@@ -14169,10 +13703,9 @@ var UserApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    UserApi.prototype.postUserBlogs = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    UserApi.prototype.postUserBlogs = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/userBlogs';
         var localVarQueryParameters = {};
@@ -14201,9 +13734,6 @@ var UserApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -14248,10 +13778,9 @@ var UserApi = /** @class */ (function () {
      * @summary Post UserSettings
      * @param body User settings to update
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    UserApi.prototype.postUserSettings = function (body, clientId, platform, options) {
+    UserApi.prototype.postUserSettings = function (body, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/userSettings';
         var localVarQueryParameters = {};
@@ -14263,9 +13792,6 @@ var UserApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -14530,7 +14056,7 @@ var VariablesApi = /** @class */ (function () {
      * @param includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param numberOfRawMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
      * @param userId User&#39;s id
-     * @param variableCategoryName Ex: Emotions, Treatments, Symptoms...
+     * @param variableCategoryName Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
      * @param name Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
      * @param variableName Name of the variable you want measurements for
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -14562,7 +14088,6 @@ var VariablesApi = /** @class */ (function () {
      * @param ingredientOfUserTagVariableId Id of the ingredientOf variable (i.e. Apple) you would like to get eligible ingredient variables (i.e. Fructose) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.
      * @param commonOnly Return only public and aggregated common variable data instead of user-specific variables
      * @param userOnly Return only user-specific variables and data, excluding common aggregated variable data
-     * @param platform Ex: chrome, android, ios, web
      * @param includeTags Return parent, child, duplicate, and ingredient variables
      * @param recalculate Recalculate instead of using cached analysis
      * @param variableId Ex: 13
@@ -14570,7 +14095,7 @@ var VariablesApi = /** @class */ (function () {
      * @param refresh Regenerate charts instead of getting from the cache
      * @param {*} [options] Override http request options.
      */
-    VariablesApi.prototype.getVariables = function (includeCharts, numberOfRawMeasurements, userId, variableCategoryName, name, variableName, updatedAt, sourceName, earliestMeasurementTime, latestMeasurementTime, id, lastSourceName, limit, offset, sort, includePublic, manualTracking, clientId, upc, effectOrCause, publicEffectOrCause, exactMatch, variableCategoryId, includePrivate, searchPhrase, synonyms, taggedVariableId, tagVariableId, joinVariableId, parentUserTagVariableId, childUserTagVariableId, ingredientUserTagVariableId, ingredientOfUserTagVariableId, commonOnly, userOnly, platform, includeTags, recalculate, variableId, concise, refresh, options) {
+    VariablesApi.prototype.getVariables = function (includeCharts, numberOfRawMeasurements, userId, variableCategoryName, name, variableName, updatedAt, sourceName, earliestMeasurementTime, latestMeasurementTime, id, lastSourceName, limit, offset, sort, includePublic, manualTracking, clientId, upc, effectOrCause, publicEffectOrCause, exactMatch, variableCategoryId, includePrivate, searchPhrase, synonyms, taggedVariableId, tagVariableId, joinVariableId, parentUserTagVariableId, childUserTagVariableId, ingredientUserTagVariableId, ingredientOfUserTagVariableId, commonOnly, userOnly, includeTags, recalculate, variableId, concise, refresh, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/variables';
         var localVarQueryParameters = {};
@@ -14586,7 +14111,7 @@ var VariablesApi = /** @class */ (function () {
             localVarQueryParameters['userId'] = ObjectSerializer.serialize(userId, "number");
         }
         if (variableCategoryName !== undefined) {
-            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'");
+            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "string");
         }
         if (name !== undefined) {
             localVarQueryParameters['name'] = ObjectSerializer.serialize(name, "string");
@@ -14680,9 +14205,6 @@ var VariablesApi = /** @class */ (function () {
         }
         if (userOnly !== undefined) {
             localVarQueryParameters['userOnly'] = ObjectSerializer.serialize(userOnly, "boolean");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         if (includeTags !== undefined) {
             localVarQueryParameters['includeTags'] = ObjectSerializer.serialize(includeTags, "boolean");
@@ -14806,13 +14328,12 @@ var VariablesApi = /** @class */ (function () {
      * @param searchPhrase Ex: %Body Fat%
      * @param exactMatch Require exact match
      * @param manualTracking Only include variables tracked manually by the user
-     * @param variableCategoryName Ex: Emotions, Treatments, Symptoms...
+     * @param variableCategoryName Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
      * @param variableCategoryId Ex: 13
      * @param synonyms Ex: McDonalds hotcake
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    VariablesApi.prototype.postUserVariables = function (userVariables, includePrivate, clientId, includePublic, searchPhrase, exactMatch, manualTracking, variableCategoryName, variableCategoryId, synonyms, platform, options) {
+    VariablesApi.prototype.postUserVariables = function (userVariables, includePrivate, clientId, includePublic, searchPhrase, exactMatch, manualTracking, variableCategoryName, variableCategoryId, synonyms, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/variables';
         var localVarQueryParameters = {};
@@ -14841,16 +14362,13 @@ var VariablesApi = /** @class */ (function () {
             localVarQueryParameters['manualTracking'] = ObjectSerializer.serialize(manualTracking, "boolean");
         }
         if (variableCategoryName !== undefined) {
-            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'");
+            localVarQueryParameters['variableCategoryName'] = ObjectSerializer.serialize(variableCategoryName, "string");
         }
         if (variableCategoryId !== undefined) {
             localVarQueryParameters['variableCategoryId'] = ObjectSerializer.serialize(variableCategoryId, "number");
         }
         if (synonyms !== undefined) {
             localVarQueryParameters['synonyms'] = ObjectSerializer.serialize(synonyms, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -15016,10 +14534,9 @@ var XprofileApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    XprofileApi.prototype.getXprofileData = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    XprofileApi.prototype.getXprofileData = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/xprofileData';
         var localVarQueryParameters = {};
@@ -15048,9 +14565,6 @@ var XprofileApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -15101,10 +14615,9 @@ var XprofileApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    XprofileApi.prototype.getXprofileFields = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    XprofileApi.prototype.getXprofileFields = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/xprofileFields';
         var localVarQueryParameters = {};
@@ -15133,9 +14646,6 @@ var XprofileApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -15186,10 +14696,9 @@ var XprofileApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    XprofileApi.prototype.getXprofileGroups = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    XprofileApi.prototype.getXprofileGroups = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/xprofileGroups';
         var localVarQueryParameters = {};
@@ -15218,9 +14727,6 @@ var XprofileApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -15271,10 +14777,9 @@ var XprofileApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    XprofileApi.prototype.postXprofileData = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    XprofileApi.prototype.postXprofileData = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/xprofileData';
         var localVarQueryParameters = {};
@@ -15303,9 +14808,6 @@ var XprofileApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -15356,10 +14858,9 @@ var XprofileApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    XprofileApi.prototype.postXprofileFields = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    XprofileApi.prototype.postXprofileFields = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/xprofileFields';
         var localVarQueryParameters = {};
@@ -15388,9 +14889,6 @@ var XprofileApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;
@@ -15441,10 +14939,9 @@ var XprofileApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      * @param {*} [options] Override http request options.
      */
-    XprofileApi.prototype.postXprofileGroups = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, options) {
+    XprofileApi.prototype.postXprofileGroups = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, options) {
         if (options === void 0) { options = {}; }
         var localVarPath = this.basePath + '/v3/xprofileGroups';
         var localVarQueryParameters = {};
@@ -15473,9 +14970,6 @@ var XprofileApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             localVarQueryParameters['clientId'] = ObjectSerializer.serialize(clientId, "string");
-        }
-        if (platform !== undefined) {
-            localVarQueryParameters['platform'] = ObjectSerializer.serialize(platform, "'chrome' | 'android' | 'ios' | 'web'");
         }
         Object.assign(localVarHeaderParams, options.headers);
         var localVarUseFormData = false;

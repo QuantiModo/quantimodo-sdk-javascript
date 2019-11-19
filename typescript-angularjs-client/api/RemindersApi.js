@@ -231,15 +231,4 @@ var RemindersApi = /** @class */ (function () {
     return RemindersApi;
 }());
 exports.RemindersApi = RemindersApi;
-var httpRequestParams = {
-    method: 'POST',
-    url: localVarPath,
-    data: body,
-    params: queryParameters,
-    headers: headerParams
-};
-if (extraHttpRequestParams) {
-    httpRequestParams = Object.assign(httpRequestParams, extraHttpRequestParams);
-}
-return this.$http(httpRequestParams);
 //# sourceMappingURL=RemindersApi.js.map

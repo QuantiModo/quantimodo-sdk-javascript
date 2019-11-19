@@ -11,13 +11,4 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-var TrackingReminderNotificationPost;
-(function (TrackingReminderNotificationPost) {
-    var ActionEnum;
-    (function (ActionEnum) {
-        ActionEnum[ActionEnum["Skip"] = 'skip'] = "Skip";
-        ActionEnum[ActionEnum["Snooze"] = 'snooze'] = "Snooze";
-        ActionEnum[ActionEnum["Track"] = 'track'] = "Track";
-    })(ActionEnum = TrackingReminderNotificationPost.ActionEnum || (TrackingReminderNotificationPost.ActionEnum = {}));
-})(TrackingReminderNotificationPost = exports.TrackingReminderNotificationPost || (exports.TrackingReminderNotificationPost = {}));
 //# sourceMappingURL=TrackingReminderNotificationPost.js.map

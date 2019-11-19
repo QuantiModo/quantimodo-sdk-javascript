@@ -131,14 +131,13 @@ var VariablesApi = /** @class */ (function () {
      * @param ingredientOfUserTagVariableId Id of the ingredientOf variable (i.e. Apple) you would like to get eligible ingredient variables (i.e. Fructose) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.
      * @param commonOnly Return only public and aggregated common variable data instead of user-specific variables
      * @param userOnly Return only user-specific variables and data, excluding common aggregated variable data
-     * @param platform Options: chrome, android, ios, web
      * @param includeTags Return parent, child, duplicate, and ingredient variables
      * @param recalculate Recalculate instead of using cached analysis
      * @param variableId Ex: 13
      * @param concise Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests.
      * @param refresh Regenerate charts instead of getting from the cache
      */
-    VariablesApi.prototype.getVariables = function (includeCharts, numberOfRawMeasurements, userId, variableCategoryName, name, variableName, updatedAt, sourceName, earliestMeasurementTime, latestMeasurementTime, id, lastSourceName, limit, offset, sort, includePublic, manualTracking, clientId, upc, effectOrCause, publicEffectOrCause, exactMatch, variableCategoryId, includePrivate, searchPhrase, synonyms, taggedVariableId, tagVariableId, joinVariableId, parentUserTagVariableId, childUserTagVariableId, ingredientUserTagVariableId, ingredientOfUserTagVariableId, commonOnly, userOnly, platform, includeTags, recalculate, variableId, concise, refresh, extraHttpRequestParams) {
+    VariablesApi.prototype.getVariables = function (includeCharts, numberOfRawMeasurements, userId, variableCategoryName, name, variableName, updatedAt, sourceName, earliestMeasurementTime, latestMeasurementTime, id, lastSourceName, limit, offset, sort, includePublic, manualTracking, clientId, upc, effectOrCause, publicEffectOrCause, exactMatch, variableCategoryId, includePrivate, searchPhrase, synonyms, taggedVariableId, tagVariableId, joinVariableId, parentUserTagVariableId, childUserTagVariableId, ingredientUserTagVariableId, ingredientOfUserTagVariableId, commonOnly, userOnly, includeTags, recalculate, variableId, concise, refresh, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/variables';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -247,9 +246,6 @@ var VariablesApi = /** @class */ (function () {
         if (userOnly !== undefined) {
             queryParameters['userOnly'] = userOnly;
         }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
-        }
         if (includeTags !== undefined) {
             queryParameters['includeTags'] = includeTags;
         }
@@ -318,9 +314,8 @@ var VariablesApi = /** @class */ (function () {
      * @param variableCategoryName Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
      * @param variableCategoryId Ex: 13
      * @param synonyms Ex: McDonalds hotcake
-     * @param platform Options: chrome, android, ios, web
      */
-    VariablesApi.prototype.postUserVariables = function (userVariables, includePrivate, clientId, includePublic, searchPhrase, exactMatch, manualTracking, variableCategoryName, variableCategoryId, synonyms, platform, extraHttpRequestParams) {
+    VariablesApi.prototype.postUserVariables = function (userVariables, includePrivate, clientId, includePublic, searchPhrase, exactMatch, manualTracking, variableCategoryName, variableCategoryId, synonyms, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/variables';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -354,9 +349,6 @@ var VariablesApi = /** @class */ (function () {
         }
         if (synonyms !== undefined) {
             queryParameters['synonyms'] = synonyms;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         var httpRequestParams = {
             method: 'POST',

@@ -11,33 +11,4 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-var VariableCategory;
-(function (VariableCategory) {
-    var VariableCategoryNameEnum;
-    (function (VariableCategoryNameEnum) {
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
-        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
-    })(VariableCategoryNameEnum = VariableCategory.VariableCategoryNameEnum || (VariableCategory.VariableCategoryNameEnum = {}));
-})(VariableCategory = exports.VariableCategory || (exports.VariableCategory = {}));
 //# sourceMappingURL=VariableCategory.js.map

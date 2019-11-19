@@ -11,13 +11,4 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-var StudyCreationBody;
-(function (StudyCreationBody) {
-    var TypeEnum;
-    (function (TypeEnum) {
-        TypeEnum[TypeEnum["Individual"] = 'individual'] = "Individual";
-        TypeEnum[TypeEnum["Group"] = 'group'] = "Group";
-        TypeEnum[TypeEnum["Global"] = 'global'] = "Global";
-    })(TypeEnum = StudyCreationBody.TypeEnum || (StudyCreationBody.TypeEnum = {}));
-})(StudyCreationBody = exports.StudyCreationBody || (exports.StudyCreationBody = {}));
 //# sourceMappingURL=StudyCreationBody.js.map

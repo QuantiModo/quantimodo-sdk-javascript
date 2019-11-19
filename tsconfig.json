@@ -60,5 +60,10 @@
     "src/typescript-fetch/*.ts",
     "typescript-node-client/*.ts",
     "typescript-angularjs-client/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/*",
+    "**/node_modules",
+    "**/*.spec.ts"
   ]
 }

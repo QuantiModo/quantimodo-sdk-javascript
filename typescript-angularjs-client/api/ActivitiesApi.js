@@ -33,9 +33,8 @@ var ActivitiesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Options: chrome, android, ios, web
      */
-    ActivitiesApi.prototype.getActivities = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, extraHttpRequestParams) {
+    ActivitiesApi.prototype.getActivities = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/activities';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -62,9 +61,6 @@ var ActivitiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             queryParameters['clientId'] = clientId;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         var httpRequestParams = {
             method: 'GET',
@@ -88,9 +84,8 @@ var ActivitiesApi = /** @class */ (function () {
      * @param createdAt When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param id Id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Options: chrome, android, ios, web
      */
-    ActivitiesApi.prototype.postActivities = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, platform, extraHttpRequestParams) {
+    ActivitiesApi.prototype.postActivities = function (sort, limit, offset, updatedAt, userId, createdAt, id, clientId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/activities';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -117,9 +112,6 @@ var ActivitiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             queryParameters['clientId'] = clientId;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         var httpRequestParams = {
             method: 'POST',

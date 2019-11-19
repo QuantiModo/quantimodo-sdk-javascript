@@ -11,18 +11,4 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-var Vote;
-(function (Vote) {
-    var ValueEnum;
-    (function (ValueEnum) {
-        ValueEnum[ValueEnum["Up"] = 'up'] = "Up";
-        ValueEnum[ValueEnum["Down"] = 'down'] = "Down";
-        ValueEnum[ValueEnum["None"] = 'none'] = "None";
-    })(ValueEnum = Vote.ValueEnum || (Vote.ValueEnum = {}));
-    var TypeEnum;
-    (function (TypeEnum) {
-        TypeEnum[TypeEnum["Causality"] = 'causality'] = "Causality";
-        TypeEnum[TypeEnum["Usefulness"] = 'usefulness'] = "Usefulness";
-    })(TypeEnum = Vote.TypeEnum || (Vote.TypeEnum = {}));
-})(Vote = exports.Vote || (exports.Vote = {}));
 //# sourceMappingURL=Vote.js.map

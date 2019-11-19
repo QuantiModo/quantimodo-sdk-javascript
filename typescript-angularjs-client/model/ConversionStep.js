@@ -11,12 +11,4 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-var ConversionStep;
-(function (ConversionStep) {
-    var OperationEnum;
-    (function (OperationEnum) {
-        OperationEnum[OperationEnum["ADD"] = 'ADD'] = "ADD";
-        OperationEnum[OperationEnum["MULTIPLY"] = 'MULTIPLY'] = "MULTIPLY";
-    })(OperationEnum = ConversionStep.OperationEnum || (ConversionStep.OperationEnum = {}));
-})(ConversionStep = exports.ConversionStep || (exports.ConversionStep = {}));
 //# sourceMappingURL=ConversionStep.js.map

@@ -71,9 +71,8 @@ var MeasurementsApi = /** @class */ (function () {
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param doNotConvert Ex: 1
      * @param minMaxFilter Ex: 1
-     * @param platform Options: chrome, android, ios, web
      */
-    MeasurementsApi.prototype.getMeasurements = function (variableName, sort, limit, offset, variableCategoryName, updatedAt, userId, sourceName, connectorName, value, unitName, earliestMeasurementTime, latestMeasurementTime, createdAt, id, groupingWidth, groupingTimezone, doNotProcess, clientId, doNotConvert, minMaxFilter, platform, extraHttpRequestParams) {
+    MeasurementsApi.prototype.getMeasurements = function (variableName, sort, limit, offset, variableCategoryName, updatedAt, userId, sourceName, connectorName, value, unitName, earliestMeasurementTime, latestMeasurementTime, createdAt, id, groupingWidth, groupingTimezone, doNotProcess, clientId, doNotConvert, minMaxFilter, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/measurements';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -139,9 +138,6 @@ var MeasurementsApi = /** @class */ (function () {
         }
         if (minMaxFilter !== undefined) {
             queryParameters['minMaxFilter'] = minMaxFilter;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         var httpRequestParams = {
             method: 'GET',

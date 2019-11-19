@@ -27,9 +27,8 @@ var StudiesApi = /** @class */ (function () {
      * @summary Create a Study
      * @param body Details about the study you want to create
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      */
-    StudiesApi.prototype.createStudy = function (body, clientId, platform, , , , , , , , extraHttpRequestParams) {
+    StudiesApi.prototype.createStudy = function (body, clientId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/study/create';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -39,9 +38,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             queryParameters['clientId'] = clientId;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         var httpRequestParams = {
             method: 'POST',
@@ -96,11 +92,10 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param platform Ex: chrome, android, ios, web
      * @param recalculate Recalculate instead of using cached analysis
      * @param studyId Client id for the study you want
      */
-    StudiesApi.prototype.getOpenStudies = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, platform, , , , , , , , recalculate, studyId, extraHttpRequestParams) {
+    StudiesApi.prototype.getOpenStudies = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, recalculate, studyId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/studies/open';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -131,9 +126,6 @@ var StudiesApi = /** @class */ (function () {
         if (includeCharts !== undefined) {
             queryParameters['includeCharts'] = includeCharts;
         }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
-        }
         if (recalculate !== undefined) {
             queryParameters['recalculate'] = recalculate;
         }
@@ -163,7 +155,6 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param platform Ex: chrome, android, ios, web
      * @param recalculate Recalculate instead of using cached analysis
      * @param studyId Client id for the study you want
      * @param sort Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
@@ -179,7 +170,7 @@ var StudiesApi = /** @class */ (function () {
      * @param population These are studies based on the entire population of users that have shared their data
      * @param downvoted These are studies that you have down-voted
      */
-    StudiesApi.prototype.getStudies = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, platform, , , , , , , , recalculate, studyId, sort, limit, offset, correlationCoefficient, updatedAt, outcomesOfInterest, principalInvestigatorUserId, open, joined, created, population, downvoted, extraHttpRequestParams) {
+    StudiesApi.prototype.getStudies = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, recalculate, studyId, sort, limit, offset, correlationCoefficient, updatedAt, outcomesOfInterest, principalInvestigatorUserId, open, joined, created, population, downvoted, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/studies';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -209,9 +200,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (includeCharts !== undefined) {
             queryParameters['includeCharts'] = includeCharts;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         if (recalculate !== undefined) {
             queryParameters['recalculate'] = recalculate;
@@ -281,9 +269,8 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      */
-    StudiesApi.prototype.getStudiesCreated = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, updatedAt, clientId, platform, , , , , , , , extraHttpRequestParams) {
+    StudiesApi.prototype.getStudiesCreated = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, updatedAt, clientId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/studies/created';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -323,9 +310,6 @@ var StudiesApi = /** @class */ (function () {
         if (clientId !== undefined) {
             queryParameters['clientId'] = clientId;
         }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
-        }
         var httpRequestParams = {
             method: 'GET',
             url: localVarPath,
@@ -354,9 +338,8 @@ var StudiesApi = /** @class */ (function () {
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param outcomesOfInterest Only include correlations for which the effect is an outcome of interest for the user
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      */
-    StudiesApi.prototype.getStudiesJoined = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, correlationCoefficient, updatedAt, outcomesOfInterest, clientId, platform, , , , , , , , extraHttpRequestParams) {
+    StudiesApi.prototype.getStudiesJoined = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, sort, limit, offset, userId, correlationCoefficient, updatedAt, outcomesOfInterest, clientId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/studies/joined';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -402,9 +385,6 @@ var StudiesApi = /** @class */ (function () {
         if (clientId !== undefined) {
             queryParameters['clientId'] = clientId;
         }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
-        }
         var httpRequestParams = {
             method: 'GET',
             url: localVarPath,
@@ -428,11 +408,10 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param platform Ex: chrome, android, ios, web
      * @param recalculate Recalculate instead of using cached analysis
      * @param studyId Client id for the study you want
      */
-    StudiesApi.prototype.getStudy = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, platform, , , , , , , , recalculate, studyId, extraHttpRequestParams) {
+    StudiesApi.prototype.getStudy = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, recalculate, studyId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v4/study';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -463,9 +442,6 @@ var StudiesApi = /** @class */ (function () {
         if (includeCharts !== undefined) {
             queryParameters['includeCharts'] = includeCharts;
         }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
-        }
         if (recalculate !== undefined) {
             queryParameters['recalculate'] = recalculate;
         }
@@ -495,9 +471,8 @@ var StudiesApi = /** @class */ (function () {
      * @param outcomeVariableName Name of the outcome variable of interest.  Ex: Overall Mood
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
-     * @param platform Ex: chrome, android, ios, web
      */
-    StudiesApi.prototype.joinStudy = function (studyId, causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, platform, , , , , , , , extraHttpRequestParams) {
+    StudiesApi.prototype.joinStudy = function (studyId, causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/study/join';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -527,9 +502,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (clientId !== undefined) {
             queryParameters['clientId'] = clientId;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         var httpRequestParams = {
             method: 'POST',
@@ -583,11 +555,10 @@ var StudiesApi = /** @class */ (function () {
      * @param userId User&#39;s id
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param includeCharts Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
-     * @param platform Ex: chrome, android, ios, web
      * @param recalculate Recalculate instead of using cached analysis
      * @param studyId Client id for the study you want
      */
-    StudiesApi.prototype.publishStudy = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, platform, , , , , , , , recalculate, studyId, extraHttpRequestParams) {
+    StudiesApi.prototype.publishStudy = function (causeVariableName, effectVariableName, causeVariableId, effectVariableId, predictorVariableName, outcomeVariableName, userId, clientId, includeCharts, recalculate, studyId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/study/publish';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -617,9 +588,6 @@ var StudiesApi = /** @class */ (function () {
         }
         if (includeCharts !== undefined) {
             queryParameters['includeCharts'] = includeCharts;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         if (recalculate !== undefined) {
             queryParameters['recalculate'] = recalculate;

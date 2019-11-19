@@ -27,9 +27,8 @@ var SharesApi = /** @class */ (function () {
      * @summary Delete share
      * @param clientIdToRevoke Client id of the individual, study, or app that the user wishes to no longer have access to their data
      * @param reason Ex: I hate you!
-     * @param platform Ex: chrome, android, ios, web
      */
-    SharesApi.prototype.deleteShare = function (clientIdToRevoke, reason, platform, , , , , , , , extraHttpRequestParams) {
+    SharesApi.prototype.deleteShare = function (clientIdToRevoke, reason, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/shares/delete';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -42,9 +41,6 @@ var SharesApi = /** @class */ (function () {
         }
         if (reason !== undefined) {
             queryParameters['reason'] = reason;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         var httpRequestParams = {
             method: 'POST',
@@ -65,11 +61,10 @@ var SharesApi = /** @class */ (function () {
      * @param updatedAt When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param appVersion Ex: 2.1.1.0
-     * @param platform Ex: chrome, android, ios, web
      * @param log Username or email
      * @param pwd User password
      */
-    SharesApi.prototype.getShares = function (userId, createdAt, updatedAt, clientId, appVersion, platform, , , , , , , , log, pwd, extraHttpRequestParams) {
+    SharesApi.prototype.getShares = function (userId, createdAt, updatedAt, clientId, appVersion, log, pwd, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/shares';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
@@ -87,9 +82,6 @@ var SharesApi = /** @class */ (function () {
         }
         if (appVersion !== undefined) {
             queryParameters['appVersion'] = appVersion;
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         if (log !== undefined) {
             queryParameters['log'] = log;
@@ -112,19 +104,15 @@ var SharesApi = /** @class */ (function () {
      * Invite someone to view your measurements
      * @summary Delete share
      * @param body Details about person to share with
-     * @param platform Ex: chrome, android, ios, web
      * @param clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      */
-    SharesApi.prototype.inviteShare = function (body, platform, , , , , , , , clientId, extraHttpRequestParams) {
+    SharesApi.prototype.inviteShare = function (body, clientId, extraHttpRequestParams) {
         var localVarPath = this.basePath + '/v3/shares/invite';
         var queryParameters = {};
         var headerParams = Object.assign({}, this.defaultHeaders);
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling inviteShare.');
-        }
-        if (platform !== undefined) {
-            queryParameters['platform'] = platform;
         }
         if (clientId !== undefined) {
             queryParameters['clientId'] = clientId;

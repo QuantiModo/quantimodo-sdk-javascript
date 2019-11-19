@@ -11,22 +11,4 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-var Unit;
-(function (Unit) {
-    var CategoryEnum;
-    (function (CategoryEnum) {
-        CategoryEnum[CategoryEnum["Distance"] = 'Distance'] = "Distance";
-        CategoryEnum[CategoryEnum["Duration"] = 'Duration'] = "Duration";
-        CategoryEnum[CategoryEnum["Energy"] = 'Energy'] = "Energy";
-        CategoryEnum[CategoryEnum["Frequency"] = 'Frequency'] = "Frequency";
-        CategoryEnum[CategoryEnum["Miscellany"] = 'Miscellany'] = "Miscellany";
-        CategoryEnum[CategoryEnum["Pressure"] = 'Pressure'] = "Pressure";
-        CategoryEnum[CategoryEnum["Proportion"] = 'Proportion'] = "Proportion";
-        CategoryEnum[CategoryEnum["Rating"] = 'Rating'] = "Rating";
-        CategoryEnum[CategoryEnum["Temperature"] = 'Temperature'] = "Temperature";
-        CategoryEnum[CategoryEnum["Volume"] = 'Volume'] = "Volume";
-        CategoryEnum[CategoryEnum["Weight"] = 'Weight'] = "Weight";
-        CategoryEnum[CategoryEnum["Count"] = 'Count'] = "Count";
-    })(CategoryEnum = Unit.CategoryEnum || (Unit.CategoryEnum = {}));
-})(Unit = exports.Unit || (exports.Unit = {}));
 //# sourceMappingURL=Unit.js.map

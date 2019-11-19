@@ -318,27 +318,4 @@ var UserApi = /** @class */ (function () {
     return UserApi;
 }());
 exports.UserApi = UserApi;
-var queryParameters = {};
-var headerParams = Object.assign({}, this.defaultHeaders);
-// verify required parameter 'body' is not null or undefined
-if (body === null || body === undefined) {
-    throw new Error('Required parameter body was null or undefined when calling postUserSettings.');
-}
-if (clientId !== undefined) {
-    queryParameters['clientId'] = clientId;
-}
-if (platform !== undefined) {
-    queryParameters['platform'] = platform;
-}
-var httpRequestParams = {
-    method: 'POST',
-    url: localVarPath,
-    data: body,
-    params: queryParameters,
-    headers: headerParams
-};
-if (extraHttpRequestParams) {
-    httpRequestParams = Object.assign(httpRequestParams, extraHttpRequestParams);
-}
-return this.$http(httpRequestParams);
 //# sourceMappingURL=UserApi.js.map
