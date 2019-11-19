@@ -2,15 +2,30 @@
 /// <reference types="cypress" />
 describe('WordPress', function(){
     function htmlAtUrlContains(urlWithoutSlashAtEnd, expected){
-        cy.visit(url)
+        cy.visit(urlWithoutSlashAtEnd)
         cy.get('html').should('contain', expected)
         cy.visit(urlWithoutSlashAtEnd+'/')
-        cy.get('html').should('contain', expected)
+        cy.get('html', {timeout: 30000}).should('contain', expected)
     }
+    function iFrameAttUrlContains(urlWithoutSlashAtEnd, expected){
+        cy.visit(urlWithoutSlashAtEnd)
+        cy.getWithinIframe('html').should('contain', expected)
+        cy.visit(urlWithoutSlashAtEnd+'/')
+        cy.getWithinIframe('html', {timeout: 30000}).should('contain', expected)
+    }
+    it('Checks the privacy policy', function(){
+        cy.visit('https://quantimo.do')
+        cy.get('a[href*="/privacy-policy/"]').click({force: true})
+        cy.getWithinIframe('html').should('contain', 'committed to protecting')
+
+        iFrameAttUrlContains('https://quantimo.do/privacy-policy', 'committed to protecting')
+    })
     it('Clicks pricing page link', function(){
         cy.visit('https://quantimo.do')
         cy.get('a').contains("Pricing").click({force: true})
         cy.get('a').contains("Request Demo").should('exist')
+
+        htmlAtUrlContains('https://quantimo.do/pricing', "Pricing")
     })
     it('Clicks the Drift chat button', function(){
         cy.visit('https://quantimo.do')
@@ -29,13 +44,6 @@ describe('WordPress', function(){
     it('Clicks the QuantiModo floating action button', function(){
         cy.visit('https://quantimo.do')
         cy.get('#single-floating-action-button').click({force: true, multiple: true})
-    })
-    it('Checks the privacy policy', function(){
-        cy.visit('https://quantimo.do')
-        cy.get('a[href*="/privacy-policy/"]').click({force: true})
-        cy.getWithinIframe('html').should('contain', 'committed to protecting')
-
-        htmlAtUrlContains('https://quantimo.do/privacy-policy', 'committed to protecting')
     })
     it('Checks the end user terms of service', function(){
         cy.visit('https://quantimo.do')
