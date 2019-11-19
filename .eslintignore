@@ -1,2 +1,4 @@
 cypress/extensions/*
 /typescript*
+quantimodo-api.js
+quantimodo-web.js

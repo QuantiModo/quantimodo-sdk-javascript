@@ -25,14 +25,5 @@
   "rules": {
     "no-console": "off",
     "indent": "warn"
-  },
-  "overrides": [
-    {
-      "files": ["bin/*.js", "lib/*.js"],
-      "excludedFiles": "*.test.js",
-      "rules": {
-        "quotes": ["error", "single"]
-      }
-    }
-  ]
+  }
 }

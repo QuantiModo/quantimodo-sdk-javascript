@@ -35,7 +35,7 @@
     "deploy:prepare": "./scripts/create_npmrc_file.sh",
     "effective:config": "circleci config process circle.yml | sed /^#/d",
     "eslint": "eslint .",
-    "eslint-fix": "eslint --project . --fix",
+    "eslint-fix": "eslint . --fix",
     "tslint": "tslint --project .",
     "tslint-fix": "tslint --project . --fix",
     "lint:yaml": "yamllint '*.yml' 'basic/*.yml' .buildkite/pipeline.yml .semaphore/semaphore.yml '.github/workflows/*.yml'",
