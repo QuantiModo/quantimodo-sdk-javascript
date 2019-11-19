@@ -133,7 +133,6 @@
     "superagent": "3.8.3",
     "swagger-js-codegen": "1.13.0",
     "swagger-ts-generator": "1.2.6",
-    "swagger-typescript-codegen": "3.0.2",
     "ts-loader": "6.2.1",
     "ts-node": "8.5.2",
     "tslint": "5.20.1",
