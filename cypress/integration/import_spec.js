@@ -20,7 +20,7 @@ describe('Import Data', function () {
     goToImportPageFromInbox()
     cy.get('#connect-tigerview-button').click()
   })
-  it('Connects Withings', function () {
+  it.skip('Connects Withings', function () {
     goToImportPageFromInbox()
     cy.get('#connect-withings-button', { timeout: 30000 }).click({ force: true })
     cy.url().should('contain', 'upgrade')
