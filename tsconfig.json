@@ -58,6 +58,7 @@
     "test/*.test.ts",
     "src/helpers/*.ts",
     "src/typescript-fetch/*.ts",
-    "src/typescript-node-client-generated/*.ts"
+    "typescript-node-client/*.ts",
+    "typescript-angularjs-client/**/*.ts"
   ]
 }

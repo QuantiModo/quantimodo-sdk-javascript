@@ -73,6 +73,7 @@
     "@octokit/rest": "^16.35.0",
     "@slack/types": "^1.0.0",
     "@slack/webhook": "^5.0.0",
+    "@types/angular": "latest",
     "@types/bluebird": "3.5.29",
     "@types/chai": "^4.2.0",
     "@types/cypress": "^1.1.3",
@@ -138,7 +139,8 @@
     "tslint": "5.20.1",
     "typescript": "3.7.2",
     "underscore.string": "3.3.5",
-    "yaml-lint": "1.2.4"
+    "yaml-lint": "1.2.4",
+    "angular": "latest"
   },
   "resolutions": {
     "set-value": "2.0.1",
