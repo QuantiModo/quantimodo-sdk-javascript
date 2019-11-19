@@ -143,7 +143,7 @@ function runCypressTests(cb, specificSpec) {
                     }).catch(function (err) {
                         qmGit.setGithubStatus("error", context, err, getReportUrl(), function () {
                             console.error(err);
-                            throw err;
+                            process.exit(1);
                         });
                     });
                 }); });
@@ -206,15 +206,18 @@ function getCiProvider() {
 }
 exports.getCiProvider = getCiProvider;
 function getLastFailedCypressTest() {
-    return fs.readFileSync(lastFailedCypressTestPath, "utf8");
+    try {
+        return fs.readFileSync(lastFailedCypressTestPath, "utf8");
+    }
+    catch (error) {
+        return null;
+    }
 }
 function deleteLastFailedCypressTest() {
     try {
         fs.unlinkSync(lastFailedCypressTestPath);
     }
-    catch (err) {
-        console.error(err);
-    }
+    catch (err) { }
 }
 function runLastFailedCypressTest(cb) {
     var name = getLastFailedCypressTest();

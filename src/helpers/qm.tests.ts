@@ -20,16 +20,13 @@ const verbose = true;
 const videoDirectory = `${sdkRepo}/cypress/videos`;
 const mergedJsonPath = outputReportDir + "/mochawesome.json";
 const lastFailedCypressTestPath = 'last-failed-cypress-test'
-
 function getReportUrl(reportPath?: string) {
     if(process.env.JOB_URL){
         return process.env.JOB_URL+'ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html';
     }
     return getBuildLink();
 }
-
 export function mochawesome(failedTests: any[], cb: (err: any) => void){
-
     console.log("Merging reports...")
     merge({
         reportDir: unmerged,
@@ -141,7 +138,7 @@ export function runCypressTests(cb: (err: any) => void, specificSpec?: string) {
                     }).catch((err: any) => {
                         qmGit.setGithubStatus("error", context, err, getReportUrl(), function () {
                             console.error(err)
-                            throw err;
+                            process.exit(1);
                         })
                     })
                 }));
@@ -192,7 +189,11 @@ export function getCiProvider() {
     return process.env.HOSTNAME;
 }
 function getLastFailedCypressTest() {
-    return fs.readFileSync(lastFailedCypressTestPath, "utf8");
+    try {
+        return fs.readFileSync(lastFailedCypressTestPath, "utf8");
+    } catch (error) {
+        return null;
+    }
 }
 function deleteLastFailedCypressTest() {
     try {fs.unlinkSync(lastFailedCypressTestPath)} catch(err) {}
