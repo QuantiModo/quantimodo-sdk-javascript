@@ -4,26 +4,26 @@ import * as fileHelper from "../ts/qm.file-helper";
 import * as url from "url";
 import * as https from "https";
 import * as _str from "underscore.string";
-function t() {
-    // @ts-ignore
-    return this.currentTest
-}
 beforeEach(function (done) {
+    let t = this.currentTest
     this.timeout(10000) // Default 2000 is too fast for Github API
-    qmGit.setGithubStatus("pending", t().title, "Running...", null, function (res) {
+    // @ts-ignore
+    qmGit.setGithubStatus("pending", t.title, "Running...", null, function (res) {
         //console.debug(res)
         done();
     });
 });
 afterEach(function (done) {
-    let state = t().state
+    let t = this.currentTest
+    // @ts-ignore
+    let state = t.state
     if (!state) {
         console.debug("No test state in afterEach!")
         done();
         return;
     }
     // @ts-ignore
-    qmGit.setGithubStatus(state, t().title, t().title, null, function (res) {
+    qmGit.setGithubStatus(state, t.title, t.title, null, function (res) {
         //console.debug(res)
         done();
     });
