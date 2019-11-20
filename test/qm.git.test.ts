@@ -1,8 +1,5 @@
 import { expect } from "chai";
-import * as https from "https";
-import * as url from "url";
-import * as qmGit from "../src/helpers/qm.git";
-const isWin = process.platform === "win32";
+import * as qmGit from "../src/ts/qm.git";
 describe("git", () => {
   it("sets commit status", (done) => {
     qmGit.setGithubStatus("pending", "test context", "test description", "https://get-bent.com", function(res) {

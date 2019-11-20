@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import * as https from "https";
 import * as url from "url";
-import * as fileHelper from "../src/helpers/qm.file-helper";
+import * as fileHelper from "../src/ts/qm.file-helper";
 describe("s3 uploader", () => {
   it("uploads a file", (done) => {
     fileHelper.uploadToS3("ionIcons.js", "tests", function(uploadResponse) {
