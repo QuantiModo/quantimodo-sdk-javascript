@@ -1,9 +1,9 @@
-import * as path from "path";
-import * as qmTests from "./qm.tests";
 import Octokit from "@octokit/rest";
 import appRoot from "app-root-path";
-import _str from "underscore.string";
+import * as path from "path";
 import origin from "remote-origin-url";
+import _str from "underscore.string";
+import * as qmTests from "./qm.tests";
 export function getOctoKit() {
     return new Octokit({auth: getAccessToken()});
 }
@@ -73,33 +73,27 @@ export function getRepoUserName() {
     try {
         return require("child_process").execSync("git rev-parse HEAD").toString().trim();
     } catch (error) {
+        // tslint:disable-next-line:no-console
         console.info(error);
     }
 }
 /**
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */
+// tslint:disable-next-line:max-line-length
 export function setGithubStatus(state: any, context: any, description: any, url?: any, cb?: ((arg0: any) => void) | undefined) {
     console.log(`${context} - ${description} - ${state}`);
     description = _str.truncate(description, 135);
     const params = {
+        context,
+        description,
         owner: getRepoUserName(),
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
         state,
         target_url: url || qmTests.getBuildLink(),
-        description,
-        context,
     };
-    getOctoKit().repos.createStatus(params, function(err: any, _res: any) {
-            if (err) {
-                // tslint:disable-next-line:no-console
-                console.error(err);
-                process.exit(1);
-                throw err;
-            }
-        },
-    ).then((data: any) => {
+    getOctoKit().repos.createStatus(params).then((data: any) => {
         if (cb) {
             cb(data);
         }
@@ -110,6 +104,7 @@ export function setGithubStatus(state: any, context: any, description: any, url?
     });
 }
 export function getBranchName() {
+    // tslint:disable-next-line:max-line-length
     const name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;
     if (!name) {
         throw new Error("Branch name not set!");
