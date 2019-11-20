@@ -26,5 +26,4 @@ echo "Saving host environment variables to host.env to access within docker"
 printenv > ${REPO_DIR}/.env
 echo "Creating /etc/asound.conf to deal with cannot find card '0' error message spam output"
 sudo cp asound.conf /etc/asound.conf
-gulp cypress-failed
-gulp cypress
+npm run ci
