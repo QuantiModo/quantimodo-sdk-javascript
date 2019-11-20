@@ -4,8 +4,6 @@ SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SO
 SCRIPT_FOLDER=`dirname ${SCRIPT_PATH}` && cd ${SCRIPT_FOLDER} && cd .. && export REPO_DIR="$PWD"
 set -x
 rm cypress.env.json || true
-export RELEASE_STAGE="${RELEASE_STAGE:-staging}"
-cp cypress/config/cypress.${RELEASE_STAGE}.json cypress.json
 set +x
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' xvfb|grep "install ok installed")
 echo Checking for xvfb: ${PKG_OK}
