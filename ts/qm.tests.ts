@@ -100,7 +100,7 @@ export function runCypressTests(cb: (err: any) => void, specificSpec?: string) {
         const browser = process.env.CYPRESS_BROWSER || "electron";
         fs.readdir(specsPath, function(err: any, specFileNames: string[]) {
             if (!specFileNames) {
-                throw new Error("No specFileNames in " + path);
+                throw new Error("No specFileNames in " + specsPath);
             }
             for (let i = 0, p = Promise.resolve(); i < specFileNames.length; i++) {
                 const specName = specFileNames[i];
@@ -109,7 +109,7 @@ export function runCypressTests(cb: (err: any) => void, specificSpec?: string) {
                     continue;
                 }
                 p = p.then((_) => new Promise((resolve) => {
-                    const specPath = path + "/" + specName;
+                    const specPath = specsPath + "/" + specName;
                     const context = specName.replace("_spec.js", "");
                     qmGit.setGithubStatus("pending", context, `Running ${context} Cypress tests...`);
                     // noinspection JSUnresolvedFunction
