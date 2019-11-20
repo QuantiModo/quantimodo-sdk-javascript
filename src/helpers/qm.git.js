@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -6,18 +9,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+var rest_1 = __importDefault(require("@octokit/rest"));
+var app_root_path_1 = __importDefault(require("app-root-path"));
 var path = __importStar(require("path"));
-var qmTests = __importStar(require("./qm.tests"));
-var Octokit = require("@octokit/rest");
-var appRoot = require("app-root-path");
-var _str = require("underscore.string");
 var remote_origin_url_1 = __importDefault(require("remote-origin-url"));
+var underscore_string_1 = __importDefault(require("underscore.string"));
+var qmTests = __importStar(require("./qm.tests"));
 function getOctoKit() {
-    return new Octokit({ auth: getAccessToken() });
+    return new rest_1.default({ auth: getAccessToken() });
 }
 exports.getOctoKit = getOctoKit;
 function getCurrentGitCommitSha() {
@@ -49,10 +49,10 @@ function getRepoUrl() {
     if (process.env.GIT_URL) {
         return process.env.GIT_URL;
     }
-    var appRootString = appRoot.toString();
+    var appRootString = app_root_path_1.default.toString();
     var configPath = path.resolve(appRootString, ".git/config");
     // @ts-ignore
-    var gitUrl = remote_origin_url_1.default.sync({ path: configPath, cwd: appRoot });
+    var gitUrl = remote_origin_url_1.default.sync({ path: configPath, cwd: app_root_path_1.default });
     if (!gitUrl) {
         throw new Error('cannot find ".git/config"');
     }
@@ -61,7 +61,7 @@ function getRepoUrl() {
 exports.getRepoUrl = getRepoUrl;
 function getRepoParts() {
     var gitUrl = getRepoUrl();
-    gitUrl = _str.strRight(gitUrl, "github.com/");
+    gitUrl = underscore_string_1.default.strRight(gitUrl, "github.com/");
     gitUrl = gitUrl.replace(".git", "");
     var parts = gitUrl.split("/");
     if (!parts || parts.length > 2) {
@@ -93,6 +93,7 @@ function getRepoUserName() {
         return require("child_process").execSync("git rev-parse HEAD").toString().trim();
     }
     catch (error) {
+        // tslint:disable-next-line:no-console
         console.info(error);
     }
 }
@@ -100,25 +101,20 @@ exports.getRepoUserName = getRepoUserName;
 /**
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */
+// tslint:disable-next-line:max-line-length
 function setGithubStatus(state, context, description, url, cb) {
     console.log(context + " - " + description + " - " + state);
-    description = _str.truncate(description, 135);
+    description = underscore_string_1.default.truncate(description, 135);
     var params = {
+        context: context,
+        description: description,
         owner: getRepoUserName(),
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
         state: state,
         target_url: url || qmTests.getBuildLink(),
-        description: description,
-        context: context,
     };
-    getOctoKit().repos.createStatus(params, function (err, _res) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-            throw err;
-        }
-    }).then(function (data) {
+    getOctoKit().repos.createStatus(params).then(function (data) {
         if (cb) {
             cb(data);
         }
@@ -130,6 +126,7 @@ function setGithubStatus(state, context, description, url, cb) {
 }
 exports.setGithubStatus = setGithubStatus;
 function getBranchName() {
+    // tslint:disable-next-line:max-line-length
     var name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;
     if (!name) {
         throw new Error("Branch name not set!");

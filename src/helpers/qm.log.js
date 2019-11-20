@@ -8,6 +8,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var QUANTIMODO_CLIENT_ID = process.env.QUANTIMODO_CLIENT_ID || process.env.CLIENT_ID;
+// tslint:disable-next-line:max-line-length
 var AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY; // Netlify has their own
 function isTruthy(value) { return (value && value !== "false"); }
 var qmTests = __importStar(require("./qm.tests"));
@@ -72,17 +73,17 @@ function isSecretWord(propertyName) {
         lowerCaseProperty.indexOf("token") !== -1;
 }
 exports.isSecretWord = isSecretWord;
-function obfuscateString(string) {
+function obfuscateString(str) {
     var env = process.env;
     for (var propertyName in env) {
         if (env.hasOwnProperty(propertyName)) {
             if (isSecretWord(propertyName)) {
                 // @ts-ignore
-                string = string.replace(env[propertyName], "[SECURE]");
+                str = str.replace(env[propertyName], "[SECURE]");
             }
         }
     }
-    return string;
+    return str;
 }
 exports.obfuscateString = obfuscateString;
 function obfuscateSecrets(object) {

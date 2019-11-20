@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -7,26 +10,29 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var app_root_path_1 = __importDefault(require("app-root-path"));
 var cypress = __importStar(require("cypress"));
+var slack_alert_js_1 = require("cypress-slack-reporter/bin/slack/slack-alert.js");
+var dotenv_1 = __importDefault(require("dotenv"));
 var fs = __importStar(require("fs"));
+// @ts-ignore
+var mochawesome_merge_1 = require("mochawesome-merge");
+// @ts-ignore
+var mochawesome_report_generator_1 = __importDefault(require("mochawesome-report-generator"));
+var path = __importStar(require("path"));
+var rimraf_1 = __importDefault(require("rimraf"));
 var fileHelper = __importStar(require("./qm.file-helper"));
 var qmGit = __importStar(require("./qm.git"));
 var qmLog = __importStar(require("./qm.log"));
-var sdkRepo = require("app-root-path");
-var rimraf = require("rimraf");
-var marge = require("mochawesome-report-generator");
-var merge = require("mochawesome-merge").merge;
-var slackRunner = require("cypress-slack-reporter/bin/slack/slack-alert.js").slackRunner;
-var dotenv = require("dotenv");
-dotenv.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
+dotenv_1.default.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
 var ciProvider = getCiProvider();
 var isWin = process.platform === "win32";
-var outputReportDir = sdkRepo + "/mochawesome-report";
-var screenshotDirectory = sdkRepo + "/mochawesome-report/assets";
-var unmerged = sdkRepo + "/cypress/reports/mocha";
+var outputReportDir = app_root_path_1.default + "/mochawesome-report";
+var screenshotDirectory = app_root_path_1.default + "/mochawesome-report/assets";
+var unmerged = app_root_path_1.default + "/cypress/reports/mocha";
 var vcsProvider = "github";
 var verbose = true;
-var videoDirectory = sdkRepo + "/cypress/videos";
+var videoDirectory = app_root_path_1.default + "/cypress/videos";
 var mergedJsonPath = outputReportDir + "/mochawesome.json";
 var lastFailedCypressTestPath = "last-failed-cypress-test";
 var cypressEnvPath = fileHelper.getAbsolutePath("cypress.env.json");
@@ -40,33 +46,33 @@ function getReportUrl() {
 }
 function mochawesome(failedTests, cb) {
     console.log("Merging reports...");
-    merge({
-        reportDir: unmerged,
+    mochawesome_merge_1.merge({
         inline: true,
+        reportDir: unmerged,
         saveJson: true,
     }).then(function (mergedJson) {
         fs.writeFileSync(mergedJsonPath, JSON.stringify(mergedJson, null, 2));
         console.log("Generating report from " + unmerged + " and outputting at " + outputReportDir);
-        return marge.create(mergedJson, {
-            reportDir: outputReportDir,
-            inline: true,
-            saveJson: true,
-            charts: true,
-            showPassed: true,
-            autoOpen: isWin,
+        return mochawesome_report_generator_1.default.create(mergedJson, {
             // cdn: true,
+            autoOpen: isWin,
+            charts: true,
+            inline: true,
             overwrite: true,
+            reportDir: outputReportDir,
+            saveJson: true,
+            showPassed: true,
         });
-    }).then(function (_generatedReport) {
-        console.log("Merged report available here:-", _generatedReport[0]);
+    }).then(function (generatedReport) {
+        console.log("Merged report available here:-", generatedReport[0]);
         // tslint:disable-next-line: no-console
         console.log("Constructing Slack message with the following options", {
             ciProvider: ciProvider,
-            vcsProvider: vcsProvider,
             outputReportDir: outputReportDir,
-            videoDirectory: videoDirectory,
             screenshotDirectory: screenshotDirectory,
+            vcsProvider: vcsProvider,
             verbose: verbose,
+            videoDirectory: videoDirectory,
         });
         try {
             // @ts-ignore
@@ -75,9 +81,8 @@ function mochawesome(failedTests, cb) {
                 console.error("env SLACK_WEBHOOK_URL not set!");
             }
             else {
-                slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose).catch(function (err) {
-                    throw err;
-                });
+                // @ts-ignore
+                slack_alert_js_1.slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose);
                 // tslint:disable-next-line: no-console
                 console.log("Finished slack upload");
             }
@@ -85,7 +90,7 @@ function mochawesome(failedTests, cb) {
         catch (error) {
             console.error(error);
         }
-        cb(_generatedReport[0]);
+        cb(generatedReport[0]);
     });
 }
 exports.mochawesome = mochawesome;
@@ -98,10 +103,10 @@ function copyCypressEnvConfigIfNecessary() {
 function runCypressTests(cb, specificSpec) {
     deleteSuccessFile();
     copyCypressEnvConfigIfNecessary();
-    rimraf("./cypress/reports/mocha/*.json", function () {
-        var path = sdkRepo + "/cypress/integration";
+    rimraf_1.default("./cypress/reports/mocha/*.json", function () {
+        var specsPath = app_root_path_1.default + "/cypress/integration";
         var browser = process.env.CYPRESS_BROWSER || "electron";
-        fs.readdir(path, function (err, specFileNames) {
+        fs.readdir(specsPath, function (err, specFileNames) {
             if (!specFileNames) {
                 throw new Error("No specFileNames in " + path);
             }
@@ -117,8 +122,8 @@ function runCypressTests(cb, specificSpec) {
                     qmGit.setGithubStatus("pending", context, "Running " + context + " Cypress tests...");
                     // noinspection JSUnresolvedFunction
                     cypress.run({
-                        spec: specPath,
                         browser: browser,
+                        spec: specPath,
                     }).then(function (results) {
                         if (!results.runs || !results.runs[0]) {
                             console.log("No runs property on " + JSON.stringify(results, null, 2));
@@ -130,6 +135,7 @@ function runCypressTests(cb, specificSpec) {
                             });
                             if (failedTests_1 && failedTests_1.length) {
                                 fs.writeFileSync(lastFailedCypressTestPath, specName);
+                                // tslint:disable-next-line:prefer-for-of
                                 for (var j = 0; j < failedTests_1.length; j++) {
                                     var test_1 = failedTests_1[j];
                                     var testName = test_1.title[1];
@@ -142,9 +148,9 @@ function runCypressTests(cb, specificSpec) {
                                     qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
                                         errorMessage, getReportUrl(), function () {
                                         console.error(errorMessage);
-                                        //cb(errorMessage);
+                                        // cb(errorMessage);
                                         process.exit(1);
-                                        //resolve();
+                                        // resolve();
                                     });
                                 });
                             }
@@ -160,6 +166,7 @@ function runCypressTests(cb, specificSpec) {
                             deleteEnvFile();
                             cb(false);
                         }
+                        // tslint:disable-next-line:no-shadowed-variable
                     }).catch(function (err) {
                         qmGit.setGithubStatus("error", context, err, getReportUrl(), function () {
                             console.error(err);
@@ -183,10 +190,12 @@ function getBuildLink() {
         return process.env.BUILD_URL + "/console";
     }
     if (process.env.BUDDYBUILD_APP_ID) {
-        return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" + process.env.BUDDYBUILD_APP_ID;
+        return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" +
+            process.env.BUDDYBUILD_APP_ID;
     }
     if (process.env.CIRCLE_BUILD_NUM) {
-        return "https://circleci.com/gh/QuantiModo/quantimodo-android-chrome-ios-web-app/" + process.env.CIRCLE_BUILD_NUM;
+        return "https://circleci.com/gh/QuantiModo/quantimodo-android-chrome-ios-web-app/" +
+            process.env.CIRCLE_BUILD_NUM;
     }
     if (process.env.TRAVIS_BUILD_ID) {
         return "https://travis-ci.org/" + process.env.TRAVIS_REPO_SLUG + "/builds/" + process.env.TRAVIS_BUILD_ID;
@@ -201,13 +210,13 @@ function createSuccessFile() {
 exports.createSuccessFile = createSuccessFile;
 function deleteSuccessFile() {
     qmLog.info("Deleting success file so we know if build completed...");
-    rimraf(successFilename, function () {
+    rimraf_1.default(successFilename, function () {
         qmLog.info("Deleted success file!");
     });
 }
 exports.deleteSuccessFile = deleteSuccessFile;
 function deleteEnvFile() {
-    rimraf(".env", function () {
+    rimraf_1.default(".env", function () {
         qmLog.info("Deleted env file!");
     });
 }
@@ -222,6 +231,7 @@ function getCiProvider() {
     if (process.env.JENKINS_URL) {
         return "jenkins";
     }
+    // @ts-ignore
     return process.env.HOSTNAME;
 }
 exports.getCiProvider = getCiProvider;
@@ -234,11 +244,13 @@ function getLastFailedCypressTest() {
     }
 }
 function deleteLastFailedCypressTest() {
+    // tslint:disable-next-line:no-empty
     try {
         fs.unlinkSync(lastFailedCypressTestPath);
     }
     catch (err) { }
 }
+// tslint:disable-next-line:unified-signatures
 function runLastFailedCypressTest(cb) {
     var name = getLastFailedCypressTest();
     if (!name) {

@@ -17,7 +17,7 @@ export function getTimeSinceString(unixTimestamp: any) {
         return "never";
     }
     // @ts-ignore
-    const secondsAgo = secondsAgo(unixTimestamp);
+    const secondsAgo = getSecondsAgo(unixTimestamp);
     if (secondsAgo > 2 * 24 * 60 * 60) {
         return Math.round(secondsAgo / (24 * 60 * 60)) + " days ago";
     }
@@ -30,6 +30,6 @@ export function getTimeSinceString(unixTimestamp: any) {
     return secondsAgo + " seconds ago";
 }
 
-export function secondsAgo(unixTimestamp: number) {
+export function getSecondsAgo(unixTimestamp: number) {
     return Math.round((getUnixTimestampInSeconds() - unixTimestamp));
 }

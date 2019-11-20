@@ -8,9 +8,9 @@ describe("s3 uploader", () => {
       const myURL = url.parse(uploadResponse.Location);
       const options = {
         hostname: myURL.hostname,
-        port: 443,
-        path: myURL.path,
         method: "GET",
+        path: myURL.path,
+        port: 443,
       };
       const req = https.request(options, (res) => {
         console.log(`statusCode: ${res.statusCode}`);

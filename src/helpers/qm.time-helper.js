@@ -19,7 +19,7 @@ function getTimeSinceString(unixTimestamp) {
         return "never";
     }
     // @ts-ignore
-    var secondsAgo = secondsAgo(unixTimestamp);
+    var secondsAgo = getSecondsAgo(unixTimestamp);
     if (secondsAgo > 2 * 24 * 60 * 60) {
         return Math.round(secondsAgo / (24 * 60 * 60)) + " days ago";
     }
@@ -32,8 +32,8 @@ function getTimeSinceString(unixTimestamp) {
     return secondsAgo + " seconds ago";
 }
 exports.getTimeSinceString = getTimeSinceString;
-function secondsAgo(unixTimestamp) {
+function getSecondsAgo(unixTimestamp) {
     return Math.round((getUnixTimestampInSeconds() - unixTimestamp));
 }
-exports.secondsAgo = secondsAgo;
+exports.getSecondsAgo = getSecondsAgo;
 //# sourceMappingURL=qm.time-helper.js.map

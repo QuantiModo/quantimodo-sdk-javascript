@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -8,9 +11,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
+var app_root_path_1 = __importDefault(require("app-root-path"));
+var aws_sdk_1 = __importDefault(require("aws-sdk"));
 var fs = __importStar(require("fs"));
 var path = __importStar(require("path"));
-var appRoot = require("app-root-path");
 function getS3Client() {
     var AWS_ACCESS_KEY_ID = process.env.QM_AWS_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID; // Netlify has their own
     var AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY; // Netlify has their own
@@ -18,8 +22,7 @@ function getS3Client() {
         accessKeyId: AWS_ACCESS_KEY_ID,
         secretAccessKey: AWS_SECRET_ACCESS_KEY,
     };
-    var AWS = require("aws-sdk");
-    return new AWS.S3(s3Options);
+    return new aws_sdk_1.default.S3(s3Options);
 }
 exports.getS3Client = getS3Client;
 function uploadToS3(filePath, s3BasePath, cb, s3Bucket, ACL) {
@@ -31,9 +34,9 @@ function uploadToS3(filePath, s3BasePath, cb, s3Bucket, ACL) {
     var s3Key = s3BasePath + "/" + fileName;
     var params = {
         ACL: ACL,
+        Body: fileContent,
         Bucket: s3Bucket,
         Key: s3Key,
-        Body: fileContent,
     };
     s3.upload(params, function (err, data) {
         if (err) {
@@ -47,8 +50,8 @@ function uploadToS3(filePath, s3BasePath, cb, s3Bucket, ACL) {
 }
 exports.uploadToS3 = uploadToS3;
 function writeToFile(filePath, contents, cb) {
-    function ensureDirectoryExistence(filePath) {
-        var dirname = path.dirname(filePath);
+    function ensureDirectoryExistence(filePathToCheck) {
+        var dirname = path.dirname(filePathToCheck);
         if (fs.existsSync(dirname)) {
             return true;
         }
@@ -60,6 +63,7 @@ function writeToFile(filePath, contents, cb) {
         if (err) {
             throw err;
         }
+        // tslint:disable-next-line:no-console
         console.log(filePath + " saved!");
         if (cb) {
             cb();
@@ -68,7 +72,7 @@ function writeToFile(filePath, contents, cb) {
 }
 exports.writeToFile = writeToFile;
 function getAbsolutePath(relativePath) {
-    return path.resolve(appRoot.toString(), relativePath);
+    return path.resolve(app_root_path_1.default.toString(), relativePath);
 }
 exports.getAbsolutePath = getAbsolutePath;
 //# sourceMappingURL=qm.file-helper.js.map
