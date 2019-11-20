@@ -81,7 +81,7 @@ export function getRepoUserName() {
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */
 // tslint:disable-next-line:max-line-length
-export function setGithubStatus(testState: string, context: string, description: string, url?: string, cb?: ((arg0: any) => void) | undefined) {
+export function setGithubStatus(testState: string, context: string, description: string, url?: string | null, cb?: ((arg0: any) => void) | undefined) {
     const state = convertTestStateToGithubState(testState);
     console.log(`${context} - ${description} - ${state}`);
     description = _str.truncate(description, 135);
