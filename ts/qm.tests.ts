@@ -23,9 +23,9 @@ const verbose = true;
 const videoDirectory = `${sdkRepo}/cypress/videos`;
 const mergedJsonPath = outputReportDir + "/mochawesome.json";
 const lastFailedCypressTestPath = "last-failed-cypress-test";
-const cypressEnvPath = fileHelper.getAbsolutePath("cypress.env.json");
+const cypressJson = fileHelper.getAbsolutePath("cypress.json");
 const releaseStage = process.env.RELEASE_STAGE || "development";
-const cypressConfigPath = fileHelper.getAbsolutePath(`cypress/config/cypress.${releaseStage}.json`);
+const envPath = fileHelper.getAbsolutePath(`cypress/config/cypress.${releaseStage}.json`);
 function getReportUrl() {
     if (process.env.JOB_URL) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html";
@@ -87,9 +87,9 @@ export function mochawesome(failedTests: any[], cb: (err: any) => void) {
     });
 }
 function copyCypressEnvConfigIfNecessary() {
-    if (!fs.existsSync(cypressEnvPath)) {
-        console.info(`No ${cypressEnvPath} present so copying ${cypressConfigPath}`);
-        fs.copyFileSync(cypressConfigPath, cypressEnvPath);
+    if (!fs.existsSync(cypressJson)) {
+        console.info(`No ${cypressJson} present so copying ${envPath}`);
+        fs.copyFileSync(envPath, cypressJson);
     }
 }
 export function runCypressTests(cb: (err: any) => void, specificSpec?: string) {
