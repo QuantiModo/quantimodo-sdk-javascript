@@ -18,7 +18,6 @@
     "build": "tsc",
     "ci": "npm run test",
     "circle": "npm run lint && npm run test:ci && make test && npm run pre-publish",
-    "cli": "rimraf cypress/reports && ts-node src/cli/spec.ts",
     "compile": "tsc",
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
     "cy:chrome": "cypress run --browser chrome",
