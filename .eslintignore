@@ -9,3 +9,4 @@ test/api/*
 test/api/*
 src/ApiClient.js
 src/helpers/psychedelic-loader.js
+src/index.js

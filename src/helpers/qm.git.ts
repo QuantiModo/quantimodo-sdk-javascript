@@ -1,8 +1,8 @@
 import * as path from "path";
 import * as qmTests from "./qm.tests";
-const Octokit = require("@octokit/rest");
-const appRoot = require("app-root-path");
-const _str = require("underscore.string");
+import Octokit from "@octokit/rest";
+import appRoot from "app-root-path";
+import _str from "underscore.string";
 import origin from "remote-origin-url";
 export function getOctoKit() {
     return new Octokit({auth: getAccessToken()});
@@ -81,7 +81,7 @@ export function getRepoUserName() {
  */
 export function setGithubStatus(state: any, context: any, description: any, url?: any, cb?: ((arg0: any) => void) | undefined) {
     console.log(`${context} - ${description} - ${state}`);
-    description = _str.truncate(description, 135)
+    description = _str.truncate(description, 135);
     const params = {
         owner: getRepoUserName(),
         repo: getRepoName(),
@@ -93,6 +93,7 @@ export function setGithubStatus(state: any, context: any, description: any, url?
     };
     getOctoKit().repos.createStatus(params, function(err: any, _res: any) {
             if (err) {
+                // tslint:disable-next-line:no-console
                 console.error(err);
                 process.exit(1);
                 throw err;

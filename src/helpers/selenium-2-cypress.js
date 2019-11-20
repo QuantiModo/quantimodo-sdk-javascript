@@ -1,5 +1,6 @@
 const str = require('./qm.string-helper')
 const fileHelper = require('./qm.file-helper')
+const fs = require('fs')
 const beautify = require('beautify')
 function addIfCommandThrowException(cmd){
     cmd = str.replaceQuoteBracketsWithBackTicks(cmd)

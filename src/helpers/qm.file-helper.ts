@@ -1,7 +1,9 @@
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
+import appRoot from "app-root-path";
+import AWS from "aws-sdk";
 import * as fs from "fs";
 import * as path from "path";
-const appRoot = require("app-root-path");
+
 export function getS3Client() {
   const AWS_ACCESS_KEY_ID =
     process.env.QM_AWS_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID; // Netlify has their own
@@ -11,7 +13,6 @@ export function getS3Client() {
     accessKeyId: AWS_ACCESS_KEY_ID,
     secretAccessKey: AWS_SECRET_ACCESS_KEY,
   };
-  const AWS = require("aws-sdk");
   return new AWS.S3(s3Options);
 }
 export function uploadToS3(
@@ -54,6 +55,7 @@ export  function writeToFile(filePath: string, contents: any, cb?: () => void) {
   ensureDirectoryExistence(filePath);
   fs.writeFile(filePath, contents, (err) => {
     if (err) { throw err; }
+    // tslint:disable-next-line:no-console
     console.log(filePath + " saved!");
     if (cb) {
       cb();
@@ -62,5 +64,5 @@ export  function writeToFile(filePath: string, contents: any, cb?: () => void) {
 }
 
 export function getAbsolutePath(relativePath: string) {
-  return path.resolve(appRoot.toString(), relativePath)
+  return path.resolve(appRoot.toString(), relativePath);
 }

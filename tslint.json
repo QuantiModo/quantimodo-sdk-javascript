@@ -1,5 +1,5 @@
 {
-  "extends": "tslint:latest",
+  "extends": "tslint:recommended",
   "linterOptions": {
     "exclude": [
       "bin",
@@ -8,5 +8,8 @@
       "typescript-angularjs-client/**/*.ts",
       "node_modules"
     ]
+  },
+  "rules": {
+    "no-implicit-dependencies": false
   }
 }

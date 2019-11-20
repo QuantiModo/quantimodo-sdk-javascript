@@ -1,74 +1,74 @@
-"use strict"
-let __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod
-    let result = {}
-    if (mod != null) for (let k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k]
-    result["default"] = mod
-    return result
-}
-Object.defineProperty(exports, "__esModule", { value: true })
+"use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
-let fs = __importStar(require("fs"))
-let path = __importStar(require("path"))
-let appRoot = require("app-root-path")
+var fs = __importStar(require("fs"));
+var path = __importStar(require("path"));
+var appRoot = require("app-root-path");
 function getS3Client() {
-    let AWS_ACCESS_KEY_ID = process.env.QM_AWS_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID // Netlify has their own
-    let AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY // Netlify has their own
-    let s3Options = {
+    var AWS_ACCESS_KEY_ID = process.env.QM_AWS_ACCESS_KEY_ID || process.env.AWS_ACCESS_KEY_ID; // Netlify has their own
+    var AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY; // Netlify has their own
+    var s3Options = {
         accessKeyId: AWS_ACCESS_KEY_ID,
         secretAccessKey: AWS_SECRET_ACCESS_KEY,
-    }
-    let AWS = require("aws-sdk")
-    return new AWS.S3(s3Options)
+    };
+    var AWS = require("aws-sdk");
+    return new AWS.S3(s3Options);
 }
-exports.getS3Client = getS3Client
+exports.getS3Client = getS3Client;
 function uploadToS3(filePath, s3BasePath, cb, s3Bucket, ACL) {
-    if (s3Bucket === void 0) { s3Bucket = "quantimodo" }
-    if (ACL === void 0) { ACL = "public-read" }
-    let s3 = getS3Client()
-    let fileContent = fs.readFileSync(filePath)
-    let fileName = path.basename(filePath)
-    let s3Key = s3BasePath + "/" + fileName
-    let params = {
-        ACL,
+    if (s3Bucket === void 0) { s3Bucket = "quantimodo"; }
+    if (ACL === void 0) { ACL = "public-read"; }
+    var s3 = getS3Client();
+    var fileContent = fs.readFileSync(filePath);
+    var fileName = path.basename(filePath);
+    var s3Key = s3BasePath + "/" + fileName;
+    var params = {
+        ACL: ACL,
         Bucket: s3Bucket,
         Key: s3Key,
         Body: fileContent,
-    }
+    };
     s3.upload(params, function (err, data) {
         if (err) {
-            throw err
+            throw err;
         }
-        console.log("File uploaded successfully. " + data.Location)
+        console.log("File uploaded successfully. " + data.Location);
         if (cb) {
-            cb(data)
+            cb(data);
         }
-    })
+    });
 }
-exports.uploadToS3 = uploadToS3
+exports.uploadToS3 = uploadToS3;
 function writeToFile(filePath, contents, cb) {
     function ensureDirectoryExistence(filePath) {
-        let dirname = path.dirname(filePath)
+        var dirname = path.dirname(filePath);
         if (fs.existsSync(dirname)) {
-            return true
+            return true;
         }
-        ensureDirectoryExistence(dirname)
-        fs.mkdirSync(dirname)
+        ensureDirectoryExistence(dirname);
+        fs.mkdirSync(dirname);
     }
-    ensureDirectoryExistence(filePath)
+    ensureDirectoryExistence(filePath);
     fs.writeFile(filePath, contents, function (err) {
         if (err) {
-            throw err
+            throw err;
         }
-        console.log(filePath + " saved!")
+        console.log(filePath + " saved!");
         if (cb) {
-            cb()
+            cb();
         }
-    })
+    });
 }
-exports.writeToFile = writeToFile
+exports.writeToFile = writeToFile;
 function getAbsolutePath(relativePath) {
-    return path.resolve(appRoot.toString(), relativePath)
+    return path.resolve(appRoot.toString(), relativePath);
 }
-exports.getAbsolutePath = getAbsolutePath
+exports.getAbsolutePath = getAbsolutePath;
 //# sourceMappingURL=qm.file-helper.js.map
