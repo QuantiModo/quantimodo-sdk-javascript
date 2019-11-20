@@ -4,6 +4,7 @@ called=$_ && [[ ${called} != $0 ]] && echo "${BASH_SOURCE[@]} is being sourced" 
 SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
 SCRIPT_FOLDER=`dirname ${SCRIPT_PATH}` && cd ${SCRIPT_FOLDER} && cd .. && export REPO_DIR="$PWD"
 set -x
+rm cypress.env.json
 export RELEASE_STAGE="${RELEASE_STAGE:-staging}"
 cp cypress/config/cypress.${RELEASE_STAGE}.json cypress.json
 set +x
