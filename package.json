@@ -63,7 +63,8 @@
     "test:mocha": "mocha -r ts-node/register test/**/*.test.ts",
     "types": "cd ts && tsc --noEmit",
     "up": "docker-compose up --abort-on-container-exit --exit-code-from e2e",
-    "warn-only": "stop-only -f cypress/integration --warn"
+    "warn-only": "stop-only -f cypress/integration --warn",
+    "watch": "tsc --watch --noEmit --project ./ts/tsconfig.json"
   },
   "browser": {
     "fs": false
@@ -153,5 +154,11 @@
     "set-value": "2.0.1",
     "braces": "2.3.1",
     "handlebars": "4.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": ""
+    }
   }
 }
