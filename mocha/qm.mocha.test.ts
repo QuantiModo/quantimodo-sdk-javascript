@@ -1,10 +1,26 @@
-import { expect } from "chai"
-import * as https from "https"
-import * as url from "url"
-import * as fileHelper from "../ts/qm.file-helper"
-import * as _str from "underscore.string"
-describe("s3 uploader", () => {
-  it("uploads a file", (done) => {
+import {expect} from "chai";
+import * as qmGit from "../ts/qm.git";
+import * as fileHelper from "../ts/qm.file-helper";
+import * as url from "url";
+import * as https from "https";
+import * as _str from "underscore.string";
+
+afterEach(function(){
+  // @ts-ignore
+  let test = this.currentTest;
+  // @ts-ignore
+  qmGit.setGithubStatus(test.state, test.title, test.title);
+});
+describe("git", () => {
+  it.skip("sets commit status", function(done) { // skipping because it pollutes the status checks
+    qmGit.setGithubStatus("pending", "test context", "test description", "https://get-bent.com", function(res) {
+      expect(res.status).to.eq(201);
+      done();
+    });
+  });
+});
+describe("s3 uploader", function () {
+  it("uploads a file", function (done) {
     fileHelper.uploadToS3("ionIcons.js", "tests", function(uploadResponse) {
       const myURL = url.parse(uploadResponse.Location)
       const options = {

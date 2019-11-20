@@ -82,6 +82,8 @@ export function getRepoUserName() {
  */
 // tslint:disable-next-line:max-line-length
 export function setGithubStatus(state: any, context: any, description: any, url?: any, cb?: ((arg0: any) => void) | undefined) {
+    if (state === "passed") {state = "success"; }
+    if (state === "failed") {state = "failure"; }
     console.log(`${context} - ${description} - ${state}`);
     description = _str.truncate(description, 135);
     const params = {
