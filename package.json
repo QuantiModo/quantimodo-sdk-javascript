@@ -22,6 +22,7 @@
     "compile": "tsc",
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
     "cy:chrome": "cypress run --browser chrome",
+    "cy:open": "cypress open",
     "cy:open:development": "cypress open --config-file cypress/config/cypress.development.json",
     "cy:open:production": "cypress open --config-file cypress/config/cypress.production.json",
     "cy:open:staging": "cypress open --config-file cypress/config/cypress.staging.json",

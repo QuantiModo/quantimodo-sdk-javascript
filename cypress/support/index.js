@@ -21,7 +21,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 beforeEach(function(){ // runs before each test in the block
     let url = Cypress.config('baseUrl')
-    if(!url){ throw "baseUrl not set!" }
+    if(!url){
+        debugger
+        throw "baseUrl not set!"
+    }
     cy.log(`baseUrl is ${url}`)
     cy.log(`API_HOST is ${Cypress.env('API_HOST')}`)
 })
