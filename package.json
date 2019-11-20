@@ -117,7 +117,7 @@
     "fs-extra": "^8.1.0",
     "ghost-inspector": "4.0.1",
     "git-repo-name": "1.0.1",
-    "gulp": "3.9.1",
+    "gulp": "4.0.2",
     "gulp-github": "0.3.6",
     "gulp-rimraf": "1.0.0",
     "gulp-s3-upload": "1.7.3",
