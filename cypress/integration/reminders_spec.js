@@ -55,7 +55,7 @@ describe('Reminders', function () {
             .each(($el, _index, _$list) => {
               let html = $el.html() // $el is a wrapped jQuery element
 
-              if (html.indexOf('showActionSheet') !== -1) {
+              if (html.indexOf('showActionSheet') !== -1 && $el.is('visible')) {
                 cy.log(`Deleting ${$el.text()} reminder`)
                 cy.wrap($el).click()
                 cy.clickActionSheetButtonContaining('Delete')
@@ -114,6 +114,19 @@ describe('Reminders', function () {
     cy.wait(25000) // Have to wait for save to complete
     goToCategoryInbox(variableCategoryName)
   }
+  it('Create a nutrient reminder and skip it', function () {
+    let variableName = 'Aaa Test Reminder Skip'
+    let variableCategoryName = 'Nutrients'
+    let frequency = '30 minutes'
+    let manageUrl = getManagePathForCategory(variableCategoryName)
+
+    cy.loginWithAccessTokenIfNecessary(manageUrl)
+    deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
+    cy.get('#notification-skip').click({ force: true })
+    cy.get('#notification-skip').should('not.exist')
+    cy.visit(manageUrl)
+    deleteReminders()
+  })
   it('Creates a sleep reminder and changes unit', function () {
     let variableName = 'Sleep Duration'
     let variableCategoryName = 'Sleep'
@@ -156,19 +169,6 @@ describe('Reminders', function () {
     let path = getManagePathForCategory('Sleep')
 
     cy.loginWithAccessTokenIfNecessary(path, true)
-    deleteReminders()
-  })
-  it('Create a nutrient reminder and skip it', function () {
-    let variableName = 'Aaa Test Reminder Skip'
-    let variableCategoryName = 'Nutrients'
-    let frequency = '30 minutes'
-    let manageUrl = getManagePathForCategory(variableCategoryName)
-
-    cy.loginWithAccessTokenIfNecessary(manageUrl)
-    deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
-    cy.get('#notification-skip').click({ force: true })
-    cy.get('#notification-skip').should('not.exist')
-    cy.visit(manageUrl)
     deleteReminders()
   })
   it('Creates a food reminder and snoozes it', function () {

@@ -7,3 +7,4 @@ plain-javascript-client
 dist
 test
 ts
+cypress
