@@ -35,7 +35,7 @@ var videoDirectory = app_root_path_1.default + "/cypress/videos";
 var mergedJsonPath = outputReportDir + "/mochawesome.json";
 var lastFailedCypressTestPath = "last-failed-cypress-test";
 var cypressJson = fileHelper.getAbsolutePath("cypress.json");
-var releaseStage = process.env.RELEASE_STAGE || "development";
+var releaseStage = process.env.RELEASE_STAGE || "staging";
 var envPath = fileHelper.getAbsolutePath("cypress/config/cypress." + releaseStage + ".json");
 function getReportUrl() {
     if (process.env.JOB_URL) {

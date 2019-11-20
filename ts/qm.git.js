@@ -102,9 +102,11 @@ exports.getRepoUserName = getRepoUserName;
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */
 // tslint:disable-next-line:max-line-length
-function setGithubStatus(state, context, description, url, cb) {
+function setGithubStatus(testState, context, description, url, cb) {
+    var state = convertTestStateToGithubState(testState);
     console.log(context + " - " + description + " - " + state);
     description = underscore_string_1.default.truncate(description, 135);
+    // @ts-ignore
     var params = {
         context: context,
         description: description,
@@ -125,6 +127,20 @@ function setGithubStatus(state, context, description, url, cb) {
     });
 }
 exports.setGithubStatus = setGithubStatus;
+function convertTestStateToGithubState(testState) {
+    var state = testState;
+    if (testState === "passed") {
+        state = "success";
+    }
+    if (testState === "failed") {
+        state = "failure";
+    }
+    if (!state) {
+        throw new Error("No state!");
+    }
+    // @ts-ignore
+    return state;
+}
 function getBranchName() {
     // tslint:disable-next-line:max-line-length
     var name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;

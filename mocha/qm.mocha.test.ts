@@ -4,12 +4,30 @@ import * as fileHelper from "../ts/qm.file-helper";
 import * as url from "url";
 import * as https from "https";
 import * as _str from "underscore.string";
-
-afterEach(function(){
+beforeEach(function(done){
+  this.timeout(10000) // Default 2000 is too fast for Github API
   // @ts-ignore
   let test = this.currentTest;
   // @ts-ignore
-  qmGit.setGithubStatus(test.state, test.title, test.title);
+  qmGit.setGithubStatus("pending", test.title, "Running...", null, function(res){
+    //console.debug(res)
+    done();
+  });
+});
+afterEach(function(done){
+  // @ts-ignore
+  let test = this.currentTest;
+  // @ts-ignore
+  if(!test.state){
+    console.debug("No test state in afterEach!")
+    done();
+    return;
+  }
+  // @ts-ignore
+  qmGit.setGithubStatus(test.state, test.title, test.title, null, function(res){
+    //console.debug(res)
+    done();
+  });
 });
 describe("git", () => {
   it.skip("sets commit status", function(done) { // skipping because it pollutes the status checks

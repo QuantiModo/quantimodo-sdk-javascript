@@ -81,12 +81,12 @@ export function getRepoUserName() {
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */
 // tslint:disable-next-line:max-line-length
-export function setGithubStatus(state: any, context: any, description: any, url?: any, cb?: ((arg0: any) => void) | undefined) {
-    if (state === "passed") {state = "success"; }
-    if (state === "failed") {state = "failure"; }
+export function setGithubStatus(testState: string, context: string, description: string, url?: string, cb?: ((arg0: any) => void) | undefined) {
+    const state = convertTestStateToGithubState(testState);
     console.log(`${context} - ${description} - ${state}`);
     description = _str.truncate(description, 135);
-    const params = {
+    // @ts-ignore
+    const params: Octokit.ReposCreateStatusParams = {
         context,
         description,
         owner: getRepoUserName(),
@@ -104,6 +104,16 @@ export function setGithubStatus(state: any, context: any, description: any, url?
         process.exit(1);
         throw err;
     });
+}
+function convertTestStateToGithubState(testState: string): "error" | "failure" | "pending" | "success" {
+    let state = testState;
+    if (testState === "passed") {state = "success"; }
+    if (testState === "failed") {state = "failure"; }
+    if (!state) {
+        throw new Error("No state!");
+    }
+    // @ts-ignore
+    return state;
 }
 export function getBranchName() {
     // tslint:disable-next-line:max-line-length
