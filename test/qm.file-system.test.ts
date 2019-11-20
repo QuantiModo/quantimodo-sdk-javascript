@@ -1,34 +1,35 @@
-import { expect } from "chai";
-import * as https from "https";
-import * as url from "url";
-import * as fileHelper from "../ts/qm.file-helper";
+import { expect } from "chai"
+import * as https from "https"
+import * as url from "url"
+import * as fileHelper from "../ts/qm.file-helper"
+import * as _str from "underscore.string"
 describe("s3 uploader", () => {
   it("uploads a file", (done) => {
     fileHelper.uploadToS3("ionIcons.js", "tests", function(uploadResponse) {
-      const myURL = url.parse(uploadResponse.Location);
+      const myURL = url.parse(uploadResponse.Location)
       const options = {
         hostname: myURL.hostname,
         method: "GET",
         path: myURL.path,
         port: 443,
-      };
+      }
       const req = https.request(options, (res) => {
-        console.log(`statusCode: ${res.statusCode}`);
-        expect(res.statusCode).to.eq(200);
-        let str = "";
+        console.log(`statusCode: ${res.statusCode}`)
+        expect(res.statusCode).to.eq(200)
+        let str = ""
         res.on("data", (chunk) => {
-          str += chunk;
-        });
+          str += chunk
+        })
         res.on("end", function() {
-          console.log(str);
-          expect(str).to.contain("iosArrowUp");
-          done();
-        });
-      });
+          console.log("RESPONSE: "+_str.truncate(str, 30))
+          expect(str).to.contain("iosArrowUp")
+          done()
+        })
+      })
       req.on("error", (error) => {
-        console.error(error);
-      });
-      req.end();
-    });
-  });
-});
+        console.error(error)
+      })
+      req.end()
+    })
+  })
+})
