@@ -30,17 +30,19 @@ let baseUrl = Cypress.config('baseUrl')
 let testUserName = 'testuser'
 let testUserPassword = 'testing123'
 Cypress.Commands.add('goToApiLoginPageAndLogin', (email = testUserName, password = testUserPassword) => {
+    cy.log(`=== goToApiLoginPageAndLogin as ${email} ===`)
     cy.visitApi(`/api/v2/auth/login?logout=1`)
     cy.enterCredentials('input[name="user_login"]', email,
         'input[name="user_pass"]', password,
         'input[type="submit"]')
 })
 Cypress.Commands.add('goToMobileConnectPage', () => {
+    cy.log(`=== goToMobileConnectPage ===`)
     cy.visitApi(`/api/v1/connect/mobile?log=testuser&pwd=testing123&clientId=ghostInspector`)
     cy.wait(5000)
 })
 Cypress.Commands.add('logoutViaApiLogoutUrl', () => {
-    cy.log('Logging out')
+    cy.log(`=== logoutViaApiLogoutUrl ===`)
     cy.visitApi(`/api/v2/auth/logout`).then(() => {
         cy.wait(2000)
         cy.visitApi(`/api/v2/auth/login`).then(() => {
@@ -62,6 +64,7 @@ function UpdateQueryString(key, value, uri){
     return `${uri + separator + key}=${value}`
 }
 Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminders-inbox', waitForAvatar = true) => {
+    cy.log(`=== loginWithAccessTokenIfNecessary at ${path} ===`)
     path = UpdateQueryString('logLevel', logLevel, path)
     path = UpdateQueryString('access_token', accessToken, path)
     path = UpdateQueryString('apiUrl', API_HOST, path)
@@ -71,6 +74,7 @@ Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminder
     }
 })
 Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
+    cy.log(`=== visitWithApiUrlParam at ${url} ===`)
     if(!options.qs){
         options.qs = {}
     }
@@ -78,6 +82,7 @@ Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
     cy.visit(url, options)
 })
 Cypress.Commands.add('visitApi', (url, options = {}) => {
+    cy.log(`=== visitWithApiUrlParam at ${url} ===`)
     if(!API_HOST || API_HOST === 'undefined'){
         throw 'Please set API_HOST env!'
     }
@@ -86,10 +91,6 @@ Cypress.Commands.add('visitApi', (url, options = {}) => {
     }
     options.qs.XDEBUG_SESSION_START = 'PHPSTORM'
     cy.visit("https://" + API_HOST + url, options)
-})
-Cypress.Commands.add('clickActionSheetButton', (index) => {
-    cy.get('#menu-more-button').click({force: true})
-    cy.get(`.action-sheet-group > button.button.action-sheet-option:nth-of-type(${index})`).click({force: true})
 })
 Cypress.Commands.add('containsCaseInsensitive', (selector, content) => {
     function caseInsensitive(str){
@@ -134,6 +135,7 @@ Cypress.Commands.add('assertInputValueDoesNotContain', (selector, expectedValue)
         })
 })
 Cypress.Commands.add('clearAndType', (selector, text) => {
+    cy.log("=== clearAndType ===")
     cy.get(selector, {timeout: 15000})
         .scrollIntoView()
         .should('be.visible')
@@ -143,6 +145,7 @@ Cypress.Commands.add('clearAndType', (selector, text) => {
 Cypress.Commands.add('enterCredentials', (usernameSelector = 'input[name="user_login"]',
                                           username = 'testuser', passwordSelector = 'input[name="user_pass"]',
                                           password = 'testing123', submitSelectors = 'input[type="submit"]') => {
+    cy.log("=== enterCredentials ===")
     cy.get(usernameSelector)
         .click({force: true})
         .type(username, {force: true})
@@ -160,13 +163,14 @@ Cypress.Commands.add('enterCredentials', (usernameSelector = 'input[name="user_l
     })
 })
 Cypress.Commands.add('disableSpeechAndSkipIntro', () => {
-    cy.log('Skipping intro...')
+    cy.log("=== disableSpeechAndSkipIntro ===")
     if(Cypress.browser.name === 'chrome'){
         cy.get('.pane > div > div > #disableSpeechButton > span', {timeout: 30000}).click()
     }
     cy.get('.slider > .slider-slides > .slider-slide:nth-child(1) > .button-bar > #skipButtonIntro').click()
 })
 Cypress.Commands.add('enterNewUserCredentials', () => {
+    cy.log("=== enterNewUserCredentials ===")
     let d = new Date()
     let newUserLogin = `testuser${d.getTime()}`
     let newUserEmail = `testuser${d.getTime()}@gmail.com`
@@ -177,6 +181,7 @@ Cypress.Commands.add('enterNewUserCredentials', () => {
     cy.get('input[type="submit"]').click({force: true})
 })
 Cypress.Commands.add('logOutViaSettingsPage', (useMenuButton = false) => {
+    cy.log("=== logOutViaSettingsPage ===")
     if(useMenuButton){
         cy.get('#menu-item-settings').click({force: true})
         cy.get('#menu-item-settings > a').click({force: true})
@@ -236,7 +241,7 @@ Cypress.Commands.add('getWithinIframe',
  * @param {boolean} topResultShouldContainSearchTerm
  */
 Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldContainSearchTerm) => {
-    cy.log(`Type ${variableName} into search box`)
+    cy.log(`=== searchAndClickTopResult for ${variableName} ===`)
     cy.wait(2000)
     cy.get('#variableSearchBox')
         .type(variableName, { force: true })
@@ -257,7 +262,7 @@ Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldCo
  * @param {string} str
  */
 Cypress.Commands.add('clickActionSheetButtonContaining', (str) => {
-    cy.log(`Clicking action button containing ${str}`)
+    cy.log(`=== clickActionSheetButtonContaining ${str} ===`)
     cy.wait(2000)
     let button = '.action-sheet-option'
     if (str.indexOf('Delete') !== -1) {
