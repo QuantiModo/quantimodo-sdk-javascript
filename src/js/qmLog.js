@@ -635,6 +635,7 @@ var qmLog = {
                 releaseStage: qmLog.qm.appMode.getAppMode(),
                 //notifyReleaseStages: [ 'staging', 'production' ],
                 metaData: qmLog.getGlobalMetaData(),
+                // eslint-disable-next-line no-unused-vars
                 beforeSend(report){
                 },
             }

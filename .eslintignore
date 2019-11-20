@@ -1,12 +1,8 @@
 cypress/extensions/*
-/typescript*
+typescript*
 quantimodo-api.js
 quantimodo-web.js
-src/model/*
-src/api/*
-test/model/*
-test/api/*
-test/api/*
-src/ApiClient.js
-src/helpers/psychedelic-loader.js
-src/index.js
+src/js/psychedelic-loader.js
+plain-javascript-client
+dist
+test
