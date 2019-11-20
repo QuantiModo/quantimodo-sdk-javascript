@@ -28,9 +28,9 @@ export function uploadToS3(
   const s3Key = s3BasePath + "/" + fileName;
   const params = {
     ACL,
+    Body: fileContent,
     Bucket: s3Bucket,
     Key: s3Key,
-    Body: fileContent,
   };
   s3.upload(params, (err: any, data: { Location: any }) => {
     if (err) {
@@ -44,8 +44,8 @@ export function uploadToS3(
 }
 
 export  function writeToFile(filePath: string, contents: any, cb?: () => void) {
-  function ensureDirectoryExistence(filePath: string) {
-    const dirname = path.dirname(filePath);
+  function ensureDirectoryExistence(filePathToCheck: string) {
+    const dirname = path.dirname(filePathToCheck);
     if (fs.existsSync(dirname)) {
       return true;
     }

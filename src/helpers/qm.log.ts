@@ -1,4 +1,5 @@
 const QUANTIMODO_CLIENT_ID = process.env.QUANTIMODO_CLIENT_ID || process.env.CLIENT_ID;
+// tslint:disable-next-line:max-line-length
 const AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY; // Netlify has their own
 function isTruthy(value: any) {return (value && value !== "false"); }
 import * as qmTests from "./qm.tests";
@@ -57,17 +58,17 @@ export function isSecretWord(propertyName: string) {
         lowerCaseProperty.indexOf("database") !== -1 ||
         lowerCaseProperty.indexOf("token") !== -1;
 }
-export function obfuscateString(string: string) {
+export function obfuscateString(str: string) {
     const env = process.env;
     for (const propertyName in env) {
         if (env.hasOwnProperty(propertyName)) {
             if (isSecretWord(propertyName)) {
                 // @ts-ignore
-                string = string.replace(env[propertyName], "[SECURE]");
+                str = str.replace(env[propertyName], "[SECURE]");
             }
         }
     }
-    return string;
+    return str;
 }
 export function obfuscateSecrets(object: any) {
     if (typeof object !== "object") {
