@@ -2,11 +2,6 @@
   "extends": "tslint:recommended",
   "linterOptions": {
     "exclude": [
-      "bin",
-      "typescript-node-client/*.ts",
-      "typescript-angular-client/*.ts",
-      "typescript-angularjs-client/**/*.ts",
-      "node_modules"
     ]
   },
   "rules": {

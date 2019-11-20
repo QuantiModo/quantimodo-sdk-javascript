@@ -1,8 +1,8 @@
 const dotenv = require('dotenv')
 dotenv.config() // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
 const gulp = require('gulp')
-const qmTests = require('./src/helpers/qm.tests')
-const s2c = require('./src/helpers/selenium-2-cypress')
+const qmTests = require('./ts/qm.tests')
+const s2c = require('./js/selenium-2-cypress')
 gulp.task('selenium-to-cypress-ionic', function () {
   s2c.convertSeleniumToCypress('cypress/integration/ionic',
     'ghost_inspector/ionic-test-components-side-format.json')
