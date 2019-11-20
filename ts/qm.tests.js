@@ -34,9 +34,9 @@ var verbose = true;
 var videoDirectory = app_root_path_1.default + "/cypress/videos";
 var mergedJsonPath = outputReportDir + "/mochawesome.json";
 var lastFailedCypressTestPath = "last-failed-cypress-test";
-var cypressEnvPath = fileHelper.getAbsolutePath("cypress.env.json");
+var cypressJson = fileHelper.getAbsolutePath("cypress.json");
 var releaseStage = process.env.RELEASE_STAGE || "development";
-var cypressConfigPath = fileHelper.getAbsolutePath("cypress/config/cypress." + releaseStage + ".json");
+var envPath = fileHelper.getAbsolutePath("cypress/config/cypress." + releaseStage + ".json");
 function getReportUrl() {
     if (process.env.JOB_URL) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html";
@@ -94,9 +94,9 @@ function mochawesome(failedTests, cb) {
 }
 exports.mochawesome = mochawesome;
 function copyCypressEnvConfigIfNecessary() {
-    if (!fs.existsSync(cypressEnvPath)) {
-        console.info("No " + cypressEnvPath + " present so copying " + cypressConfigPath);
-        fs.copyFileSync(cypressConfigPath, cypressEnvPath);
+    if (!fs.existsSync(cypressJson)) {
+        console.info("No " + cypressJson + " present so copying " + envPath);
+        fs.copyFileSync(envPath, cypressJson);
     }
 }
 function runCypressTests(cb, specificSpec) {
