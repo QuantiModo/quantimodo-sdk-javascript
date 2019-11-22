@@ -24,7 +24,7 @@ const videoDirectory = `${sdkRepo}/cypress/videos`;
 const mergedJsonPath = outputReportDir + "/mochawesome.json";
 const lastFailedCypressTestPath = "last-failed-cypress-test";
 const cypressJson = fileHelper.getAbsolutePath("cypress.json");
-const releaseStage = process.env.RELEASE_STAGE || "staging";
+const releaseStage = process.env.RELEASE_STAGE || "production";
 const envPath = fileHelper.getAbsolutePath(`cypress/config/cypress.${releaseStage}.json`);
 function getReportUrl() {
     if (process.env.JOB_URL) {
