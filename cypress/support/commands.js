@@ -262,7 +262,7 @@ Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldCo
  * @param {string} str
  */
 Cypress.Commands.add('clickActionSheetButtonContaining', (str) => {
-    cy.log(`=== clickActionSheetButtonContaining ${str} ===`)
+    cy.log(`${str} Action Sheet Button`)
     cy.wait(2000)
     let button = '.action-sheet-option'
     if (str.indexOf('Delete') !== -1) {
