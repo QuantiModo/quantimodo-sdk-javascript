@@ -145,6 +145,7 @@ describe('Variables', function(){
         let chartTitleSelector = '#app-container > ion-side-menu-content > ion-nav-view > ion-view > ion-content > div.scroll > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > h2'
         cy.get(chartTitleSelector, {timeout: 30000}).then(() => { // Need to wait for variable for action sheet to work
             cy.containsCaseInsensitive(chartTitleSelector, variableName)
+            cy.get('#menu-more-button').click({ force: true })
             cy.clickActionSheetButtonContaining("Settings")
             cy.wait(2000)
             cy.url().should('contain', settingsPath)
