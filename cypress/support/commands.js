@@ -64,7 +64,7 @@ function UpdateQueryString(key, value, uri){
     return `${uri + separator + key}=${value}`
 }
 Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminders-inbox', waitForAvatar = true) => {
-    cy.log(`=== loginWithAccessTokenIfNecessary at ${path} ===`)
+    cy.log(`${path} - loginWithAccessTokenIfNecessary`)
     path = UpdateQueryString('logLevel', logLevel, path)
     path = UpdateQueryString('access_token', accessToken, path)
     path = UpdateQueryString('apiUrl', API_HOST, path)

@@ -25,7 +25,7 @@ function checkChartsPage (variableName) {
 }
 describe('Charts', function () {
   it('Looks at primary outcome charts', function () {
-    cy.visit('/#/app/track')
+    cy.loginWithAccessTokenIfNecessary('/#/app/track', true)
     cy.get('div.primary-outcome-variable-rating-buttons > img:nth-child(4)').click({ force: true })
     cy.get('g.highcharts-series > rect:nth-of-type(1)').should('exist')
     cy.get('#distributionChart > div > svg > text.highcharts-title > tspan')
