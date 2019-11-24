@@ -157,9 +157,9 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
                             if (cb) {cb(false) }
                         }
                         resolve()
-                    }).catch((err: any) => {
-                        qmGit.setGithubStatus("error", context, err, getReportUrl(), function() {
-                            console.error(err)
+                    }).catch((runtimeError: any) => {
+                        qmGit.setGithubStatus("error", context, runtimeError, getReportUrl(), function() {
+                            console.error(runtimeError)
                             process.exit(1)
                         })
                     })

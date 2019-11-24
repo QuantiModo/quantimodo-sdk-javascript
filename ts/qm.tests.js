@@ -168,9 +168,9 @@ function runCypressTests(cb, specificSpec) {
                             }
                         }
                         resolve();
-                    }).catch(function (err) {
-                        qmGit.setGithubStatus("error", context, err, getReportUrl(), function () {
-                            console.error(err);
+                    }).catch(function (runtimeError) {
+                        qmGit.setGithubStatus("error", context, runtimeError, getReportUrl(), function () {
+                            console.error(runtimeError);
                             process.exit(1);
                         });
                     });
