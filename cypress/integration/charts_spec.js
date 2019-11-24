@@ -41,7 +41,7 @@ describe('Charts', function () {
     cy.get('#menu-more-button').click({ force: true })
     cy.clickActionSheetButtonContaining('Settings')
   })
-  it('Records a measurement and sees it in a chart', function () {
+  it.skip('Records a measurement and sees it in a chart', function () {
     //cy.loginWithAccessTokenIfNecessary(`/#/app/measurement-add-search?variableCategoryName=Treatments`, true);
     //recordTreatmentMeasurement();
     let variableName = 'Aaa Test Treatment'
