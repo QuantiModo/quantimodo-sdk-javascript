@@ -121,9 +121,14 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
                             console.log("No runs property on " + JSON.stringify(results, null, 2))
                         } else {
                             const tests = results.runs[0].tests
-                            const failedTests = tests.filter(function(test: { state: string; }) {
-                                return test.state === "failed"
-                            })
+                            let failedTests: any[] | null = null;
+                            if(tests){
+                                failedTests = tests.filter(function(test: { state: string; }) {
+                                    return test.state === "failed"
+                                })
+                            } else{
+                                console.error("No tests on ", results.runs[0])
+                            }
                             if (failedTests && failedTests.length) {
                                 fs.writeFileSync(lastFailedCypressTestPath, specName)
                                 // tslint:disable-next-line:prefer-for-of
@@ -134,7 +139,9 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
                                     console.error(testName + " FAILED because " + errorMessage)
                                 }
                                 mochawesome(failedTests, function() {
+                                    // @ts-ignore
                                     const failedTestTitle = failedTests[0].title[1]
+                                    // @ts-ignore
                                     const errorMessage = failedTests[0].error
                                     qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
                                         errorMessage, getReportUrl(), function() {

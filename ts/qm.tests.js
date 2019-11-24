@@ -129,9 +129,15 @@ function runCypressTests(cb, specificSpec) {
                         }
                         else {
                             var tests = results.runs[0].tests;
-                            var failedTests_1 = tests.filter(function (test) {
-                                return test.state === "failed";
-                            });
+                            var failedTests_1 = null;
+                            if (tests) {
+                                failedTests_1 = tests.filter(function (test) {
+                                    return test.state === "failed";
+                                });
+                            }
+                            else {
+                                console.error("No tests on ", results.runs[0]);
+                            }
                             if (failedTests_1 && failedTests_1.length) {
                                 fs.writeFileSync(lastFailedCypressTestPath, specName);
                                 // tslint:disable-next-line:prefer-for-of
@@ -142,7 +148,9 @@ function runCypressTests(cb, specificSpec) {
                                     console.error(testName + " FAILED because " + errorMessage);
                                 }
                                 mochawesome(failedTests_1, function () {
+                                    // @ts-ignore
                                     var failedTestTitle = failedTests_1[0].title[1];
+                                    // @ts-ignore
                                     var errorMessage = failedTests_1[0].error;
                                     qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
                                         errorMessage, getReportUrl(), function () {
