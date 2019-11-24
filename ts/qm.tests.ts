@@ -121,12 +121,12 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
                             console.log("No runs property on " + JSON.stringify(results, null, 2))
                         } else {
                             const tests = results.runs[0].tests
-                            let failedTests: any[] | null = null;
-                            if(tests){
+                            let failedTests: any[] | null = null
+                            if(tests) {
                                 failedTests = tests.filter(function(test: { state: string; }) {
                                     return test.state === "failed"
                                 })
-                            } else{
+                            } else {
                                 console.error("No tests on ", results.runs[0])
                             }
                             if (failedTests && failedTests.length) {
