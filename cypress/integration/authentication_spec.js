@@ -32,7 +32,7 @@ describe('Authentication', function () {
     cy.get('#button-approve').should('contain', 'Accept')
     cy.get('#button-approve').click({ force: true })
   }
-  it('Logs into and out of an OAuth test client app', function () {
+  it.skip('Logs into and out of an OAuth test client app', function () {
     let clientId = 'oauth_test_client'
     let appDisplayName = 'OAuth test client'
     goToIntroPage(API_HOST, clientId)
