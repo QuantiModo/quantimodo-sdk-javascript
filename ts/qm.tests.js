@@ -156,18 +156,18 @@ function runCypressTests(cb, specificSpec) {
                             else {
                                 deleteLastFailedCypressTest();
                                 console.info(results.totalPassed + " tests PASSED!");
-                                qmGit.setGithubStatus("success", context, results.totalPassed + " tests passed");
+                                qmGit.setGithubStatus("success", context, results.totalPassed +
+                                    " tests passed");
                             }
                         }
-                        resolve();
-                        if (i === specFileNames.length - 1) {
+                        if (specificSpec || i === specFileNames.length - 1) {
                             createSuccessFile();
                             deleteEnvFile();
                             if (cb) {
                                 cb(false);
                             }
                         }
-                        // tslint:disable-next-line:no-shadowed-variable
+                        resolve();
                     }).catch(function (err) {
                         qmGit.setGithubStatus("error", context, err, getReportUrl(), function () {
                             console.error(err);

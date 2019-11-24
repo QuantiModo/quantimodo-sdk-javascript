@@ -151,13 +151,12 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
                                     " tests passed")
                             }
                         }
-                        resolve()
                         if (specificSpec || i === specFileNames.length - 1) {
                             createSuccessFile()
                             deleteEnvFile()
                             if (cb) {cb(false) }
                         }
-                        // tslint:disable-next-line:no-shadowed-variable
+                        resolve()
                     }).catch((err: any) => {
                         qmGit.setGithubStatus("error", context, err, getReportUrl(), function() {
                             console.error(err)
