@@ -35,7 +35,7 @@ var videoDirectory = app_root_path_1.default + "/cypress/videos";
 var mergedJsonPath = outputReportDir + "/mochawesome.json";
 var lastFailedCypressTestPath = "last-failed-cypress-test";
 var cypressJson = fileHelper.getAbsolutePath("cypress.json");
-var releaseStage = process.env.RELEASE_STAGE || "staging";
+var releaseStage = process.env.RELEASE_STAGE || "production";
 var envPath = fileHelper.getAbsolutePath("cypress/config/cypress." + releaseStage + ".json");
 function getReportUrl() {
     if (process.env.JOB_URL) {
@@ -163,7 +163,9 @@ function runCypressTests(cb, specificSpec) {
                         if (i === specFileNames.length - 1) {
                             createSuccessFile();
                             deleteEnvFile();
-                            cb(false);
+                            if (cb) {
+                                cb(false);
+                            }
                         }
                         // tslint:disable-next-line:no-shadowed-variable
                     }).catch(function (err) {

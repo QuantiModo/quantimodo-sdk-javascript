@@ -92,7 +92,7 @@ function copyCypressEnvConfigIfNecessary() {
         fs.copyFileSync(envPath, cypressJson);
     }
 }
-export function runCypressTests(cb: (err: any) => void, specificSpec?: string) {
+export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) {
     deleteSuccessFile();
     copyCypressEnvConfigIfNecessary();
     rimraf("./cypress/reports/mocha/*.json", function() {
@@ -154,7 +154,7 @@ export function runCypressTests(cb: (err: any) => void, specificSpec?: string) {
                         if (i === specFileNames.length - 1) {
                             createSuccessFile();
                             deleteEnvFile();
-                            cb(false);
+                            if(cb){cb(false);}
                         }
                         // tslint:disable-next-line:no-shadowed-variable
                     }).catch((err: any) => {
@@ -225,7 +225,7 @@ function deleteLastFailedCypressTest() {
     try {fs.unlinkSync(lastFailedCypressTestPath); } catch (err) {}
 }
 // tslint:disable-next-line:unified-signatures
-export function runLastFailedCypressTest(cb: { (err: any): void; (): void; }) {
+export function runLastFailedCypressTest(cb: { (err: any): void }) {
     const name = getLastFailedCypressTest();
     if (!name) {
         console.info("No previously failed test!");
