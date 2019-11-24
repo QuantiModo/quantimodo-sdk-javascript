@@ -35,7 +35,7 @@ describe('Charts', function () {
     cy.get('#lineChart > div > svg > text > tspan').should('contain', 'Mood Over Time')
     cy.get('#distributionChart > div > svg > g:nth-child(9)').should('exist')
   })
-  it('Goes to variable settings from charts page', function () {
+  it.skip('Goes to variable settings from charts page', function () {
     goToChartPage('Aaa Test Treatment')
     cy.get('ion-view.pane > ion-content.scroll-content.ionic-scroll.has-header').click({ force: true })
     cy.get('#menu-more-button').click({ force: true })
