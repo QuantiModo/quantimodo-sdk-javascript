@@ -114,7 +114,7 @@ describe('Reminders', function () {
     cy.wait(25000) // Have to wait for save to complete
     goToCategoryInbox(variableCategoryName)
   }
-  it('Create a nutrient reminder and skip it', function () {
+  it.skip('Create a nutrient reminder and skip it', function () {
     let variableName = 'Aaa Test Reminder Skip'
     let variableCategoryName = 'Nutrients'
     let frequency = '30 minutes'
@@ -127,7 +127,7 @@ describe('Reminders', function () {
     cy.visit(manageUrl)
     deleteReminders()
   })
-  it('Creates a sleep reminder and changes unit', function () {
+  it.skip('Creates a sleep reminder and changes unit', function () {
     let variableName = 'Sleep Duration'
     let variableCategoryName = 'Sleep'
     let manageUrl = getManagePathForCategory(variableCategoryName)
@@ -171,7 +171,7 @@ describe('Reminders', function () {
     cy.loginWithAccessTokenIfNecessary(path, true)
     deleteReminders()
   })
-  it('Creates a food reminder and snoozes it', function () {
+  it.skip('Creates a food reminder and snoozes it', function () {
     let variableName = 'Aaa Test Reminder Snooze'
     let variableCategoryName = 'Foods'
     let frequency = '30 minutes'

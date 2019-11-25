@@ -1,80 +1,80 @@
-import Octokit from "@octokit/rest";
-import appRoot from "app-root-path";
-import * as path from "path";
-import origin from "remote-origin-url";
-import _str from "underscore.string";
-import * as qmTests from "./qm.tests";
+import Octokit from "@octokit/rest"
+import appRoot from "app-root-path"
+import * as path from "path"
+import origin from "remote-origin-url"
+import _str from "underscore.string"
+import * as qmTests from "./qm.tests"
 export function getOctoKit() {
-    return new Octokit({auth: getAccessToken()});
+    return new Octokit({auth: getAccessToken()})
 }
 export function getCurrentGitCommitSha() {
     if (process.env.SOURCE_VERSION) {
-        return process.env.SOURCE_VERSION;
+        return process.env.SOURCE_VERSION
     }
     if (process.env.GIT_COMMIT) {
-        return process.env.GIT_COMMIT;
+        return process.env.GIT_COMMIT
     }
     if (process.env.CIRCLE_SHA1) {
-        return process.env.CIRCLE_SHA1;
+        return process.env.CIRCLE_SHA1
     }
     try {
-        return require("child_process").execSync("git rev-parse HEAD").toString().trim();
+        return require("child_process").execSync("git rev-parse HEAD").toString().trim()
     } catch (error) {
-        console.info(error);
+        console.info(error)
     }
 }
 export function getAccessToken() {
     if (process.env.GITHUB_ACCESS_TOKEN) {
-        return process.env.GITHUB_ACCESS_TOKEN;
+        return process.env.GITHUB_ACCESS_TOKEN
     }
-    throw new Error("Please set GITHUB_ACCESS_TOKEN env");
+    throw new Error("Please set GITHUB_ACCESS_TOKEN env")
 }
 export function getRepoUrl() {
     if (process.env.GIT_URL) {
-        return process.env.GIT_URL;
+        return process.env.GIT_URL
     }
-    const appRootString = appRoot.toString();
-    const configPath = path.resolve(appRootString, ".git/config");
+    const appRootString = appRoot.toString()
+    const configPath = path.resolve(appRootString, ".git/config")
     // @ts-ignore
-    const gitUrl = origin.sync({path: configPath, cwd: appRoot});
+    const gitUrl = origin.sync({path: configPath, cwd: appRoot})
     if (!gitUrl) {
-        throw new Error('cannot find ".git/config"');
+        throw new Error('cannot find ".git/config"')
     }
-    return gitUrl;
+    return gitUrl
 }
 export function getRepoParts() {
-    let gitUrl = getRepoUrl();
-    gitUrl = _str.strRight(gitUrl, "github.com/");
-    gitUrl = gitUrl.replace(".git", "");
-    const parts = gitUrl.split("/");
+    let gitUrl = getRepoUrl()
+    gitUrl = _str.strRight(gitUrl, "github.com/")
+    gitUrl = gitUrl.replace(".git", "")
+    const parts = gitUrl.split("/")
     if (!parts || parts.length > 2) {
-        throw new Error("Could not parse repo name!");
+        throw new Error("Could not parse repo name!")
     }
-    return parts;
+    return parts
 }
 export function getRepoName() {
     if (process.env.CIRCLE_PROJECT_REPONAME) {
-        return process.env.CIRCLE_PROJECT_REPONAME;
+        return process.env.CIRCLE_PROJECT_REPONAME
     }
-    const arr = getRepoParts();
+    const arr = getRepoParts()
     if (arr) {
-        return arr[1];
+        return arr[1]
     }
-    throw new Error("Could not determine repo name!");
+    throw new Error("Could not determine repo name!")
 }
 export function getRepoUserName() {
     if (process.env.CIRCLE_PROJECT_USERNAME) {
-        return process.env.CIRCLE_PROJECT_USERNAME;
+        return process.env.CIRCLE_PROJECT_USERNAME
     }
-    const arr = getRepoParts();
+    const arr = getRepoParts()
     if (arr) {
-        return arr[0];
+        return arr[0]
     }
     try {
-        return require("child_process").execSync("git rev-parse HEAD").toString().trim();
+        return require("child_process").execSync("git rev-parse HEAD").toString().trim()
     } catch (error) {
         // tslint:disable-next-line:no-console
-        console.info(error);
+        console.info(error)
     }
 }
 /**
@@ -82,9 +82,9 @@ export function getRepoUserName() {
  */
 // tslint:disable-next-line:max-line-length
 export function setGithubStatus(testState: string, context: string, description: string, url?: string | null, cb?: ((arg0: any) => void) | undefined) {
-    const state = convertTestStateToGithubState(testState);
-    console.log(`${context} - ${description} - ${state}`);
-    description = _str.truncate(description, 135);
+    const state = convertTestStateToGithubState(testState)
+    console.log(`${context} - ${description} - ${state}`)
+    description = _str.truncate(description, 135)
     // @ts-ignore
     const params: Octokit.ReposCreateStatusParams = {
         context,
@@ -94,31 +94,31 @@ export function setGithubStatus(testState: string, context: string, description:
         sha: getCurrentGitCommitSha(),
         state,
         target_url: url || qmTests.getBuildLink(),
-    };
+    }
     getOctoKit().repos.createStatus(params).then((data: any) => {
         if (cb) {
-            cb(data);
+            cb(data)
         }
     }).catch((err: any) => {
-        console.error(err);
-        process.exit(1);
-        throw err;
-    });
+        console.error(err)
+        process.exit(1)
+        throw err
+    })
 }
 function convertTestStateToGithubState(testState: string): "error" | "failure" | "pending" | "success" {
-    let state = testState;
-    if (testState === "passed") {state = "success"; }
-    if (testState === "failed") {state = "failure"; }
+    let state = testState
+    if (testState === "passed") {state = "success" }
+    if (testState === "failed") {state = "failure" }
     if (!state) {
-        throw new Error("No state!");
+        throw new Error("No state!")
     }
     // @ts-ignore
-    return state;
+    return state
 }
 export function getBranchName() {
     // tslint:disable-next-line:max-line-length
-    const name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;
+    const name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH
     if (!name) {
-        throw new Error("Branch name not set!");
+        throw new Error("Branch name not set!")
     }
 }
