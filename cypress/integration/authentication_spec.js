@@ -32,6 +32,25 @@ describe('Authentication', function () {
     cy.get('#button-approve').should('contain', 'Accept')
     cy.get('#button-approve').click({ force: true })
   }
+  it.skip('Logs into and out of an OAuth test client app', function () {
+    let clientId = 'oauth_test_client'
+    let appDisplayName = 'OAuth test client'
+    goToIntroPage(API_HOST, clientId)
+    cy.disableSpeechAndSkipIntro()
+    cy.get('#circle-page-title').should('contain', appDisplayName)
+    cy.get('#skipButtonIntro').click({ force: true })
+    cy.get('#signInButton').click({ force: true })
+    cy.enterCredentials()
+    checkOauthPageAndAccept(appDisplayName)
+    //cy.get('#skipButtonWelcome').click({ force: true });
+    cy.url().should('include', '/login')
+    cy.wait(10000)
+    cy.log('We should be at onboarding now')
+    cy.url().should('include', '/onboarding')
+    //cy.get('#circle-page-title', {timeout: 90000}).should('contain', "Emotions");  // I have no idea why this won't work
+    cy.log('Menu hidden on onboarding page so going straight to settings url')
+    cy.logOutViaSettingsPage(false)
+  })
   it('Tries to create account with existing username', function () {
     cy.clearCookies()
     cy.visitApi(`/api/v2/auth/register`)
@@ -51,7 +70,7 @@ describe('Authentication', function () {
     checkOauthPageAndAccept(appDisplayName)
     cy.allowUncaughtException(null)
   })
-  it('Logs and out with username and password', function () {
+  it.skip('Logs in and out with username and password', function () {
     if (!Cypress.env('API_HOST')) { cy.log(`Cypress.env('API_HOST') is empty so falling back to ${API_HOST}`) }
     cy.goToApiLoginPageAndLogin(testUserName, testUserPassword)
     cy.disableSpeechAndSkipIntro()
@@ -62,7 +81,7 @@ describe('Authentication', function () {
     cy.disableSpeechAndSkipIntro()
     cy.url().should('contain', 'login')
   })
-  it('Registers a new user with username and password starting from OAuth web app', function () {
+  it.skip('Registers a new user with username and password starting from OAuth web app', function () {
     let appDisplayName = 'OAuth test client'
     let baseUrl = Cypress.config('baseUrl')
     cy.log(`baseUrl is ${baseUrl}`)
@@ -92,25 +111,6 @@ describe('Authentication', function () {
     cy.enterCredentials()
     cy.get('.dialog-content').should('contain', appDisplayName)
     //checkOauthPageAndAccept(appDisplayName);
-  })
-  it('Logs into and out of an OAuth test client app', function () {
-    let clientId = 'oauth_test_client'
-    let appDisplayName = 'OAuth test client'
-    goToIntroPage(API_HOST, clientId)
-    cy.disableSpeechAndSkipIntro()
-    cy.get('#circle-page-title').should('contain', appDisplayName)
-    cy.get('#skipButtonIntro').click({ force: true })
-    cy.get('#signInButton').click({ force: true })
-    cy.enterCredentials()
-    checkOauthPageAndAccept(appDisplayName)
-    //cy.get('#skipButtonWelcome').click({ force: true });
-    cy.url().should('include', '/login')
-    cy.wait(10000)
-    cy.log('We should be at onboarding now')
-    cy.url().should('include', '/onboarding')
-    //cy.get('#circle-page-title', {timeout: 90000}).should('contain', "Emotions");  // I have no idea why this won't work
-    cy.log('Menu hidden on onboarding page so going straight to settings url')
-    cy.logOutViaSettingsPage(false)
   })
   it.skip('Logs in via Facebook', function () {
     // TODO: Fix me because I just lead so a broken cypress page and can't even see other test results

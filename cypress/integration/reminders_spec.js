@@ -1,6 +1,6 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
-let variableName = 'Aaa Test Treatment'
+
 /**
  * @param {string} path
  */
@@ -51,10 +51,11 @@ describe('Reminders', function () {
     let deleted = false
 
     cy.get(reminderListSelector, { timeout: 30000 })
+    // eslint-disable-next-line no-unused-vars
             .each(($el, _index, _$list) => {
               let html = $el.html() // $el is a wrapped jQuery element
 
-              if (html.indexOf('showActionSheet') !== -1) {
+              if (html.indexOf('showActionSheet') !== -1 && $el.is('visible')) {
                 cy.log(`Deleting ${$el.text()} reminder`)
                 cy.wrap($el).click()
                 cy.clickActionSheetButtonContaining('Delete')
@@ -113,7 +114,20 @@ describe('Reminders', function () {
     cy.wait(25000) // Have to wait for save to complete
     goToCategoryInbox(variableCategoryName)
   }
-  it('Creates a sleep reminder and changes unit', function () {
+  it.skip('Create a nutrient reminder and skip it', function () {
+    let variableName = 'Aaa Test Reminder Skip'
+    let variableCategoryName = 'Nutrients'
+    let frequency = '30 minutes'
+    let manageUrl = getManagePathForCategory(variableCategoryName)
+
+    cy.loginWithAccessTokenIfNecessary(manageUrl)
+    deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
+    cy.get('#notification-skip').click({ force: true })
+    cy.get('#notification-skip').should('not.exist')
+    cy.visit(manageUrl)
+    deleteReminders()
+  })
+  it.skip('Creates a sleep reminder and changes unit', function () {
     let variableName = 'Sleep Duration'
     let variableCategoryName = 'Sleep'
     let manageUrl = getManagePathForCategory(variableCategoryName)
@@ -157,20 +171,7 @@ describe('Reminders', function () {
     cy.loginWithAccessTokenIfNecessary(path, true)
     deleteReminders()
   })
-  it('Create a nutrient reminder and skip it', function () {
-    let variableName = 'Aaa Test Reminder Skip'
-    let variableCategoryName = 'Nutrients'
-    let frequency = '30 minutes'
-    let manageUrl = getManagePathForCategory(variableCategoryName)
-
-    cy.loginWithAccessTokenIfNecessary(manageUrl)
-    deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
-    cy.get('#notification-skip').click({ force: true })
-    cy.get('#notification-skip').should('not.exist')
-    cy.visit(manageUrl)
-    deleteReminders()
-  })
-  it('Creates a food reminder and snoozes it', function () {
+  it.skip('Creates a food reminder and snoozes it', function () {
     let variableName = 'Aaa Test Reminder Snooze'
     let variableCategoryName = 'Foods'
     let frequency = '30 minutes'

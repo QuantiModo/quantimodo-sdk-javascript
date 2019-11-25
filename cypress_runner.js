@@ -11,20 +11,20 @@ const argv = yargs.options({
         alias: 'b',
         describe: 'choose browser that you wanna run tests on',
         default: 'chrome',
-        choices: ['chrome', 'electron']
+        choices: ['chrome', 'electron'],
     },
     'spec': {
         alias: 's',
         describe: 'run test with specific spec file',
-        default: 'cypress/integration/*.spec.js'
-    }
+        default: 'cypress/integration/*.spec.js',
+    },
 }).help()
   .argv
 
 const reportDir = cypressConfig.reporterOptions.reportDir
 const reportFiles = `${reportDir}/*.json`
 // list all of existing report files
-ls(reportFiles, { recurse: true }, file => console.log(`removing ${file.full}`))
+ls(reportFiles, { recurse: true }, (file) => console.log(`removing ${file.full}`))
 
 // delete all existing report files
 rm(reportFiles, (error) => {
@@ -37,7 +37,7 @@ rm(reportFiles, (error) => {
 
 cypress.run({
     browser: argv.browser,
-    spec: argv.spec
+    spec: argv.spec,
 }).then((results) => {
     const reporterOptions = {
         reportDir: results.config.reporterOptions.reportDir,

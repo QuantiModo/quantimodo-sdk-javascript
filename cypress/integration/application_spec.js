@@ -22,7 +22,6 @@ function createNewApplication(){
 }
 /// <reference types="cypress" />
 describe('Applications', function(){
-    Cypress.env('RETRIES', 2)
     it('Creates a client app as new user', function(){
         cy.visitApi(`/api/v2/apps#`)
         cy.enterNewUserCredentials()

@@ -1,6 +1,5 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
-let variableName = 'Aaa Test Treatment'
 /**
  * @param {string} variableName
  */
@@ -26,7 +25,7 @@ function checkChartsPage (variableName) {
 }
 describe('Charts', function () {
   it('Looks at primary outcome charts', function () {
-    cy.visit('/#/app/track')
+    cy.loginWithAccessTokenIfNecessary('/#/app/track', true)
     cy.get('div.primary-outcome-variable-rating-buttons > img:nth-child(4)').click({ force: true })
     cy.get('g.highcharts-series > rect:nth-of-type(1)').should('exist')
     cy.get('#distributionChart > div > svg > text.highcharts-title > tspan')
@@ -36,13 +35,13 @@ describe('Charts', function () {
     cy.get('#lineChart > div > svg > text > tspan').should('contain', 'Mood Over Time')
     cy.get('#distributionChart > div > svg > g:nth-child(9)').should('exist')
   })
-  it('Goes to variable settings from charts page', function () {
+  it.skip('Goes to variable settings from charts page', function () {
     goToChartPage('Aaa Test Treatment')
     cy.get('ion-view.pane > ion-content.scroll-content.ionic-scroll.has-header').click({ force: true })
     cy.get('#menu-more-button').click({ force: true })
     cy.clickActionSheetButtonContaining('Settings')
   })
-  it('Records a measurement and sees it in a chart', function () {
+  it.skip('Records a measurement and sees it in a chart', function () {
     //cy.loginWithAccessTokenIfNecessary(`/#/app/measurement-add-search?variableCategoryName=Treatments`, true);
     //recordTreatmentMeasurement();
     let variableName = 'Aaa Test Treatment'

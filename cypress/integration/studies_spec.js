@@ -1,6 +1,5 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
-let variableName = 'Aaa Test Treatment'
 /**
  * @param {string} effect
  * @param {string} cause
