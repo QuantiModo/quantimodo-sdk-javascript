@@ -55,7 +55,7 @@ function recordRatingMeasurement(value){
     cy.get('#saveButton').click({force: true})
 }
 describe('Variables', function(){
-    it('Creates a new emotion variable by measurement', function(){
+    it.skip('Creates a new emotion variable by measurement', function(){
         let variableCategoryName = 'Emotions'
         recordMeasurementForNewVariableAndDeleteIt(variableCategoryName)
     })
