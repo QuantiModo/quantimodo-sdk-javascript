@@ -212,7 +212,7 @@ Cypress.Commands.add('checkForBrokenImages', () => {
             }
             if(!$el[0].naturalWidth){
                 let src = $el[0].getAttribute('src')
-                let message = `The image with src ${src} is broken!  outerHTML is: ${$el[0].outerHTML}`
+                let message = `The image with src \n  ${src} \n  is broken! \n outerHTML is: \n  ${$el[0].outerHTML}  \n URL: `+cy.url()
                 cy.log(message)
                 throw message
             }
