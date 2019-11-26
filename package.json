@@ -35,8 +35,9 @@
     "cypress": "npx ts-node ts/qm.cypress.ts",
     "deploy:prepare": "./scripts/create_npmrc_file.sh",
     "effective:config": "circleci config process circle.yml | sed /^#/d",
+    "git:pre:commit": "npm run lint:fix && npm run types && npm run test:mocha",
     "lint": "npm run lint:es && npm run lint:ts && npm run lint:yaml",
-    "lint:fix": "npm run lint:eslint-fix && npm run lint:tslint-fix",
+    "lint:fix": "npm run lint:es-fix && npm run lint:ts-fix",
     "lint:es": "eslint .",
     "lint:es-fix": "eslint . --fix",
     "lint:ts": "cd ts && tslint --project .",
@@ -62,7 +63,7 @@
     "test": "npm run types && npm run lint && npm run types && npm run test:mocha && npm run cypress",
     "test:junit:staging": "cypress run --config-file cypress/config/cypress.staging.json --reporter junit --reporter-options 'mochaFile=junit-results/my-test-output.xml'",
     "test:mocha": "mocha -r ts-node/register mocha/**/*.test.ts",
-    "types": "cd ts && tsc --noEmit",
+    "types": "cd ts && tsc",
     "up": "docker-compose up --abort-on-container-exit --exit-code-from e2e",
     "warn-only": "stop-only -f cypress/integration --warn",
     "watch": "tsc --watch --noEmit --project ./ts/tsconfig.json"
@@ -70,7 +71,8 @@
   "browser": {
     "fs": false
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@angular/core": "latest",
     "@bahmutov/print-env": "1.2.0",
@@ -139,6 +141,7 @@
     "rimraf": "3.0.0",
     "run-sequence": "2.2.1",
     "shx": "0.3.2",
+    "simple-git": "1.126.0",
     "stop-only": "3.1.0",
     "superagent": "3.8.3",
     "swagger-js-codegen": "1.13.0",

@@ -2,7 +2,11 @@ import Octokit from "@octokit/rest"
 import appRoot from "app-root-path"
 import * as path from "path"
 import origin from "remote-origin-url"
+// @ts-ignore
+import * as git from "simple-git"
 import _str from "underscore.string"
+import * as qmLog from "./qm.log"
+import * as qmShell from "./qm.shell"
 import * as qmTests from "./qm.tests"
 export function getOctoKit() {
     return new Octokit({auth: getAccessToken()})
@@ -120,5 +124,23 @@ export function getBranchName() {
     const name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH
     if (!name) {
         throw new Error("Branch name not set!")
+    }
+}
+export function deleteLocalFeatureBranches() {
+    git.branchLocal(function(branches: []) {
+        branches.forEach(function(branch: string) {
+            if(branch.indexOf("feature/") !== -1) {
+                git.deleteLocalBranch(branch)
+            }
+        })
+    })
+}
+export function createFeatureBranch(featureName: string) {
+    const branchName = "feature/" + featureName
+    try {
+        qmShell.executeSynchronously(`git checkout -b ${branchName} develop`, false)
+    } catch (e) {
+        qmLog.error(e)
+        return
     }
 }

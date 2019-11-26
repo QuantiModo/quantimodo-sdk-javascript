@@ -1,9 +1,12 @@
 import {expect} from "chai";
 import * as qmGit from "../ts/qm.git";
+import * as qmShell from "../ts/qm.shell"
 import * as fileHelper from "../ts/qm.file-helper";
 import * as url from "url";
 import * as https from "https";
 import * as _str from "underscore.string";
+import * as simplegit from 'simple-git/promise';
+const git = simplegit();
 beforeEach(function (done) {
     let t = this.currentTest
     this.timeout(10000) // Default 2000 is too fast for Github API
@@ -34,6 +37,21 @@ describe("git", () => {
             expect(res.status).to.eq(201);
             done();
         });
+    });
+    it("creates a feature branch and deletes it", function (done) {
+        let featureName = "test-feature"
+        let branchName = "feature/"+featureName;
+        qmGit.createFeatureBranch("test-feature");
+        git.branchLocal().then(function (branchSummary) {
+            expect(branchSummary.all).to.contain(branchName);
+            qmShell.executeSynchronously("git checkout -B develop", true)
+            git.deleteLocalBranch(branchName).then(function () {
+                git.branchLocal().then(function (branchSummary) {
+                    expect(branchSummary.all).not.to.contain(branchName);
+                    done();
+                })
+            });
+        })
     });
 });
 describe("s3 uploader", function () {

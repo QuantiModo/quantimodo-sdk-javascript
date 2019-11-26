@@ -14,7 +14,11 @@ var rest_1 = __importDefault(require("@octokit/rest"));
 var app_root_path_1 = __importDefault(require("app-root-path"));
 var path = __importStar(require("path"));
 var remote_origin_url_1 = __importDefault(require("remote-origin-url"));
+// @ts-ignore
+var git = __importStar(require("simple-git"));
 var underscore_string_1 = __importDefault(require("underscore.string"));
+var qmLog = __importStar(require("./qm.log"));
+var qmShell = __importStar(require("./qm.shell"));
 var qmTests = __importStar(require("./qm.tests"));
 function getOctoKit() {
     return new rest_1.default({ auth: getAccessToken() });
@@ -149,4 +153,25 @@ function getBranchName() {
     }
 }
 exports.getBranchName = getBranchName;
+function deleteLocalFeatureBranches() {
+    git.branchLocal(function (branches) {
+        branches.forEach(function (branch) {
+            if (branch.indexOf("feature/") !== -1) {
+                git.deleteLocalBranch(branch);
+            }
+        });
+    });
+}
+exports.deleteLocalFeatureBranches = deleteLocalFeatureBranches;
+function createFeatureBranch(featureName) {
+    var branchName = "feature/" + featureName;
+    try {
+        qmShell.executeSynchronously("git checkout -b " + branchName + " develop", false);
+    }
+    catch (e) {
+        qmLog.error(e);
+        return;
+    }
+}
+exports.createFeatureBranch = createFeatureBranch;
 //# sourceMappingURL=qm.git.js.map

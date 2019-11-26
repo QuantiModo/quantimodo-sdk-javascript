@@ -7,7 +7,6 @@ import * as fs from "fs"
 import {merge} from "mochawesome-merge"
 // @ts-ignore
 import marge from "mochawesome-report-generator"
-import * as path from "path"
 import rimraf from "rimraf"
 import * as fileHelper from "./qm.file-helper"
 import * as qmGit from "./qm.git"
