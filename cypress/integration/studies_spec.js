@@ -39,7 +39,7 @@ describe('Studies', function () {
     cy.get('#joinStudyButton').click({ force: true })
     cy.get('#signInButton > span').click({ force: true })
   })
-  it('Creates a study and votes on it', function () {
+  it.skip('Creates a study and votes on it', function () {
     let effect = 'Overall Mood'
     let cause = 'Sleep Duration'
 
