@@ -138,7 +138,7 @@ describe('Variables', function(){
         // cy.assertInputValueEquals('#onsetDelay', '0.5')
         // cy.assertInputValueEquals('#durationOfAction', '504')
     })
-    it('Goes to variable settings from chart page', function(){
+    it.skip('Goes to variable settings from chart page', function(){
         cy.loginWithAccessTokenIfNecessary('/#/app/chart-search')
         cy.searchAndClickTopResult(variableName, true)
         cy.url().should('contain', chartsPath)
