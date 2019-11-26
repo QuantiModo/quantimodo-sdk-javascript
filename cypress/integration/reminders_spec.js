@@ -184,7 +184,7 @@ describe('Reminders', function () {
     cy.visit(manageUrl)
     deleteReminders()
   })
-  it('Creates a symptoms reminder and tracks it', function () {
+  it.skip('Creates a symptoms reminder and tracks it', function () {
     let variableName = 'Aaa Test Reminder Variable'
     let variableCategoryName = 'Symptoms'
     let manageUrl = getManagePathForCategory(variableCategoryName)
@@ -211,7 +211,7 @@ describe('Reminders', function () {
     cy.wait(15000)
     deleteReminders()
   })
-  it('Selects a reminder time', function () {
+  it.skip('Selects a reminder time', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/reminder-add/', false)
     setReminderTime(8, 15, 'AM')
   })

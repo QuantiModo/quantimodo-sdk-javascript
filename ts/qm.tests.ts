@@ -27,7 +27,7 @@ const cypressJson = fileHelper.getAbsolutePath("cypress.json")
 const releaseStage = process.env.RELEASE_STAGE || "production"
 const envPath = fileHelper.getAbsolutePath(`cypress/config/cypress.${releaseStage}.json`)
 function getReportUrl() {
-    if (process.env.JOB_URL) {
+    if (process.env.JOB_URL && process.env.JOB_URL.indexOf("DEPLOY-") === 0) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html"
     }
     return getBuildLink()
