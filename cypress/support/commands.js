@@ -203,6 +203,7 @@ Cypress.Commands.add('allowUncaughtException', (expectedErrorMessage) => {
 })
 Cypress.Commands.add('checkForBrokenImages', () => {
     cy.log('Checking for broken images...')
+    cy.wait(1000);
     cy.get('img', {timeout: 30000})
     // eslint-disable-next-line no-unused-vars
         .each(($el, index, $list) => {
@@ -212,9 +213,11 @@ Cypress.Commands.add('checkForBrokenImages', () => {
             }
             if(!$el[0].naturalWidth){
                 let src = $el[0].getAttribute('src')
-                let message = `The image with src ${src} is broken!  outerHTML is: ${$el[0].outerHTML}`
-                cy.log(message)
-                throw message
+                cy.url().then(url => {
+                    let message = `The image with src \n  ${src} \n  is broken! \n outerHTML is: \n  ${$el[0].outerHTML}  \n URL: `+url
+                    cy.log(message)
+                    throw message
+                });
             }
         })
 })
