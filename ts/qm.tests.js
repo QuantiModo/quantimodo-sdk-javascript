@@ -38,7 +38,7 @@ var cypressJson = fileHelper.getAbsolutePath("cypress.json");
 var releaseStage = process.env.RELEASE_STAGE || "production";
 var envPath = fileHelper.getAbsolutePath("cypress/config/cypress." + releaseStage + ".json");
 function getReportUrl() {
-    if (process.env.JOB_URL) {
+    if (process.env.JOB_URL && process.env.JOB_URL.indexOf("DEPLOY-") === 0) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html";
     }
     return getBuildLink();
