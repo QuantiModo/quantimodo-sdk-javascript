@@ -211,7 +211,7 @@ describe('Reminders', function () {
     cy.wait(15000)
     deleteReminders()
   })
-  it('Selects a reminder time', function () {
+  it.skip('Selects a reminder time', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/reminder-add/', false)
     setReminderTime(8, 15, 'AM')
   })
