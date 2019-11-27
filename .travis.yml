@@ -1,7 +1,18 @@
 language: node_js
 node_js:
-  - "8"
-  - "10"
+  - 10
+
+## Cache NPM folder and Cypress binary
+## to avoid downloading Cypress again and again
+cache:
+  directories:
+    - ~/.npm
+    - ~/.cache
+
+install:
+  # use the new "ci" command for fastest installs on CI
+  - npm ci
+
 jobs:
   include:
     # Define the release stage that runs semantic-release
