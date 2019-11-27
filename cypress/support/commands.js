@@ -91,6 +91,7 @@ Cypress.Commands.add('visitApi', (url, options = {}) => {
     }
     options.qs.XDEBUG_SESSION_START = 'PHPSTORM'
     cy.visit("https://" + API_HOST + url, options)
+    cy.url().contains(url);
 })
 Cypress.Commands.add('containsCaseInsensitive', (selector, content) => {
     function caseInsensitive(str){
