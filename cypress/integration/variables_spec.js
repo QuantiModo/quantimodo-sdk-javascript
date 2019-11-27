@@ -138,14 +138,15 @@ describe('Variables', function(){
         // cy.assertInputValueEquals('#onsetDelay', '0.5')
         // cy.assertInputValueEquals('#durationOfAction', '504')
     })
-    it('Goes to variable settings from chart page', function(){
+    it.skip('Goes to variable settings from chart page', function(){
         cy.loginWithAccessTokenIfNecessary('/#/app/chart-search')
         cy.searchAndClickTopResult(variableName, true)
         cy.url().should('contain', chartsPath)
         let chartTitleSelector = '#app-container > ion-side-menu-content > ion-nav-view > ion-view > ion-content > div.scroll > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > h2'
         cy.get(chartTitleSelector, {timeout: 30000}).then(() => { // Need to wait for variable for action sheet to work
             cy.containsCaseInsensitive(chartTitleSelector, variableName)
-            cy.clickActionSheetButton(6)
+            cy.get('#menu-more-button').click({ force: true })
+            cy.clickActionSheetButtonContaining("Settings")
             cy.wait(2000)
             cy.url().should('contain', settingsPath)
         })

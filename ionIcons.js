@@ -741,4 +741,4 @@ window.ionIcons = {
     woman: "ion-woman",
     wrench: "ion-wrench",
     xbox: "ion-xbox",
-};
+}

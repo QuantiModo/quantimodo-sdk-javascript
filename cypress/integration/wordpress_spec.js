@@ -4,13 +4,13 @@ describe('WordPress', function(){
     function htmlAtUrlContains(urlWithoutSlashAtEnd, expected){
         cy.visit(urlWithoutSlashAtEnd)
         cy.get('html').should('contain', expected)
-        cy.visit(urlWithoutSlashAtEnd+'/')
+        cy.visit(urlWithoutSlashAtEnd + '/')
         cy.get('html', {timeout: 30000}).should('contain', expected)
     }
     function iFrameAttUrlContains(urlWithoutSlashAtEnd, expected){
         cy.visit(urlWithoutSlashAtEnd)
         cy.getWithinIframe('html').should('contain', expected)
-        cy.visit(urlWithoutSlashAtEnd+'/')
+        cy.visit(urlWithoutSlashAtEnd + '/')
         cy.getWithinIframe('html', {timeout: 30000}).should('contain', expected)
     }
     it('Checks the privacy policy', function(){
