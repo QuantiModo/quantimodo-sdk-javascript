@@ -44,7 +44,7 @@
     "lint:ts-fix": "cd ts && tslint --project . --fix",
     "lint:yaml": "yamllint '*.yml' 'basic/*.yml' .buildkite/pipeline.yml .semaphore/semaphore.yml '.github/workflows/*.yml'",
     "print-env": "print-env",
-    "release": "standard-version",
+    "release": "npx semantic-release",
     "report": "npm run report:mochawesome && npm run report:slack",
     "report:delete": "shx rm cypress/reports/*.json",
     "report:mochawesome": "npm run mochawesome:merge && npm run mochawesome:generate",
