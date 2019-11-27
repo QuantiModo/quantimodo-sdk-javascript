@@ -46,7 +46,10 @@ function getAccessToken() {
     if (process.env.GITHUB_ACCESS_TOKEN) {
         return process.env.GITHUB_ACCESS_TOKEN;
     }
-    throw new Error("Please set GITHUB_ACCESS_TOKEN env");
+    if (process.env.GH_TOKEN) {
+        return process.env.GH_TOKEN;
+    }
+    throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env");
 }
 exports.getAccessToken = getAccessToken;
 function getRepoUrl() {

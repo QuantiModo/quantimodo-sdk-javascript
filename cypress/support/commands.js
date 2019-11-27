@@ -203,7 +203,7 @@ Cypress.Commands.add('allowUncaughtException', (expectedErrorMessage) => {
 })
 Cypress.Commands.add('checkForBrokenImages', () => {
     cy.log('Checking for broken images...')
-    cy.wait(1000);
+    cy.wait(2000);
     cy.get('img', {timeout: 30000})
     // eslint-disable-next-line no-unused-vars
         .each(($el, index, $list) => {

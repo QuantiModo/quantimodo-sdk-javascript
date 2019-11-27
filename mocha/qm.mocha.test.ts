@@ -38,7 +38,7 @@ describe("git", () => {
             done();
         });
     });
-    it("creates a feature branch and deletes it", function (done) {
+    it.skip("creates a feature branch and deletes it", function (done) {
         let featureName = "test-feature"
         let branchName = "feature/"+featureName;
         qmGit.createFeatureBranch("test-feature");
