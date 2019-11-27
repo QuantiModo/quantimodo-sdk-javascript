@@ -1,6 +1,6 @@
 {
   "name": "quantimodo",
-  "version": "5.11.111615",
+  "version": "0.0.0-development",
   "description": "We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and sdk's](https://github.com/QuantiModo/docs) or [contact us](https://help.quantimo.do).",
   "license": "Apache 2.0",
   "main": "src/index.js",
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QuantiModo/quantimodo-sdk-javascript.git"
+    "url": "https://github.com/QuantiModo/quantimodo-sdk-javascript.git"
   },
   "scripts": {
     "build": "tsc",
@@ -71,8 +71,7 @@
   "browser": {
     "fs": false
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@angular/core": "latest",
     "@bahmutov/print-env": "1.2.0",
@@ -152,7 +151,8 @@
     "typescript": "3.7.2",
     "underscore.string": "3.3.5",
     "yaml-lint": "1.2.4",
-    "yargs": "15.0.2"
+    "yargs": "15.0.2",
+    "semantic-release": "^15.13.31"
   },
   "resolutions": {
     "set-value": "2.0.1",
