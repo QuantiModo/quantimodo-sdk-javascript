@@ -1,0 +1,19 @@
+{
+  "chromeWebSecurity": false,
+  "baseUrl": "https://medimodo.herokuapp.com",
+  "projectId": "ee8wan",
+  "pageLoadTimeout": 60000,
+  "videoCompression": false,
+  "videoUploadOnPasses": false,
+  "video": false,
+  "env": {
+    "API_HOST": "app.quantimo.do",
+    "OAUTH_APP_HOST": "medimodo.herokuapp.com",
+    "abort_strategy": true
+  },
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "configFile": "reporterOpts.json"
+  },
+  "screenshotsFolder": "mochawesome-report/assets"
+}
