@@ -42,12 +42,6 @@ function checkChartsPage(variableName){
         .should('contain', variableName)
 }
 /**
- * @param {string} variableName
- */
-function toastContains(variableName){
-    cy.get('.md-toast-text').should('contain', variableName)
-}
-/**
  * @param {number} value
  */
 function recordRatingMeasurement(value){
@@ -70,7 +64,7 @@ describe('Variables', function(){
         recordRatingMeasurement(3)
         searchForMoodFromMagnifyingGlassIcon(variableName)
         cy.clickActionSheetButtonContaining('Add Reminder')
-        toastContains(variableName)
+        cy.toastContains(variableName)
         searchForMoodFromMagnifyingGlassIcon(variableName)
         cy.clickActionSheetButtonContaining('Create Study')
         cy.get('#effectVariableName').should('contain', variableName)
