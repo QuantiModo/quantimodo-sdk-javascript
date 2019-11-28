@@ -275,3 +275,9 @@ Cypress.Commands.add('clickActionSheetButtonContaining', (str) => {
         .contains(str)
         .click({ force: true })
 })
+/**
+ * @param {string} str
+ */
+Cypress.Commands.add('toastContains', (str) => {
+    cy.get('.md-toast-text').should('contain', str)
+})
