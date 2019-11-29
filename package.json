@@ -66,7 +66,11 @@
     "types": "cd ts && tsc",
     "up": "docker-compose up --abort-on-container-exit --exit-code-from e2e",
     "warn-only": "stop-only -f cypress/integration --warn",
-    "watch": "tsc --watch --noEmit --project ./ts/tsconfig.json"
+    "watch": "tsc --watch --noEmit --project ./ts/tsconfig.json",
+    "heroku-test": "whoami && node -e 'console.log(process.geteuid())' && npm run ci:set-port && npm run test:ci:record",
+    "heroku-test-setup": "whoami && node -e 'console.log(process.geteuid())' && npx cypress install && npx cypress cache path && npx cypress cache list && npx cypress verify",
+    "heroku-postbuild": "npm run heroku-test-setup & npm run heroku-test",
+    "heroku-prebuild": "echo This runs before Heroku installs your dependencies."
   },
   "browser": {
     "fs": false
