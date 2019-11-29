@@ -270,3 +270,4 @@ Class | Method | HTTP request | Description
   - readmeasurements: Allows one to read a user&#39;s measurements
   - writemeasurements: Allows you to write user measurements
 
+
