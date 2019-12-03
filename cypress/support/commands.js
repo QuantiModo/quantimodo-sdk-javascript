@@ -65,13 +65,17 @@ function UpdateQueryString(key, value, uri){
 }
 Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminders-inbox', waitForAvatar = true) => {
     cy.log(`${path} - loginWithAccessTokenIfNecessary`)
-    path = UpdateQueryString('logLevel', logLevel, path)
     path = UpdateQueryString('access_token', accessToken, path)
-    path = UpdateQueryString('apiUrl', API_HOST, path)
-    cy.visit(path)
+    cy.visitIonicAndSetApiUrl(path)
     if(waitForAvatar){
         cy.get('#navBarAvatar > img', {timeout: 40000})
     }
+})
+Cypress.Commands.add('visitIonicAndSetApiUrl', (path = '/#/app/reminders-inbox') => {
+    path = UpdateQueryString('apiUrl', API_HOST, path)
+    path = UpdateQueryString('logLevel', logLevel, path)
+    cy.log(`${path} - visitIonicAndSetApiUrl`)
+    cy.visit(path)
 })
 Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
     cy.log(`=== visitWithApiUrlParam at ${url} ===`)
@@ -186,7 +190,7 @@ Cypress.Commands.add('logOutViaSettingsPage', (useMenuButton = false) => {
         cy.get('#menu-item-settings').click({force: true})
         cy.get('#menu-item-settings > a').click({force: true})
     }else{
-        cy.visit(`${baseUrl}/#/app/settings`)
+        cy.visitIonicAndSetApiUrl(`${baseUrl}/#/app/settings`)
     }
     cy.get('#userName').click({force: true})
     cy.get('#yesButton').click({force: true})

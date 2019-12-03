@@ -22,8 +22,8 @@ describe('Authentication', function () {
         'scope=readmeasurements%20writemeasurements&' +
         'state=testabcd&'
   function goToIntroPage (API_HOST, clientId) {
-    let url = `/#/app/intro?apiUrl=${API_HOST}&clientId=${clientId}&logout=true`
-    cy.visit(url)
+    let url = `/#/app/intro?clientId=${clientId}&logout=true`
+    cy.visitIonicAndSetApiUrl(url)
     cy.url().should('contain', 'intro')
   }
   function checkOauthPageAndAccept (appDisplayName) {
