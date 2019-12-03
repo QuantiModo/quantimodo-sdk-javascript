@@ -6,7 +6,7 @@ describe('Onboarding', function () {
   }
   it('Enables weather tracking from onboarding', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/settings', true)
-    cy.visit('/#/app/onboarding')
+    cy.visitIonicAndSetApiUrl('/#/app/onboarding')
     cy.log("Waiting for connectors to populate...");
     cy.wait(15000);
     skip();
@@ -23,8 +23,8 @@ describe('Onboarding', function () {
     cy.get("#circle-page-title").contains("Import");
     cy.toastContains("Connecting")
   })
-  it('Creates new use and anxiety reminder during onboarding', function () {
-    cy.visit('/')
+  it.only('Creates new user and anxiety reminder during onboarding', function () {
+    cy.visitIonicAndSetApiUrl('/')
     cy.disableSpeechAndSkipIntro()
     cy.get('#signUpButton').click({ force: true })
     cy.enterNewUserCredentials()

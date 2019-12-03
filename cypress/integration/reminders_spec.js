@@ -5,7 +5,7 @@
  * @param {string} path
  */
 function visitAndCheckUrl (path) {
-  cy.visit(path)
+  cy.visitIonicAndSetApiUrl(path)
   cy.wait(2000)
   cy.url().should('include', path)
 }
@@ -124,7 +124,7 @@ describe('Reminders', function () {
     deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
     cy.get('#notification-skip').click({ force: true })
     cy.get('#notification-skip').should('not.exist')
-    cy.visit(manageUrl)
+    cy.visitIonicAndSetApiUrl(manageUrl)
     deleteReminders()
   })
   it.skip('Creates a sleep reminder and changes unit', function () {
@@ -142,7 +142,7 @@ describe('Reminders', function () {
 
     setReminderTime(hour, minute, ampm)
     cy.get('#saveButton').click({ force: true })
-    cy.visit(manageUrl)
+    cy.visitIonicAndSetApiUrl(manageUrl)
     cy.log('Should not contain reminder time because the frequency is below a day')
     //let firstReminderTime = '#remindersList > div > div > div:nth-child(1) > div.col.col-70 > p';
     let firstReminderTime = '#remindersList'
@@ -162,7 +162,7 @@ describe('Reminders', function () {
     cy.url().should('include', '#/app/measurement-add')
     //cy.get('#measurementAddCard > div', {timeout: 10000}).should('contain', variableName);
     //cy.get('#defaultValue').type("480", {force: true});
-    cy.visit(manageUrl)
+    cy.visitIonicAndSetApiUrl(manageUrl)
     deleteReminders()
   })
   it('Deletes reminders', function () {
@@ -181,7 +181,7 @@ describe('Reminders', function () {
     deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
     cy.get('#notification-snooze').click({ force: true })
     cy.get('#notification-snooze').should('not.exist')
-    cy.visit(manageUrl)
+    cy.visitIonicAndSetApiUrl(manageUrl)
     deleteReminders()
   })
   it.skip('Creates a symptoms reminder and tracks it', function () {
@@ -193,7 +193,7 @@ describe('Reminders', function () {
     cy.loginWithAccessTokenIfNecessary(manageUrl)
     deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
     cy.get('#negativeRatingOptions4').click({ force: true })
-    cy.visit(`/#/app/charts/${variableName}`)
+    cy.visitIonicAndSetApiUrl(`/#/app/charts/${variableName}`)
     cy.get('#menu-more-button').click({ force: true })
     cy.clickActionSheetButtonContaining('History')
     cy.get('#historyItemTitle', { timeout: 30000 })
@@ -207,7 +207,7 @@ describe('Reminders', function () {
     cy.get('#menu-more-button').click({ force: true })
     cy.clickActionSheetButtonContaining('Delete All')
     cy.get('#yesButton').click({ force: true })
-    cy.visit(manageUrl)
+    cy.visitIonicAndSetApiUrl(manageUrl)
     cy.wait(15000)
     deleteReminders()
   })
