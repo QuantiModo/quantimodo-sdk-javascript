@@ -85,7 +85,7 @@ describe('Variables', function(){
         cy.get('.primary-outcome-variable-history > img:nth-of-type(3)').click({force: true})
         cy.get('#saveButton').click({force: true})
         cy.wait(10000)
-        cy.visit(`/#/app/history-all?variableCategoryName=${variableCategoryName}`)
+        cy.visitIonicAndSetApiUrl(`/#/app/history-all?variableCategoryName=${variableCategoryName}`)
         verifyAndDeleteMeasurement(variableString)
         return variableString
     }
@@ -116,7 +116,7 @@ describe('Variables', function(){
         cy.get('#saveButton').click({force: true})
         cy.get('#helpInfoCardHeader > span:nth-child(2) > p', {timeout: 30000})
         cy.url().should('not.contain', 'variable-settings')
-        cy.visit(settingsPath)
+        cy.visitIonicAndSetApiUrl(settingsPath)
         cy.log("TODO: TEST TO MAKE SURE THE CHANGES STUCK. IT'S CURRENTLY VERY FLAKEY")
         //cy.assertInputValueContains('#minimumAllowedValue', min);
         //cy.assertInputValueEquals('#maximumAllowedValue', max);
