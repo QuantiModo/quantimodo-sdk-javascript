@@ -28,6 +28,7 @@ declare namespace Cypress {
         urlShouldContainCaseInsensitive(content: string): Chainable<Element>
         visitApi(url: string, options?: Partial<VisitOptions>): Chainable<Element>
         visitWithApiUrlParam(url: string, options?: Partial<VisitOptions>): Chainable<Element>
+        visitIonicAndSetApiUrl(path: string): Chainable<Element>
         toastContains(str: string): Chainable<Element>
     }
 }
