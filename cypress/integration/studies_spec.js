@@ -34,7 +34,7 @@ describe('Studies', function () {
     cy.get('button[type="button"].md-button > span').click({ force: true })
   }
   it('Tries to joins a study and is sent to login', function () {
-    cy.visit(
+    cy.visitIonicAndSetApiUrl(
       '/#/app/study-join?causeVariableName=Flaxseed%20Oil&effectVariableName=Overall%20Mood&studyId=cause-53530-effect-1398-population-study')
     cy.get('#joinStudyButton').click({ force: true })
     cy.get('#signInButton > span').click({ force: true })
@@ -50,14 +50,14 @@ describe('Studies', function () {
     cy.get('#goToStudyButton', { timeout: 30000 }).click({ force: true })
     checkStudyPage(effect, cause)
     cy.get('.voteButtons').click({ force: true })
-    cy.visit(`/#/app/study?causeVariableName=${cause}&effectVariableName=${effect}`)
+    cy.visitIonicAndSetApiUrl(`/#/app/study?causeVariableName=${cause}&effectVariableName=${effect}`)
     checkStudyPage(effect, cause)
   })
   it('Looks at a study anonymously', function () {
     let effect = 'Overall Mood'
     let cause = 'Sleep Duration'
 
-    cy.visit(`/#/app/study?causeVariableName=${cause}&effectVariableName=${effect}`)
+    cy.visitIonicAndSetApiUrl(`/#/app/study?causeVariableName=${cause}&effectVariableName=${effect}`)
     checkStudyPage(effect, cause)
   })
   it('Goes to study from positive predictors page', function () {
