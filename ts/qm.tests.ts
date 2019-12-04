@@ -90,6 +90,7 @@ function copyCypressEnvConfigIfNecessary() {
         console.info(`No ${cypressJson} present so copying ${envPath}`)
         fs.copyFileSync(envPath, cypressJson)
     }
+    console.info("cypress.json: "+fs.readFileSync(cypressJson))
 }
 export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) {
     deleteSuccessFile()
