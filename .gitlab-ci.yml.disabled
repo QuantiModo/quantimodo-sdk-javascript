@@ -40,8 +40,9 @@ install:
     # print CI environment variables for reference
     - $(npm bin)/print-env CI
     # start the server in the background
-    - npm run start:ci &
+    #- npm run start:ci &
     # run Cypress test in load balancing mode
+    - cp cypress/config/cypress.production.json cypress.json
     - npm run cy:record -- --parallel --group "electrons on GitLab CI"
   artifacts:
     when: always

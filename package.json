@@ -25,6 +25,7 @@
     "cy:open:development": "cypress open --config-file cypress/config/cypress.development.json",
     "cy:open:production": "cypress open --config-file cypress/config/cypress.production.json",
     "cy:open:staging": "cypress open --config-file cypress/config/cypress.staging.json",
+    "cy:open:ionic": "cypress open --config-file cypress/config/cypress.ionic.json",
     "cy:record": "cypress run --record",
     "cy:record:parallel": "cypress run --record --parallel",
     "cy:record:production": "cypress run --record --key 64dd30de-4365-4699-85fe-e3be5e95da65 --config-file cypress/config/cypress.production.json",
