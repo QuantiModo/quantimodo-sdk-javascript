@@ -98,6 +98,7 @@ function copyCypressEnvConfigIfNecessary() {
         console.info("No " + cypressJson + " present so copying " + envPath);
         fs.copyFileSync(envPath, cypressJson);
     }
+    console.info("cypress.json: " + fs.readFileSync(cypressJson));
 }
 function runCypressTests(cb, specificSpec) {
     deleteSuccessFile();
@@ -270,4 +271,8 @@ function runLastFailedCypressTest(cb) {
     runCypressTests(cb, name);
 }
 exports.runLastFailedCypressTest = runLastFailedCypressTest;
+function uploadTestResults(cb) {
+    fileHelper.uploadToS3("./mochawesome-report/mochawesome.html", "mochawesome", cb);
+}
+exports.uploadTestResults = uploadTestResults;
 //# sourceMappingURL=qm.tests.js.map

@@ -157,7 +157,7 @@
     "underscore.string": "3.3.5",
     "yaml-lint": "1.2.4",
     "yargs": "15.0.2",
-    "semantic-release": "^15.13.31"
+    "semantic-release": "15.13.31"
   },
   "resolutions": {
     "set-value": "2.0.1",
