@@ -241,3 +241,7 @@ export function runLastFailedCypressTest(cb: (err: any) => void) {
     }
     runCypressTests(cb, name)
 }
+
+export function uploadTestResults(cb: (arg0: any) => void) {
+    fileHelper.uploadToS3("./mochawesome-report/mochawesome.html", "mochawesome", cb)
+}
