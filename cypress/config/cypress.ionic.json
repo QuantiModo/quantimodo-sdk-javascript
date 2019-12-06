@@ -1,6 +1,6 @@
 {
   "chromeWebSecurity": false,
-  "baseUrl": "https://medimodo.herokuapp.com",
+  "baseUrl": "https://app.quantimo.do",
   "projectId": "ee8wan",
   "pageLoadTimeout": 60000,
   "videoCompression": false,
