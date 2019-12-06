@@ -175,7 +175,7 @@ Cypress.Commands.add('disableSpeechAndSkipIntro', () => {
     }
     cy.get('.slider > .slider-slides > .slider-slide:nth-child(1) > .button-bar > #skipButtonIntro').click()
 })
-Cypress.Commands.add('enterNewUserCredentials', () => {
+Cypress.Commands.add('enterNewUserCredentials', (clickAccept) => {
     cy.log("=== enterNewUserCredentials ===")
     let d = new Date()
     let newUserLogin = `testuser${d.getTime()}`
@@ -185,7 +185,7 @@ Cypress.Commands.add('enterNewUserCredentials', () => {
     cy.get('input[name="user_pass"]').click({force: true}).type('qwerty', {force: true})
     cy.get('input[name="user_pass_confirmation"]').click({force: true}).type('qwerty', {force: true})
     cy.get('input[type="submit"]').click({force: true})
-    if(oauthAppBaseUrl.indexOf("quantimo.do") === -1){
+    if(clickAccept && oauthAppBaseUrl.indexOf("quantimo.do") === -1){
         cy.log("OAUTH_APP_HOST is external so we have to click approve on oauth page")
         cy.get('#button-approve').click({force: true})
     }

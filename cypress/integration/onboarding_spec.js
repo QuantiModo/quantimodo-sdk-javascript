@@ -31,7 +31,7 @@ describe('Onboarding', function () {
     cy.visitIonicAndSetApiUrl('/#/app/intro')
     cy.disableSpeechAndSkipIntro()
     cy.get('#signUpButton').click({ force: true })
-    cy.enterNewUserCredentials()
+    cy.enterNewUserCredentials(true)
     cy.get('#goToReminderSearchFromOnboarding', { timeout: 30000 }).click({ force: true })
     cy.wait(5000)
     cy.get('#variable-search-box').click({ force: true })

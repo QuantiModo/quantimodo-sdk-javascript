@@ -88,7 +88,7 @@ describe('Authentication', function () {
     goToIntroPage(API_HOST, clientId)
     cy.disableSpeechAndSkipIntro()
     cy.get('#signUpButton').click({ force: true })
-    cy.enterNewUserCredentials()
+    cy.enterNewUserCredentials(false)
     checkOauthPageAndAccept(appDisplayName)
     cy.wait(20000)
     cy.url().should('contain', 'onboarding')
@@ -98,7 +98,7 @@ describe('Authentication', function () {
   })
   it('Registers a new user after redirecting from authorization page)', function () {
     cy.visitApi(`${authorizePath}client_id=${clientId}&client_secret=${clientSecret}&register=true`)
-    cy.enterNewUserCredentials()
+    cy.enterNewUserCredentials(false)
     cy.get('.dialog-content').should('contain', appDisplayName)
     //checkOauthPageAndAccept(appDisplayName);
     //cy.allowUncaughtException(); // For some reason callback page has errors

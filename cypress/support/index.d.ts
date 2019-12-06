@@ -14,7 +14,7 @@ declare namespace Cypress {
         containsCaseInsensitive(selector: string, content: string): Chainable<Element>
         disableSpeechAndSkipIntro(): Chainable<Element>
         enterCredentials(usernameSelector?: string, username?: string, passwordSelector?: string, password?: string, submitSelector?: string ): Chainable<Element>
-        enterNewUserCredentials(): Chainable<Element>
+        enterNewUserCredentials(clickAccept: boolean): Chainable<Element>
         getInDocument(document: any, selector: any): Chainable<Element>
         getWithinIframe(targetElement: any): Chainable<Element>
         goToApiLoginPageAndLogin(email?: string, password?: string): Chainable<Element>
