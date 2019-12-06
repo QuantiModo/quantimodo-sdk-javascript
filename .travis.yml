@@ -12,9 +12,14 @@ cache:
 install:
   # use the new "ci" command for fastest installs on CI
   - npm ci
+  - npm install -g gulp-cli
 
 jobs:
   include:
+    - stage: Test OAuth Client
+      script: export RELEASE_STAGE=ionic && npm run test
+    - stage: Test Non-OAuth Client
+      script: export RELEASE_STAGE=production && npm run test
     # Define the release stage that runs semantic-release
     - stage: release
       node_js: lts/*
