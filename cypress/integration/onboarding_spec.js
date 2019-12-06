@@ -23,8 +23,12 @@ describe('Onboarding', function () {
     cy.get("#circle-page-title").contains("Import");
     cy.toastContains("Connecting")
   })
-  it.only('Creates new user and anxiety reminder during onboarding', function () {
-    cy.visitIonicAndSetApiUrl('/')
+  it('Logs out so the next test works', function () {
+    cy.log("Can't visit different hosts in the same test")
+    cy.logoutViaApiLogoutUrl()
+  })
+  it('Creates new user and anxiety reminder during onboarding', function () {
+    cy.visitIonicAndSetApiUrl('/#/app/intro')
     cy.disableSpeechAndSkipIntro()
     cy.get('#signUpButton').click({ force: true })
     cy.enterNewUserCredentials()
