@@ -1,6 +1,6 @@
 {
   "chromeWebSecurity": false,
-  "baseUrl": "https://web.quantimo.do",
+  "baseUrl": "https://staging.quantimo.do",
   "projectId": "ee8wan",
   "pageLoadTimeout": 60000,
   "videoCompression": false,
@@ -8,7 +8,7 @@
   "video": false,
   "env": {
     "API_HOST": "staging.quantimo.do",
-    "OAUTH_APP_HOST": "medimodo.herokuapp.com",
+    "OAUTH_APP_HOST": "web.quantimo.do",
     "abort_strategy": true
   },
   "reporter": "cypress-multi-reporters",
