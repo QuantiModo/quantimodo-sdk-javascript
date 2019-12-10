@@ -26,7 +26,7 @@ declare namespace Cypress {
         searchAndClickTopResult(variableName: string, topResultShouldContainSearchTerm?: boolean): Chainable<Element>
         sendSlackNotification(messageBody?: any): Chainable<Element>
         urlShouldContainCaseInsensitive(content: string): Chainable<Element>
-        visitApi(url: string, options?: Partial<VisitOptions>): Chainable<Element>
+        visitApi(url: string, options?: Partial<VisitOptions>, urlParams?: object): Chainable<Element>
         visitWithApiUrlParam(url: string, options?: Partial<VisitOptions>): Chainable<Element>
         visitIonicAndSetApiUrl(path: string): Chainable<Element>
         toastContains(str: string): Chainable<Element>

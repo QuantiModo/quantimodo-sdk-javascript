@@ -17,6 +17,7 @@ describe('Authentication', function () {
   let testUserPassword = 'testing123'
   let API_HOST = Cypress.env('API_HOST')
   if (!API_HOST) { API_HOST = 'local.quantimo.do' }
+  let apiUrl = "https://"+API_HOST;
   let authorizePath = `/api/oauth2/authorize?` +
         'response_type=code&' +
         'scope=readmeasurements%20writemeasurements&' +
@@ -32,7 +33,14 @@ describe('Authentication', function () {
     cy.get('#button-approve').should('contain', 'Accept')
     cy.get('#button-approve').click({ force: true })
   }
-  it.skip('Logs into and out of an OAuth test client app', function () {
+  it('Goes to register page with redirectTo param and no client or callback', function () {
+    let redirectUrl = encodeURIComponent(apiUrl+"/api/oauth2/authorize");
+    let encodedRedirectTo = encodeURIComponent(apiUrl+"/api/oauth2/authorize");
+    cy.visitApi('/api/v2/auth/register?redirectTo='+encodedRedirectTo)
+    cy.enterNewUserCredentials(false);
+    cy.url().contains(redirectUrl);
+  })
+  it('Logs into and out of an OAuth test client app', function () {
     let clientId = 'oauth_test_client'
     let appDisplayName = 'OAuth test client'
     goToIntroPage(API_HOST, clientId)
@@ -70,7 +78,7 @@ describe('Authentication', function () {
     checkOauthPageAndAccept(appDisplayName)
     cy.allowUncaughtException(null)
   })
-  it.skip('Logs in and out with username and password', function () {
+  it('Logs in and out with username and password', function () {
     if (!Cypress.env('API_HOST')) { cy.log(`Cypress.env('API_HOST') is empty so falling back to ${API_HOST}`) }
     cy.goToApiLoginPageAndLogin(testUserName, testUserPassword)
     cy.disableSpeechAndSkipIntro()
@@ -81,7 +89,7 @@ describe('Authentication', function () {
     cy.disableSpeechAndSkipIntro()
     cy.url().should('contain', 'login')
   })
-  it.skip('Registers a new user with username and password starting from OAuth web app', function () {
+  it('Registers a new user with username and password starting from OAuth web app', function () {
     let appDisplayName = 'OAuth test client'
     let baseUrl = Cypress.config('baseUrl')
     cy.log(`baseUrl is ${baseUrl}`)
