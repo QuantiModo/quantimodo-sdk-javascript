@@ -93,9 +93,6 @@ function copyCypressEnvConfigIfNecessary() {
     console.info("cypress.json: "+fs.readFileSync(cypressJson))
 }
 export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) {
-    if(!specificSpec && process.env.CYPRESS_SPEC) {
-        specificSpec = process.env.CYPRESS_SPEC
-    }
     deleteSuccessFile()
     copyCypressEnvConfigIfNecessary()
     rimraf("./cypress/reports/mocha/*.json", function() {
