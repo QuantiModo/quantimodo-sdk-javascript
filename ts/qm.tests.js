@@ -118,7 +118,7 @@ function runCypressTests(cb, specificSpec) {
                 }
                 p = p.then(function (_) { return new Promise(function (resolve) {
                     var specPath = specsPath + "/" + specName;
-                    var context = specName.replace("_spec.js", "");
+                    var context = specName.replace("_spec.js", "") + "-" + releaseStage;
                     qmGit.setGithubStatus("pending", context, "Running " + context + " Cypress tests...");
                     // noinspection JSUnresolvedFunction
                     cypress.run({
@@ -196,6 +196,9 @@ function runCypressTests(cb, specificSpec) {
 }
 exports.runCypressTests = runCypressTests;
 function getBuildLink() {
+    if (process.env.BUILD_URL_FOR_STATUS) {
+        return process.env.BUILD_URL_FOR_STATUS + "/console";
+    }
     if (process.env.BUILD_URL) {
         return process.env.BUILD_URL + "/console";
     }
