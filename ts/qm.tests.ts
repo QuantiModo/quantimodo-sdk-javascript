@@ -110,7 +110,7 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
                 }
                 p = p.then((_) => new Promise((resolve) => {
                     const specPath = specsPath + "/" + specName
-                    const context = specName.replace("_spec.js", "")
+                    const context = specName.replace("_spec.js", "")+"-"+releaseStage
                     qmGit.setGithubStatus("pending", context, `Running ${context} Cypress tests...`)
                     // noinspection JSUnresolvedFunction
                     cypress.run({
@@ -176,6 +176,9 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
     })
 }
 export function getBuildLink() {
+    if (process.env.BUILD_URL_FOR_STATUS) {
+        return process.env.BUILD_URL_FOR_STATUS + "/console"
+    }
     if (process.env.BUILD_URL) {
         return process.env.BUILD_URL + "/console"
     }

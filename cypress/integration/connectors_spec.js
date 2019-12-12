@@ -32,7 +32,7 @@ describe('Mobile Connectors', function () {
   }
   function goToMobileConnectPage () {
     cy.log(`Using apiUrl: ${apiUrl}`)
-    cy.visitApi(`/api/v1/connect/mobile?log=testuser&pwd=testing123&clientId=ghostInspector`)
+    cy.visitApi(`/api/v1/connect/mobile?log=testuser&pwd=testing123`)
     //cy.checkForBrokenImages()  // Keeps falsely failing
   }
     /**
