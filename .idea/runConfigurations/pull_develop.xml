@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="pull develop" type="BashConfigurationType" factoryName="Bash">
+    <module name="quantimodo-sdk-javascript" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="INTERPRETER_PATH" value="C:\Program Files\Git\bin\bash.exe" />
+    <option name="PROJECT_INTERPRETER" value="false" />
+    <option name="WORKING_DIRECTORY" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <option name="SCRIPT_NAME" value="C:\Development\qm-api\public\dev-docs\sdk-repos\quantimodo-sdk-javascript\scripts\git-pull-develop.sh" />
+    <option name="PARAMETERS" value="" />
+    <method v="2" />
+  </configuration>
+</component>

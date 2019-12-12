@@ -25,6 +25,9 @@ function getOctoKit() {
 }
 exports.getOctoKit = getOctoKit;
 function getCurrentGitCommitSha() {
+    if (process.env.GIT_COMMIT_FOR_STATUS) {
+        return process.env.GIT_COMMIT_FOR_STATUS;
+    }
     if (process.env.SOURCE_VERSION) {
         return process.env.SOURCE_VERSION;
     }
@@ -43,6 +46,9 @@ function getCurrentGitCommitSha() {
 }
 exports.getCurrentGitCommitSha = getCurrentGitCommitSha;
 function getAccessToken() {
+    if (process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS) {
+        return process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS;
+    }
     if (process.env.GITHUB_ACCESS_TOKEN) {
         return process.env.GITHUB_ACCESS_TOKEN;
     }
@@ -53,6 +59,9 @@ function getAccessToken() {
 }
 exports.getAccessToken = getAccessToken;
 function getRepoUrl() {
+    if (process.env.REPOSITORY_URL_FOR_STATUS) {
+        return process.env.REPOSITORY_URL_FOR_STATUS;
+    }
     if (process.env.GIT_URL) {
         return process.env.GIT_URL;
     }
@@ -78,6 +87,9 @@ function getRepoParts() {
 }
 exports.getRepoParts = getRepoParts;
 function getRepoName() {
+    if (process.env.REPO_NAME_FOR_STATUS) {
+        return process.env.REPO_NAME_FOR_STATUS;
+    }
     if (process.env.CIRCLE_PROJECT_REPONAME) {
         return process.env.CIRCLE_PROJECT_REPONAME;
     }
@@ -89,6 +101,9 @@ function getRepoName() {
 }
 exports.getRepoName = getRepoName;
 function getRepoUserName() {
+    if (process.env.REPO_USERNAME_FOR_STATUS) {
+        return process.env.REPO_USERNAME_FOR_STATUS;
+    }
     if (process.env.CIRCLE_PROJECT_USERNAME) {
         return process.env.CIRCLE_PROJECT_USERNAME;
     }

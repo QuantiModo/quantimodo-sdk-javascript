@@ -16,9 +16,9 @@ install:
 
 jobs:
   include:
-    - stage: Test OAuth Client
+    - stage: Test 3rd Party OAuth Client at medimodo.herokuapp.com
       script: export RELEASE_STAGE=ionic && npm run test
-    - stage: Test Non-OAuth Client
+    - stage: Test 2nd Party OAuth Client at web.quantimo.do
       script: export RELEASE_STAGE=production && npm run test
     # Define the release stage that runs semantic-release
     - stage: release
