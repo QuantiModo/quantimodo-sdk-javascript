@@ -93,7 +93,7 @@ describe("uploader", function () {
             downloadFileContains(uploadResponse.Location, "iosArrowUp", done)
         })
     })
-    it("uploads test results", function (done) {
+    it.skip("uploads test results", function (done) {
         this.timeout(10000) // Default 2000 is too fast
         qmTests.uploadTestResults(function (uploadResponse) {
             downloadFileContains(uploadResponse.Location, "mocha", done)
