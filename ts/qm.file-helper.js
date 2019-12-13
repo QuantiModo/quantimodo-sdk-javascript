@@ -31,19 +31,23 @@ function getS3Client() {
     return new aws_sdk_1.default.S3(s3Options);
 }
 exports.getS3Client = getS3Client;
-function uploadToS3(filePath, s3BasePath, cb, s3Bucket, ACL) {
+function uploadToS3(filePath, s3BasePath, cb, s3Bucket, accessControlLevel, ContentType) {
     if (s3Bucket === void 0) { s3Bucket = "quantimodo"; }
-    if (ACL === void 0) { ACL = "public-read"; }
+    if (accessControlLevel === void 0) { accessControlLevel = "public-read"; }
     var s3 = getS3Client();
     var fileContent = fs.readFileSync(filePath);
     var fileName = path.basename(filePath);
     var s3Key = s3BasePath + "/" + fileName;
     var params = {
-        ACL: ACL,
+        ACL: accessControlLevel,
         Body: fileContent,
         Bucket: s3Bucket,
         Key: s3Key,
     };
+    if (ContentType) {
+        // @ts-ignore
+        params.ContentType = ContentType;
+    }
     s3.upload(params, function (err, data) {
         if (err) {
             throw err;
