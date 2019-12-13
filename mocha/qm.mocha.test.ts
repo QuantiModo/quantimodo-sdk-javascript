@@ -61,7 +61,7 @@ function downloadFileContains(url: string, expectedToContain: string, cb) {
         cb()
     })
 }
-function downloadFile(url, cb){
+function downloadFile(url: string, cb){
     const parsedUrl = urlParser.parse(url)
     const options = {
         hostname: parsedUrl.hostname,
@@ -87,13 +87,14 @@ function downloadFile(url, cb){
     req.end()
 }
 
-describe("s3 uploader", function () {
+describe("uploader", function () {
     it("uploads a file", function (done) {
         fileHelper.uploadToS3("ionIcons.js", "tests", function (uploadResponse) {
-            downloadFileContains(uploadResponse.Locationm, "iosArrowUp", done)
+            downloadFileContains(uploadResponse.Location, "iosArrowUp", done)
         })
     })
     it("uploads test results", function (done) {
+        this.timeout(10000) // Default 2000 is too fast
         qmTests.uploadTestResults(function (uploadResponse) {
             downloadFileContains(uploadResponse.Location, "mocha", done)
         })
