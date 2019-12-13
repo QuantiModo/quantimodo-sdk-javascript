@@ -145,10 +145,12 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
                                     const errorMessage = failedTests[0].error
                                     qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
                                         errorMessage, getReportUrl(), function() {
-                                        console.error(errorMessage)
-                                        // cb(errorMessage);
-                                        process.exit(1)
-                                        // resolve();
+                                        uploadTestResults(function() {
+                                            console.error(errorMessage)
+                                            // cb(errorMessage);
+                                            process.exit(1)
+                                            // resolve();
+                                        })
                                     })
                                 })
                             } else {
@@ -246,5 +248,7 @@ export function runLastFailedCypressTest(cb: (err: any) => void) {
 }
 
 export function uploadTestResults(cb: (arg0: any) => void) {
-    fileHelper.uploadToS3("./mochawesome-report/mochawesome.html", "mochawesome", cb)
+    const path = "mochawesome/"+qmGit.getCurrentGitCommitSha()
+    fileHelper.uploadToS3("./mochawesome-report/mochawesome.html", path, cb, "quantimodo",
+        "public-read", "text/html")
 }

@@ -26,17 +26,22 @@ export function uploadToS3(
   s3BasePath: string,
   cb: (arg0: any) => void,
   s3Bucket = "quantimodo",
-  ACL = "public-read",
+  accessControlLevel = "public-read",
+  ContentType?: string | undefined,
 ) {
   const s3 = getS3Client()
   const fileContent = fs.readFileSync(filePath)
   const fileName = path.basename(filePath)
   const s3Key = s3BasePath + "/" + fileName
   const params = {
-    ACL,
+    ACL: accessControlLevel,
     Body: fileContent,
     Bucket: s3Bucket,
     Key: s3Key,
+  }
+  if(ContentType) {
+    // @ts-ignore
+    params.ContentType = ContentType
   }
   s3.upload(params, (err: any, data: { Location: any }) => {
     if (err) {
