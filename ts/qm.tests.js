@@ -155,10 +155,12 @@ function runCypressTests(cb, specificSpec) {
                                     var errorMessage = failedTests_1[0].error;
                                     qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
                                         errorMessage, getReportUrl(), function () {
-                                        console.error(errorMessage);
-                                        // cb(errorMessage);
-                                        process.exit(1);
-                                        // resolve();
+                                        uploadTestResults(function () {
+                                            console.error(errorMessage);
+                                            // cb(errorMessage);
+                                            process.exit(1);
+                                            // resolve();
+                                        });
                                     });
                                 });
                             }
@@ -275,7 +277,8 @@ function runLastFailedCypressTest(cb) {
 }
 exports.runLastFailedCypressTest = runLastFailedCypressTest;
 function uploadTestResults(cb) {
-    fileHelper.uploadToS3("./mochawesome-report/mochawesome.html", "mochawesome", cb);
+    var path = "mochawesome/" + qmGit.getCurrentGitCommitSha();
+    fileHelper.uploadToS3("./mochawesome-report/mochawesome.html", path, cb, "quantimodo", "public-read", "text/html");
 }
 exports.uploadTestResults = uploadTestResults;
 //# sourceMappingURL=qm.tests.js.map
