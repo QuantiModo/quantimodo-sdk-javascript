@@ -15,15 +15,16 @@
     "url": "https://github.com/QuantiModo/quantimodo-sdk-javascript.git"
   },
   "scripts": {
-    "build": "tsc",
+    "git:pre:commit": "npm run lint:fix && npm run types && npm run test:mocha",
+    "cy:open:development": "cypress open --config-file cypress/config/cypress.development.json",
+    "cy:open:production": "cypress open --config-file cypress/config/cypress.production.json",
+    "build": "npm run types",
     "ci": "npm run test",
     "circle": "npm run lint && npm run test:ci && make test && npm run pre-publish",
-    "compile": "tsc",
+    "compile": "npm run types",
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
     "cy:chrome": "cypress run --browser chrome",
     "cy:open": "cypress open",
-    "cy:open:development": "cypress open --config-file cypress/config/cypress.development.json",
-    "cy:open:production": "cypress open --config-file cypress/config/cypress.production.json",
     "cy:open:staging": "cypress open --config-file cypress/config/cypress.staging.json",
     "cy:open:ionic": "cypress open --config-file cypress/config/cypress.ionic.json",
     "cy:record": "cypress run --record",
@@ -36,7 +37,6 @@
     "cypress": "npx ts-node ts/qm.cypress.ts",
     "deploy:prepare": "./scripts/create_npmrc_file.sh",
     "effective:config": "circleci config process circle.yml | sed /^#/d",
-    "git:pre:commit": "npm run lint:fix && npm run types && npm run test:mocha",
     "lint": "npm run lint:es && npm run lint:ts && npm run lint:yaml",
     "lint:fix": "npm run lint:es-fix && npm run lint:ts-fix",
     "lint:es": "eslint .",
@@ -144,6 +144,7 @@
     "request": "latest",
     "rimraf": "3.0.0",
     "run-sequence": "2.2.1",
+    "semantic-release": "15.13.31",
     "shx": "0.3.2",
     "simple-git": "1.126.0",
     "stop-only": "3.1.0",
@@ -156,8 +157,7 @@
     "typescript": "3.7.2",
     "underscore.string": "3.3.5",
     "yaml-lint": "1.2.4",
-    "yargs": "15.0.2",
-    "semantic-release": "15.13.31"
+    "yargs": "15.0.2"
   },
   "resolutions": {
     "set-value": "2.0.1",
