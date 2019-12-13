@@ -25,7 +25,7 @@ jobs:
 #    - stage: Test 2nd Party OAuth Client at web.quantimo.do
 #      script: export RELEASE_STAGE=production && npm run test
     # Define the release stage that runs semantic-release
-    - stage: test and release if necessary
+    - stage: Test web.quantimo.do with API URL app.quantimo.do and release if necessary
       node_js: lts/*
       # Advanced: optionally overwrite your default `script` step to skip the tests
       # script: skip
