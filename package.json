@@ -17,7 +17,9 @@
   "scripts": {
     "git:pre:commit": "npm run lint:fix && npm run types && npm run test:mocha",
     "cy:open:development": "cypress open --config-file cypress/config/cypress.development.json",
+    "cy:open:ionic": "cypress open --config-file cypress/config/cypress.ionic.json",
     "cy:open:production": "cypress open --config-file cypress/config/cypress.production.json",
+    "cy:open:staging": "cypress open --config-file cypress/config/cypress.staging.json",
     "build": "npm run types",
     "ci": "npm run test",
     "circle": "npm run lint && npm run test:ci && make test && npm run pre-publish",
@@ -25,8 +27,6 @@
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
     "cy:chrome": "cypress run --browser chrome",
     "cy:open": "cypress open",
-    "cy:open:staging": "cypress open --config-file cypress/config/cypress.staging.json",
-    "cy:open:ionic": "cypress open --config-file cypress/config/cypress.ionic.json",
     "cy:record": "cypress run --record",
     "cy:record:parallel": "cypress run --record --parallel",
     "cy:record:production": "cypress run --record --key 64dd30de-4365-4699-85fe-e3be5e95da65 --config-file cypress/config/cypress.production.json",
