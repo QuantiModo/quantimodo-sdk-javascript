@@ -3,35 +3,18 @@
 describe('Onboarding', function () {
   function skip(){
     cy.get('#hideOnboardingPage').click({ force: true })
+    cy.wait(1000)
   }
-  it('Enables weather tracking from onboarding', function () {
-    cy.loginWithAccessTokenIfNecessary('/#/app/settings', true)
-    cy.visitIonicAndSetApiUrl('/#/app/onboarding')
-    cy.log("Waiting for connectors to populate...");
-    cy.wait(15000);
-    skip();
-    skip();
-    skip();
-    skip();
-    skip();
-    cy.get("#enableWeatherTrackingButton").click({force: true})
-    cy.log("Wait for weather connector from API...")
-    cy.get('#postal-code-input', {timeout: 15000})
-        .type('62025', { force: true })
-    cy.get('body > div.popup-container.popup-showing.active > div > div.popup-buttons > button.button.ng-binding.button-positive')
-        .click({ force: true })
-    cy.get("#circle-page-title").contains("Import");
-    cy.toastContains("Connecting")
-  })
-  it('Logs out so the next test works', function () {
-    cy.log("Can't visit different hosts in the same test")
-    cy.logoutViaApiLogoutUrl()
-  })
-  it('Creates new user and anxiety reminder during onboarding', function () {
-    cy.visitIonicAndSetApiUrl('/#/app/intro')
+  it.skip('Creates a new user', function (){
+    cy.visitIonicAndSetApiUrl('/#/app/intro?logout=1')
     cy.disableSpeechAndSkipIntro()
-    cy.get('#signUpButton').click({ force: true })
+    cy.get('#signUpButton').click({force: true})
     cy.enterNewUserCredentials(true)
+    cy.url().contains("finish", {timeout: 45000})
+  })
+  it('Enables weather tracking from onboarding', function () {
+    cy.loginWithAccessTokenIfNecessary('/#/app/onboarding')
+    cy.wait(20000)
     cy.get('#goToReminderSearchFromOnboarding', { timeout: 30000 }).click({ force: true })
     cy.wait(5000)
     cy.get('#variable-search-box').click({ force: true })
@@ -47,9 +30,17 @@ describe('Onboarding', function () {
     skip()
     skip()
     skip()
-    skip()
+    cy.get("#enableWeatherTrackingButton").click({force: true})
+    cy.log("Wait for weather connector from API...")
+    cy.get('#postal-code-input', {timeout: 15000})
+        .type('62025', { force: true })
+    cy.get('body > div.popup-container.popup-showing.active > div > div.popup-buttons > button.button.ng-binding.button-positive')
+        .click({ force: true })
+    cy.get("#circle-page-title").contains("Import");
+    cy.toastContains("Connecting")
     skip()
     cy.get('#goToInboxButton').click({ force: true })
     cy.get('#hideHelpInfoCardButton').click({ force: true })
+    cy.logOutViaSettingsPage(false)
   })
 })

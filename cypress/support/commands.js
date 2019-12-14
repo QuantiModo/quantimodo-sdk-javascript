@@ -87,7 +87,7 @@ Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
     options.qs.apiUrl = API_HOST
     cy.visit(url, options)
 })
-Cypress.Commands.add('visitApi', (url, options = {}) => {
+Cypress.Commands.add('visitApi', (url, options = {}, urlParams = {}) => {
     cy.log(`=== visitWithApiUrlParam at ${url} ===`)
     if(!API_HOST || API_HOST === 'undefined'){
         throw 'Please set API_HOST env!'
@@ -196,9 +196,9 @@ Cypress.Commands.add('logOutViaSettingsPage', (useMenuButton = false) => {
         cy.get('#menu-item-settings').click({force: true})
         cy.get('#menu-item-settings > a').click({force: true})
     }else{
-        cy.visitIonicAndSetApiUrl(`${baseUrl}/#/app/settings`)
+        cy.visitIonicAndSetApiUrl(`/#/app/settings`)
     }
-    cy.get('#userName').click({force: true})
+    cy.get('#userName', {timeout: 30000}).click({force: true})
     cy.get('#yesButton').click({force: true})
     cy.log('We should end up back at intro after logout')
     cy.get('#skipButtonIntro').should('exist')
