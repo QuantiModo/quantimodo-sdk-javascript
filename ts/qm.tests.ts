@@ -86,11 +86,9 @@ export function mochawesome(failedTests: any[], cb: (err: any) => void) {
     })
 }
 function copyCypressEnvConfigIfNecessary() {
-    if (!fs.existsSync(cypressJson)) {
-        console.info(`No ${cypressJson} present so copying ${envPath}`)
-        fs.copyFileSync(envPath, cypressJson)
-    }
-    console.info("cypress.json: "+fs.readFileSync(cypressJson))
+    console.info(`Copying ${envPath} to cypress.json`)
+    fs.copyFileSync(envPath, cypressJson)
+    console.info("Cypress Configuration: "+fs.readFileSync(cypressJson))
 }
 export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) {
     deleteSuccessFile()
