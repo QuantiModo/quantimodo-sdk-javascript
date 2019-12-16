@@ -37,6 +37,12 @@ var lastFailedCypressTestPath = "last-failed-cypress-test";
 var cypressJson = fileHelper.getAbsolutePath("cypress.json");
 var releaseStage = process.env.RELEASE_STAGE || "production";
 var envPath = fileHelper.getAbsolutePath("cypress/config/cypress." + releaseStage + ".json");
+var paths = {
+    reports: {
+        junit: "./cypress/reports/junit",
+        mocha: "./cypress/reports/junit",
+    },
+};
 function getReportUrl() {
     if (process.env.JOB_URL && process.env.JOB_URL.indexOf("DEPLOY-") === 0) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html";
@@ -98,10 +104,32 @@ function copyCypressEnvConfigIfNecessary() {
     fs.copyFileSync(envPath, cypressJson);
     console.info("Cypress Configuration: " + fs.readFileSync(cypressJson));
 }
+function setGithubStatusAndUploadTestResults(failedTests, context) {
+    // @ts-ignore
+    var failedTestTitle = failedTests[0].title[1];
+    // @ts-ignore
+    var errorMessage = failedTests[0].error;
+    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
+        errorMessage, getReportUrl(), function () {
+        uploadTestResults(function () {
+            console.error(errorMessage);
+            // cb(errorMessage);
+            process.exit(1);
+            // resolve();
+        });
+    });
+}
+function deleteJUnitTestResults() {
+    var jUnitFiles = paths.reports.junit + "/*.xml";
+    rimraf_1.default(jUnitFiles, function () {
+        console.debug("Deleted " + jUnitFiles);
+    });
+}
 function runCypressTests(cb, specificSpec) {
     deleteSuccessFile();
     copyCypressEnvConfigIfNecessary();
-    rimraf_1.default("./cypress/reports/mocha/*.json", function () {
+    deleteJUnitTestResults();
+    rimraf_1.default(paths.reports.mocha + "/*.json", function () {
         var specsPath = app_root_path_1.default + "/cypress/integration";
         var browser = process.env.CYPRESS_BROWSER || "electron";
         fs.readdir(specsPath, function (err, specFileNames) {
@@ -147,19 +175,7 @@ function runCypressTests(cb, specificSpec) {
                                     console.error(testName + " FAILED because " + errorMessage);
                                 }
                                 mochawesome(failedTests_1, function () {
-                                    // @ts-ignore
-                                    var failedTestTitle = failedTests_1[0].title[1];
-                                    // @ts-ignore
-                                    var errorMessage = failedTests_1[0].error;
-                                    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
-                                        errorMessage, getReportUrl(), function () {
-                                        uploadTestResults(function () {
-                                            console.error(errorMessage);
-                                            // cb(errorMessage);
-                                            process.exit(1);
-                                            // resolve();
-                                        });
-                                    });
+                                    setGithubStatusAndUploadTestResults(failedTests_1, context);
                                 });
                             }
                             else {

@@ -25,6 +25,12 @@ const lastFailedCypressTestPath = "last-failed-cypress-test"
 const cypressJson = fileHelper.getAbsolutePath("cypress.json")
 const releaseStage = process.env.RELEASE_STAGE || "production"
 const envPath = fileHelper.getAbsolutePath(`cypress/config/cypress.${releaseStage}.json`)
+const paths = {
+    reports: {
+        junit: "./cypress/reports/junit",
+        mocha: "./cypress/reports/mocha",
+    },
+}
 function getReportUrl() {
     if (process.env.JOB_URL && process.env.JOB_URL.indexOf("DEPLOY-") === 0) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html"
@@ -90,10 +96,35 @@ function copyCypressEnvConfigIfNecessary() {
     fs.copyFileSync(envPath, cypressJson)
     console.info("Cypress Configuration: "+fs.readFileSync(cypressJson))
 }
+
+function setGithubStatusAndUploadTestResults(failedTests: any[] | null, context: string) {
+    // @ts-ignore
+    const failedTestTitle = failedTests[0].title[1]
+    // @ts-ignore
+    const errorMessage = failedTests[0].error
+    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
+        errorMessage, getReportUrl(), function() {
+        uploadTestResults(function() {
+            console.error(errorMessage)
+            // cb(errorMessage);
+            process.exit(1)
+            // resolve();
+        })
+    })
+}
+
+function deleteJUnitTestResults() {
+    const jUnitFiles = paths.reports.junit + "/*.xml"
+    rimraf(jUnitFiles, function() {
+        console.debug(`Deleted ${jUnitFiles}`)
+    })
+}
+
 export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) {
     deleteSuccessFile()
     copyCypressEnvConfigIfNecessary()
-    rimraf("./cypress/reports/mocha/*.json", function() {
+    deleteJUnitTestResults()
+    rimraf(paths.reports.mocha+"/*.json", function() {
         const specsPath = sdkRepo + "/cypress/integration"
         const browser = process.env.CYPRESS_BROWSER || "electron"
         fs.readdir(specsPath, function(err: any, specFileNames: string[]) {
@@ -137,19 +168,7 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
                                     console.error(testName + " FAILED because " + errorMessage)
                                 }
                                 mochawesome(failedTests, function() {
-                                    // @ts-ignore
-                                    const failedTestTitle = failedTests[0].title[1]
-                                    // @ts-ignore
-                                    const errorMessage = failedTests[0].error
-                                    qmGit.setGithubStatus("failure", context, failedTestTitle + ": " +
-                                        errorMessage, getReportUrl(), function() {
-                                        uploadTestResults(function() {
-                                            console.error(errorMessage)
-                                            // cb(errorMessage);
-                                            process.exit(1)
-                                            // resolve();
-                                        })
-                                    })
+                                    setGithubStatusAndUploadTestResults(failedTests, context)
                                 })
                             } else {
                                 deleteLastFailedCypressTest()
