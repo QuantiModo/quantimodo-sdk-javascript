@@ -83,7 +83,7 @@
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "@cypress/webpack-preprocessor": "4.1.1",
-    "@octokit/rest": "16.35.0",
+    "@octokit/rest": "16.35.2",
     "@slack/types": "1.2.1",
     "@slack/webhook": "5.0.2",
     "@types/angular": "latest",
