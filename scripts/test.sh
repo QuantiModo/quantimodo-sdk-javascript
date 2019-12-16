@@ -24,4 +24,5 @@ echo "Saving host environment variables to host.env to access within docker"
 printenv > ${REPO_DIR}/.env
 echo "Creating /etc/asound.conf to deal with cannot find card '0' error message spam output"
 sudo cp asound.conf /etc/asound.conf
+echo -e 'pcm.!default {\n type hw\n card 0\n}\n\nctl.!default {\n type hw\n card 0\n}' > ~/.asoundrc
 npm run test
