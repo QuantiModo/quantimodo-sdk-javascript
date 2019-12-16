@@ -100,11 +100,9 @@ function mochawesome(failedTests, cb) {
 }
 exports.mochawesome = mochawesome;
 function copyCypressEnvConfigIfNecessary() {
-    if (!fs.existsSync(cypressJson)) {
-        console.info("No " + cypressJson + " present so copying " + envPath);
-        fs.copyFileSync(envPath, cypressJson);
-    }
-    console.info("cypress.json: " + fs.readFileSync(cypressJson));
+    console.info("Copying " + envPath + " to cypress.json");
+    fs.copyFileSync(envPath, cypressJson);
+    console.info("Cypress Configuration: " + fs.readFileSync(cypressJson));
 }
 function setGithubStatusAndUploadTestResults(failedTests, context) {
     // @ts-ignore
