@@ -1,31 +1,11 @@
 import * as qmGit from "./qm.git"
-const timeHelper = {
-    getUnixTimestampInMilliseconds(dateTimeString: string | number | Date) {
-        if (!dateTimeString) {
-            return new Date().getTime()
-        }
-        return new Date(dateTimeString).getTime()
-    },
-    getTimeSinceString(unixTimestamp: any) {
-        if (!unixTimestamp) {
-            return "never"
-        }
-        const secondsAgo = timeHelper.secondsAgo(unixTimestamp)
-        if (secondsAgo > 2 * 24 * 60 * 60) {
-            return Math.round(secondsAgo / (24 * 60 * 60)) + " days ago"
-        }
-        if (secondsAgo > 2 * 60 * 60) {
-            return Math.round(secondsAgo / (60 * 60)) + " hours ago"
-        }
-        if (secondsAgo > 2 * 60) {
-            return Math.round(secondsAgo / (60)) + " minutes ago"
-        }
-        return secondsAgo + " seconds ago"
-    },
-    secondsAgo(unixTimestamp: number) {
-        return Math.round((new Date().getTime() - unixTimestamp))
-    },
+
+function logTestParameters(apiUrl: string, startUrl: string, testUrl: string) {
+    console.info(`startUrl: ` + startUrl)
+    console.info(`apiUrl: ` + apiUrl)
+    console.info(`View test at: ` + testUrl)
 }
+
 export const giTests = {
     getArgumentOrEnv(name: string, defaultValue: null | string): string | null {
         if (typeof process.env[name] !== "undefined") {
@@ -172,14 +152,11 @@ export const giTests = {
             const GhostInspector = getGhostInspector()
             const options = giTests.tests.getOptions(startUrl)
             const test = tests.pop()
-            const time = new Date(Date.now()).toLocaleString()
-            console.info(time + `: Testing ` + test.name + ` from ` + test.suite.name + " on startUrl " +
-                options.startUrl.replace("https://", "") +
-                "with api url " + options.apiUrl + "...")
             const testUrl = `https://app.ghostinspector.com/tests/` + test._id
             qmGit.setGithubStatus("pending", context, options.apiUrl, testUrl)
-            console.info(`Check ${test.suite.name} test ${test._id} progress at ` + testUrl)
+            logTestParameters(options.apiUrl, options.startUrl, testUrl)
             GhostInspector.executeTest(test._id, options, function(err: string, testResults: any, passing: any) {
+                console.info(`RESULTS:`)
                 if (err) {
                     throw new Error(test.name + ` Error: ` + err)
                 }
@@ -199,15 +176,13 @@ export const giTests = {
             const GhostInspector = getGhostInspector()
             const failedAll = (failedOnly) ? "failed" : "all"
             if (failedOnly) {
-                console.info(`\n=== FAILED ${giTests.suiteType} GI TESTS ===\n`)
+                console.info(`\n=== Failed ${giTests.suiteType.toUpperCase()} GI Tests ===\n`)
             } else {
-                console.info(`\n===  ${giTests.suiteType} GI TESTS ===\n`)
+                console.info(`\n=== All ${giTests.suiteType.toUpperCase()} GI Tests ===\n`)
             }
-            console.info(`Running ` + failedAll + ` GI tests with startUrl ${startUrl} with API ` +
-                giTests.getApiUrl()+"...")
             GhostInspector.getSuiteTests(suiteId, function(err: string, tests: any[]) {
                 if (err) {
-                    return console.log("Error: " + err)
+                    return console.error("Error: " + err)
                 }
                 if (failedOnly) {
                     const failedTests = tests.filter(function(test: { passing: any }) {
@@ -232,16 +207,17 @@ export const giTests = {
             })
         },
         executeTestSuite(suiteId: string, callback: () => void, startUrl: any, context: string) {
+            console.info(`\n=== All ${giTests.suiteType.toUpperCase()} GI Tests ===\n`)
             const GhostInspector = getGhostInspector()
             const options = giTests.tests.getOptions(startUrl)
-            console.info("Testing suite on startUrl " + options.startUrl + "...")
-            const suiteUrl = `https://app.ghostinspector.com/suites/` + suiteId
-            console.info(`Check ${suiteId} suite progress at ` + suiteUrl)
-            qmGit.setGithubStatus("pending", context, options.apiUrl, suiteUrl)
+            const testSuiteUrl = `https://app.ghostinspector.com/suites/` + suiteId
+            logTestParameters(options.apiUrl, startUrl, testSuiteUrl)
+            qmGit.setGithubStatus("pending", context, options.apiUrl, testSuiteUrl)
             GhostInspector.executeSuite(suiteId, options, function(err: string, suiteResults: string |
                 any[],                                             passing: boolean) {
+                console.info(`RESULTS:`)
                 if (err) {
-                    throw new Error(suiteUrl + ` Error: ` + err)
+                    throw new Error(testSuiteUrl + ` Error: ` + err)
                 }
                 console.log(passing ? "Passed" : "Failed")
                 if (!passing) {
@@ -252,7 +228,7 @@ export const giTests = {
                         }
                     }
                 }
-                console.log(suiteUrl + " " + " passed! :D")
+                console.log(testSuiteUrl + " " + " passed! :D")
                 callback()
             })
         },
@@ -269,6 +245,6 @@ function getGhostInspector() {
     if (!process.env.GI_API_KEY) {
         throw new Error(`Please set GI_API_KEY env from https://app.ghostinspector.com/account`)
     }
-    console.debug(`Using GI_API_KEY starting with ` + process.env.GI_API_KEY.substr(0, 4) + "...")
+    // console.debug(`Using GI_API_KEY starting with ` + process.env.GI_API_KEY.substr(0, 4) + "...")
     return require("ghost-inspector")(process.env.GI_API_KEY)
 }
