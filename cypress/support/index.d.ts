@@ -14,7 +14,7 @@ declare namespace Cypress {
         containsCaseInsensitive(selector: string, content: string): Chainable<Element>
         disableSpeechAndSkipIntro(): Chainable<Element>
         enterCredentials(usernameSelector?: string, username?: string, passwordSelector?: string, password?: string, submitSelector?: string ): Chainable<Element>
-        enterNewUserCredentials(): Chainable<Element>
+        enterNewUserCredentials(clickAccept: boolean): Chainable<Element>
         getInDocument(document: any, selector: any): Chainable<Element>
         getWithinIframe(targetElement: any): Chainable<Element>
         goToApiLoginPageAndLogin(email?: string, password?: string): Chainable<Element>
@@ -26,7 +26,9 @@ declare namespace Cypress {
         searchAndClickTopResult(variableName: string, topResultShouldContainSearchTerm?: boolean): Chainable<Element>
         sendSlackNotification(messageBody?: any): Chainable<Element>
         urlShouldContainCaseInsensitive(content: string): Chainable<Element>
-        visitApi(url: string, options?: Partial<VisitOptions>): Chainable<Element>
+        visitApi(url: string, options?: Partial<VisitOptions>, urlParams?: object): Chainable<Element>
         visitWithApiUrlParam(url: string, options?: Partial<VisitOptions>): Chainable<Element>
+        visitIonicAndSetApiUrl(path: string): Chainable<Element>
+        toastContains(str: string): Chainable<Element>
     }
 }

@@ -32,7 +32,7 @@ describe('Mobile Connectors', function () {
   }
   function goToMobileConnectPage () {
     cy.log(`Using apiUrl: ${apiUrl}`)
-    cy.visitApi(`/api/v1/connect/mobile?log=testuser&pwd=testing123&clientId=ghostInspector`)
+    cy.visitApi(`/api/v1/connect/mobile?log=testuser&pwd=testing123`)
     //cy.checkForBrokenImages()  // Keeps falsely failing
   }
     /**
@@ -56,8 +56,9 @@ describe('Mobile Connectors', function () {
     function disconnectAndClickConnect (connectorName) {
         goToMobileConnectPage()
         // this only works if there's 100% guarantee body has fully rendered without any pending changes to its state
-        cy.get(`#${connectorName}`, { timeout: 20000 }).then(($connectorBlock) => {
-            //debugger
+        cy.get(`#${connectorName} > div.qm-account-block-right > div.qm-button-container`,
+            { timeout: 20000 }).then(($connectorBlock) => {
+            debugger
             // synchronously ask for the body's text and do something based on whether it includes another string
             if ($connectorBlock.text().includes('Disconnect')) {
                 clickDisconnect(connectorName)
@@ -109,7 +110,7 @@ describe('Mobile Connectors', function () {
   it('Connects and disconnects WhatPulse', function () {
       Cypress.currentTest.retries(2)
     disconnectAndClickConnect('whatpulse')
-    cy.get('input[name="username"]').type('Mike', { force: true })
+    cy.get('input[name="username"]').type('mikepsinn', { force: true })
     cy.get('.qm-account-block[data-name=whatpulse3] .qm-account-connect-button-with-params')
             .click({ force: true })
     verifyConnection('whatpulse')

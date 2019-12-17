@@ -25,7 +25,8 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 let logLevel = Cypress.env('LOG_LEVEL') || 'info'
 let accessToken = Cypress.env('ACCESS_TOKEN') || 'test-token'
-let API_HOST = Cypress.env('API_HOST')
+let API_HOST = Cypress.env('API_HOST')  // API_HOST must be a quantimo.do domain so cypress can clear cookies
+let oauthAppBaseUrl = "https://"+Cypress.env('OAUTH_APP_HOST')
 let baseUrl = Cypress.config('baseUrl')
 let testUserName = 'testuser'
 let testUserPassword = 'testing123'
@@ -65,13 +66,18 @@ function UpdateQueryString(key, value, uri){
 }
 Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminders-inbox', waitForAvatar = true) => {
     cy.log(`${path} - loginWithAccessTokenIfNecessary`)
-    path = UpdateQueryString('logLevel', logLevel, path)
     path = UpdateQueryString('access_token', accessToken, path)
-    path = UpdateQueryString('apiUrl', API_HOST, path)
-    cy.visit(path)
+    cy.visitIonicAndSetApiUrl(path)
     if(waitForAvatar){
         cy.get('#navBarAvatar > img', {timeout: 40000})
     }
+})
+Cypress.Commands.add('visitIonicAndSetApiUrl', (path = '/#/app/reminders-inbox') => {
+    path = UpdateQueryString('apiUrl', API_HOST, path)
+    path = UpdateQueryString('logLevel', logLevel, path)
+    let url = oauthAppBaseUrl + path
+    cy.log(`${url} - visitIonicAndSetApiUrl`)
+    cy.visit(url)
 })
 Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
     cy.log(`=== visitWithApiUrlParam at ${url} ===`)
@@ -81,7 +87,7 @@ Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
     options.qs.apiUrl = API_HOST
     cy.visit(url, options)
 })
-Cypress.Commands.add('visitApi', (url, options = {}) => {
+Cypress.Commands.add('visitApi', (url, options = {}, urlParams = {}) => {
     cy.log(`=== visitWithApiUrlParam at ${url} ===`)
     if(!API_HOST || API_HOST === 'undefined'){
         throw 'Please set API_HOST env!'
@@ -169,7 +175,7 @@ Cypress.Commands.add('disableSpeechAndSkipIntro', () => {
     }
     cy.get('.slider > .slider-slides > .slider-slide:nth-child(1) > .button-bar > #skipButtonIntro').click()
 })
-Cypress.Commands.add('enterNewUserCredentials', () => {
+Cypress.Commands.add('enterNewUserCredentials', (clickAccept) => {
     cy.log("=== enterNewUserCredentials ===")
     let d = new Date()
     let newUserLogin = `testuser${d.getTime()}`
@@ -179,6 +185,10 @@ Cypress.Commands.add('enterNewUserCredentials', () => {
     cy.get('input[name="user_pass"]').click({force: true}).type('qwerty', {force: true})
     cy.get('input[name="user_pass_confirmation"]').click({force: true}).type('qwerty', {force: true})
     cy.get('input[type="submit"]').click({force: true})
+    if(clickAccept && oauthAppBaseUrl.indexOf("quantimo.do") === -1){
+        cy.log("OAUTH_APP_HOST is external so we have to click approve on oauth page")
+        cy.get('#button-approve').click({force: true})
+    }
 })
 Cypress.Commands.add('logOutViaSettingsPage', (useMenuButton = false) => {
     cy.log("=== logOutViaSettingsPage ===")
@@ -186,9 +196,9 @@ Cypress.Commands.add('logOutViaSettingsPage', (useMenuButton = false) => {
         cy.get('#menu-item-settings').click({force: true})
         cy.get('#menu-item-settings > a').click({force: true})
     }else{
-        cy.visit(`${baseUrl}/#/app/settings`)
+        cy.visitIonicAndSetApiUrl(`/#/app/settings`)
     }
-    cy.get('#userName').click({force: true})
+    cy.get('#userName', {timeout: 30000}).click({force: true})
     cy.get('#yesButton').click({force: true})
     cy.log('We should end up back at intro after logout')
     cy.get('#skipButtonIntro').should('exist')
@@ -274,4 +284,10 @@ Cypress.Commands.add('clickActionSheetButtonContaining', (str) => {
     cy.get(button, { timeout: 5000 })
         .contains(str)
         .click({ force: true })
+})
+/**
+ * @param {string} str
+ */
+Cypress.Commands.add('toastContains', (str) => {
+    cy.get('.md-toast-text').should('contain', str)
 })

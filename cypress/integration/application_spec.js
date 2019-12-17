@@ -5,7 +5,7 @@ function createNewApplication(){
         .click({force: true})
     cy.checkForBrokenImages()
     const d = new Date()
-    let testAppName = `test_app${d.getTime()}`
+    let testAppName = `test-app${d.getTime()}`
     cy.get('#app_display_name').type(testAppName, {force: true})
     cy.get('#app_display_name').type(testAppName, {force: true})
     cy.get('#client_id').type(testAppName, {force: true})
@@ -23,9 +23,8 @@ function createNewApplication(){
 /// <reference types="cypress" />
 describe('Applications', function(){
     it('Creates a client app as new user', function(){
-        Cypress.currentTest.retries(2)
         cy.visitApi(`/api/v2/apps#`)
-        cy.enterNewUserCredentials()
+        cy.enterNewUserCredentials(false)
         createNewApplication()
     })
     it('Creates an client app as an existing user', function(){

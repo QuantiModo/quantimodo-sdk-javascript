@@ -2,11 +2,12 @@ import {expect} from "chai";
 import * as qmGit from "../ts/qm.git";
 import * as qmShell from "../ts/qm.shell"
 import * as fileHelper from "../ts/qm.file-helper";
-import * as url from "url";
+import * as qmTests from "../ts/qm.tests";
+import * as urlParser from "url";
 import * as https from "https";
 import * as _str from "underscore.string";
-import * as simplegit from 'simple-git/promise';
-const git = simplegit();
+import * as simpleGit from 'simple-git/promise';
+const git = simpleGit();
 beforeEach(function (done) {
     let t = this.currentTest
     this.timeout(10000) // Default 2000 is too fast for Github API
@@ -54,33 +55,48 @@ describe("git", () => {
         })
     });
 });
-describe("s3 uploader", function () {
+function downloadFileContains(url: string, expectedToContain: string, cb) {
+    downloadFile(url, function (str) {
+        expect(str).to.contain(expectedToContain)
+        cb()
+    })
+}
+function downloadFile(url: string, cb){
+    const parsedUrl = urlParser.parse(url)
+    const options = {
+        hostname: parsedUrl.hostname,
+        method: "GET",
+        path: parsedUrl.path,
+        port: 443,
+    }
+    const req = https.request(options, (res) => {
+        console.log(`statusCode: ${res.statusCode}`)
+        expect(res.statusCode).to.eq(200)
+        let str = ""
+        res.on("data", (chunk) => {
+            str += chunk
+        })
+        res.on("end", function () {
+            console.log("RESPONSE: " + _str.truncate(str, 30))
+            cb(str);
+        })
+    })
+    req.on("error", (error) => {
+        console.error(error)
+    })
+    req.end()
+}
+
+describe("uploader", function () {
     it("uploads a file", function (done) {
         fileHelper.uploadToS3("ionIcons.js", "tests", function (uploadResponse) {
-            const myURL = url.parse(uploadResponse.Location)
-            const options = {
-                hostname: myURL.hostname,
-                method: "GET",
-                path: myURL.path,
-                port: 443,
-            }
-            const req = https.request(options, (res) => {
-                console.log(`statusCode: ${res.statusCode}`)
-                expect(res.statusCode).to.eq(200)
-                let str = ""
-                res.on("data", (chunk) => {
-                    str += chunk
-                })
-                res.on("end", function () {
-                    console.log("RESPONSE: " + _str.truncate(str, 30))
-                    expect(str).to.contain("iosArrowUp")
-                    done()
-                })
-            })
-            req.on("error", (error) => {
-                console.error(error)
-            })
-            req.end()
+            downloadFileContains(uploadResponse.Location, "iosArrowUp", done)
+        })
+    })
+    it.skip("uploads test results", function (done) {
+        this.timeout(10000) // Default 2000 is too fast
+        qmTests.uploadTestResults(function (uploadResponse) {
+            downloadFileContains(uploadResponse.Location, "mocha", done)
         })
     })
 })

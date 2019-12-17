@@ -2,7 +2,9 @@
 /// <reference types="cypress" />
 describe('Upgrade', function () {
   it('Enters credit card info', function () {
-    cy.visit('/#/app/upgrade?access_token=test-token&debug=true')
+    cy.visitIonicAndSetApiUrl('/#/app/upgrade?access_token=test-token&debug=true')
+      cy.log("Going to app/upgrade again in case we got redirected by leftover redirect from previous test")
+    cy.visitIonicAndSetApiUrl('/#/app/upgrade?access_token=test-token&debug=true')
     cy.wait(5000)
     cy.getWithinIframe('[name="cardnumber"]').type('4242424242424242')
     cy.getWithinIframe('[name="exp-date"]').type('1232')

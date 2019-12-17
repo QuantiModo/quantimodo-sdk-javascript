@@ -12,6 +12,9 @@ export function getOctoKit() {
     return new Octokit({auth: getAccessToken()})
 }
 export function getCurrentGitCommitSha() {
+    if (process.env.GIT_COMMIT_FOR_STATUS) {
+        return process.env.GIT_COMMIT_FOR_STATUS
+    }
     if (process.env.SOURCE_VERSION) {
         return process.env.SOURCE_VERSION
     }
@@ -21,6 +24,9 @@ export function getCurrentGitCommitSha() {
     if (process.env.CIRCLE_SHA1) {
         return process.env.CIRCLE_SHA1
     }
+    if (process.env.SHA) {
+        return process.env.SHA
+    }
     try {
         return require("child_process").execSync("git rev-parse HEAD").toString().trim()
     } catch (error) {
@@ -28,6 +34,9 @@ export function getCurrentGitCommitSha() {
     }
 }
 export function getAccessToken() {
+    if (process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS) {
+        return process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS
+    }
     if (process.env.GITHUB_ACCESS_TOKEN) {
         return process.env.GITHUB_ACCESS_TOKEN
     }
@@ -37,6 +46,9 @@ export function getAccessToken() {
     throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env")
 }
 export function getRepoUrl() {
+    if (process.env.REPOSITORY_URL_FOR_STATUS) {
+        return process.env.REPOSITORY_URL_FOR_STATUS
+    }
     if (process.env.GIT_URL) {
         return process.env.GIT_URL
     }
@@ -60,6 +72,9 @@ export function getRepoParts() {
     return parts
 }
 export function getRepoName() {
+    if (process.env.REPO_NAME_FOR_STATUS) {
+        return process.env.REPO_NAME_FOR_STATUS
+    }
     if (process.env.CIRCLE_PROJECT_REPONAME) {
         return process.env.CIRCLE_PROJECT_REPONAME
     }
@@ -70,6 +85,9 @@ export function getRepoName() {
     throw new Error("Could not determine repo name!")
 }
 export function getRepoUserName() {
+    if (process.env.REPO_USERNAME_FOR_STATUS) {
+        return process.env.REPO_USERNAME_FOR_STATUS
+    }
     if (process.env.CIRCLE_PROJECT_USERNAME) {
         return process.env.CIRCLE_PROJECT_USERNAME
     }
@@ -90,7 +108,6 @@ export function getRepoUserName() {
 // tslint:disable-next-line:max-line-length
 export function setGithubStatus(testState: string, context: string, description: string, url?: string | null, cb?: ((arg0: any) => void) | undefined) {
     const state = convertTestStateToGithubState(testState)
-    console.log(`${context} - ${description} - ${state}`)
     description = _str.truncate(description, 135)
     // @ts-ignore
     const params: Octokit.ReposCreateStatusParams = {
@@ -102,6 +119,7 @@ export function setGithubStatus(testState: string, context: string, description:
         state,
         target_url: url || qmTests.getBuildLink(),
     }
+    console.log(`${context} - ${description} - ${state} at ${params.target_url}`)
     getOctoKit().repos.createStatus(params).then((data: any) => {
         if (cb) {
             cb(data)

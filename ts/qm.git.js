@@ -25,6 +25,9 @@ function getOctoKit() {
 }
 exports.getOctoKit = getOctoKit;
 function getCurrentGitCommitSha() {
+    if (process.env.GIT_COMMIT_FOR_STATUS) {
+        return process.env.GIT_COMMIT_FOR_STATUS;
+    }
     if (process.env.SOURCE_VERSION) {
         return process.env.SOURCE_VERSION;
     }
@@ -33,6 +36,9 @@ function getCurrentGitCommitSha() {
     }
     if (process.env.CIRCLE_SHA1) {
         return process.env.CIRCLE_SHA1;
+    }
+    if (process.env.SHA) {
+        return process.env.SHA;
     }
     try {
         return require("child_process").execSync("git rev-parse HEAD").toString().trim();
@@ -43,6 +49,9 @@ function getCurrentGitCommitSha() {
 }
 exports.getCurrentGitCommitSha = getCurrentGitCommitSha;
 function getAccessToken() {
+    if (process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS) {
+        return process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS;
+    }
     if (process.env.GITHUB_ACCESS_TOKEN) {
         return process.env.GITHUB_ACCESS_TOKEN;
     }
@@ -53,6 +62,9 @@ function getAccessToken() {
 }
 exports.getAccessToken = getAccessToken;
 function getRepoUrl() {
+    if (process.env.REPOSITORY_URL_FOR_STATUS) {
+        return process.env.REPOSITORY_URL_FOR_STATUS;
+    }
     if (process.env.GIT_URL) {
         return process.env.GIT_URL;
     }
@@ -78,6 +90,9 @@ function getRepoParts() {
 }
 exports.getRepoParts = getRepoParts;
 function getRepoName() {
+    if (process.env.REPO_NAME_FOR_STATUS) {
+        return process.env.REPO_NAME_FOR_STATUS;
+    }
     if (process.env.CIRCLE_PROJECT_REPONAME) {
         return process.env.CIRCLE_PROJECT_REPONAME;
     }
@@ -89,6 +104,9 @@ function getRepoName() {
 }
 exports.getRepoName = getRepoName;
 function getRepoUserName() {
+    if (process.env.REPO_USERNAME_FOR_STATUS) {
+        return process.env.REPO_USERNAME_FOR_STATUS;
+    }
     if (process.env.CIRCLE_PROJECT_USERNAME) {
         return process.env.CIRCLE_PROJECT_USERNAME;
     }
@@ -111,7 +129,6 @@ exports.getRepoUserName = getRepoUserName;
 // tslint:disable-next-line:max-line-length
 function setGithubStatus(testState, context, description, url, cb) {
     var state = convertTestStateToGithubState(testState);
-    console.log(context + " - " + description + " - " + state);
     description = underscore_string_1.default.truncate(description, 135);
     // @ts-ignore
     var params = {
@@ -123,6 +140,7 @@ function setGithubStatus(testState, context, description, url, cb) {
         state: state,
         target_url: url || qmTests.getBuildLink(),
     };
+    console.log(context + " - " + description + " - " + state + " at " + params.target_url);
     getOctoKit().repos.createStatus(params).then(function (data) {
         if (cb) {
             cb(data);

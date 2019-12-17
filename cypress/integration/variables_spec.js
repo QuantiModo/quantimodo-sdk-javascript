@@ -42,12 +42,6 @@ function checkChartsPage(variableName){
         .should('contain', variableName)
 }
 /**
- * @param {string} variableName
- */
-function toastContains(variableName){
-    cy.get('.md-toast-text').should('contain', variableName)
-}
-/**
  * @param {number} value
  */
 function recordRatingMeasurement(value){
@@ -70,7 +64,7 @@ describe('Variables', function(){
         recordRatingMeasurement(3)
         searchForMoodFromMagnifyingGlassIcon(variableName)
         cy.clickActionSheetButtonContaining('Add Reminder')
-        toastContains(variableName)
+        cy.toastContains(variableName)
         searchForMoodFromMagnifyingGlassIcon(variableName)
         cy.clickActionSheetButtonContaining('Create Study')
         cy.get('#effectVariableName').should('contain', variableName)
@@ -91,7 +85,7 @@ describe('Variables', function(){
         cy.get('.primary-outcome-variable-history > img:nth-of-type(3)').click({force: true})
         cy.get('#saveButton').click({force: true})
         cy.wait(10000)
-        cy.visit(`/#/app/history-all?variableCategoryName=${variableCategoryName}`)
+        cy.visitIonicAndSetApiUrl(`/#/app/history-all?variableCategoryName=${variableCategoryName}`)
         verifyAndDeleteMeasurement(variableString)
         return variableString
     }
@@ -122,7 +116,7 @@ describe('Variables', function(){
         cy.get('#saveButton').click({force: true})
         cy.get('#helpInfoCardHeader > span:nth-child(2) > p', {timeout: 30000})
         cy.url().should('not.contain', 'variable-settings')
-        cy.visit(settingsPath)
+        cy.visitIonicAndSetApiUrl(settingsPath)
         cy.log("TODO: TEST TO MAKE SURE THE CHANGES STUCK. IT'S CURRENTLY VERY FLAKEY")
         //cy.assertInputValueContains('#minimumAllowedValue', min);
         //cy.assertInputValueEquals('#maximumAllowedValue', max);

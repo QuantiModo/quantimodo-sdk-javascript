@@ -10,7 +10,7 @@ function recordMeasurementAndCheckHistoryPage (initialMoodValue) {
   cy.get('#saveButton').click({ force: true })
   cy.log('Waiting for measurement to post to API...')
   cy.wait(10000)
-  cy.visit('/#/app/history-all-variable/Overall Mood')
+  cy.visitIonicAndSetApiUrl('/#/app/history-all-variable/Overall Mood')
   //let desiredImageName = moodValueToImage(initialMoodValue)
   // cy.get("#historyItem-0 > img", {timeout: 30000}).invoke('attr', 'src')
   //     .should('contain', desiredImageName);
@@ -41,7 +41,7 @@ function recordTreatmentMeasurementAndCheckHistoryPage (dosageValue) {
   cy.log('Check that mg is selected')
   cy.get('#saveButton').click({ force: true })
   cy.wait(10000)
-  cy.visit('/#/app/history-all-category/Treatments')
+  cy.visitIonicAndSetApiUrl('/#/app/history-all-category/Treatments')
   let treatmentStringNoQuotes = `${dosageValue} mg Aaa Test Treatment`
 
   cy.get('#historyItemTitle', { timeout: 40000 })
@@ -98,7 +98,7 @@ describe('Measurements', function () {
     cy.get('#defaultValue').type(newDosageValue.toString(), { force: true })
     cy.get('#saveButton').click({ force: true })
     cy.wait(10000)
-    cy.visit('/#/app/history-all-category/Treatments')
+    cy.visitIonicAndSetApiUrl('/#/app/history-all-category/Treatments')
     let treatmentStringEditedNoQuotes = `${newDosageValue} mg Aaa Test Treatment`
 
     editHistoryPageMeasurement(newDosageValue.toString())
