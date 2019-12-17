@@ -24,6 +24,9 @@ export function getCurrentGitCommitSha() {
     if (process.env.CIRCLE_SHA1) {
         return process.env.CIRCLE_SHA1
     }
+    if (process.env.SHA) {
+        return process.env.SHA
+    }
     try {
         return require("child_process").execSync("git rev-parse HEAD").toString().trim()
     } catch (error) {
@@ -105,7 +108,6 @@ export function getRepoUserName() {
 // tslint:disable-next-line:max-line-length
 export function setGithubStatus(testState: string, context: string, description: string, url?: string | null, cb?: ((arg0: any) => void) | undefined) {
     const state = convertTestStateToGithubState(testState)
-    console.log(`${context} - ${description} - ${state}`)
     description = _str.truncate(description, 135)
     // @ts-ignore
     const params: Octokit.ReposCreateStatusParams = {
@@ -117,6 +119,7 @@ export function setGithubStatus(testState: string, context: string, description:
         state,
         target_url: url || qmTests.getBuildLink(),
     }
+    console.log(`${context} - ${description} - ${state} at ${params.target_url}`)
     getOctoKit().repos.createStatus(params).then((data: any) => {
         if (cb) {
             cb(data)
