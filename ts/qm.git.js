@@ -126,7 +126,6 @@ exports.getRepoUserName = getRepoUserName;
 // tslint:disable-next-line:max-line-length
 function setGithubStatus(testState, context, description, url, cb) {
     var state = convertTestStateToGithubState(testState);
-    console.log(context + " - " + description + " - " + state);
     description = underscore_string_1.default.truncate(description, 135);
     // @ts-ignore
     var params = {
@@ -138,6 +137,7 @@ function setGithubStatus(testState, context, description, url, cb) {
         state: state,
         target_url: url || qmTests.getBuildLink(),
     };
+    console.log(context + " - " + description + " - " + state + " at " + params.target_url);
     getOctoKit().repos.createStatus(params).then(function (data) {
         if (cb) {
             cb(data);

@@ -64,6 +64,7 @@
     "test": "npm run types && npm run lint && npm run types && npm run test:mocha && npm run cypress",
     "test:junit:staging": "cypress run --config-file cypress/config/cypress.staging.json --reporter junit --reporter-options 'mochaFile=junit-results/my-test-output.xml'",
     "test:mocha": "mocha -r ts-node/register mocha/**/*.test.ts",
+    "test:ghostinspector": "npx ts-node ts/qm.ghostinspector.ts",
     "types": "cd ts && tsc",
     "up": "docker-compose up --abort-on-container-exit --exit-code-from e2e",
     "warn-only": "stop-only -f cypress/integration --warn",
