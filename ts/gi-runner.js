@@ -7,10 +7,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var dotenv = __importStar(require("dotenv"));
-dotenv.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
-var qmTests = __importStar(require("./qm.tests"));
-qmTests.giTests.tests.giEverything(function () {
+// Usage:
+// npm install typescript ts-node
+// npx ts-node ts/gi-run.ts
+var gi = __importStar(require("./gi-functions"));
+gi.giTests.tests.giEverything(function () {
     process.exit(0);
 });
-//# sourceMappingURL=qm.ghostinspector.js.map
+//# sourceMappingURL=gi-runner.js.map
