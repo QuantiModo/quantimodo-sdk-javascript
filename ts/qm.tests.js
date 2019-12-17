@@ -443,6 +443,9 @@ exports.giTests = {
                 exports.giTests.tests.giIonicFailed(function () {
                     exports.giTests.tests.giIonicAll(function () {
                         exports.giTests.tests.giApiAll(function () {
+                            if (callback) {
+                                callback();
+                            }
                             process.exit(0);
                         });
                     });
@@ -451,7 +454,7 @@ exports.giTests = {
         },
         giIonicAll: function (callback) {
             // qmTests.currentTask = this.currentTask.name;
-            exports.giTests.tests.executeTestSuite(exports.giTests.getSuiteId("ionic"), callback, exports.giTests.tests.getStartUrl());
+            exports.giTests.tests.executeTestSuite(exports.giTests.getSuiteId("ionic"), callback, exports.giTests.tests.getStartUrl(), "all-gi-ionic-tests");
         },
         giIonicFailed: function (callback) {
             // qmTests.currentTask = this.currentTask.name;
@@ -463,7 +466,7 @@ exports.giTests = {
         },
         giApiAll: function (callback) {
             // qmTests.currentTask = this.currentTask.name;
-            exports.giTests.tests.executeTestSuite(exports.giTests.getSuiteId("api"), callback, exports.giTests.tests.getStartUrl());
+            exports.giTests.tests.executeTestSuite(exports.giTests.getSuiteId("api"), callback, exports.giTests.tests.getStartUrl(), "all-gi-api-tests");
         },
         executeTests: function (tests, callback, startUrl, context) {
             var GhostInspector = getGhostInspector();
@@ -531,12 +534,13 @@ exports.giTests = {
                 exports.giTests.tests.executeTests(tests, callback, startUrl, exports.giTests.suiteType + " " + failedAll + " GI ");
             });
         },
-        executeTestSuite: function (suiteId, callback, startUrl) {
+        executeTestSuite: function (suiteId, callback, startUrl, context) {
             var GhostInspector = getGhostInspector();
             var options = exports.giTests.tests.getOptions(startUrl);
             console.info("Testing suite on startUrl " + options.startUrl + "...");
             var suiteUrl = "https://app.ghostinspector.com/suites/" + suiteId;
             console.info("Check " + suiteId + " suite progress at " + suiteUrl);
+            qmGit.setGithubStatus("pending", context, options.apiUrl, suiteUrl);
             GhostInspector.executeSuite(suiteId, options, function (err, suiteResults, passing) {
                 if (err) {
                     throw new Error(suiteUrl + " Error: " + err);

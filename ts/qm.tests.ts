@@ -433,6 +433,7 @@ export const giTests = {
                 giTests.tests.giIonicFailed(function() {
                     giTests.tests.giIonicAll(function() {
                         giTests.tests.giApiAll(function() {
+                            if(callback) {callback()}
                             process.exit(0)
                         })
                     })
@@ -441,7 +442,7 @@ export const giTests = {
         },
         giIonicAll(callback: () => void) {
             // qmTests.currentTask = this.currentTask.name;
-            giTests.tests.executeTestSuite(giTests.getSuiteId("ionic"), callback, giTests.tests.getStartUrl())
+            giTests.tests.executeTestSuite(giTests.getSuiteId("ionic"), callback, giTests.tests.getStartUrl(), "all-gi-ionic-tests")
         },
         giIonicFailed(callback: () => void) {
             // qmTests.currentTask = this.currentTask.name;
@@ -455,7 +456,7 @@ export const giTests = {
         },
         giApiAll(callback: () => void) {
             // qmTests.currentTask = this.currentTask.name;
-            giTests.tests.executeTestSuite(giTests.getSuiteId("api"), callback, giTests.tests.getStartUrl())
+            giTests.tests.executeTestSuite(giTests.getSuiteId("api"), callback, giTests.tests.getStartUrl(), "all-gi-api-tests")
         },
         executeTests(tests: any[], callback: () => void, startUrl: string, context: string) {
             const GhostInspector = getGhostInspector()
@@ -519,12 +520,13 @@ export const giTests = {
                 giTests.tests.executeTests(tests, callback, startUrl, giTests.suiteType+ " "+failedAll+" GI ")
             })
         },
-        executeTestSuite(suiteId: string, callback: () => void, startUrl: any) {
+        executeTestSuite(suiteId: string, callback: () => void, startUrl: any, context: string) {
             const GhostInspector = getGhostInspector()
             const options = giTests.tests.getOptions(startUrl)
             console.info("Testing suite on startUrl " + options.startUrl + "...")
             const suiteUrl = `https://app.ghostinspector.com/suites/` + suiteId
             console.info(`Check ${suiteId} suite progress at ` + suiteUrl)
+            qmGit.setGithubStatus("pending", context, options.apiUrl, suiteUrl)
             GhostInspector.executeSuite(suiteId, options, function(err: string, suiteResults: string |
                 any[],                                             passing: boolean) {
                 if (err) {
