@@ -9,7 +9,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var dotenv = __importStar(require("dotenv"));
 dotenv.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
-var qmTests = __importStar(require("./qm.tests"));
+var qmTests = __importStar(require("./cypress-functions"));
 if (process.env.SPEC_NAME) {
     qmTests.runCypressTests(function () {
         console.info("Done with " + process.env.SPEC_NAME);
@@ -23,4 +23,4 @@ else {
         qmTests.runCypressTests();
     });
 }
-//# sourceMappingURL=qm.cypress.js.map
+//# sourceMappingURL=cypress-runner.js.map

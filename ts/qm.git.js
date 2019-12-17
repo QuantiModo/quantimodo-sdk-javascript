@@ -19,7 +19,7 @@ var git = __importStar(require("simple-git"));
 var underscore_string_1 = __importDefault(require("underscore.string"));
 var qmLog = __importStar(require("./qm.log"));
 var qmShell = __importStar(require("./qm.shell"));
-var qmTests = __importStar(require("./qm.tests"));
+var test_helpers_1 = require("./test-helpers");
 function getOctoKit() {
     return new rest_1.default({ auth: getAccessToken() });
 }
@@ -138,7 +138,7 @@ function setGithubStatus(testState, context, description, url, cb) {
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
         state: state,
-        target_url: url || qmTests.getBuildLink(),
+        target_url: url || test_helpers_1.getBuildLink(),
     };
     console.log(context + " - " + description + " - " + state + " at " + params.target_url);
     getOctoKit().repos.createStatus(params).then(function (data) {

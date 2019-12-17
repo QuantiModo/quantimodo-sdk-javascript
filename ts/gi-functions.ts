@@ -1,23 +1,4 @@
 import * as qmGit from "./qm.git"
-export function getBuildLink() {
-    if (process.env.BUILD_URL_FOR_STATUS) {
-        return process.env.BUILD_URL_FOR_STATUS + "/console"
-    }
-    if (process.env.BUILD_URL) {
-        return process.env.BUILD_URL + "/console"
-    }
-    if (process.env.BUDDYBUILD_APP_ID) {
-        return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" +
-            process.env.BUDDYBUILD_APP_ID
-    }
-    if (process.env.CIRCLE_BUILD_NUM) {
-        return "https://circleci.com/gh/QuantiModo/quantimodo-android-chrome-ios-web-app/" +
-            process.env.CIRCLE_BUILD_NUM
-    }
-    if (process.env.TRAVIS_BUILD_ID) {
-        return "https://travis-ci.org/" + process.env.TRAVIS_REPO_SLUG + "/builds/" + process.env.TRAVIS_BUILD_ID
-    }
-}
 const timeHelper = {
     getUnixTimestampInMilliseconds(dateTimeString: string | number | Date) {
         if (!dateTimeString) {
@@ -222,7 +203,8 @@ export const giTests = {
             } else {
                 console.info(`\n===  ${giTests.suiteType} GI TESTS ===\n`)
             }
-            console.info(`Running ` + failedAll + ` GI tests on ` + startUrl + ` using API at ` + giTests.getApiUrl())
+            console.info(`Running ` + failedAll + ` GI tests with startUrl ${startUrl} with API ` +
+                giTests.getApiUrl()+"...")
             GhostInspector.getSuiteTests(suiteId, function(err: string, tests: any[]) {
                 if (err) {
                     return console.log("Error: " + err)

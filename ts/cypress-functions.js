@@ -22,9 +22,9 @@ var mochawesome_report_generator_1 = __importDefault(require("mochawesome-report
 var rimraf_1 = __importDefault(require("rimraf"));
 var fileHelper = __importStar(require("./qm.file-helper"));
 var qmGit = __importStar(require("./qm.git"));
-var qmLog = __importStar(require("./qm.log"));
+var test_helpers_1 = require("./test-helpers");
 dotenv_1.default.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
-var ciProvider = getCiProvider();
+var ciProvider = test_helpers_1.getCiProvider();
 var isWin = process.platform === "win32";
 var outputReportDir = app_root_path_1.default + "/mochawesome-report";
 var screenshotDirectory = app_root_path_1.default + "/mochawesome-report/assets";
@@ -47,7 +47,7 @@ function getReportUrl() {
     if (process.env.JOB_URL && process.env.JOB_URL.indexOf("DEPLOY-") === 0) {
         return process.env.JOB_URL + "ws/tmp/quantimodo-sdk-javascript/mochawesome-report/mochawesome.html";
     }
-    return getBuildLink();
+    return test_helpers_1.getBuildLink();
 }
 function mochawesome(failedTests, cb) {
     console.log("Merging reports...");
@@ -126,7 +126,7 @@ function deleteJUnitTestResults() {
     });
 }
 function runCypressTests(cb, specificSpec) {
-    deleteSuccessFile();
+    test_helpers_1.deleteSuccessFile();
     copyCypressEnvConfigIfNecessary();
     deleteJUnitTestResults();
     rimraf_1.default(paths.reports.mocha + "/*.json", function () {
@@ -186,8 +186,8 @@ function runCypressTests(cb, specificSpec) {
                             }
                         }
                         if (specificSpec || i === specFileNames.length - 1) {
-                            createSuccessFile();
-                            deleteEnvFile();
+                            test_helpers_1.createSuccessFile();
+                            test_helpers_1.deleteEnvFile();
                             if (cb) {
                                 cb(false);
                             }
@@ -211,59 +211,6 @@ function runCypressTests(cb, specificSpec) {
     });
 }
 exports.runCypressTests = runCypressTests;
-function getBuildLink() {
-    if (process.env.BUILD_URL_FOR_STATUS) {
-        return process.env.BUILD_URL_FOR_STATUS + "/console";
-    }
-    if (process.env.BUILD_URL) {
-        return process.env.BUILD_URL + "/console";
-    }
-    if (process.env.BUDDYBUILD_APP_ID) {
-        return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" +
-            process.env.BUDDYBUILD_APP_ID;
-    }
-    if (process.env.CIRCLE_BUILD_NUM) {
-        return "https://circleci.com/gh/QuantiModo/quantimodo-android-chrome-ios-web-app/" +
-            process.env.CIRCLE_BUILD_NUM;
-    }
-    if (process.env.TRAVIS_BUILD_ID) {
-        return "https://travis-ci.org/" + process.env.TRAVIS_REPO_SLUG + "/builds/" + process.env.TRAVIS_BUILD_ID;
-    }
-}
-exports.getBuildLink = getBuildLink;
-var successFilename = "success-file";
-function createSuccessFile() {
-    fileHelper.writeToFile("lastCommitBuilt", qmGit.getCurrentGitCommitSha());
-    return fs.writeFileSync(successFilename, qmGit.getCurrentGitCommitSha());
-}
-exports.createSuccessFile = createSuccessFile;
-function deleteSuccessFile() {
-    qmLog.info("Deleting success file so we know if build completed...");
-    rimraf_1.default(successFilename, function () {
-        qmLog.info("Deleted success file!");
-    });
-}
-exports.deleteSuccessFile = deleteSuccessFile;
-function deleteEnvFile() {
-    rimraf_1.default(".env", function () {
-        qmLog.info("Deleted env file!");
-    });
-}
-exports.deleteEnvFile = deleteEnvFile;
-function getCiProvider() {
-    if (process.env.CIRCLE_BRANCH) {
-        return "circleci";
-    }
-    if (process.env.BUDDYBUILD_BRANCH) {
-        return "buddybuild";
-    }
-    if (process.env.JENKINS_URL) {
-        return "jenkins";
-    }
-    // @ts-ignore
-    return process.env.HOSTNAME;
-}
-exports.getCiProvider = getCiProvider;
 function getLastFailedCypressTest() {
     try {
         return fs.readFileSync(lastFailedCypressTestPath, "utf8");
@@ -297,4 +244,4 @@ function uploadTestResults(cb) {
     fileHelper.uploadToS3("./mochawesome-report/mochawesome.html", path, cb, "quantimodo", "public-read", "text/html");
 }
 exports.uploadTestResults = uploadTestResults;
-//# sourceMappingURL=qm.tests.js.map
+//# sourceMappingURL=cypress-functions.js.map
