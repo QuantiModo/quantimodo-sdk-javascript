@@ -37,6 +37,9 @@ function getCurrentGitCommitSha() {
     if (process.env.CIRCLE_SHA1) {
         return process.env.CIRCLE_SHA1;
     }
+    if (process.env.SHA) {
+        return process.env.SHA;
+    }
     try {
         return require("child_process").execSync("git rev-parse HEAD").toString().trim();
     }

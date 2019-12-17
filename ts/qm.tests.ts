@@ -342,7 +342,7 @@ export const giTests = {
         }
         return giTests.getArgumentOrEnv("RELEASE_STAGE", null)
     },
-    getStartUrl(): string | null {
+    getStartUrl(): string {
         if (giTests.suiteType === "api") {
             return giTests.getApiUrl() + `/api/v2/auth/login`
         }
@@ -350,16 +350,23 @@ export const giTests = {
         if (giTests.getApiUrl().indexOf("utopia") !== -1) {
             defaultValue = "https://dev-web.quantimo.do"
         }
-        return giTests.getArgumentOrEnv("START_URL", defaultValue)
+        const startUrl = giTests.getArgumentOrEnv("START_URL", defaultValue)
+        if (!startUrl) {
+            throw Error("Please set START_URL env")
+        }
+        return startUrl
     },
-    getSha() {
-        let sha = giTests.getArgumentOrEnv("GIT_COMMIT", null)
+    getSha(): string {
+        let sha = qmGit.getCurrentGitCommitSha()
         if (!sha) {
             sha = giTests.getArgumentOrEnv("SHA", null)
         }
+        if (!sha) {
+            throw Error("Please set GIT_COMMIT env")
+        }
         return sha
     },
-    getApiUrl() {
+    getApiUrl(): string {
         let url = giTests.getArgumentOrEnv("API_URL", "app.quantimo.do")
         if(!url) {
             throw new Error("Please provide API_URL")

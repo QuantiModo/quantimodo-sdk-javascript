@@ -358,12 +358,19 @@ exports.giTests = {
         if (exports.giTests.getApiUrl().indexOf("utopia") !== -1) {
             defaultValue = "https://dev-web.quantimo.do";
         }
-        return exports.giTests.getArgumentOrEnv("START_URL", defaultValue);
+        var startUrl = exports.giTests.getArgumentOrEnv("START_URL", defaultValue);
+        if (!startUrl) {
+            throw Error("Please set START_URL env");
+        }
+        return startUrl;
     },
     getSha: function () {
-        var sha = exports.giTests.getArgumentOrEnv("GIT_COMMIT", null);
+        var sha = qmGit.getCurrentGitCommitSha();
         if (!sha) {
             sha = exports.giTests.getArgumentOrEnv("SHA", null);
+        }
+        if (!sha) {
+            throw Error("Please set GIT_COMMIT env");
         }
         return sha;
     },
