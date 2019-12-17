@@ -8,12 +8,27 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var qmGit = __importStar(require("./qm.git"));
+function runEverything(callback) {
+    exports.gi.runFailedApi(function () {
+        exports.gi.runFailedIonic(function () {
+            exports.gi.runAllIonic(function () {
+                exports.gi.runAllApi(function () {
+                    if (callback) {
+                        callback();
+                    }
+                    process.exit(0);
+                });
+            });
+        });
+    });
+}
+exports.runEverything = runEverything;
 function logTestParameters(apiUrl, startUrl, testUrl) {
     console.info("startUrl: " + startUrl);
     console.info("apiUrl: " + apiUrl);
     console.info("View test at: " + testUrl);
 }
-exports.giTests = {
+exports.gi = {
     getArgumentOrEnv: function (name, defaultValue) {
         if (typeof process.env[name] !== "undefined") {
             // @ts-ignore
@@ -25,29 +40,29 @@ exports.giTests = {
         return defaultValue;
     },
     getReleaseStage: function () {
-        if (exports.giTests.getApiUrl().indexOf("utopia") !== -1) {
+        if (exports.gi.getApiUrl().indexOf("utopia") !== -1) {
             return "development";
         }
-        if (exports.giTests.getApiUrl().indexOf("production") !== -1) {
+        if (exports.gi.getApiUrl().indexOf("production") !== -1) {
             return "production";
         }
-        if (exports.giTests.getApiUrl().indexOf("app.") !== -1) {
+        if (exports.gi.getApiUrl().indexOf("app.") !== -1) {
             return "production";
         }
-        if (exports.giTests.getApiUrl().indexOf("staging") !== -1) {
+        if (exports.gi.getApiUrl().indexOf("staging") !== -1) {
             return "staging";
         }
-        return exports.giTests.getArgumentOrEnv("RELEASE_STAGE", null);
+        return exports.gi.getArgumentOrEnv("RELEASE_STAGE", null);
     },
     getStartUrl: function () {
-        if (exports.giTests.suiteType === "api") {
-            return exports.giTests.getApiUrl() + "/api/v2/auth/login";
+        if (exports.gi.suiteType === "api") {
+            return exports.gi.getApiUrl() + "/api/v2/auth/login";
         }
         var defaultValue = "https://web.quantimo.do";
-        if (exports.giTests.getApiUrl().indexOf("utopia") !== -1) {
+        if (exports.gi.getApiUrl().indexOf("utopia") !== -1) {
             defaultValue = "https://dev-web.quantimo.do";
         }
-        var startUrl = exports.giTests.getArgumentOrEnv("START_URL", defaultValue);
+        var startUrl = exports.gi.getArgumentOrEnv("START_URL", defaultValue);
         if (!startUrl) {
             throw Error("Please set START_URL env");
         }
@@ -56,7 +71,7 @@ exports.giTests = {
     getSha: function () {
         var sha = qmGit.getCurrentGitCommitSha();
         if (!sha) {
-            sha = exports.giTests.getArgumentOrEnv("SHA", null);
+            sha = exports.gi.getArgumentOrEnv("SHA", null);
         }
         if (!sha) {
             throw Error("Please set GIT_COMMIT env");
@@ -64,7 +79,7 @@ exports.giTests = {
         return sha;
     },
     getApiUrl: function () {
-        var url = exports.giTests.getArgumentOrEnv("API_URL", "app.quantimo.do");
+        var url = exports.gi.getArgumentOrEnv("API_URL", "app.quantimo.do");
         if (!url) {
             throw new Error("Please provide API_URL");
         }
@@ -84,8 +99,8 @@ exports.giTests = {
     outputErrorsForTest: function (testResults) {
         var name = testResults.testName || testResults.name;
         console.error(name + " FAILED: https://app.ghostinspector.com/results/" + testResults._id);
-        exports.giTests.logBugsnagLink("ionic", testResults.dateExecutionStarted, testResults.dateExecutionFinished);
-        exports.giTests.logBugsnagLink("slim-api", testResults.dateExecutionStarted, testResults.dateExecutionFinished);
+        exports.gi.logBugsnagLink("ionic", testResults.dateExecutionStarted, testResults.dateExecutionFinished);
+        exports.gi.logBugsnagLink("slim-api", testResults.dateExecutionStarted, testResults.dateExecutionFinished);
         console.error("=== CONSOLE ERRORS ====");
         var logObject;
         for (var _i = 0, _a = testResults.console; _i < _a.length; _i++) {
@@ -111,104 +126,69 @@ exports.giTests = {
         },
     },
     getSuiteId: function (type) {
-        exports.giTests.suiteType = type;
+        exports.gi.suiteType = type;
         // @ts-ignore
-        return exports.giTests.getArgumentOrEnv("TEST_SUITE", exports.giTests.suites[type][exports.giTests.getReleaseStage()]);
+        return exports.gi.getArgumentOrEnv("TEST_SUITE", exports.gi.suites[type][exports.gi.getReleaseStage()]);
     },
-    tests: {
-        getStartUrl: function () {
-            if (exports.giTests.suiteType === "api") {
-                return exports.giTests.getApiUrl() + "/api/v2/auth/login";
+    runAllIonic: function (callback) {
+        // qmTests.currentTask = this.currentTask.name;
+        exports.gi.runTestSuite(exports.gi.getSuiteId("ionic"), exports.gi.getStartUrl(), "all-gi-ionic-tests", callback);
+    },
+    runFailedIonic: function (callback) {
+        // qmTests.currentTask = this.currentTask.name;
+        exports.gi.runFailedTests(exports.gi.getSuiteId("ionic"), exports.gi.getStartUrl(), callback);
+    },
+    runFailedApi: function (callback) {
+        // qmTests.currentTask = this.currentTask.name;
+        exports.gi.runFailedTests(exports.gi.getSuiteId("api"), exports.gi.getStartUrl(), callback);
+    },
+    runAllApi: function (callback) {
+        // qmTests.currentTask = this.currentTask.name;
+        exports.gi.runTestSuite(exports.gi.getSuiteId("api"), exports.gi.getStartUrl(), "all-gi-api-tests", callback);
+    },
+    runTests: function (tests, callback, startUrl, context) {
+        var options = exports.gi.getOptions(startUrl);
+        var test = tests.pop();
+        var testUrl = "https://app.ghostinspector.com/tests/" + test._id;
+        qmGit.setGithubStatus("pending", context, options.apiUrl, testUrl);
+        logTestParameters(options.apiUrl, options.startUrl, testUrl);
+        getGhostInspector().executeTest(test._id, options, function (err, testResults, passing) {
+            console.info("RESULTS:");
+            if (err) {
+                throw new Error(test.name + " Error: " + err);
             }
-            var defaultValue = "https://web.quantimo.do";
-            if (exports.giTests.getApiUrl().indexOf("utopia") !== -1) {
-                defaultValue = "https://dev-web.quantimo.do";
+            if (!passing) {
+                exports.gi.outputErrorsForTest(testResults);
+                process.exit(1);
             }
-            // @ts-ignore
-            return exports.giTests.getArgumentOrEnv("START_URL", defaultValue);
-        },
-        giEverything: function (callback) {
-            exports.giTests.tests.giApiFailed(function () {
-                exports.giTests.tests.giIonicFailed(function () {
-                    exports.giTests.tests.giIonicAll(function () {
-                        exports.giTests.tests.giApiAll(function () {
-                            if (callback) {
-                                callback();
-                            }
-                            process.exit(0);
-                        });
-                    });
-                });
-            });
-        },
-        giIonicAll: function (callback) {
-            // qmTests.currentTask = this.currentTask.name;
-            exports.giTests.tests.executeTestSuite(exports.giTests.getSuiteId("ionic"), callback, exports.giTests.tests.getStartUrl(), "all-gi-ionic-tests");
-        },
-        giIonicFailed: function (callback) {
-            // qmTests.currentTask = this.currentTask.name;
-            exports.giTests.tests.getSuiteTestsAndExecute(exports.giTests.getSuiteId("ionic"), true, callback, exports.giTests.tests.getStartUrl());
-        },
-        giApiFailed: function (callback) {
-            // qmTests.currentTask = this.currentTask.name;
-            exports.giTests.tests.getSuiteTestsAndExecute(exports.giTests.getSuiteId("api"), true, callback, exports.giTests.tests.getStartUrl());
-        },
-        giApiAll: function (callback) {
-            // qmTests.currentTask = this.currentTask.name;
-            exports.giTests.tests.executeTestSuite(exports.giTests.getSuiteId("api"), callback, exports.giTests.tests.getStartUrl(), "all-gi-api-tests");
-        },
-        executeTests: function (tests, callback, startUrl, context) {
-            var GhostInspector = getGhostInspector();
-            var options = exports.giTests.tests.getOptions(startUrl);
-            var test = tests.pop();
-            var testUrl = "https://app.ghostinspector.com/tests/" + test._id;
-            qmGit.setGithubStatus("pending", context, options.apiUrl, testUrl);
-            logTestParameters(options.apiUrl, options.startUrl, testUrl);
-            GhostInspector.executeTest(test._id, options, function (err, testResults, passing) {
-                console.info("RESULTS:");
-                if (err) {
-                    throw new Error(test.name + " Error: " + err);
-                }
-                if (!passing) {
-                    exports.giTests.outputErrorsForTest(testResults);
-                    process.exit(1);
-                }
-                console.log(test.name + " passed! :D");
-                if (tests && tests.length) {
-                    exports.giTests.tests.executeTests(tests, callback, startUrl, context);
-                }
-                else if (callback) {
-                    callback();
-                }
-            });
-        },
-        getSuiteTestsAndExecute: function (suiteId, failedOnly, callback, startUrl) {
-            var GhostInspector = getGhostInspector();
-            var failedAll = (failedOnly) ? "failed" : "all";
-            if (failedOnly) {
-                console.info("\n=== Failed " + exports.giTests.suiteType.toUpperCase() + " GI Tests ===\n");
+            console.log(test.name + " passed! :D");
+            if (tests && tests.length) {
+                exports.gi.runTests(tests, callback, startUrl, context);
             }
-            else {
-                console.info("\n=== All " + exports.giTests.suiteType.toUpperCase() + " GI Tests ===\n");
+            else if (callback) {
+                callback();
             }
-            GhostInspector.getSuiteTests(suiteId, function (err, tests) {
+        });
+    },
+    runFailedTests: function (suiteId, startUrl, callback) {
+        console.info("\n=== Failed " + exports.gi.suiteType.toUpperCase() + " GI Tests ===\n");
+        getGhostInspector().getSuiteTests(suiteId, function (err, tests) {
+            function runFailedTests() {
                 if (err) {
                     return console.error("Error: " + err);
                 }
-                if (failedOnly) {
-                    var failedTests = tests.filter(function (test) {
-                        return !test.passing;
-                    });
-                    if (!failedTests || !failedTests.length) {
-                        console.info("No failed tests!");
-                        if (callback) {
-                            callback();
-                        }
-                        return;
+                var failedTests = tests.filter(function (test) {
+                    return !test.passing;
+                });
+                if (!failedTests || !failedTests.length) {
+                    console.info("No failed tests!");
+                    if (callback) {
+                        callback();
                     }
-                    else {
-                        tests = failedTests;
-                    }
+                    return;
+                }
+                else {
+                    tests = failedTests;
                 }
                 var testResult;
                 for (var _i = 0, tests_1 = tests; _i < tests_1.length; _i++) {
@@ -216,42 +196,42 @@ exports.giTests = {
                     var passFail = (testResult.passing) ? "passed" : "failed";
                     console.info(testResult.name + " recently " + passFail);
                 }
-                exports.giTests.tests.executeTests(tests, callback, startUrl, exports.giTests.suiteType + " " + failedAll + " GI ");
-            });
-        },
-        executeTestSuite: function (suiteId, callback, startUrl, context) {
-            console.info("\n=== All " + exports.giTests.suiteType.toUpperCase() + " GI Tests ===\n");
-            var GhostInspector = getGhostInspector();
-            var options = exports.giTests.tests.getOptions(startUrl);
-            var testSuiteUrl = "https://app.ghostinspector.com/suites/" + suiteId;
-            logTestParameters(options.apiUrl, startUrl, testSuiteUrl);
-            qmGit.setGithubStatus("pending", context, options.apiUrl, testSuiteUrl);
-            GhostInspector.executeSuite(suiteId, options, function (err, suiteResults, passing) {
-                console.info("RESULTS:");
-                if (err) {
-                    throw new Error(testSuiteUrl + " Error: " + err);
-                }
-                console.log(passing ? "Passed" : "Failed");
-                if (!passing) {
-                    var testResults = void 0;
-                    for (var _i = 0, suiteResults_1 = suiteResults; _i < suiteResults_1.length; _i++) {
-                        testResults = suiteResults_1[_i];
-                        if (!testResults.passing) {
-                            exports.giTests.outputErrorsForTest(testResults);
-                        }
+                exports.gi.runTests(tests, callback, startUrl, "Previously failed " + exports.gi.suiteType + " GI tests");
+            }
+            return runFailedTests();
+        });
+    },
+    runTestSuite: function (suiteId, startUrl, context, callback) {
+        console.info("\n=== All " + exports.gi.suiteType.toUpperCase() + " GI Tests ===\n");
+        var options = exports.gi.getOptions(startUrl);
+        var testSuiteUrl = "https://app.ghostinspector.com/suites/" + suiteId;
+        logTestParameters(options.apiUrl, startUrl, testSuiteUrl);
+        qmGit.setGithubStatus("pending", context, options.apiUrl, testSuiteUrl);
+        getGhostInspector().executeSuite(suiteId, options, function (err, suiteResults, passing) {
+            console.info("RESULTS:");
+            if (err) {
+                throw new Error(testSuiteUrl + " Error: " + err);
+            }
+            console.log(passing ? "Passed" : "Failed");
+            if (!passing) {
+                var testResults = void 0;
+                for (var _i = 0, suiteResults_1 = suiteResults; _i < suiteResults_1.length; _i++) {
+                    testResults = suiteResults_1[_i];
+                    if (!testResults.passing) {
+                        exports.gi.outputErrorsForTest(testResults);
                     }
                 }
-                console.log(testSuiteUrl + " " + " passed! :D");
-                callback();
-            });
-        },
-        getOptions: function (startUrl) {
-            return {
-                apiUrl: exports.giTests.getApiUrl(),
-                sha: exports.giTests.getSha(),
-                startUrl: startUrl || exports.giTests.getStartUrl(),
-            };
-        },
+            }
+            console.log(testSuiteUrl + " " + " passed! :D");
+            callback();
+        });
+    },
+    getOptions: function (startUrl) {
+        return {
+            apiUrl: exports.gi.getApiUrl(),
+            sha: exports.gi.getSha(),
+            startUrl: startUrl || exports.gi.getStartUrl(),
+        };
     },
 };
 function getGhostInspector() {
