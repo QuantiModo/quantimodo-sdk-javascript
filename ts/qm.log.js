@@ -1,17 +1,10 @@
 "use strict";
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+var test_helpers_1 = require("./test-helpers");
 var QUANTIMODO_CLIENT_ID = process.env.QUANTIMODO_CLIENT_ID || process.env.CLIENT_ID;
 // tslint:disable-next-line:max-line-length
 var AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY; // Netlify has their own
 function isTruthy(value) { return (value && value !== "false"); }
-var qmTests = __importStar(require("./qm.tests"));
 function error(message, metaData, maxCharacters) {
     metaData = addMetaData(metaData);
     console.error(obfuscateStringify(message, metaData, maxCharacters));
@@ -31,9 +24,9 @@ exports.debug = debug;
 function addMetaData(metaData) {
     metaData = metaData || {};
     metaData.environment = obfuscateSecrets(process.env);
-    metaData.subsystem = { name: qmTests.getCiProvider() };
+    metaData.subsystem = { name: test_helpers_1.getCiProvider() };
     metaData.client_id = QUANTIMODO_CLIENT_ID;
-    metaData.build_link = qmTests.getBuildLink();
+    metaData.build_link = test_helpers_1.getBuildLink();
     return metaData;
 }
 exports.addMetaData = addMetaData;

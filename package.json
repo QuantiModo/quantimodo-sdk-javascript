@@ -34,7 +34,7 @@
     "cy:run": "cypress run",
     "cy:verify": "cypress verify",
     "cy:version": "cypress version",
-    "cypress": "npx ts-node ts/qm.cypress.ts",
+    "cypress": "npx ts-node ts/cypress-runner.ts",
     "deploy:prepare": "./scripts/create_npmrc_file.sh",
     "effective:config": "circleci config process circle.yml | sed /^#/d",
     "lint": "npm run lint:es && npm run lint:ts && npm run lint:yaml",
@@ -80,7 +80,9 @@
   "dependencies": {
     "app-root-path": "3.0.0",
     "ts-node": "8.5.2",
-    "typescript": "3.7.2"
+    "@octokit/rest": "16.35.2",
+    "typescript": "3.7.2",
+    "simple-git": "1.126.0"
   },
   "devDependencies": {
     "@angular/core": "latest",
@@ -88,7 +90,6 @@
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "@cypress/webpack-preprocessor": "4.1.1",
-    "@octokit/rest": "16.35.2",
     "@slack/types": "1.2.1",
     "@slack/webhook": "5.0.2",
     "@types/angular": "latest",
@@ -144,13 +145,11 @@
     "mochawesome-report-generator": "4.0.1",
     "prettier": "1.19.1",
     "q": "latest",
-    "remote-origin-url": "latest",
     "request": "latest",
     "rimraf": "3.0.0",
     "run-sequence": "2.2.1",
     "semantic-release": "15.13.31",
     "shx": "0.3.2",
-    "simple-git": "1.126.0",
     "stop-only": "3.1.0",
     "superagent": "3.8.3",
     "swagger-js-codegen": "1.13.0",

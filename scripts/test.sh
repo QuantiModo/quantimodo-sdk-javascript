@@ -28,3 +28,4 @@ echo -e 'pcm.!default {\n type hw\n card 0\n}\n\nctl.!default {\n type hw\n card
 echo "Deleting videos because they take a ton of space..."
 rm cypress/videos/* || true
 npm run test
+#npm run test:ghostinspector

@@ -7,7 +7,8 @@ import * as git from "simple-git"
 import _str from "underscore.string"
 import * as qmLog from "./qm.log"
 import * as qmShell from "./qm.shell"
-import * as qmTests from "./qm.tests"
+import {getBuildLink} from "./test-helpers"
+
 export function getOctoKit() {
     return new Octokit({auth: getAccessToken()})
 }
@@ -117,7 +118,7 @@ export function setGithubStatus(testState: string, context: string, description:
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
         state,
-        target_url: url || qmTests.getBuildLink(),
+        target_url: url || getBuildLink(),
     }
     console.log(`${context} - ${description} - ${state} at ${params.target_url}`)
     getOctoKit().repos.createStatus(params).then((data: any) => {

@@ -1,8 +1,10 @@
+import {getBuildLink, getCiProvider} from "./test-helpers"
+
 const QUANTIMODO_CLIENT_ID = process.env.QUANTIMODO_CLIENT_ID || process.env.CLIENT_ID
 // tslint:disable-next-line:max-line-length
 const AWS_SECRET_ACCESS_KEY = process.env.QM_AWS_SECRET_ACCESS_KEY || process.env.AWS_SECRET_ACCESS_KEY // Netlify has their own
 function isTruthy(value: any) {return (value && value !== "false") }
-import * as qmTests from "./qm.tests"
+
 export function error(message: string, metaData?: any, maxCharacters?: number) {
     metaData = addMetaData(metaData)
     console.error(obfuscateStringify(message, metaData, maxCharacters))
@@ -19,9 +21,9 @@ export function debug(message: string, object?: any, maxCharacters?: any) {
 export function addMetaData(metaData: { environment?: any; subsystem?: any; client_id?: any; build_link?: any; }) {
     metaData = metaData || {}
     metaData.environment = obfuscateSecrets(process.env)
-    metaData.subsystem = {name: qmTests.getCiProvider()}
+    metaData.subsystem = {name: getCiProvider()}
     metaData.client_id = QUANTIMODO_CLIENT_ID
-    metaData.build_link = qmTests.getBuildLink()
+    metaData.build_link = getBuildLink()
     return metaData
 }
 export function obfuscateStringify(message: string, object: undefined, maxCharacters?: number) {
