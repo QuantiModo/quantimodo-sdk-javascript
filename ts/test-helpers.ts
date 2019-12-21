@@ -1,13 +1,9 @@
-import sdkRepo from "app-root-path"
-import * as cypress from "cypress"
-import {slackRunner} from "cypress-slack-reporter/bin/slack/slack-alert.js"
-import dotenv from "dotenv"
 import * as fs from "fs"
 import rimraf from "rimraf"
+import * as qmEnv from "./env-helper"
 import * as fileHelper from "./qm.file-helper"
 import * as qmGit from "./qm.git"
 import * as qmLog from "./qm.log"
-dotenv.config() // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
 export function getBuildLink() {
     if (process.env.BUILD_URL_FOR_STATUS) {
         return process.env.BUILD_URL_FOR_STATUS + "/console"
@@ -55,4 +51,68 @@ export function getCiProvider(): string {
     }
     // @ts-ignore
     return process.env.HOSTNAME
+}
+export const releaseStages = {
+    development: "development",
+    production: "production",
+    staging: "staging",
+}
+export const apiUrls = {
+    development: "https://local.quantimo.do",
+    production: "https://app.quantimo.do",
+    staging: "https://staging.quantimo.do",
+}
+
+export function getApiUrl(): string {
+    let url = qmEnv.getArgumentOrEnv("API_URL", null)
+    if(!url) {
+        const stage = qmEnv.getArgumentOrEnv("RELEASE_STAGE", null)
+        if(stage) {
+            // @ts-ignore
+            if(typeof apiUrls[stage] !== "undefined") {
+                // @ts-ignore
+                return apiUrls[stage]
+            }
+        }
+        throw new Error("Please provide API_URL")
+    }
+    url = url.replace("production.quantimo.do", "app.quantimo.do")
+    if (url.indexOf("http") !== 0) {
+        url = `https://` + url
+    }
+    return url
+}
+export function getReleaseStage() {
+    const stage = qmEnv.getArgumentOrEnv("RELEASE_STAGE", null)
+    if(stage) {return stage}
+    const url = qmEnv.getArgumentOrEnv("API_URL", null)
+    if(!url) {
+        throw Error("Please set RELEASE_STAGE env")
+    }
+    if (url.indexOf("utopia.") !== -1) {
+        return releaseStages.development
+    }
+    if (url.indexOf("production.") !== -1) {
+        return releaseStages.production
+    }
+    if (url.indexOf("staging.") !== -1) {
+        return releaseStages.staging
+    }
+    if (url.indexOf("app.") !== -1) {
+        return releaseStages.production
+    }
+    throw Error("Please set RELEASE_STAGE env")
+}
+export const releaseStage = {
+    is: {
+        production() {
+            return getReleaseStage() === releaseStages.production
+        },
+        staging() {
+            return getReleaseStage() === releaseStages.staging
+        },
+        development() {
+            return getReleaseStage() === releaseStages.development
+        },
+    },
 }

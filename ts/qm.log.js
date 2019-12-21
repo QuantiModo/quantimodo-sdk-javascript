@@ -101,4 +101,11 @@ function prettyJSONStringify(object) {
     return JSON.stringify(object, null, "\t");
 }
 exports.prettyJSONStringify = prettyJSONStringify;
+function logBugsnagLink(suite, start, end) {
+    var query = "filters[event.since][0]=" + start +
+        "&filters[error.status][0]=open&filters[event.before][0]=" + end +
+        "&sort=last_seen";
+    console.error("https://app.bugsnag.com/quantimodo/" + suite + "/errors?" + query);
+}
+exports.logBugsnagLink = logBugsnagLink;
 //# sourceMappingURL=qm.log.js.map
