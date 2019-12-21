@@ -127,13 +127,13 @@ export const gi = {
         getGhostInspector().getSuiteTests(suiteId, function(err: string, tests: any[]) {
             function runFailedTests() {
                 if (err) {
-                    return console.error("Error: " + err)
+                    handleTestErrors(err)
                 }
                 const failedTests = tests.filter(function(test: { passing: any }) {
                     return !test.passing
                 })
                 if (!failedTests || !failedTests.length) {
-                    console.info(`No failed tests!`)
+                    console.info(`No previously failed tests!`)
                     if (callback) {
                         callback()
                     }

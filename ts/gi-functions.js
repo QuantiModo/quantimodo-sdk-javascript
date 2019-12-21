@@ -33,7 +33,7 @@ function logTestParameters(apiUrl, startUrl, testUrl) {
 }
 function handleTestErrors(errorMessage) {
     var context = exports.gi.context;
-    if (!context) {
+    if (!context || context === "") {
         context = "unknown-context";
     }
     qmGit.setGithubStatus(qmGit.githubStatusStates.error, context, errorMessage, th.getBuildLink());
@@ -142,13 +142,13 @@ exports.gi = {
         getGhostInspector().getSuiteTests(suiteId, function (err, tests) {
             function runFailedTests() {
                 if (err) {
-                    return console.error("Error: " + err);
+                    handleTestErrors(err);
                 }
                 var failedTests = tests.filter(function (test) {
                     return !test.passing;
                 });
                 if (!failedTests || !failedTests.length) {
-                    console.info("No failed tests!");
+                    console.info("No previously failed tests!");
                     if (callback) {
                         callback();
                     }
