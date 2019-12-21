@@ -19,7 +19,14 @@ function logTestParameters(apiUrl: string, startUrl: string, testUrl: string) {
     console.info(`apiUrl: ` + apiUrl)
     console.info(`View test at: ` + testUrl)
 }
+function handleTestErrors(errorMessage: string) {
+    let context = gi.context
+    if(!context || context === "") {context = "unknown-context"}
+    qmGit.setGithubStatus(qmGit.githubStatusStates.error, context, errorMessage, th.getBuildLink())
+    throw Error(context + ` Error: ` + errorMessage)
+}
 export const gi = {
+    context: "",
     getStartUrl(): string {
         if (gi.suiteType === "api") {
             return th.getApiUrl() + `/api/v2/auth/login`
@@ -30,27 +37,17 @@ export const gi = {
         }
         const startUrl = qmEnv.getArgumentOrEnv("START_URL", defaultValue)
         if (!startUrl) {
-            throw Error("Please set START_URL env")
+            handleTestErrors("Please set START_URL env")
         }
+        // @ts-ignore
         return startUrl
     },
-    getSha(): string {
-        let sha = qmGit.getCurrentGitCommitSha()
-        if (!sha) {
-            sha = qmEnv.getArgumentOrEnv("SHA", null)
-        }
-        if (!sha) {
-            throw Error("Please set GIT_COMMIT env")
-        }
-        return sha
-    },
     outputErrorsForTest(testResults: { testName: any; name: any; _id: string; dateExecutionStarted: any;
-        dateExecutionFinished: any; console: string | any[] },
-                        context: string) {
+        dateExecutionFinished: any; console: string | any[] }) {
         const name = testResults.testName || testResults.name
         const url = `https://app.ghostinspector.com/results/` + testResults._id
         console.error(name + ` FAILED: ${url}`)
-        qmGit.setGithubStatus(qmGit.githubStatusStates.failure, context, name, url)
+        qmGit.setGithubStatus(qmGit.githubStatusStates.failure, gi.context, name, url)
         qmLog.logBugsnagLink("ionic", testResults.dateExecutionStarted, testResults.dateExecutionFinished)
         qmLog.logBugsnagLink("slim-api", testResults.dateExecutionStarted, testResults.dateExecutionFinished)
         console.error(`=== CONSOLE ERRORS ====`)
@@ -81,44 +78,45 @@ export const gi = {
         return qmEnv.getArgumentOrEnv("TEST_SUITE", gi.suites[type][th.getReleaseStage()])
     },
     runAllIonic(callback: () => void) {
+        gi.context = "all-gi-ionic"
         // qmTests.currentTask = this.currentTask.name;
-        gi.runTestSuite(gi.getSuiteId("ionic"), gi.getStartUrl(),
-            "all-gi-ionic-tests", callback)
+        gi.runTestSuite(gi.getSuiteId("ionic"), gi.getStartUrl(), callback)
     },
     runFailedIonic(callback: () => void) {
+        gi.context = "failed-gi-ionic"
         // qmTests.currentTask = this.currentTask.name;
         gi.runFailedTests(gi.getSuiteId("ionic"), gi.getStartUrl(), callback)
     },
     runFailedApi(callback: () => void) {
+        gi.context = "failed-gi-api"
         // qmTests.currentTask = this.currentTask.name;
         gi.runFailedTests(gi.getSuiteId("api"), gi.getStartUrl(), callback)
     },
     runAllApi(callback: () => void) {
+        gi.context = "all-gi-api"
         // qmTests.currentTask = this.currentTask.name;
-        gi.runTestSuite(gi.getSuiteId("api"), gi.getStartUrl(),
-            "all-gi-api-tests", callback)
+        gi.runTestSuite(gi.getSuiteId("api"), gi.getStartUrl(), callback)
     },
-    runTests(tests: any[], callback: () => void, startUrl: string, context: string) {
+    runTests(tests: any[], callback: () => void, startUrl: string) {
         const options = gi.getOptions(startUrl)
         const test = tests.pop()
         const testUrl = `https://app.ghostinspector.com/tests/` + test._id
-        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, context, options.apiUrl, testUrl)
+        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, gi.context, options.apiUrl, testUrl)
         logTestParameters(options.apiUrl, options.startUrl, testUrl)
         getGhostInspector().executeTest(test._id, options, function(err: string, testResults: any, passing: any) {
             console.info(`RESULTS:`)
             if (err) {
-                qmGit.setGithubStatus(qmGit.githubStatusStates.error, context, err, testUrl)
-                throw new Error(test.name + ` Error: ` + err)
+                handleTestErrors(err)
             }
             if (!passing) {
-                qmGit.setGithubStatus(qmGit.githubStatusStates.failure, context, options.apiUrl, testUrl)
-                gi.outputErrorsForTest(testResults, context)
+                qmGit.setGithubStatus(qmGit.githubStatusStates.failure, gi.context, options.apiUrl, testUrl)
+                gi.outputErrorsForTest(testResults)
                 process.exit(1)
             }
             console.log(test.name + " passed! :D")
-            qmGit.setGithubStatus(qmGit.githubStatusStates.success, context, test.name + " passed! :D", testUrl)
+            qmGit.setGithubStatus(qmGit.githubStatusStates.success, gi.context, test.name + " passed! :D", testUrl)
             if (tests && tests.length) {
-                gi.runTests(tests, callback, startUrl, context)
+                gi.runTests(tests, callback, startUrl)
             } else if (callback) {
                 callback()
             }
@@ -148,35 +146,33 @@ export const gi = {
                     const passFail = (testResult.passing) ? "passed" : "failed"
                     console.info(testResult.name + ` recently ` + passFail)
                 }
-                gi.runTests(tests, callback, startUrl,
-                    "Previously failed " + gi.suiteType + " GI tests")
+                gi.runTests(tests, callback, startUrl)
             }
             return runFailedTests()
         })
     },
-    runTestSuite(suiteId: string, startUrl: string, context: string, callback: () => void) {
+    runTestSuite(suiteId: string, startUrl: string, callback: () => void) {
         console.info(`\n=== All ${gi.suiteType.toUpperCase()} GI Tests ===\n`)
         const options = gi.getOptions(startUrl)
         const testSuiteUrl = `https://app.ghostinspector.com/suites/` + suiteId
         logTestParameters(options.apiUrl, startUrl, testSuiteUrl)
-        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, context, options.apiUrl, testSuiteUrl)
+        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, gi.context, options.apiUrl, testSuiteUrl)
         getGhostInspector().executeSuite(suiteId, options, function(err: string, suiteResults: string |
             any[],                                                  passing: boolean) {
             console.info(`RESULTS:`)
             if (err) {
-                qmGit.setGithubStatus(qmGit.githubStatusStates.error, context, err, testSuiteUrl)
-                throw new Error(testSuiteUrl + ` Error: ` + err)
+                handleTestErrors(err)
             }
             console.log(passing ? "Passed" : "Failed")
             if (!passing) {
                 let testResults
                 for (testResults of suiteResults) {
                     if (!testResults.passing) {
-                        gi.outputErrorsForTest(testResults, context)
+                        gi.outputErrorsForTest(testResults)
                     }
                 }
             }
-            qmGit.setGithubStatus(qmGit.githubStatusStates.success, context, options.apiUrl, testSuiteUrl)
+            qmGit.setGithubStatus(qmGit.githubStatusStates.success, gi.context, options.apiUrl, testSuiteUrl)
             console.log(testSuiteUrl + " " + " passed! :D")
             callback()
         })
@@ -184,14 +180,14 @@ export const gi = {
     getOptions(startUrl: any) {
         return {
             apiUrl: th.getApiUrl(),
-            sha: gi.getSha(),
+            sha: qmGit.getCurrentGitCommitSha(),
             startUrl: startUrl || gi.getStartUrl(),
         }
     },
 }
 function getGhostInspector() {
     if (!process.env.GI_API_KEY) {
-        throw new Error(`Please set GI_API_KEY env from https://app.ghostinspector.com/account`)
+        handleTestErrors(`Please set GI_API_KEY env from https://app.ghostinspector.com/account`)
     }
     // console.debug(`Using GI_API_KEY starting with ` + process.env.GI_API_KEY.substr(0, 4) + "...")
     return require("ghost-inspector")(process.env.GI_API_KEY)

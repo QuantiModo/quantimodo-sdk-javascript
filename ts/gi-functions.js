@@ -31,7 +31,16 @@ function logTestParameters(apiUrl, startUrl, testUrl) {
     console.info("apiUrl: " + apiUrl);
     console.info("View test at: " + testUrl);
 }
+function handleTestErrors(errorMessage) {
+    var context = exports.gi.context;
+    if (!context) {
+        context = "unknown-context";
+    }
+    qmGit.setGithubStatus(qmGit.githubStatusStates.error, context, errorMessage, th.getBuildLink());
+    throw Error(context + " Error: " + errorMessage);
+}
 exports.gi = {
+    context: "",
     getStartUrl: function () {
         if (exports.gi.suiteType === "api") {
             return th.getApiUrl() + "/api/v2/auth/login";
@@ -42,25 +51,16 @@ exports.gi = {
         }
         var startUrl = qmEnv.getArgumentOrEnv("START_URL", defaultValue);
         if (!startUrl) {
-            throw Error("Please set START_URL env");
+            handleTestErrors("Please set START_URL env");
         }
+        // @ts-ignore
         return startUrl;
     },
-    getSha: function () {
-        var sha = qmGit.getCurrentGitCommitSha();
-        if (!sha) {
-            sha = qmEnv.getArgumentOrEnv("SHA", null);
-        }
-        if (!sha) {
-            throw Error("Please set GIT_COMMIT env");
-        }
-        return sha;
-    },
-    outputErrorsForTest: function (testResults, context) {
+    outputErrorsForTest: function (testResults) {
         var name = testResults.testName || testResults.name;
         var url = "https://app.ghostinspector.com/results/" + testResults._id;
         console.error(name + (" FAILED: " + url));
-        qmGit.setGithubStatus(qmGit.githubStatusStates.failure, context, name, url);
+        qmGit.setGithubStatus(qmGit.githubStatusStates.failure, exports.gi.context, name, url);
         qmLog.logBugsnagLink("ionic", testResults.dateExecutionStarted, testResults.dateExecutionFinished);
         qmLog.logBugsnagLink("slim-api", testResults.dateExecutionStarted, testResults.dateExecutionFinished);
         console.error("=== CONSOLE ERRORS ====");
@@ -92,42 +92,45 @@ exports.gi = {
         return qmEnv.getArgumentOrEnv("TEST_SUITE", exports.gi.suites[type][th.getReleaseStage()]);
     },
     runAllIonic: function (callback) {
+        exports.gi.context = "all-gi-ionic";
         // qmTests.currentTask = this.currentTask.name;
-        exports.gi.runTestSuite(exports.gi.getSuiteId("ionic"), exports.gi.getStartUrl(), "all-gi-ionic-tests", callback);
+        exports.gi.runTestSuite(exports.gi.getSuiteId("ionic"), exports.gi.getStartUrl(), callback);
     },
     runFailedIonic: function (callback) {
+        exports.gi.context = "failed-gi-ionic";
         // qmTests.currentTask = this.currentTask.name;
         exports.gi.runFailedTests(exports.gi.getSuiteId("ionic"), exports.gi.getStartUrl(), callback);
     },
     runFailedApi: function (callback) {
+        exports.gi.context = "failed-gi-api";
         // qmTests.currentTask = this.currentTask.name;
         exports.gi.runFailedTests(exports.gi.getSuiteId("api"), exports.gi.getStartUrl(), callback);
     },
     runAllApi: function (callback) {
+        exports.gi.context = "all-gi-api";
         // qmTests.currentTask = this.currentTask.name;
-        exports.gi.runTestSuite(exports.gi.getSuiteId("api"), exports.gi.getStartUrl(), "all-gi-api-tests", callback);
+        exports.gi.runTestSuite(exports.gi.getSuiteId("api"), exports.gi.getStartUrl(), callback);
     },
-    runTests: function (tests, callback, startUrl, context) {
+    runTests: function (tests, callback, startUrl) {
         var options = exports.gi.getOptions(startUrl);
         var test = tests.pop();
         var testUrl = "https://app.ghostinspector.com/tests/" + test._id;
-        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, context, options.apiUrl, testUrl);
+        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, exports.gi.context, options.apiUrl, testUrl);
         logTestParameters(options.apiUrl, options.startUrl, testUrl);
         getGhostInspector().executeTest(test._id, options, function (err, testResults, passing) {
             console.info("RESULTS:");
             if (err) {
-                qmGit.setGithubStatus(qmGit.githubStatusStates.error, context, err, testUrl);
-                throw new Error(test.name + " Error: " + err);
+                handleTestErrors(err);
             }
             if (!passing) {
-                qmGit.setGithubStatus(qmGit.githubStatusStates.failure, context, options.apiUrl, testUrl);
-                exports.gi.outputErrorsForTest(testResults, context);
+                qmGit.setGithubStatus(qmGit.githubStatusStates.failure, exports.gi.context, options.apiUrl, testUrl);
+                exports.gi.outputErrorsForTest(testResults);
                 process.exit(1);
             }
             console.log(test.name + " passed! :D");
-            qmGit.setGithubStatus(qmGit.githubStatusStates.success, context, test.name + " passed! :D", testUrl);
+            qmGit.setGithubStatus(qmGit.githubStatusStates.success, exports.gi.context, test.name + " passed! :D", testUrl);
             if (tests && tests.length) {
-                exports.gi.runTests(tests, callback, startUrl, context);
+                exports.gi.runTests(tests, callback, startUrl);
             }
             else if (callback) {
                 callback();
@@ -160,22 +163,21 @@ exports.gi = {
                     var passFail = (testResult.passing) ? "passed" : "failed";
                     console.info(testResult.name + " recently " + passFail);
                 }
-                exports.gi.runTests(tests, callback, startUrl, "Previously failed " + exports.gi.suiteType + " GI tests");
+                exports.gi.runTests(tests, callback, startUrl);
             }
             return runFailedTests();
         });
     },
-    runTestSuite: function (suiteId, startUrl, context, callback) {
+    runTestSuite: function (suiteId, startUrl, callback) {
         console.info("\n=== All " + exports.gi.suiteType.toUpperCase() + " GI Tests ===\n");
         var options = exports.gi.getOptions(startUrl);
         var testSuiteUrl = "https://app.ghostinspector.com/suites/" + suiteId;
         logTestParameters(options.apiUrl, startUrl, testSuiteUrl);
-        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, context, options.apiUrl, testSuiteUrl);
+        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, exports.gi.context, options.apiUrl, testSuiteUrl);
         getGhostInspector().executeSuite(suiteId, options, function (err, suiteResults, passing) {
             console.info("RESULTS:");
             if (err) {
-                qmGit.setGithubStatus(qmGit.githubStatusStates.error, context, err, testSuiteUrl);
-                throw new Error(testSuiteUrl + " Error: " + err);
+                handleTestErrors(err);
             }
             console.log(passing ? "Passed" : "Failed");
             if (!passing) {
@@ -183,11 +185,11 @@ exports.gi = {
                 for (var _i = 0, suiteResults_1 = suiteResults; _i < suiteResults_1.length; _i++) {
                     testResults = suiteResults_1[_i];
                     if (!testResults.passing) {
-                        exports.gi.outputErrorsForTest(testResults, context);
+                        exports.gi.outputErrorsForTest(testResults);
                     }
                 }
             }
-            qmGit.setGithubStatus(qmGit.githubStatusStates.success, context, options.apiUrl, testSuiteUrl);
+            qmGit.setGithubStatus(qmGit.githubStatusStates.success, exports.gi.context, options.apiUrl, testSuiteUrl);
             console.log(testSuiteUrl + " " + " passed! :D");
             callback();
         });
@@ -195,14 +197,14 @@ exports.gi = {
     getOptions: function (startUrl) {
         return {
             apiUrl: th.getApiUrl(),
-            sha: exports.gi.getSha(),
+            sha: qmGit.getCurrentGitCommitSha(),
             startUrl: startUrl || exports.gi.getStartUrl(),
         };
     },
 };
 function getGhostInspector() {
     if (!process.env.GI_API_KEY) {
-        throw new Error("Please set GI_API_KEY env from https://app.ghostinspector.com/account");
+        handleTestErrors("Please set GI_API_KEY env from https://app.ghostinspector.com/account");
     }
     // console.debug(`Using GI_API_KEY starting with ` + process.env.GI_API_KEY.substr(0, 4) + "...")
     return require("ghost-inspector")(process.env.GI_API_KEY);
