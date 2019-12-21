@@ -102,6 +102,14 @@ export function getRepoUserName() {
         console.info(error)
     }
 }
+
+export const githubStatusStates = {
+    error: "error",
+    failure: "failure",
+    pending: "pending",
+    success: "success",
+}
+
 /**
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */

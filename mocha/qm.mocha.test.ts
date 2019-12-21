@@ -16,7 +16,8 @@ beforeEach(function (done) {
     this.timeout(10000) // Default 2000 is too fast for Github API
     // @ts-ignore
     qmGit.setGithubStatus("pending", t.title, "Running...", null, function (res) {
-        //console.debug(res)
+        const logResult = false
+        if(logResult){console.debug(res)}
         done();
     });
 });
@@ -31,7 +32,8 @@ afterEach(function (done) {
     }
     // @ts-ignore
     qmGit.setGithubStatus(state, t.title, t.title, null, function (res) {
-        //console.debug(res)
+        const logResult = false
+        if(logResult){console.debug(res)}
         done();
     });
 });
@@ -115,5 +117,6 @@ describe("gi-tester", function () {
         if(previouslySetApiUrl){
             process.env.API_URL = previouslySetApiUrl
         }
+        done()
     })
 })
