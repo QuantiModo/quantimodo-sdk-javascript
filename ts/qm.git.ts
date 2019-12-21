@@ -7,8 +7,7 @@ import * as git from "simple-git"
 import _str from "underscore.string"
 import * as qmLog from "./qm.log"
 import * as qmShell from "./qm.shell"
-import {getBuildLink} from "./test-helpers"
-
+import {default as th, getBuildLink} from "./test-helpers"
 export function getOctoKit() {
     return new Octokit({auth: getAccessToken()})
 }

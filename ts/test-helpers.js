@@ -1,7 +1,4 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -9,14 +6,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var dotenv_1 = __importDefault(require("dotenv"));
 var fs = __importStar(require("fs"));
 var rimraf_1 = __importDefault(require("rimraf"));
+var qmEnv = __importStar(require("./env-helper"));
 var fileHelper = __importStar(require("./qm.file-helper"));
 var qmGit = __importStar(require("./qm.git"));
 var qmLog = __importStar(require("./qm.log"));
-dotenv_1.default.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
 function getBuildLink() {
     if (process.env.BUILD_URL_FOR_STATUS) {
         return process.env.BUILD_URL_FOR_STATUS + "/console";
@@ -70,4 +69,71 @@ function getCiProvider() {
     return process.env.HOSTNAME;
 }
 exports.getCiProvider = getCiProvider;
+exports.releaseStages = {
+    development: "development",
+    production: "production",
+    staging: "staging",
+};
+exports.apiUrls = {
+    development: "https://local.quantimo.do",
+    production: "https://app.quantimo.do",
+    staging: "https://staging.quantimo.do",
+};
+function getApiUrl() {
+    var url = qmEnv.getArgumentOrEnv("API_URL", null);
+    if (!url) {
+        var stage = qmEnv.getArgumentOrEnv("RELEASE_STAGE", null);
+        if (stage) {
+            // @ts-ignore
+            if (typeof exports.apiUrls[stage] !== "undefined") {
+                // @ts-ignore
+                return exports.apiUrls[stage];
+            }
+        }
+        throw new Error("Please provide API_URL");
+    }
+    url = url.replace("production.quantimo.do", "app.quantimo.do");
+    if (url.indexOf("http") !== 0) {
+        url = "https://" + url;
+    }
+    return url;
+}
+exports.getApiUrl = getApiUrl;
+function getReleaseStage() {
+    var stage = qmEnv.getArgumentOrEnv("RELEASE_STAGE", null);
+    if (stage) {
+        return stage;
+    }
+    var url = qmEnv.getArgumentOrEnv("API_URL", null);
+    if (!url) {
+        throw Error("Please set RELEASE_STAGE env");
+    }
+    if (url.indexOf("utopia.") !== -1) {
+        return exports.releaseStages.development;
+    }
+    if (url.indexOf("production.") !== -1) {
+        return exports.releaseStages.production;
+    }
+    if (url.indexOf("staging.") !== -1) {
+        return exports.releaseStages.staging;
+    }
+    if (url.indexOf("app.") !== -1) {
+        return exports.releaseStages.production;
+    }
+    throw Error("Please set RELEASE_STAGE env");
+}
+exports.getReleaseStage = getReleaseStage;
+exports.releaseStage = {
+    is: {
+        production: function () {
+            return getReleaseStage() === exports.releaseStages.production;
+        },
+        staging: function () {
+            return getReleaseStage() === exports.releaseStages.staging;
+        },
+        development: function () {
+            return getReleaseStage() === exports.releaseStages.development;
+        },
+    },
+};
 //# sourceMappingURL=test-helpers.js.map

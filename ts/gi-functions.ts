@@ -1,5 +1,7 @@
+import * as qmEnv from "./env-helper"
 import * as qmGit from "./qm.git"
-
+import * as qmLog from "./qm.log"
+import * as th from "./test-helpers"
 export function runEverything(callback: () => void) {
     gi.runFailedApi(function() {
         gi.runFailedIonic(function() {
@@ -12,48 +14,21 @@ export function runEverything(callback: () => void) {
         })
     })
 }
-
 function logTestParameters(apiUrl: string, startUrl: string, testUrl: string) {
     console.info(`startUrl: ` + startUrl)
     console.info(`apiUrl: ` + apiUrl)
     console.info(`View test at: ` + testUrl)
 }
-
 export const gi = {
-    getArgumentOrEnv(name: string, defaultValue: null | string): string | null {
-        if (typeof process.env[name] !== "undefined") {
-            // @ts-ignore
-            return process.env[name]
-        }
-        if (typeof defaultValue === "undefined") {
-            throw new Error(`Please specify ` + name + ` env or argument`)
-        }
-        return defaultValue
-    },
-    getReleaseStage() {
-        if (gi.getApiUrl().indexOf("utopia") !== -1) {
-            return "development"
-        }
-        if (gi.getApiUrl().indexOf("production") !== -1) {
-            return "production"
-        }
-        if (gi.getApiUrl().indexOf("app.") !== -1) {
-            return "production"
-        }
-        if (gi.getApiUrl().indexOf("staging") !== -1) {
-            return "staging"
-        }
-        return gi.getArgumentOrEnv("RELEASE_STAGE", null)
-    },
     getStartUrl(): string {
         if (gi.suiteType === "api") {
-            return gi.getApiUrl() + `/api/v2/auth/login`
+            return th.getApiUrl() + `/api/v2/auth/login`
         }
         let defaultValue = "https://web.quantimo.do"
-        if (gi.getApiUrl().indexOf("utopia") !== -1) {
+        if (th.getApiUrl().indexOf("utopia") !== -1) {
             defaultValue = "https://dev-web.quantimo.do"
         }
-        const startUrl = gi.getArgumentOrEnv("START_URL", defaultValue)
+        const startUrl = qmEnv.getArgumentOrEnv("START_URL", defaultValue)
         if (!startUrl) {
             throw Error("Please set START_URL env")
         }
@@ -62,37 +37,19 @@ export const gi = {
     getSha(): string {
         let sha = qmGit.getCurrentGitCommitSha()
         if (!sha) {
-            sha = gi.getArgumentOrEnv("SHA", null)
+            sha = qmEnv.getArgumentOrEnv("SHA", null)
         }
         if (!sha) {
             throw Error("Please set GIT_COMMIT env")
         }
         return sha
     },
-    getApiUrl(): string {
-        let url = gi.getArgumentOrEnv("API_URL", "app.quantimo.do")
-        if(!url) {
-            throw new Error("Please provide API_URL")
-        }
-        url = url.replace("production.quantimo.do", "app.quantimo.do")
-        if (url.indexOf("http") !== 0) {
-            url = `https://` + url
-        }
-        return url
-    },
-    logBugsnagLink(suite: string, start: string, end: string) {
-        const query = `filters[event.since][0]=` + start +
-            `&filters[error.status][0]=open&filters[event.before][0]=` + end +
-            `&sort=last_seen`
-        console.error(suite.toUpperCase() + ` ERRORS: `)
-        console.error(`https://app.bugsnag.com/quantimodo/` + suite + `/errors?` + query)
-    },
     outputErrorsForTest(testResults: { testName: any; name: any; _id: string; dateExecutionStarted: any;
         dateExecutionFinished: any; console: string | any[] }) {
         const name = testResults.testName || testResults.name
         console.error(name + ` FAILED: https://app.ghostinspector.com/results/` + testResults._id)
-        gi.logBugsnagLink("ionic", testResults.dateExecutionStarted, testResults.dateExecutionFinished)
-        gi.logBugsnagLink("slim-api", testResults.dateExecutionStarted, testResults.dateExecutionFinished)
+        qmLog.logBugsnagLink("ionic", testResults.dateExecutionStarted, testResults.dateExecutionFinished)
+        qmLog.logBugsnagLink("slim-api", testResults.dateExecutionStarted, testResults.dateExecutionFinished)
         console.error(`=== CONSOLE ERRORS ====`)
         let logObject
         for (logObject of testResults.console) {
@@ -102,7 +59,6 @@ export const gi = {
         }
         process.exit(1)
     },
-    startUrl: null,
     suiteType: "",
     suites: {
         api: {
@@ -119,7 +75,7 @@ export const gi = {
     getSuiteId(type: string): string {
         gi.suiteType = type
         // @ts-ignore
-        return gi.getArgumentOrEnv("TEST_SUITE", gi.suites[type][gi.getReleaseStage()])
+        return qmEnv.getArgumentOrEnv("TEST_SUITE", gi.suites[type][th.getReleaseStage()])
     },
     runAllIonic(callback: () => void) {
         // qmTests.currentTask = this.currentTask.name;
@@ -219,7 +175,7 @@ export const gi = {
     },
     getOptions(startUrl: any) {
         return {
-            apiUrl: gi.getApiUrl(),
+            apiUrl: th.getApiUrl(),
             sha: gi.getSha(),
             startUrl: startUrl || gi.getStartUrl(),
         }
