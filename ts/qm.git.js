@@ -123,6 +123,12 @@ function getRepoUserName() {
     }
 }
 exports.getRepoUserName = getRepoUserName;
+exports.githubStatusStates = {
+    error: "error",
+    failure: "failure",
+    pending: "pending",
+    success: "success",
+};
 /**
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */

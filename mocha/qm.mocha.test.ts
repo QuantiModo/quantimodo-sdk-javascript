@@ -1,4 +1,5 @@
 import {expect} from "chai";
+import {assert} from "chai";
 import * as qmGit from "../ts/qm.git";
 import * as qmShell from "../ts/qm.shell"
 import * as fileHelper from "../ts/qm.file-helper";
@@ -7,13 +8,16 @@ import * as urlParser from "url";
 import * as https from "https";
 import * as _str from "underscore.string";
 import * as simpleGit from 'simple-git/promise';
+import * as gi from '../ts/gi-functions';
+import * as th from '../ts/test-helpers';
 const git = simpleGit();
 beforeEach(function (done) {
     let t = this.currentTest
     this.timeout(10000) // Default 2000 is too fast for Github API
     // @ts-ignore
     qmGit.setGithubStatus("pending", t.title, "Running...", null, function (res) {
-        //console.debug(res)
+        const logResult = false
+        if(logResult){console.debug(res)}
         done();
     });
 });
@@ -28,7 +32,8 @@ afterEach(function (done) {
     }
     // @ts-ignore
     qmGit.setGithubStatus(state, t.title, t.title, null, function (res) {
-        //console.debug(res)
+        const logResult = false
+        if(logResult){console.debug(res)}
         done();
     });
 });
@@ -98,5 +103,20 @@ describe("uploader", function () {
         qmTests.uploadTestResults(function (uploadResponse) {
             downloadFileContains(uploadResponse.Location, "mocha", done)
         })
+    })
+})
+
+describe("gi-tester", function () {
+    it("runs tests on staging API", function (done) {
+        let previouslySetApiUrl = process.env.API_URL || null;
+        delete process.env.API_URL
+        assert.isUndefined(process.env.API_URL)
+        process.env.RELEASE_STAGE = "staging"
+        const url = th.getApiUrl()
+        expect(url).to.contain("https://staging.quantimo.do")
+        if(previouslySetApiUrl){
+            process.env.API_URL = previouslySetApiUrl
+        }
+        done()
     })
 })

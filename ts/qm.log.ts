@@ -92,3 +92,10 @@ export function obfuscateSecrets(object: any) {
 export function prettyJSONStringify(object: any) {
     return JSON.stringify(object, null, "\t")
 }
+
+export function logBugsnagLink(suite: string, start: string, end: string) {
+    const query = `filters[event.since][0]=` + start +
+        `&filters[error.status][0]=open&filters[event.before][0]=` + end +
+        `&sort=last_seen`
+    console.error(`https://app.bugsnag.com/quantimodo/` + suite + `/errors?` + query)
+}
