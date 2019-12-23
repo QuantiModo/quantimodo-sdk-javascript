@@ -11,7 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // npm install typescript ts-node
 // npx ts-node ts/gi-run.ts
 var gi = __importStar(require("./gi-functions"));
-process.env.RELEASE_STAGE = "staging";
+// process.env.RELEASE_STAGE = "staging"
 gi.runEverything(function () {
     process.exit(0);
 });

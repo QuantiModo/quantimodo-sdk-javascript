@@ -225,7 +225,7 @@ function deleteLastFailedCypressTest() {
         fs.unlinkSync(lastFailedCypressTestPath);
     }
     catch (err) {
-        console.log(err);
+        console.debug("No last-failed-cypress-test file to delete");
     }
 }
 // tslint:disable-next-line:unified-signatures
