@@ -102,7 +102,13 @@ exports.mochawesome = mochawesome;
 function copyCypressEnvConfigIfNecessary() {
     console.info("Copying " + envPath + " to cypress.json");
     fs.copyFileSync(envPath, cypressJson);
-    console.info("Cypress Configuration: " + fs.readFileSync(cypressJson));
+    var cypressJsonString = fs.readFileSync(cypressJson).toString();
+    var cypressJsonObject = JSON.parse(cypressJsonString);
+    if (!cypressJsonObject) {
+        var before_1 = fs.readFileSync(envPath).toString();
+        throw Error("Could not parse " + cypressJson + " after copy! " + envPath + " is " + before_1);
+    }
+    console.info("Cypress Configuration: " + cypressJsonString);
 }
 function setGithubStatusAndUploadTestResults(failedTests, context) {
     // @ts-ignore

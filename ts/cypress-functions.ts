@@ -95,7 +95,13 @@ export function mochawesome(failedTests: any[], cb: (err: any) => void) {
 function copyCypressEnvConfigIfNecessary() {
     console.info(`Copying ${envPath} to cypress.json`)
     fs.copyFileSync(envPath, cypressJson)
-    console.info("Cypress Configuration: " + fs.readFileSync(cypressJson))
+    const cypressJsonString = fs.readFileSync(cypressJson).toString()
+    const cypressJsonObject = JSON.parse(cypressJsonString)
+    if(!cypressJsonObject) {
+        const before = fs.readFileSync(envPath).toString()
+        throw Error(`Could not parse ${cypressJson} after copy! ${envPath} is ${before}`)
+    }
+    console.info("Cypress Configuration: " + cypressJsonString)
 }
 function setGithubStatusAndUploadTestResults(failedTests: any[] | null, context: string) {
     // @ts-ignore
