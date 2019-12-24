@@ -136,6 +136,10 @@ exports.githubStatusStates = {
 function setGithubStatus(testState, context, description, url, cb) {
     var state = convertTestStateToGithubState(testState);
     description = underscore_string_1.default.truncate(description, 135);
+    url = url || test_helpers_1.getBuildLink();
+    if (!url) {
+        console.error("No build link or target url for status!");
+    }
     // @ts-ignore
     var params = {
         context: context,
@@ -144,9 +148,9 @@ function setGithubStatus(testState, context, description, url, cb) {
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
         state: state,
-        target_url: url || test_helpers_1.getBuildLink(),
+        target_url: url,
     };
-    console.log(context + " - " + description + " - " + state + " at " + params.target_url);
+    console.log(context + " - " + description + " - " + state + " at " + url);
     getOctoKit().repos.createStatus(params).then(function (data) {
         if (cb) {
             cb(data);

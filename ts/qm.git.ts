@@ -117,6 +117,10 @@ export const githubStatusStates = {
 export function setGithubStatus(testState: string, context: string, description: string, url?: string | null, cb?: ((arg0: any) => void) | undefined) {
     const state = convertTestStateToGithubState(testState)
     description = _str.truncate(description, 135)
+    url = url || getBuildLink()
+    if(!url) {
+        console.error("No build link or target url for status!")
+    }
     // @ts-ignore
     const params: Octokit.ReposCreateStatusParams = {
         context,
@@ -125,9 +129,9 @@ export function setGithubStatus(testState: string, context: string, description:
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
         state,
-        target_url: url || getBuildLink(),
+        target_url: url,
     }
-    console.log(`${context} - ${description} - ${state} at ${params.target_url}`)
+    console.log(`${context} - ${description} - ${state} at ${url}`)
     getOctoKit().repos.createStatus(params).then((data: any) => {
         if (cb) {
             cb(data)
