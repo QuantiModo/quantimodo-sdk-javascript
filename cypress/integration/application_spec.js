@@ -13,6 +13,7 @@ function createNewApplication(){
     cy.get('#homepage_url').type(testAppName, {force: true})
     cy.get('.btn-success').click({force: true})
     cy.log('Need to start redirecting to builder.quantimo.do...')
+    cy.url().should('contain','/edit', {timeout: 120000})
     cy.checkForBrokenImages()
     // cy.get('iframe#iframe md-tabs-canvas.md-paginated > md-pagination-wrapper >
     // md-tab-item.md-tab.md-ink-ripple:nth-of-type(2) > span',
