@@ -111,6 +111,7 @@
     "bluebird": "latest",
     "chai": "4.2.0",
     "coveralls": "3.0.9",
+    "cross-env": "6.0.3",
     "cypress": "3.8.0",
     "cypress-cucumber-preprocessor": "1.16.2",
     "cypress-failed-log": "2.5.1",

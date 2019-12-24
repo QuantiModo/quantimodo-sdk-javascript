@@ -291,3 +291,4 @@ Cypress.Commands.add('clickActionSheetButtonContaining', (str) => {
 Cypress.Commands.add('toastContains', (str) => {
     cy.get('.md-toast-text').should('contain', str)
 })
+//Cypress.Commands.overwrite('log', (subject, message) => cy.task('log', message));
