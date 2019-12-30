@@ -14,6 +14,14 @@ export function runEverything(callback: () => void) {
         })
     })
 }
+export function runIonicFailedAll(callback: () => void) {
+    gi.runFailedIonic(function() {
+        gi.runAllIonic(function() {
+            if(callback) {callback()}
+            process.exit(0)
+        })
+    })
+}
 function logTestParameters(apiUrl: string, startUrl: string, testUrl: string) {
     console.info(`startUrl: ` + startUrl)
     console.info(`apiUrl: ` + apiUrl)
@@ -34,6 +42,9 @@ export const gi = {
         let defaultValue = "https://web.quantimo.do"
         if (th.getApiUrl().indexOf("utopia") !== -1) {
             defaultValue = "https://dev-web.quantimo.do"
+        }
+        if(process.env.RELEASE_STAGE === "ionic") {
+            return "https://medimodo.herokuapp.com"
         }
         const startUrl = qmEnv.getArgumentOrEnv("START_URL", defaultValue)
         if (!startUrl) {
@@ -68,6 +79,7 @@ export const gi = {
         },
         ionic: {
             development: "5c072f704182f16946402eb3",
+            ionic: "56f5b92519d90d942760ea96",
             production: "5c0729fb4182f16946402914",
             staging: "5c0716164a85d01c022def70",
         },
