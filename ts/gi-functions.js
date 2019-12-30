@@ -26,6 +26,17 @@ function runEverything(callback) {
     });
 }
 exports.runEverything = runEverything;
+function runIonicFailedAll(callback) {
+    exports.gi.runFailedIonic(function () {
+        exports.gi.runAllIonic(function () {
+            if (callback) {
+                callback();
+            }
+            process.exit(0);
+        });
+    });
+}
+exports.runIonicFailedAll = runIonicFailedAll;
 function logTestParameters(apiUrl, startUrl, testUrl) {
     console.info("startUrl: " + startUrl);
     console.info("apiUrl: " + apiUrl);
@@ -48,6 +59,9 @@ exports.gi = {
         var defaultValue = "https://web.quantimo.do";
         if (th.getApiUrl().indexOf("utopia") !== -1) {
             defaultValue = "https://dev-web.quantimo.do";
+        }
+        if (process.env.RELEASE_STAGE === "ionic") {
+            return "https://medimodo.herokuapp.com";
         }
         var startUrl = qmEnv.getArgumentOrEnv("START_URL", defaultValue);
         if (!startUrl) {
@@ -82,6 +96,7 @@ exports.gi = {
         },
         ionic: {
             development: "5c072f704182f16946402eb3",
+            ionic: "56f5b92519d90d942760ea96",
             production: "5c0729fb4182f16946402914",
             staging: "5c0716164a85d01c022def70",
         },

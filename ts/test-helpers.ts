@@ -64,6 +64,10 @@ export const apiUrls = {
 }
 
 export function getApiUrl(): string {
+    if(!process.env.API_URL && process.env.RELEASE_STAGE === "ionic") {
+        console.debug("Using https://app.quantimo.do as apiUrl because API_URL env not set and RELEASE_STAGE is ionic")
+        return "https://app.quantimo.do"
+    }
     let url = qmEnv.getArgumentOrEnv("API_URL", null)
     if(!url) {
         const stage = qmEnv.getArgumentOrEnv("RELEASE_STAGE", null)
