@@ -148,6 +148,11 @@ function runCypressTests(cb, specificSpec) {
                     console.debug("skipping " + specName);
                     return out_p_1 = p, "continue";
                 }
+                if (releaseStage === "ionic" && specName.indexOf("ionic_") === -1) {
+                    console.debug("skipping " + specName + " because it doesn't test ionic app and release stage is " +
+                        releaseStage);
+                    return out_p_1 = p, "continue";
+                }
                 p = p.then(function (_) { return new Promise(function (resolve) {
                     var specPath = specsPath + "/" + specName;
                     var context = specName.replace("_spec.js", "") + "-" + releaseStage;
