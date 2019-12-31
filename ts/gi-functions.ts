@@ -30,7 +30,7 @@ function logTestParameters(apiUrl: string, startUrl: string, testUrl: string) {
 function handleTestErrors(errorMessage: string) {
     let context = gi.context
     if(!context || context === "") {context = "unknown-context"}
-    qmGit.setGithubStatus(qmGit.githubStatusStates.error, context, errorMessage, th.getBuildLink())
+    qmGit.setGithubStatus("error", context, errorMessage, th.getBuildLink())
     throw Error(context + ` Error: ` + errorMessage)
 }
 export const gi = {
@@ -58,7 +58,7 @@ export const gi = {
         const name = testResults.testName || testResults.name
         const url = `https://app.ghostinspector.com/results/` + testResults._id
         console.error(name + ` FAILED: ${url}`)
-        qmGit.setGithubStatus(qmGit.githubStatusStates.failure, gi.context, name, url)
+        qmGit.setGithubStatus("failure", gi.context, name, url)
         qmLog.logBugsnagLink("ionic", testResults.dateExecutionStarted, testResults.dateExecutionFinished)
         qmLog.logBugsnagLink("slim-api", testResults.dateExecutionStarted, testResults.dateExecutionFinished)
         console.error(`=== CONSOLE ERRORS ====`)
@@ -113,7 +113,7 @@ export const gi = {
         const options = gi.getOptions(startUrl)
         const test = tests.pop()
         const testUrl = `https://app.ghostinspector.com/tests/` + test._id
-        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, gi.context, options.apiUrl, testUrl)
+        qmGit.setGithubStatus("pending", gi.context, options.apiUrl, testUrl)
         logTestParameters(options.apiUrl, options.startUrl, testUrl)
         getGhostInspector().executeTest(test._id, options, function(err: string, testResults: any, passing: any) {
             console.info(`RESULTS:`)
@@ -121,12 +121,12 @@ export const gi = {
                 handleTestErrors(err)
             }
             if (!passing) {
-                qmGit.setGithubStatus(qmGit.githubStatusStates.failure, gi.context, options.apiUrl, testUrl)
+                qmGit.setGithubStatus("failure", gi.context, options.apiUrl, testUrl)
                 gi.outputErrorsForTest(testResults)
                 process.exit(1)
             }
             console.log(test.name + " passed! :D")
-            qmGit.setGithubStatus(qmGit.githubStatusStates.success, gi.context, test.name + " passed! :D", testUrl)
+            qmGit.setGithubStatus("success", gi.context, test.name + " passed! :D", testUrl)
             if (tests && tests.length) {
                 gi.runTests(tests, callback, startUrl)
             } else if (callback) {
@@ -168,7 +168,7 @@ export const gi = {
         const options = gi.getOptions(startUrl)
         const testSuiteUrl = `https://app.ghostinspector.com/suites/` + suiteId
         logTestParameters(options.apiUrl, startUrl, testSuiteUrl)
-        qmGit.setGithubStatus(qmGit.githubStatusStates.pending, gi.context, options.apiUrl, testSuiteUrl)
+        qmGit.setGithubStatus("pending", gi.context, options.apiUrl, testSuiteUrl)
         getGhostInspector().executeSuite(suiteId, options, function(err: string, suiteResults: string |
             any[],                                                  passing: boolean) {
             console.info(`RESULTS:`)
@@ -184,7 +184,7 @@ export const gi = {
                     }
                 }
             }
-            qmGit.setGithubStatus(qmGit.githubStatusStates.success, gi.context, options.apiUrl, testSuiteUrl)
+            qmGit.setGithubStatus("success", gi.context, options.apiUrl, testSuiteUrl)
             console.log(testSuiteUrl + " " + " passed! :D")
             callback()
         })
