@@ -134,7 +134,6 @@ exports.githubStatusStates = {
  */
 // tslint:disable-next-line:max-line-length
 function setGithubStatus(testState, context, description, url, cb) {
-    var state = convertTestStateToGithubState(testState);
     description = underscore_string_1.default.truncate(description, 135);
     url = url || test_helpers_1.getBuildLink();
     if (!url) {
@@ -147,10 +146,10 @@ function setGithubStatus(testState, context, description, url, cb) {
         owner: getRepoUserName(),
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
-        state: state,
+        state: testState,
         target_url: url,
     };
-    console.log(context + " - " + description + " - " + state + " at " + url);
+    console.log(context + " - " + description + " - " + testState + " at " + url);
     getOctoKit().repos.createStatus(params).then(function (data) {
         if (cb) {
             cb(data);
@@ -162,20 +161,6 @@ function setGithubStatus(testState, context, description, url, cb) {
     });
 }
 exports.setGithubStatus = setGithubStatus;
-function convertTestStateToGithubState(testState) {
-    var state = testState;
-    if (testState === "passed") {
-        state = "success";
-    }
-    if (testState === "failed") {
-        state = "failure";
-    }
-    if (!state) {
-        throw new Error("No state!");
-    }
-    // @ts-ignore
-    return state;
-}
 function getBranchName() {
     // tslint:disable-next-line:max-line-length
     var name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;

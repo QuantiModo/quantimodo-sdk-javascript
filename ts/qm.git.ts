@@ -114,8 +114,8 @@ export const githubStatusStates = {
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */
 // tslint:disable-next-line:max-line-length
-export function setGithubStatus(testState: string, context: string, description: string, url?: string | null, cb?: ((arg0: any) => void) | undefined) {
-    const state = convertTestStateToGithubState(testState)
+export function setGithubStatus(testState: "error" | "failure" | "pending" | "success", context: string,
+                                description: string, url?: string | null, cb?: ((arg0: any) => void) | undefined) {
     description = _str.truncate(description, 135)
     url = url || getBuildLink()
     if(!url) {
@@ -128,10 +128,10 @@ export function setGithubStatus(testState: string, context: string, description:
         owner: getRepoUserName(),
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
-        state,
+        state: testState,
         target_url: url,
     }
-    console.log(`${context} - ${description} - ${state} at ${url}`)
+    console.log(`${context} - ${description} - ${testState} at ${url}`)
     getOctoKit().repos.createStatus(params).then((data: any) => {
         if (cb) {
             cb(data)
@@ -141,16 +141,6 @@ export function setGithubStatus(testState: string, context: string, description:
         process.exit(1)
         throw err
     })
-}
-function convertTestStateToGithubState(testState: string): "error" | "failure" | "pending" | "success" {
-    let state = testState
-    if (testState === "passed") {state = "success" }
-    if (testState === "failed") {state = "failure" }
-    if (!state) {
-        throw new Error("No state!")
-    }
-    // @ts-ignore
-    return state
 }
 export function getBranchName() {
     // tslint:disable-next-line:max-line-length

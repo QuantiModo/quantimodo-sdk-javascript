@@ -33,8 +33,12 @@ afterEach(function (done) {
         done()
         return
     }
+    var githubState = "success"
+    if (state === "failed") {
+        githubState = "failure"
+    }
     // @ts-ignore
-    qmGit.setGithubStatus(state, t.title, t.title, null, function (res) {
+    qmGit.setGithubStatus(githubState, t.title, t.title, null, function (res) {
         var logResult = false
         if (logResult) {
             console.debug(res)
