@@ -43,15 +43,29 @@ Cypress.on('test:after:run', (test, runnable) => {
         addContext({test}, screenshotPath)
     }
 })
+let skip = [
+    "[bugsnag] Loaded!"
+]
 
+let remove = [
+    "https://app.quantimo.do/__cypress/tests?p=",
+    "https://staging.quantimo.do/__cypress/tests?p=",
+]
 Cypress.on('window:before:load', (win) => {
-    Cypress.log({ // Needs ELECTRON_ENABLE_LOGGING=1
-        name: 'console.log',
-        message: 'wrap on console.log',
-    });
+    // Cypress.log({ // Needs ELECTRON_ENABLE_LOGGING=1
+    //     name: 'console.log',
+    //     message: 'wrap on console.log',
+    // });
 
     // pass through cypress log so we can see log inside command execution order
     win.console.log = (...args) => {  // Needs ELECTRON_ENABLE_LOGGING=1
+        if (new RegExp(skip.join("|")).test(JSON.stringify(args))) {
+            return;
+        }
+        for (let i = 0; i < remove.length; i++) {
+            const removeElement = remove[i];
+            args = JSON.parse(JSON.stringify(args).replace(removeElement, ''));
+        }
         Cypress.log({
             name: 'console.log',
             message: args,
@@ -62,10 +76,12 @@ Cypress.on('window:before:load', (win) => {
 Cypress.on('log:added', (options) => {
     if (options.instrument === 'command') {  // Needs ELECTRON_ENABLE_LOGGING=1
         // eslint-disable-next-line no-console
-        console.log(
-            `${(options.displayName || options.name || '').toUpperCase()} ${
-                options.message
-            }`,
-        );
+        let message = `${(options.displayName || options.name || '').toUpperCase()} ${
+            options.message
+        }`;
+        if(!options.message || options.message === ""){
+            message = JSON.stringify(options);
+        }
+        console.log(message);
     }
 });
