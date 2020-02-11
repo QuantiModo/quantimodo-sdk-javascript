@@ -95,21 +95,25 @@ export const gi = {
     runAllIonic(callback: () => void) {
         gi.context = "all-gi-ionic"
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runAllIonic on RELEASE STAGE "+th.getReleaseStage())
         gi.runTestSuite(gi.getSuiteId("ionic"), gi.getStartUrl(), callback)
     },
     runFailedIonic(callback: () => void) {
         gi.context = "failed-gi-ionic"
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runFailedIonic on RELEASE STAGE "+th.getReleaseStage())
         gi.runFailedTests(gi.getSuiteId("ionic"), gi.getStartUrl(), callback)
     },
     runFailedApi(callback: () => void) {
         gi.context = "failed-gi-api"
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runFailedApi on RELEASE STAGE "+th.getReleaseStage())
         gi.runFailedTests(gi.getSuiteId("api"), gi.getStartUrl(), callback)
     },
     runAllApi(callback: () => void) {
         gi.context = "all-gi-api"
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runAllApi on RELEASE STAGE "+th.getReleaseStage())
         gi.runTestSuite(gi.getSuiteId("api"), gi.getStartUrl(), callback)
     },
     runTests(tests: any[], callback: () => void, startUrl: string) {

@@ -111,21 +111,25 @@ exports.gi = {
     runAllIonic: function (callback) {
         exports.gi.context = "all-gi-ionic";
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runAllIonic on RELEASE STAGE " + th.getReleaseStage());
         exports.gi.runTestSuite(exports.gi.getSuiteId("ionic"), exports.gi.getStartUrl(), callback);
     },
     runFailedIonic: function (callback) {
         exports.gi.context = "failed-gi-ionic";
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runFailedIonic on RELEASE STAGE " + th.getReleaseStage());
         exports.gi.runFailedTests(exports.gi.getSuiteId("ionic"), exports.gi.getStartUrl(), callback);
     },
     runFailedApi: function (callback) {
         exports.gi.context = "failed-gi-api";
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runFailedApi on RELEASE STAGE " + th.getReleaseStage());
         exports.gi.runFailedTests(exports.gi.getSuiteId("api"), exports.gi.getStartUrl(), callback);
     },
     runAllApi: function (callback) {
         exports.gi.context = "all-gi-api";
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runAllApi on RELEASE STAGE " + th.getReleaseStage());
         exports.gi.runTestSuite(exports.gi.getSuiteId("api"), exports.gi.getStartUrl(), callback);
     },
     runTests: function (tests, callback, startUrl) {
