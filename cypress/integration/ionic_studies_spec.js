@@ -65,6 +65,7 @@ describe('Studies', function () {
   })
   it('Goes to study from positive predictors page', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/predictors-positive', true)
+      cy.wait(5000)
     cy.log('Have to go to /#/app/predictors-positive twice for some reason because we randomly get redirected to join study page')
     cy.loginWithAccessTokenIfNecessary('/#/app/predictors-positive', true)
     cy.log('Click the first study.  TODO: Speed this up and reduce timeout')
