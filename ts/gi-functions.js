@@ -161,7 +161,7 @@ exports.gi = {
         });
     },
     runFailedTests: function (suiteId, startUrl, callback) {
-        console.info("\n=== Failed " + exports.gi.suiteType.toUpperCase() + " GI Tests ===\n");
+        console.info("\n=== Failed " + exports.gi.suiteType.toUpperCase() + " GI Tests from suite " + suiteId + " ===\n");
         getGhostInspector().getSuiteTests(suiteId, function (err, tests) {
             function runFailedTests() {
                 if (err) {

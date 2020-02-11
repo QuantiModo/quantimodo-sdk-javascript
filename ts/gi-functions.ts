@@ -145,7 +145,7 @@ export const gi = {
         })
     },
     runFailedTests(suiteId: string, startUrl: string, callback: () => void) {
-        console.info(`\n=== Failed ${gi.suiteType.toUpperCase()} GI Tests ===\n`)
+        console.info(`\n=== Failed ${gi.suiteType.toUpperCase()} GI Tests from suite ${suiteId} ===\n`)
         getGhostInspector().getSuiteTests(suiteId, function(err: string, tests: any[]) {
             function runFailedTests() {
                 if (err) {
