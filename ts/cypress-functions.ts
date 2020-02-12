@@ -131,7 +131,12 @@ function deleteJUnitTestResults() {
 }
 export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) {
     deleteSuccessFile()
-    copyCypressEnvConfigIfNecessary()
+    try {
+        copyCypressEnvConfigIfNecessary()
+    } catch (e) {
+        console.error(e.message+"!  Going to try again...")
+        copyCypressEnvConfigIfNecessary()
+    }
     deleteJUnitTestResults()
     rimraf(paths.reports.mocha + "/*.json", function() {
         const specsPath = sdkRepo + "/cypress/integration"

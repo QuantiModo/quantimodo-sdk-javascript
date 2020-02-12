@@ -103,7 +103,13 @@ function copyCypressEnvConfigIfNecessary() {
     console.info("Copying " + envPath + " to cypress.json");
     fs.copyFileSync(envPath, cypressJson);
     var cypressJsonString = fs.readFileSync(cypressJson).toString();
-    var cypressJsonObject = JSON.parse(cypressJsonString);
+    var cypressJsonObject = null;
+    try {
+        cypressJsonObject = JSON.parse(cypressJsonString);
+    }
+    catch (e) {
+        console.error("Could not parse  " + cypressJson + " because " + e.message + "! Here's the string " + cypressJsonString);
+    }
     if (!cypressJsonObject) {
         var before_1 = fs.readFileSync(envPath).toString();
         throw Error("Could not parse " + cypressJson + " after copy! " + envPath + " is " + before_1);
@@ -133,7 +139,13 @@ function deleteJUnitTestResults() {
 }
 function runCypressTests(cb, specificSpec) {
     test_helpers_1.deleteSuccessFile();
-    copyCypressEnvConfigIfNecessary();
+    try {
+        copyCypressEnvConfigIfNecessary();
+    }
+    catch (e) {
+        console.error(e.message + "!  Going to try again...");
+        copyCypressEnvConfigIfNecessary();
+    }
     deleteJUnitTestResults();
     rimraf_1.default(paths.reports.mocha + "/*.json", function () {
         var specsPath = app_root_path_1.default + "/cypress/integration";

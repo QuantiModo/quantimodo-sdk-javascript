@@ -9,6 +9,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var dotenv = __importStar(require("dotenv"));
 dotenv.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
+try {
+    dotenv.config({ path: "secrets/.env.local" });
+}
+catch (e) {
+    console.info(e.message);
+}
 var qmTests = __importStar(require("./cypress-functions"));
 if (!process.env.ELECTRON_ENABLE_LOGGING) {
     console.log("set env ELECTRON_ENABLE_LOGGING=\"1\" if you want to log to CI.  Disabled by default to avoid leaking secrets on Travis");
