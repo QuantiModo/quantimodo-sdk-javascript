@@ -95,21 +95,25 @@ export const gi = {
     runAllIonic(callback: () => void) {
         gi.context = "all-gi-ionic"
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runAllIonic on RELEASE STAGE "+th.getReleaseStage())
         gi.runTestSuite(gi.getSuiteId("ionic"), gi.getStartUrl(), callback)
     },
     runFailedIonic(callback: () => void) {
         gi.context = "failed-gi-ionic"
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runFailedIonic on RELEASE STAGE "+th.getReleaseStage())
         gi.runFailedTests(gi.getSuiteId("ionic"), gi.getStartUrl(), callback)
     },
     runFailedApi(callback: () => void) {
         gi.context = "failed-gi-api"
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runFailedApi on RELEASE STAGE "+th.getReleaseStage())
         gi.runFailedTests(gi.getSuiteId("api"), gi.getStartUrl(), callback)
     },
     runAllApi(callback: () => void) {
         gi.context = "all-gi-api"
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runAllApi on RELEASE STAGE "+th.getReleaseStage())
         gi.runTestSuite(gi.getSuiteId("api"), gi.getStartUrl(), callback)
     },
     runTests(tests: any[], callback: () => void, startUrl: string) {
@@ -128,20 +132,21 @@ export const gi = {
                 qmGit.setGithubStatus("failure", gi.context, options.apiUrl, testUrl, function() {
                     process.exit(1)
                 })
+            } else {
+                console.log(test.name + " passed! :D")
+                qmGit.setGithubStatus("success", gi.context, test.name + " passed! :D", testUrl,
+                    function() {
+                        if (tests && tests.length) {
+                            gi.runTests(tests, callback, startUrl)
+                        } else if (callback) {
+                            callback()
+                        }
+                    })
             }
-            console.log(test.name + " passed! :D")
-            qmGit.setGithubStatus("success", gi.context, test.name + " passed! :D", testUrl,
-            function() {
-                    if (tests && tests.length) {
-                        gi.runTests(tests, callback, startUrl)
-                    } else if (callback) {
-                        callback()
-                    }
-                })
         })
     },
     runFailedTests(suiteId: string, startUrl: string, callback: () => void) {
-        console.info(`\n=== Failed ${gi.suiteType.toUpperCase()} GI Tests ===\n`)
+        console.info(`\n=== Failed ${gi.suiteType.toUpperCase()} GI Tests from suite ${suiteId} ===\n`)
         getGhostInspector().getSuiteTests(suiteId, function(err: string, tests: any[]) {
             function runFailedTests() {
                 if (err) {
@@ -189,9 +194,10 @@ export const gi = {
                         gi.outputErrorsForTest(testResults)
                     }
                 }
+            } else {
+                console.log(testSuiteUrl + " " + " passed! :D")
+                qmGit.setGithubStatus("success", gi.context, options.apiUrl, testSuiteUrl, callback)
             }
-            console.log(testSuiteUrl + " " + " passed! :D")
-            qmGit.setGithubStatus("success", gi.context, options.apiUrl, testSuiteUrl, callback)
         })
     },
     getOptions(startUrl: any) {
