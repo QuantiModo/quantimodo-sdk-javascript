@@ -132,16 +132,17 @@ export const gi = {
                 qmGit.setGithubStatus("failure", gi.context, options.apiUrl, testUrl, function() {
                     process.exit(1)
                 })
+            } else {
+                console.log(test.name + " passed! :D")
+                qmGit.setGithubStatus("success", gi.context, test.name + " passed! :D", testUrl,
+                    function() {
+                        if (tests && tests.length) {
+                            gi.runTests(tests, callback, startUrl)
+                        } else if (callback) {
+                            callback()
+                        }
+                    })
             }
-            console.log(test.name + " passed! :D")
-            qmGit.setGithubStatus("success", gi.context, test.name + " passed! :D", testUrl,
-            function() {
-                    if (tests && tests.length) {
-                        gi.runTests(tests, callback, startUrl)
-                    } else if (callback) {
-                        callback()
-                    }
-                })
         })
     },
     runFailedTests(suiteId: string, startUrl: string, callback: () => void) {
@@ -193,9 +194,10 @@ export const gi = {
                         gi.outputErrorsForTest(testResults)
                     }
                 }
+            } else {
+                console.log(testSuiteUrl + " " + " passed! :D")
+                qmGit.setGithubStatus("success", gi.context, options.apiUrl, testSuiteUrl, callback)
             }
-            console.log(testSuiteUrl + " " + " passed! :D")
-            qmGit.setGithubStatus("success", gi.context, options.apiUrl, testSuiteUrl, callback)
         })
     },
     getOptions(startUrl: any) {

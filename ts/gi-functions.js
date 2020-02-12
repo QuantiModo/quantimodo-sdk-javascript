@@ -149,15 +149,17 @@ exports.gi = {
                     process.exit(1);
                 });
             }
-            console.log(test.name + " passed! :D");
-            qmGit.setGithubStatus("success", exports.gi.context, test.name + " passed! :D", testUrl, function () {
-                if (tests && tests.length) {
-                    exports.gi.runTests(tests, callback, startUrl);
-                }
-                else if (callback) {
-                    callback();
-                }
-            });
+            else {
+                console.log(test.name + " passed! :D");
+                qmGit.setGithubStatus("success", exports.gi.context, test.name + " passed! :D", testUrl, function () {
+                    if (tests && tests.length) {
+                        exports.gi.runTests(tests, callback, startUrl);
+                    }
+                    else if (callback) {
+                        callback();
+                    }
+                });
+            }
         });
     },
     runFailedTests: function (suiteId, startUrl, callback) {
@@ -212,8 +214,10 @@ exports.gi = {
                     }
                 }
             }
-            console.log(testSuiteUrl + " " + " passed! :D");
-            qmGit.setGithubStatus("success", exports.gi.context, options.apiUrl, testSuiteUrl, callback);
+            else {
+                console.log(testSuiteUrl + " " + " passed! :D");
+                qmGit.setGithubStatus("success", exports.gi.context, options.apiUrl, testSuiteUrl, callback);
+            }
         });
     },
     getOptions: function (startUrl) {
