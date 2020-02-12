@@ -111,21 +111,25 @@ exports.gi = {
     runAllIonic: function (callback) {
         exports.gi.context = "all-gi-ionic";
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runAllIonic on RELEASE STAGE " + th.getReleaseStage());
         exports.gi.runTestSuite(exports.gi.getSuiteId("ionic"), exports.gi.getStartUrl(), callback);
     },
     runFailedIonic: function (callback) {
         exports.gi.context = "failed-gi-ionic";
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runFailedIonic on RELEASE STAGE " + th.getReleaseStage());
         exports.gi.runFailedTests(exports.gi.getSuiteId("ionic"), exports.gi.getStartUrl(), callback);
     },
     runFailedApi: function (callback) {
         exports.gi.context = "failed-gi-api";
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runFailedApi on RELEASE STAGE " + th.getReleaseStage());
         exports.gi.runFailedTests(exports.gi.getSuiteId("api"), exports.gi.getStartUrl(), callback);
     },
     runAllApi: function (callback) {
         exports.gi.context = "all-gi-api";
         // qmTests.currentTask = this.currentTask.name;
+        console.info("runAllApi on RELEASE STAGE " + th.getReleaseStage());
         exports.gi.runTestSuite(exports.gi.getSuiteId("api"), exports.gi.getStartUrl(), callback);
     },
     runTests: function (tests, callback, startUrl) {
@@ -145,19 +149,21 @@ exports.gi = {
                     process.exit(1);
                 });
             }
-            console.log(test.name + " passed! :D");
-            qmGit.setGithubStatus("success", exports.gi.context, test.name + " passed! :D", testUrl, function () {
-                if (tests && tests.length) {
-                    exports.gi.runTests(tests, callback, startUrl);
-                }
-                else if (callback) {
-                    callback();
-                }
-            });
+            else {
+                console.log(test.name + " passed! :D");
+                qmGit.setGithubStatus("success", exports.gi.context, test.name + " passed! :D", testUrl, function () {
+                    if (tests && tests.length) {
+                        exports.gi.runTests(tests, callback, startUrl);
+                    }
+                    else if (callback) {
+                        callback();
+                    }
+                });
+            }
         });
     },
     runFailedTests: function (suiteId, startUrl, callback) {
-        console.info("\n=== Failed " + exports.gi.suiteType.toUpperCase() + " GI Tests ===\n");
+        console.info("\n=== Failed " + exports.gi.suiteType.toUpperCase() + " GI Tests from suite " + suiteId + " ===\n");
         getGhostInspector().getSuiteTests(suiteId, function (err, tests) {
             function runFailedTests() {
                 if (err) {
@@ -208,8 +214,10 @@ exports.gi = {
                     }
                 }
             }
-            console.log(testSuiteUrl + " " + " passed! :D");
-            qmGit.setGithubStatus("success", exports.gi.context, options.apiUrl, testSuiteUrl, callback);
+            else {
+                console.log(testSuiteUrl + " " + " passed! :D");
+                qmGit.setGithubStatus("success", exports.gi.context, options.apiUrl, testSuiteUrl, callback);
+            }
         });
     },
     getOptions: function (startUrl) {
