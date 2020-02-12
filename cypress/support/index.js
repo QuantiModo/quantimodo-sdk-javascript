@@ -47,21 +47,24 @@ Cypress.on('test:after:run', (test, runnable) => {
 let skip = [
     "[bugsnag] Loaded!"
 ]
-
 let remove = [
     "https://app.quantimo.do/__cypress/tests?p=",
     "https://staging.quantimo.do/__cypress/tests?p=",
 ]
+function truncate(str, length, ending) {
+    if (length == null) {length = 100;}
+    if (ending == null) {ending = '...';}
+    if (str.length > length) {
+        return str.substring(0, length - ending.length) + ending;
+    } else {
+        return str;
+    }
+}
 Cypress.on('window:before:load', (win) => {
-    // Cypress.log({ // Needs ELECTRON_ENABLE_LOGGING=1
-    //     name: 'console.log',
-    //     message: 'wrap on console.log',
-    // });
-
-    // pass through cypress log so we can see log inside command execution order
     win.console.log = (...args) => {  // Needs ELECTRON_ENABLE_LOGGING=1
         try {
             let str = JSON.stringify(args);
+            if(str.indexOf("[bugsnag] Loaded") !== -1){return}
             //let baseUrl = Cypress.env('baseUrl');
             //if(str.indexOf('/api/v') !== -1 && str.indexOf(Cypress.env('baseUrl')) === -1){throw "baseUrl is "+baseUrl+" but log message says "+str;}
             if(str && str.length > 1000){
@@ -99,6 +102,7 @@ Cypress.on('log:added', (options) => {
         if(!options.message || options.message === ""){
             try {
                 message = JSON.stringify(options, null, 2)
+                message = truncate(message, 500)
             }catch (e) {
                 console.log("Could not format log because "+e.message);
             }

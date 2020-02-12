@@ -137,7 +137,12 @@ function setGithubStatus(testState, context, description, url, cb) {
     description = underscore_string_1.default.truncate(description, 135);
     url = url || test_helpers_1.getBuildLink();
     if (!url) {
-        console.error("No build link or target url for status!");
+        var message = "No build link or target url for status!";
+        console.error(message);
+        if (cb) {
+            cb(message);
+        }
+        return;
     }
     // @ts-ignore
     var params = {
