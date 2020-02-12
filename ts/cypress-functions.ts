@@ -95,12 +95,17 @@ export function mochawesome(failedTests: any[], cb: (err: any) => void) {
 function copyCypressEnvConfigIfNecessary() {
     console.info(`Copying ${envPath} to cypress.json`)
     fs.copyFileSync(envPath, cypressJson)
-    const cypressJsonString = fs.readFileSync(cypressJson).toString()
-    let cypressJsonObject = null
+    let cypressJsonString = fs.readFileSync(cypressJson).toString()
+    let cypressJsonObject: null
     try {
         cypressJsonObject = JSON.parse(cypressJsonString)
     } catch (e) {
         console.error("Could not parse  "+cypressJson+" because "+e.message+"! Here's the string "+cypressJsonString)
+        const fixed = cypressJsonString.replace("}\n}", "}")
+        console.error("Going to try replacing extra bracket. Here's the fixed version "+fixed)
+        fs.writeFileSync(cypressJson, fixed)
+        cypressJsonString = fs.readFileSync(cypressJson).toString()
+        cypressJsonObject = JSON.parse(cypressJsonString)
     }
     if(!cypressJsonObject) {
         const before = fs.readFileSync(envPath).toString()

@@ -103,12 +103,17 @@ function copyCypressEnvConfigIfNecessary() {
     console.info("Copying " + envPath + " to cypress.json");
     fs.copyFileSync(envPath, cypressJson);
     var cypressJsonString = fs.readFileSync(cypressJson).toString();
-    var cypressJsonObject = null;
+    var cypressJsonObject;
     try {
         cypressJsonObject = JSON.parse(cypressJsonString);
     }
     catch (e) {
         console.error("Could not parse  " + cypressJson + " because " + e.message + "! Here's the string " + cypressJsonString);
+        var fixed = cypressJsonString.replace("}\n}", "}");
+        console.error("Going to try replacing extra bracket. Here's the fixed version " + fixed);
+        fs.writeFileSync(cypressJson, fixed);
+        cypressJsonString = fs.readFileSync(cypressJson).toString();
+        cypressJsonObject = JSON.parse(cypressJsonString);
     }
     if (!cypressJsonObject) {
         var before_1 = fs.readFileSync(envPath).toString();
