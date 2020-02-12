@@ -96,7 +96,12 @@ function copyCypressEnvConfigIfNecessary() {
     console.info(`Copying ${envPath} to cypress.json`)
     fs.copyFileSync(envPath, cypressJson)
     const cypressJsonString = fs.readFileSync(cypressJson).toString()
-    const cypressJsonObject = JSON.parse(cypressJsonString)
+    let cypressJsonObject = null
+    try {
+        cypressJsonObject = JSON.parse(cypressJsonString)
+    } catch (e) {
+        console.error("Could not parse  "+cypressJson+" because "+e.message+"! Here's the string "+cypressJsonString)
+    }
     if(!cypressJsonObject) {
         const before = fs.readFileSync(envPath).toString()
         throw Error(`Could not parse ${cypressJson} after copy! ${envPath} is ${before}`)
