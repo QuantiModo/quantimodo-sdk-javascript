@@ -119,7 +119,10 @@ export function setGithubStatus(testState: "error" | "failure" | "pending" | "su
     description = _str.truncate(description, 135)
     url = url || getBuildLink()
     if(!url) {
-        console.error("No build link or target url for status!")
+        const message = "No build link or target url for status!"
+        console.error(message)
+        if (cb) {cb(message)}
+        return
     }
     // @ts-ignore
     const params: Octokit.ReposCreateStatusParams = {
