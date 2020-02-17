@@ -97,7 +97,7 @@ function copyCypressEnvConfigIfNecessary() {
     try {
         fs.unlinkSync(cypressJson)
     } catch(err) {
-        console.error(err)
+        console.log(err)
     }
     fs.copyFileSync(envPath, cypressJson)
     let cypressJsonString = fs.readFileSync(cypressJson).toString()
