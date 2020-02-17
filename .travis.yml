@@ -14,6 +14,9 @@ install:
   - npm ci
   - npm install -g gulp-cli
 
+script: echo "npm test temporarily disabled. Running tests on Jenkins so it's consistent with testing on other repos and to avoid secret leakage"
+#script: npm test
+
 jobs:
   include:
     # Too slow to run both suites and we might have broken medimodo.herokuapp.com in a feature branch

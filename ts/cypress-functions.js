@@ -101,6 +101,12 @@ function mochawesome(failedTests, cb) {
 exports.mochawesome = mochawesome;
 function copyCypressEnvConfigIfNecessary() {
     console.info("Copying " + envPath + " to cypress.json");
+    try {
+        fs.unlinkSync(cypressJson);
+    }
+    catch (err) {
+        console.log(err);
+    }
     fs.copyFileSync(envPath, cypressJson);
     var cypressJsonString = fs.readFileSync(cypressJson).toString();
     var cypressJsonObject;
