@@ -161,8 +161,9 @@ function setGithubStatus(testState, context, description, url, cb) {
         }
     }).catch(function (err) {
         console.error(err);
-        process.exit(1);
-        throw err;
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
     });
 }
 exports.setGithubStatus = setGithubStatus;

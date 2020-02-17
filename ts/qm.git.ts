@@ -141,8 +141,9 @@ export function setGithubStatus(testState: "error" | "failure" | "pending" | "su
         }
     }).catch((err: any) => {
         console.error(err)
-        process.exit(1)
-        throw err
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
     })
 }
 export function getBranchName() {
