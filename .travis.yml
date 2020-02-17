@@ -11,10 +11,11 @@ cache:
 
 install:
   # use the new "ci" command for fastest installs on CI
-  #- npm ci
-  - echo "npm test temporarily disabled"
-  - echo "Running tests on Jenkins so it's consistent with testing on other repos and to avoid secret leakage"
+  - npm ci
   - npm install -g gulp-cli
+
+script: echo "npm test temporarily disabled. Running tests on Jenkins so it's consistent with testing on other repos and to avoid secret leakage"
+#script: npm test
 
 jobs:
   include:
