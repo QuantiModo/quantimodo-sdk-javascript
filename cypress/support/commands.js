@@ -75,7 +75,8 @@ Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminder
 Cypress.Commands.add('visitIonicAndSetApiUrl', (path = '/#/app/reminders-inbox') => {
     path = UpdateQueryString('apiUrl', API_HOST, path)
     path = UpdateQueryString('logLevel', logLevel, path)
-    let url = oauthAppBaseUrl + path
+    let url = path
+    if(path.indexOf('http') !== 0){url = oauthAppBaseUrl + path}
     cy.log(`${url} - visitIonicAndSetApiUrl`)
     cy.visit(url)
 })
