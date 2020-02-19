@@ -10,7 +10,7 @@ function createNewApplication(){
     cy.get('#app_display_name').type(testAppName, {force: true})
     cy.get('#client_id').type(testAppName, {force: true})
     cy.get('#app_description').type(testAppName, {force: true})
-    cy.get('#homepage_url').type(testAppName, {force: true})
+    cy.get('#homepage_url').type("https://"+testAppName+".com", {force: true})
     cy.get('.btn-success').click({force: true})
     cy.log('Need to start redirecting to builder.quantimo.do...')
     cy.url().should('contain','/edit', {timeout: 120000})
