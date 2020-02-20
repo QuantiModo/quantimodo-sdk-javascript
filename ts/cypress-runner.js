@@ -20,12 +20,15 @@ if (!process.env.ELECTRON_ENABLE_LOGGING) {
     console.log("set env ELECTRON_ENABLE_LOGGING=\"1\" if you want to log to CI.  Disabled by default to avoid leaking secrets on Travis");
 }
 if (process.env.SPEC_NAME) {
+    console.info("Only running process.env.SPEC_NAME " + process.env.SPEC_NAME)
     qmTests.runCypressTests(function () {
         console.info("Done with " + process.env.SPEC_NAME);
     }, process.env.SPEC_NAME);
 }
 else {
+    console.info("runLastFailedCypressTest and then run runCypressTests")
     qmTests.runLastFailedCypressTest(function (err) {
+        console.info("Done with runLastFailedCypressTest. Going to run all now...")
         if (err) {
             throw err;
         }
