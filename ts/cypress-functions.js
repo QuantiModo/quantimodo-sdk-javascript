@@ -168,7 +168,7 @@ function runCypressTests(cb, specificSpec) {
             var _loop_1 = function (i, p) {
                 var specName = specFileNames[i];
                 if (specificSpec && specName.indexOf(specificSpec) === -1) {
-                    console.debug("skipping " + specName);
+                    console.debug("skipping " + specName + " because it does not contain specificSpec " + specificSpec);
                     return out_p_1 = p, "continue";
                 }
                 if (releaseStage === "ionic" && specName.indexOf("ionic_") === -1) {

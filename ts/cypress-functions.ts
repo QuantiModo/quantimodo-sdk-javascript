@@ -158,7 +158,7 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
             for (let i = 0, p = Promise.resolve(); i < specFileNames.length; i++) {
                 const specName = specFileNames[i]
                 if (specificSpec && specName.indexOf(specificSpec) === -1) {
-                    console.debug("skipping " + specName)
+                    console.debug("skipping " + specName + " because it does not contain specificSpec "+specificSpec)
                     continue
                 }
                 if (releaseStage === "ionic" && specName.indexOf("ionic_") === -1) {
