@@ -148,7 +148,67 @@ function deleteJUnitTestResults() {
         console.debug("Deleted " + jUnitFiles);
     });
 }
-function runCypressTests(cb, specificSpec) {
+function logFailedTests(failedTests, context) {
+    // tslint:disable-next-line:prefer-for-of
+    for (var j = 0; j < failedTests.length; j++) {
+        var test_1 = failedTests[j];
+        var testName = test_1.title[1];
+        var errorMessage = test_1.error;
+        console.error(testName + " FAILED because " + errorMessage);
+    }
+    mochawesome(failedTests, function () {
+        setGithubStatusAndUploadTestResults(failedTests, context);
+    });
+}
+function runOneCypressSpec(specName, cb) {
+    var specsPath = getSpecsPath();
+    var specPath = specsPath + "/" + specName;
+    var browser = process.env.CYPRESS_BROWSER || "electron";
+    var context = specName.replace("_spec.js", "") + "-" + releaseStage;
+    qmGit.setGithubStatus("pending", context, "Running " + context + " Cypress tests...");
+    // noinspection JSUnresolvedFunction
+    cypress.run({
+        browser: browser,
+        spec: specPath,
+    }).then(function (results) {
+        if (!results.runs || !results.runs[0]) {
+            console.log("No runs property on " + JSON.stringify(results, null, 2));
+        }
+        else {
+            var tests = results.runs[0].tests;
+            var failedTests = null;
+            if (tests) {
+                failedTests = tests.filter(function (test) {
+                    return test.state === "failed";
+                });
+            }
+            else {
+                console.error("No tests on ", results.runs[0]);
+            }
+            if (failedTests && failedTests.length) {
+                fs.writeFileSync(lastFailedCypressTestPath, specName);
+                logFailedTests(failedTests, context);
+            }
+            else {
+                deleteLastFailedCypressTest();
+                console.info(results.totalPassed + " tests PASSED!");
+                qmGit.setGithubStatus("success", context, results.totalPassed +
+                    " tests passed");
+            }
+        }
+        cb(false);
+    }).catch(function (runtimeError) {
+        qmGit.setGithubStatus("error", context, runtimeError, getReportUrl(), function () {
+            console.error(runtimeError);
+            process.exit(1);
+        });
+    });
+}
+exports.runOneCypressSpec = runOneCypressSpec;
+function getSpecsPath() {
+    return app_root_path_1.default + "/cypress/integration";
+}
+function runCypressTests(cb) {
     test_helpers_1.deleteSuccessFile();
     try {
         copyCypressEnvConfigIfNecessary();
@@ -159,67 +219,21 @@ function runCypressTests(cb, specificSpec) {
     }
     deleteJUnitTestResults();
     rimraf_1.default(paths.reports.mocha + "/*.json", function () {
-        var specsPath = app_root_path_1.default + "/cypress/integration";
-        var browser = process.env.CYPRESS_BROWSER || "electron";
+        var specsPath = getSpecsPath();
         fs.readdir(specsPath, function (err, specFileNames) {
             if (!specFileNames) {
                 throw new Error("No specFileNames in " + specsPath);
             }
             var _loop_1 = function (i, p) {
                 var specName = specFileNames[i];
-                if (specificSpec && specName.indexOf(specificSpec) === -1) {
-                    console.debug("skipping " + specName + " because it does not contain specificSpec " + specificSpec);
-                    return out_p_1 = p, "continue";
-                }
                 if (releaseStage === "ionic" && specName.indexOf("ionic_") === -1) {
                     console.debug("skipping " + specName + " because it doesn't test ionic app and release stage is " +
                         releaseStage);
                     return out_p_1 = p, "continue";
                 }
                 p = p.then(function (_) { return new Promise(function (resolve) {
-                    var specPath = specsPath + "/" + specName;
-                    var context = specName.replace("_spec.js", "") + "-" + releaseStage;
-                    qmGit.setGithubStatus("pending", context, "Running " + context + " Cypress tests...");
-                    // noinspection JSUnresolvedFunction
-                    cypress.run({
-                        browser: browser,
-                        spec: specPath,
-                    }).then(function (results) {
-                        if (!results.runs || !results.runs[0]) {
-                            console.log("No runs property on " + JSON.stringify(results, null, 2));
-                        }
-                        else {
-                            var tests = results.runs[0].tests;
-                            var failedTests_1 = null;
-                            if (tests) {
-                                failedTests_1 = tests.filter(function (test) {
-                                    return test.state === "failed";
-                                });
-                            }
-                            else {
-                                console.error("No tests on ", results.runs[0]);
-                            }
-                            if (failedTests_1 && failedTests_1.length) {
-                                fs.writeFileSync(lastFailedCypressTestPath, specName);
-                                // tslint:disable-next-line:prefer-for-of
-                                for (var j = 0; j < failedTests_1.length; j++) {
-                                    var test_1 = failedTests_1[j];
-                                    var testName = test_1.title[1];
-                                    var errorMessage = test_1.error;
-                                    console.error(testName + " FAILED because " + errorMessage);
-                                }
-                                mochawesome(failedTests_1, function () {
-                                    setGithubStatusAndUploadTestResults(failedTests_1, context);
-                                });
-                            }
-                            else {
-                                deleteLastFailedCypressTest();
-                                console.info(results.totalPassed + " tests PASSED!");
-                                qmGit.setGithubStatus("success", context, results.totalPassed +
-                                    " tests passed");
-                            }
-                        }
-                        if (specificSpec || i === specFileNames.length - 1) {
+                    runOneCypressSpec(specName, function () {
+                        if (i === specFileNames.length - 1) {
                             test_helpers_1.createSuccessFile();
                             test_helpers_1.deleteEnvFile();
                             if (cb) {
@@ -227,11 +241,6 @@ function runCypressTests(cb, specificSpec) {
                             }
                         }
                         resolve();
-                    }).catch(function (runtimeError) {
-                        qmGit.setGithubStatus("error", context, runtimeError, getReportUrl(), function () {
-                            console.error(runtimeError);
-                            process.exit(1);
-                        });
                     });
                 }); });
                 out_p_1 = p;
@@ -270,7 +279,7 @@ function runLastFailedCypressTest(cb) {
         cb(false);
         return;
     }
-    runCypressTests(cb, name);
+    runOneCypressSpec(name, cb);
 }
 exports.runLastFailedCypressTest = runLastFailedCypressTest;
 function uploadTestResults(cb) {

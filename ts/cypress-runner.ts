@@ -11,9 +11,9 @@ if(!process.env.ELECTRON_ENABLE_LOGGING) {
 }
 if (process.env.SPEC_NAME) {
     console.log("Only running process.env.SPEC_NAME "+process.env.SPEC_NAME)
-    qmTests.runCypressTests(function() {
+    qmTests.runOneCypressSpec(process.env.SPEC_NAME, function() {
         console.info("Done with "+process.env.SPEC_NAME)
-    }, process.env.SPEC_NAME)
+    })
 } else {
     console.log("runLastFailedCypressTest and then run runCypressTests")
     qmTests.runLastFailedCypressTest(function(err: any): void {
