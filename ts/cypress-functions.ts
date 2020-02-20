@@ -139,7 +139,67 @@ function deleteJUnitTestResults() {
         console.debug(`Deleted ${jUnitFiles}`)
     })
 }
-export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) {
+
+function logFailedTests(failedTests: any[], context: string) {
+    // tslint:disable-next-line:prefer-for-of
+    for (let j = 0; j < failedTests.length; j++) {
+        const test = failedTests[j]
+        const testName = test.title[1]
+        const errorMessage = test.error
+        console.error(testName + " FAILED because " + errorMessage)
+    }
+    mochawesome(failedTests, function() {
+        setGithubStatusAndUploadTestResults(failedTests, context)
+    })
+}
+
+export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
+    const specsPath = getSpecsPath()
+    const specPath = specsPath + "/" + specName
+    const browser = process.env.CYPRESS_BROWSER || "electron"
+    const context = specName.replace("_spec.js", "") + "-" + releaseStage
+    qmGit.setGithubStatus("pending", context, `Running ${context} Cypress tests...`)
+    // noinspection JSUnresolvedFunction
+    cypress.run({
+        browser,
+        spec: specPath,
+    }).then((results) => {
+        if (!results.runs || !results.runs[0]) {
+            console.log("No runs property on " + JSON.stringify(results, null, 2))
+        } else {
+            const tests = results.runs[0].tests
+            let failedTests: any[] | null = null
+            if (tests) {
+                failedTests = tests.filter(function(test: { state: string; }) {
+                    return test.state === "failed"
+                })
+            } else {
+                console.error("No tests on ", results.runs[0])
+            }
+            if (failedTests && failedTests.length) {
+                fs.writeFileSync(lastFailedCypressTestPath, specName)
+                logFailedTests(failedTests, context)
+            } else {
+                deleteLastFailedCypressTest()
+                console.info(results.totalPassed + " tests PASSED!")
+                qmGit.setGithubStatus("success", context, results.totalPassed +
+                    " tests passed")
+            }
+        }
+        cb(false)
+    }).catch((runtimeError: any) => {
+        qmGit.setGithubStatus("error", context, runtimeError, getReportUrl(), function() {
+            console.error(runtimeError)
+            process.exit(1)
+        })
+    })
+}
+
+function getSpecsPath() {
+    return sdkRepo + "/cypress/integration"
+}
+
+export function runCypressTests(cb?: (err: any) => void) {
     deleteSuccessFile()
     try {
         copyCypressEnvConfigIfNecessary()
@@ -149,64 +209,21 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
     }
     deleteJUnitTestResults()
     rimraf(paths.reports.mocha + "/*.json", function() {
-        const specsPath = sdkRepo + "/cypress/integration"
-        const browser = process.env.CYPRESS_BROWSER || "electron"
+        const specsPath = getSpecsPath()
         fs.readdir(specsPath, function(err: any, specFileNames: string[]) {
             if (!specFileNames) {
                 throw new Error("No specFileNames in " + specsPath)
             }
             for (let i = 0, p = Promise.resolve(); i < specFileNames.length; i++) {
                 const specName = specFileNames[i]
-                if (specificSpec && specName.indexOf(specificSpec) === -1) {
-                    console.debug("skipping " + specName + " because it does not contain specificSpec "+specificSpec)
-                    continue
-                }
                 if (releaseStage === "ionic" && specName.indexOf("ionic_") === -1) {
                     console.debug("skipping " + specName + " because it doesn't test ionic app and release stage is "+
                         releaseStage)
                     continue
                 }
                 p = p.then((_) => new Promise((resolve) => {
-                    const specPath = specsPath + "/" + specName
-                    const context = specName.replace("_spec.js", "") + "-" + releaseStage
-                    qmGit.setGithubStatus("pending", context, `Running ${context} Cypress tests...`)
-                    // noinspection JSUnresolvedFunction
-                    cypress.run({
-                        browser,
-                        spec: specPath,
-                    }).then((results) => {
-                        if (!results.runs || !results.runs[0]) {
-                            console.log("No runs property on " + JSON.stringify(results, null, 2))
-                        } else {
-                            const tests = results.runs[0].tests
-                            let failedTests: any[] | null = null
-                            if (tests) {
-                                failedTests = tests.filter(function(test: { state: string; }) {
-                                    return test.state === "failed"
-                                })
-                            } else {
-                                console.error("No tests on ", results.runs[0])
-                            }
-                            if (failedTests && failedTests.length) {
-                                fs.writeFileSync(lastFailedCypressTestPath, specName)
-                                // tslint:disable-next-line:prefer-for-of
-                                for (let j = 0; j < failedTests.length; j++) {
-                                    const test = failedTests[j]
-                                    const testName = test.title[1]
-                                    const errorMessage = test.error
-                                    console.error(testName + " FAILED because " + errorMessage)
-                                }
-                                mochawesome(failedTests, function() {
-                                    setGithubStatusAndUploadTestResults(failedTests, context)
-                                })
-                            } else {
-                                deleteLastFailedCypressTest()
-                                console.info(results.totalPassed + " tests PASSED!")
-                                qmGit.setGithubStatus("success", context, results.totalPassed +
-                                    " tests passed")
-                            }
-                        }
-                        if (specificSpec || i === specFileNames.length - 1) {
+                    runOneCypressSpec(specName,function() {
+                        if (i === specFileNames.length - 1) {
                             createSuccessFile()
                             deleteEnvFile()
                             if (cb) {
@@ -214,11 +231,6 @@ export function runCypressTests(cb?: (err: any) => void, specificSpec?: string) 
                             }
                         }
                         resolve()
-                    }).catch((runtimeError: any) => {
-                        qmGit.setGithubStatus("error", context, runtimeError, getReportUrl(), function() {
-                            console.error(runtimeError)
-                            process.exit(1)
-                        })
                     })
                 }))
             }
@@ -248,7 +260,7 @@ export function runLastFailedCypressTest(cb: (err: any) => void) {
         cb(false)
         return
     }
-    runCypressTests(cb, name)
+    runOneCypressSpec(name, cb)
 }
 export function uploadTestResults(cb: (arg0: any) => void) {
     const path = "mochawesome/" + qmGit.getCurrentGitCommitSha()
