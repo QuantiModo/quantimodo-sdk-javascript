@@ -157,6 +157,7 @@ function logFailedTests(failedTests: any[], context: string, cb: (err: any) => v
 }
 
 export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
+    fs.writeFileSync(lastFailedCypressTestPath, specName) // Set last failed first so it exists if we have an exception
     const specsPath = getSpecsPath()
     const specPath = specsPath + "/" + specName
     const browser = process.env.CYPRESS_BROWSER || "electron"
@@ -181,7 +182,6 @@ export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
                 console.error("No tests on ", results.runs[0])
             }
             if (failedTests && failedTests.length) {
-                fs.writeFileSync(lastFailedCypressTestPath, specName)
                 logFailedTests(failedTests, context, cb)
             } else {
                 deleteLastFailedCypressTest()

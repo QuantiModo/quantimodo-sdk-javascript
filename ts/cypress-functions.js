@@ -164,6 +164,7 @@ function logFailedTests(failedTests, context, cb) {
     });
 }
 function runOneCypressSpec(specName, cb) {
+    fs.writeFileSync(lastFailedCypressTestPath, specName); // Set last failed first so it exists if we have an exception
     var specsPath = getSpecsPath();
     var specPath = specsPath + "/" + specName;
     var browser = process.env.CYPRESS_BROWSER || "electron";
@@ -190,7 +191,6 @@ function runOneCypressSpec(specName, cb) {
                 console.error("No tests on ", results.runs[0]);
             }
             if (failedTests && failedTests.length) {
-                fs.writeFileSync(lastFailedCypressTestPath, specName);
                 logFailedTests(failedTests, context, cb);
             }
             else {
