@@ -50,7 +50,7 @@ merge(options).then((report: any) => {
         verbose
     );
     // tslint:disable-next-line: no-console
-    console.log("Finished slack upload")
+    // console.log("Finished slack upload")
 
 })
 

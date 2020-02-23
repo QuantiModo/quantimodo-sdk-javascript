@@ -50,7 +50,7 @@ function getReportUrl() {
     return test_helpers_1.getBuildLink();
 }
 function mochawesome(failedTests, cb) {
-    console.log("Merging reports...");
+    // console.log("Merging reports...")
     mochawesome_merge_1.merge({
         inline: true,
         reportDir: unmerged,
@@ -89,7 +89,7 @@ function mochawesome(failedTests, cb) {
                 // @ts-ignore
                 slack_alert_js_1.slackRunner(ciProvider, vcsProvider, outputReportDir, videoDirectory, screenshotDirectory, verbose);
                 // tslint:disable-next-line: no-console
-                console.log("Finished slack upload");
+                // console.log("Finished slack upload")
             }
         }
         catch (error) {
@@ -127,7 +127,7 @@ function copyCypressEnvConfigIfNecessary() {
     }
     console.info("Cypress Configuration: " + cypressJsonString);
 }
-function setGithubStatusAndUploadTestResults(failedTests, context) {
+function setGithubStatusAndUploadTestResults(failedTests, context, cb) {
     // @ts-ignore
     var failedTestTitle = failedTests[0].title[1];
     // @ts-ignore
@@ -136,7 +136,7 @@ function setGithubStatusAndUploadTestResults(failedTests, context) {
         errorMessage, getReportUrl(), function () {
         uploadTestResults(function () {
             console.error(errorMessage);
-            // cb(errorMessage);
+            cb(errorMessage);
             process.exit(1);
             // resolve();
         });
@@ -148,16 +148,19 @@ function deleteJUnitTestResults() {
         console.debug("Deleted " + jUnitFiles);
     });
 }
-function logFailedTests(failedTests, context) {
+function logFailedTests(failedTests, context, cb) {
     // tslint:disable-next-line:prefer-for-of
     for (var j = 0; j < failedTests.length; j++) {
         var test_1 = failedTests[j];
         var testName = test_1.title[1];
         var errorMessage = test_1.error;
-        console.error(testName + " FAILED because " + errorMessage);
+        console.error("==============================================");
+        console.error(testName + " FAILED");
+        console.error(errorMessage);
+        console.error("==============================================");
     }
     mochawesome(failedTests, function () {
-        setGithubStatusAndUploadTestResults(failedTests, context);
+        setGithubStatusAndUploadTestResults(failedTests, context, cb);
     });
 }
 function runOneCypressSpec(specName, cb) {
@@ -173,6 +176,7 @@ function runOneCypressSpec(specName, cb) {
     }).then(function (results) {
         if (!results.runs || !results.runs[0]) {
             console.log("No runs property on " + JSON.stringify(results, null, 2));
+            cb(false);
         }
         else {
             var tests = results.runs[0].tests;
@@ -187,16 +191,16 @@ function runOneCypressSpec(specName, cb) {
             }
             if (failedTests && failedTests.length) {
                 fs.writeFileSync(lastFailedCypressTestPath, specName);
-                logFailedTests(failedTests, context);
+                logFailedTests(failedTests, context, cb);
             }
             else {
                 deleteLastFailedCypressTest();
                 console.info(results.totalPassed + " tests PASSED!");
                 qmGit.setGithubStatus("success", context, results.totalPassed +
                     " tests passed");
+                cb(false);
             }
         }
-        cb(false);
     }).catch(function (runtimeError) {
         qmGit.setGithubStatus("error", context, runtimeError, getReportUrl(), function () {
             console.error(runtimeError);
