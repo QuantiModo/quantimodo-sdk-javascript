@@ -9,6 +9,7 @@
   "env": {
     "API_HOST": "app.quantimo.do",
     "OAUTH_APP_HOST": "web.quantimo.do",
+    "BUILDER_HOST": "builder.quantimo.do",
     "abort_strategy": true
   },
   "reporter": "cypress-multi-reporters",
