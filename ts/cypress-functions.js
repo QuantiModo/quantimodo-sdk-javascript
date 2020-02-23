@@ -57,7 +57,7 @@ function mochawesome(failedTests, cb) {
         saveJson: true,
     }).then(function (mergedJson) {
         fs.writeFileSync(mergedJsonPath, JSON.stringify(mergedJson, null, 2));
-        console.log("Generating report from " + unmerged + " and outputting at " + outputReportDir);
+        // console.log("Generating report from " + unmerged + " and outputting at " + outputReportDir)
         return mochawesome_report_generator_1.default.create(mergedJson, {
             // cdn: true,
             autoOpen: isWin,
