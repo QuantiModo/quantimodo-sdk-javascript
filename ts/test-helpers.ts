@@ -6,10 +6,10 @@ import * as qmGit from "./qm.git"
 import * as qmLog from "./qm.log"
 export function getBuildLink() {
     if (process.env.BUILD_URL_FOR_STATUS) {
-        return process.env.BUILD_URL_FOR_STATUS + "/console"
+        return process.env.BUILD_URL_FOR_STATUS + "console"
     }
     if (process.env.BUILD_URL) {
-        return process.env.BUILD_URL + "/console"
+        return process.env.BUILD_URL + "console"
     }
     if (process.env.BUDDYBUILD_APP_ID) {
         return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" +
