@@ -32,14 +32,14 @@ merge(options).then((report: any) => {
     const screenshotDirectory: string = program.screenshotDir;
     const verbose: boolean = program.verbose;
     // tslint:disable-next-line: no-console
-    console.log("Constructing Slack message with the following options", {
-        ciProvider,
-        vcsProvider,
-        reportDirectory,
-        videoDirectory,
-        screenshotDirectory,
-        verbose
-    });
+    // console.log("Constructing Slack message with the following options", {
+    //     ciProvider,
+    //     vcsProvider,
+    //     reportDirectory,
+    //     videoDirectory,
+    //     screenshotDirectory,
+    //     verbose
+    // });
     // @ts-ignore
     const slack = slackRunner(
         ciProvider,
@@ -50,7 +50,7 @@ merge(options).then((report: any) => {
         verbose
     );
     // tslint:disable-next-line: no-console
-    console.log("Finished slack upload")
+    // console.log("Finished slack upload")
 
 })
 
