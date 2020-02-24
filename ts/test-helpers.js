@@ -18,10 +18,10 @@ var qmGit = __importStar(require("./qm.git"));
 var qmLog = __importStar(require("./qm.log"));
 function getBuildLink() {
     if (process.env.BUILD_URL_FOR_STATUS) {
-        return process.env.BUILD_URL_FOR_STATUS + "/console";
+        return process.env.BUILD_URL_FOR_STATUS + "console";
     }
     if (process.env.BUILD_URL) {
-        return process.env.BUILD_URL + "/console";
+        return process.env.BUILD_URL + "console";
     }
     if (process.env.BUDDYBUILD_APP_ID) {
         return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" +

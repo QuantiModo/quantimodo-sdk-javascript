@@ -39,14 +39,14 @@ function getReportUrl() {
     return getBuildLink()
 }
 export function mochawesome(failedTests: any[], cb: (err: any) => void) {
-    console.log("Merging reports...")
+    // console.log("Merging reports...")
     merge({
         inline: true,
         reportDir: unmerged,
         saveJson: true,
     }).then((mergedJson: any) => {
         fs.writeFileSync(mergedJsonPath, JSON.stringify(mergedJson, null, 2))
-        console.log("Generating report from " + unmerged + " and outputting at " + outputReportDir)
+        // console.log("Generating report from " + unmerged + " and outputting at " + outputReportDir)
         return marge.create(mergedJson, {
             // cdn: true,
             autoOpen: isWin,
@@ -84,7 +84,7 @@ export function mochawesome(failedTests: any[], cb: (err: any) => void) {
                     verbose,
                 )
                 // tslint:disable-next-line: no-console
-                console.log("Finished slack upload")
+                // console.log("Finished slack upload")
             }
         } catch (error) {
             console.error(error)
@@ -118,7 +118,7 @@ function copyCypressEnvConfigIfNecessary() {
     }
     console.info("Cypress Configuration: " + cypressJsonString)
 }
-function setGithubStatusAndUploadTestResults(failedTests: any[] | null, context: string) {
+function setGithubStatusAndUploadTestResults(failedTests: any[] | null, context: string, cb: (err: any) => void) {
     // @ts-ignore
     const failedTestTitle = failedTests[0].title[1]
     // @ts-ignore
@@ -127,7 +127,7 @@ function setGithubStatusAndUploadTestResults(failedTests: any[] | null, context:
         errorMessage, getReportUrl(), function() {
         uploadTestResults(function() {
             console.error(errorMessage)
-            // cb(errorMessage);
+            cb(errorMessage)
             process.exit(1)
             // resolve();
         })
@@ -140,20 +140,24 @@ function deleteJUnitTestResults() {
     })
 }
 
-function logFailedTests(failedTests: any[], context: string) {
+function logFailedTests(failedTests: any[], context: string, cb: (err: any) => void) {
     // tslint:disable-next-line:prefer-for-of
     for (let j = 0; j < failedTests.length; j++) {
         const test = failedTests[j]
         const testName = test.title[1]
         const errorMessage = test.error
-        console.error(testName + " FAILED because " + errorMessage)
+        console.error("==============================================")
+        console.error(testName + " FAILED")
+        console.error(errorMessage)
+        console.error("==============================================")
     }
     mochawesome(failedTests, function() {
-        setGithubStatusAndUploadTestResults(failedTests, context)
+        setGithubStatusAndUploadTestResults(failedTests, context, cb)
     })
 }
 
 export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
+    fs.writeFileSync(lastFailedCypressTestPath, specName) // Set last failed first so it exists if we have an exception
     const specsPath = getSpecsPath()
     const specPath = specsPath + "/" + specName
     const browser = process.env.CYPRESS_BROWSER || "electron"
@@ -166,6 +170,7 @@ export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
     }).then((results) => {
         if (!results.runs || !results.runs[0]) {
             console.log("No runs property on " + JSON.stringify(results, null, 2))
+            cb(false)
         } else {
             const tests = results.runs[0].tests
             let failedTests: any[] | null = null
@@ -177,16 +182,15 @@ export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
                 console.error("No tests on ", results.runs[0])
             }
             if (failedTests && failedTests.length) {
-                fs.writeFileSync(lastFailedCypressTestPath, specName)
-                logFailedTests(failedTests, context)
+                logFailedTests(failedTests, context, cb)
             } else {
                 deleteLastFailedCypressTest()
                 console.info(results.totalPassed + " tests PASSED!")
                 qmGit.setGithubStatus("success", context, results.totalPassed +
                     " tests passed")
+                cb(false)
             }
         }
-        cb(false)
     }).catch((runtimeError: any) => {
         qmGit.setGithubStatus("error", context, runtimeError, getReportUrl(), function() {
             console.error(runtimeError)
