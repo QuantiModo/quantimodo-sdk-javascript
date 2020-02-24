@@ -89,7 +89,7 @@
     "@bahmutov/print-env": "1.2.0",
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
-    "@cypress/webpack-preprocessor": "4.1.1",
+    "@cypress/webpack-preprocessor": "4.1.2",
     "@slack/types": "1.2.1",
     "@slack/webhook": "5.0.2",
     "@types/angular": "latest",
