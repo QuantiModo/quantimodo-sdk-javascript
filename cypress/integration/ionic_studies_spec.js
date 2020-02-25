@@ -71,7 +71,7 @@ describe('Studies', function () {
   })
   it('Goes to study from positive predictors page', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/predictors-positive', true)
-      cy.wait(15000) // Leftover redirect from previous test
+      cy.wait(5000) // Leftover redirect from previous test
     cy.log('Have to go to /#/app/predictors-positive twice for some reason because we randomly get redirected to join study page')
     cy.loginWithAccessTokenIfNecessary('/#/app/predictors-positive', true)
     cy.log('Click the first study.  TODO: Speed this up and reduce timeout')
@@ -95,12 +95,12 @@ describe('Studies', function () {
     cy.get('#signUpButton').click({ force: true })
     // TODO: Fix random CypressError: Timed out retrying: Expected to find element: '#login-page-link', but never found it.
     cy.get('#login-page-link').click({ force: true })
-    cy.enterCredentials()
-    cy.wait(5000)
-    cy.get('#go-to-inbox-button').click({ force: true })
-    cy.get('#hideHelpInfoCardButton').click({ force: true })
-    cy.get('#hideHelpInfoCardButton').click({ force: true })
-    cy.get('#hideHelpInfoCardButton').click({ force: true })
-      cy.logOutViaSettingsPage(false)
+    // cy.enterCredentials()
+    // cy.wait(5000)
+    // cy.get('#go-to-inbox-button').click({ force: true })
+    // cy.get('#hideHelpInfoCardButton').click({ force: true })
+    // cy.get('#hideHelpInfoCardButton').click({ force: true })
+    // cy.get('#hideHelpInfoCardButton').click({ force: true })
+    //   cy.logOutViaSettingsPage(false)
   })
 })
