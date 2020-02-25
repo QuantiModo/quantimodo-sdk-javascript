@@ -96,12 +96,13 @@ function downloadFile(url: string, cb){
 
 describe("uploader", function () {
     it("uploads a file", function (done) {
+        this.timeout(20000) // Default 2000 is too fast
         fileHelper.uploadToS3("ionIcons.js", "tests", function (uploadResponse) {
             downloadFileContains(uploadResponse.Location, "iosArrowUp", done)
         })
     })
     it.skip("uploads test results", function (done) {
-        this.timeout(10000) // Default 2000 is too fast
+        this.timeout(20000) // Default 2000 is too fast
         qmTests.uploadTestResults(function (uploadResponse) {
             downloadFileContains(uploadResponse.Location, "mocha", done)
         })
