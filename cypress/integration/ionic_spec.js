@@ -80,5 +80,6 @@ describe('Floating Action Button', function () {
     cy.get('#floatingActionButton').click({ force: true })
     cy.log('Click the - button to hide menu')
     cy.get(selectors.redMaterialButtonMinus).click({ force: true, multiple: true })
+      cy.logOutViaSettingsPage(false)
   })
 })

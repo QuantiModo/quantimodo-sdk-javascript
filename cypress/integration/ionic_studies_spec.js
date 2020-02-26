@@ -5,10 +5,10 @@
  * @param {string} cause
  */
 function checkStudyPage (effect, cause) {
-  cy.get('i.ion-social-facebook').should('exist')
-  cy.get('.voteButtons').should('exist')
-  cy.get('#study-title').should('contain', effect)
-  cy.get('#study-title').should('contain', cause)
+  cy.get('i.ion-social-facebook', {timeout: 90000}).should('exist')
+  cy.get('.voteButtons', {timeout: 90000}).should('exist')
+  cy.get('#study-title', {timeout: 90000}).should('contain', effect)
+  cy.get('#study-title', {timeout: 90000}).should('contain', cause)
   cy.checkForBrokenImages()
 }
 describe('Studies', function () {
@@ -28,11 +28,14 @@ describe('Studies', function () {
   })
   it('Tries to joins a study and is sent to login', function () {
     cy.visitIonicAndSetApiUrl(
-      '/#/app/study-join?causeVariableName=Flaxseed%20Oil&effectVariableName=Overall%20Mood&studyId=cause-53530-effect-1398-population-study')
+      '/#/app/study-join?causeVariableName=Flaxseed%20Oil&'+
+        'effectVariableName=Overall%20Mood&'+
+        'studyId=cause-53530-effect-1398-population-study&'+
+        'logout=1')
     cy.get('#joinStudyButton').click({ force: true })
     cy.get('#signInButton > span').click({ force: true })
   })
-  it.skip('Creates a study and votes on it', function () {
+  it('Creates a study and votes on it', function () {
       // Very flakey!
     let effect = 'Overall Mood'
     let cause = 'Sleep Duration'
@@ -54,18 +57,21 @@ describe('Studies', function () {
       // cy.visitIonicAndSetApiUrl(`/#/app/study?causeVariableName=${cause}&effectVariableName=${effect}`)
       // checkStudyPage(effect, cause)
     })
+      cy.logOutViaSettingsPage(false)
   })
-  it.skip('Looks at a study anonymously', function () {
+  it('Looks at a study anonymously', function () {
       // Very flakey!
     let effect = 'Overall Mood'
     let cause = 'Sleep Duration'
-
-    cy.visitIonicAndSetApiUrl(`/#/app/study?causeVariableName=${cause}&effectVariableName=${effect}`)
+    cy.visitIonicAndSetApiUrl(`/#/app/study?causeVariableName=${cause}&`+
+        `effectVariableName=${effect}&`+
+      'logout=1')
+      cy.wait(10000);
     checkStudyPage(effect, cause)
   })
   it('Goes to study from positive predictors page', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/predictors-positive', true)
-      cy.wait(15000) // Leftover redirect from previous test
+      cy.wait(5000) // Leftover redirect from previous test
     cy.log('Have to go to /#/app/predictors-positive twice for some reason because we randomly get redirected to join study page')
     cy.loginWithAccessTokenIfNecessary('/#/app/predictors-positive', true)
     cy.log('Click the first study.  TODO: Speed this up and reduce timeout')
@@ -75,25 +81,26 @@ describe('Studies', function () {
         'Study page displays.  TODO: Reduce timeout and make sure that we populate with initial correlation before fetching full study')
     cy.get('#studyHeaderHtml', { timeout: 60000 })
         .should('contain', 'Overall Mood')
+      cy.logOutViaSettingsPage(false)
   })
   it('Joins study from static v2/study page', function () {
     cy.visitApi(`/api/v2/study?logLevel=info&effectVariableName=Overall%20Mood&causeVariableName=Flaxseed%20Oil`)
     cy.contains('Join This Study')
         .invoke('removeAttr', 'target') // Cypress can't follow to new tab
         .click({ force: true })
-    cy.wait(5000)
-    cy.checkForBrokenImages()
-    cy.get('.button-bar > button[id="joinStudyButton"].button')
-        .click({ force: true })
+    cy.wait(10000)
+    //cy.checkForBrokenImages()
+    cy.get('.button-bar > button[id="joinStudyButton"].button').click({ force: true })
     cy.wait(5000)
     cy.get('#signUpButton').click({ force: true })
     // TODO: Fix random CypressError: Timed out retrying: Expected to find element: '#login-page-link', but never found it.
-    // cy.get('#login-page-link').click({ force: true })
+    cy.get('#login-page-link').click({ force: true })
     // cy.enterCredentials()
     // cy.wait(5000)
     // cy.get('#go-to-inbox-button').click({ force: true })
     // cy.get('#hideHelpInfoCardButton').click({ force: true })
     // cy.get('#hideHelpInfoCardButton').click({ force: true })
     // cy.get('#hideHelpInfoCardButton').click({ force: true })
+    //   cy.logOutViaSettingsPage(false)
   })
 })
