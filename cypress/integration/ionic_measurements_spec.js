@@ -61,7 +61,7 @@ function editHistoryPageMeasurement (itemTitle) {
 describe('Measurements', function () {
   it('Goes to edit measurement from history page', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/history-all-category/Anything')
-    cy.get('#historyItemTitle', { timeout: 30000 }).click()
+    cy.get('#historyItemTitle', { timeout: 30000 }).click({force: true})
     cy.clickActionSheetButtonContaining('Edit')
     cy.wait(2000)
     cy.url().should('include', 'measurement-add')
