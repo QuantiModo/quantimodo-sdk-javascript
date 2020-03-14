@@ -24,7 +24,9 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 let logLevel = Cypress.env('LOG_LEVEL') || 'info'
-let accessToken = Cypress.env('ACCESS_TOKEN') || 'test-token'
+const PERMANENT_TEST_USER_ACCESS_TOKEN_FOR_18535 = '42ff4170172357b7312bb127fb58d5ea464943c1';
+const ACCESS_TOKEN_TO_GET_OR_CREATE_REFERRER_SPECIFIC_USER = 'test-token';
+let accessToken = Cypress.env('ACCESS_TOKEN') || PERMANENT_TEST_USER_ACCESS_TOKEN_FOR_18535 || ACCESS_TOKEN_TO_GET_OR_CREATE_REFERRER_SPECIFIC_USER
 let API_HOST = Cypress.env('API_HOST')  // API_HOST must be a quantimo.do domain so cypress can clear cookies
 let oauthAppBaseUrl = "https://"+Cypress.env('OAUTH_APP_HOST')
 let baseUrl = Cypress.config('baseUrl')
