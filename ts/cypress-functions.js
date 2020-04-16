@@ -283,6 +283,14 @@ function runLastFailedCypressTest(cb) {
         cb(false);
         return;
     }
+    test_helpers_1.deleteSuccessFile();
+    try {
+        copyCypressEnvConfigIfNecessary();
+    }
+    catch (e) {
+        console.error(e.message + "!  Going to try again...");
+        copyCypressEnvConfigIfNecessary();
+    }
     runOneCypressSpec(name, cb);
 }
 exports.runLastFailedCypressTest = runLastFailedCypressTest;

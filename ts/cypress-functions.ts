@@ -264,6 +264,13 @@ export function runLastFailedCypressTest(cb: (err: any) => void) {
         cb(false)
         return
     }
+    deleteSuccessFile()
+    try {
+        copyCypressEnvConfigIfNecessary()
+    } catch (e) {
+        console.error(e.message+"!  Going to try again...")
+        copyCypressEnvConfigIfNecessary()
+    }
     runOneCypressSpec(name, cb)
 }
 export function uploadTestResults(cb: (arg0: any) => void) {
