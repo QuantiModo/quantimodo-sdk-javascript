@@ -167,9 +167,17 @@ Quantimodo = function () {
                 cachedAt: new Date().getTime(),
                 payload: data
             });
-
-            localStorage.setItem(localCache.cacheKeysPrefix + key, dataToCache)
-
+            try{
+                localStorage.setItem(localCache.cacheKeysPrefix + key, dataToCache)
+            }catch (e) {
+                console.error(e)
+                localCache.clearOldData();
+                try{
+                    localStorage.setItem(localCache.cacheKeysPrefix + key, dataToCache)
+                }catch (e) {
+                    console.error("failed again after clearing cache", e)
+                }
+            }
         },
 
         clearOldData: function () {
