@@ -163,6 +163,25 @@ function logFailedTests(failedTests, context, cb) {
         setGithubStatusAndUploadTestResults(failedTests, context, cb);
     });
 }
+function runWithRecording(specName) {
+    var specsPath = getSpecsPath();
+    var specPath = specsPath + "/" + specName;
+    var browser = process.env.CYPRESS_BROWSER || "electron";
+    var context = specName.replace("_spec.js", "") + "-" + releaseStage;
+    console.info("Re-running " + specName + " with recording so you can check it at https://dashboard.cypress.io/");
+    cypress.run({
+        browser: browser,
+        record: true,
+        spec: specPath,
+    }).then(function (recordingResults) {
+        console.info(specName + " results after recording re-run: " +
+            JSON.stringify(recordingResults, null, 2));
+        qmGit.setGithubStatus("error", context, "View recording of " + specName, "https://dashboard.cypress.io/");
+        qmGit.createCommitComment(context, "\nView recording of " + specName + "\n" +
+            "[Cypress Dashboard](https://dashboard.cypress.io/)" +
+            JSON.stringify(recordingResults, null, 2));
+    });
+}
 function runOneCypressSpec(specName, cb) {
     fs.writeFileSync(lastFailedCypressTestPath, specName); // Set last failed first so it exists if we have an exception
     var specsPath = getSpecsPath();
@@ -192,6 +211,7 @@ function runOneCypressSpec(specName, cb) {
             }
             if (failedTests && failedTests.length) {
                 logFailedTests(failedTests, context, cb);
+                runWithRecording(specName);
             }
             else {
                 deleteLastFailedCypressTest();

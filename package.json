@@ -31,6 +31,8 @@
     "cy:record:parallel": "cypress run --record --parallel",
     "cy:record:production": "cypress run --record --key 64dd30de-4365-4699-85fe-e3be5e95da65 --config-file cypress/config/cypress.production.json",
     "cy:record:staging": "cypress run --record --key 64dd30de-4365-4699-85fe-e3be5e95da65 --config-file cypress/config/cypress.staging.json",
+    "cy:record:measurements:production": "cypress run --record --key 64dd30de-4365-4699-85fe-e3be5e95da65 --config-file cypress/config/cypress.production.json --spec cypress/integration/ionic_measurements_spec.js",
+    "cy:record:measurements:ionic": "cypress run --record --key 64dd30de-4365-4699-85fe-e3be5e95da65 --config-file cypress/config/cypress.ionic.json --spec cypress/integration/ionic_measurements_spec.js",
     "cy:run": "cypress run",
     "cy:verify": "cypress verify",
     "cy:version": "cypress version",

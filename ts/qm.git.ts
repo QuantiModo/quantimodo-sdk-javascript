@@ -7,7 +7,7 @@ import * as git from "simple-git"
 import _str from "underscore.string"
 import * as qmLog from "./qm.log"
 import * as qmShell from "./qm.shell"
-import {default as th, getBuildLink} from "./test-helpers"
+import {getBuildLink} from "./test-helpers"
 export function getOctoKit() {
     return new Octokit({auth: getAccessToken()})
 }
@@ -136,6 +136,29 @@ export function setGithubStatus(testState: "error" | "failure" | "pending" | "su
     }
     console.log(`${context} - ${description} - ${testState} at ${url}`)
     getOctoKit().repos.createStatus(params).then((data: any) => {
+        if (cb) {
+            cb(data)
+        }
+    }).catch((err: any) => {
+        console.error(err)
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
+    })
+}
+// tslint:disable-next-line:max-line-length
+export function createCommitComment(context: string, body: string, cb?: ((arg0: any) => void) | undefined) {
+    body += "\n### "+context+"\n"
+    body += "\n[BUILD LOG]("+getBuildLink()+")\n"
+    // @ts-ignore
+    const params: Octokit.ReposCreateCommitCommentParams = {
+        body,
+        commit_sha: getCurrentGitCommitSha(),
+        owner: getRepoUserName(),
+        repo: getRepoName(),
+    }
+    console.log(`${context} - ${body}`)
+    getOctoKit().repos.createCommitComment(params).then((data: any) => {
         if (cb) {
             cb(data)
         }

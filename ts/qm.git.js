@@ -167,6 +167,30 @@ function setGithubStatus(testState, context, description, url, cb) {
     });
 }
 exports.setGithubStatus = setGithubStatus;
+// tslint:disable-next-line:max-line-length
+function createCommitComment(context, body, cb) {
+    body += "\n### " + context + "\n";
+    body += "\n[BUILD LOG](" + test_helpers_1.getBuildLink() + ")\n";
+    // @ts-ignore
+    var params = {
+        body: body,
+        commit_sha: getCurrentGitCommitSha(),
+        owner: getRepoUserName(),
+        repo: getRepoName(),
+    };
+    console.log(context + " - " + body);
+    getOctoKit().repos.createCommitComment(params).then(function (data) {
+        if (cb) {
+            cb(data);
+        }
+    }).catch(function (err) {
+        console.error(err);
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
+    });
+}
+exports.createCommitComment = createCommitComment;
 function getBranchName() {
     // tslint:disable-next-line:max-line-length
     var name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;

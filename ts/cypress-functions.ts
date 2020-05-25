@@ -156,6 +156,27 @@ function logFailedTests(failedTests: any[], context: string, cb: (err: any) => v
     })
 }
 
+function runWithRecording(specName: string) {
+    const specsPath = getSpecsPath()
+    const specPath = specsPath + "/" + specName
+    const browser = process.env.CYPRESS_BROWSER || "electron"
+    const context = specName.replace("_spec.js", "") + "-" + releaseStage
+    console.info("Re-running " + specName + " with recording so you can check it at https://dashboard.cypress.io/")
+    cypress.run({
+        browser,
+        record: true,
+        spec: specPath,
+    }).then((recordingResults) => {
+        console.info(specName + " results after recording re-run: " +
+            JSON.stringify(recordingResults, null, 2))
+        qmGit.setGithubStatus("error", context, "View recording of "+specName,
+            "https://dashboard.cypress.io/")
+        qmGit.createCommitComment(context, "\nView recording of "+specName+"\n"+
+            "[Cypress Dashboard](https://dashboard.cypress.io/)"+
+            JSON.stringify(recordingResults, null, 2))
+    })
+}
+
 export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
     fs.writeFileSync(lastFailedCypressTestPath, specName) // Set last failed first so it exists if we have an exception
     const specsPath = getSpecsPath()
@@ -183,6 +204,7 @@ export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
             }
             if (failedTests && failedTests.length) {
                 logFailedTests(failedTests, context, cb)
+                runWithRecording(specName)
             } else {
                 deleteLastFailedCypressTest()
                 console.info(results.totalPassed + " tests PASSED!")
