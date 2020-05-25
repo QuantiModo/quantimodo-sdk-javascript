@@ -5,6 +5,7 @@ import origin from "remote-origin-url"
 // @ts-ignore
 import * as git from "simple-git"
 import _str from "underscore.string"
+import {loadEnv} from "./env-helper"
 import * as qmLog from "./qm.log"
 import * as qmShell from "./qm.shell"
 import {getBuildLink} from "./test-helpers"
@@ -34,16 +35,15 @@ export function getCurrentGitCommitSha() {
     }
 }
 export function getAccessToken() {
-    if (process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS) {
-        return process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS
+    let t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN
+    if(!t) {
+        loadEnv("local")
+        t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN
     }
-    if (process.env.GITHUB_ACCESS_TOKEN) {
-        return process.env.GITHUB_ACCESS_TOKEN
+    if(!t) {
+        throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env")
     }
-    if (process.env.GH_TOKEN) {
-        return process.env.GH_TOKEN
-    }
-    throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env")
+    return t
 }
 export function getRepoUrl() {
     if (process.env.REPOSITORY_URL_FOR_STATUS) {
@@ -157,7 +157,7 @@ export function createCommitComment(context: string, body: string, cb?: ((arg0: 
         owner: getRepoUserName(),
         repo: getRepoName(),
     }
-    console.log(`${context} - ${body}`)
+    console.log(body)
     getOctoKit().repos.createCommitComment(params).then((data: any) => {
         if (cb) {
             cb(data)

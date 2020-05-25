@@ -1,18 +1,18 @@
 import sdkRepo from "app-root-path"
 import * as cypress from "cypress"
 import {slackRunner} from "cypress-slack-reporter/bin/slack/slack-alert.js"
-import dotenv from "dotenv"
 import * as fs from "fs"
 // @ts-ignore
 import {merge} from "mochawesome-merge"
 // @ts-ignore
 import marge from "mochawesome-report-generator"
 import rimraf from "rimraf"
+import {loadEnv} from "./env-helper"
 import * as fileHelper from "./qm.file-helper"
 import * as qmGit from "./qm.git"
 import {createSuccessFile, deleteEnvFile, deleteSuccessFile, getBuildLink, getCiProvider} from "./test-helpers"
 
-dotenv.config() // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
+loadEnv("local") // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
 const ciProvider = getCiProvider()
 const isWin = process.platform === "win32"
 const outputReportDir = sdkRepo + "/mochawesome-report"
