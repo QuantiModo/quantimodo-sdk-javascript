@@ -156,7 +156,7 @@ function logFailedTests(failedTests: any[], context: string, cb: (err: any) => v
     })
 }
 
-function runWithRecording(specName: string) {
+function runWithRecording(specName: string, cb: (err: any) => void) {
     const specsPath = getSpecsPath()
     const specPath = specsPath + "/" + specName
     const browser = process.env.CYPRESS_BROWSER || "electron"
@@ -174,6 +174,7 @@ function runWithRecording(specName: string) {
         qmGit.createCommitComment(context, "\nView recording of "+specName+"\n"+
             "[Cypress Dashboard](https://dashboard.cypress.io/)"+
             JSON.stringify(recordingResults, null, 2))
+        cb(recordingResults)
     })
 }
 
@@ -194,17 +195,19 @@ export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
             cb(false)
         } else {
             const tests = results.runs[0].tests
-            let failedTests: any[] | null = null
+            let failedTests: any[] = []
             if (tests) {
                 failedTests = tests.filter(function(test: { state: string; }) {
                     return test.state === "failed"
                 })
+                if(!failedTests) { failedTests = [] }
             } else {
                 console.error("No tests on ", results.runs[0])
             }
-            if (failedTests && failedTests.length) {
-                logFailedTests(failedTests, context, cb)
-                runWithRecording(specName)
+            if (failedTests.length) {
+                runWithRecording(specName, function() {
+                    logFailedTests(failedTests, context, cb)
+                })
             } else {
                 deleteLastFailedCypressTest()
                 console.info(results.totalPassed + " tests PASSED!")
