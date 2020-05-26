@@ -163,7 +163,7 @@ function logFailedTests(failedTests, context, cb) {
         setGithubStatusAndUploadTestResults(failedTests, context, cb);
     });
 }
-function runWithRecording(specName) {
+function runWithRecording(specName, cb) {
     var specsPath = getSpecsPath();
     var specPath = specsPath + "/" + specName;
     var browser = process.env.CYPRESS_BROWSER || "electron";
@@ -200,18 +200,22 @@ function runOneCypressSpec(specName, cb) {
         }
         else {
             var tests = results.runs[0].tests;
-            var failedTests = null;
+            var failedTests_1 = [];
             if (tests) {
-                failedTests = tests.filter(function (test) {
+                failedTests_1 = tests.filter(function (test) {
                     return test.state === "failed";
                 });
+                if (!failedTests_1) {
+                    failedTests_1 = [];
+                }
             }
             else {
                 console.error("No tests on ", results.runs[0]);
             }
-            if (failedTests && failedTests.length) {
-                logFailedTests(failedTests, context, cb);
-                runWithRecording(specName);
+            if (failedTests_1.length) {
+                runWithRecording(specName, function () {
+                    logFailedTests(failedTests_1, context, cb);
+                });
             }
             else {
                 deleteLastFailedCypressTest();
