@@ -13,17 +13,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var app_root_path_1 = __importDefault(require("app-root-path"));
 var cypress = __importStar(require("cypress"));
 var slack_alert_js_1 = require("cypress-slack-reporter/bin/slack/slack-alert.js");
-var dotenv_1 = __importDefault(require("dotenv"));
 var fs = __importStar(require("fs"));
 // @ts-ignore
 var mochawesome_merge_1 = require("mochawesome-merge");
 // @ts-ignore
 var mochawesome_report_generator_1 = __importDefault(require("mochawesome-report-generator"));
 var rimraf_1 = __importDefault(require("rimraf"));
+var env_helper_1 = require("./env-helper");
 var fileHelper = __importStar(require("./qm.file-helper"));
 var qmGit = __importStar(require("./qm.git"));
 var test_helpers_1 = require("./test-helpers");
-dotenv_1.default.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
+env_helper_1.loadEnv("local"); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
 var ciProvider = test_helpers_1.getCiProvider();
 var isWin = process.platform === "win32";
 var outputReportDir = app_root_path_1.default + "/mochawesome-report";
@@ -163,6 +163,25 @@ function logFailedTests(failedTests, context, cb) {
         setGithubStatusAndUploadTestResults(failedTests, context, cb);
     });
 }
+function runWithRecording(specName) {
+    var specsPath = getSpecsPath();
+    var specPath = specsPath + "/" + specName;
+    var browser = process.env.CYPRESS_BROWSER || "electron";
+    var context = specName.replace("_spec.js", "") + "-" + releaseStage;
+    console.info("Re-running " + specName + " with recording so you can check it at https://dashboard.cypress.io/");
+    cypress.run({
+        browser: browser,
+        record: true,
+        spec: specPath,
+    }).then(function (recordingResults) {
+        console.info(specName + " results after recording re-run: " +
+            JSON.stringify(recordingResults, null, 2));
+        qmGit.setGithubStatus("error", context, "View recording of " + specName, "https://dashboard.cypress.io/");
+        qmGit.createCommitComment(context, "\nView recording of " + specName + "\n" +
+            "[Cypress Dashboard](https://dashboard.cypress.io/)" +
+            JSON.stringify(recordingResults, null, 2));
+    });
+}
 function runOneCypressSpec(specName, cb) {
     fs.writeFileSync(lastFailedCypressTestPath, specName); // Set last failed first so it exists if we have an exception
     var specsPath = getSpecsPath();
@@ -192,6 +211,7 @@ function runOneCypressSpec(specName, cb) {
             }
             if (failedTests && failedTests.length) {
                 logFailedTests(failedTests, context, cb);
+                runWithRecording(specName);
             }
             else {
                 deleteLastFailedCypressTest();

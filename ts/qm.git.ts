@@ -5,9 +5,10 @@ import origin from "remote-origin-url"
 // @ts-ignore
 import * as git from "simple-git"
 import _str from "underscore.string"
+import {loadEnv} from "./env-helper"
 import * as qmLog from "./qm.log"
 import * as qmShell from "./qm.shell"
-import {default as th, getBuildLink} from "./test-helpers"
+import {getBuildLink} from "./test-helpers"
 export function getOctoKit() {
     return new Octokit({auth: getAccessToken()})
 }
@@ -34,16 +35,15 @@ export function getCurrentGitCommitSha() {
     }
 }
 export function getAccessToken() {
-    if (process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS) {
-        return process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS
+    let t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN
+    if(!t) {
+        loadEnv("local")
+        t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN
     }
-    if (process.env.GITHUB_ACCESS_TOKEN) {
-        return process.env.GITHUB_ACCESS_TOKEN
+    if(!t) {
+        throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env")
     }
-    if (process.env.GH_TOKEN) {
-        return process.env.GH_TOKEN
-    }
-    throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env")
+    return t
 }
 export function getRepoUrl() {
     if (process.env.REPOSITORY_URL_FOR_STATUS) {
@@ -136,6 +136,29 @@ export function setGithubStatus(testState: "error" | "failure" | "pending" | "su
     }
     console.log(`${context} - ${description} - ${testState} at ${url}`)
     getOctoKit().repos.createStatus(params).then((data: any) => {
+        if (cb) {
+            cb(data)
+        }
+    }).catch((err: any) => {
+        console.error(err)
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
+    })
+}
+// tslint:disable-next-line:max-line-length
+export function createCommitComment(context: string, body: string, cb?: ((arg0: any) => void) | undefined) {
+    body += "\n### "+context+"\n"
+    body += "\n[BUILD LOG]("+getBuildLink()+")\n"
+    // @ts-ignore
+    const params: Octokit.ReposCreateCommitCommentParams = {
+        body,
+        commit_sha: getCurrentGitCommitSha(),
+        owner: getRepoUserName(),
+        repo: getRepoName(),
+    }
+    console.log(body)
+    getOctoKit().repos.createCommitComment(params).then((data: any) => {
         if (cb) {
             cb(data)
         }
