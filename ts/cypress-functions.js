@@ -182,6 +182,7 @@ function runWithRecording(specName, cb) {
         cb(recordingResults);
     });
 }
+exports.runWithRecording = runWithRecording;
 function getFailedTestsFromResults(results) {
     var tests = results.runs[0].tests;
     var failedTests = [];
