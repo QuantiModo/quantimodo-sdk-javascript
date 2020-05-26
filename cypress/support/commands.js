@@ -77,6 +77,7 @@ Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminder
 Cypress.Commands.add('visitIonicAndSetApiUrl', (path = '/#/app/reminders-inbox') => {
     path = UpdateQueryString('apiUrl', API_HOST, path)
     path = UpdateQueryString('logLevel', logLevel, path)
+    if(Cypress.env('LOGROCKET')){path = UpdateQueryString('logrocket', 1, path)}
     let url = path
     if(path.indexOf('http') !== 0){url = oauthAppBaseUrl + path}
     cy.log(`${url} - visitIonicAndSetApiUrl`)
@@ -90,6 +91,7 @@ Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
     options.qs.apiUrl = API_HOST
     cy.visit(url, options)
 })
+// noinspection JSUnusedLocalSymbols
 Cypress.Commands.add('visitApi', (url, options = {}, urlParams = {}) => {
     cy.log(`=== visitWithApiUrlParam at ${url} ===`)
     if(!API_HOST || API_HOST === 'undefined'){
@@ -217,6 +219,7 @@ Cypress.Commands.add('allowUncaughtException', (expectedErrorMessage) => {
 Cypress.Commands.add('checkForBrokenImages', () => {
     cy.log('Checking for broken images...')
     cy.wait(2000);
+    // noinspection JSUnusedLocalSymbols
     cy.get('img', {timeout: 30000})
     // eslint-disable-next-line no-unused-vars
         .each(($el, index, $list) => {
