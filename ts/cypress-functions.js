@@ -217,6 +217,7 @@ function runOneCypressSpec(specName, cb) {
         browser: browser,
         spec: specPath,
     }).then(function (results) {
+        // @ts-ignore
         if (!results.runs || !results.runs[0]) {
             console.log("No runs property on " + JSON.stringify(results, null, 2));
             cb(false);
