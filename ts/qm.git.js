@@ -17,6 +17,7 @@ var remote_origin_url_1 = __importDefault(require("remote-origin-url"));
 // @ts-ignore
 var git = __importStar(require("simple-git"));
 var underscore_string_1 = __importDefault(require("underscore.string"));
+var env_helper_1 = require("./env-helper");
 var qmLog = __importStar(require("./qm.log"));
 var qmShell = __importStar(require("./qm.shell"));
 var test_helpers_1 = require("./test-helpers");
@@ -49,16 +50,15 @@ function getCurrentGitCommitSha() {
 }
 exports.getCurrentGitCommitSha = getCurrentGitCommitSha;
 function getAccessToken() {
-    if (process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS) {
-        return process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS;
+    var t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN;
+    if (!t) {
+        env_helper_1.loadEnv("local");
+        t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN;
     }
-    if (process.env.GITHUB_ACCESS_TOKEN) {
-        return process.env.GITHUB_ACCESS_TOKEN;
+    if (!t) {
+        throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env");
     }
-    if (process.env.GH_TOKEN) {
-        return process.env.GH_TOKEN;
-    }
-    throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env");
+    return t;
 }
 exports.getAccessToken = getAccessToken;
 function getRepoUrl() {
@@ -167,6 +167,30 @@ function setGithubStatus(testState, context, description, url, cb) {
     });
 }
 exports.setGithubStatus = setGithubStatus;
+// tslint:disable-next-line:max-line-length
+function createCommitComment(context, body, cb) {
+    body += "\n### " + context + "\n";
+    body += "\n[BUILD LOG](" + test_helpers_1.getBuildLink() + ")\n";
+    // @ts-ignore
+    var params = {
+        body: body,
+        commit_sha: getCurrentGitCommitSha(),
+        owner: getRepoUserName(),
+        repo: getRepoName(),
+    };
+    console.log(body);
+    getOctoKit().repos.createCommitComment(params).then(function (data) {
+        if (cb) {
+            cb(data);
+        }
+    }).catch(function (err) {
+        console.error(err);
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
+    });
+}
+exports.createCommitComment = createCommitComment;
 function getBranchName() {
     // tslint:disable-next-line:max-line-length
     var name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;

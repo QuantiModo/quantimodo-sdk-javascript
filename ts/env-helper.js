@@ -20,4 +20,16 @@ function loadDotEnvFileInRootOfProject() {
     dotenv_1.default.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
 }
 exports.loadDotEnvFileInRootOfProject = loadDotEnvFileInRootOfProject;
+function loadEnv(environment) {
+    var path = "secrets/.env." + environment;
+    console.info("Loading env from " + path);
+    dotenv_1.default.config(); // https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set
+    try {
+        dotenv_1.default.config({ path: path });
+    }
+    catch (e) {
+        console.info(e.message);
+    }
+}
+exports.loadEnv = loadEnv;
 //# sourceMappingURL=env-helper.js.map

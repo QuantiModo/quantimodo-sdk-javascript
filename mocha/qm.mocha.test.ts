@@ -8,7 +8,6 @@ import * as urlParser from "url";
 import * as https from "https";
 import * as _str from "underscore.string";
 import * as simpleGit from 'simple-git/promise';
-import * as gi from '../ts/gi-functions';
 import * as th from '../ts/test-helpers';
 const git = simpleGit();
 beforeEach(function (done) {
@@ -42,6 +41,12 @@ afterEach(function (done) {
 describe("git", () => {
     it.skip("sets commit status", function (done) { // skipping because it pollutes the status checks
         qmGit.setGithubStatus("pending", "test context", "test description", "https://get-bent.com", function (res) {
+            expect(res.status).to.eq(201);
+            done();
+        });
+    });
+    it.skip("creates commit comment", function (done) { // skipping because it pollutes the status checks
+        qmGit.createCommitComment("test createCommitComment context", "test createCommitComment description", function (res) {
             expect(res.status).to.eq(201);
             done();
         });
