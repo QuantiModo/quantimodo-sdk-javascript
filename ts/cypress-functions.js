@@ -225,6 +225,7 @@ function runOneCypressSpec(specName, cb) {
         else {
             var failedTests = getFailedTestsFromResults(results);
             if (failedTests.length) {
+                process.env.LOGROCKET = "1";
                 runWithRecording(specName, function (recordResults) {
                     var failedRecordedTests = getFailedTestsFromResults(recordResults);
                     if (failedRecordedTests.length) {
@@ -234,6 +235,7 @@ function runOneCypressSpec(specName, cb) {
                         });
                     }
                     else {
+                        delete process.env.LOGROCKET;
                         handleTestSuccess(results, context, cb);
                     }
                 });

@@ -220,6 +220,7 @@ export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
         } else {
             const failedTests = getFailedTestsFromResults(results)
             if (failedTests.length) {
+                process.env.LOGROCKET = "1"
                 runWithRecording(specName, function(recordResults) {
                     const failedRecordedTests = getFailedTestsFromResults(recordResults)
                     if (failedRecordedTests.length) {
@@ -228,6 +229,7 @@ export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
                             process.exit(1)
                         })
                     } else {
+                        delete process.env.LOGROCKET
                         handleTestSuccess(results, context, cb)
                     }
                 })
