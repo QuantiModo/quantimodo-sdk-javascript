@@ -128,7 +128,6 @@ function setGithubStatusAndUploadTestResults(failedTests: any[] | null, context:
         uploadTestResults(function() {
             console.error(errorMessage)
             cb(errorMessage)
-            process.exit(1)
             // resolve();
         })
     })
@@ -156,7 +155,7 @@ function logFailedTests(failedTests: any[], context: string, cb: (err: any) => v
     })
 }
 
-function runWithRecording(specName: string) {
+function runWithRecording(specName: string, cb: (err: any) => void) {
     const specsPath = getSpecsPath()
     const specPath = specsPath + "/" + specName
     const browser = process.env.CYPRESS_BROWSER || "electron"
@@ -174,7 +173,32 @@ function runWithRecording(specName: string) {
         qmGit.createCommitComment(context, "\nView recording of "+specName+"\n"+
             "[Cypress Dashboard](https://dashboard.cypress.io/)"+
             JSON.stringify(recordingResults, null, 2))
+        cb(recordingResults)
     })
+}
+
+function getFailedTestsFromResults(results: any) {
+    const tests = results.runs[0].tests
+    let failedTests: any[] = []
+    if (tests) {
+        failedTests = tests.filter(function(test: { state: string; }) {
+            return test.state === "failed"
+        })
+        if (!failedTests) {
+            failedTests = []
+        }
+    } else {
+        console.error("No tests on ", results.runs[0])
+    }
+    return failedTests
+}
+
+function handleTestSuccess(results: any, context: string, cb: (err: any) => void) {
+    deleteLastFailedCypressTest()
+    console.info(results.totalPassed + " tests PASSED!")
+    qmGit.setGithubStatus("success", context, results.totalPassed +
+        " tests passed")
+    cb(false)
 }
 
 export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
@@ -193,24 +217,21 @@ export function runOneCypressSpec(specName: string, cb: ((err: any) => void)) {
             console.log("No runs property on " + JSON.stringify(results, null, 2))
             cb(false)
         } else {
-            const tests = results.runs[0].tests
-            let failedTests: any[] | null = null
-            if (tests) {
-                failedTests = tests.filter(function(test: { state: string; }) {
-                    return test.state === "failed"
+            const failedTests = getFailedTestsFromResults(results)
+            if (failedTests.length) {
+                runWithRecording(specName, function(recordResults) {
+                    const failedRecordedTests = getFailedTestsFromResults(recordResults)
+                    if (failedRecordedTests.length) {
+                        logFailedTests(failedRecordedTests, context, function(errorMessage) {
+                            cb(errorMessage)
+                            process.exit(1)
+                        })
+                    } else {
+                        handleTestSuccess(results, context, cb)
+                    }
                 })
             } else {
-                console.error("No tests on ", results.runs[0])
-            }
-            if (failedTests && failedTests.length) {
-                logFailedTests(failedTests, context, cb)
-                runWithRecording(specName)
-            } else {
-                deleteLastFailedCypressTest()
-                console.info(results.totalPassed + " tests PASSED!")
-                qmGit.setGithubStatus("success", context, results.totalPassed +
-                    " tests passed")
-                cb(false)
+                handleTestSuccess(results, context, cb)
             }
         }
     }).catch((runtimeError: any) => {

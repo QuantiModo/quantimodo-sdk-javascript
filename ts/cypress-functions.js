@@ -137,7 +137,6 @@ function setGithubStatusAndUploadTestResults(failedTests, context, cb) {
         uploadTestResults(function () {
             console.error(errorMessage);
             cb(errorMessage);
-            process.exit(1);
             // resolve();
         });
     });
@@ -163,7 +162,7 @@ function logFailedTests(failedTests, context, cb) {
         setGithubStatusAndUploadTestResults(failedTests, context, cb);
     });
 }
-function runWithRecording(specName) {
+function runWithRecording(specName, cb) {
     var specsPath = getSpecsPath();
     var specPath = specsPath + "/" + specName;
     var browser = process.env.CYPRESS_BROWSER || "electron";
@@ -180,7 +179,31 @@ function runWithRecording(specName) {
         qmGit.createCommitComment(context, "\nView recording of " + specName + "\n" +
             "[Cypress Dashboard](https://dashboard.cypress.io/)" +
             JSON.stringify(recordingResults, null, 2));
+        cb(recordingResults);
     });
+}
+function getFailedTestsFromResults(results) {
+    var tests = results.runs[0].tests;
+    var failedTests = [];
+    if (tests) {
+        failedTests = tests.filter(function (test) {
+            return test.state === "failed";
+        });
+        if (!failedTests) {
+            failedTests = [];
+        }
+    }
+    else {
+        console.error("No tests on ", results.runs[0]);
+    }
+    return failedTests;
+}
+function handleTestSuccess(results, context, cb) {
+    deleteLastFailedCypressTest();
+    console.info(results.totalPassed + " tests PASSED!");
+    qmGit.setGithubStatus("success", context, results.totalPassed +
+        " tests passed");
+    cb(false);
 }
 function runOneCypressSpec(specName, cb) {
     fs.writeFileSync(lastFailedCypressTestPath, specName); // Set last failed first so it exists if we have an exception
@@ -199,26 +222,23 @@ function runOneCypressSpec(specName, cb) {
             cb(false);
         }
         else {
-            var tests = results.runs[0].tests;
-            var failedTests = null;
-            if (tests) {
-                failedTests = tests.filter(function (test) {
-                    return test.state === "failed";
+            var failedTests = getFailedTestsFromResults(results);
+            if (failedTests.length) {
+                runWithRecording(specName, function (recordResults) {
+                    var failedRecordedTests = getFailedTestsFromResults(recordResults);
+                    if (failedRecordedTests.length) {
+                        logFailedTests(failedRecordedTests, context, function (errorMessage) {
+                            cb(errorMessage);
+                            process.exit(1);
+                        });
+                    }
+                    else {
+                        handleTestSuccess(results, context, cb);
+                    }
                 });
             }
             else {
-                console.error("No tests on ", results.runs[0]);
-            }
-            if (failedTests && failedTests.length) {
-                logFailedTests(failedTests, context, cb);
-                runWithRecording(specName);
-            }
-            else {
-                deleteLastFailedCypressTest();
-                console.info(results.totalPassed + " tests PASSED!");
-                qmGit.setGithubStatus("success", context, results.totalPassed +
-                    " tests passed");
-                cb(false);
+                handleTestSuccess(results, context, cb);
             }
         }
     }).catch(function (runtimeError) {
