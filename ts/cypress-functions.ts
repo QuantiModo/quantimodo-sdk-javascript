@@ -171,8 +171,7 @@ export function runWithRecording(specName: string, cb: (err: any) => void) {
         qmGit.setGithubStatus("error", context, "View recording of "+specName,
             "https://dashboard.cypress.io/")
         qmGit.createCommitComment(context, "\nView recording of "+specName+"\n"+
-            "[Cypress Dashboard](https://dashboard.cypress.io/)"+
-            JSON.stringify(recordingResults, null, 2))
+            "[Cypress Dashboard](https://dashboard.cypress.io/)")
         cb(recordingResults)
     })
 }
