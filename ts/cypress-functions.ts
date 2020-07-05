@@ -155,7 +155,7 @@ function logFailedTests(failedTests: any[], context: string, cb: (err: any) => v
     })
 }
 
-function runWithRecording(specName: string, cb: (err: any) => void) {
+export function runWithRecording(specName: string, cb: (err: any) => void) {
     const specsPath = getSpecsPath()
     const specPath = specsPath + "/" + specName
     const browser = process.env.CYPRESS_BROWSER || "electron"
