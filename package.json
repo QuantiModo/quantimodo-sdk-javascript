@@ -111,7 +111,7 @@
     "beautify": "0.0.8",
     "bluebird": "latest",
     "chai": "4.2.0",
-    "coveralls": "3.0.9",
+    "coveralls": "3.0.14",
     "cross-env": "6.0.3",
     "cypress": "4.11.0",
     "cypress-cucumber-preprocessor": "1.16.2",
