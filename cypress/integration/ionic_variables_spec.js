@@ -93,7 +93,7 @@ describe('Variables', function(){
     it('Goes to predictors page from the variable action sheet', function(){
         cy.loginWithAccessTokenIfNecessary('/#/app/reminders-inbox', true)
         let variableName = 'Overall Mood'
-        searchForMoodFromMagnifyingGlassIcon(variableName, 20000)
+        searchForMoodFromMagnifyingGlassIcon(variableName, 10000)
         cy.clickActionSheetButtonContaining('Predictors')
         cy.get('.item.item-avatar > p', {timeout: 90000}).should('contain', variableName)
     })
