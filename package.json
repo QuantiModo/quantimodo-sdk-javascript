@@ -75,7 +75,8 @@
     "heroku-test": "whoami && node -e 'console.log(process.geteuid())' && npm run ci:set-port && npm run test:ci:record",
     "heroku-test-setup": "whoami && node -e 'console.log(process.geteuid())' && npx cypress install && npx cypress cache path && npx cypress cache list && npx cypress verify",
     "heroku-postbuild": "npm run heroku-test-setup & npm run heroku-test",
-    "heroku-prebuild": "echo This runs before Heroku installs your dependencies."
+    "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
+    "pull-develop": "bash scripts/git-pull-develop.sh"
   },
   "browser": {
     "fs": false
