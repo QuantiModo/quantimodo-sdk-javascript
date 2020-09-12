@@ -276,6 +276,10 @@ Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldCo
             .click({ force: true })
     }
 })
+Cypress.Commands.add('setTimeZone', () => {
+    cy.log(`=== setTimeZone for ${variableName} ===`)
+    // TODO
+})
 /**
  * @param {string} str
  */
