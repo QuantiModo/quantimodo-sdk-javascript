@@ -2368,6 +2368,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
         queryParams['_'] = new Date().getTime();
     }
+
+      if(this.basePath.indexOf('local.quantimo.do') !== false){
+          queryParams['XDEBUG_SESSION_START'] = "PHPSTORM";
+      }
+
     request.query(this.normalizeParams(queryParams));
 
     // set header parameters
