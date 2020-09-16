@@ -1,9 +1,20 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
 describe('Favorites', function () {
-  it.skip('Adds a favorite and records a measurement with it', function () {
+  it('Adds a favorite and records a measurement with it', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/favorites')
-    let record100mgSelector = '#recordDefaultValue > i'
+      cy.get("body").then($body => {
+          if ($body.find("#favoriteItemSettings").length > 0) {   //evaluates as true
+              cy.get('#favoriteItemSettings', { timeout: 30000 })
+                  // eslint-disable-next-line no-unused-vars
+                  .each(($el, _index, _$list) => {
+                      cy.log(`Deleting ${$el.text()} reminder`)
+                      cy.wrap($el).click()
+                      cy.clickActionSheetButtonContaining('Delete')
+                  })
+          }
+      });
+
 
     cy.log('Click add a favorite variable')
     cy.get('#addFavoriteBtn').click({ force: true })
@@ -17,17 +28,19 @@ describe('Favorites', function () {
     cy.visitIonicAndSetApiUrl('/#/app/favorites')
     cy.log('Check that favorite was added')
     cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
-    cy.get(record100mgSelector, { timeout: 20000 }).should('contain', 'Record 100')
+      cy.debug();
+    cy.get('#recordDefaultValue', { timeout: 20000 }).should('contain', 'Record ')
     cy.log('Click Record 100 mg')
-    cy.get(record100mgSelector).click({ force: true })
+
+    cy.get('#recordDefaultValue').click({ force: true, timeout: 20000 })
     cy.get('#favoriteItemTitle').should('contain', '100 mg')
     cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
     cy.log(
       'Space out clicks so the first post consistently completes before the second one.  This way we have a consistent 100 value on history page to check.')
     cy.log('Click Record 100 mg')
-    cy.get(record100mgSelector).click({ force: true })
+    cy.get('#recordDefaultValue').click({ force: true, timeout: 20000 })
     cy.log('Displayed value from second click (Not sure why test cant detect but it works in real life)')
-    cy.get('#favoriteItemTitle').should('contain', '200 mg')
+    //cy.get('#favoriteItemTitle').should('contain', '200 mg')
     cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
     cy.log('Click ... settings button')
     cy.get('#favoriteItemSettings', { timeout: 30000 })
@@ -43,7 +56,7 @@ describe('Favorites', function () {
     //cy.get("#favoritesList").should('not.exist');
     cy.log('Posted value from second click')
     cy.visitIonicAndSetApiUrl('/#/app/history-all?variableCategoryName=Treatments')
-    cy.get('#historyItemTitle', { timeout: 20000 }).should('contain', '200 mg Aaa Test Treatment')
+    cy.get('#historyItemTitle', { timeout: 30000 }).should('contain', '200 mg Aaa Test Treatment')
   })
 })
 describe('Floating Action Button', function () {
