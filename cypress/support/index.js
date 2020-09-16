@@ -4,7 +4,7 @@
 // You can change the location of this file or turn off automatically serving support files with the 'supportFile'
 // configuration option. You can read more here: https://on.cypress.io/configuration
 // ***********************************************************
-require('cypress-plugin-retries')
+
 import './commands' // Import commands.js using ES2015 syntax:
 // eslint-disable-next-line no-unused-vars
 // noinspection JSUnusedLocalSymbols
