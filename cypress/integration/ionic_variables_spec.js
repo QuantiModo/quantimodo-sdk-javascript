@@ -105,8 +105,7 @@ describe('Variables', function(){
         let filling = '0'
         cy.loginWithAccessTokenIfNecessary(settingsPath)
         cy.wait(10000)
-        cy.get('#resetButton')
-            .click({force: true})
+        cy.get('#resetButton').click({force: true, timeout: 30000})
         cy.wait(10000)
         cy.assertInputValueEquals('#minimumAllowedValue', '0')
         cy.clearAndType('#minimumAllowedValue', min)
@@ -118,20 +117,21 @@ describe('Variables', function(){
         cy.get('#helpInfoCardHeader > span:nth-child(2) > p', {timeout: 30000})
         cy.url().should('not.contain', 'variable-settings')
         cy.visitIonicAndSetApiUrl(settingsPath)
+        cy.wait(15000)
         cy.log("TODO: TEST TO MAKE SURE THE CHANGES STUCK. IT'S CURRENTLY VERY FLAKEY")
-        //cy.assertInputValueContains('#minimumAllowedValue', min);
-        //cy.assertInputValueEquals('#maximumAllowedValue', max);
-        // cy.assertInputValueEquals('#onsetDelay', delay)
-        // cy.assertInputValueEquals('#durationOfAction', duration)
-        // cy.assertInputValueEquals('#fillingValue', filling)
-        // cy.get('#resetButton').click({force: true})
-        // cy.wait(15000)
-        // //cy.url().should('not.contain', 'variable-settings');
-        // //cy.visit(settingsPath);
-        // cy.assertInputValueEquals('#minimumAllowedValue', '0')
-        // cy.assertInputValueDoesNotContain('#maximumAllowedValue', max)
-        // cy.assertInputValueEquals('#onsetDelay', '0.5')
-        // cy.assertInputValueEquals('#durationOfAction', '504')
+        cy.assertInputValueContains('#minimumAllowedValue', min);
+        cy.assertInputValueEquals('#maximumAllowedValue', max);
+        cy.assertInputValueEquals('#onsetDelay', delay)
+        cy.assertInputValueEquals('#durationOfAction', duration)
+        cy.assertInputValueEquals('#fillingValue', filling)
+        cy.get('#resetButton').click({force: true, timeout: 30000})
+        cy.wait(15000)
+        //cy.url().should('not.contain', 'variable-settings');
+        //cy.visit(settingsPath);
+        cy.assertInputValueEquals('#minimumAllowedValue', '0')
+        cy.assertInputValueDoesNotContain('#maximumAllowedValue', max)
+        cy.assertInputValueEquals('#onsetDelay', '0.5')
+        cy.assertInputValueEquals('#durationOfAction', '504')
     })
     it.skip('Goes to variable settings from chart page', function(){
         cy.loginWithAccessTokenIfNecessary('/#/app/chart-search')
