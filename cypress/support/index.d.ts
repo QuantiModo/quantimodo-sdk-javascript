@@ -24,6 +24,7 @@ declare namespace Cypress {
         logoutViaApiLogoutUrl(): Chainable<Element>
         logOutViaSettingsPage(useMenuButton: boolean): Chainable<Element>
         searchAndClickTopResult(variableName: string, topResultShouldContainSearchTerm?: boolean): Chainable<Element>
+        setTimeZone(): Chainable<Element>
         sendSlackNotification(messageBody?: any): Chainable<Element>
         urlShouldContainCaseInsensitive(content: string): Chainable<Element>
         visitApi(url: string, options?: Partial<VisitOptions>, urlParams?: object): Chainable<Element>
