@@ -109,7 +109,6 @@ describe('Mobile Connectors', function () {
   })
     // TODO: Re-enable when Whatpulse is fixed
   it.skip('Connects and disconnects WhatPulse', function () {
-      Cypress.currentTest.retries(2)
     disconnectAndClickConnect('whatpulse')
     cy.get('input[name="username"]').type('mikepsinn', { force: true })
     cy.get('.qm-account-block[data-name=whatpulse3] .qm-account-connect-button-with-params')
