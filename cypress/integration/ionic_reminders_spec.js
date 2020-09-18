@@ -18,6 +18,13 @@ describe('Reminders', function () {
     cy.get('#TodayReminders', { timeout: 40000 }).should('exist')
     cy.get('#TodayReminders').children().should('have.length.above', 0)
   }
+    /**
+     * @param {string} variableCategoryName
+     */
+    function goToManageReminders (variableCategoryName) {
+        if(!variableCategoryName){variableCategoryName = 'Anything'}
+        cy.loginWithAccessTokenIfNecessary(`/#/app/variable-list-category/${variableCategoryName}`)
+    }
   /**
    * @param {string} frequency
    */
@@ -44,11 +51,28 @@ describe('Reminders', function () {
     cy.get('.dtp-btn-ok').contains('OK').click()
     cy.wait(1000)
   }
-  function deleteReminders () {
+  function deleteReminders (variableCategoryName) {
+      goToManageReminders(variableCategoryName)
     cy.log('Deleting reminders...')
     cy.wait(1000)
     let reminderListSelector = '#remindersList > div'
     let deleted = false
+      //cy.debug();
+      cy.get("body").then($body => {
+          let selector = "#showActionSheet-button > i";
+          let numberOfReminders = $body.find(selector).length;
+          cy.log(numberOfReminders+" reminders to delete");
+          if (numberOfReminders > 0) {   //evaluates as true
+              cy.get(selector, { timeout: 30000 })
+                  // eslint-disable-next-line no-unused-vars
+                  .each(($el, _index, _$list) => {
+                      cy.log(`Deleting ${$el.text()} reminder`)
+                      cy.wrap($el).click({force: true, timeout: 10000})
+                      cy.clickActionSheetButtonContaining('Delete')
+                      deleted = true
+                  })
+          }
+      });
 
     cy.get(reminderListSelector, { timeout: 30000 })
     // eslint-disable-next-line no-unused-vars
@@ -91,18 +115,12 @@ describe('Reminders', function () {
     }
   }
   /**
-   * @param {string} variableCategoryName
-   */
-  function getManagePathForCategory (variableCategoryName) {
-    return `/#/app/variable-list-category/${variableCategoryName}`
-  }
-  /**
    * @param {string} variableName
    * @param {string} frequency
    * @param {string} variableCategoryName
    */
   function deleteRemindersAddOneAndGoToCategoryInbox (variableName, frequency, variableCategoryName) {
-    deleteReminders()
+    deleteReminders(variableCategoryName)
     addReminder(variableName, frequency)
     saveReminderAndGoToCategoryInbox(variableCategoryName)
   }
@@ -118,22 +136,17 @@ describe('Reminders', function () {
     let variableName = 'Aaa Test Reminder Skip'
     let variableCategoryName = 'Nutrients'
     let frequency = '30 minutes'
-    let manageUrl = getManagePathForCategory(variableCategoryName)
 
-    cy.loginWithAccessTokenIfNecessary(manageUrl)
     deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
     cy.get('#notification-skip').click({ force: true })
     cy.get('#notification-skip').should('not.exist')
-    cy.visitIonicAndSetApiUrl(manageUrl)
-    deleteReminders()
+    deleteReminders(variableCategoryName)
   })
   it.skip('Creates a sleep reminder and changes unit', function () {
     let variableName = 'Sleep Duration'
     let variableCategoryName = 'Sleep'
-    let manageUrl = getManagePathForCategory(variableCategoryName)
 
-    cy.loginWithAccessTokenIfNecessary(manageUrl)
-    deleteReminders()
+    deleteReminders(variableCategoryName)
     addReminder(variableName)
     cy.get('#defaultValue').should('not.exist')
     let hour = 8
@@ -142,7 +155,8 @@ describe('Reminders', function () {
 
     setReminderTime(hour, minute, ampm)
     cy.get('#saveButton').click({ force: true })
-    cy.visitIonicAndSetApiUrl(manageUrl)
+
+      goToManageReminders(variableCategoryName)
     cy.log('Should not contain reminder time because the frequency is below a day')
     //let firstReminderTime = '#remindersList > div > div > div:nth-child(1) > div.col.col-70 > p';
     let firstReminderTime = '#remindersList'
@@ -162,35 +176,26 @@ describe('Reminders', function () {
     cy.url().should('include', '#/app/measurement-add')
     //cy.get('#measurementAddCard > div', {timeout: 10000}).should('contain', variableName);
     //cy.get('#defaultValue').type("480", {force: true});
-    cy.visitIonicAndSetApiUrl(manageUrl)
-    deleteReminders()
+    deleteReminders(variableCategoryName)
   })
   it('Deletes reminders', function () {
-    let path = getManagePathForCategory('Sleep')
 
-    cy.loginWithAccessTokenIfNecessary(path, true)
-    deleteReminders()
+    deleteReminders('Sleep')
   })
   it.skip('Creates a food reminder and snoozes it', function () {
     let variableName = 'Aaa Test Reminder Snooze'
     let variableCategoryName = 'Foods'
     let frequency = '30 minutes'
-    let manageUrl = getManagePathForCategory(variableCategoryName)
 
-    cy.loginWithAccessTokenIfNecessary(manageUrl)
     deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
     cy.get('#notification-snooze').click({ force: true })
     cy.get('#notification-snooze').should('not.exist')
-    cy.visitIonicAndSetApiUrl(manageUrl)
-    deleteReminders()
+    deleteReminders(variableCategoryName)
   })
-  it('Creates a symptoms reminder and tracks it', function () {
+  it.only('Creates a symptoms reminder and tracks it', function () {
     let variableName = 'Aaa Test Reminder Variable'
     let variableCategoryName = 'Symptoms'
-    let manageUrl = getManagePathForCategory(variableCategoryName)
     let frequency = '30 minutes'
-
-    cy.loginWithAccessTokenIfNecessary(manageUrl)
     deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
     cy.get('#negativeRatingOptions4').click({ force: true })
     cy.visitIonicAndSetApiUrl(`/#/app/charts/${variableName}`)
@@ -207,9 +212,8 @@ describe('Reminders', function () {
     cy.get('#menu-more-button').click({ force: true })
     cy.clickActionSheetButtonContaining('Delete All')
     cy.get('#yesButton').click({ force: true })
-    cy.visitIonicAndSetApiUrl(manageUrl)
     cy.wait(15000)
-    deleteReminders()
+    deleteReminders(variableCategoryName)
   })
   it.skip('Selects a reminder time', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/reminder-add/', false)
