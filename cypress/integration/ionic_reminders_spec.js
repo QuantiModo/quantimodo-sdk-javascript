@@ -192,7 +192,7 @@ describe('Reminders', function () {
     cy.get('#notification-snooze').should('not.exist')
     deleteReminders(variableCategoryName)
   })
-  it.only('Creates a symptoms reminder and tracks it', function () {
+  it('Creates a symptoms reminder and tracks it', function () {
     let variableName = 'Aaa Test Reminder Variable'
     let variableCategoryName = 'Symptoms'
     let frequency = '30 minutes'
