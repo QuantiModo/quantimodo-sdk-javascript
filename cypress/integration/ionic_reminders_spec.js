@@ -208,11 +208,11 @@ describe('Reminders', function () {
     cy.clickActionSheetButtonContaining('Analysis Settings')
     cy.get('#variableName', { timeout: 30000 }).should('contain', variableName)
     cy.log('Waiting for action sheet button to update...')
-    cy.wait(5000)
+    cy.wait(1000)
     cy.get('#menu-more-button').click({ force: true })
     cy.clickActionSheetButtonContaining('Delete All')
     cy.get('#yesButton').click({ force: true })
-    cy.wait(15000)
+    cy.wait(1000)
     deleteReminders(variableCategoryName)
   })
   it.skip('Selects a reminder time', function () {
