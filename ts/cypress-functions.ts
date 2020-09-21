@@ -177,6 +177,9 @@ export function runWithRecording(specName: string, cb: (err: any) => void) {
 }
 
 function getFailedTestsFromResults(results: any) {
+    if(!results.runs) {
+        console.error("No runs on results obj: ", results)
+    }
     const tests = results.runs[0].tests
     let failedTests: any[] = []
     if (tests) {
