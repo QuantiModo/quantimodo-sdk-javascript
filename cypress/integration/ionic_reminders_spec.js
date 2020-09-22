@@ -93,6 +93,28 @@ describe('Reminders', function () {
       cy.wait(5000)
     }
   }
+    function deleteFavorites () {
+        cy.loginWithAccessTokenIfNecessary(`/#/app/favorites`)
+        cy.log('Deleting favorites...')
+        cy.wait(1000)
+        let deleted = false
+        //cy.debug();
+        cy.get("body").then($body => {
+            let selector = "#favoriteItemSettings > i";
+            let numberOfReminders = $body.find(selector).length;
+            cy.log(numberOfReminders+" reminders to delete");
+            if (numberOfReminders > 0) {   //evaluates as true
+                cy.get(selector, { timeout: 30000 })
+                    // eslint-disable-next-line no-unused-vars
+                    .each(($el, _index, _$list) => {
+                        cy.log(`Deleting ${$el.text()} reminder`)
+                        cy.wrap($el).click({force: true, timeout: 10000})
+                        cy.clickActionSheetButtonContaining('Delete')
+                        deleted = true
+                    })
+            }
+        });
+    }
   /**
    * @param {string} unitName
    */
@@ -132,7 +154,7 @@ describe('Reminders', function () {
     cy.wait(15000) // Have to wait for save to complete
     goToCategoryInbox(variableCategoryName)
   }
-  it.skip('Create a goals reminder and skip it', function () {
+  it.skip('Creates a goals reminder and skip it', function () {
     let variableName = 'Aaa Test Reminder Goal Skip'
     let variableCategoryName = 'Goals'
     let frequency = '30 minutes'
@@ -227,4 +249,48 @@ describe('Reminders', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/reminder-add/', false)
     changeUnit('Minutes')
   })
+    it('Adds a favorite and records a measurement with it', function () {
+        deleteFavorites()
+        cy.loginWithAccessTokenIfNecessary('/#/app/favorites')
+        cy.log('Click add a favorite variable')
+        cy.get('#addFavoriteBtn').click({ force: true })
+        cy.searchAndClickTopResult('Aaa Test Treatment', true)
+        cy.get('#moreOptions').click({ force: true })
+        cy.log('Assign default value to 100mg')
+        cy.get('#defaultValue').type('100', { force: true })
+        cy.get('#saveButton').click({ force: true })
+        cy.log('Wait for favorite to save so we are not redirected back to favoriteAdd')
+        cy.visitIonicAndSetApiUrl('/#/app/favorites')
+        cy.log('Check that favorite was added')
+        cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
+        cy.debug();
+        cy.get('#recordDefaultValue', { timeout: 20000 }).should('contain', 'Record ')
+        cy.log('Click Record 100 mg')
+
+        cy.get('#recordDefaultValue').click({ force: true, timeout: 20000 })
+        cy.get('#favoriteItemTitle').should('contain', '100 mg')
+        cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
+        cy.log(
+            'Space out clicks so the first post consistently completes before the second one.  This way we have a consistent 100 value on history page to check.')
+        cy.log('Click Record 100 mg')
+        //cy.get('#recordDefaultValue').click({ force: true, timeout: 20000 })
+        //cy.log('Displayed value from second click (Not sure why test cant detect but it works in real life)')
+        //cy.get('#favoriteItemTitle').should('contain', '200 mg')
+        cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
+        cy.log('Click ... settings button')
+        cy.get('#favoriteItemSettings', { timeout: 30000 })
+            // eslint-disable-next-line no-unused-vars
+            .each(($el, _index, _$list) => {
+                cy.log(`Deleting ${$el.text()} reminder`)
+                cy.wrap($el).click()
+                cy.clickActionSheetButtonContaining('Delete')
+            })
+        //cy.log('Since there are no favorites, the explanation card is showing')
+        //cy.get("#noFavoritesExplanation").should('exist');
+        //cy.log('There is no favorites list since there are no favorites')
+        //cy.get("#favoritesList").should('not.exist');
+        cy.log('Posted value from second click')
+        cy.visitIonicAndSetApiUrl('/#/app/history-all?variableCategoryName=Treatments')
+        cy.get('#historyItemTitle', { timeout: 30000 }).should('contain', '100 mg Aaa Test Treatment')
+    })
 })

@@ -68,8 +68,10 @@ function UpdateQueryString(key, value, uri){
 }
 Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminders-inbox', waitForAvatar = true) => {
     cy.log(`${path} - loginWithAccessTokenIfNecessary`)
-    path = UpdateQueryString('access_token', accessToken, path)
-    cy.visitIonicAndSetApiUrl(path)
+    //let logout = UpdateQueryString('logout', true, path)
+    //cy.visitIonicAndSetApiUrl(logout)
+    let withToken = UpdateQueryString('access_token', accessToken, path)
+    cy.visitIonicAndSetApiUrl(withToken)
     if(waitForAvatar){
         cy.get('#navBarAvatar > img', {timeout: 40000})
     }
