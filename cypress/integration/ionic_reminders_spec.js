@@ -131,7 +131,7 @@ describe('Reminders', function () {
     cy.log(`Click Add new reminder for ${variableName}`)
     cy.get('#addReminderButton').click({ force: true })
     cy.searchAndClickTopResult(variableName, true)
-    cy.get('#reminder-header').should('contain', variableName)
+    cy.get('#reminder-header').contains(variableName, {matchCase: false})
     if (frequency) {
       setFrequency(frequency)
     }
