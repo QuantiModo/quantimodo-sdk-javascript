@@ -166,8 +166,9 @@ export function runWithRecording(specName: string, cb: (err: any) => void) {
         record: true,
         spec: specPath,
     }).then((recordingResults) => {
-        console.info(specName + " results after recording re-run: " +
-            JSON.stringify(recordingResults, null, 2))
+        if ("runUrl" in recordingResults) {
+            console.info(specName + " results after recording re-run: " + recordingResults.runUrl)
+        }
         qmGit.setGithubStatus("error", context, "View recording of "+specName,
             "https://dashboard.cypress.io/")
         qmGit.createCommitComment(context, "\nView recording of "+specName+"\n"+
