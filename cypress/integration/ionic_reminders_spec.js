@@ -154,17 +154,17 @@ describe('Reminders', function () {
     cy.wait(15000) // Have to wait for save to complete
     goToCategoryInbox(variableCategoryName)
   }
-  it.skip('Creates a goals reminder and skip it', function () {
+  it('Creates a goals reminder and skip it', function () {
     let variableName = 'Aaa Test Reminder Goal Skip'
     let variableCategoryName = 'Goals'
     let frequency = '30 minutes'
 
     deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
     cy.get('#notification-skip').click({ force: true })
-    cy.get('#notification-skip').should('not.exist')
+    cy.get('#notification-skip').should('not.be.visible')
     deleteReminders(variableCategoryName)
   })
-  it.skip('Creates a sleep reminder and changes unit', function () {
+  it('Creates a sleep reminder and changes unit', function () {
     let variableName = 'Sleep Duration'
     let variableCategoryName = 'Sleep'
 
@@ -190,7 +190,7 @@ describe('Reminders', function () {
     goToCategoryInbox(variableCategoryName)
     cy.get('#notification-settings').click({ force: true })
     cy.url().should('include', '#/app/reminder-add/')
-    cy.get('#reminder-header').should('contain', variableName)
+    cy.get('#reminder-header').contains(variableName, {matchCase: false})
     changeUnit('Minutes')
     saveReminderAndGoToCategoryInbox(variableCategoryName)
     cy.log('Click Record different value/time')
@@ -201,17 +201,16 @@ describe('Reminders', function () {
     deleteReminders(variableCategoryName)
   })
   it('Deletes reminders', function () {
-
     deleteReminders('Sleep')
   })
-  it.skip('Creates a food reminder and snoozes it', function () {
+  it.only('Creates a food reminder and snoozes it', function () {
     let variableName = 'Aaa Test Reminder Snooze'
     let variableCategoryName = 'Foods'
     let frequency = '30 minutes'
 
     deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
     cy.get('#notification-snooze').click({ force: true })
-    cy.get('#notification-snooze').should('not.exist')
+    cy.get('#notification-snooze').should('not.be.visible')
     deleteReminders(variableCategoryName)
   })
   it('Creates a symptoms reminder and tracks it', function () {
@@ -237,7 +236,7 @@ describe('Reminders', function () {
     cy.wait(1000)
     deleteReminders(variableCategoryName)
   })
-  it.skip('Selects a reminder time', function () {
+  it('Selects a reminder time', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/reminder-add/', false)
     setReminderTime(8, 15, 'AM')
   })
@@ -288,7 +287,7 @@ describe('Reminders', function () {
         //cy.log('Since there are no favorites, the explanation card is showing')
         //cy.get("#noFavoritesExplanation").should('exist');
         //cy.log('There is no favorites list since there are no favorites')
-        //cy.get("#favoritesList").should('not.exist');
+        //cy.get("#favoritesList").should('not.be.visible')
         cy.log('Posted value from second click')
         cy.visitIonicAndSetApiUrl('/#/app/history-all?variableCategoryName=Treatments')
         cy.get('#historyItemTitle', { timeout: 30000 }).should('contain', '100 mg Aaa Test Treatment')
