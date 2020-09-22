@@ -253,7 +253,8 @@ describe('Reminders', function () {
         cy.loginWithAccessTokenIfNecessary('/#/app/favorites')
         cy.log('Click add a favorite variable')
         cy.get('#addFavoriteBtn').click({ force: true })
-        cy.searchAndClickTopResult('Aaa Test Treatment', true)
+        let variableName = 'Aaa Test Treatment'
+        cy.searchAndClickTopResult(variableName, true)
         cy.get('#moreOptions').click({ force: true })
         cy.log('Assign default value to 100mg')
         cy.get('#defaultValue').type('100', { force: true })
@@ -261,21 +262,21 @@ describe('Reminders', function () {
         cy.log('Wait for favorite to save so we are not redirected back to favoriteAdd')
         cy.visitIonicAndSetApiUrl('/#/app/favorites')
         cy.log('Check that favorite was added')
-        cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
+        cy.get('#favoriteItemTitle').should('contain', variableName)
         cy.debug();
         cy.get('#recordDefaultValue', { timeout: 20000 }).should('contain', 'Record ')
         cy.log('Click Record 100 mg')
 
         cy.get('#recordDefaultValue').click({ force: true, timeout: 20000 })
         cy.get('#favoriteItemTitle').should('contain', '100 mg')
-        cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
+        cy.get('#favoriteItemTitle').should('contain', variableName)
         cy.log(
             'Space out clicks so the first post consistently completes before the second one.  This way we have a consistent 100 value on history page to check.')
         cy.log('Click Record 100 mg')
         //cy.get('#recordDefaultValue').click({ force: true, timeout: 20000 })
         //cy.log('Displayed value from second click (Not sure why test cant detect but it works in real life)')
         //cy.get('#favoriteItemTitle').should('contain', '200 mg')
-        cy.get('#favoriteItemTitle').should('contain', 'Aaa Test Treatment')
+        cy.get('#favoriteItemTitle').should('contain', variableName)
         cy.log('Click ... settings button')
         cy.get('#favoriteItemSettings', { timeout: 30000 })
             // eslint-disable-next-line no-unused-vars
@@ -290,6 +291,6 @@ describe('Reminders', function () {
         //cy.get("#favoritesList").should('not.be.visible')
         cy.log('Posted value from second click')
         cy.visitIonicAndSetApiUrl('/#/app/history-all?variableCategoryName=Treatments')
-        cy.get('#historyItemTitle', { timeout: 30000 }).should('contain', '100 mg Aaa Test Treatment')
+        cy.get('#historyItemTitle', { timeout: 30000 }).should('contain', '100 mg '+variableName)
     })
 })

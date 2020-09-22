@@ -166,13 +166,14 @@ export function runWithRecording(specName: string, cb: (err: any) => void) {
         record: true,
         spec: specPath,
     }).then((recordingResults) => {
+        let runUrl: string | undefined = "No runUrl provided so just go to https://dashboard.cypress.io/"
         if ("runUrl" in recordingResults) {
-            console.info(specName + " results after recording re-run: " + recordingResults.runUrl)
+            runUrl = recordingResults.runUrl
         }
         qmGit.setGithubStatus("error", context, "View recording of "+specName,
-            "https://dashboard.cypress.io/")
+            runUrl)
         qmGit.createCommitComment(context, "\nView recording of "+specName+"\n"+
-            "[Cypress Dashboard](https://dashboard.cypress.io/)")
+            "[Cypress Dashboard]("+runUrl+")")
         cb(recordingResults)
     })
 }
