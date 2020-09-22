@@ -203,7 +203,7 @@ describe('Reminders', function () {
   it('Deletes reminders', function () {
     deleteReminders('Sleep')
   })
-  it.only('Creates a food reminder and snoozes it', function () {
+  it('Creates a food reminder and snoozes it', function () {
     let variableName = 'Aaa Test Reminder Snooze'
     let variableCategoryName = 'Foods'
     let frequency = '30 minutes'
