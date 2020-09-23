@@ -151,7 +151,7 @@ describe('Reminders', function () {
    */
   function saveReminderAndGoToCategoryInbox (variableCategoryName) {
     cy.get('#saveButton').click({ force: true })
-    cy.wait(15000) // Have to wait for save to complete
+    cy.wait(10000) // Have to wait for save to complete
     goToCategoryInbox(variableCategoryName)
   }
   it('Creates a goals reminder and skip it', function () {
@@ -218,11 +218,12 @@ describe('Reminders', function () {
     let variableCategoryName = 'Symptoms'
     let frequency = '30 minutes'
     deleteRemindersAddOneAndGoToCategoryInbox(variableName, frequency, variableCategoryName)
-    cy.get('#negativeRatingOptions4').click({ force: true })
-    cy.visitIonicAndSetApiUrl(`/#/app/charts/${variableName}`)
-      cy.contains(`${variableName} Over Time`, {timeout: 20000})
-      cy.log("waiting for notifications to post before checking history...")
+    cy.get('#negativeRatingOptions4').click({ force: true,timeout: 20000 })
+      cy.get('#menu-item-chart-search > a').click({ force: true,timeout: 20000 })
+      cy.log("waiting for notifications to post after leaving inbox state before checking history...")
       cy.wait(5000)
+      cy.searchAndClickTopResult(variableName, true)
+      cy.contains(`${variableName} Over Time`, {timeout: 20000})
     cy.get('#menu-more-button').click({ force: true })
     cy.clickActionSheetButtonContaining('History')
     cy.get('#historyItemTitle', { timeout: 30000 })

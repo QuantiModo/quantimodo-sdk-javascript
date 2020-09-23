@@ -263,11 +263,11 @@ Cypress.Commands.add('getWithinIframe',
  */
 Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldContainSearchTerm) => {
     cy.log(`=== searchAndClickTopResult for ${variableName} ===`)
-    cy.wait(5000)
-    cy.get('#variableSearchBox').type(variableName, { force: true })
+    cy.wait(1000)
+    cy.get('#variableSearchBox').type(variableName, { force: true, timeout: 5000 })
     let firstResultSelector = '#variable-search-result > div > p'
     cy.log('Wait for search results to load')
-    cy.wait(5000)
+    cy.wait(2000)
     cy.log(`Click on ${variableName} in dropdown search results`)
     if (topResultShouldContainSearchTerm) {
         cy.get(firstResultSelector, { timeout: 20000 })
