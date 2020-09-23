@@ -186,7 +186,7 @@ describe('Reminders', function () {
 
     //assertReminderListContains(time);
     cy.get(firstReminderTime).should('contain', time)
-    cy.wait(25000) // Have to wait for save to complete
+    cy.wait(15000) // Have to wait for save to complete
     goToCategoryInbox(variableCategoryName)
     cy.get('#notification-settings').click({ force: true })
     cy.url().should('include', '#/app/reminder-add/')
@@ -221,7 +221,7 @@ describe('Reminders', function () {
     cy.get('#negativeRatingOptions4').click({ force: true,timeout: 20000 })
       cy.get('#menu-item-chart-search > a').click({ force: true,timeout: 20000 })
       cy.log("waiting for notifications to post after leaving inbox state before checking history...")
-      cy.wait(5000)
+      cy.wait(10000)
       cy.searchAndClickTopResult(variableName, true)
       cy.contains(`${variableName} Over Time`, {timeout: 20000})
     cy.get('#menu-more-button').click({ force: true })
