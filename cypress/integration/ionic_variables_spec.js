@@ -104,13 +104,14 @@ describe('Variables', function(){
         cy.get('#helpInfoCardHeader > span:nth-child(2) > p', {timeout: 30000})
         cy.url().should('not.contain', 'variable-settings')
         cy.visitIonicAndSetApiUrl(settingsPath)
+        cy.wait(15000)
         cy.log("TODO: TEST TO MAKE SURE THE CHANGES STUCK. IT'S CURRENTLY VERY FLAKEY")
         cy.assertInputValueContains('#minimumAllowedValue', min);
         cy.assertInputValueEquals('#maximumAllowedValue', max);
         cy.assertInputValueEquals('#onsetDelay', delay)
         cy.assertInputValueEquals('#durationOfAction', duration)
         cy.assertInputValueEquals('#fillingValue', filling)
-        cy.get('#resetButton').click({force: true})
+        cy.get('#resetButton').click({force: true, timeout: 30000})
         cy.wait(15000)
         //cy.url().should('not.contain', 'variable-settings');
         //cy.visit(settingsPath);
