@@ -17,7 +17,7 @@ function verifyAndDeleteMeasurement(variableString){
  * @param timeout
  */
 function searchForMoodFromMagnifyingGlassIcon(variableName, timeout = 1000){
-    cy.wait(1000)
+    //cy.wait(1000)
     cy.get('#menu-search-button').click({force: true})
     cy.get('md-autocomplete-wrap.md-whiteframe-z1 > input[type="search"]').click({force: true})
     cy.get('md-autocomplete-wrap.md-whiteframe-z1 > input[type="search"]').type(variableName, {force: true})
@@ -28,20 +28,6 @@ function searchForMoodFromMagnifyingGlassIcon(variableName, timeout = 1000){
         .click({force: true})
 }
 /**
- * @param {string} variableName
- */
-function checkChartsPage(variableName){
-    cy.url().should('contain', 'charts')
-    cy.log('Chart is present and titled')
-    cy.get(
-        '#app-container > ion-side-menu-content > ion-nav-view > ion-view > ion-content > div.scroll > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > h2',
-        {timeout: 30000})
-        .should('contain', `${variableName} Over Time`)
-    cy.get('.scroll > div:nth-of-type(2) > div:nth-of-type(2) > .card:nth-of-type(2) > .item.item-text-wrap > h2',
-        {timeout: 60000})
-        .should('contain', variableName)
-}
-/**
  * @param {number} value
  */
 function recordRatingMeasurement(value){
@@ -50,46 +36,49 @@ function recordRatingMeasurement(value){
 }
 describe('Variables', function(){
     it('Creates a new emotion variable by measurement', function(){
-        let variableCategoryName = 'Emotions'
-        recordMeasurementForNewVariableAndDeleteIt(variableCategoryName)
+        let variableCategoryName = 'Emotions';
+        cy.loginWithAccessTokenIfNecessary(`/#/app/measurement-add-search?variableCategoryName=${variableCategoryName}`, true)
+        let d = new Date()
+        let variableString = `Unique Test Variable ${d.getTime()}`
+        cy.get('#variableSearchBox').type(variableString, {force: true})
+        cy.get('#new-variable-button', {timeout: 30000}).click({force: true})
+        cy.get('.primary-outcome-variable-history > img:nth-of-type(3)').click({force: true})
+        cy.get('#saveButton').click({force: true})
+        cy.visitIonicAndSetApiUrl(`/#/app/history-all?variableCategoryName=${variableCategoryName}`)
+        verifyAndDeleteMeasurement(variableString)
     })
     // Randomly started failing
-    it.skip('Tries all the buttons in the variable action sheet', function(){
+    it('Goes to charts page from the variable action sheet', function(){
         cy.loginWithAccessTokenIfNecessary('/#/app/reminders-inbox', true)
         let variableName = 'Overall Mood'
         searchForMoodFromMagnifyingGlassIcon(variableName, 15000)
         cy.clickActionSheetButtonContaining('Charts')
-        checkChartsPage(variableName)
-        searchForMoodFromMagnifyingGlassIcon(variableName)
-        cy.clickActionSheetButtonContaining('Record Measurement')
-        recordRatingMeasurement(3)
+        cy.url().should('contain', 'charts')
+        cy.log('Chart is present and titled')
+        cy.contains(`${variableName} Over Time`, {timeout: 30000})
+    })
+    it('Creates reminder from the variable action sheet', function(){
+        cy.loginWithAccessTokenIfNecessary('/#/app/reminders-inbox', true)
+        let variableName = 'Overall Mood'
         searchForMoodFromMagnifyingGlassIcon(variableName)
         cy.clickActionSheetButtonContaining('Add Reminder')
         cy.toastContains(variableName)
+    })
+    it('Creates study from the variable action sheet', function(){
+        cy.loginWithAccessTokenIfNecessary('/#/app/reminders-inbox', true)
+        let variableName = 'Overall Mood'
         searchForMoodFromMagnifyingGlassIcon(variableName)
         cy.clickActionSheetButtonContaining('Create Study')
         cy.get('#effectVariableName').should('contain', variableName)
         searchForMoodFromMagnifyingGlassIcon(variableName)
     })
-    /**
-     * @param {string} variableCategoryName
-     */
-    function recordMeasurementForNewVariableAndDeleteIt(variableCategoryName){
-        cy.loginWithAccessTokenIfNecessary(`/#/app/measurement-add-search?variableCategoryName=${variableCategoryName}`,
-            true)
-        let d = new Date()
-        let variableString = `Unique Test Variable ${d.getTime()}`
-        //let variableString = Math.round(d.getTime() / 1000) + " Unique Test Variable";
-        cy.get('#variableSearchBox').type(variableString, {force: true})
-        cy.get('#new-variable-button', {timeout: 30000}).click({force: true})
-        cy.get('#variableCategorySelector').type(variableCategoryName, {force: true})
-        cy.get('.primary-outcome-variable-history > img:nth-of-type(3)').click({force: true})
-        cy.get('#saveButton').click({force: true})
-        cy.wait(10000)
-        cy.visitIonicAndSetApiUrl(`/#/app/history-all?variableCategoryName=${variableCategoryName}`)
-        verifyAndDeleteMeasurement(variableString)
-        return variableString
-    }
+    it('Records measurement from the variable action sheet', function(){
+        cy.loginWithAccessTokenIfNecessary('/#/app/reminders-inbox', true)
+        let variableName = 'Overall Mood'
+        searchForMoodFromMagnifyingGlassIcon(variableName, 15000)
+        cy.clickActionSheetButtonContaining('Record Measurement')
+        recordRatingMeasurement(3)
+    })
     it('Goes to predictors page from the variable action sheet', function(){
         cy.loginWithAccessTokenIfNecessary('/#/app/reminders-inbox', true)
         let variableName = 'Overall Mood'
@@ -104,10 +93,7 @@ describe('Variables', function(){
         let duration = '5'
         let filling = '0'
         cy.loginWithAccessTokenIfNecessary(settingsPath)
-        cy.wait(10000)
-        cy.get('#resetButton')
-            .click({force: true})
-        cy.wait(10000)
+        cy.get('#resetButton', {timeout: 30000}).click({force: true})
         cy.assertInputValueEquals('#minimumAllowedValue', '0')
         cy.clearAndType('#minimumAllowedValue', min)
         cy.clearAndType('#maximumAllowedValue', max)
@@ -119,27 +105,25 @@ describe('Variables', function(){
         cy.url().should('not.contain', 'variable-settings')
         cy.visitIonicAndSetApiUrl(settingsPath)
         cy.log("TODO: TEST TO MAKE SURE THE CHANGES STUCK. IT'S CURRENTLY VERY FLAKEY")
-        //cy.assertInputValueContains('#minimumAllowedValue', min);
-        //cy.assertInputValueEquals('#maximumAllowedValue', max);
-        // cy.assertInputValueEquals('#onsetDelay', delay)
-        // cy.assertInputValueEquals('#durationOfAction', duration)
-        // cy.assertInputValueEquals('#fillingValue', filling)
-        // cy.get('#resetButton').click({force: true})
-        // cy.wait(15000)
-        // //cy.url().should('not.contain', 'variable-settings');
-        // //cy.visit(settingsPath);
-        // cy.assertInputValueEquals('#minimumAllowedValue', '0')
-        // cy.assertInputValueDoesNotContain('#maximumAllowedValue', max)
-        // cy.assertInputValueEquals('#onsetDelay', '0.5')
-        // cy.assertInputValueEquals('#durationOfAction', '504')
+        cy.assertInputValueContains('#minimumAllowedValue', min);
+        cy.assertInputValueEquals('#maximumAllowedValue', max);
+        cy.assertInputValueEquals('#onsetDelay', delay)
+        cy.assertInputValueEquals('#durationOfAction', duration)
+        cy.assertInputValueEquals('#fillingValue', filling)
+        cy.get('#resetButton').click({force: true})
+        cy.wait(15000)
+        //cy.url().should('not.contain', 'variable-settings');
+        //cy.visit(settingsPath);
+        cy.assertInputValueEquals('#minimumAllowedValue', '0')
+        cy.assertInputValueDoesNotContain('#maximumAllowedValue', max)
+        cy.assertInputValueEquals('#onsetDelay', '0.5')
+        cy.assertInputValueEquals('#durationOfAction', '504')
     })
-    it.skip('Goes to variable settings from chart page', function(){
+    it('Goes to variable settings from chart page', function(){
         cy.loginWithAccessTokenIfNecessary('/#/app/chart-search')
         cy.searchAndClickTopResult(variableName, true)
         cy.url().should('contain', chartsPath)
-        let chartTitleSelector = '#app-container > ion-side-menu-content > ion-nav-view > ion-view > ion-content > div.scroll > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > h2'
-        cy.get(chartTitleSelector, {timeout: 30000}).then(() => { // Need to wait for variable for action sheet to work
-            cy.containsCaseInsensitive(chartTitleSelector, variableName)
+        cy.contains(variableName+" Over Time", {timeout: 30000}).then(() => { // Need to wait for variable for action sheet to work
             cy.get('#menu-more-button').click({ force: true })
             cy.clickActionSheetButtonContaining("Settings")
             cy.wait(2000)
@@ -147,8 +131,17 @@ describe('Variables', function(){
         })
     })
     // Randomly failing
-    it.skip('Creates a new symptom rating variable by measurement', function(){
+    it('Creates a new symptom rating variable by measurement', function(){
+        cy.loginWithAccessTokenIfNecessary(`/#/app/measurement-add-search`, true)
+        let d = new Date()
+        let variableString = `Unique Test Variable ${d.getTime()}`;
         let variableCategoryName = 'Symptoms'
-        recordMeasurementForNewVariableAndDeleteIt(variableCategoryName)
+        cy.get('#variableSearchBox').type(variableString, {force: true})
+        cy.get('#new-variable-button', {timeout: 30000}).click({force: true})
+        cy.get('.scroll > #measurementAddCard > .list > .item > #variableCategorySelector').select(variableCategoryName)
+        cy.get('.primary-outcome-variable-history > img:nth-of-type(3)').click({force: true})
+        cy.get('#saveButton').click({force: true})
+        cy.visitIonicAndSetApiUrl(`/#/app/history-all?variableCategoryName=${variableCategoryName}`)
+        verifyAndDeleteMeasurement(variableString)
     })
 })
