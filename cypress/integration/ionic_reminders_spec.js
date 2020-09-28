@@ -251,7 +251,7 @@ describe('Reminders', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/reminder-add/', false)
     changeUnit('Minutes')
   })
-    it('Adds a favorite and records a measurement with it', function () {
+    it.skip('Adds a favorite and records a measurement with it', function () {
         deleteFavorites()
         cy.loginWithAccessTokenIfNecessary('/#/app/favorites')
         cy.log('Click add a favorite variable')
