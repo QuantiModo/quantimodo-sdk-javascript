@@ -166,17 +166,22 @@ export function runWithRecording(specName: string, cb: (err: any) => void) {
         record: true,
         spec: specPath,
     }).then((recordingResults) => {
-        console.info(specName + " results after recording re-run: " +
-            JSON.stringify(recordingResults, null, 2))
+        let runUrl: string | undefined = "No runUrl provided so just go to https://dashboard.cypress.io/"
+        if ("runUrl" in recordingResults) {
+            runUrl = recordingResults.runUrl
+        }
         qmGit.setGithubStatus("error", context, "View recording of "+specName,
-            "https://dashboard.cypress.io/")
+            runUrl)
         qmGit.createCommitComment(context, "\nView recording of "+specName+"\n"+
-            "[Cypress Dashboard](https://dashboard.cypress.io/)")
+            "[Cypress Dashboard]("+runUrl+")")
         cb(recordingResults)
     })
 }
 
 function getFailedTestsFromResults(results: any) {
+    if(!results.runs) {
+        console.error("No runs on results obj: ", results)
+    }
     const tests = results.runs[0].tests
     let failedTests: any[] = []
     if (tests) {
