@@ -144,7 +144,11 @@ function logFailedTests(failedTests: any[], context: string, cb: (err: any) => v
     for (let j = 0; j < failedTests.length; j++) {
         const test = failedTests[j]
         const testName = test.title[1]
-        const errorMessage = test.error
+        let errorMessage = test.error || test.message
+        if(!errorMessage) {
+            errorMessage = JSON.stringify(test)
+            console.error("no test.error or test.message property in "+errorMessage)
+        }
         console.error("==============================================")
         console.error(testName + " FAILED")
         console.error(errorMessage)
