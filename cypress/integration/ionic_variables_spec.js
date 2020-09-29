@@ -106,18 +106,26 @@ describe('Variables', function(){
         cy.visitIonicAndSetApiUrl(settingsPath)
         cy.wait(15000)
         cy.log("TODO: TEST TO MAKE SURE THE CHANGES STUCK. IT'S CURRENTLY VERY FLAKEY")
+        cy.log("minimumAllowedValue should be "+min)
         cy.assertInputValueContains('#minimumAllowedValue', min);
+        cy.log("maximumAllowedValue should be "+max)
         cy.assertInputValueEquals('#maximumAllowedValue', max);
+        cy.log("onsetDelay should be "+delay)
         cy.assertInputValueEquals('#onsetDelay', delay)
+        cy.log("durationOfAction should be "+duration)
         cy.assertInputValueEquals('#durationOfAction', duration)
         cy.assertInputValueEquals('#fillingValue', filling)
         cy.get('#resetButton').click({force: true, timeout: 30000})
         cy.wait(15000)
         //cy.url().should('not.contain', 'variable-settings');
         //cy.visit(settingsPath);
+        cy.log("minimumAllowedValue should be 0")
         cy.assertInputValueEquals('#minimumAllowedValue', '0')
+        cy.log("maximumAllowedValue should be "+max)
         cy.assertInputValueDoesNotContain('#maximumAllowedValue', max)
+        cy.log("onsetDelay should be 0.5")
         cy.assertInputValueEquals('#onsetDelay', '0.5')
+        cy.log("durationOfAction should be 504")
         cy.assertInputValueEquals('#durationOfAction', '504')
     })
     it('Goes to variable settings from chart page', function(){
