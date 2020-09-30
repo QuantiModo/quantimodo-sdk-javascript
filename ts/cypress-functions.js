@@ -152,7 +152,11 @@ function logFailedTests(failedTests, context, cb) {
     for (var j = 0; j < failedTests.length; j++) {
         var test_1 = failedTests[j];
         var testName = test_1.title[1];
-        var errorMessage = test_1.error;
+        var errorMessage = test_1.error || test_1.message;
+        if (!errorMessage) {
+            errorMessage = JSON.stringify(test_1);
+            console.error("no test.error or test.message property in " + errorMessage);
+        }
         console.error("==============================================");
         console.error(testName + " FAILED");
         console.error(errorMessage);
@@ -173,17 +177,21 @@ function runWithRecording(specName, cb) {
         record: true,
         spec: specPath,
     }).then(function (recordingResults) {
-        console.info(specName + " results after recording re-run: " +
-            JSON.stringify(recordingResults, null, 2));
-        qmGit.setGithubStatus("error", context, "View recording of " + specName, "https://dashboard.cypress.io/");
+        var runUrl = "No runUrl provided so just go to https://dashboard.cypress.io/";
+        if ("runUrl" in recordingResults) {
+            runUrl = recordingResults.runUrl;
+        }
+        qmGit.setGithubStatus("error", context, "View recording of " + specName, runUrl);
         qmGit.createCommitComment(context, "\nView recording of " + specName + "\n" +
-            "[Cypress Dashboard](https://dashboard.cypress.io/)" +
-            JSON.stringify(recordingResults, null, 2));
+            "[Cypress Dashboard](" + runUrl + ")");
         cb(recordingResults);
     });
 }
 exports.runWithRecording = runWithRecording;
 function getFailedTestsFromResults(results) {
+    if (!results.runs) {
+        console.error("No runs on results obj: ", results);
+    }
     var tests = results.runs[0].tests;
     var failedTests = [];
     if (tests) {
