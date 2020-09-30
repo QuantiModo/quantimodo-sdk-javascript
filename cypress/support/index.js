@@ -94,6 +94,15 @@ Cypress.on('window:before:load', (win) => {
 });
 
 Cypress.on('log:added', (options) => {
+    if (options.instrument === 'command' && options.consoleProps) {
+        let detailMessage = ''
+        if (options.name === 'xhr') {
+            detailMessage = (options.consoleProps.Stubbed === 'Yes' ? 'STUBBED ' : '') + options.consoleProps.Method + ' ' + options.consoleProps.URL
+        }
+        const message = options.name + ' ' + options.message + (detailMessage !== '' ? ' ' + detailMessage : '')
+        console.log(message);
+        return;
+    }
     if (options.instrument === 'command') {  // Needs ELECTRON_ENABLE_LOGGING=1
         // eslint-disable-next-line no-console
         let message = `${(options.displayName || options.name || '').toUpperCase()} ${
