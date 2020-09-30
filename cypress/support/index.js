@@ -61,52 +61,67 @@ function truncate(str, length, ending) {
     }
 }
 Cypress.on('window:before:load', (win) => {
-    win.console.log = (...args) => {  // Needs ELECTRON_ENABLE_LOGGING=1
-        try {
-            let str = JSON.stringify(args);
-            if(str.indexOf("[bugsnag] Loaded") !== -1){return}
-            //let baseUrl = Cypress.env('baseUrl');
-            //if(str.indexOf('/api/v') !== -1 && str.indexOf(Cypress.env('baseUrl')) === -1){throw "baseUrl is "+baseUrl+" but log message says "+str;}
-            if(str && str.length > 1000){
-                let obj = JSON.parse(str);
-                delete obj.consoleProps // Fix for logrocket spam
-                str = JSON.stringify(obj);
+    if(Cypress.env('ELECTRON_ENABLE_LOGGING')) {
+        win.console.log = (...args) => {  // Needs ELECTRON_ENABLE_LOGGING=1
+            try {
+                let str = JSON.stringify(args);
+                if (str.indexOf("[bugsnag] Loaded") !== -1) {
+                    return
+                }
+                //let baseUrl = Cypress.env('baseUrl');
+                //if(str.indexOf('/api/v') !== -1 && str.indexOf(Cypress.env('baseUrl')) === -1){throw "baseUrl is "+baseUrl+" but log message says "+str;}
+                if (str && str.length > 1000) {
+                    let obj = JSON.parse(str);
+                    delete obj.consoleProps // Fix for logrocket spam
+                    str = JSON.stringify(obj);
+                }
+                if (new RegExp(skip.join("|")).test(str)) {
+                    return;
+                }
+                for (let i = 0; i < remove.length; i++) {
+                    const removeElement = remove[i];
+                    str = str.replace(removeElement, '');
+                }
+                args = JSON.parse(str);
+            } catch (e) {
+                Cypress.log({
+                    name: 'console.log',
+                    message: "Could not format log because " + e.message,
+                });
             }
-            if (new RegExp(skip.join("|")).test(str)) {
-                return;
-            }
-            for (let i = 0; i < remove.length; i++) {
-                const removeElement = remove[i];
-                str = str.replace(removeElement, '');
-            }
-            args = JSON.parse(str);
-        } catch (e) {
             Cypress.log({
                 name: 'console.log',
-                message: "Could not format log because "+e.message,
+                message: args,
             });
-        }
-        Cypress.log({
-            name: 'console.log',
-            message: args,
-        });
-    };
+        };
+    }
 });
 
 Cypress.on('log:added', (options) => {
-    if (options.instrument === 'command') {  // Needs ELECTRON_ENABLE_LOGGING=1
-        // eslint-disable-next-line no-console
-        let message = `${(options.displayName || options.name || '').toUpperCase()} ${
-            options.message
-        }`;
-        if(!options.message || options.message === ""){
-            try {
-                message = JSON.stringify(options, null, 2)
-                message = truncate(message, 500)
-            }catch (e) {
-                console.log("Could not format log because "+e.message);
+    if(Cypress.env('ELECTRON_ENABLE_LOGGING')) {
+        if (options.instrument === 'command' && options.consoleProps) {
+            let detailMessage = ''
+            if (options.name === 'xhr') {
+                detailMessage = (options.consoleProps.Stubbed === 'Yes' ? 'STUBBED ' : '') + options.consoleProps.Method + ' ' + options.consoleProps.URL
             }
+            const message = options.name + ' ' + options.message + (detailMessage !== '' ? ' ' + detailMessage : '')
+            console.log(message);
+            return;
         }
-        console.log(message);
+        if (options.instrument === 'command') {  // Needs ELECTRON_ENABLE_LOGGING=1
+            // eslint-disable-next-line no-console
+            let message = `${(options.displayName || options.name || '').toUpperCase()} ${
+                options.message
+            }`;
+            if (!options.message || options.message === "") {
+                try {
+                    message = JSON.stringify(options, null, 2)
+                    message = truncate(message, 500)
+                } catch (e) {
+                    console.log("Could not format log because " + e.message);
+                }
+            }
+            console.log(message);
+        }
     }
 });
