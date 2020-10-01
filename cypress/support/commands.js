@@ -24,7 +24,9 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 let logLevel = Cypress.env('LOG_LEVEL') || 'info'
-let accessToken = Cypress.env('ACCESS_TOKEN') || 'test-token'
+const PERMANENT_TEST_USER_ACCESS_TOKEN_FOR_18535 = '42ff4170172357b7312bb127fb58d5ea464943c1';
+const ACCESS_TOKEN_TO_GET_OR_CREATE_REFERRER_SPECIFIC_USER = 'test-token';
+let accessToken = Cypress.env('ACCESS_TOKEN') || PERMANENT_TEST_USER_ACCESS_TOKEN_FOR_18535 || ACCESS_TOKEN_TO_GET_OR_CREATE_REFERRER_SPECIFIC_USER
 let API_HOST = Cypress.env('API_HOST')  // API_HOST must be a quantimo.do domain so cypress can clear cookies
 let oauthAppBaseUrl = "https://"+Cypress.env('OAUTH_APP_HOST')
 let baseUrl = Cypress.config('baseUrl')
@@ -66,8 +68,10 @@ function UpdateQueryString(key, value, uri){
 }
 Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminders-inbox', waitForAvatar = true) => {
     cy.log(`${path} - loginWithAccessTokenIfNecessary`)
-    path = UpdateQueryString('access_token', accessToken, path)
-    cy.visitIonicAndSetApiUrl(path)
+    //let logout = UpdateQueryString('logout', true, path)
+    //cy.visitIonicAndSetApiUrl(logout)
+    let withToken = UpdateQueryString('access_token', accessToken, path)
+    cy.visitIonicAndSetApiUrl(withToken)
     if(waitForAvatar){
         cy.get('#navBarAvatar > img', {timeout: 40000})
     }
@@ -75,7 +79,9 @@ Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminder
 Cypress.Commands.add('visitIonicAndSetApiUrl', (path = '/#/app/reminders-inbox') => {
     path = UpdateQueryString('apiUrl', API_HOST, path)
     path = UpdateQueryString('logLevel', logLevel, path)
-    let url = oauthAppBaseUrl + path
+    if(Cypress.env('LOGROCKET')){path = UpdateQueryString('logrocket', 1, path)}
+    let url = path
+    if(path.indexOf('http') !== 0){url = oauthAppBaseUrl + path}
     cy.log(`${url} - visitIonicAndSetApiUrl`)
     cy.visit(url)
 })
@@ -87,6 +93,7 @@ Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
     options.qs.apiUrl = API_HOST
     cy.visit(url, options)
 })
+// noinspection JSUnusedLocalSymbols
 Cypress.Commands.add('visitApi', (url, options = {}, urlParams = {}) => {
     cy.log(`=== visitWithApiUrlParam at ${url} ===`)
     if(!API_HOST || API_HOST === 'undefined'){
@@ -214,6 +221,7 @@ Cypress.Commands.add('allowUncaughtException', (expectedErrorMessage) => {
 Cypress.Commands.add('checkForBrokenImages', () => {
     cy.log('Checking for broken images...')
     cy.wait(2000);
+    // noinspection JSUnusedLocalSymbols
     cy.get('img', {timeout: 30000})
     // eslint-disable-next-line no-unused-vars
         .each(($el, index, $list) => {
@@ -255,9 +263,8 @@ Cypress.Commands.add('getWithinIframe',
  */
 Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldContainSearchTerm) => {
     cy.log(`=== searchAndClickTopResult for ${variableName} ===`)
-    cy.wait(2000)
-    cy.get('#variableSearchBox')
-        .type(variableName, { force: true })
+    cy.wait(1000)
+    cy.get('#variableSearchBox').type(variableName, { force: true, timeout: 5000 })
     let firstResultSelector = '#variable-search-result > div > p'
     cy.log('Wait for search results to load')
     cy.wait(2000)
@@ -270,6 +277,10 @@ Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldCo
         cy.get(firstResultSelector, { timeout: 20000 })
             .click({ force: true })
     }
+})
+Cypress.Commands.add('setTimeZone', () => {
+    cy.log(`=== setTimeZone for ${variableName} ===`)
+    // TODO
 })
 /**
  * @param {string} str
@@ -291,3 +302,4 @@ Cypress.Commands.add('clickActionSheetButtonContaining', (str) => {
 Cypress.Commands.add('toastContains', (str) => {
     cy.get('.md-toast-text').should('contain', str)
 })
+//Cypress.Commands.overwrite('log', (subject, message) => cy.task('log', message));

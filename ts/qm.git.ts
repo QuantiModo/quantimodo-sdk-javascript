@@ -5,9 +5,10 @@ import origin from "remote-origin-url"
 // @ts-ignore
 import * as git from "simple-git"
 import _str from "underscore.string"
+import {loadEnv} from "./env-helper"
 import * as qmLog from "./qm.log"
 import * as qmShell from "./qm.shell"
-import * as qmTests from "./qm.tests"
+import {getBuildLink} from "./test-helpers"
 export function getOctoKit() {
     return new Octokit({auth: getAccessToken()})
 }
@@ -34,16 +35,15 @@ export function getCurrentGitCommitSha() {
     }
 }
 export function getAccessToken() {
-    if (process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS) {
-        return process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS
+    let t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN
+    if(!t) {
+        loadEnv("local")
+        t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN
     }
-    if (process.env.GITHUB_ACCESS_TOKEN) {
-        return process.env.GITHUB_ACCESS_TOKEN
+    if(!t) {
+        throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env")
     }
-    if (process.env.GH_TOKEN) {
-        return process.env.GH_TOKEN
-    }
-    throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env")
+    return t
 }
 export function getRepoUrl() {
     if (process.env.REPOSITORY_URL_FOR_STATUS) {
@@ -102,13 +102,28 @@ export function getRepoUserName() {
         console.info(error)
     }
 }
+
+export const githubStatusStates = {
+    error: "error",
+    failure: "failure",
+    pending: "pending",
+    success: "success",
+}
+
 /**
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */
 // tslint:disable-next-line:max-line-length
-export function setGithubStatus(testState: string, context: string, description: string, url?: string | null, cb?: ((arg0: any) => void) | undefined) {
-    const state = convertTestStateToGithubState(testState)
+export function setGithubStatus(testState: "error" | "failure" | "pending" | "success", context: string,
+                                description: string, url?: string | null, cb?: ((arg0: any) => void) | undefined) {
     description = _str.truncate(description, 135)
+    url = url || getBuildLink()
+    if(!url) {
+        const message = "No build link or target url for status!"
+        console.error(message)
+        if (cb) {cb(message)}
+        return
+    }
     // @ts-ignore
     const params: Octokit.ReposCreateStatusParams = {
         context,
@@ -116,29 +131,43 @@ export function setGithubStatus(testState: string, context: string, description:
         owner: getRepoUserName(),
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
-        state,
-        target_url: url || qmTests.getBuildLink(),
+        state: testState,
+        target_url: url,
     }
-    console.log(`${context} - ${description} - ${state} at ${params.target_url}`)
+    console.log(`${context} - ${description} - ${testState} at ${url}`)
     getOctoKit().repos.createStatus(params).then((data: any) => {
         if (cb) {
             cb(data)
         }
     }).catch((err: any) => {
         console.error(err)
-        process.exit(1)
-        throw err
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
     })
 }
-function convertTestStateToGithubState(testState: string): "error" | "failure" | "pending" | "success" {
-    let state = testState
-    if (testState === "passed") {state = "success" }
-    if (testState === "failed") {state = "failure" }
-    if (!state) {
-        throw new Error("No state!")
-    }
+// tslint:disable-next-line:max-line-length
+export function createCommitComment(context: string, body: string, cb?: ((arg0: any) => void) | undefined) {
+    body += "\n### "+context+"\n"
+    body += "\n[BUILD LOG]("+getBuildLink()+")\n"
     // @ts-ignore
-    return state
+    const params: Octokit.ReposCreateCommitCommentParams = {
+        body,
+        commit_sha: getCurrentGitCommitSha(),
+        owner: getRepoUserName(),
+        repo: getRepoName(),
+    }
+    console.log(body)
+    getOctoKit().repos.createCommitComment(params).then((data: any) => {
+        if (cb) {
+            cb(data)
+        }
+    }).catch((err: any) => {
+        console.error(err)
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
+    })
 }
 export function getBranchName() {
     // tslint:disable-next-line:max-line-length

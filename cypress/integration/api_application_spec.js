@@ -10,10 +10,11 @@ function createNewApplication(){
     cy.get('#app_display_name').type(testAppName, {force: true})
     cy.get('#client_id').type(testAppName, {force: true})
     cy.get('#app_description').type(testAppName, {force: true})
-    cy.get('#homepage_url').type(testAppName, {force: true})
+    cy.get('#homepage_url').type("https://"+testAppName+".com", {force: true})
     cy.get('.btn-success').click({force: true})
     cy.log('Need to start redirecting to builder.quantimo.do...')
-    cy.checkForBrokenImages()
+    cy.url().should('contain','/edit', {timeout: 120000})
+    // cy.checkForBrokenImages() checkForBrokenImages is randomly slow here for some reason
     // cy.get('iframe#iframe md-tabs-canvas.md-paginated > md-pagination-wrapper >
     // md-tab-item.md-tab.md-ink-ripple:nth-of-type(2) > span',
     //     {timeout: 120000})

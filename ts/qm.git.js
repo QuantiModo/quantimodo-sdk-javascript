@@ -17,9 +17,10 @@ var remote_origin_url_1 = __importDefault(require("remote-origin-url"));
 // @ts-ignore
 var git = __importStar(require("simple-git"));
 var underscore_string_1 = __importDefault(require("underscore.string"));
+var env_helper_1 = require("./env-helper");
 var qmLog = __importStar(require("./qm.log"));
 var qmShell = __importStar(require("./qm.shell"));
-var qmTests = __importStar(require("./qm.tests"));
+var test_helpers_1 = require("./test-helpers");
 function getOctoKit() {
     return new rest_1.default({ auth: getAccessToken() });
 }
@@ -49,16 +50,15 @@ function getCurrentGitCommitSha() {
 }
 exports.getCurrentGitCommitSha = getCurrentGitCommitSha;
 function getAccessToken() {
-    if (process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS) {
-        return process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS;
+    var t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN;
+    if (!t) {
+        env_helper_1.loadEnv("local");
+        t = process.env.GITHUB_ACCESS_TOKEN_FOR_STATUS || process.env.GITHUB_ACCESS_TOKEN || process.env.GH_TOKEN;
     }
-    if (process.env.GITHUB_ACCESS_TOKEN) {
-        return process.env.GITHUB_ACCESS_TOKEN;
+    if (!t) {
+        throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env");
     }
-    if (process.env.GH_TOKEN) {
-        return process.env.GH_TOKEN;
-    }
-    throw new Error("Please set GITHUB_ACCESS_TOKEN or GH_TOKEN env");
+    return t;
 }
 exports.getAccessToken = getAccessToken;
 function getRepoUrl() {
@@ -123,13 +123,27 @@ function getRepoUserName() {
     }
 }
 exports.getRepoUserName = getRepoUserName;
+exports.githubStatusStates = {
+    error: "error",
+    failure: "failure",
+    pending: "pending",
+    success: "success",
+};
 /**
  * state can be one of `error`, `failure`, `pending`, or `success`.
  */
 // tslint:disable-next-line:max-line-length
 function setGithubStatus(testState, context, description, url, cb) {
-    var state = convertTestStateToGithubState(testState);
     description = underscore_string_1.default.truncate(description, 135);
+    url = url || test_helpers_1.getBuildLink();
+    if (!url) {
+        var message = "No build link or target url for status!";
+        console.error(message);
+        if (cb) {
+            cb(message);
+        }
+        return;
+    }
     // @ts-ignore
     var params = {
         context: context,
@@ -137,35 +151,46 @@ function setGithubStatus(testState, context, description, url, cb) {
         owner: getRepoUserName(),
         repo: getRepoName(),
         sha: getCurrentGitCommitSha(),
-        state: state,
-        target_url: url || qmTests.getBuildLink(),
+        state: testState,
+        target_url: url,
     };
-    console.log(context + " - " + description + " - " + state + " at " + params.target_url);
+    console.log(context + " - " + description + " - " + testState + " at " + url);
     getOctoKit().repos.createStatus(params).then(function (data) {
         if (cb) {
             cb(data);
         }
     }).catch(function (err) {
         console.error(err);
-        process.exit(1);
-        throw err;
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
     });
 }
 exports.setGithubStatus = setGithubStatus;
-function convertTestStateToGithubState(testState) {
-    var state = testState;
-    if (testState === "passed") {
-        state = "success";
-    }
-    if (testState === "failed") {
-        state = "failure";
-    }
-    if (!state) {
-        throw new Error("No state!");
-    }
+// tslint:disable-next-line:max-line-length
+function createCommitComment(context, body, cb) {
+    body += "\n### " + context + "\n";
+    body += "\n[BUILD LOG](" + test_helpers_1.getBuildLink() + ")\n";
     // @ts-ignore
-    return state;
+    var params = {
+        body: body,
+        commit_sha: getCurrentGitCommitSha(),
+        owner: getRepoUserName(),
+        repo: getRepoName(),
+    };
+    console.log(body);
+    getOctoKit().repos.createCommitComment(params).then(function (data) {
+        if (cb) {
+            cb(data);
+        }
+    }).catch(function (err) {
+        console.error(err);
+        // Don't fail when we trigger abuse detection mechanism
+        // process.exit(1)
+        // throw err
+    });
 }
+exports.createCommitComment = createCommitComment;
 function getBranchName() {
     // tslint:disable-next-line:max-line-length
     var name = process.env.CIRCLE_BRANCH || process.env.BUDDYBUILD_BRANCH || process.env.TRAVIS_BRANCH || process.env.GIT_BRANCH;

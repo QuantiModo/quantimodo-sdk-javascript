@@ -692,10 +692,10 @@ Request.prototype.auth = function(user, pass, options){
       this.username = user;
       this.password = pass;
     break;
-      
+
     case 'bearer': // usage would be .auth(accessToken, { type: 'bearer' })
       this.set('Authorization', 'Bearer ' + user);
-    break;  
+    break;
   }
   return this;
 };
@@ -2368,6 +2368,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
         queryParams['_'] = new Date().getTime();
     }
+
+      if(this.basePath.indexOf('local.quantimo.do') !== false){
+          queryParams['XDEBUG_SESSION_START'] = "PHPSTORM";
+      }
+
     request.query(this.normalizeParams(queryParams));
 
     // set header parameters
@@ -2595,7 +2600,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new ActivitiesApi. 
+   * Constructs a new ActivitiesApi.
    * @alias module:api/ActivitiesApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -2771,7 +2776,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new AnalyticsApi. 
+   * Constructs a new AnalyticsApi.
    * @alias module:api/AnalyticsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -2955,7 +2960,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new AppSettingsApi. 
+   * Constructs a new AppSettingsApi.
    * @alias module:api/AppSettingsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -3058,7 +3063,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new AuthenticationApi. 
+   * Constructs a new AuthenticationApi.
    * @alias module:api/AuthenticationApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -3298,7 +3303,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new ConnectorsApi. 
+   * Constructs a new ConnectorsApi.
    * @alias module:api/ConnectorsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -3638,7 +3643,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new FeedApi. 
+   * Constructs a new FeedApi.
    * @alias module:api/FeedApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -3806,7 +3811,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new FriendsApi. 
+   * Constructs a new FriendsApi.
    * @alias module:api/FriendsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -3982,7 +3987,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new GroupsApi. 
+   * Constructs a new GroupsApi.
    * @alias module:api/GroupsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -4280,7 +4285,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new MeasurementsApi. 
+   * Constructs a new MeasurementsApi.
    * @alias module:api/MeasurementsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -4686,7 +4691,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new MessagesApi. 
+   * Constructs a new MessagesApi.
    * @alias module:api/MessagesApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -5106,7 +5111,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new NotificationsApi. 
+   * Constructs a new NotificationsApi.
    * @alias module:api/NotificationsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -5368,7 +5373,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new RemindersApi. 
+   * Constructs a new RemindersApi.
    * @alias module:api/RemindersApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -5705,7 +5710,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new SharesApi. 
+   * Constructs a new SharesApi.
    * @alias module:api/SharesApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -5925,7 +5930,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new StudiesApi. 
+   * Constructs a new StudiesApi.
    * @alias module:api/StudiesApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -6631,7 +6636,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new UnitsApi. 
+   * Constructs a new UnitsApi.
    * @alias module:api/UnitsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -6767,7 +6772,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new UserApi. 
+   * Constructs a new UserApi.
    * @alias module:api/UserApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -7186,7 +7191,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new VariablesApi. 
+   * Constructs a new VariablesApi.
    * @alias module:api/VariablesApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -7362,7 +7367,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.clientId Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {String} opts.upc UPC or other barcode scan result
      * @param {String} opts.effectOrCause Provided variable is the effect or cause
-     * @param {String} opts.publicEffectOrCause Ex: 
+     * @param {String} opts.publicEffectOrCause Ex:
      * @param {Boolean} opts.exactMatch Require exact match
      * @param {Number} opts.variableCategoryId Ex: 13
      * @param {Boolean} opts.includePrivate Include user-specific variables in results
@@ -7665,7 +7670,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
 
   /**
-   * Constructs a new XprofileApi. 
+   * Constructs a new XprofileApi.
    * @alias module:api/XprofileApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -8710,7 +8715,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>ActivitiesResponse</code>.
    * @alias module:model/ActivitiesResponse
    * @class
-   * @param activities {Array.<module:model/Activity>} 
+   * @param activities {Array.<module:model/Activity>}
    */
   var exports = function(activities) {
     var _this = this;
@@ -11607,7 +11612,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['reverseCorrelation'] = undefined;
   /**
-   * Ex: 
+   * Ex:
    * @member {String} averagePearsonCorrelationCoefficientOverOnsetDelays
    */
   exports.prototype['averagePearsonCorrelationCoefficientOverOnsetDelays'] = undefined;
@@ -11617,17 +11622,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['causeNumberOfRawMeasurements'] = undefined;
   /**
-   * Ex: 
+   * Ex:
    * @member {String} correlationsOverDurationsOfAction
    */
   exports.prototype['correlationsOverDurationsOfAction'] = undefined;
   /**
-   * Ex: 
+   * Ex:
    * @member {String} correlationsOverDurationsOfActionChartConfig
    */
   exports.prototype['correlationsOverDurationsOfActionChartConfig'] = undefined;
   /**
-   * Ex: 
+   * Ex:
    * @member {String} correlationsOverOnsetDelaysChartConfig
    */
   exports.prototype['correlationsOverOnsetDelaysChartConfig'] = undefined;
@@ -12340,9 +12345,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @alias module:model/Explanation
    * @class
    * @param description {String} Ex: These factors are most predictive of Overall Mood based on your own data.
-   * @param image {module:model/Image} 
+   * @param image {module:model/Image}
    * @param ionIcon {String} Ex: ion-ios-person
-   * @param startTracking {module:model/ExplanationStartTracking} 
+   * @param startTracking {module:model/ExplanationStartTracking}
    * @param title {String} Ex: Top Predictors of Overall Mood
    */
   var exports = function(description, image, ionIcon, startTracking, title) {
@@ -12471,7 +12476,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>ExplanationStartTracking</code>.
    * @alias module:model/ExplanationStartTracking
    * @class
-   * @param button {module:model/Button} 
+   * @param button {module:model/Button}
    * @param description {String} Ex: The more data I have the more accurate your results will be so track regularly!
    * @param title {String} Ex: Improve Accuracy
    */
@@ -12575,7 +12580,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>FeedResponse</code>.
    * @alias module:model/FeedResponse
    * @class
-   * @param cards {Array.<module:model/Card>} 
+   * @param cards {Array.<module:model/Card>}
    * @param description {String} Tracking reminder notifications, messages, and study result cards that can be displayed in user feed or stream
    * @param summary {String} Tracking reminder notifications, messages, and study results
    */
@@ -12877,7 +12882,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>FriendsResponse</code>.
    * @alias module:model/FriendsResponse
    * @class
-   * @param friends {Array.<module:model/Friend>} 
+   * @param friends {Array.<module:model/Friend>}
    */
   var exports = function(friends) {
     var _this = this;
@@ -13225,8 +13230,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>GetCorrelationsDataResponse</code>.
    * @alias module:model/GetCorrelationsDataResponse
    * @class
-   * @param correlations {Array.<module:model/Correlation>} 
-   * @param explanation {module:model/Explanation} 
+   * @param correlations {Array.<module:model/Correlation>}
+   * @param explanation {module:model/Explanation}
    */
   var exports = function(correlations, explanation) {
     var _this = this;
@@ -14403,7 +14408,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>GroupsMembersResponse</code>.
    * @alias module:model/GroupsMembersResponse
    * @class
-   * @param groupsMembers {Array.<module:model/GroupsMember>} 
+   * @param groupsMembers {Array.<module:model/GroupsMember>}
    */
   var exports = function(groupsMembers) {
     var _this = this;
@@ -14594,7 +14599,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>GroupsResponse</code>.
    * @alias module:model/GroupsResponse
    * @class
-   * @param groups {Array.<module:model/Group>} 
+   * @param groups {Array.<module:model/Group>}
    */
   var exports = function(groups) {
     var _this = this;
@@ -15806,7 +15811,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userVariableVariableCategoryName'] = undefined;
   /**
-   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables. 
+   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
    * @member {String} valence
    */
   exports.prototype['valence'] = undefined;
@@ -15831,7 +15836,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
-   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables. 
+   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
    * @member {String} variableDescription
    */
   exports.prototype['variableDescription'] = undefined;
@@ -16779,7 +16784,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>MessagesMessagesResponse</code>.
    * @alias module:model/MessagesMessagesResponse
    * @class
-   * @param messagesMessages {Array.<module:model/MessagesMessage>} 
+   * @param messagesMessages {Array.<module:model/MessagesMessage>}
    */
   var exports = function(messagesMessages) {
     var _this = this;
@@ -17104,7 +17109,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>MessagesNoticesResponse</code>.
    * @alias module:model/MessagesNoticesResponse
    * @class
-   * @param messagesNotices {Array.<module:model/MessagesNotice>} 
+   * @param messagesNotices {Array.<module:model/MessagesNotice>}
    */
   var exports = function(messagesNotices) {
     var _this = this;
@@ -17457,7 +17462,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>MessagesRecipientsResponse</code>.
    * @alias module:model/MessagesRecipientsResponse
    * @class
-   * @param messagesRecipients {Array.<module:model/MessagesRecipient>} 
+   * @param messagesRecipients {Array.<module:model/MessagesRecipient>}
    */
   var exports = function(messagesRecipients) {
     var _this = this;
@@ -17812,7 +17817,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>NotificationsResponse</code>.
    * @alias module:model/NotificationsResponse
    * @class
-   * @param notifications {Array.<module:model/Notification>} 
+   * @param notifications {Array.<module:model/Notification>}
    */
   var exports = function(notifications) {
     var _this = this;
@@ -22112,7 +22117,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userVariableVariableCategoryName'] = undefined;
   /**
-   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables. 
+   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
    * @member {String} valence
    */
   exports.prototype['valence'] = undefined;
@@ -22142,7 +22147,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['variableCategoryName'] = undefined;
   /**
-   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables. 
+   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
    * @member {String} variableDescription
    */
   exports.prototype['variableDescription'] = undefined;
@@ -22434,11 +22439,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>TrackingReminderNotification</code>.
    * @alias module:model/TrackingReminderNotification
    * @class
-   * @param actionArray {Array.<module:model/TrackingReminderNotificationAction>} 
-   * @param availableUnits {Array.<module:model/Unit>} 
+   * @param actionArray {Array.<module:model/TrackingReminderNotificationAction>}
+   * @param availableUnits {Array.<module:model/Unit>}
    * @param fillingValue {Number} Ex: 0
    * @param id {Number} id for the specific PENDING tracking remidner
-   * @param trackAllActions {Array.<module:model/TrackingReminderNotificationTrackAllAction>} 
+   * @param trackAllActions {Array.<module:model/TrackingReminderNotificationTrackAllAction>}
    */
   var exports = function(actionArray, availableUnits, fillingValue, id, trackAllActions) {
     var _this = this;
@@ -22906,7 +22911,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['defaultValue'] = undefined;
   /**
-   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables. 
+   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
@@ -23170,7 +23175,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['userVariableVariableCategoryName'] = undefined;
   /**
-   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables. 
+   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
    * @member {String} valence
    */
   exports.prototype['valence'] = undefined;
@@ -23776,7 +23781,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @param conversionSteps {Array.<module:model/ConversionStep>} Conversion steps list
    * @param maximumValue {Number} Ex: 4
    * @param name {String} Unit name
-   * @param unitCategory {module:model/UnitCategory} 
+   * @param unitCategory {module:model/UnitCategory}
    */
   var exports = function(abbreviatedName, category, conversionSteps, maximumValue, name, unitCategory) {
     var _this = this;
@@ -24542,12 +24547,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['phoneVerificationCode'] = undefined;
   /**
-   * A good primary outcome variable is something that you want to improve and that changes inexplicably. For instance, if you have anxiety, back pain or arthritis which is worse on some days than others, these would be good candidates for primary outcome variables.  Recording their severity and potential factors will help you identify hidden factors exacerbating or improving them. 
+   * A good primary outcome variable is something that you want to improve and that changes inexplicably. For instance, if you have anxiety, back pain or arthritis which is worse on some days than others, these would be good candidates for primary outcome variables.  Recording their severity and potential factors will help you identify hidden factors exacerbating or improving them.
    * @member {Number} primaryOutcomeVariableId
    */
   exports.prototype['primaryOutcomeVariableId'] = undefined;
   /**
-   * A good primary outcome variable is something that you want to improve and that changes inexplicably. For instance, if you have anxiety, back pain or arthritis which is worse on some days than others, these would be good candidates for primary outcome variables.  Recording their severity and potential factors will help you identify hidden factors exacerbating or improving them. 
+   * A good primary outcome variable is something that you want to improve and that changes inexplicably. For instance, if you have anxiety, back pain or arthritis which is worse on some days than others, these would be good candidates for primary outcome variables.  Recording their severity and potential factors will help you identify hidden factors exacerbating or improving them.
    * @member {String} primaryOutcomeVariableName
    */
   exports.prototype['primaryOutcomeVariableName'] = undefined;
@@ -24621,6 +24626,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} timeZoneOffset
    */
   exports.prototype['timeZoneOffset'] = undefined;
+    /**
+     * Ex: America/Chicago
+     * @member {String} timezone
+     */
+    exports.prototype['timezone'] = undefined;
   /**
    * Ex: 1
    * @member {Boolean} trackLocation
@@ -24809,7 +24819,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>UserBlogsResponse</code>.
    * @alias module:model/UserBlogsResponse
    * @class
-   * @param userBlogs {Array.<module:model/UserBlog>} 
+   * @param userBlogs {Array.<module:model/UserBlog>}
    */
   var exports = function(userBlogs) {
     var _this = this;
@@ -25190,7 +25200,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>UsersResponse</code>.
    * @alias module:model/UsersResponse
    * @class
-   * @param users {Array.<module:model/User>} 
+   * @param users {Array.<module:model/User>}
    */
   var exports = function(users) {
     var _this = this;
@@ -26731,7 +26741,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['joinedVariables'] = undefined;
   /**
-   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables. 
+   * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
    * @member {String} valence
    */
   exports.prototype['valence'] = undefined;
@@ -27858,7 +27868,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>XprofileDataResponse</code>.
    * @alias module:model/XprofileDataResponse
    * @class
-   * @param xprofileData {Array.<module:model/XprofileDatum>} 
+   * @param xprofileData {Array.<module:model/XprofileDatum>}
    */
   var exports = function(xprofileData) {
     var _this = this;
@@ -28387,7 +28397,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>XprofileFieldsResponse</code>.
    * @alias module:model/XprofileFieldsResponse
    * @class
-   * @param xprofileFields {Array.<module:model/XprofileField>} 
+   * @param xprofileFields {Array.<module:model/XprofileField>}
    */
   var exports = function(xprofileFields) {
     var _this = this;
@@ -28712,7 +28722,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>XprofileGroupsResponse</code>.
    * @alias module:model/XprofileGroupsResponse
    * @class
-   * @param xprofileGroups {Array.<module:model/XprofileGroup>} 
+   * @param xprofileGroups {Array.<module:model/XprofileGroup>}
    */
   var exports = function(xprofileGroups) {
     var _this = this;

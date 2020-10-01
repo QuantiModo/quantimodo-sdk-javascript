@@ -1,7 +1,46 @@
 // Quantimodo.com JavaScript API v1.2.4
+function getApiHost() {
+    if (!apiHost || apiHost === "") {
+        if (window.location.hash.indexOf("localhost") !== false) {
+            apiHost = "https://local.quantimo.do";
+        } else {
+            apiHost = "https://app.quantimo.do";
+        }
+    }
+    return apiHost;
+}
+/**
+ * Get the URL parameters
+ * source: https://css-tricks.com/snippets/javascript/get-url-variables/
+ * @param  {String} url The URL
+ * @return {Object}     The URL parameters
+ */
+var getParams = function (url) {
+    var params = {};
+    var parser = document.createElement('a');
+    parser.href = url || window.location.href;
+    var query = parser.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        params[pair[0]] = decodeURIComponent(pair[1]);
+    }
+    return params;
+};
+
+function getAccessToken(){
+    if(accessToken){return accessToken;}
+    var accessToken = getParams(window.location.href)['quantimodoAccessToken']
+    if(accessToken){
+        localStorage.setItem('quantimodoAccessToken', accessToken)
+        return accessToken;
+    }
+    return localStorage.getItem('quantimodoAccessToken')
+}
+
 // Requires JQuery.
 Quantimodo = function () {
-
+    apiHost = getApiHost();
     var hostUrl = apiHost + '/api/';
 
     var GET = function (baseURL, allowedParams, params, successHandler, disableLooping) {
@@ -24,39 +63,31 @@ Quantimodo = function () {
             if (urlParams.length == 0) {
                 url += baseURL + '?offset=' + offset + '&limit=200';
             } else {
-                url += baseURL + '?' + urlParams.join('&') + '&offset=' + offset + '&limit=200';
+                url += baseURL + '?' + urlParams.join('&');
             }
-            console.debug('Fecthing: ' + url);
+            console.debug('Fetching: ' + url);
             jQuery.ajax({
                 type: 'GET',
                 url: url,
                 dataType: 'json',
                 contentType: 'application/json',
                 beforeSend: function (xhr) {
-                    if (typeof accessToken !== 'undefined' && accessToken) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    if (getAccessToken()) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + getAccessToken());
                     }
                     if (typeof mashapeKey !== 'undefined' && mashapeKey) {
                         xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
                     }
                 },
                 success: function (data, status, xhr) {
-
-                    if (data.constructor === Array && !disableLooping) {
+                    if (data.constructor === Array) {
                         console.debug('Fetched: ' + data.length + ' items');
-                        if (data.length > 0) {
-                            results = results.concat(data);
-                            fetchAPI(offset + 200);
-                        } else {
-                            successHandler(results);
-                        }
-                    } else {
-                        successHandler(data)
                     }
+                    successHandler(data)
                 },
                 error: function(xhr, textStatus, errorThrown){
                     console.log('Request failed. ' + textStatus + ': ' + errorThrown);
-                    if(errorThrown == "Unauthorized") {
+                    if(errorThrown === "Unauthorized") {
                         handleUnauthorizedRequest(apiHost);
                         return false;
                     } else {
@@ -83,7 +114,7 @@ Quantimodo = function () {
             url: hostUrl + baseURL,
             contentType: 'application/json',
             beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                xhr.setRequestHeader('Authorization', 'Bearer ' + getAccessToken());
                 if (typeof mashapeKey !== 'undefined' && mashapeKey) {
                     xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
                 }
@@ -136,9 +167,17 @@ Quantimodo = function () {
                 cachedAt: new Date().getTime(),
                 payload: data
             });
-
-            localStorage.setItem(localCache.cacheKeysPrefix + key, dataToCache)
-
+            try{
+                localStorage.setItem(localCache.cacheKeysPrefix + key, dataToCache)
+            }catch (e) {
+                console.error(e)
+                localCache.clearOldData();
+                try{
+                    localStorage.setItem(localCache.cacheKeysPrefix + key, dataToCache)
+                }catch (e) {
+                    console.error("failed again after clearing cache", e)
+                }
+            }
         },
 
         clearOldData: function () {
@@ -369,7 +408,7 @@ Quantimodo = function () {
                 var that = this;
                 jQuery.ajax(this.params.baseURL + url, {
                     beforeSend: function (xhr) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + getAccessToken());
                         if (typeof mashapeKey !== 'undefined' && mashapeKey) {
                             xhr.setRequestHeader('X-Mashape-Key', mashapeKey);
                         }
@@ -414,11 +453,6 @@ function handleUnauthorizedRequest(apiHostUrl) {
     var apiHostDomainWithPort = extractDomainWithPort(apiHostUrl);
     var currentDomainWithoutPort = stripPort(currentDomainWithPort);
     var apiHostDomainWithoutPort = stripPort(apiHostDomainWithPort);
-    if (currentDomainWithoutPort == apiHostDomainWithoutPort) {
-        window.location.href = 'https://' + currentDomainWithPort + '/api/v2/auth/login?redirect_uri=' + window.location.href;
-        return false;
-    } else {
-        window.location.replace('https://' + currentDomainWithPort + '?connect=quantimodo');
-        return false;
-    }
+    window.location.href = getApiHost() + '/api/v2/auth/login?redirect_uri=' + window.location.href;
+    return false;
 }
