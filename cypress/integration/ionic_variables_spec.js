@@ -10,7 +10,8 @@ function verifyAndDeleteMeasurement(variableString){
     cy.get('#historyItemTitle').should('contain', variableString)
     cy.get('#historyItemTitle').click({force: true})
     cy.get('button.button.destructive').click({force: true})
-    cy.log('Wait for deletion to complete')
+    cy.log('Waiting for deletion to complete...')
+    cy.wait(5000) // Don't remove this
 }
 /**
  * @param {string} variableName
@@ -114,6 +115,7 @@ describe('Variables', function(){
         cy.assertInputValueEquals('#onsetDelay', delay)
         cy.log("durationOfAction should be "+duration)
         cy.assertInputValueEquals('#durationOfAction', duration)
+        cy.log("fillingValue should be "+filling)
         cy.assertInputValueEquals('#fillingValue', filling)
         cy.get('#resetButton').click({force: true, timeout: 30000})
         cy.wait(15000)
