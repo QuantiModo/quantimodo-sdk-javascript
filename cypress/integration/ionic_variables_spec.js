@@ -115,6 +115,7 @@ describe('Variables', function(){
         cy.assertInputValueEquals('#onsetDelay', delay)
         cy.log("durationOfAction should be "+duration)
         cy.assertInputValueEquals('#durationOfAction', duration)
+        cy.log("fillingValue should be "+filling)
         cy.assertInputValueEquals('#fillingValue', filling)
         cy.get('#resetButton').click({force: true, timeout: 30000})
         cy.wait(15000)
