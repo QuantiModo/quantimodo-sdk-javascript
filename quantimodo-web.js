@@ -11850,6 +11850,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('enabled')) {
         obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Number');
       }
+        if (data.hasOwnProperty('errorMessage')) {
+            obj['errorMessage'] = ApiClient.convertToType(data['errorMessage'], 'String');
+        }
       if (data.hasOwnProperty('getItUrl')) {
         obj['getItUrl'] = ApiClient.convertToType(data['getItUrl'], 'String');
       }
@@ -11996,6 +11999,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} enabled
    */
   exports.prototype['enabled'] = undefined;
+    /**
+     * Ex: Couldn't import
+     * @member {String} getItUrl
+     */
+    exports.prototype['errorMessage'] = undefined;
   /**
    * Ex: https://quantimo.do
    * @member {String} getItUrl
