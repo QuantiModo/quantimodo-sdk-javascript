@@ -3103,7 +3103,7 @@ export interface Measurement {
      * @type {string}
      * @memberof Measurement
      */
-    startTimeString: string;
+    startAt: string;
     /**
      * Ex: https://web.quantimo.do/img/variable_categories/treatments.svg
      * @type {string}
@@ -4011,7 +4011,7 @@ export interface Pair {
      * @type {string}
      * @memberof Pair
      */
-    startTimeString?: string;
+    startAt?: string;
     /**
      * Ex: 1464937200
      * @type {number}
