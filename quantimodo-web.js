@@ -15406,12 +15406,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @alias module:model/Measurement
    * @class
    * @param sourceName {String} Application or device used to record the measurement values
-   * @param startTimeString {String} Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss
+   * @param startAt {String} Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss
    * @param unitAbbreviatedName {String} Abbreviated name for the unit of measurement
    * @param value {Number} Converted measurement value in requested unit
    * @param variableName {String} Name of the variable for which we are creating the measurement records
    */
-  var exports = function(sourceName, startTimeString, unitAbbreviatedName, value, variableName) {
+  var exports = function(sourceName, startAt, unitAbbreviatedName, value, variableName) {
     var _this = this;
 
 
@@ -15437,7 +15437,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
     _this['sourceName'] = sourceName;
 
 
-    _this['startTimeString'] = startTimeString;
+    _this['startAt'] = startAt;
 
     _this['unitAbbreviatedName'] = unitAbbreviatedName;
 
@@ -15544,8 +15544,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('startTimeEpoch')) {
         obj['startTimeEpoch'] = ApiClient.convertToType(data['startTimeEpoch'], 'Number');
       }
-      if (data.hasOwnProperty('startTimeString')) {
-        obj['startTimeString'] = ApiClient.convertToType(data['startTimeString'], 'String');
+      if (data.hasOwnProperty('startAt')) {
+        obj['startAt'] = ApiClient.convertToType(data['startAt'], 'String');
       }
       if (data.hasOwnProperty('svgUrl')) {
         obj['svgUrl'] = ApiClient.convertToType(data['svgUrl'], 'String');
@@ -15740,9 +15740,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
   exports.prototype['startTimeEpoch'] = undefined;
   /**
    * Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @member {String} startTimeString
+   * @member {String} startAt
    */
-  exports.prototype['startTimeString'] = undefined;
+  exports.prototype['startAt'] = undefined;
   /**
    * Ex: https://web.quantimo.do/img/variable_categories/treatments.svg
    * @member {String} svgUrl
@@ -18074,8 +18074,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('eventAtUnixTime')) {
         obj['eventAtUnixTime'] = ApiClient.convertToType(data['eventAtUnixTime'], 'Number');
       }
-      if (data.hasOwnProperty('startTimeString')) {
-        obj['startTimeString'] = ApiClient.convertToType(data['startTimeString'], 'String');
+      if (data.hasOwnProperty('startAt')) {
+        obj['startAt'] = ApiClient.convertToType(data['startAt'], 'String');
       }
       if (data.hasOwnProperty('timestamp')) {
         obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Number');
@@ -18126,9 +18126,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
   exports.prototype['eventAtUnixTime'] = undefined;
   /**
    * Ex: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @member {String} startTimeString
+   * @member {String} startAt
    */
-  exports.prototype['startTimeString'] = undefined;
+  exports.prototype['startAt'] = undefined;
   /**
    * Ex: 1464937200
    * @member {Number} timestamp
