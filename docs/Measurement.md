@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **sourceName** | **String** | Application or device used to record the measurement values | 
 **startDate** | **String** | Ex: 2014-08-27 | [optional] 
 **startTimeEpoch** | **Number** | Seconds between the start of the event measured and 1970 (Unix timestamp) | [optional] 
-**startTimeString** | **String** | Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss | 
+**startAt** | **String** | Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss | 
 **svgUrl** | **String** | Ex: https://web.quantimo.do/img/variable_categories/treatments.svg | [optional] 
 **unitAbbreviatedName** | **String** | Abbreviated name for the unit of measurement | 
 **unitCategoryId** | **Number** | Ex: 6 | [optional] 

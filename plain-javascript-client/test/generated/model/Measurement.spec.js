@@ -125,8 +125,8 @@ describe('Measurement', function(){
         //var instance = new Quantimodo.Measurement();
         //expect(instance).to.be();
     });
-    it('should have the property startTimeString (base name: "startTimeString")', function(){
-        // uncomment below and update the code to test the property startTimeString
+    it('should have the property startAt (base name: "startAt")', function(){
+        // uncomment below and update the code to test the property startAt
         //var instance = new Quantimodo.Measurement();
         //expect(instance).to.be();
     });

@@ -101,8 +101,8 @@
       if (data.hasOwnProperty('eventAtUnixTime')) {
         obj['eventAtUnixTime'] = ApiClient.convertToType(data['eventAtUnixTime'], 'Number');
       }
-      if (data.hasOwnProperty('startTimeString')) {
-        obj['startTimeString'] = ApiClient.convertToType(data['startTimeString'], 'String');
+      if (data.hasOwnProperty('startAt')) {
+        obj['startAt'] = ApiClient.convertToType(data['startAt'], 'String');
       }
       if (data.hasOwnProperty('timestamp')) {
         obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Number');
@@ -153,9 +153,9 @@
   exports.prototype['eventAtUnixTime'] = undefined;
   /**
    * Ex: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-   * @member {String} startTimeString
+   * @member {String} startAt
    */
-  exports.prototype['startTimeString'] = undefined;
+  exports.prototype['startAt'] = undefined;
   /**
    * Ex: 1464937200
    * @member {Number} timestamp
