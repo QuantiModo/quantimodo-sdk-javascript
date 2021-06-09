@@ -115,7 +115,7 @@ describe("uploader", function () {
 })
 describe("gi-tester", function () {
     it("runs tests on staging API", function (done) {
-        this.timeout(10000) // Default 2000 is too fast 
+        this.timeout(10000) // Default 2000 is too fast
         var previouslySetApiUrl = process.env.API_URL || null
         delete process.env.API_URL
         chai_2.assert.isUndefined(process.env.API_URL)
