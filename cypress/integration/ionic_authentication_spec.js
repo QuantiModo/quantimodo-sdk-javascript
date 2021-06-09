@@ -51,7 +51,7 @@ describe('Authentication', function () {
     cy.log('Menu hidden on onboarding page so going straight to settings url')
     cy.logOutViaSettingsPage(false)
   })
-  it.only('Tries to create account with existing username', function () {
+  it('Tries to create account with existing username', function () {
     cy.clearCookies()
     cy.visitApi(`/api/v2/auth/register`)
     cy.get(selectors.usernameInput).type('mike')
