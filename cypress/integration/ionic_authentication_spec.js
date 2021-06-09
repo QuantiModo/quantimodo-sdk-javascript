@@ -51,7 +51,7 @@ describe('Authentication', function () {
     cy.log('Menu hidden on onboarding page so going straight to settings url')
     cy.logOutViaSettingsPage(false)
   })
-  it('Tries to create account with existing username', function () {
+  it.only('Tries to create account with existing username', function () {
     cy.clearCookies()
     cy.visitApi(`/api/v2/auth/register`)
     cy.get(selectors.usernameInput).type('mike')
@@ -60,7 +60,7 @@ describe('Authentication', function () {
     cy.get(selectors.pwConfirm).type(testUserPassword)
     cy.get(selectors.registerButton).click({ force: true })
     cy.contains('#error-messages > li', 'The user login has already been taken.')
-    cy.contains('#error-messages > li', 'The user email has already been taken.')
+    cy.contains('#error-messages > li', 'The email has already been taken.')
   })
   it('Logs in and redirects to authorization page', function () {
     let redirectUrl = `https://${API_HOST}${authorizePath}client_id=${clientId}&client_secret=${clientSecret}`
