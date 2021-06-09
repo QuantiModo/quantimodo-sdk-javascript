@@ -24,7 +24,7 @@ function checkChartsPage (variableName) {
         .should('contain', variableName)
 }
 describe('Charts', function () {
-  it('Looks at primary outcome charts', function () {
+  it.skip('Looks at primary outcome charts', function () {
     cy.loginWithAccessTokenIfNecessary('/#/app/track', true)
     cy.loginWithAccessTokenIfNecessary('/#/app/track', true) // Avoid leftover redirects
     cy.get('div.primary-outcome-variable-rating-buttons > img:nth-child(4)').click({ force: true })
