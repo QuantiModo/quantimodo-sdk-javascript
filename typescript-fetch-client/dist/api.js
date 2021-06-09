@@ -57,6 +57,401 @@ class RequiredError extends Error {
 }
 exports.RequiredError = RequiredError;
 /**
+ * @export
+ * @namespace ConversionStep
+ */
+var ConversionStep;
+(function (ConversionStep) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let OperationEnum;
+    (function (OperationEnum) {
+        OperationEnum[OperationEnum["ADD"] = 'ADD'] = "ADD";
+        OperationEnum[OperationEnum["MULTIPLY"] = 'MULTIPLY'] = "MULTIPLY";
+    })(OperationEnum = ConversionStep.OperationEnum || (ConversionStep.OperationEnum = {}));
+})(ConversionStep = exports.ConversionStep || (exports.ConversionStep = {}));
+/**
+ * @export
+ * @namespace InputField
+ */
+var InputField;
+(function (InputField) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let TypeEnum;
+    (function (TypeEnum) {
+        TypeEnum[TypeEnum["CheckBox"] = 'check_box'] = "CheckBox";
+        TypeEnum[TypeEnum["Date"] = 'date'] = "Date";
+        TypeEnum[TypeEnum["Email"] = 'email'] = "Email";
+        TypeEnum[TypeEnum["Number"] = 'number'] = "Number";
+        TypeEnum[TypeEnum["PostalCode"] = 'postal_code'] = "PostalCode";
+        TypeEnum[TypeEnum["SelectOption"] = 'select_option'] = "SelectOption";
+        TypeEnum[TypeEnum["String"] = 'string'] = "String";
+        TypeEnum[TypeEnum["Switch"] = 'switch'] = "Switch";
+        TypeEnum[TypeEnum["TextArea"] = 'text_area'] = "TextArea";
+        TypeEnum[TypeEnum["Unit"] = 'unit'] = "Unit";
+        TypeEnum[TypeEnum["VariableCategory"] = 'variable_category'] = "VariableCategory";
+    })(TypeEnum = InputField.TypeEnum || (InputField.TypeEnum = {}));
+})(InputField = exports.InputField || (exports.InputField = {}));
+/**
+ * @export
+ * @namespace Measurement
+ */
+var Measurement;
+(function (Measurement) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let VariableCategoryNameEnum;
+    (function (VariableCategoryNameEnum) {
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
+    })(VariableCategoryNameEnum = Measurement.VariableCategoryNameEnum || (Measurement.VariableCategoryNameEnum = {}));
+})(Measurement = exports.Measurement || (exports.Measurement = {}));
+/**
+ * @export
+ * @namespace MeasurementSet
+ */
+var MeasurementSet;
+(function (MeasurementSet) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let CombinationOperationEnum;
+    (function (CombinationOperationEnum) {
+        CombinationOperationEnum[CombinationOperationEnum["MEAN"] = 'MEAN'] = "MEAN";
+        CombinationOperationEnum[CombinationOperationEnum["SUM"] = 'SUM'] = "SUM";
+    })(CombinationOperationEnum = MeasurementSet.CombinationOperationEnum || (MeasurementSet.CombinationOperationEnum = {}));
+    /**
+     * @export
+     * @enum {string}
+     */
+    let VariableCategoryNameEnum;
+    (function (VariableCategoryNameEnum) {
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
+    })(VariableCategoryNameEnum = MeasurementSet.VariableCategoryNameEnum || (MeasurementSet.VariableCategoryNameEnum = {}));
+})(MeasurementSet = exports.MeasurementSet || (exports.MeasurementSet = {}));
+/**
+ * @export
+ * @namespace StudyCreationBody
+ */
+var StudyCreationBody;
+(function (StudyCreationBody) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let TypeEnum;
+    (function (TypeEnum) {
+        TypeEnum[TypeEnum["Individual"] = 'individual'] = "Individual";
+        TypeEnum[TypeEnum["Group"] = 'group'] = "Group";
+        TypeEnum[TypeEnum["Global"] = 'global'] = "Global";
+    })(TypeEnum = StudyCreationBody.TypeEnum || (StudyCreationBody.TypeEnum = {}));
+})(StudyCreationBody = exports.StudyCreationBody || (exports.StudyCreationBody = {}));
+/**
+ * @export
+ * @namespace TrackingReminder
+ */
+var TrackingReminder;
+(function (TrackingReminder) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let CombinationOperationEnum;
+    (function (CombinationOperationEnum) {
+        CombinationOperationEnum[CombinationOperationEnum["MEAN"] = 'MEAN'] = "MEAN";
+        CombinationOperationEnum[CombinationOperationEnum["SUM"] = 'SUM'] = "SUM";
+    })(CombinationOperationEnum = TrackingReminder.CombinationOperationEnum || (TrackingReminder.CombinationOperationEnum = {}));
+    /**
+     * @export
+     * @enum {string}
+     */
+    let VariableCategoryNameEnum;
+    (function (VariableCategoryNameEnum) {
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
+    })(VariableCategoryNameEnum = TrackingReminder.VariableCategoryNameEnum || (TrackingReminder.VariableCategoryNameEnum = {}));
+})(TrackingReminder = exports.TrackingReminder || (exports.TrackingReminder = {}));
+/**
+ * @export
+ * @namespace TrackingReminderNotification
+ */
+var TrackingReminderNotification;
+(function (TrackingReminderNotification) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let CombinationOperationEnum;
+    (function (CombinationOperationEnum) {
+        CombinationOperationEnum[CombinationOperationEnum["MEAN"] = 'MEAN'] = "MEAN";
+        CombinationOperationEnum[CombinationOperationEnum["SUM"] = 'SUM'] = "SUM";
+    })(CombinationOperationEnum = TrackingReminderNotification.CombinationOperationEnum || (TrackingReminderNotification.CombinationOperationEnum = {}));
+    /**
+     * @export
+     * @enum {string}
+     */
+    let VariableCategoryNameEnum;
+    (function (VariableCategoryNameEnum) {
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
+    })(VariableCategoryNameEnum = TrackingReminderNotification.VariableCategoryNameEnum || (TrackingReminderNotification.VariableCategoryNameEnum = {}));
+})(TrackingReminderNotification = exports.TrackingReminderNotification || (exports.TrackingReminderNotification = {}));
+/**
+ * @export
+ * @namespace TrackingReminderNotificationPost
+ */
+var TrackingReminderNotificationPost;
+(function (TrackingReminderNotificationPost) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let ActionEnum;
+    (function (ActionEnum) {
+        ActionEnum[ActionEnum["Skip"] = 'skip'] = "Skip";
+        ActionEnum[ActionEnum["Snooze"] = 'snooze'] = "Snooze";
+        ActionEnum[ActionEnum["Track"] = 'track'] = "Track";
+    })(ActionEnum = TrackingReminderNotificationPost.ActionEnum || (TrackingReminderNotificationPost.ActionEnum = {}));
+})(TrackingReminderNotificationPost = exports.TrackingReminderNotificationPost || (exports.TrackingReminderNotificationPost = {}));
+/**
+ * @export
+ * @namespace Unit
+ */
+var Unit;
+(function (Unit) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let CategoryEnum;
+    (function (CategoryEnum) {
+        CategoryEnum[CategoryEnum["Distance"] = 'Distance'] = "Distance";
+        CategoryEnum[CategoryEnum["Duration"] = 'Duration'] = "Duration";
+        CategoryEnum[CategoryEnum["Energy"] = 'Energy'] = "Energy";
+        CategoryEnum[CategoryEnum["Frequency"] = 'Frequency'] = "Frequency";
+        CategoryEnum[CategoryEnum["Miscellany"] = 'Miscellany'] = "Miscellany";
+        CategoryEnum[CategoryEnum["Pressure"] = 'Pressure'] = "Pressure";
+        CategoryEnum[CategoryEnum["Proportion"] = 'Proportion'] = "Proportion";
+        CategoryEnum[CategoryEnum["Rating"] = 'Rating'] = "Rating";
+        CategoryEnum[CategoryEnum["Temperature"] = 'Temperature'] = "Temperature";
+        CategoryEnum[CategoryEnum["Volume"] = 'Volume'] = "Volume";
+        CategoryEnum[CategoryEnum["Weight"] = 'Weight'] = "Weight";
+        CategoryEnum[CategoryEnum["Count"] = 'Count'] = "Count";
+    })(CategoryEnum = Unit.CategoryEnum || (Unit.CategoryEnum = {}));
+})(Unit = exports.Unit || (exports.Unit = {}));
+/**
+ * @export
+ * @namespace Variable
+ */
+var Variable;
+(function (Variable) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let CombinationOperationEnum;
+    (function (CombinationOperationEnum) {
+        CombinationOperationEnum[CombinationOperationEnum["MEAN"] = 'MEAN'] = "MEAN";
+        CombinationOperationEnum[CombinationOperationEnum["SUM"] = 'SUM'] = "SUM";
+    })(CombinationOperationEnum = Variable.CombinationOperationEnum || (Variable.CombinationOperationEnum = {}));
+    /**
+     * @export
+     * @enum {string}
+     */
+    let FillingTypeEnum;
+    (function (FillingTypeEnum) {
+        FillingTypeEnum[FillingTypeEnum["None"] = 'none'] = "None";
+        FillingTypeEnum[FillingTypeEnum["ZeroFilling"] = 'zero-filling'] = "ZeroFilling";
+        FillingTypeEnum[FillingTypeEnum["ValueFilling"] = 'value-filling'] = "ValueFilling";
+    })(FillingTypeEnum = Variable.FillingTypeEnum || (Variable.FillingTypeEnum = {}));
+    /**
+     * @export
+     * @enum {string}
+     */
+    let VariableCategoryNameEnum;
+    (function (VariableCategoryNameEnum) {
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
+    })(VariableCategoryNameEnum = Variable.VariableCategoryNameEnum || (Variable.VariableCategoryNameEnum = {}));
+})(Variable = exports.Variable || (exports.Variable = {}));
+/**
+ * @export
+ * @namespace VariableCategory
+ */
+var VariableCategory;
+(function (VariableCategory) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let VariableCategoryNameEnum;
+    (function (VariableCategoryNameEnum) {
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Activity"] = 'Activity'] = "Activity";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Books"] = 'Books'] = "Books";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CausesOfIllness"] = 'Causes of Illness'] = "CausesOfIllness";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["CognitivePerformance"] = 'Cognitive Performance'] = "CognitivePerformance";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Conditions"] = 'Conditions'] = "Conditions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Emotions"] = 'Emotions'] = "Emotions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Environment"] = 'Environment'] = "Environment";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Foods"] = 'Foods'] = "Foods";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Goals"] = 'Goals'] = "Goals";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Locations"] = 'Locations'] = "Locations";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Miscellaneous"] = 'Miscellaneous'] = "Miscellaneous";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["MoviesAndTV"] = 'Movies and TV'] = "MoviesAndTV";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Music"] = 'Music'] = "Music";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Nutrients"] = 'Nutrients'] = "Nutrients";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Payments"] = 'Payments'] = "Payments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["PhysicalActivities"] = 'Physical Activities'] = "PhysicalActivities";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Physique"] = 'Physique'] = "Physique";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Sleep"] = 'Sleep'] = "Sleep";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["SocialInteractions"] = 'Social Interactions'] = "SocialInteractions";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Software"] = 'Software'] = "Software";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Symptoms"] = 'Symptoms'] = "Symptoms";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["Treatments"] = 'Treatments'] = "Treatments";
+        VariableCategoryNameEnum[VariableCategoryNameEnum["VitalSigns"] = 'Vital Signs'] = "VitalSigns";
+    })(VariableCategoryNameEnum = VariableCategory.VariableCategoryNameEnum || (VariableCategory.VariableCategoryNameEnum = {}));
+})(VariableCategory = exports.VariableCategory || (exports.VariableCategory = {}));
+/**
+ * @export
+ * @namespace Vote
+ */
+var Vote;
+(function (Vote) {
+    /**
+     * @export
+     * @enum {string}
+     */
+    let ValueEnum;
+    (function (ValueEnum) {
+        ValueEnum[ValueEnum["Up"] = 'up'] = "Up";
+        ValueEnum[ValueEnum["Down"] = 'down'] = "Down";
+        ValueEnum[ValueEnum["None"] = 'none'] = "None";
+    })(ValueEnum = Vote.ValueEnum || (Vote.ValueEnum = {}));
+    /**
+     * @export
+     * @enum {string}
+     */
+    let TypeEnum;
+    (function (TypeEnum) {
+        TypeEnum[TypeEnum["Causality"] = 'causality'] = "Causality";
+        TypeEnum[TypeEnum["Usefulness"] = 'usefulness'] = "Usefulness";
+    })(TypeEnum = Vote.TypeEnum || (Vote.TypeEnum = {}));
+})(Vote = exports.Vote || (exports.Vote = {}));
+/**
  * ActivitiesApi - fetch parameter creator
  * @export
  */
@@ -684,7 +1079,7 @@ exports.AnalyticsApi = AnalyticsApi;
 exports.AppSettingsApiFetchParamCreator = function (configuration) {
     return {
         /**
-         * Get the settings for your application configurable at https://build.quantimo.do
+         * Get the settings for your application configurable at https://builder.quantimo.do
          * @summary Get client app settings
          * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
          * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
@@ -721,7 +1116,7 @@ exports.AppSettingsApiFetchParamCreator = function (configuration) {
 exports.AppSettingsApiFp = function (configuration) {
     return {
         /**
-         * Get the settings for your application configurable at https://build.quantimo.do
+         * Get the settings for your application configurable at https://builder.quantimo.do
          * @summary Get client app settings
          * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
          * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
@@ -750,7 +1145,7 @@ exports.AppSettingsApiFp = function (configuration) {
 exports.AppSettingsApiFactory = function (configuration, fetch, basePath) {
     return {
         /**
-         * Get the settings for your application configurable at https://build.quantimo.do
+         * Get the settings for your application configurable at https://builder.quantimo.do
          * @summary Get client app settings
          * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
          * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
@@ -770,7 +1165,7 @@ exports.AppSettingsApiFactory = function (configuration, fetch, basePath) {
  */
 class AppSettingsApi extends BaseAPI {
     /**
-     * Get the settings for your application configurable at https://build.quantimo.do
+     * Get the settings for your application configurable at https://builder.quantimo.do
      * @summary Get client app settings
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
@@ -1154,7 +1549,7 @@ exports.ConnectorsApiFetchParamCreator = function (configuration) {
         /**
          * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
          * @summary Obtain a token from 3rd party data source
-         * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+         * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
          * @param {number} [userId] User&#39;s id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1200,7 +1595,7 @@ exports.ConnectorsApiFetchParamCreator = function (configuration) {
         /**
          * The disconnect method deletes any stored tokens or connection information from the connectors database.
          * @summary Delete stored connection info
-         * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+         * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1332,7 +1727,7 @@ exports.ConnectorsApiFetchParamCreator = function (configuration) {
         /**
          * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
          * @summary Sync with data source
-         * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+         * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
          * @param {number} [userId] User&#39;s id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1386,7 +1781,7 @@ exports.ConnectorsApiFp = function (configuration) {
         /**
          * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
          * @summary Obtain a token from 3rd party data source
-         * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+         * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
          * @param {number} [userId] User&#39;s id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1396,7 +1791,7 @@ exports.ConnectorsApiFp = function (configuration) {
             return (fetch = portableFetch, basePath = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
-                        return response;
+                        return response.json();
                     }
                     else {
                         throw response;
@@ -1407,7 +1802,7 @@ exports.ConnectorsApiFp = function (configuration) {
         /**
          * The disconnect method deletes any stored tokens or connection information from the connectors database.
          * @summary Delete stored connection info
-         * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+         * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1416,7 +1811,7 @@ exports.ConnectorsApiFp = function (configuration) {
             return (fetch = portableFetch, basePath = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
-                        return response;
+                        return response.json();
                     }
                     else {
                         throw response;
@@ -1487,7 +1882,7 @@ exports.ConnectorsApiFp = function (configuration) {
         /**
          * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
          * @summary Sync with data source
-         * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+         * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
          * @param {number} [userId] User&#39;s id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1497,7 +1892,7 @@ exports.ConnectorsApiFp = function (configuration) {
             return (fetch = portableFetch, basePath = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
-                        return response;
+                        return response.json();
                     }
                     else {
                         throw response;
@@ -1516,7 +1911,7 @@ exports.ConnectorsApiFactory = function (configuration, fetch, basePath) {
         /**
          * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
          * @summary Obtain a token from 3rd party data source
-         * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+         * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
          * @param {number} [userId] User&#39;s id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1527,7 +1922,7 @@ exports.ConnectorsApiFactory = function (configuration, fetch, basePath) {
         /**
          * The disconnect method deletes any stored tokens or connection information from the connectors database.
          * @summary Delete stored connection info
-         * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+         * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1567,7 +1962,7 @@ exports.ConnectorsApiFactory = function (configuration, fetch, basePath) {
         /**
          * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
          * @summary Sync with data source
-         * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+         * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
          * @param {number} [userId] User&#39;s id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1587,7 +1982,7 @@ class ConnectorsApi extends BaseAPI {
     /**
      * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
      * @summary Obtain a token from 3rd party data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1599,7 +1994,7 @@ class ConnectorsApi extends BaseAPI {
     /**
      * The disconnect method deletes any stored tokens or connection information from the connectors database.
      * @summary Delete stored connection info
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsApi
@@ -1643,7 +2038,7 @@ class ConnectorsApi extends BaseAPI {
     /**
      * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
      * @summary Sync with data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2812,13 +3207,13 @@ exports.MeasurementsApiFetchParamCreator = function (configuration) {
          * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
          * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
          * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {number} [userId] User&#39;s id
          * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
          * @param {string} [connectorName] Ex: facebook
          * @param {string} [value] Value of measurement
-         * @param {string} [unitName] Options: % Recommended Daily Allowance, -4 to 4 Rating, 0 to 1 Rating, 0 to 5 Rating, 1 to 10 Rating, 1 to 5 Rating, Applications, Beats per Minute, Calories, Capsules, Centimeters, Count, Degrees Celsius, Degrees East, Degrees Fahrenheit, Degrees North, Dollars, Drops, Event, Feet, Grams, Hours, Inches, Index, Kilocalories, Kilograms, Kilometers, Liters, Meters, Micrograms, Micrograms per decilitre, Miles, Milligrams, Milliliters, Millimeters, Millimeters Merc, Milliseconds, Minutes, Pascal, Percent, Pieces, Pills, Pounds, Puffs, Seconds, Serving, Sprays, Tablets, Torr, Units, Yes/No, per Minute, Doses, Quarts, Ounces, International Units, Meters per Second
+         * @param {'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'} [unitName] Ex: Milligrams
          * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
          * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
          * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -3192,13 +3587,13 @@ exports.MeasurementsApiFp = function (configuration) {
          * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
          * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
          * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {number} [userId] User&#39;s id
          * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
          * @param {string} [connectorName] Ex: facebook
          * @param {string} [value] Value of measurement
-         * @param {string} [unitName] Options: % Recommended Daily Allowance, -4 to 4 Rating, 0 to 1 Rating, 0 to 5 Rating, 1 to 10 Rating, 1 to 5 Rating, Applications, Beats per Minute, Calories, Capsules, Centimeters, Count, Degrees Celsius, Degrees East, Degrees Fahrenheit, Degrees North, Dollars, Drops, Event, Feet, Grams, Hours, Inches, Index, Kilocalories, Kilograms, Kilometers, Liters, Meters, Micrograms, Micrograms per decilitre, Miles, Milligrams, Milliliters, Millimeters, Millimeters Merc, Milliseconds, Minutes, Pascal, Percent, Pieces, Pills, Pounds, Puffs, Seconds, Serving, Sprays, Tablets, Torr, Units, Yes/No, per Minute, Doses, Quarts, Ounces, International Units, Meters per Second
+         * @param {'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'} [unitName] Ex: Milligrams
          * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
          * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
          * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -3346,13 +3741,13 @@ exports.MeasurementsApiFactory = function (configuration, fetch, basePath) {
          * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
          * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
          * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {number} [userId] User&#39;s id
          * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
          * @param {string} [connectorName] Ex: facebook
          * @param {string} [value] Value of measurement
-         * @param {string} [unitName] Options: % Recommended Daily Allowance, -4 to 4 Rating, 0 to 1 Rating, 0 to 5 Rating, 1 to 10 Rating, 1 to 5 Rating, Applications, Beats per Minute, Calories, Capsules, Centimeters, Count, Degrees Celsius, Degrees East, Degrees Fahrenheit, Degrees North, Dollars, Drops, Event, Feet, Grams, Hours, Inches, Index, Kilocalories, Kilograms, Kilometers, Liters, Meters, Micrograms, Micrograms per decilitre, Miles, Milligrams, Milliliters, Millimeters, Millimeters Merc, Milliseconds, Minutes, Pascal, Percent, Pieces, Pills, Pounds, Puffs, Seconds, Serving, Sprays, Tablets, Torr, Units, Yes/No, per Minute, Doses, Quarts, Ounces, International Units, Meters per Second
+         * @param {'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'} [unitName] Ex: Milligrams
          * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
          * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
          * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -3452,13 +3847,13 @@ class MeasurementsApi extends BaseAPI {
      * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [userId] User&#39;s id
      * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
      * @param {string} [connectorName] Ex: facebook
      * @param {string} [value] Value of measurement
-     * @param {string} [unitName] Options: % Recommended Daily Allowance, -4 to 4 Rating, 0 to 1 Rating, 0 to 5 Rating, 1 to 10 Rating, 1 to 5 Rating, Applications, Beats per Minute, Calories, Capsules, Centimeters, Count, Degrees Celsius, Degrees East, Degrees Fahrenheit, Degrees North, Dollars, Drops, Event, Feet, Grams, Hours, Inches, Index, Kilocalories, Kilograms, Kilometers, Liters, Meters, Micrograms, Micrograms per decilitre, Miles, Milligrams, Milliliters, Millimeters, Millimeters Merc, Milliseconds, Minutes, Pascal, Percent, Pieces, Pills, Pounds, Puffs, Seconds, Serving, Sprays, Tablets, Torr, Units, Yes/No, per Minute, Doses, Quarts, Ounces, International Units, Meters per Second
+     * @param {'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'} [unitName] Ex: Milligrams
      * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -4836,7 +5231,7 @@ exports.RemindersApiFetchParamCreator = function (configuration) {
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
          * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [reminderTime] Ex: (lt)2017-07-31 21:43:26
          * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
          * @param {boolean} [onlyPast] Ex: 1
@@ -4911,7 +5306,7 @@ exports.RemindersApiFetchParamCreator = function (configuration) {
          * Users can be reminded to track certain variables at a specified frequency with a default value.
          * @summary Get repeating tracking reminder settings
          * @param {number} [userId] User&#39;s id
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -5113,7 +5508,7 @@ exports.RemindersApiFp = function (configuration) {
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
          * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [reminderTime] Ex: (lt)2017-07-31 21:43:26
          * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
          * @param {boolean} [onlyPast] Ex: 1
@@ -5138,7 +5533,7 @@ exports.RemindersApiFp = function (configuration) {
          * Users can be reminded to track certain variables at a specified frequency with a default value.
          * @summary Get repeating tracking reminder settings
          * @param {number} [userId] User&#39;s id
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -5232,7 +5627,7 @@ exports.RemindersApiFactory = function (configuration, fetch, basePath) {
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
          * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [reminderTime] Ex: (lt)2017-07-31 21:43:26
          * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
          * @param {boolean} [onlyPast] Ex: 1
@@ -5247,7 +5642,7 @@ exports.RemindersApiFactory = function (configuration, fetch, basePath) {
          * Users can be reminded to track certain variables at a specified frequency with a default value.
          * @summary Get repeating tracking reminder settings
          * @param {number} [userId] User&#39;s id
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
          * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -5313,7 +5708,7 @@ class RemindersApi extends BaseAPI {
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [reminderTime] Ex: (lt)2017-07-31 21:43:26
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {boolean} [onlyPast] Ex: 1
@@ -5329,7 +5724,7 @@ class RemindersApi extends BaseAPI {
      * Users can be reminded to track certain variables at a specified frequency with a default value.
      * @summary Get repeating tracking reminder settings
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -8262,7 +8657,7 @@ exports.VariablesApiFetchParamCreator = function (configuration) {
          * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
          * @param {string} [numberOfRawMeasurements] Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
          * @param {number} [userId] User&#39;s id
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [name] Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
          * @param {string} [variableName] Name of the variable you want measurements for
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -8510,7 +8905,7 @@ exports.VariablesApiFetchParamCreator = function (configuration) {
          * @param {string} [searchPhrase] Ex: %Body Fat%
          * @param {boolean} [exactMatch] Require exact match
          * @param {boolean} [manualTracking] Only include variables tracked manually by the user
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {number} [variableCategoryId] Ex: 13
          * @param {string} [synonyms] Ex: McDonalds hotcake
          * @param {*} [options] Override http request option.
@@ -8698,7 +9093,7 @@ exports.VariablesApiFp = function (configuration) {
          * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
          * @param {string} [numberOfRawMeasurements] Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
          * @param {number} [userId] User&#39;s id
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [name] Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
          * @param {string} [variableName] Name of the variable you want measurements for
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -8782,7 +9177,7 @@ exports.VariablesApiFp = function (configuration) {
          * @param {string} [searchPhrase] Ex: %Body Fat%
          * @param {boolean} [exactMatch] Require exact match
          * @param {boolean} [manualTracking] Only include variables tracked manually by the user
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {number} [variableCategoryId] Ex: 13
          * @param {string} [synonyms] Ex: McDonalds hotcake
          * @param {*} [options] Override http request option.
@@ -8865,7 +9260,7 @@ exports.VariablesApiFactory = function (configuration, fetch, basePath) {
          * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
          * @param {string} [numberOfRawMeasurements] Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
          * @param {number} [userId] User&#39;s id
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {string} [name] Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
          * @param {string} [variableName] Name of the variable you want measurements for
          * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -8929,7 +9324,7 @@ exports.VariablesApiFactory = function (configuration, fetch, basePath) {
          * @param {string} [searchPhrase] Ex: %Body Fat%
          * @param {boolean} [exactMatch] Require exact match
          * @param {boolean} [manualTracking] Only include variables tracked manually by the user
-         * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+         * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
          * @param {number} [variableCategoryId] Ex: 13
          * @param {string} [synonyms] Ex: McDonalds hotcake
          * @param {*} [options] Override http request option.
@@ -8996,7 +9391,7 @@ class VariablesApi extends BaseAPI {
      * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {string} [numberOfRawMeasurements] Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [name] Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
      * @param {string} [variableName] Name of the variable you want measurements for
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -9062,7 +9457,7 @@ class VariablesApi extends BaseAPI {
      * @param {string} [searchPhrase] Ex: %Body Fat%
      * @param {boolean} [exactMatch] Require exact match
      * @param {boolean} [manualTracking] Only include variables tracked manually by the user
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {number} [variableCategoryId] Ex: 13
      * @param {string} [synonyms] Ex: McDonalds hotcake
      * @param {*} [options] Override http request option.

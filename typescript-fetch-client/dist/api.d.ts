@@ -863,17 +863,31 @@ export interface ConnectInstructions {
  */
 export interface ConversionStep {
     /**
-     * Options: ADD, MULTIPLY
+     * ADD or MULTIPLY
      * @type {string}
      * @memberof ConversionStep
      */
-    operation: string;
+    operation: ConversionStep.OperationEnum;
     /**
      * This specifies the order of conversion steps starting with 0
      * @type {number}
      * @memberof ConversionStep
      */
     value: number;
+}
+/**
+ * @export
+ * @namespace ConversionStep
+ */
+export declare namespace ConversionStep {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum OperationEnum {
+        ADD,
+        MULTIPLY
+    }
 }
 /**
  *
@@ -2875,11 +2889,11 @@ export interface InputField {
      */
     submitButton?: Button;
     /**
-     * Options: check_box, date, email, number, postal_code, select_option, string, switch, text_area, unit, variable_category
+     * Ex: Title
      * @type {string}
      * @memberof InputField
      */
-    type: string;
+    type: InputField.TypeEnum;
     /**
      * See http://html5pattern.com/ for examples
      * @type {string}
@@ -2892,6 +2906,29 @@ export interface InputField {
      * @memberof InputField
      */
     value?: string;
+}
+/**
+ * @export
+ * @namespace InputField
+ */
+export declare namespace InputField {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum TypeEnum {
+        CheckBox,
+        Date,
+        Email,
+        Number,
+        PostalCode,
+        SelectOption,
+        String,
+        Switch,
+        TextArea,
+        Unit,
+        VariableCategory
+    }
 }
 /**
  *
@@ -3103,7 +3140,7 @@ export interface Measurement {
      * @type {string}
      * @memberof Measurement
      */
-    startAt: string;
+    startTimeString: string;
     /**
      * Ex: https://web.quantimo.do/img/variable_categories/treatments.svg
      * @type {string}
@@ -3213,17 +3250,17 @@ export interface Measurement {
      */
     variableCategoryId?: number;
     /**
-     * Ex: https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png
+     * Ex: https://static.quantimo.do/img/variable_categories/pill-96.png
      * @type {string}
      * @memberof Measurement
      */
     variableCategoryImageUrl?: string;
     /**
-     * Options: Activity, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Goals, Locations, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activities, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs
+     * Ex: Emotions, Treatments, Symptoms...
      * @type {string}
      * @memberof Measurement
      */
-    variableCategoryName?: string;
+    variableCategoryName?: Measurement.VariableCategoryNameEnum;
     /**
      * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
      * @type {string}
@@ -3248,6 +3285,41 @@ export interface Measurement {
      * @memberof Measurement
      */
     displayName?: string;
+}
+/**
+ * @export
+ * @namespace Measurement
+ */
+export declare namespace Measurement {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum VariableCategoryNameEnum {
+        Activity,
+        Books,
+        CausesOfIllness,
+        CognitivePerformance,
+        Conditions,
+        Emotions,
+        Environment,
+        Foods,
+        Goals,
+        Locations,
+        Miscellaneous,
+        MoviesAndTV,
+        Music,
+        Nutrients,
+        Payments,
+        PhysicalActivities,
+        Physique,
+        Sleep,
+        SocialInteractions,
+        Software,
+        Symptoms,
+        Treatments,
+        VitalSigns
+    }
 }
 /**
  *
@@ -3312,11 +3384,11 @@ export interface MeasurementItem {
  */
 export interface MeasurementSet {
     /**
-     * Options: MEAN, SUM
+     * Way to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.
      * @type {string}
      * @memberof MeasurementSet
      */
-    combinationOperation?: string;
+    combinationOperation?: MeasurementSet.CombinationOperationEnum;
     /**
      * Array of timestamps, values, and optional notes
      * @type {Array<MeasurementItem>}
@@ -3336,11 +3408,11 @@ export interface MeasurementSet {
      */
     unitAbbreviatedName: string;
     /**
-     * Options: Activity, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Goals, Locations, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activities, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs
+     * Ex: Emotions, Treatments, Symptoms...
      * @type {string}
      * @memberof MeasurementSet
      */
-    variableCategoryName?: string;
+    variableCategoryName?: MeasurementSet.VariableCategoryNameEnum;
     /**
      * ORIGINAL name of the variable for which we are creating the measurement records
      * @type {string}
@@ -3353,6 +3425,49 @@ export interface MeasurementSet {
      * @memberof MeasurementSet
      */
     upc?: string;
+}
+/**
+ * @export
+ * @namespace MeasurementSet
+ */
+export declare namespace MeasurementSet {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum CombinationOperationEnum {
+        MEAN,
+        SUM
+    }
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum VariableCategoryNameEnum {
+        Activity,
+        Books,
+        CausesOfIllness,
+        CognitivePerformance,
+        Conditions,
+        Emotions,
+        Environment,
+        Foods,
+        Goals,
+        Locations,
+        Miscellaneous,
+        MoviesAndTV,
+        Music,
+        Nutrients,
+        Payments,
+        PhysicalActivities,
+        Physique,
+        Sleep,
+        SocialInteractions,
+        Software,
+        Symptoms,
+        Treatments,
+        VitalSigns
+    }
 }
 /**
  *
@@ -4011,7 +4126,7 @@ export interface Pair {
      * @type {string}
      * @memberof Pair
      */
-    startAt?: string;
+    startTimeString?: string;
     /**
      * Ex: 1464937200
      * @type {number}
@@ -4764,11 +4879,26 @@ export interface StudyCreationBody {
      */
     studyTitle?: string;
     /**
-     * Options: individual, group, global
+     * Individual studies are based on data of a single user. Group studies are based on data from a specific group of individuals who have joined.  Global studies are based on aggregated and anonymously shared data from all users.
      * @type {string}
      * @memberof StudyCreationBody
      */
-    type: string;
+    type: StudyCreationBody.TypeEnum;
+}
+/**
+ * @export
+ * @namespace StudyCreationBody
+ */
+export declare namespace StudyCreationBody {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum TypeEnum {
+        Individual,
+        Group,
+        Global
+    }
 }
 /**
  *
@@ -4868,7 +4998,7 @@ export interface StudyHtml {
  */
 export interface StudyImages {
     /**
-     * Ex: https://maxcdn.icons8.com/Color/PNG/96/Household/sleeping_in_bed-96.png
+     * Ex: https://static.quantimo.do/img/variable_categories/sleeping_in_bed-96.png
      * @type {string}
      * @memberof StudyImages
      */
@@ -4880,7 +5010,7 @@ export interface StudyImages {
      */
     causeVariableIonIcon?: string;
     /**
-     * Ex: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
+     * Ex: https://static.quantimo.do/img/variable_categories/theatre_mask-96.png
      * @type {string}
      * @memberof StudyImages
      */
@@ -5330,11 +5460,11 @@ export interface TrackingReminder {
      */
     clientId?: string;
     /**
-     * Options: MEAN, SUM
+     * The way multiple measurements are aggregated over time
      * @type {string}
      * @memberof TrackingReminder
      */
-    combinationOperation?: string;
+    combinationOperation?: TrackingReminder.CombinationOperationEnum;
     /**
      * Ex: 2016-05-18 02:24:08 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
      * @type {string}
@@ -5756,17 +5886,17 @@ export interface TrackingReminder {
      */
     variableCategoryId?: number;
     /**
-     * Ex: https://maxcdn.icons8.com/Color/PNG/96/Messaging/sad-96.png
+     * Ex: https://static.quantimo.do/img/variable_categories/sad-96.png
      * @type {string}
      * @memberof TrackingReminder
      */
     variableCategoryImageUrl?: string;
     /**
-     * Options: Activity, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Goals, Locations, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activities, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs
+     * Ex: Emotions, Treatments, Symptoms...
      * @type {string}
      * @memberof TrackingReminder
      */
-    variableCategoryName: string;
+    variableCategoryName: TrackingReminder.VariableCategoryNameEnum;
     /**
      * Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
      * @type {string}
@@ -5785,6 +5915,49 @@ export interface TrackingReminder {
      * @memberof TrackingReminder
      */
     variableName: string;
+}
+/**
+ * @export
+ * @namespace TrackingReminder
+ */
+export declare namespace TrackingReminder {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum CombinationOperationEnum {
+        MEAN,
+        SUM
+    }
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum VariableCategoryNameEnum {
+        Activity,
+        Books,
+        CausesOfIllness,
+        CognitivePerformance,
+        Conditions,
+        Emotions,
+        Environment,
+        Foods,
+        Goals,
+        Locations,
+        Miscellaneous,
+        MoviesAndTV,
+        Music,
+        Nutrients,
+        Payments,
+        PhysicalActivities,
+        Physique,
+        Sleep,
+        SocialInteractions,
+        Software,
+        Symptoms,
+        Treatments,
+        VitalSigns
+    }
 }
 /**
  *
@@ -5884,11 +6057,11 @@ export interface TrackingReminderNotification {
      */
     clientId?: string;
     /**
-     * Options: MEAN, SUM
+     * The way multiple measurements are aggregated over time
      * @type {string}
      * @memberof TrackingReminderNotification
      */
-    combinationOperation?: string;
+    combinationOperation?: TrackingReminderNotification.CombinationOperationEnum;
     /**
      * Ex: 2017-07-29 20:49:54 UTC ISO 8601 YYYY-MM-DDThh:mm:ss
      * @type {string}
@@ -6274,17 +6447,17 @@ export interface TrackingReminderNotification {
      */
     variableCategoryId?: number;
     /**
-     * Ex: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
+     * Ex: https://static.quantimo.do/img/variable_categories/theatre_mask-96.png
      * @type {string}
      * @memberof TrackingReminderNotification
      */
     variableCategoryImageUrl?: string;
     /**
-     * Options: Activity, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Goals, Locations, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activities, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs
+     * Ex: Emotions, Treatments, Symptoms...
      * @type {string}
      * @memberof TrackingReminderNotification
      */
-    variableCategoryName?: string;
+    variableCategoryName?: TrackingReminderNotification.VariableCategoryNameEnum;
     /**
      * Id for the variable to be tracked
      * @type {number}
@@ -6303,6 +6476,49 @@ export interface TrackingReminderNotification {
      * @memberof TrackingReminderNotification
      */
     variableName?: string;
+}
+/**
+ * @export
+ * @namespace TrackingReminderNotification
+ */
+export declare namespace TrackingReminderNotification {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum CombinationOperationEnum {
+        MEAN,
+        SUM
+    }
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum VariableCategoryNameEnum {
+        Activity,
+        Books,
+        CausesOfIllness,
+        CognitivePerformance,
+        Conditions,
+        Emotions,
+        Environment,
+        Foods,
+        Goals,
+        Locations,
+        Miscellaneous,
+        MoviesAndTV,
+        Music,
+        Nutrients,
+        Payments,
+        PhysicalActivities,
+        Physique,
+        Sleep,
+        SocialInteractions,
+        Software,
+        Symptoms,
+        Treatments,
+        VitalSigns
+    }
 }
 /**
  *
@@ -6354,11 +6570,11 @@ export interface TrackingReminderNotificationAction {
  */
 export interface TrackingReminderNotificationPost {
     /**
-     * Options: skip, snooze, track
+     * track records a measurement for the notification.  snooze changes the notification to 1 hour from now. skip deletes the notification.
      * @type {string}
      * @memberof TrackingReminderNotificationPost
      */
-    action: string;
+    action: TrackingReminderNotificationPost.ActionEnum;
     /**
      * Id of the TrackingReminderNotification
      * @type {number}
@@ -6371,6 +6587,21 @@ export interface TrackingReminderNotificationPost {
      * @memberof TrackingReminderNotificationPost
      */
     modifiedValue?: number;
+}
+/**
+ * @export
+ * @namespace TrackingReminderNotificationPost
+ */
+export declare namespace TrackingReminderNotificationPost {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum ActionEnum {
+        Skip,
+        Snooze,
+        Track
+    }
 }
 /**
  *
@@ -6422,11 +6653,11 @@ export interface Unit {
      */
     advanced?: number;
     /**
-     * Options: Distance, Duration, Energy, Frequency, Miscellany, Pressure, Proportion, Rating, Temperature, Volume, Weight, Count
+     * Unit category
      * @type {string}
      * @memberof Unit
      */
-    category: string;
+    category: Unit.CategoryEnum;
     /**
      * Ex: 6
      * @type {number}
@@ -6493,6 +6724,30 @@ export interface Unit {
      * @memberof Unit
      */
     unitCategory: UnitCategory;
+}
+/**
+ * @export
+ * @namespace Unit
+ */
+export declare namespace Unit {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum CategoryEnum {
+        Distance,
+        Duration,
+        Energy,
+        Frequency,
+        Miscellany,
+        Pressure,
+        Proportion,
+        Rating,
+        Temperature,
+        Volume,
+        Weight,
+        Count
+    }
 }
 /**
  *
@@ -7228,11 +7483,11 @@ export interface Variable {
      */
     clientId?: string;
     /**
-     * Options: MEAN, SUM
+     * User-Defined Variable Setting: How to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.
      * @type {string}
      * @memberof Variable
      */
-    combinationOperation?: string;
+    combinationOperation?: Variable.CombinationOperationEnum;
     /**
      * Ex: Anxiety / Nervousness
      * @type {string}
@@ -7330,11 +7585,11 @@ export interface Variable {
      */
     experimentStartTime?: string;
     /**
-     * Options: none, zero-filling, value-filling
+     * User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.
      * @type {string}
      * @memberof Variable
      */
-    fillingType?: string;
+    fillingType?: Variable.FillingTypeEnum;
     /**
      * User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.  Unit: User-specified or common.
      * @type {number}
@@ -7966,11 +8221,11 @@ export interface Variable {
      */
     variableCategoryId?: number;
     /**
-     * Options: Activity, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Goals, Locations, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activities, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs
+     * User-Defined Variable Setting: Variable category like Emotions, Sleep, Physical Activities, Treatments, Symptoms, etc.
      * @type {string}
      * @memberof Variable
      */
-    variableCategoryName?: string;
+    variableCategoryName?: Variable.VariableCategoryNameEnum;
     /**
      * Ex: 96380
      * @type {number}
@@ -7995,6 +8250,58 @@ export interface Variable {
      * @memberof Variable
      */
     wikipediaTitle?: string;
+}
+/**
+ * @export
+ * @namespace Variable
+ */
+export declare namespace Variable {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum CombinationOperationEnum {
+        MEAN,
+        SUM
+    }
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum FillingTypeEnum {
+        None,
+        ZeroFilling,
+        ValueFilling
+    }
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum VariableCategoryNameEnum {
+        Activity,
+        Books,
+        CausesOfIllness,
+        CognitivePerformance,
+        Conditions,
+        Emotions,
+        Environment,
+        Foods,
+        Goals,
+        Locations,
+        Miscellaneous,
+        MoviesAndTV,
+        Music,
+        Nutrients,
+        Payments,
+        PhysicalActivities,
+        Physique,
+        Sleep,
+        SocialInteractions,
+        Software,
+        Symptoms,
+        Treatments,
+        VitalSigns
+    }
 }
 /**
  *
@@ -8063,7 +8370,7 @@ export interface VariableCategory {
      */
     id?: number;
     /**
-     * Ex: https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png
+     * Ex: https://static.quantimo.do/img/variable_categories/theatre_mask-96.png
      * @type {string}
      * @memberof VariableCategory
      */
@@ -8165,17 +8472,52 @@ export interface VariableCategory {
      */
     updatedTime?: string;
     /**
-     * Options: Activity, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Goals, Locations, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activities, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs
+     * Ex: Emotions, Treatments, Symptoms...
      * @type {string}
      * @memberof VariableCategory
      */
-    variableCategoryName?: string;
+    variableCategoryName?: VariableCategory.VariableCategoryNameEnum;
     /**
      * Ex: Emotion
      * @type {string}
      * @memberof VariableCategory
      */
     variableCategoryNameSingular?: string;
+}
+/**
+ * @export
+ * @namespace VariableCategory
+ */
+export declare namespace VariableCategory {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum VariableCategoryNameEnum {
+        Activity,
+        Books,
+        CausesOfIllness,
+        CognitivePerformance,
+        Conditions,
+        Emotions,
+        Environment,
+        Foods,
+        Goals,
+        Locations,
+        Miscellaneous,
+        MoviesAndTV,
+        Music,
+        Nutrients,
+        Payments,
+        PhysicalActivities,
+        Physique,
+        Sleep,
+        SocialInteractions,
+        Software,
+        Symptoms,
+        Treatments,
+        VitalSigns
+    }
 }
 /**
  * An object with various chart properties each property contain and svg and Highcharts configuration
@@ -8269,17 +8611,40 @@ export interface Vote {
      */
     userId: number;
     /**
-     * Options: up, down, none
+     * Vote down for implausible/not-useful or up for plausible/useful. Vote none to delete a previous vote.
      * @type {string}
      * @memberof Vote
      */
-    value: string;
+    value: Vote.ValueEnum;
     /**
-     * Options: causality, usefulness
+     * Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @type {string}
      * @memberof Vote
      */
-    type?: string;
+    type?: Vote.TypeEnum;
+}
+/**
+ * @export
+ * @namespace Vote
+ */
+export declare namespace Vote {
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum ValueEnum {
+        Up,
+        Down,
+        None
+    }
+    /**
+     * @export
+     * @enum {string}
+     */
+    enum TypeEnum {
+        Causality,
+        Usefulness
+    }
 }
 /**
  *
@@ -8835,12 +9200,51 @@ export declare const ActivitiesApiFactory: (configuration?: Configuration, fetch
     postActivities(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<ActivitiesResponse[]>;
 };
 /**
+ * ActivitiesApi - interface
+ * @export
+ * @interface ActivitiesApi
+ */
+export interface ActivitiesApiInterface {
+    /**
+     * Get Activities
+     * @summary Get Activities
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActivitiesApiInterface
+     */
+    getActivities(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<ActivitiesResponse>>;
+    /**
+     * Post Activities
+     * @summary Post Activities
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActivitiesApiInterface
+     */
+    postActivities(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<ActivitiesResponse>>;
+}
+/**
  * ActivitiesApi - object-oriented interface
  * @export
  * @class ActivitiesApi
  * @extends {BaseAPI}
  */
-export declare class ActivitiesApi extends BaseAPI {
+export declare class ActivitiesApi extends BaseAPI implements ActivitiesApiInterface {
     /**
      * Get Activities
      * @summary Get Activities
@@ -8998,12 +9402,56 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, fetch?
     getCorrelations(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, sort?: string, limit?: number, offset?: number, userId?: number, correlationCoefficient?: string, updatedAt?: string, outcomesOfInterest?: boolean, clientId?: string, commonOnly?: boolean, options?: any): Promise<GetCorrelationsResponse>;
 };
 /**
+ * AnalyticsApi - interface
+ * @export
+ * @interface AnalyticsApi
+ */
+export interface AnalyticsApiInterface {
+    /**
+     * Get explanations of  correlations based on data from a single user.
+     * @summary Get correlation explanations
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AnalyticsApiInterface
+     */
+    getCorrelationExplanations(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, options?: any): Promise<Array<Correlation>>;
+    /**
+     * Get a list of correlations that can be used to display top predictors of a given outcome like mood, for instance.
+     * @summary Get correlations
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [correlationCoefficient] Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {boolean} [outcomesOfInterest] Only include correlations for which the effect is an outcome of interest for the user
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {boolean} [commonOnly] Return only public, anonymized and aggregated population data instead of user-specific variables
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AnalyticsApiInterface
+     */
+    getCorrelations(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, sort?: string, limit?: number, offset?: number, userId?: number, correlationCoefficient?: string, updatedAt?: string, outcomesOfInterest?: boolean, clientId?: string, commonOnly?: boolean, options?: any): Promise<GetCorrelationsResponse>;
+}
+/**
  * AnalyticsApi - object-oriented interface
  * @export
  * @class AnalyticsApi
  * @extends {BaseAPI}
  */
-export declare class AnalyticsApi extends BaseAPI {
+export declare class AnalyticsApi extends BaseAPI implements AnalyticsApiInterface {
     /**
      * Get explanations of  correlations based on data from a single user.
      * @summary Get correlation explanations
@@ -9048,7 +9496,7 @@ export declare class AnalyticsApi extends BaseAPI {
  */
 export declare const AppSettingsApiFetchParamCreator: (configuration?: Configuration) => {
     /**
-     * Get the settings for your application configurable at https://build.quantimo.do
+     * Get the settings for your application configurable at https://builder.quantimo.do
      * @summary Get client app settings
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
@@ -9063,7 +9511,7 @@ export declare const AppSettingsApiFetchParamCreator: (configuration?: Configura
  */
 export declare const AppSettingsApiFp: (configuration?: Configuration) => {
     /**
-     * Get the settings for your application configurable at https://build.quantimo.do
+     * Get the settings for your application configurable at https://builder.quantimo.do
      * @summary Get client app settings
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
@@ -9078,7 +9526,7 @@ export declare const AppSettingsApiFp: (configuration?: Configuration) => {
  */
 export declare const AppSettingsApiFactory: (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) => {
     /**
-     * Get the settings for your application configurable at https://build.quantimo.do
+     * Get the settings for your application configurable at https://builder.quantimo.do
      * @summary Get client app settings
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
@@ -9088,14 +9536,31 @@ export declare const AppSettingsApiFactory: (configuration?: Configuration, fetc
     getAppSettings(clientId?: string, clientSecret?: string, options?: any): Promise<AppSettingsResponse>;
 };
 /**
+ * AppSettingsApi - interface
+ * @export
+ * @interface AppSettingsApi
+ */
+export interface AppSettingsApiInterface {
+    /**
+     * Get the settings for your application configurable at https://builder.quantimo.do
+     * @summary Get client app settings
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AppSettingsApiInterface
+     */
+    getAppSettings(clientId?: string, clientSecret?: string, options?: any): Promise<AppSettingsResponse>;
+}
+/**
  * AppSettingsApi - object-oriented interface
  * @export
  * @class AppSettingsApi
  * @extends {BaseAPI}
  */
-export declare class AppSettingsApi extends BaseAPI {
+export declare class AppSettingsApi extends BaseAPI implements AppSettingsApiInterface {
     /**
-     * Get the settings for your application configurable at https://build.quantimo.do
+     * Get the settings for your application configurable at https://builder.quantimo.do
      * @summary Get client app settings
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
@@ -9229,12 +9694,57 @@ export declare const AuthenticationApiFactory: (configuration?: Configuration, f
     postGoogleIdToken(options?: any): Promise<Response>;
 };
 /**
+ * AuthenticationApi - interface
+ * @export
+ * @interface AuthenticationApi
+ */
+export interface AuthenticationApiInterface {
+    /**
+     * Client provides authorization token obtained from /api/v3/oauth2/authorize to this endpoint and receives an access token. Access token can then be used to query API endpoints. ### Request Access Token After user approves your access to the given scope form the https:/app.quantimo.do/v1/oauth2/authorize endpoint, you'll receive an authorization code to request an access token. This time make a `POST` request to `/api/v1/oauth/access_token` with parameters including: * `grant_type` Can be `authorization_code` or `refresh_token` since we are getting the `access_token` for the first time we don't have a `refresh_token` so this must be `authorization_code`. * `code` Authorization code you received with the previous request. * `redirect_uri` Your application's redirect url. ### Refreshing Access Token Access tokens expire at some point, to continue using our api you need to refresh them with `refresh_token` you received along with the `access_token`. To do this make a `POST` request to `/api/v1/oauth/access_token` with correct parameters, which are: * `grant_type` This time grant type must be `refresh_token` since we have it. * `clientId` Your application's client id. * `client_secret` Your application's client secret. * `refresh_token` The refresh token you received with the `access_token`. Every request you make to this endpoint will give you a new refresh token and make the old one expired. So you can keep getting new access tokens with new refresh tokens. ### Using Access Token Currently we support 2 ways for this, you can't use both at the same time. * Adding access token to the request header as `Authorization: Bearer {access_token}` * Adding to the url as a query parameter `?access_token={access_token}` You can read more about OAuth2 from [here](http://oauth.net/2/)
+     * @summary Get a user access token
+     * @param {string} grantType Grant Type can be &#39;authorization_code&#39; or &#39;refresh_token&#39;
+     * @param {string} code Authorization code you received with the previous request.
+     * @param {string} responseType If the value is code, launches a Basic flow, requiring a POST to the token endpoint to obtain the tokens. If the value is token id_token or id_token token, launches an Implicit flow, requiring the use of Javascript at the redirect URI to retrieve tokens from the URI #fragment.
+     * @param {string} scope Scopes include basic, readmeasurements, and writemeasurements. The &#x60;basic&#x60; scope allows you to read user info (displayName, email, etc). The &#x60;readmeasurements&#x60; scope allows one to read a user&#39;s data. The &#x60;writemeasurements&#x60; scope allows you to write user data. Separate multiple scopes by a space.
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
+     * @param {string} [redirectUri] The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
+     * @param {string} [state] An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthenticationApiInterface
+     */
+    getAccessToken(grantType: string, code: string, responseType: string, scope: string, clientId?: string, clientSecret?: string, redirectUri?: string, state?: string, options?: any): Promise<{}>;
+    /**
+     * You can implement OAuth2 authentication to your application using our **OAuth2** endpoints.  You need to redirect users to `/api/v3/oauth2/authorize` endpoint to get an authorization code and include the parameters below.   This page will ask the user if they want to allow a client's application to submit or obtain data from their QM account. It will redirect the user to the url provided by the client application with the code as a query parameter or error in case of an error. See the /api/v1/oauth/access_token endpoint for the next steps.
+     * @summary Request Authorization Code
+     * @param {string} responseType If the value is code, launches a Basic flow, requiring a POST to the token endpoint to obtain the tokens. If the value is token id_token or id_token token, launches an Implicit flow, requiring the use of Javascript at the redirect URI to retrieve tokens from the URI #fragment.
+     * @param {string} scope Scopes include basic, readmeasurements, and writemeasurements. The &#x60;basic&#x60; scope allows you to read user info (displayName, email, etc). The &#x60;readmeasurements&#x60; scope allows one to read a user&#39;s data. The &#x60;writemeasurements&#x60; scope allows you to write user data. Separate multiple scopes by a space.
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {string} [clientSecret] This is the secret for your obtained clientId. We use this to ensure that only your application uses the clientId.  Obtain this by creating a free application at [https://builder.quantimo.do](https://builder.quantimo.do).
+     * @param {string} [redirectUri] The redirect URI is the URL within your client application that will receive the OAuth2 credentials.
+     * @param {string} [state] An opaque string that is round-tripped in the protocol; that is to say, it is returned as a URI parameter in the Basic flow, and in the URI
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthenticationApiInterface
+     */
+    getOauthAuthorizationCode(responseType: string, scope: string, clientId?: string, clientSecret?: string, redirectUri?: string, state?: string, options?: any): Promise<{}>;
+    /**
+     * Post GoogleIdToken
+     * @summary Post GoogleIdToken
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthenticationApiInterface
+     */
+    postGoogleIdToken(options?: any): Promise<{}>;
+}
+/**
  * AuthenticationApi - object-oriented interface
  * @export
  * @class AuthenticationApi
  * @extends {BaseAPI}
  */
-export declare class AuthenticationApi extends BaseAPI {
+export declare class AuthenticationApi extends BaseAPI implements AuthenticationApiInterface {
     /**
      * Client provides authorization token obtained from /api/v3/oauth2/authorize to this endpoint and receives an access token. Access token can then be used to query API endpoints. ### Request Access Token After user approves your access to the given scope form the https:/app.quantimo.do/v1/oauth2/authorize endpoint, you'll receive an authorization code to request an access token. This time make a `POST` request to `/api/v1/oauth/access_token` with parameters including: * `grant_type` Can be `authorization_code` or `refresh_token` since we are getting the `access_token` for the first time we don't have a `refresh_token` so this must be `authorization_code`. * `code` Authorization code you received with the previous request. * `redirect_uri` Your application's redirect url. ### Refreshing Access Token Access tokens expire at some point, to continue using our api you need to refresh them with `refresh_token` you received along with the `access_token`. To do this make a `POST` request to `/api/v1/oauth/access_token` with correct parameters, which are: * `grant_type` This time grant type must be `refresh_token` since we have it. * `clientId` Your application's client id. * `client_secret` Your application's client secret. * `refresh_token` The refresh token you received with the `access_token`. Every request you make to this endpoint will give you a new refresh token and make the old one expired. So you can keep getting new access tokens with new refresh tokens. ### Using Access Token Currently we support 2 ways for this, you can't use both at the same time. * Adding access token to the request header as `Authorization: Bearer {access_token}` * Adding to the url as a query parameter `?access_token={access_token}` You can read more about OAuth2 from [here](http://oauth.net/2/)
      * @summary Get a user access token
@@ -9282,20 +9792,20 @@ export declare const ConnectorsApiFetchParamCreator: (configuration?: Configurat
     /**
      * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
      * @summary Obtain a token from 3rd party data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    connectConnector(connectorName: string, userId?: number, options?: any): FetchArgs;
+    connectConnector(connectorName: "slice" | "up" | "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail", userId?: number, options?: any): FetchArgs;
     /**
      * The disconnect method deletes any stored tokens or connection information from the connectors database.
      * @summary Delete stored connection info
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    disconnectConnector(connectorName: string, options?: any): FetchArgs;
+    disconnectConnector(connectorName: "slice" | "up" | "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail", options?: any): FetchArgs;
     /**
      * A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.
      * @summary List of Connectors
@@ -9323,12 +9833,12 @@ export declare const ConnectorsApiFetchParamCreator: (configuration?: Configurat
     /**
      * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
      * @summary Sync with data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConnector(connectorName: string, userId?: number, options?: any): FetchArgs;
+    updateConnector(connectorName: "slice" | "up" | "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail", userId?: number, options?: any): FetchArgs;
 };
 /**
  * ConnectorsApi - functional programming interface
@@ -9338,20 +9848,20 @@ export declare const ConnectorsApiFp: (configuration?: Configuration) => {
     /**
      * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
      * @summary Obtain a token from 3rd party data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    connectConnector(connectorName: string, userId?: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Response>;
+    connectConnector(connectorName: "slice" | "up" | "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail", userId?: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<GetConnectorsResponse>;
     /**
      * The disconnect method deletes any stored tokens or connection information from the connectors database.
      * @summary Delete stored connection info
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    disconnectConnector(connectorName: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Response>;
+    disconnectConnector(connectorName: "slice" | "up" | "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail", options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<GetConnectorsResponse>;
     /**
      * A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.
      * @summary List of Connectors
@@ -9379,12 +9889,12 @@ export declare const ConnectorsApiFp: (configuration?: Configuration) => {
     /**
      * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
      * @summary Sync with data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConnector(connectorName: string, userId?: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Response>;
+    updateConnector(connectorName: "slice" | "up" | "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail", userId?: number, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<GetConnectorsResponse>;
 };
 /**
  * ConnectorsApi - factory interface
@@ -9394,20 +9904,20 @@ export declare const ConnectorsApiFactory: (configuration?: Configuration, fetch
     /**
      * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
      * @summary Obtain a token from 3rd party data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    connectConnector(connectorName: string, userId?: number, options?: any): Promise<Response>;
+    connectConnector(connectorName: "slice" | "up" | "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail", userId?: number, options?: any): Promise<GetConnectorsResponse>;
     /**
      * The disconnect method deletes any stored tokens or connection information from the connectors database.
      * @summary Delete stored connection info
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    disconnectConnector(connectorName: string, options?: any): Promise<Response>;
+    disconnectConnector(connectorName: "slice" | "up" | "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail", options?: any): Promise<GetConnectorsResponse>;
     /**
      * A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.
      * @summary List of Connectors
@@ -9435,39 +9945,102 @@ export declare const ConnectorsApiFactory: (configuration?: Configuration, fetch
     /**
      * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
      * @summary Sync with data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConnector(connectorName: string, userId?: number, options?: any): Promise<Response>;
+    updateConnector(connectorName: "slice" | "up" | "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail", userId?: number, options?: any): Promise<GetConnectorsResponse>;
 };
+/**
+ * ConnectorsApi - interface
+ * @export
+ * @interface ConnectorsApi
+ */
+export interface ConnectorsApiInterface {
+    /**
+     * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
+     * @summary Obtain a token from 3rd party data source
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
+     * @param {number} [userId] User&#39;s id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApiInterface
+     */
+    connectConnector(connectorName: 'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail', userId?: number, options?: any): Promise<GetConnectorsResponse>;
+    /**
+     * The disconnect method deletes any stored tokens or connection information from the connectors database.
+     * @summary Delete stored connection info
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApiInterface
+     */
+    disconnectConnector(connectorName: 'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail', options?: any): Promise<GetConnectorsResponse>;
+    /**
+     * A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.
+     * @summary List of Connectors
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApiInterface
+     */
+    getConnectors(clientId?: string, options?: any): Promise<GetConnectorsResponse>;
+    /**
+     * Get embeddable connect javascript. Usage:   - Embedding in applications with popups for 3rd-party authentication windows.     Use `qmSetupInPopup` function after connecting `connect.js`.   - Embedding in applications with popups for 3rd-party authentication windows.     Requires a selector to block. It will be embedded in this block.     Use `qmSetupOnPage` function after connecting `connect.js`.   - Embedding in mobile applications without popups for 3rd-party authentication.     Use `qmSetupOnMobile` function after connecting `connect.js`.     If using in a Cordova application call  `qmSetupOnIonic` function after connecting `connect.js`.
+     * @summary Get embeddable connect javascript
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApiInterface
+     */
+    getIntegrationJs(clientId?: string, options?: any): Promise<{}>;
+    /**
+     * This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user's access_token as a URL parameter like https://app.quantimo.do/api/v3/connect/mobile?access_token=123
+     * @summary Mobile connect page
+     * @param {number} [userId] User&#39;s id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApiInterface
+     */
+    getMobileConnectPage(userId?: number, options?: any): Promise<{}>;
+    /**
+     * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
+     * @summary Sync with data source
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
+     * @param {number} [userId] User&#39;s id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApiInterface
+     */
+    updateConnector(connectorName: 'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail', userId?: number, options?: any): Promise<GetConnectorsResponse>;
+}
 /**
  * ConnectorsApi - object-oriented interface
  * @export
  * @class ConnectorsApi
  * @extends {BaseAPI}
  */
-export declare class ConnectorsApi extends BaseAPI {
+export declare class ConnectorsApi extends BaseAPI implements ConnectorsApiInterface {
     /**
      * Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
      * @summary Obtain a token from 3rd party data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsApi
      */
-    connectConnector(connectorName: string, userId?: number, options?: any): Promise<Response>;
+    connectConnector(connectorName: 'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail', userId?: number, options?: any): Promise<GetConnectorsResponse>;
     /**
      * The disconnect method deletes any stored tokens or connection information from the connectors database.
      * @summary Delete stored connection info
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsApi
      */
-    disconnectConnector(connectorName: string, options?: any): Promise<Response>;
+    disconnectConnector(connectorName: 'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail', options?: any): Promise<GetConnectorsResponse>;
     /**
      * A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.
      * @summary List of Connectors
@@ -9498,13 +10071,13 @@ export declare class ConnectorsApi extends BaseAPI {
     /**
      * The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
      * @summary Sync with data source
-     * @param {string} connectorName Options: facebook, fitbit, github, googlecalendar, googlefit, medhelper, mint, moodpanda, moodscope, myfitnesspal, mynetdiary, netatmo, rescuetime, runkeeper, slack, sleepcloud, slice, up, whatpulse, withings, worldweatheronline, foursquare, strava, gmail
+     * @param {'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail'} connectorName Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint.
      * @param {number} [userId] User&#39;s id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsApi
      */
-    updateConnector(connectorName: string, userId?: number, options?: any): Promise<Response>;
+    updateConnector(connectorName: 'facebook' | 'fitbit' | 'github' | 'googlecalendar' | 'googlefit' | 'medhelper' | 'mint' | 'moodpanda' | 'moodscope' | 'myfitnesspal' | 'mynetdiary' | 'netatmo' | 'rescuetime' | 'runkeeper' | 'slack' | 'sleepcloud' | 'slice' | 'up' | 'whatpulse' | 'withings' | 'worldweatheronline' | 'foursquare' | 'strava' | 'gmail', userId?: number, options?: any): Promise<GetConnectorsResponse>;
 }
 /**
  * FeedApi - fetch parameter creator
@@ -9597,12 +10170,45 @@ export declare const FeedApiFactory: (configuration?: Configuration, fetch?: Fet
     postFeed(body: Card[], userId?: number, clientId?: string, options?: any): Promise<FeedResponse>;
 };
 /**
+ * FeedApi - interface
+ * @export
+ * @interface FeedApi
+ */
+export interface FeedApiInterface {
+    /**
+     * Tracking reminder notifications, messages, and study results
+     * @summary Tracking reminder notifications, messages, and study results
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeedApiInterface
+     */
+    getFeed(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, clientId?: string, options?: any): Promise<FeedResponse>;
+    /**
+     * Post user actions on feed cards
+     * @summary Post user interactions with feed
+     * @param {Array<Card>} body Id of the tracking reminder notification to be snoozed
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeedApiInterface
+     */
+    postFeed(body: Array<Card>, userId?: number, clientId?: string, options?: any): Promise<FeedResponse>;
+}
+/**
  * FeedApi - object-oriented interface
  * @export
  * @class FeedApi
  * @extends {BaseAPI}
  */
-export declare class FeedApi extends BaseAPI {
+export declare class FeedApi extends BaseAPI implements FeedApiInterface {
     /**
      * Tracking reminder notifications, messages, and study results
      * @summary Tracking reminder notifications, messages, and study results
@@ -9739,12 +10345,51 @@ export declare const FriendsApiFactory: (configuration?: Configuration, fetch?: 
     postFriends(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<FriendsResponse[]>;
 };
 /**
+ * FriendsApi - interface
+ * @export
+ * @interface FriendsApi
+ */
+export interface FriendsApiInterface {
+    /**
+     * Get Friends
+     * @summary Get Friends
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FriendsApiInterface
+     */
+    getFriends(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<FriendsResponse>>;
+    /**
+     * Post Friends
+     * @summary Post Friends
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FriendsApiInterface
+     */
+    postFriends(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<FriendsResponse>>;
+}
+/**
  * FriendsApi - object-oriented interface
  * @export
  * @class FriendsApi
  * @extends {BaseAPI}
  */
-export declare class FriendsApi extends BaseAPI {
+export declare class FriendsApi extends BaseAPI implements FriendsApiInterface {
     /**
      * Get Friends
      * @summary Get Friends
@@ -9977,12 +10622,83 @@ export declare const GroupsApiFactory: (configuration?: Configuration, fetch?: F
     postGroupsMembers(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<GroupsMembersResponse[]>;
 };
 /**
+ * GroupsApi - interface
+ * @export
+ * @interface GroupsApi
+ */
+export interface GroupsApiInterface {
+    /**
+     * Get Groups
+     * @summary Get Groups
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GroupsApiInterface
+     */
+    getGroups(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<GroupsResponse>>;
+    /**
+     * Get GroupsMembers
+     * @summary Get GroupsMembers
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GroupsApiInterface
+     */
+    getGroupsMembers(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<GroupsMembersResponse>>;
+    /**
+     * Post Groups
+     * @summary Post Groups
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GroupsApiInterface
+     */
+    postGroups(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<GroupsResponse>>;
+    /**
+     * Post GroupsMembers
+     * @summary Post GroupsMembers
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GroupsApiInterface
+     */
+    postGroupsMembers(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<GroupsMembersResponse>>;
+}
+/**
  * GroupsApi - object-oriented interface
  * @export
  * @class GroupsApi
  * @extends {BaseAPI}
  */
-export declare class GroupsApi extends BaseAPI {
+export declare class GroupsApi extends BaseAPI implements GroupsApiInterface {
     /**
      * Get Groups
      * @summary Get Groups
@@ -10068,13 +10784,13 @@ export declare const MeasurementsApiFetchParamCreator: (configuration?: Configur
      * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [userId] User&#39;s id
      * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
      * @param {string} [connectorName] Ex: facebook
      * @param {string} [value] Value of measurement
-     * @param {string} [unitName] Options: % Recommended Daily Allowance, -4 to 4 Rating, 0 to 1 Rating, 0 to 5 Rating, 1 to 10 Rating, 1 to 5 Rating, Applications, Beats per Minute, Calories, Capsules, Centimeters, Count, Degrees Celsius, Degrees East, Degrees Fahrenheit, Degrees North, Dollars, Drops, Event, Feet, Grams, Hours, Inches, Index, Kilocalories, Kilograms, Kilometers, Liters, Meters, Micrograms, Micrograms per decilitre, Miles, Milligrams, Milliliters, Millimeters, Millimeters Merc, Milliseconds, Minutes, Pascal, Percent, Pieces, Pills, Pounds, Puffs, Seconds, Serving, Sprays, Tablets, Torr, Units, Yes/No, per Minute, Doses, Quarts, Ounces, International Units, Meters per Second
+     * @param {'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'} [unitName] Ex: Milligrams
      * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -10088,7 +10804,7 @@ export declare const MeasurementsApiFetchParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMeasurements(variableName?: string, sort?: string, limit?: number, offset?: number, variableCategoryName?: string, updatedAt?: string, userId?: number, sourceName?: string, connectorName?: string, value?: string, unitName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, createdAt?: string, id?: number, groupingWidth?: number, groupingTimezone?: string, doNotProcess?: boolean, clientId?: string, doNotConvert?: boolean, minMaxFilter?: boolean, options?: any): FetchArgs;
+    getMeasurements(variableName?: string, sort?: string, limit?: number, offset?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", updatedAt?: string, userId?: number, sourceName?: string, connectorName?: string, value?: string, unitName?: "Event" | "Count" | "% Recommended Daily Allowance" | "-4 to 4 Rating" | "0 to 1 Rating" | "0 to 5 Rating" | "1 to 10 Rating" | "1 to 5 Rating" | "Applications" | "Beats per Minute" | "Calories" | "Capsules" | "Centimeters" | "Degrees Celsius" | "Degrees East" | "Degrees Fahrenheit" | "Degrees North" | "Dollars" | "Drops" | "Feet" | "Grams" | "Hours" | "Inches" | "Index" | "Kilocalories" | "Kilograms" | "Kilometers" | "Liters" | "Meters" | "Micrograms" | "Micrograms per decilitre" | "Miles" | "Milligrams" | "Milliliters" | "Millimeters" | "Millimeters Merc" | "Milliseconds" | "Minutes" | "Pascal" | "Percent" | "Pieces" | "Pills" | "Pounds" | "Puffs" | "Seconds" | "Serving" | "Sprays" | "Tablets" | "Torr" | "Units" | "Yes/No" | "per Minute" | "Doses" | "Quarts" | "Ounces" | "International Units" | "Meters per Second", earliestMeasurementTime?: string, latestMeasurementTime?: string, createdAt?: string, id?: number, groupingWidth?: number, groupingTimezone?: string, doNotProcess?: boolean, clientId?: string, doNotConvert?: boolean, minMaxFilter?: boolean, options?: any): FetchArgs;
     /**
      * Pairs cause measurements with effect measurements grouped over the duration of action after the onset delay.
      * @summary Get pairs of measurements for correlational analysis
@@ -10158,13 +10874,13 @@ export declare const MeasurementsApiFp: (configuration?: Configuration) => {
      * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [userId] User&#39;s id
      * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
      * @param {string} [connectorName] Ex: facebook
      * @param {string} [value] Value of measurement
-     * @param {string} [unitName] Options: % Recommended Daily Allowance, -4 to 4 Rating, 0 to 1 Rating, 0 to 5 Rating, 1 to 10 Rating, 1 to 5 Rating, Applications, Beats per Minute, Calories, Capsules, Centimeters, Count, Degrees Celsius, Degrees East, Degrees Fahrenheit, Degrees North, Dollars, Drops, Event, Feet, Grams, Hours, Inches, Index, Kilocalories, Kilograms, Kilometers, Liters, Meters, Micrograms, Micrograms per decilitre, Miles, Milligrams, Milliliters, Millimeters, Millimeters Merc, Milliseconds, Minutes, Pascal, Percent, Pieces, Pills, Pounds, Puffs, Seconds, Serving, Sprays, Tablets, Torr, Units, Yes/No, per Minute, Doses, Quarts, Ounces, International Units, Meters per Second
+     * @param {'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'} [unitName] Ex: Milligrams
      * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -10178,7 +10894,7 @@ export declare const MeasurementsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMeasurements(variableName?: string, sort?: string, limit?: number, offset?: number, variableCategoryName?: string, updatedAt?: string, userId?: number, sourceName?: string, connectorName?: string, value?: string, unitName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, createdAt?: string, id?: number, groupingWidth?: number, groupingTimezone?: string, doNotProcess?: boolean, clientId?: string, doNotConvert?: boolean, minMaxFilter?: boolean, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Measurement[]>;
+    getMeasurements(variableName?: string, sort?: string, limit?: number, offset?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", updatedAt?: string, userId?: number, sourceName?: string, connectorName?: string, value?: string, unitName?: "Event" | "Count" | "% Recommended Daily Allowance" | "-4 to 4 Rating" | "0 to 1 Rating" | "0 to 5 Rating" | "1 to 10 Rating" | "1 to 5 Rating" | "Applications" | "Beats per Minute" | "Calories" | "Capsules" | "Centimeters" | "Degrees Celsius" | "Degrees East" | "Degrees Fahrenheit" | "Degrees North" | "Dollars" | "Drops" | "Feet" | "Grams" | "Hours" | "Inches" | "Index" | "Kilocalories" | "Kilograms" | "Kilometers" | "Liters" | "Meters" | "Micrograms" | "Micrograms per decilitre" | "Miles" | "Milligrams" | "Milliliters" | "Millimeters" | "Millimeters Merc" | "Milliseconds" | "Minutes" | "Pascal" | "Percent" | "Pieces" | "Pills" | "Pounds" | "Puffs" | "Seconds" | "Serving" | "Sprays" | "Tablets" | "Torr" | "Units" | "Yes/No" | "per Minute" | "Doses" | "Quarts" | "Ounces" | "International Units" | "Meters per Second", earliestMeasurementTime?: string, latestMeasurementTime?: string, createdAt?: string, id?: number, groupingWidth?: number, groupingTimezone?: string, doNotProcess?: boolean, clientId?: string, doNotConvert?: boolean, minMaxFilter?: boolean, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Measurement[]>;
     /**
      * Pairs cause measurements with effect measurements grouped over the duration of action after the onset delay.
      * @summary Get pairs of measurements for correlational analysis
@@ -10248,13 +10964,13 @@ export declare const MeasurementsApiFactory: (configuration?: Configuration, fet
      * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [userId] User&#39;s id
      * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
      * @param {string} [connectorName] Ex: facebook
      * @param {string} [value] Value of measurement
-     * @param {string} [unitName] Options: % Recommended Daily Allowance, -4 to 4 Rating, 0 to 1 Rating, 0 to 5 Rating, 1 to 10 Rating, 1 to 5 Rating, Applications, Beats per Minute, Calories, Capsules, Centimeters, Count, Degrees Celsius, Degrees East, Degrees Fahrenheit, Degrees North, Dollars, Drops, Event, Feet, Grams, Hours, Inches, Index, Kilocalories, Kilograms, Kilometers, Liters, Meters, Micrograms, Micrograms per decilitre, Miles, Milligrams, Milliliters, Millimeters, Millimeters Merc, Milliseconds, Minutes, Pascal, Percent, Pieces, Pills, Pounds, Puffs, Seconds, Serving, Sprays, Tablets, Torr, Units, Yes/No, per Minute, Doses, Quarts, Ounces, International Units, Meters per Second
+     * @param {'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'} [unitName] Ex: Milligrams
      * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -10268,7 +10984,7 @@ export declare const MeasurementsApiFactory: (configuration?: Configuration, fet
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMeasurements(variableName?: string, sort?: string, limit?: number, offset?: number, variableCategoryName?: string, updatedAt?: string, userId?: number, sourceName?: string, connectorName?: string, value?: string, unitName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, createdAt?: string, id?: number, groupingWidth?: number, groupingTimezone?: string, doNotProcess?: boolean, clientId?: string, doNotConvert?: boolean, minMaxFilter?: boolean, options?: any): Promise<Measurement[]>;
+    getMeasurements(variableName?: string, sort?: string, limit?: number, offset?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", updatedAt?: string, userId?: number, sourceName?: string, connectorName?: string, value?: string, unitName?: "Event" | "Count" | "% Recommended Daily Allowance" | "-4 to 4 Rating" | "0 to 1 Rating" | "0 to 5 Rating" | "1 to 10 Rating" | "1 to 5 Rating" | "Applications" | "Beats per Minute" | "Calories" | "Capsules" | "Centimeters" | "Degrees Celsius" | "Degrees East" | "Degrees Fahrenheit" | "Degrees North" | "Dollars" | "Drops" | "Feet" | "Grams" | "Hours" | "Inches" | "Index" | "Kilocalories" | "Kilograms" | "Kilometers" | "Liters" | "Meters" | "Micrograms" | "Micrograms per decilitre" | "Miles" | "Milligrams" | "Milliliters" | "Millimeters" | "Millimeters Merc" | "Milliseconds" | "Minutes" | "Pascal" | "Percent" | "Pieces" | "Pills" | "Pounds" | "Puffs" | "Seconds" | "Serving" | "Sprays" | "Tablets" | "Torr" | "Units" | "Yes/No" | "per Minute" | "Doses" | "Quarts" | "Ounces" | "International Units" | "Meters per Second", earliestMeasurementTime?: string, latestMeasurementTime?: string, createdAt?: string, id?: number, groupingWidth?: number, groupingTimezone?: string, doNotProcess?: boolean, clientId?: string, doNotConvert?: boolean, minMaxFilter?: boolean, options?: any): Promise<Measurement[]>;
     /**
      * Pairs cause measurements with effect measurements grouped over the duration of action after the onset delay.
      * @summary Get pairs of measurements for correlational analysis
@@ -10319,12 +11035,109 @@ export declare const MeasurementsApiFactory: (configuration?: Configuration, fet
     updateMeasurement(body: MeasurementUpdate, options?: any): Promise<CommonResponse>;
 };
 /**
+ * MeasurementsApi - interface
+ * @export
+ * @interface MeasurementsApi
+ */
+export interface MeasurementsApiInterface {
+    /**
+     * Delete a previously submitted measurement
+     * @summary Delete a measurement
+     * @param {MeasurementDelete} body The startTime and variableId of the measurement to be deleted.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeasurementsApiInterface
+     */
+    deleteMeasurement(body: MeasurementDelete, options?: any): Promise<CommonResponse>;
+    /**
+     * Measurements are any value that can be recorded like daily steps, a mood rating, or apples eaten.
+     * @summary Get measurements for this user
+     * @param {string} [variableName] Name of the variable you want measurements for
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
+     * @param {string} [connectorName] Ex: facebook
+     * @param {string} [value] Value of measurement
+     * @param {'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'} [unitName] Ex: Milligrams
+     * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Measurement id
+     * @param {number} [groupingWidth] The time (in seconds) over which measurements are grouped together
+     * @param {string} [groupingTimezone] The time (in seconds) over which measurements are grouped together
+     * @param {boolean} [doNotProcess] Ex: true
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {boolean} [doNotConvert] Ex: 1
+     * @param {boolean} [minMaxFilter] Ex: 1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeasurementsApiInterface
+     */
+    getMeasurements(variableName?: string, sort?: string, limit?: number, offset?: number, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', updatedAt?: string, userId?: number, sourceName?: string, connectorName?: string, value?: string, unitName?: '% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second', earliestMeasurementTime?: string, latestMeasurementTime?: string, createdAt?: string, id?: number, groupingWidth?: number, groupingTimezone?: string, doNotProcess?: boolean, clientId?: string, doNotConvert?: boolean, minMaxFilter?: boolean, options?: any): Promise<Array<Measurement>>;
+    /**
+     * Pairs cause measurements with effect measurements grouped over the duration of action after the onset delay.
+     * @summary Get pairs of measurements for correlational analysis
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {string} [effectUnitName] Name for the unit effect measurements to be returned in
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [causeUnitName] Name for the unit cause measurements to be returned in
+     * @param {string} [onsetDelay] The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
+     * @param {string} [durationOfAction] The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay. Unit: Seconds
+     * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeasurementsApiInterface
+     */
+    getPairs(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, effectUnitName?: string, userId?: number, causeUnitName?: string, onsetDelay?: string, durationOfAction?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, limit?: number, offset?: number, sort?: string, options?: any): Promise<Array<Pair>>;
+    /**
+     * Use this endpoint to schedule a CSV export containing all user measurements to be emailed to the user within 24 hours.
+     * @summary Post Request for Measurements CSV
+     * @param {number} [userId] User&#39;s id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeasurementsApiInterface
+     */
+    measurementExportRequest(userId?: number, options?: any): Promise<number>;
+    /**
+     * You can submit or update multiple measurements in a \"measurements\" sub-array.  If the variable these measurements correspond to does not already exist in the database, it will be automatically added.
+     * @summary Post a new set or update existing measurements to the database
+     * @param {Array<MeasurementSet>} body An array of measurement sets containing measurement items you want to insert.
+     * @param {number} [userId] User&#39;s id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeasurementsApiInterface
+     */
+    postMeasurements(body: Array<MeasurementSet>, userId?: number, options?: any): Promise<PostMeasurementsResponse>;
+    /**
+     * Update a previously submitted measurement
+     * @summary Update a measurement
+     * @param {MeasurementUpdate} body The id as well as the new startTime, note, and/or value of the measurement to be updated
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MeasurementsApiInterface
+     */
+    updateMeasurement(body: MeasurementUpdate, options?: any): Promise<CommonResponse>;
+}
+/**
  * MeasurementsApi - object-oriented interface
  * @export
  * @class MeasurementsApi
  * @extends {BaseAPI}
  */
-export declare class MeasurementsApi extends BaseAPI {
+export declare class MeasurementsApi extends BaseAPI implements MeasurementsApiInterface {
     /**
      * Delete a previously submitted measurement
      * @summary Delete a measurement
@@ -10341,13 +11154,13 @@ export declare class MeasurementsApi extends BaseAPI {
      * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [userId] User&#39;s id
      * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
      * @param {string} [connectorName] Ex: facebook
      * @param {string} [value] Value of measurement
-     * @param {string} [unitName] Options: % Recommended Daily Allowance, -4 to 4 Rating, 0 to 1 Rating, 0 to 5 Rating, 1 to 10 Rating, 1 to 5 Rating, Applications, Beats per Minute, Calories, Capsules, Centimeters, Count, Degrees Celsius, Degrees East, Degrees Fahrenheit, Degrees North, Dollars, Drops, Event, Feet, Grams, Hours, Inches, Index, Kilocalories, Kilograms, Kilometers, Liters, Meters, Micrograms, Micrograms per decilitre, Miles, Milligrams, Milliliters, Millimeters, Millimeters Merc, Milliseconds, Minutes, Pascal, Percent, Pieces, Pills, Pounds, Puffs, Seconds, Serving, Sprays, Tablets, Torr, Units, Yes/No, per Minute, Doses, Quarts, Ounces, International Units, Meters per Second
+     * @param {'% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second'} [unitName] Ex: Milligrams
      * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -10362,7 +11175,7 @@ export declare class MeasurementsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MeasurementsApi
      */
-    getMeasurements(variableName?: string, sort?: string, limit?: number, offset?: number, variableCategoryName?: string, updatedAt?: string, userId?: number, sourceName?: string, connectorName?: string, value?: string, unitName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, createdAt?: string, id?: number, groupingWidth?: number, groupingTimezone?: string, doNotProcess?: boolean, clientId?: string, doNotConvert?: boolean, minMaxFilter?: boolean, options?: any): Promise<Measurement[]>;
+    getMeasurements(variableName?: string, sort?: string, limit?: number, offset?: number, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', updatedAt?: string, userId?: number, sourceName?: string, connectorName?: string, value?: string, unitName?: '% Recommended Daily Allowance' | '-4 to 4 Rating' | '0 to 1 Rating' | '0 to 5 Rating' | '1 to 10 Rating' | '1 to 5 Rating' | 'Applications' | 'Beats per Minute' | 'Calories' | 'Capsules' | 'Centimeters' | 'Count' | 'Degrees Celsius' | 'Degrees East' | 'Degrees Fahrenheit' | 'Degrees North' | 'Dollars' | 'Drops' | 'Event' | 'Feet' | 'Grams' | 'Hours' | 'Inches' | 'Index' | 'Kilocalories' | 'Kilograms' | 'Kilometers' | 'Liters' | 'Meters' | 'Micrograms' | 'Micrograms per decilitre' | 'Miles' | 'Milligrams' | 'Milliliters' | 'Millimeters' | 'Millimeters Merc' | 'Milliseconds' | 'Minutes' | 'Pascal' | 'Percent' | 'Pieces' | 'Pills' | 'Pounds' | 'Puffs' | 'Seconds' | 'Serving' | 'Sprays' | 'Tablets' | 'Torr' | 'Units' | 'Yes/No' | 'per Minute' | 'Doses' | 'Quarts' | 'Ounces' | 'International Units' | 'Meters per Second', earliestMeasurementTime?: string, latestMeasurementTime?: string, createdAt?: string, id?: number, groupingWidth?: number, groupingTimezone?: string, doNotProcess?: boolean, clientId?: string, doNotConvert?: boolean, minMaxFilter?: boolean, options?: any): Promise<Measurement[]>;
     /**
      * Pairs cause measurements with effect measurements grouped over the duration of action after the onset delay.
      * @summary Get pairs of measurements for correlational analysis
@@ -10705,12 +11518,115 @@ export declare const MessagesApiFactory: (configuration?: Configuration, fetch?:
     postMessagesRecipients(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<MessagesRecipientsResponse[]>;
 };
 /**
+ * MessagesApi - interface
+ * @export
+ * @interface MessagesApi
+ */
+export interface MessagesApiInterface {
+    /**
+     * Get MessagesMessages
+     * @summary Get MessagesMessages
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MessagesApiInterface
+     */
+    getMessagesMessages(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<MessagesMessagesResponse>>;
+    /**
+     * Get MessagesNotices
+     * @summary Get MessagesNotices
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MessagesApiInterface
+     */
+    getMessagesNotices(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<MessagesNoticesResponse>>;
+    /**
+     * Get MessagesRecipients
+     * @summary Get MessagesRecipients
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MessagesApiInterface
+     */
+    getMessagesRecipients(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<MessagesRecipientsResponse>>;
+    /**
+     * Post MessagesMessages
+     * @summary Post MessagesMessages
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MessagesApiInterface
+     */
+    postMessagesMessages(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<MessagesMessagesResponse>>;
+    /**
+     * Post MessagesNotices
+     * @summary Post MessagesNotices
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MessagesApiInterface
+     */
+    postMessagesNotices(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<MessagesNoticesResponse>>;
+    /**
+     * Post MessagesRecipients
+     * @summary Post MessagesRecipients
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MessagesApiInterface
+     */
+    postMessagesRecipients(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<MessagesRecipientsResponse>>;
+}
+/**
  * MessagesApi - object-oriented interface
  * @export
  * @class MessagesApi
  * @extends {BaseAPI}
  */
-export declare class MessagesApi extends BaseAPI {
+export declare class MessagesApi extends BaseAPI implements MessagesApiInterface {
     /**
      * Get MessagesMessages
      * @summary Get MessagesMessages
@@ -10962,12 +11878,68 @@ export declare const NotificationsApiFactory: (configuration?: Configuration, fe
     postNotifications(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<NotificationsResponse[]>;
 };
 /**
+ * NotificationsApi - interface
+ * @export
+ * @interface NotificationsApi
+ */
+export interface NotificationsApiInterface {
+    /**
+     * Get NotificationPreferences
+     * @summary Get NotificationPreferences
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsApiInterface
+     */
+    getNotificationPreferences(options?: any): Promise<{}>;
+    /**
+     * Get Notifications
+     * @summary Get Notifications
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsApiInterface
+     */
+    getNotifications(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<NotificationsResponse>>;
+    /**
+     * Post user token for Android, iOS, or web push notifications
+     * @summary Post DeviceTokens
+     * @param {DeviceToken} body The platform and token
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsApiInterface
+     */
+    postDeviceToken(body: DeviceToken, options?: any): Promise<{}>;
+    /**
+     * Post Notifications
+     * @summary Post Notifications
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsApiInterface
+     */
+    postNotifications(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<NotificationsResponse>>;
+}
+/**
  * NotificationsApi - object-oriented interface
  * @export
  * @class NotificationsApi
  * @extends {BaseAPI}
  */
-export declare class NotificationsApi extends BaseAPI {
+export declare class NotificationsApi extends BaseAPI implements NotificationsApiInterface {
     /**
      * Get NotificationPreferences
      * @summary Get NotificationPreferences
@@ -11041,7 +12013,7 @@ export declare const RemindersApiFetchParamCreator: (configuration?: Configurati
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [reminderTime] Ex: (lt)2017-07-31 21:43:26
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {boolean} [onlyPast] Ex: 1
@@ -11049,12 +12021,12 @@ export declare const RemindersApiFetchParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackingReminderNotifications(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, variableCategoryName?: string, reminderTime?: string, clientId?: string, onlyPast?: boolean, includeDeleted?: boolean, options?: any): FetchArgs;
+    getTrackingReminderNotifications(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", reminderTime?: string, clientId?: string, onlyPast?: boolean, includeDeleted?: boolean, options?: any): FetchArgs;
     /**
      * Users can be reminded to track certain variables at a specified frequency with a default value.
      * @summary Get repeating tracking reminder settings
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -11065,7 +12037,7 @@ export declare const RemindersApiFetchParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackingReminders(userId?: number, variableCategoryName?: string, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, options?: any): FetchArgs;
+    getTrackingReminders(userId?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, options?: any): FetchArgs;
     /**
      * Snooze, skip, or track a tracking reminder notification
      * @summary Snooze, skip, or track a tracking reminder notification
@@ -11108,7 +12080,7 @@ export declare const RemindersApiFp: (configuration?: Configuration) => {
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [reminderTime] Ex: (lt)2017-07-31 21:43:26
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {boolean} [onlyPast] Ex: 1
@@ -11116,12 +12088,12 @@ export declare const RemindersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackingReminderNotifications(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, variableCategoryName?: string, reminderTime?: string, clientId?: string, onlyPast?: boolean, includeDeleted?: boolean, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<GetTrackingReminderNotificationsResponse>;
+    getTrackingReminderNotifications(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", reminderTime?: string, clientId?: string, onlyPast?: boolean, includeDeleted?: boolean, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<GetTrackingReminderNotificationsResponse>;
     /**
      * Users can be reminded to track certain variables at a specified frequency with a default value.
      * @summary Get repeating tracking reminder settings
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -11132,7 +12104,7 @@ export declare const RemindersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackingReminders(userId?: number, variableCategoryName?: string, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<TrackingReminder[]>;
+    getTrackingReminders(userId?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<TrackingReminder[]>;
     /**
      * Snooze, skip, or track a tracking reminder notification
      * @summary Snooze, skip, or track a tracking reminder notification
@@ -11175,7 +12147,7 @@ export declare const RemindersApiFactory: (configuration?: Configuration, fetch?
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [reminderTime] Ex: (lt)2017-07-31 21:43:26
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {boolean} [onlyPast] Ex: 1
@@ -11183,12 +12155,12 @@ export declare const RemindersApiFactory: (configuration?: Configuration, fetch?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackingReminderNotifications(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, variableCategoryName?: string, reminderTime?: string, clientId?: string, onlyPast?: boolean, includeDeleted?: boolean, options?: any): Promise<GetTrackingReminderNotificationsResponse>;
+    getTrackingReminderNotifications(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", reminderTime?: string, clientId?: string, onlyPast?: boolean, includeDeleted?: boolean, options?: any): Promise<GetTrackingReminderNotificationsResponse>;
     /**
      * Users can be reminded to track certain variables at a specified frequency with a default value.
      * @summary Get repeating tracking reminder settings
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -11199,7 +12171,7 @@ export declare const RemindersApiFactory: (configuration?: Configuration, fetch?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackingReminders(userId?: number, variableCategoryName?: string, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, options?: any): Promise<TrackingReminder[]>;
+    getTrackingReminders(userId?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, options?: any): Promise<TrackingReminder[]>;
     /**
      * Snooze, skip, or track a tracking reminder notification
      * @summary Snooze, skip, or track a tracking reminder notification
@@ -11220,12 +12192,85 @@ export declare const RemindersApiFactory: (configuration?: Configuration, fetch?
     postTrackingReminders(body: TrackingReminder[], options?: any): Promise<PostTrackingRemindersResponse>;
 };
 /**
+ * RemindersApi - interface
+ * @export
+ * @interface RemindersApi
+ */
+export interface RemindersApiInterface {
+    /**
+     * Stop getting notifications to record data for a variable.  Previously recorded measurements will be preserved.
+     * @summary Delete Tracking Reminder
+     * @param {TrackingReminderDelete} body Id of reminder to be deleted
+     * @param {number} [userId] User&#39;s id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RemindersApiInterface
+     */
+    deleteTrackingReminder(body: TrackingReminderDelete, userId?: number, options?: any): Promise<CommonResponse>;
+    /**
+     * Specific tracking reminder notification instances that still need to be tracked.
+     * @summary Get specific tracking reminder notifications
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
+     * @param {string} [reminderTime] Ex: (lt)2017-07-31 21:43:26
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {boolean} [onlyPast] Ex: 1
+     * @param {boolean} [includeDeleted] Include deleted variables
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RemindersApiInterface
+     */
+    getTrackingReminderNotifications(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', reminderTime?: string, clientId?: string, onlyPast?: boolean, includeDeleted?: boolean, options?: any): Promise<GetTrackingReminderNotificationsResponse>;
+    /**
+     * Users can be reminded to track certain variables at a specified frequency with a default value.
+     * @summary Get repeating tracking reminder settings
+     * @param {number} [userId] User&#39;s id
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {string} [appVersion] Ex: 2.1.1.0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RemindersApiInterface
+     */
+    getTrackingReminders(userId?: number, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, options?: any): Promise<Array<TrackingReminder>>;
+    /**
+     * Snooze, skip, or track a tracking reminder notification
+     * @summary Snooze, skip, or track a tracking reminder notification
+     * @param {Array<TrackingReminderNotificationPost>} body Id of the tracking reminder notification to be snoozed
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RemindersApiInterface
+     */
+    postTrackingReminderNotifications(body: Array<TrackingReminderNotificationPost>, userId?: number, clientId?: string, options?: any): Promise<CommonResponse>;
+    /**
+     * This is to enable users to create reminders to track a variable with a default value at a specified frequency
+     * @summary Store a Tracking Reminder
+     * @param {Array<TrackingReminder>} body TrackingReminder that should be stored
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RemindersApiInterface
+     */
+    postTrackingReminders(body: Array<TrackingReminder>, options?: any): Promise<PostTrackingRemindersResponse>;
+}
+/**
  * RemindersApi - object-oriented interface
  * @export
  * @class RemindersApi
  * @extends {BaseAPI}
  */
-export declare class RemindersApi extends BaseAPI {
+export declare class RemindersApi extends BaseAPI implements RemindersApiInterface {
     /**
      * Stop getting notifications to record data for a variable.  Previously recorded measurements will be preserved.
      * @summary Delete Tracking Reminder
@@ -11245,7 +12290,7 @@ export declare class RemindersApi extends BaseAPI {
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
      * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [reminderTime] Ex: (lt)2017-07-31 21:43:26
      * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
      * @param {boolean} [onlyPast] Ex: 1
@@ -11254,12 +12299,12 @@ export declare class RemindersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RemindersApi
      */
-    getTrackingReminderNotifications(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, variableCategoryName?: string, reminderTime?: string, clientId?: string, onlyPast?: boolean, includeDeleted?: boolean, options?: any): Promise<GetTrackingReminderNotificationsResponse>;
+    getTrackingReminderNotifications(sort?: string, userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', reminderTime?: string, clientId?: string, onlyPast?: boolean, includeDeleted?: boolean, options?: any): Promise<GetTrackingReminderNotificationsResponse>;
     /**
      * Users can be reminded to track certain variables at a specified frequency with a default value.
      * @summary Get repeating tracking reminder settings
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
      * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
@@ -11271,7 +12316,7 @@ export declare class RemindersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RemindersApi
      */
-    getTrackingReminders(userId?: number, variableCategoryName?: string, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, options?: any): Promise<TrackingReminder[]>;
+    getTrackingReminders(userId?: number, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, options?: any): Promise<TrackingReminder[]>;
     /**
      * Snooze, skip, or track a tracking reminder notification
      * @summary Snooze, skip, or track a tracking reminder notification
@@ -11408,12 +12453,54 @@ export declare const SharesApiFactory: (configuration?: Configuration, fetch?: F
     inviteShare(body: ShareInvitationBody, clientId?: string, options?: any): Promise<User>;
 };
 /**
+ * SharesApi - interface
+ * @export
+ * @interface SharesApi
+ */
+export interface SharesApiInterface {
+    /**
+     * Remove access to user data for a given client_id associated with a given individual, app, or study
+     * @summary Delete share
+     * @param {string} clientIdToRevoke Client id of the individual, study, or app that the user wishes to no longer have access to their data
+     * @param {string} [reason] Ex: I hate you!
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SharesApiInterface
+     */
+    deleteShare(clientIdToRevoke: string, reason?: string, options?: any): Promise<User>;
+    /**
+     * This is a list of individuals, apps, or studies with access to your measurements.
+     * @summary Get Authorized Apps, Studies, and Individuals
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {string} [appVersion] Ex: 2.1.1.0
+     * @param {string} [log] Username or email
+     * @param {string} [pwd] User password
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SharesApiInterface
+     */
+    getShares(userId?: number, createdAt?: string, updatedAt?: string, clientId?: string, appVersion?: string, log?: string, pwd?: string, options?: any): Promise<GetSharesResponse>;
+    /**
+     * Invite someone to view your measurements
+     * @summary Delete share
+     * @param {ShareInvitationBody} body Details about person to share with
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SharesApiInterface
+     */
+    inviteShare(body: ShareInvitationBody, clientId?: string, options?: any): Promise<User>;
+}
+/**
  * SharesApi - object-oriented interface
  * @export
  * @class SharesApi
  * @extends {BaseAPI}
  */
-export declare class SharesApi extends BaseAPI {
+export declare class SharesApi extends BaseAPI implements SharesApiInterface {
     /**
      * Remove access to user data for a given client_id associated with a given individual, app, or study
      * @summary Delete share
@@ -11970,12 +13057,196 @@ export declare const StudiesApiFactory: (configuration?: Configuration, fetch?: 
     publishStudy(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, userId?: number, clientId?: string, includeCharts?: boolean, recalculate?: boolean, studyId?: string, options?: any): Promise<PostStudyPublishResponse>;
 };
 /**
+ * StudiesApi - interface
+ * @export
+ * @interface StudiesApi
+ */
+export interface StudiesApiInterface {
+    /**
+     * Create an individual, group, or population study examining the relationship between a predictor and outcome variable. You will be given a study id which you can invite participants to join and share their measurements for the specified variables.
+     * @summary Create a Study
+     * @param {StudyCreationBody} body Details about the study you want to create
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    createStudy(body: StudyCreationBody, clientId?: string, options?: any): Promise<PostStudyCreateResponse>;
+    /**
+     * Delete previously posted vote
+     * @summary Delete vote
+     * @param {VoteDelete} body The cause and effect variable names for the predictor vote to be deleted.
+     * @param {number} [userId] User&#39;s id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    deleteVote(body: VoteDelete, userId?: number, options?: any): Promise<CommonResponse>;
+    /**
+     * These are studies that anyone can join and share their data for the predictor and outcome variables of interest.
+     * @summary These are open studies that anyone can join
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {boolean} [recalculate] Recalculate instead of using cached analysis
+     * @param {string} [studyId] Client id for the study you want
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    getOpenStudies(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, userId?: number, clientId?: string, includeCharts?: boolean, recalculate?: boolean, studyId?: string, options?: any): Promise<GetStudiesResponse>;
+    /**
+     * If you have enough data, this will be a list of your personal studies, otherwise it will consist of aggregated population studies.
+     * @summary Get Personal or Population Studies
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {boolean} [recalculate] Recalculate instead of using cached analysis
+     * @param {string} [studyId] Client id for the study you want
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [correlationCoefficient] Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {boolean} [outcomesOfInterest] Only include correlations for which the effect is an outcome of interest for the user
+     * @param {number} [principalInvestigatorUserId] These are studies created by a specific principal investigator
+     * @param {boolean} [open] These are studies that anyone can join
+     * @param {boolean} [joined] These are studies that you have joined
+     * @param {boolean} [created] These are studies that you have created
+     * @param {boolean} [population] These are studies based on the entire population of users that have shared their data
+     * @param {boolean} [downvoted] These are studies that you have down-voted
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    getStudies(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, userId?: number, clientId?: string, includeCharts?: boolean, recalculate?: boolean, studyId?: string, sort?: string, limit?: number, offset?: number, correlationCoefficient?: string, updatedAt?: string, outcomesOfInterest?: boolean, principalInvestigatorUserId?: number, open?: boolean, joined?: boolean, created?: boolean, population?: boolean, downvoted?: boolean, options?: any): Promise<GetStudiesResponse>;
+    /**
+     * These are studies that you have created.
+     * @summary Get studies you have created
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    getStudiesCreated(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, sort?: string, limit?: number, offset?: number, userId?: number, updatedAt?: string, clientId?: string, options?: any): Promise<GetStudiesResponse>;
+    /**
+     * These are studies that you are currently sharing your data with.
+     * @summary Studies You Have Joined
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [correlationCoefficient] Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {boolean} [outcomesOfInterest] Only include correlations for which the effect is an outcome of interest for the user
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    getStudiesJoined(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, sort?: string, limit?: number, offset?: number, userId?: number, correlationCoefficient?: string, updatedAt?: string, outcomesOfInterest?: boolean, clientId?: string, options?: any): Promise<GetStudiesResponse>;
+    /**
+     * Get Study
+     * @summary Get Study
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {boolean} [recalculate] Recalculate instead of using cached analysis
+     * @param {string} [studyId] Client id for the study you want
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    getStudy(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, userId?: number, clientId?: string, includeCharts?: boolean, recalculate?: boolean, studyId?: string, options?: any): Promise<Study>;
+    /**
+     * Anonymously share measurements for specified variables
+     * @summary Join a Study
+     * @param {string} [studyId] Client id for the study you want
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    joinStudy(studyId?: string, causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, userId?: number, clientId?: string, options?: any): Promise<StudyJoinResponse>;
+    /**
+     * I am really good at finding correlations and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there's a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.
+     * @summary Post or update vote
+     * @param {Vote} body Contains the cause variable, effect variable, and vote value.
+     * @param {number} [userId] User&#39;s id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    postVote(body: Vote, userId?: number, options?: any): Promise<CommonResponse>;
+    /**
+     * Make a study and all related measurements publicly visible by anyone
+     * @summary Publish Your Study
+     * @param {string} [causeVariableName] Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [effectVariableName] Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [causeVariableId] Variable id of the hypothetical predictor variable.  Ex: 1398
+     * @param {number} [effectVariableId] Variable id of the outcome variable of interest.  Ex: 1398
+     * @param {string} [predictorVariableName] Name of the hypothetical predictor variable.  Ex: Sleep Duration
+     * @param {string} [outcomeVariableName] Name of the outcome variable of interest.  Ex: Overall Mood
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {boolean} [recalculate] Recalculate instead of using cached analysis
+     * @param {string} [studyId] Client id for the study you want
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApiInterface
+     */
+    publishStudy(causeVariableName?: string, effectVariableName?: string, causeVariableId?: number, effectVariableId?: number, predictorVariableName?: string, outcomeVariableName?: string, userId?: number, clientId?: string, includeCharts?: boolean, recalculate?: boolean, studyId?: string, options?: any): Promise<PostStudyPublishResponse>;
+}
+/**
  * StudiesApi - object-oriented interface
  * @export
  * @class StudiesApi
  * @extends {BaseAPI}
  */
-export declare class StudiesApi extends BaseAPI {
+export declare class StudiesApi extends BaseAPI implements StudiesApiInterface {
     /**
      * Create an individual, group, or population study examining the relationship between a predictor and outcome variable. You will be given a study id which you can invite participants to join and share their measurements for the specified variables.
      * @summary Create a Study
@@ -12215,12 +13486,35 @@ export declare const UnitsApiFactory: (configuration?: Configuration, fetch?: Fe
     getUnits(options?: any): Promise<Unit[]>;
 };
 /**
+ * UnitsApi - interface
+ * @export
+ * @interface UnitsApi
+ */
+export interface UnitsApiInterface {
+    /**
+     * Get a list of the categories of measurement units such as 'Distance', 'Duration', 'Energy', 'Frequency', 'Miscellany', 'Pressure', 'Proportion', 'Rating', 'Temperature', 'Volume', and 'Weight'.
+     * @summary Get unit categories
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UnitsApiInterface
+     */
+    getUnitCategories(options?: any): Promise<Array<UnitCategory>>;
+    /**
+     * Get a list of the available measurement units
+     * @summary Get units
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UnitsApiInterface
+     */
+    getUnits(options?: any): Promise<Array<Unit>>;
+}
+/**
  * UnitsApi - object-oriented interface
  * @export
  * @class UnitsApi
  * @extends {BaseAPI}
  */
-export declare class UnitsApi extends BaseAPI {
+export declare class UnitsApi extends BaseAPI implements UnitsApiInterface {
     /**
      * Get a list of the categories of measurement units such as 'Distance', 'Duration', 'Energy', 'Frequency', 'Miscellany', 'Pressure', 'Proportion', 'Rating', 'Temperature', 'Volume', and 'Weight'.
      * @summary Get unit categories
@@ -12512,12 +13806,110 @@ export declare const UserApiFactory: (configuration?: Configuration, fetch?: Fet
     postUserSettings(body: User, clientId?: string, options?: any): Promise<PostUserSettingsResponse>;
 };
 /**
+ * UserApi - interface
+ * @export
+ * @interface UserApi
+ */
+export interface UserApiInterface {
+    /**
+     * Delete user account. Only the client app that created a user can delete that user.
+     * @summary Delete user
+     * @param {string} reason Ex: I hate you!
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserApiInterface
+     */
+    deleteUser(reason: string, clientId?: string, options?: any): Promise<CommonResponse>;
+    /**
+     * Returns user info.  If no userId is specified, returns info for currently authenticated user
+     * @summary Get user info
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {string} [appVersion] Ex: 2.1.1.0
+     * @param {number} [clientUserId] Ex: 74802
+     * @param {string} [log] Username or email
+     * @param {string} [pwd] User password
+     * @param {boolean} [includeAuthorizedClients] Return list of apps, studies, and individuals with access to user data
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserApiInterface
+     */
+    getUser(userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, clientUserId?: number, log?: string, pwd?: string, includeAuthorizedClients?: boolean, options?: any): Promise<User>;
+    /**
+     * Get UserBlogs
+     * @summary Get UserBlogs
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserApiInterface
+     */
+    getUserBlogs(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<UserBlogsResponse>>;
+    /**
+     * Returns users who have granted access to their data
+     * @summary Get users who shared data
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {string} [appVersion] Ex: 2.1.1.0
+     * @param {number} [clientUserId] Ex: 74802
+     * @param {string} [log] Username or email
+     * @param {string} [pwd] User password
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserApiInterface
+     */
+    getUsers(userId?: number, createdAt?: string, updatedAt?: string, limit?: number, offset?: number, sort?: string, clientId?: string, appVersion?: string, clientUserId?: number, log?: string, pwd?: string, options?: any): Promise<UsersResponse>;
+    /**
+     * Post UserBlogs
+     * @summary Post UserBlogs
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserApiInterface
+     */
+    postUserBlogs(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<UserBlogsResponse>>;
+    /**
+     * Post UserSettings
+     * @summary Post UserSettings
+     * @param {User} body User settings to update
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserApiInterface
+     */
+    postUserSettings(body: User, clientId?: string, options?: any): Promise<PostUserSettingsResponse>;
+}
+/**
  * UserApi - object-oriented interface
  * @export
  * @class UserApi
  * @extends {BaseAPI}
  */
-export declare class UserApi extends BaseAPI {
+export declare class UserApi extends BaseAPI implements UserApiInterface {
     /**
      * Delete user account. Only the client app that created a user can delete that user.
      * @summary Delete user
@@ -12645,7 +14037,7 @@ export declare const VariablesApiFetchParamCreator: (configuration?: Configurati
      * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {string} [numberOfRawMeasurements] Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [name] Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
      * @param {string} [variableName] Name of the variable you want measurements for
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -12685,7 +14077,7 @@ export declare const VariablesApiFetchParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariables(includeCharts?: boolean, numberOfRawMeasurements?: string, userId?: number, variableCategoryName?: string, name?: string, variableName?: string, updatedAt?: string, sourceName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, id?: number, lastSourceName?: string, limit?: number, offset?: number, sort?: string, includePublic?: boolean, manualTracking?: boolean, clientId?: string, upc?: string, effectOrCause?: string, publicEffectOrCause?: string, exactMatch?: boolean, variableCategoryId?: number, includePrivate?: boolean, searchPhrase?: string, synonyms?: string, taggedVariableId?: number, tagVariableId?: number, joinVariableId?: number, parentUserTagVariableId?: number, childUserTagVariableId?: number, ingredientUserTagVariableId?: number, ingredientOfUserTagVariableId?: number, commonOnly?: boolean, userOnly?: boolean, includeTags?: boolean, recalculate?: boolean, variableId?: number, concise?: boolean, refresh?: boolean, options?: any): FetchArgs;
+    getVariables(includeCharts?: boolean, numberOfRawMeasurements?: string, userId?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", name?: string, variableName?: string, updatedAt?: string, sourceName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, id?: number, lastSourceName?: string, limit?: number, offset?: number, sort?: string, includePublic?: boolean, manualTracking?: boolean, clientId?: string, upc?: string, effectOrCause?: string, publicEffectOrCause?: string, exactMatch?: boolean, variableCategoryId?: number, includePrivate?: boolean, searchPhrase?: string, synonyms?: string, taggedVariableId?: number, tagVariableId?: number, joinVariableId?: number, parentUserTagVariableId?: number, childUserTagVariableId?: number, ingredientUserTagVariableId?: number, ingredientOfUserTagVariableId?: number, commonOnly?: boolean, userOnly?: boolean, includeTags?: boolean, recalculate?: boolean, variableId?: number, concise?: boolean, refresh?: boolean, options?: any): FetchArgs;
     /**
      * This endpoint allows users to tag foods with their ingredients.  This information will then be used to infer the user intake of the different ingredients by just entering the foods. The inferred intake levels will then be used to determine the effects of different nutrients on the user during analysis.
      * @summary Post or update user tags or ingredients
@@ -12705,13 +14097,13 @@ export declare const VariablesApiFetchParamCreator: (configuration?: Configurati
      * @param {string} [searchPhrase] Ex: %Body Fat%
      * @param {boolean} [exactMatch] Require exact match
      * @param {boolean} [manualTracking] Only include variables tracked manually by the user
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {number} [variableCategoryId] Ex: 13
      * @param {string} [synonyms] Ex: McDonalds hotcake
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postUserVariables(userVariables: Variable[], includePrivate?: boolean, clientId?: string, includePublic?: boolean, searchPhrase?: string, exactMatch?: boolean, manualTracking?: boolean, variableCategoryName?: string, variableCategoryId?: number, synonyms?: string, options?: any): FetchArgs;
+    postUserVariables(userVariables: Variable[], includePrivate?: boolean, clientId?: string, includePublic?: boolean, searchPhrase?: string, exactMatch?: boolean, manualTracking?: boolean, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", variableCategoryId?: number, synonyms?: string, options?: any): FetchArgs;
     /**
      * Reset user settings for a variable to defaults
      * @summary Reset user settings for a variable to defaults
@@ -12756,7 +14148,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {string} [numberOfRawMeasurements] Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [name] Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
      * @param {string} [variableName] Name of the variable you want measurements for
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -12796,7 +14188,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariables(includeCharts?: boolean, numberOfRawMeasurements?: string, userId?: number, variableCategoryName?: string, name?: string, variableName?: string, updatedAt?: string, sourceName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, id?: number, lastSourceName?: string, limit?: number, offset?: number, sort?: string, includePublic?: boolean, manualTracking?: boolean, clientId?: string, upc?: string, effectOrCause?: string, publicEffectOrCause?: string, exactMatch?: boolean, variableCategoryId?: number, includePrivate?: boolean, searchPhrase?: string, synonyms?: string, taggedVariableId?: number, tagVariableId?: number, joinVariableId?: number, parentUserTagVariableId?: number, childUserTagVariableId?: number, ingredientUserTagVariableId?: number, ingredientOfUserTagVariableId?: number, commonOnly?: boolean, userOnly?: boolean, includeTags?: boolean, recalculate?: boolean, variableId?: number, concise?: boolean, refresh?: boolean, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Variable[]>;
+    getVariables(includeCharts?: boolean, numberOfRawMeasurements?: string, userId?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", name?: string, variableName?: string, updatedAt?: string, sourceName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, id?: number, lastSourceName?: string, limit?: number, offset?: number, sort?: string, includePublic?: boolean, manualTracking?: boolean, clientId?: string, upc?: string, effectOrCause?: string, publicEffectOrCause?: string, exactMatch?: boolean, variableCategoryId?: number, includePrivate?: boolean, searchPhrase?: string, synonyms?: string, taggedVariableId?: number, tagVariableId?: number, joinVariableId?: number, parentUserTagVariableId?: number, childUserTagVariableId?: number, ingredientUserTagVariableId?: number, ingredientOfUserTagVariableId?: number, commonOnly?: boolean, userOnly?: boolean, includeTags?: boolean, recalculate?: boolean, variableId?: number, concise?: boolean, refresh?: boolean, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Variable[]>;
     /**
      * This endpoint allows users to tag foods with their ingredients.  This information will then be used to infer the user intake of the different ingredients by just entering the foods. The inferred intake levels will then be used to determine the effects of different nutrients on the user during analysis.
      * @summary Post or update user tags or ingredients
@@ -12816,13 +14208,13 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {string} [searchPhrase] Ex: %Body Fat%
      * @param {boolean} [exactMatch] Require exact match
      * @param {boolean} [manualTracking] Only include variables tracked manually by the user
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {number} [variableCategoryId] Ex: 13
      * @param {string} [synonyms] Ex: McDonalds hotcake
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postUserVariables(userVariables: Variable[], includePrivate?: boolean, clientId?: string, includePublic?: boolean, searchPhrase?: string, exactMatch?: boolean, manualTracking?: boolean, variableCategoryName?: string, variableCategoryId?: number, synonyms?: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<CommonResponse>;
+    postUserVariables(userVariables: Variable[], includePrivate?: boolean, clientId?: string, includePublic?: boolean, searchPhrase?: string, exactMatch?: boolean, manualTracking?: boolean, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", variableCategoryId?: number, synonyms?: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<CommonResponse>;
     /**
      * Reset user settings for a variable to defaults
      * @summary Reset user settings for a variable to defaults
@@ -12867,7 +14259,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, fetch?
      * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {string} [numberOfRawMeasurements] Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [name] Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
      * @param {string} [variableName] Name of the variable you want measurements for
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -12907,7 +14299,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, fetch?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariables(includeCharts?: boolean, numberOfRawMeasurements?: string, userId?: number, variableCategoryName?: string, name?: string, variableName?: string, updatedAt?: string, sourceName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, id?: number, lastSourceName?: string, limit?: number, offset?: number, sort?: string, includePublic?: boolean, manualTracking?: boolean, clientId?: string, upc?: string, effectOrCause?: string, publicEffectOrCause?: string, exactMatch?: boolean, variableCategoryId?: number, includePrivate?: boolean, searchPhrase?: string, synonyms?: string, taggedVariableId?: number, tagVariableId?: number, joinVariableId?: number, parentUserTagVariableId?: number, childUserTagVariableId?: number, ingredientUserTagVariableId?: number, ingredientOfUserTagVariableId?: number, commonOnly?: boolean, userOnly?: boolean, includeTags?: boolean, recalculate?: boolean, variableId?: number, concise?: boolean, refresh?: boolean, options?: any): Promise<Variable[]>;
+    getVariables(includeCharts?: boolean, numberOfRawMeasurements?: string, userId?: number, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", name?: string, variableName?: string, updatedAt?: string, sourceName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, id?: number, lastSourceName?: string, limit?: number, offset?: number, sort?: string, includePublic?: boolean, manualTracking?: boolean, clientId?: string, upc?: string, effectOrCause?: string, publicEffectOrCause?: string, exactMatch?: boolean, variableCategoryId?: number, includePrivate?: boolean, searchPhrase?: string, synonyms?: string, taggedVariableId?: number, tagVariableId?: number, joinVariableId?: number, parentUserTagVariableId?: number, childUserTagVariableId?: number, ingredientUserTagVariableId?: number, ingredientOfUserTagVariableId?: number, commonOnly?: boolean, userOnly?: boolean, includeTags?: boolean, recalculate?: boolean, variableId?: number, concise?: boolean, refresh?: boolean, options?: any): Promise<Variable[]>;
     /**
      * This endpoint allows users to tag foods with their ingredients.  This information will then be used to infer the user intake of the different ingredients by just entering the foods. The inferred intake levels will then be used to determine the effects of different nutrients on the user during analysis.
      * @summary Post or update user tags or ingredients
@@ -12927,13 +14319,13 @@ export declare const VariablesApiFactory: (configuration?: Configuration, fetch?
      * @param {string} [searchPhrase] Ex: %Body Fat%
      * @param {boolean} [exactMatch] Require exact match
      * @param {boolean} [manualTracking] Only include variables tracked manually by the user
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {number} [variableCategoryId] Ex: 13
      * @param {string} [synonyms] Ex: McDonalds hotcake
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postUserVariables(userVariables: Variable[], includePrivate?: boolean, clientId?: string, includePublic?: boolean, searchPhrase?: string, exactMatch?: boolean, manualTracking?: boolean, variableCategoryName?: string, variableCategoryId?: number, synonyms?: string, options?: any): Promise<CommonResponse>;
+    postUserVariables(userVariables: Variable[], includePrivate?: boolean, clientId?: string, includePublic?: boolean, searchPhrase?: string, exactMatch?: boolean, manualTracking?: boolean, variableCategoryName?: "Books" | "Causes of Illness" | "Cognitive Performance" | "Conditions" | "Emotions" | "Environment" | "Foods" | "Goals" | "Miscellaneous" | "Movies and TV" | "Music" | "Nutrients" | "Payments" | "Physique" | "Sleep" | "Social Interactions" | "Software" | "Symptoms" | "Treatments" | "Vital Signs" | "Activities" | "Location" | "Physical Activity", variableCategoryId?: number, synonyms?: string, options?: any): Promise<CommonResponse>;
     /**
      * Reset user settings for a variable to defaults
      * @summary Reset user settings for a variable to defaults
@@ -12944,12 +14336,131 @@ export declare const VariablesApiFactory: (configuration?: Configuration, fetch?
     resetUserVariableSettings(variableId: UserVariableDelete, options?: any): Promise<Response>;
 };
 /**
+ * VariablesApi - interface
+ * @export
+ * @interface VariablesApi
+ */
+export interface VariablesApiInterface {
+    /**
+     * Delete previously created user tags or ingredients.
+     * @summary Delete user tag or ingredient
+     * @param {number} [taggedVariableId] Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {number} [tagVariableId] Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApiInterface
+     */
+    deleteUserTag(taggedVariableId?: number, tagVariableId?: number, options?: any): Promise<CommonResponse>;
+    /**
+     * Users can delete all of their measurements for a variable
+     * @summary Delete All Measurements For Variable
+     * @param {UserVariableDelete} variableId Id of the variable whose measurements should be deleted
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApiInterface
+     */
+    deleteUserVariable(variableId: UserVariableDelete, options?: any): Promise<{}>;
+    /**
+     * The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Goals.
+     * @summary Variable categories
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApiInterface
+     */
+    getVariableCategories(options?: any): Promise<Array<VariableCategory>>;
+    /**
+     * Get variables. If the user has specified variable settings, these are provided instead of the common variable defaults.
+     * @summary Get variables along with related user-specific analysis settings and statistics
+     * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
+     * @param {string} [numberOfRawMeasurements] Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
+     * @param {number} [userId] User&#39;s id
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
+     * @param {string} [name] Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
+     * @param {string} [variableName] Name of the variable you want measurements for
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {string} [sourceName] ID of the source you want measurements for (supports exact name match only)
+     * @param {string} [earliestMeasurementTime] Excluded records with measurement times earlier than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {string} [latestMeasurementTime] Excluded records with measurement times later than this value. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Common variable id
+     * @param {string} [lastSourceName] Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {boolean} [includePublic] Include variables the user has no measurements for
+     * @param {boolean} [manualTracking] Only include variables tracked manually by the user
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {string} [upc] UPC or other barcode scan result
+     * @param {string} [effectOrCause] Provided variable is the effect or cause
+     * @param {string} [publicEffectOrCause] Ex:
+     * @param {boolean} [exactMatch] Require exact match
+     * @param {number} [variableCategoryId] Ex: 13
+     * @param {boolean} [includePrivate] Include user-specific variables in results
+     * @param {string} [searchPhrase] Ex: %Body Fat%
+     * @param {string} [synonyms] Ex: McDonalds hotcake
+     * @param {number} [taggedVariableId] Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {number} [tagVariableId] Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient).
+     * @param {number} [joinVariableId] Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId.
+     * @param {number} [parentUserTagVariableId] Id of the parent category variable (i.e. Fruit) you would like to get eligible child sub-type variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child sub-type of the parent category Fruit could be Apple.  When Apple is tagged with the parent category Fruit, Apple measurements will be included when Fruit is analyzed.
+     * @param {number} [childUserTagVariableId] Id of the child sub-type variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child sub-type of the parent category Fruit could be Apple. When Apple is tagged with the parent category Fruit, Apple measurements will be included when Fruit is analyzed.
+     * @param {number} [ingredientUserTagVariableId] Id of the ingredient variable (i.e. Fructose)  you would like to get eligible ingredientOf variables (i.e. Apple) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.
+     * @param {number} [ingredientOfUserTagVariableId] Id of the ingredientOf variable (i.e. Apple) you would like to get eligible ingredient variables (i.e. Fructose) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.
+     * @param {boolean} [commonOnly] Return only public and aggregated common variable data instead of user-specific variables
+     * @param {boolean} [userOnly] Return only user-specific variables and data, excluding common aggregated variable data
+     * @param {boolean} [includeTags] Return parent, child, duplicate, and ingredient variables
+     * @param {boolean} [recalculate] Recalculate instead of using cached analysis
+     * @param {number} [variableId] Ex: 13
+     * @param {boolean} [concise] Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests.
+     * @param {boolean} [refresh] Regenerate charts instead of getting from the cache
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApiInterface
+     */
+    getVariables(includeCharts?: boolean, numberOfRawMeasurements?: string, userId?: number, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', name?: string, variableName?: string, updatedAt?: string, sourceName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, id?: number, lastSourceName?: string, limit?: number, offset?: number, sort?: string, includePublic?: boolean, manualTracking?: boolean, clientId?: string, upc?: string, effectOrCause?: string, publicEffectOrCause?: string, exactMatch?: boolean, variableCategoryId?: number, includePrivate?: boolean, searchPhrase?: string, synonyms?: string, taggedVariableId?: number, tagVariableId?: number, joinVariableId?: number, parentUserTagVariableId?: number, childUserTagVariableId?: number, ingredientUserTagVariableId?: number, ingredientOfUserTagVariableId?: number, commonOnly?: boolean, userOnly?: boolean, includeTags?: boolean, recalculate?: boolean, variableId?: number, concise?: boolean, refresh?: boolean, options?: any): Promise<Array<Variable>>;
+    /**
+     * This endpoint allows users to tag foods with their ingredients.  This information will then be used to infer the user intake of the different ingredients by just entering the foods. The inferred intake levels will then be used to determine the effects of different nutrients on the user during analysis.
+     * @summary Post or update user tags or ingredients
+     * @param {UserTag} body Contains the new user tag data
+     * @param {number} [userId] User&#39;s id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApiInterface
+     */
+    postUserTags(body: UserTag, userId?: number, options?: any): Promise<CommonResponse>;
+    /**
+     * Users can change the parameters used in analysis of that variable such as the expected duration of action for a variable to have an effect, the estimated delay before the onset of action. In order to filter out erroneous data, they are able to set the maximum and minimum reasonable daily values for a variable.
+     * @summary Update User Settings for a Variable
+     * @param {Array<Variable>} userVariables Variable user settings data
+     * @param {boolean} [includePrivate] Include user-specific variables in results
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {boolean} [includePublic] Include variables the user has no measurements for
+     * @param {string} [searchPhrase] Ex: %Body Fat%
+     * @param {boolean} [exactMatch] Require exact match
+     * @param {boolean} [manualTracking] Only include variables tracked manually by the user
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
+     * @param {number} [variableCategoryId] Ex: 13
+     * @param {string} [synonyms] Ex: McDonalds hotcake
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApiInterface
+     */
+    postUserVariables(userVariables: Array<Variable>, includePrivate?: boolean, clientId?: string, includePublic?: boolean, searchPhrase?: string, exactMatch?: boolean, manualTracking?: boolean, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', variableCategoryId?: number, synonyms?: string, options?: any): Promise<CommonResponse>;
+    /**
+     * Reset user settings for a variable to defaults
+     * @summary Reset user settings for a variable to defaults
+     * @param {UserVariableDelete} variableId Id of the variable whose measurements should be deleted
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApiInterface
+     */
+    resetUserVariableSettings(variableId: UserVariableDelete, options?: any): Promise<{}>;
+}
+/**
  * VariablesApi - object-oriented interface
  * @export
  * @class VariablesApi
  * @extends {BaseAPI}
  */
-export declare class VariablesApi extends BaseAPI {
+export declare class VariablesApi extends BaseAPI implements VariablesApiInterface {
     /**
      * Delete previously created user tags or ingredients.
      * @summary Delete user tag or ingredient
@@ -12983,7 +14494,7 @@ export declare class VariablesApi extends BaseAPI {
      * @param {boolean} [includeCharts] Highcharts configs that can be used if you have highcharts.js included on the page.  This only works if the id or name query parameter is also provided.
      * @param {string} [numberOfRawMeasurements] Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
      * @param {number} [userId] User&#39;s id
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {string} [name] Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain &#x60;Mood&#x60;, the following query should be used: ?variableName&#x3D;%Mood%
      * @param {string} [variableName] Name of the variable you want measurements for
      * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
@@ -13024,7 +14535,7 @@ export declare class VariablesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VariablesApi
      */
-    getVariables(includeCharts?: boolean, numberOfRawMeasurements?: string, userId?: number, variableCategoryName?: string, name?: string, variableName?: string, updatedAt?: string, sourceName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, id?: number, lastSourceName?: string, limit?: number, offset?: number, sort?: string, includePublic?: boolean, manualTracking?: boolean, clientId?: string, upc?: string, effectOrCause?: string, publicEffectOrCause?: string, exactMatch?: boolean, variableCategoryId?: number, includePrivate?: boolean, searchPhrase?: string, synonyms?: string, taggedVariableId?: number, tagVariableId?: number, joinVariableId?: number, parentUserTagVariableId?: number, childUserTagVariableId?: number, ingredientUserTagVariableId?: number, ingredientOfUserTagVariableId?: number, commonOnly?: boolean, userOnly?: boolean, includeTags?: boolean, recalculate?: boolean, variableId?: number, concise?: boolean, refresh?: boolean, options?: any): Promise<Variable[]>;
+    getVariables(includeCharts?: boolean, numberOfRawMeasurements?: string, userId?: number, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', name?: string, variableName?: string, updatedAt?: string, sourceName?: string, earliestMeasurementTime?: string, latestMeasurementTime?: string, id?: number, lastSourceName?: string, limit?: number, offset?: number, sort?: string, includePublic?: boolean, manualTracking?: boolean, clientId?: string, upc?: string, effectOrCause?: string, publicEffectOrCause?: string, exactMatch?: boolean, variableCategoryId?: number, includePrivate?: boolean, searchPhrase?: string, synonyms?: string, taggedVariableId?: number, tagVariableId?: number, joinVariableId?: number, parentUserTagVariableId?: number, childUserTagVariableId?: number, ingredientUserTagVariableId?: number, ingredientOfUserTagVariableId?: number, commonOnly?: boolean, userOnly?: boolean, includeTags?: boolean, recalculate?: boolean, variableId?: number, concise?: boolean, refresh?: boolean, options?: any): Promise<Variable[]>;
     /**
      * This endpoint allows users to tag foods with their ingredients.  This information will then be used to infer the user intake of the different ingredients by just entering the foods. The inferred intake levels will then be used to determine the effects of different nutrients on the user during analysis.
      * @summary Post or update user tags or ingredients
@@ -13045,14 +14556,14 @@ export declare class VariablesApi extends BaseAPI {
      * @param {string} [searchPhrase] Ex: %Body Fat%
      * @param {boolean} [exactMatch] Require exact match
      * @param {boolean} [manualTracking] Only include variables tracked manually by the user
-     * @param {string} [variableCategoryName] Options: Activities, Books, Causes of Illness, Cognitive Performance, Conditions, Emotions, Environment, Foods, Location, Miscellaneous, Movies and TV, Music, Nutrients, Payments, Physical Activity, Physique, Sleep, Social Interactions, Software, Symptoms, Treatments, Vital Signs, Goals
+     * @param {'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals'} [variableCategoryName] Ex: Emotions, Treatments, Symptoms...
      * @param {number} [variableCategoryId] Ex: 13
      * @param {string} [synonyms] Ex: McDonalds hotcake
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VariablesApi
      */
-    postUserVariables(userVariables: Array<Variable>, includePrivate?: boolean, clientId?: string, includePublic?: boolean, searchPhrase?: string, exactMatch?: boolean, manualTracking?: boolean, variableCategoryName?: string, variableCategoryId?: number, synonyms?: string, options?: any): Promise<CommonResponse>;
+    postUserVariables(userVariables: Array<Variable>, includePrivate?: boolean, clientId?: string, includePublic?: boolean, searchPhrase?: string, exactMatch?: boolean, manualTracking?: boolean, variableCategoryName?: 'Activities' | 'Books' | 'Causes of Illness' | 'Cognitive Performance' | 'Conditions' | 'Emotions' | 'Environment' | 'Foods' | 'Location' | 'Miscellaneous' | 'Movies and TV' | 'Music' | 'Nutrients' | 'Payments' | 'Physical Activity' | 'Physique' | 'Sleep' | 'Social Interactions' | 'Software' | 'Symptoms' | 'Treatments' | 'Vital Signs' | 'Goals', variableCategoryId?: number, synonyms?: string, options?: any): Promise<CommonResponse>;
     /**
      * Reset user settings for a variable to defaults
      * @summary Reset user settings for a variable to defaults
@@ -13352,12 +14863,115 @@ export declare const XprofileApiFactory: (configuration?: Configuration, fetch?:
     postXprofileGroups(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<XprofileGroupsResponse[]>;
 };
 /**
+ * XprofileApi - interface
+ * @export
+ * @interface XprofileApi
+ */
+export interface XprofileApiInterface {
+    /**
+     * Get XprofileData
+     * @summary Get XprofileData
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof XprofileApiInterface
+     */
+    getXprofileData(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<XprofileDataResponse>>;
+    /**
+     * Get XprofileFields
+     * @summary Get XprofileFields
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof XprofileApiInterface
+     */
+    getXprofileFields(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<XprofileFieldsResponse>>;
+    /**
+     * Get XprofileGroups
+     * @summary Get XprofileGroups
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof XprofileApiInterface
+     */
+    getXprofileGroups(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<XprofileGroupsResponse>>;
+    /**
+     * Post XprofileData
+     * @summary Post XprofileData
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof XprofileApiInterface
+     */
+    postXprofileData(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<XprofileDataResponse>>;
+    /**
+     * Post XprofileFields
+     * @summary Post XprofileFields
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof XprofileApiInterface
+     */
+    postXprofileFields(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<XprofileFieldsResponse>>;
+    /**
+     * Post XprofileGroups
+     * @summary Post XprofileGroups
+     * @param {string} [sort] Sort by one of the listed field names. If the field name is prefixed with &#x60;-&#x60;, it will sort in descending order.
+     * @param {number} [limit] The LIMIT is used to limit the number of results returned. So if youhave 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. The maximum limit is 200 records.
+     * @param {number} [offset] OFFSET says to skip that many rows before beginning to return rows to the client. OFFSET 0 is the same as omitting the OFFSET clause.If both OFFSET and LIMIT appear, then OFFSET rows are skipped before starting to count the LIMIT rows that are returned.
+     * @param {string} [updatedAt] When the record was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [userId] User&#39;s id
+     * @param {string} [createdAt] When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format. Time zone should be UTC and not local.
+     * @param {number} [id] Id
+     * @param {string} [clientId] Your QuantiModo client id can be obtained by creating an app at https://builder.quantimo.do
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof XprofileApiInterface
+     */
+    postXprofileGroups(sort?: string, limit?: number, offset?: number, updatedAt?: string, userId?: number, createdAt?: string, id?: number, clientId?: string, options?: any): Promise<Array<XprofileGroupsResponse>>;
+}
+/**
  * XprofileApi - object-oriented interface
  * @export
  * @class XprofileApi
  * @extends {BaseAPI}
  */
-export declare class XprofileApi extends BaseAPI {
+export declare class XprofileApi extends BaseAPI implements XprofileApiInterface {
     /**
      * Get XprofileData
      * @summary Get XprofileData

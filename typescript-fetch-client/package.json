@@ -1,18 +1,18 @@
 {
-  "name": "@swagger/typescript-fetch-quantimodo",
+  "name": "quantimodo",
   "version": "1.0.0",
-  "description": "swagger client for @swagger/typescript-fetch-quantimodo",
+  "description": "API client for QuantiModo",
   "author": "Swagger Codegen Contributors",
   "keywords": [
     "fetch",
     "typescript",
     "swagger-client",
-    "@swagger/typescript-fetch-quantimodo"
+    "quantimodo"
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
-  "scripts": {
+  "scripts" : {
     "build": "tsc --outDir dist/",
     "prepublishOnly": "npm run build"
   },
@@ -20,10 +20,7 @@
     "portable-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "@types/node": "8.10.64",
-    "typescript": "2.9.2"
-  },
-  "publishConfig": {
-    "registry": "https://skimdb.npmjs.com/registry"
+    "@types/node": "^8.0.9",
+    "typescript": "^4.0.3"
   }
 }

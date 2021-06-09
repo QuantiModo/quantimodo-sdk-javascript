@@ -9,6 +9,7 @@ import * as https from "https";
 import * as _str from "underscore.string";
 import * as simpleGit from 'simple-git/promise';
 import * as th from '../ts/test-helpers';
+import {Configuration, ConnectorsApiFactory} from "../typescript-fetch-client";
 const git = simpleGit();
 beforeEach(function (done) {
     let t = this.currentTest
@@ -125,6 +126,23 @@ describe("gi-tester", function () {
         if(previouslySetApiUrl){
             process.env.API_URL = previouslySetApiUrl
         }
+        done()
+    })
+})
+
+describe("typescript-fetch-tester", function () {
+    it("connectors", function (done) {
+        let config = new Configuration({accessToken: "demo"})
+        let f = ConnectorsApiFactory(config);
+        f.getConnectors()
+            .then(function (response){
+                let c = Object.values(response.connectors).find(function (c){
+                    return c.name === "fitbit";
+                })
+                f.disconnectConnector("fitbit").then(function (response){
+                    expect(Object.values(response.connectors))
+                });
+            })
         done()
     })
 })
