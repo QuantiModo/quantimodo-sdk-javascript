@@ -95,7 +95,7 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@slack/types": "1.2.1",
-    "@slack/webhook": "5.0.3",
+    "@slack/webhook": "5.0.4",
     "@types/angular": "latest",
     "@types/app-root-path": "1.2.4",
     "@types/bluebird": "3.5.32",
