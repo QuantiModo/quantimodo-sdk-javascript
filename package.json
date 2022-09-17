@@ -92,7 +92,7 @@
   "devDependencies": {
     "@angular/core": "latest",
     "@bahmutov/print-env": "1.2.1",
-    "@commitlint/cli": "8.3.5",
+    "@commitlint/cli": "8.3.6",
     "@commitlint/config-conventional": "8.3.4",
     "@slack/types": "1.2.1",
     "@slack/webhook": "5.0.3",
