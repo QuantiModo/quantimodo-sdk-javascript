@@ -85,7 +85,7 @@
     "@octokit/rest": "16.35.2",
     "app-root-path": "3.0.0",
     "portable-fetch": "3.0.0",
-    "simple-git": "1.126.0",
+    "simple-git": "3.16.0",
     "ts-node": "8.5.4",
     "typescript": "3.7.2"
   },
