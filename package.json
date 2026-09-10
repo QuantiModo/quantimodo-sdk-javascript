@@ -167,7 +167,7 @@
   },
   "resolutions": {
     "set-value": "2.0.1",
-    "braces": "2.3.2",
+    "braces": "3.0.3",
     "handlebars": "4.3.5"
   },
   "husky": {
